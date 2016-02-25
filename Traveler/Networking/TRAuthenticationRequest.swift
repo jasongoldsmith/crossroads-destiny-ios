@@ -17,7 +17,7 @@ enum ServerResponseError {
 }
 
 
-class TRAuthenticationRequest: NSObject {
+class TRAuthenticationRequest: TRRequest {
     
     typealias TRAuthenticationCallback = (value: Bool?) -> ()
     //, error: ServerResponseError?) -> ()
@@ -45,7 +45,7 @@ class TRAuthenticationRequest: NSObject {
             params["psnId"] = userData?.psnID
         }
         
-        request(.POST, registerUserUrl,parameters:params)
+        request(self.URLMethod!, registerUserUrl, parameters:params)
             .responseJSON { response in
                 print(response.request)  // original URL request
                 print(response.response) // URL response
