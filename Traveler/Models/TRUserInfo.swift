@@ -21,30 +21,31 @@ class TRUserInfo: NSObject {
         }
         
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        userDefaults.setValue(userData?.userName, forKey: "TR_UserName")
-        userDefaults.setValue(userData?.password, forKey: "TR_UserPwd")
-        userDefaults.setValue(userData?.psnID, forKey: "TR_PsnId")
+        userDefaults.setValue(userData?.userName, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserName)
+        userDefaults.setValue(userData?.password, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
+        userDefaults.setValue(userData?.psnID, forKey: K.UserDefaultKey.UserAccountInfo.TR_PsnId)
         userDefaults.synchronize()
-        return false
         
+        return false
     }
     
     class func isUserLoggedIn () -> Bool {
         
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        if (userDefaults.objectForKey("TR_UserName") != nil) &&
-           (userDefaults.objectForKey("TR_UserPwd") != nil)  {
+        if (userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_UserName) != nil) &&
+           (userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_UserPwd) != nil)  {
             
             return true
         }
+        
         return false
     }
     
     class func getUserName() -> String? {
         
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        if (userDefaults.objectForKey("TR_UserName") != nil) {
-                let userName = userDefaults.objectForKey("TR_UserName") as! String
+        if (userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_UserName) != nil) {
+                let userName = userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_UserName) as! String
                 return userName
         }
         return nil
@@ -52,9 +53,7 @@ class TRUserInfo: NSObject {
 
     
     class func removeUserData () {
-        
         NSUserDefaults.standardUserDefaults().removePersistentDomainForName(NSBundle.mainBundle().bundleIdentifier!)
-        
     }
 
 }

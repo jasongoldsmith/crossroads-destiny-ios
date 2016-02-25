@@ -32,7 +32,7 @@ class TRAuthenticationRequest: NSObject {
             
         }
         
-        let registerUserUrl = kBaseUrl + kRegisterUrl
+        let registerUserUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_RegisterUrl
         
         var params = [String: AnyObject]()
         if userData?.userName?.characters.isEmpty == false {
@@ -99,7 +99,7 @@ class TRAuthenticationRequest: NSObject {
             
         }
         
-        let registerUserUrl = kBaseUrl + kLoginUrl
+        let registerUserUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_LoginUrl
         var params = [String: AnyObject]()
         if userData?.userName?.characters.isEmpty == false {
             params["userName"] = userData?.userName
@@ -159,7 +159,7 @@ class TRAuthenticationRequest: NSObject {
         }
         
         
-        let registerUserUrl = kBaseUrl + kLogoutUrl
+        let registerUserUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_LogoutUrl
         request(.POST, registerUserUrl,parameters:["userName":TRUserInfo.getUserName()!])
             .responseJSON { response in
                 print(response.request)  // original URL request
