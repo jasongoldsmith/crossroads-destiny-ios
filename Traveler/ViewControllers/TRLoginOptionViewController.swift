@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TRLoginOptionViewController: UIViewController {
+class TRLoginOptionViewController: TRBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

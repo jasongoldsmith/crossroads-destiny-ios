@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TRCreateAccountViewController: UIViewController {
+class TRCreateAccountViewController: TRBaseViewController {
     
     @IBOutlet weak var userNameTxtField: UITextField!
     @IBOutlet weak var userPwdTxtField: UITextField!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TREventListViewController: UIViewController {
+class TREventListViewController: TRBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,6 @@ class TREventListViewController: UIViewController {
                 
                 TRUserInfo.removeUserData()
                 self.dismissViewControllerAnimated(true, completion: nil)
-                
             }
             else
             {

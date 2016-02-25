@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TRSignInViewController: UIViewController {
+class TRSignInViewController: TRBaseViewController {
     
     @IBOutlet weak var userNameTxtField: UITextField!
     @IBOutlet weak var userPwdTxtField: UITextField!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TRRootViewController: UIViewController {
+class TRRootViewController: TRBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
