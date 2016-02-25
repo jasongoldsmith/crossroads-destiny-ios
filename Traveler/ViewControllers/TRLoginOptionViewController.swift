@@ -1,0 +1,36 @@
+//
+//  TRLoginOptionViewController.swift
+//  Traveler
+//
+//  Created by Rangarajan, Srivatsan on 2/19/16.
+//  Copyright © 2016 Forcecatalyst. All rights reserved.
+//
+
+import UIKit
+
+class TRLoginOptionViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
+
+    @IBAction func createAccountBtnTapped(sender: AnyObject) {
+        self.performSegueWithIdentifier("TRCreateAccountView", sender: self)
+    }
+    
+    @IBAction func signIntBtnTapped(sender: AnyObject) {
+        self.performSegueWithIdentifier("TRSignInView", sender: self)
+    }
+    
+}
