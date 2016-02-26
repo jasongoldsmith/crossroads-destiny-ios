@@ -16,7 +16,4 @@ extension UIViewController {
         alertView.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
         presentViewController(alertView, animated: true, completion: nil)
     }
-    
-    
-    
 }

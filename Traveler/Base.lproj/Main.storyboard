@@ -355,34 +355,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBackground" translatesAutoresizingMaskIntoConstraints="NO" id="wSV-ZL-wdY">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EventHeaderBg" translatesAutoresizingMaskIntoConstraints="NO" id="GC0-EZ-x8P">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="127"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="6VW-Xv-thH"/>
+                                    <constraint firstAttribute="height" constant="127" id="db4-nL-jVG"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATi-JE-PYB">
-                                <rect key="frame" x="269" y="285" width="62" height="30"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ros-Bk-ZVy">
+                                <rect key="frame" x="0.0" y="73" width="600" height="55"/>
                                 <animations/>
-                                <state key="normal" title="LOGOUT"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="0vw-bJ-nf6"/>
+                                    <constraint firstAttribute="width" constant="600" id="vrx-QJ-8DD"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="CURRENT"/>
+                                    <segment title="UPCOMING"/>
+                                </segments>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <action selector="logoutBtnTapped:" destination="Ni1-Nm-5hW" eventType="touchUpInside" id="8jL-Fc-33l"/>
+                                    <action selector="segmentControlSelection:" destination="Ni1-Nm-5hW" eventType="valueChanged" id="qM9-6v-h14"/>
                                 </connections>
-                            </button>
+                            </segmentedControl>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgTravelerBadge" translatesAutoresizingMaskIntoConstraints="NO" id="Otd-07-018">
+                                <rect key="frame" x="18" y="28" width="45" height="52"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="2ZP-5P-FC2"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="iVJ-cS-l3P"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="52" id="vxd-jP-K30"/>
+                                    <constraint firstAttribute="height" constant="52" id="zQm-Fu-t3b"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="iVJ-cS-l3P"/>
+                                        <exclude reference="vxd-jP-K30"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hh2-ts-4BA" firstAttribute="top" secondItem="wSV-ZL-wdY" secondAttribute="bottom" id="6Xf-s3-fuq"/>
-                            <constraint firstItem="wSV-ZL-wdY" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leadingMargin" constant="-20" id="7T0-wH-eew"/>
-                            <constraint firstItem="ATi-JE-PYB" firstAttribute="centerY" secondItem="Mwi-1s-bC4" secondAttribute="centerY" id="E9W-uy-TaL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="wSV-ZL-wdY" secondAttribute="trailing" constant="-20" id="ccg-HL-vp9"/>
-                            <constraint firstItem="wSV-ZL-wdY" firstAttribute="top" secondItem="Mwi-1s-bC4" secondAttribute="topMargin" id="eGu-tD-Jlp"/>
-                            <constraint firstItem="ATi-JE-PYB" firstAttribute="centerX" secondItem="Mwi-1s-bC4" secondAttribute="centerX" id="z0T-gZ-Dg6"/>
+                            <constraint firstItem="ros-Bk-ZVy" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leadingMargin" constant="-20" id="EDe-fv-290"/>
+                            <constraint firstItem="Otd-07-018" firstAttribute="top" secondItem="eKo-wg-rmi" secondAttribute="bottom" constant="8" id="IxE-Bj-oww"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GC0-EZ-x8P" secondAttribute="trailing" constant="-20" id="R0O-kc-qeI"/>
+                            <constraint firstItem="ros-Bk-ZVy" firstAttribute="top" secondItem="eKo-wg-rmi" secondAttribute="bottom" constant="53" id="Xwt-xF-5fm"/>
+                            <constraint firstItem="Otd-07-018" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leading" constant="18" id="pTk-uu-ITd"/>
+                            <constraint firstItem="GC0-EZ-x8P" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leading" id="sCu-TU-OCv"/>
+                            <constraint firstItem="ros-Bk-ZVy" firstAttribute="trailing" secondItem="Mwi-1s-bC4" secondAttribute="trailingMargin" constant="20" id="tE9-iy-gsM"/>
+                            <constraint firstItem="GC0-EZ-x8P" firstAttribute="top" secondItem="Mwi-1s-bC4" secondAttribute="topMargin" id="ugC-NN-ctp"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="segmentControl" destination="ros-Bk-ZVy" id="i3U-uh-wdz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eCs-7v-KHy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1598" y="1458"/>
+            <point key="canvasLocation" x="-42" y="1106"/>
         </scene>
         <!--Create Account View Controller-->
         <scene sceneID="rDY-uT-hnr">
@@ -626,6 +659,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="EventHeaderBg" width="375" height="129"/>
         <image name="TrImgBackground" width="375" height="667"/>
         <image name="TrImgBadge" width="181" height="140"/>
         <image name="TrImgIconID" width="17" height="23"/>
@@ -634,5 +668,6 @@
         <image name="TrImgLoginBtn" width="90" height="90"/>
         <image name="TrLoadingimgBackgroundMap" width="375" height="667"/>
         <image name="TrLoginOptionBackground" width="375" height="667"/>
+        <image name="imgTravelerBadge" width="45" height="52"/>
     </resources>
 </document>
