@@ -11,6 +11,7 @@ import UIKit
 class TREventListViewController: TRBaseViewController {
     
     @IBOutlet var segmentControl: UISegmentedControl?
+    @IBOutlet var currentEventsTableView: UITableView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,8 @@ class TREventListViewController: TRBaseViewController {
         ]
         self.segmentControl!.setTitleTextAttributes(boldTextAttributes, forState: .Normal)
         self.segmentControl!.setTitleTextAttributes(boldTextAttributes, forState: .Selected)
+        
+        //self.currentEventsTableView?.backgroundColor = UIColor.clearColor()
     }
 
     
@@ -44,6 +47,10 @@ class TREventListViewController: TRBaseViewController {
         print("\(sender.selectedSegmentIndex)")
     }
     
+    
+    @IBAction func createNewEvent (sender: UIButton) {
+        
+    }
     
     deinit {
         self.appManager.log.debug("de-init")
