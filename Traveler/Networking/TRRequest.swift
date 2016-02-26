@@ -9,7 +9,14 @@
 import Foundation
 import Alamofire
 
-public typealias TRRequestClosure = (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void
+typealias TRRequestClosure = (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void
+typealias TRValueCallBack = (value: Bool?) -> ()
+
+enum ServerResponseError {
+    case NoValidData
+    case ServerError(message: String)
+    case NoError
+}
 
 class TRRequest: NSObject {
     

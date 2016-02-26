@@ -10,29 +10,17 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-enum ServerResponseError {
-    case NoValidData
-    case ServerError(message: String)
-    case NoError
-}
-
 
 class TRAuthenticationRequest: TRRequest {
     
-    typealias TRAuthenticationCallback = (value: Bool?) -> ()
-    //, error: ServerResponseError?) -> ()
-    
-    
-    func registerTRUserWith(userData: TRUserInfo?,completion:TRAuthenticationCallback)  {
-        
-        if (userData == nil) {
-            print("\(String(self))- TRUserInfo is nil")
-            completion(value: false)   //,error: .NoValidData)
-            return
-            
-        }
+    func registerTRUserWith(userData: TRUserInfo?,completion:TRValueCallBack)  {
         
         let registerUserUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_RegisterUrl
+        
+        if (userData == nil) {
+            completion(value: false)
+            return
+        }
         
         var params = [String: AnyObject]()
         if userData?.userName?.characters.isEmpty == false {
@@ -47,56 +35,42 @@ class TRAuthenticationRequest: TRRequest {
         
         request(self.URLMethod!, registerUserUrl, parameters:params)
             .responseJSON { response in
-                print(response.request)  // original URL request
-                print(response.response) // URL response
-                print(response.data)     // server data
-                print(response.result)   // result of response serialization
                 if response.result.isSuccess {
                     
                     if let _ = response.result.value {
                         let swiftyJsonVar = JSON(response.result.value!)
                         if swiftyJsonVar.isEmpty {
-                            completion(value: false ) //,error: .ServerError(message: "Return Data is empty"))
+                            completion(value: false )
                         }
                             
                         else if swiftyJsonVar["responseType"].string == "ERR" {
+                            completion(value: false )
                             
-                            //   let errorMessage = swiftyJsonVar["message"]["message"].string
-                            completion(value: false )  //,error: .ServerError(message: errorMessage!))
-                            
-                        }
-                        else
+                        } else
                         {
-                            
                             let userData = TRUserInfo()
                             userData.userName = swiftyJsonVar["value"]["userName"].string
                             userData.password = swiftyJsonVar["value"]["passWord"].string
-                            // userData.psnID = swiftyJsonVar["value"]["psnId"].string
                             TRUserInfo.saveUserData(userData)
-                            completion(value: true )  //,error: .None)
+                            completion(value: true )
                         }
-                        
-                    }
-                    else
-                    {
-                        completion(value: false ) // ,error: .ServerError(message: "Return Data is empty"))
+                    } else {
+                        completion(value: false )
                     }
                 }
                 else
                 {
-                    completion(value: false ) //,error: .ServerError(message: "Return Data Failed"))
+                    completion(value: false )
                 }
         }
     }
     
     
-    func loginTRUserWith(userData: TRUserInfo?,completion:TRAuthenticationCallback)  {
+    func loginTRUserWith(userData: TRUserInfo?,completion:TRValueCallBack)  {
         
         if (userData == nil) {
-            print("\(String(self))- TRUserInfo is nil")
-            completion(value: false)   //,error: .NoValidData)
+            completion(value: false)
             return
-            
         }
         
         let registerUserUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_LoginUrl
@@ -109,44 +83,26 @@ class TRAuthenticationRequest: TRRequest {
         }
         request(.POST, registerUserUrl,parameters:params)
             .responseJSON { response in
-                print(response.request)  // original URL request
-                print(response.response) // URL response
-                print(response.data)     // server data
-                print(response.result)   // result of response serialization
                 if response.result.isSuccess {
                     
                     if let _ = response.result.value {
                         let swiftyJsonVar = JSON(response.result.value!)
                         if swiftyJsonVar.isEmpty {
-                            completion(value: false ) //,error: .ServerError(message: "Return Data is empty"))
+                            completion(value: false)
+                        } else if swiftyJsonVar["responseType"].string == "ERR" {
+                            completion(value: false )
                         }
-                            
-                        else if swiftyJsonVar["responseType"].string == "ERR" {
-                            
-                            //   let errorMessage = swiftyJsonVar["message"]["message"].string
-                            completion(value: false )  //,error: .ServerError(message: errorMessage!))
-                            
-                        }
-                        else
-                        {
-                            
+                        else {
                             let userData = TRUserInfo()
                             userData.userName = swiftyJsonVar["value"]["userName"].string
-                            //userData.password = swiftyJsonVar["value"]["passWord"].string
-                            // userData.psnID = swiftyJsonVar["value"]["psnId"].string
                             TRUserInfo.saveUserData(userData)
-                            completion(value: true )  //,error: .None)
+                            completion(value: true )
                         }
-                        
+                    } else {
+                        completion(value: false )
                     }
-                    else
-                    {
-                        completion(value: false ) // ,error: .ServerError(message: "Return Data is empty"))
-                    }
-                }
-                else
-                {
-                    completion(value: false ) //,error: .ServerError(message: "Return Data Failed"))
+                } else {
+                    completion(value: false )
                 }
         }
     }
@@ -154,57 +110,33 @@ class TRAuthenticationRequest: TRRequest {
     func logoutTRUser(completion:(Bool?) -> ())  {
         
         if (TRUserInfo.isUserLoggedIn() == false) {
-            print("\(String(self))- Userinfo is not present")
             completion(false )
         }
-        
         
         let registerUserUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_LogoutUrl
         request(.POST, registerUserUrl,parameters:["userName":TRUserInfo.getUserName()!])
             .responseJSON { response in
-                print(response.request)  // original URL request
-                print(response.response) // URL response
-                print(response.data)     // server data
-                print(response.result)   // result of response serialization
                 if response.result.isSuccess {
                     
                     if let _ = response.result.value {
                         let swiftyJsonVar = JSON(response.result.value!)
                         if swiftyJsonVar.isEmpty {
-                            completion(false ) //,error: .ServerError(message: "Return Data is empty"))
-                        }
-                            
-                        else if swiftyJsonVar["responseType"].string == "ERR" {
-                            
-                            //   let errorMessage = swiftyJsonVar["message"]["message"].string
-                            completion(false )  //,error: .ServerError(message: errorMessage!))
-                            
-                        }
-                        else
-                        {
-                            
+                            completion(false )
+                        } else if swiftyJsonVar["responseType"].string == "ERR" {
+                            completion(false )
+                        } else {
                             let userData = TRUserInfo()
                             userData.userName = swiftyJsonVar["value"]["userName"].string
                             userData.password = swiftyJsonVar["value"]["passWord"].string
-                            // userData.psnID = swiftyJsonVar["value"]["psnId"].string
                             TRUserInfo.saveUserData(userData)
-                            completion(true )  //,error: .None)
+                            completion(true )
                         }
-                        
+                    } else {
+                        completion( false )
                     }
-                    else
-                    {
-                        completion( false ) // ,error: .ServerError(message: "Return Data is empty"))
-                    }
+                } else {
+                    completion( false )
                 }
-                else
-                {
-                    completion( false ) //,error: .ServerError(message: "Return Data Failed"))
-                }
-        }
-        
+            }
     }
-    
-    
-    
 }

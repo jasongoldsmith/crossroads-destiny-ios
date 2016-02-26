@@ -25,8 +25,15 @@ class TREventListViewController: TRBaseViewController {
         ]
         self.segmentControl!.setTitleTextAttributes(boldTextAttributes, forState: .Normal)
         self.segmentControl!.setTitleTextAttributes(boldTextAttributes, forState: .Selected)
+
         
-        //self.currentEventsTableView?.backgroundColor = UIColor.clearColor()
+        _ = TRGetEventsList().getEventsList { (value) -> () in
+            if(value == true) {
+                self.appManager.log.debug("Success")
+            } else {
+                self.appManager.log.debug("Failed")
+            }
+        }
     }
 
     
