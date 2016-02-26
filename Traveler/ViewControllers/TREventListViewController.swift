@@ -12,12 +12,18 @@ class TREventListViewController: TRBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func logoutBtnTapped(sender: AnyObject) {
@@ -35,6 +41,10 @@ class TREventListViewController: TRBaseViewController {
             }
         }
         
+    }
+    
+    deinit {
+        self.appManager.log.debug("de-init")
     }
     
 }

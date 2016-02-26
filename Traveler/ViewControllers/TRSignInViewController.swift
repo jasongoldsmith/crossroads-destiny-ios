@@ -78,20 +78,29 @@ class TRSignInViewController: TRBaseViewController {
         userInfo.userName = userNameTxtField.text
         userInfo.password = userPwdTxtField.text
         
+        //Saving Password here, since the backend won't be sending PW back and the current login flow is checking for UserName and PW
+        //to let user login to home page.
+        //Setting to "nil" if sign-in is not success
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setValue(userPwdTxtField.text, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
+        defaults.synchronize()
+        
         let createRequest = TRAuthenticationRequest()
         createRequest.loginTRUserWith(userInfo) { (value ) in  //, errorData) in
             
             if value == true {
                 self.signInSuccess()
-                
             }
-            else
-            {
+            else{
+                
+                //Delete the saved Password if sign-in was not successful
+                defaults.setValue(nil, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
+                defaults.synchronize()
+                
                 self.displayAlertWithTitle("Your credentails info is wrong")
             }
         }
-        
-        
     }
     
     @IBAction func dismissKeyboard(recognizer : UITapGestureRecognizer) {
@@ -102,7 +111,6 @@ class TRSignInViewController: TRBaseViewController {
         else if userPwdTxtField.isFirstResponder() {
             userPwdTxtField.resignFirstResponder()
         }
-
     }
     
     

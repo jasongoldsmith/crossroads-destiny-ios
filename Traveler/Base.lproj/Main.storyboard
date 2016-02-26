@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -21,9 +21,11 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrLoadingimgBackgroundMap" translatesAutoresizingMaskIntoConstraints="NO" id="pzR-GQ-Feb">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBadge" translatesAutoresizingMaskIntoConstraints="NO" id="vWc-bB-0Dl">
                                 <rect key="frame" x="209" y="105" width="182" height="137"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="182" id="7Pe-x7-KrO"/>
                                     <constraint firstAttribute="height" constant="137" id="I1F-zM-joe"/>
@@ -31,6 +33,7 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading…" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CxY-ZP-OPG">
                                 <rect key="frame" x="277" y="292" width="47" height="16"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="47" id="Grs-8a-pW5"/>
                                     <constraint firstAttribute="height" constant="16" id="gAx-bs-9el"/>
@@ -40,6 +43,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="CxY-ZP-OPG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7kQ-s6-DV3"/>
@@ -75,9 +79,11 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrLoginOptionBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Q4O-b1-LyM">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBadge" translatesAutoresizingMaskIntoConstraints="NO" id="b67-XM-c3B">
                                 <rect key="frame" x="209" y="147" width="182" height="137"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="182" id="qnD-oZ-oDy"/>
                                     <constraint firstAttribute="height" constant="137" id="sIG-L1-f57"/>
@@ -85,6 +91,7 @@
                             </imageView>
                             <button opaque="NO" alpha="0.57999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9OI-ue-1e9">
                                 <rect key="frame" x="0.0" y="536" width="300" height="64"/>
+                                <animations/>
                                 <color key="backgroundColor" red="0.011764705882352941" green="0.31764705882352939" blue="0.40000000000000002" alpha="0.57999999999999996" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="pqT-xB-x2g"/>
@@ -99,6 +106,7 @@
                             </button>
                             <button opaque="NO" alpha="0.57999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vp9-6u-dUS">
                                 <rect key="frame" x="300" y="536" width="300" height="64"/>
+                                <animations/>
                                 <color key="backgroundColor" red="0.011764705882352941" green="0.40000000000000002" blue="0.25882352941176467" alpha="0.57999999999999996" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="SMz-sD-47M"/>
@@ -112,6 +120,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="VFK-zq-jCs" firstAttribute="top" secondItem="Q4O-b1-LyM" secondAttribute="bottom" id="Bpg-HZ-wq4"/>
@@ -151,9 +160,11 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBackground" translatesAutoresizingMaskIntoConstraints="NO" id="QNn-lH-hYo">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBadge" translatesAutoresizingMaskIntoConstraints="NO" id="PXD-xD-2hM">
                                 <rect key="frame" x="209" y="77" width="182" height="137"/>
+                                <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="182" id="Gx5-Eb-reY"/>
@@ -164,6 +175,7 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWw-zT-7Wo">
                                 <rect key="frame" x="244" y="251" width="112" height="17"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="112" id="bpp-L0-KDL"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="har-K2-zQV"/>
@@ -179,6 +191,7 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgIconName" translatesAutoresizingMaskIntoConstraints="NO" id="zeK-8M-JsG">
                                         <rect key="frame" x="17" y="17" width="25" height="25"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="9ME-KR-Pjt"/>
                                             <constraint firstAttribute="width" constant="25" id="dZU-yY-IB7"/>
@@ -186,6 +199,7 @@
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fu6-Cc-R0h">
                                         <rect key="frame" x="67" y="17" width="33" height="11"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="33" id="N0q-Tc-17o"/>
                                             <constraint firstAttribute="height" constant="11" id="TdN-Ev-HOb"/>
@@ -196,6 +210,7 @@
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z5h-68-hi8">
                                         <rect key="frame" x="67" y="37" width="503" height="15"/>
+                                        <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="3l0-4z-QNs"/>
@@ -205,6 +220,7 @@
                                         <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                     </textField>
                                 </subviews>
+                                <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="66" id="3pZ-Lz-K0C"/>
@@ -223,6 +239,7 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgIconPassword" translatesAutoresizingMaskIntoConstraints="NO" id="Acz-T2-gXD">
                                         <rect key="frame" x="17" y="17" width="25" height="25"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="1A8-OK-JBB"/>
                                             <constraint firstAttribute="height" constant="25" id="ojg-0r-LeA"/>
@@ -230,6 +247,7 @@
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2m-do-s60">
                                         <rect key="frame" x="67" y="17" width="64" height="11"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="11" id="t66-Oi-o0X"/>
                                             <constraint firstAttribute="width" constant="64" id="teV-MZ-vRj"/>
@@ -240,6 +258,7 @@
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ycE-Lh-dgU">
                                         <rect key="frame" x="67" y="37" width="503" height="15"/>
+                                        <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="8Ta-YX-Glb"/>
@@ -249,6 +268,7 @@
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
+                                <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="66" id="3zG-lJ-yQ6"/>
@@ -264,6 +284,7 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="83A-a6-GZf">
                                 <rect key="frame" x="255" y="467" width="90" height="90"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="7UZ-xA-Rso"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="axx-jH-l6s"/>
@@ -276,6 +297,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ux4-gh-xb2" firstAttribute="leading" secondItem="laI-oH-oRv" secondAttribute="leadingMargin" constant="-10" id="0vr-ZP-daD"/>
@@ -335,15 +357,18 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBackground" translatesAutoresizingMaskIntoConstraints="NO" id="wSV-ZL-wdY">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATi-JE-PYB">
                                 <rect key="frame" x="269" y="285" width="62" height="30"/>
+                                <animations/>
                                 <state key="normal" title="LOGOUT"/>
                                 <connections>
                                     <action selector="logoutBtnTapped:" destination="Ni1-Nm-5hW" eventType="touchUpInside" id="8jL-Fc-33l"/>
                                 </connections>
                             </button>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hh2-ts-4BA" firstAttribute="top" secondItem="wSV-ZL-wdY" secondAttribute="bottom" id="6Xf-s3-fuq"/>
@@ -373,9 +398,11 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBackground" translatesAutoresizingMaskIntoConstraints="NO" id="8zj-GS-nmN">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBadge" translatesAutoresizingMaskIntoConstraints="NO" id="EfW-Rr-lwB">
                                 <rect key="frame" x="209" y="45" width="182" height="137"/>
+                                <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="182" id="Oun-Sq-CE2"/>
@@ -384,6 +411,7 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2KA-DT-gDl">
                                 <rect key="frame" x="244" y="219" width="112" height="17"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="G08-Bi-ZGF"/>
                                     <constraint firstAttribute="width" constant="112" id="bcY-Lg-dkt"/>
@@ -397,6 +425,7 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgIconName" translatesAutoresizingMaskIntoConstraints="NO" id="Ezz-Kp-KbL">
                                         <rect key="frame" x="17" y="17" width="25" height="25"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="DaT-Yr-dDH"/>
                                             <constraint firstAttribute="height" constant="25" id="PuF-du-DU0"/>
@@ -404,6 +433,7 @@
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nN4-QE-6lf">
                                         <rect key="frame" x="67" y="17" width="33" height="11"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="11" id="mAS-ss-oS7"/>
                                             <constraint firstAttribute="width" constant="33" id="z2W-Vq-MBx"/>
@@ -414,6 +444,7 @@
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jDt-Q2-Vaf">
                                         <rect key="frame" x="67" y="37" width="503" height="15"/>
+                                        <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="ZPf-Mg-Jab"/>
@@ -423,6 +454,7 @@
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                     </textField>
                                 </subviews>
+                                <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Ezz-Kp-KbL" firstAttribute="top" secondItem="qQW-9x-jI3" secondAttribute="top" constant="17" id="4yw-Sw-RPz"/>
@@ -440,6 +472,7 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgIconPassword" translatesAutoresizingMaskIntoConstraints="NO" id="e7d-SP-T9T">
                                         <rect key="frame" x="17" y="17" width="25" height="25"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="LrK-9C-PJA"/>
                                             <constraint firstAttribute="width" constant="25" id="p11-xY-6xS"/>
@@ -447,6 +480,7 @@
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Acm-pw-6j5">
                                         <rect key="frame" x="67" y="17" width="64" height="11"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="64" id="Hb0-AZ-0QB"/>
                                             <constraint firstAttribute="height" constant="11" id="dxU-z0-oeL"/>
@@ -457,6 +491,7 @@
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="inV-dA-HPN">
                                         <rect key="frame" x="67" y="37" width="503" height="15"/>
+                                        <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="iNe-QZ-Kac"/>
@@ -466,6 +501,7 @@
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
+                                <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="inV-dA-HPN" firstAttribute="top" secondItem="Acm-pw-6j5" secondAttribute="bottom" constant="9" id="3Qg-jx-owi"/>
@@ -483,6 +519,7 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgIconID" translatesAutoresizingMaskIntoConstraints="NO" id="eft-ju-k0P">
                                         <rect key="frame" x="17" y="17" width="25" height="25"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="D69-HK-7a4"/>
                                             <constraint firstAttribute="width" constant="25" id="Qss-gR-Er3"/>
@@ -490,6 +527,7 @@
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PSN ID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dk0-f4-ctF">
                                         <rect key="frame" x="67" y="17" width="64" height="11"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="11" id="CgR-9d-xIV"/>
                                             <constraint firstAttribute="width" constant="64" id="RCe-O9-3Ds"/>
@@ -500,6 +538,7 @@
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter PSN ID" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EIL-78-WGA">
                                         <rect key="frame" x="67" y="37" width="503" height="15"/>
+                                        <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="Mck-dw-JUR"/>
@@ -509,6 +548,7 @@
                                         <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                     </textField>
                                 </subviews>
+                                <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="EIL-78-WGA" secondAttribute="trailing" constant="10" id="Ch9-db-mag"/>
@@ -523,6 +563,7 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iyy-mu-wYL">
                                 <rect key="frame" x="255" y="469" width="90" height="90"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="TsN-05-7td"/>
                                     <constraint firstAttribute="width" constant="90" id="bwR-H9-8jv"/>
@@ -533,6 +574,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="EfW-Rr-lwB" firstAttribute="centerX" secondItem="Q9w-zl-5ST" secondAttribute="centerX" id="17H-9e-Kte"/>

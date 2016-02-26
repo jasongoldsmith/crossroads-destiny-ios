@@ -22,7 +22,7 @@ class TRUserInfo: NSObject {
         
         let userDefaults = NSUserDefaults.standardUserDefaults()
         userDefaults.setValue(userData?.userName, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserName)
-        userDefaults.setValue(userData?.password, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
+        //userDefaults.setValue(userData?.password, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
         userDefaults.setValue(userData?.psnID, forKey: K.UserDefaultKey.UserAccountInfo.TR_PsnId)
         userDefaults.synchronize()
         

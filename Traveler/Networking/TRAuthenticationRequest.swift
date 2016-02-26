@@ -132,7 +132,7 @@ class TRAuthenticationRequest: TRRequest {
                             
                             let userData = TRUserInfo()
                             userData.userName = swiftyJsonVar["value"]["userName"].string
-                            userData.password = swiftyJsonVar["value"]["passWord"].string
+                            //userData.password = swiftyJsonVar["value"]["passWord"].string
                             // userData.psnID = swiftyJsonVar["value"]["psnId"].string
                             TRUserInfo.saveUserData(userData)
                             completion(value: true )  //,error: .None)
