@@ -14,8 +14,8 @@ class TREventInfo: NSObject {
     var eventStatus         : String?
     var eventUpdatedDate    : String?
     var eventV              : String?
-    var eventMaxPlayers     : String?
-    var eventMinPlayer      : String?
+    var eventMaxPlayers     : NSNumber?
+    var eventMinPlayer      : NSNumber?
     var eventCreated        : String?
     
     // Create

@@ -22,15 +22,50 @@ class TRGetEventsList: TRRequest {
                     
                     if let _ = response.result.value {
                         let swiftyJsonVar = JSON(response.result.value!)
+                        
                         if swiftyJsonVar.isEmpty {
                             completion(value: false )
-                    }
-                    else if swiftyJsonVar["responseType"].string == "ERR" {
+                    } else if swiftyJsonVar["responseType"].string == "ERR" {
                         completion(value: false )
-                    }
-                    else {
-                        completion(value: true )
-                    }
+                    } else {
+                            for events in swiftyJsonVar.arrayValue {
+                                
+                                // Creating Event Objects from Events List
+                                let eventInfo = TREventInfo()
+                                eventInfo.eventID           = events["_id"].string
+                                eventInfo.eventStatus       = events["status"].string
+                                eventInfo.eventUpdatedDate  = events["updated"].string
+                                eventInfo.eventMaxPlayers   = events["maxPlayers"].number
+                                eventInfo.eventMinPlayer    = events["minPlayers"].number
+                                eventInfo.eventCreated      = events["created"].string
+                                
+                                // Dictionary of Activities in an Event
+                                let activityDictionary = events["eType"].dictionaryValue
+                                let activityInfo = TRActivityInfo()
+                                activityInfo.activityID         = activityDictionary["_id"]!.stringValue
+                                activityInfo.activitySubType    = activityDictionary["aSubType"]!.stringValue
+                                activityInfo.activityCheckPoint = activityDictionary["aLight"]!.stringValue
+                                activityInfo.activityType       = activityDictionary["aType"]!.stringValue
+                                activityInfo.activityDificulty  = activityDictionary["aDifficulty"]!.stringValue
+                                activityInfo.activityLight      = activityDictionary["aLight"]!.number
+                                activityInfo.activityMaxPlayers = activityDictionary["maxPlayers"]!.number
+                                activityInfo.activityMinPlayers = activityDictionary["minPlayers"]!.number
+                                
+                                let playersArray = events["players"].arrayValue
+                                for playerInfoObject in playersArray {
+                                    let playerInfo = TRPlayerInfo()
+                                    playerInfo.playerID = playerInfoObject["_id"].stringValue
+                                    playerInfo.playerUserName = playerInfoObject["userName"].stringValue
+                                    playerInfo.playerDate = playerInfoObject["date"].stringValue
+                                    playerInfo.playerPsnID = playerInfoObject["psnId"].stringValue
+                                    playerInfo.playerUdate = playerInfoObject["uDate"].stringValue
+                                    
+                                    print("\(playerInfo.playerID)")
+                                }
+                                
+                            }
+                            completion(value: true )
+                        }
                     } else {
                         completion(value: false )
                     }

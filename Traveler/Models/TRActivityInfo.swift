@@ -13,12 +13,12 @@ class TRActivityInfo: NSObject {
     
     var activityID            : String?
     var activitySubType       : String?
-    var activityLight         : String?
+    var activityLight         : NSNumber?
     var activityV             : String?
     var activityCheckPoint    : String?
     var activityType          : String?
     var activityDificulty     : String?
-    var activityMaxPlayers    : String?
-    var activityMinPlayers    : String?
+    var activityMaxPlayers    : NSNumber?
+    var activityMinPlayers    : NSNumber?
     
 }
