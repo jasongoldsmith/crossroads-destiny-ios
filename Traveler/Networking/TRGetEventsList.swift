@@ -59,8 +59,6 @@ class TRGetEventsList: TRRequest {
                                     playerInfo.playerDate = playerInfoObject["date"].stringValue
                                     playerInfo.playerPsnID = playerInfoObject["psnId"].stringValue
                                     playerInfo.playerUdate = playerInfoObject["uDate"].stringValue
-                                    
-                                    print("\(playerInfo.playerID)")
                                 }
                                 
                             }
