@@ -358,6 +358,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eventsViewBG" translatesAutoresizingMaskIntoConstraints="NO" id="bhE-zA-4t7">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EventHeaderBg" translatesAutoresizingMaskIntoConstraints="NO" id="GC0-EZ-x8P">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="127"/>
@@ -399,10 +400,14 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="huA-O1-54n">
-                                <rect key="frame" x="0.0" y="127" width="600" height="423"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="122" sectionHeaderHeight="10" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="huA-O1-54n">
+                                <rect key="frame" x="10" y="127" width="580" height="423"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Ni1-Nm-5hW" id="ibN-Bk-cdt"/>
+                                    <outlet property="delegate" destination="Ni1-Nm-5hW" id="BjX-gU-9Ec"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLx-w0-FaU">
                                 <rect key="frame" x="0.0" y="550" width="600" height="50"/>
@@ -428,12 +433,12 @@
                             <constraint firstItem="bhE-zA-4t7" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leading" id="FXr-aW-zBg"/>
                             <constraint firstItem="huA-O1-54n" firstAttribute="top" secondItem="ros-Bk-ZVy" secondAttribute="bottom" id="Fjb-Qk-Hxt"/>
                             <constraint firstItem="Otd-07-018" firstAttribute="top" secondItem="eKo-wg-rmi" secondAttribute="bottom" constant="8" id="IxE-Bj-oww"/>
-                            <constraint firstItem="huA-O1-54n" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leading" id="Oys-Nr-5Sh"/>
+                            <constraint firstItem="huA-O1-54n" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leading" constant="10" id="Oys-Nr-5Sh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GC0-EZ-x8P" secondAttribute="trailing" constant="-20" id="R0O-kc-qeI"/>
                             <constraint firstAttribute="trailing" secondItem="mLx-w0-FaU" secondAttribute="trailing" id="RIT-OC-ZkF"/>
                             <constraint firstItem="hh2-ts-4BA" firstAttribute="top" secondItem="mLx-w0-FaU" secondAttribute="bottom" id="Stb-OB-cOr"/>
                             <constraint firstItem="bhE-zA-4t7" firstAttribute="top" secondItem="Mwi-1s-bC4" secondAttribute="top" id="Uic-EJ-1aK"/>
-                            <constraint firstAttribute="trailing" secondItem="huA-O1-54n" secondAttribute="trailing" id="W19-0l-ccd"/>
+                            <constraint firstAttribute="trailing" secondItem="huA-O1-54n" secondAttribute="trailing" constant="10" id="W19-0l-ccd"/>
                             <constraint firstItem="ros-Bk-ZVy" firstAttribute="top" secondItem="eKo-wg-rmi" secondAttribute="bottom" constant="53" id="Xwt-xF-5fm"/>
                             <constraint firstAttribute="trailing" secondItem="bhE-zA-4t7" secondAttribute="trailing" id="fdR-Sa-4Fn"/>
                             <constraint firstItem="hh2-ts-4BA" firstAttribute="top" secondItem="bhE-zA-4t7" secondAttribute="bottom" id="fgZ-1S-f2s"/>
@@ -445,7 +450,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="currentEventsTableView" destination="huA-O1-54n" id="IPS-8m-ALu"/>
+                        <outlet property="eventsTableView" destination="huA-O1-54n" id="gEr-ib-MKo"/>
                         <outlet property="segmentControl" destination="ros-Bk-ZVy" id="i3U-uh-wdz"/>
                     </connections>
                 </viewController>

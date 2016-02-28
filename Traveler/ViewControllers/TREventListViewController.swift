@@ -7,11 +7,17 @@
 //
 
 import UIKit
+import Foundation
 
-class TREventListViewController: TRBaseViewController {
+private let CURRENT_EVENT_CELL = "currentEventCell"
+
+class TREventListViewController: TRBaseViewController, UITableViewDataSource, UITableViewDelegate{
     
     @IBOutlet var segmentControl: UISegmentedControl?
-    @IBOutlet var currentEventsTableView: UITableView?
+    @IBOutlet var eventsTableView: UITableView?
+    
+    //Events Information
+    let eventsInfo = TRApplicationManager.sharedInstance.eventsInfo
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,15 +31,10 @@ class TREventListViewController: TRBaseViewController {
         ]
         self.segmentControl!.setTitleTextAttributes(boldTextAttributes, forState: .Normal)
         self.segmentControl!.setTitleTextAttributes(boldTextAttributes, forState: .Selected)
-
         
-        _ = TRGetEventsList().getEventsList { (value) -> () in
-            if(value == true) {
-                self.appManager.log.debug("Success")
-            } else {
-                self.appManager.log.debug("Failed")
-            }
-        }
+    
+        self.eventsTableView?.registerNib(UINib(nibName: "TREventTableCellView", bundle: nil), forCellReuseIdentifier: CURRENT_EVENT_CELL)
+        self.eventsTableView?.tableFooterView = UIView(frame: CGRectZero)
     }
 
     
@@ -49,6 +50,30 @@ class TREventListViewController: TRBaseViewController {
         super.didReceiveMemoryWarning()
     }
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clearColor()
+        
+        return headerView
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return self.eventsInfo.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(CURRENT_EVENT_CELL) as! TREventTableCellView
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
     
     @IBAction func segmentControlSelection (sender: UISegmentedControl) {
         print("\(sender.selectedSegmentIndex)")

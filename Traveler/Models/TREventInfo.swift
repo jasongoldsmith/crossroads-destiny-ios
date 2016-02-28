@@ -10,17 +10,13 @@ import Foundation
 
 class TREventInfo: NSObject {
 
-    var eventID             : String?
-    var eventStatus         : String?
-    var eventUpdatedDate    : String?
-    var eventV              : String?
-    var eventMaxPlayers     : NSNumber?
-    var eventMinPlayer      : NSNumber?
-    var eventCreated        : String?
-    
-    // Create
-    // ActivityObject, PlayerObject, 
-    
-    
-
+    var eventID                 : String?
+    var eventStatus             : String?
+    var eventUpdatedDate        : String?
+    var eventV                  : String?
+    var eventMaxPlayers         : NSNumber?
+    var eventMinPlayer          : NSNumber?
+    var eventCreated            : String?
+    var eventActivity           :TRActivityInfo?
+    var eventPlayersArray       :[TRPlayerInfo] = []
 }

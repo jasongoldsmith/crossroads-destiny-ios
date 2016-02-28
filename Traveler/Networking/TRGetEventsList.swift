@@ -51,6 +51,9 @@ class TRGetEventsList: TRRequest {
                                 activityInfo.activityMaxPlayers = activityDictionary["maxPlayers"]!.number
                                 activityInfo.activityMinPlayers = activityDictionary["minPlayers"]!.number
                                 
+                                //Event Activity added
+                                eventInfo.eventActivity = activityInfo
+                                
                                 let playersArray = events["players"].arrayValue
                                 for playerInfoObject in playersArray {
                                     let playerInfo = TRPlayerInfo()
@@ -59,9 +62,15 @@ class TRGetEventsList: TRRequest {
                                     playerInfo.playerDate = playerInfoObject["date"].stringValue
                                     playerInfo.playerPsnID = playerInfoObject["psnId"].stringValue
                                     playerInfo.playerUdate = playerInfoObject["uDate"].stringValue
+                                    
+                                    // Players of an Event Added
+                                    eventInfo.eventPlayersArray.append(playerInfo)
                                 }
                                 
+                                //Adding it to "eventsInfo"
+                                TRApplicationManager.sharedInstance.eventsInfo.append(eventInfo)
                             }
+                            
                             completion(value: true )
                         }
                     } else {

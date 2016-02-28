@@ -25,8 +25,17 @@ class TRRootViewController: TRBaseViewController {
 
         super.viewDidAppear(animated)
         if (TRUserInfo.isUserLoggedIn()) {
-            self.performSegueWithIdentifier("TREventListView", sender: self)
             
+            //Sending Request to fetch the Events List and OnSuccess loading the TREventListViewController ViewController
+            _ = TRGetEventsList().getEventsList { (value) -> () in
+                if(value == true) {
+                    self.performSegueWithIdentifier("TREventListView", sender: self)
+                    self.appManager.log.debug("Success")
+                    
+                } else {
+                    self.appManager.log.debug("Failed")
+                }
+            }
         }
         else {
             self.performSegueWithIdentifier("TRLoginOptionView", sender: self)

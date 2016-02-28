@@ -15,12 +15,14 @@ class TRApplicationManager: NSObject {
     // Shared Instance
     static let sharedInstance = TRApplicationManager()
     
-    
     //XCGLogger Instance
     let log = XCGLogger.defaultInstance()
     
     //StoryBoard Manager Instance
     let stroryBoardManager = TRStoryBoardManager()
+    
+    //Event Info Objet
+    var eventsInfo: [TREventInfo] = []
     
     private override init() {
         super.init()
