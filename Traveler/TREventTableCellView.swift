@@ -35,8 +35,6 @@ class TREventTableCellView: UITableViewCell {
         }
         
         eventPlayersName.text = playersNameString
-        
-        
     }
     
     func addRadiusToPlayerIconsForPlayersArray (playerArray: [TRPlayerInfo]) {
