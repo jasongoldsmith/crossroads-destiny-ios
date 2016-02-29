@@ -37,26 +37,46 @@ class TRGetEventsList: TRRequest {
                                 eventInfo.eventUpdatedDate  = events["updated"].string
                                 eventInfo.eventMaxPlayers   = events["maxPlayers"].number
                                 eventInfo.eventMinPlayer    = events["minPlayers"].number
-                                eventInfo.eventCreated      = events["created"].string
+                                eventInfo.eventCreatedDate  = events["created"].string
                                 
                                 // Dictionary of Activities in an Event
-                                let activityDictionary = events["eType"].dictionaryValue
-                                let activityInfo = TRActivityInfo()
-                                activityInfo.activityID         = activityDictionary["_id"]!.stringValue
-                                activityInfo.activitySubType    = activityDictionary["aSubType"]!.stringValue
-                                activityInfo.activityCheckPoint = activityDictionary["aLight"]!.stringValue
-                                activityInfo.activityType       = activityDictionary["aType"]!.stringValue
-                                activityInfo.activityDificulty  = activityDictionary["aDifficulty"]!.stringValue
-                                activityInfo.activityLight      = activityDictionary["aLight"]!.number
-                                activityInfo.activityMaxPlayers = activityDictionary["maxPlayers"]!.number
-                                activityInfo.activityMinPlayers = activityDictionary["minPlayers"]!.number
+                                let activityDictionary = events["eType"].dictionary
+                                if let activity = activityDictionary {
+                                    let activityInfo = TRActivityInfo()
+                                    
+                                    activityInfo.activityID         = activity["_id"]?.stringValue
+                                    activityInfo.activitySubType    = activity["aSubType"]?.stringValue
+                                    activityInfo.activityCheckPoint = activity["aLight"]?.stringValue
+                                    activityInfo.activityType       = activity["aType"]?.stringValue
+                                    activityInfo.activityDificulty  = activity["aDifficulty"]?.stringValue
+                                    activityInfo.activityLight      = activity["aLight"]?.number
+                                    activityInfo.activityMaxPlayers = activity["maxPlayers"]?.number
+                                    activityInfo.activityMinPlayers = activity["minPlayers"]?.number
                                 
-                                //Event Activity added
-                                eventInfo.eventActivity = activityInfo
+                                    
+                                    //Event Activity added
+                                    eventInfo.eventActivity = activityInfo
+                                }
+                                
+                                // Creating Creator Object from Events List
+                                let creatorDictionary = events["creator"].dictionary
+                                if let creator = creatorDictionary {
+                                    let creatorInfo = TRCreatorInfo()
+                                    
+                                    creatorInfo.playerID        = creator["_id"]?.stringValue
+                                    creatorInfo.playerUserName  = creator["userName"]?.stringValue
+                                    creatorInfo.playerDate      = creator["date"]?.stringValue
+                                    creatorInfo.playerPsnID     = creator["psnId"]?.stringValue
+                                    creatorInfo.playerUdate     = creator["uDate"]?.stringValue
+                                    
+                                    // Event Creator Added
+                                    eventInfo.eventCreator = creatorInfo
+                                }
                                 
                                 let playersArray = events["players"].arrayValue
                                 for playerInfoObject in playersArray {
                                     let playerInfo = TRPlayerInfo()
+                                    
                                     playerInfo.playerID = playerInfoObject["_id"].stringValue
                                     playerInfo.playerUserName = playerInfoObject["userName"].stringValue
                                     playerInfo.playerDate = playerInfoObject["date"].stringValue
