@@ -369,20 +369,20 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z2g-Bm-q4G">
-                                <rect key="frame" x="22" y="127" width="150" height="2"/>
+                                <rect key="frame" x="22" y="127" width="150" height="3"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.52549019610000003" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="2" id="6sO-5K-4BO"/>
+                                    <constraint firstAttribute="height" constant="3" id="6sO-5K-4BO"/>
                                     <constraint firstAttribute="width" constant="150" id="Vfn-Sq-3yM"/>
                                 </constraints>
                             </imageView>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VH7-Fj-a7t">
-                                <rect key="frame" x="430" y="127" width="150" height="2"/>
+                                <rect key="frame" x="430" y="127" width="150" height="3"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.52549019610000003" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="2" id="0cV-k2-vs1"/>
+                                    <constraint firstAttribute="height" constant="3" id="0cV-k2-vs1"/>
                                     <constraint firstAttribute="width" constant="150" id="3jf-Uf-ueo"/>
                                 </constraints>
                             </imageView>
@@ -423,7 +423,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="122" sectionHeaderHeight="10" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="huA-O1-54n">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="122" sectionHeaderHeight="5" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="huA-O1-54n">
                                 <rect key="frame" x="10" y="129" width="580" height="421"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -452,7 +452,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mLx-w0-FaU" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leading" id="51y-Xi-q6U"/>
-                            <constraint firstItem="VH7-Fj-a7t" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leadingMargin" constant="330" id="64t-bb-HCc"/>
                             <constraint firstItem="z2g-Bm-q4G" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leadingMargin" constant="2" id="Blp-dT-mR6"/>
                             <constraint firstItem="z2g-Bm-q4G" firstAttribute="top" secondItem="GC0-EZ-x8P" secondAttribute="bottom" id="E1h-r5-EBn"/>
                             <constraint firstItem="ros-Bk-ZVy" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leadingMargin" constant="-20" id="EDe-fv-290"/>
@@ -465,12 +464,11 @@
                             <constraint firstItem="hh2-ts-4BA" firstAttribute="top" secondItem="mLx-w0-FaU" secondAttribute="bottom" id="Stb-OB-cOr"/>
                             <constraint firstItem="bhE-zA-4t7" firstAttribute="top" secondItem="Mwi-1s-bC4" secondAttribute="top" id="Uic-EJ-1aK"/>
                             <constraint firstAttribute="trailing" secondItem="huA-O1-54n" secondAttribute="trailing" constant="10" id="W19-0l-ccd"/>
-                            <constraint firstItem="ros-Bk-ZVy" firstAttribute="top" secondItem="eKo-wg-rmi" secondAttribute="bottom" constant="53" id="Xwt-xF-5fm"/>
-                            <constraint firstItem="huA-O1-54n" firstAttribute="top" secondItem="z2g-Bm-q4G" secondAttribute="bottom" id="aYD-tk-7eb"/>
+                            <constraint firstItem="huA-O1-54n" firstAttribute="top" secondItem="z2g-Bm-q4G" secondAttribute="bottom" constant="-1" id="aYD-tk-7eb"/>
                             <constraint firstAttribute="trailing" secondItem="bhE-zA-4t7" secondAttribute="trailing" id="fdR-Sa-4Fn"/>
                             <constraint firstItem="hh2-ts-4BA" firstAttribute="top" secondItem="bhE-zA-4t7" secondAttribute="bottom" id="fgZ-1S-f2s"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VH7-Fj-a7t" secondAttribute="trailing" id="lZO-TY-WEQ"/>
-                            <constraint firstItem="huA-O1-54n" firstAttribute="top" secondItem="VH7-Fj-a7t" secondAttribute="bottom" id="ocw-r0-k8V"/>
+                            <constraint firstItem="huA-O1-54n" firstAttribute="top" secondItem="VH7-Fj-a7t" secondAttribute="bottom" constant="-1" id="ocw-r0-k8V"/>
                             <constraint firstItem="Otd-07-018" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leading" constant="18" id="pTk-uu-ITd"/>
                             <constraint firstItem="ros-Bk-ZVy" firstAttribute="top" secondItem="Otd-07-018" secondAttribute="bottom" constant="6" id="rUP-DC-uYo"/>
                             <constraint firstItem="GC0-EZ-x8P" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leading" id="sCu-TU-OCv"/>
@@ -478,12 +476,6 @@
                             <constraint firstItem="mLx-w0-FaU" firstAttribute="top" secondItem="huA-O1-54n" secondAttribute="bottom" id="tnJ-7a-JCo"/>
                             <constraint firstItem="GC0-EZ-x8P" firstAttribute="top" secondItem="Mwi-1s-bC4" secondAttribute="topMargin" id="ugC-NN-ctp"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Xwt-xF-5fm"/>
-                                <exclude reference="64t-bb-HCc"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="eventsTableView" destination="huA-O1-54n" id="gEr-ib-MKo"/>
