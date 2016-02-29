@@ -17,6 +17,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     @IBOutlet var eventsTableView: UITableView?
     @IBOutlet var segmentOneUnderLine: UIImageView?
     @IBOutlet var segmentTwoUnderLine: UIImageView?
+    @IBOutlet var currentPlayerAvatorIcon: UIImageView?
     
     //Events Information
     let eventsInfo = TRApplicationManager.sharedInstance.eventsInfo
@@ -37,6 +38,9 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     
         self.eventsTableView?.registerNib(UINib(nibName: "TREventTableCellView", bundle: nil), forCellReuseIdentifier: CURRENT_EVENT_CELL)
         self.eventsTableView?.tableFooterView = UIView(frame: CGRectZero)
+        
+        //Adding Radius to the Current Player Avator
+        self.currentPlayerAvatorIcon?.layer.cornerRadius = (self.currentPlayerAvatorIcon?.frame.width)!/2
     }
 
     
