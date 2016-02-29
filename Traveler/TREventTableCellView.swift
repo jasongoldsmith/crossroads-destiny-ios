@@ -41,12 +41,12 @@ class TREventTableCellView: UITableViewCell {
     func addRadiusToPlayerIconsForPlayersArray (playerArray: [TRPlayerInfo]) {
         playerImageOne.layer.cornerRadius = playerImageOne.frame.size.width/2
         playerImageTwo.layer.cornerRadius = playerImageTwo.frame.size.width/2
-
+        playerCountImage?.layer.cornerRadius = playerCountImage.frame.size.width/2
+        
         if playerArray.count > 2 {
             playerCountImage.hidden = false
             playerCountLabel.hidden = false
             
-            playerCountImage?.layer.cornerRadius = playerCountImage.frame.size.width/2
             playerCountLabel?.text = "+" + String((playerArray.count - 2))
         }
     }
