@@ -46,6 +46,9 @@
 		33FDB9A81C84F7C50066237C /* TRCreatorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB9A71C84F7C50066237C /* TRCreatorInfo.swift */; };
 		33FDB9A91C84F82F0066237C /* TRCreatorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB9A71C84F7C50066237C /* TRCreatorInfo.swift */; };
 		33FDB9AA1C84F8300066237C /* TRCreatorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB9A71C84F7C50066237C /* TRCreatorInfo.swift */; };
+		33FDB9AE1C850AFC0066237C /* JoinEventButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB9AD1C850AFC0066237C /* JoinEventButton.swift */; };
+		33FDB9AF1C850B960066237C /* JoinEventButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB9AD1C850AFC0066237C /* JoinEventButton.swift */; };
+		33FDB9B01C850B970066237C /* JoinEventButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB9AD1C850AFC0066237C /* JoinEventButton.swift */; };
 		6238D2E21C7ADE8E0085C8AA /* TRUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6238D2E11C7ADE8E0085C8AA /* TRUserInfo.swift */; };
 		6238D2E31C7ADE8E0085C8AA /* TRUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6238D2E11C7ADE8E0085C8AA /* TRUserInfo.swift */; };
 		6238D2E41C7ADE8E0085C8AA /* TRUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6238D2E11C7ADE8E0085C8AA /* TRUserInfo.swift */; };
@@ -108,6 +111,7 @@
 		33742DB11C83179D00C46742 /* TREventTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREventTableCellView.swift; sourceTree = "<group>"; };
 		33742DB61C8317EF00C46742 /* TREventTableCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TREventTableCellView.xib; sourceTree = "<group>"; };
 		33FDB9A71C84F7C50066237C /* TRCreatorInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCreatorInfo.swift; sourceTree = "<group>"; };
+		33FDB9AD1C850AFC0066237C /* JoinEventButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinEventButton.swift; sourceTree = "<group>"; };
 		4909F40824E557126E933B36 /* Pods-Traveler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Traveler/Pods-Traveler.debug.xcconfig"; sourceTree = "<group>"; };
 		6238D2E11C7ADE8E0085C8AA /* TRUserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRUserInfo.swift; sourceTree = "<group>"; };
 		6294972C1C7BB5F3005E4F91 /* TRAuthenticationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRAuthenticationRequest.swift; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 			children = (
 				33742DB11C83179D00C46742 /* TREventTableCellView.swift */,
 				33742DB61C8317EF00C46742 /* TREventTableCellView.xib */,
+				33FDB9AD1C850AFC0066237C /* JoinEventButton.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -494,6 +499,7 @@
 				62C1FF301C77C15C00A78798 /* AppDelegate.swift in Sources */,
 				33742DAD1C810AE300C46742 /* TRActivityInfo.swift in Sources */,
 				33742DA51C81092D00C46742 /* TREventInfo.swift in Sources */,
+				33FDB9AE1C850AFC0066237C /* JoinEventButton.swift in Sources */,
 				33742D861C7FC46B00C46742 /* TRBaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,6 +515,7 @@
 				629497331C7C04E1005E4F91 /* ViewControllerExtension.swift in Sources */,
 				62C1FF451C77C15C00A78798 /* TravelerTests.swift in Sources */,
 				62C1FF601C77CDFF00A78798 /* TRLoginOptionViewController.swift in Sources */,
+				33FDB9AF1C850B960066237C /* JoinEventButton.swift in Sources */,
 				33742DAA1C810A6100C46742 /* TRPlayerInfo.swift in Sources */,
 				33742DAE1C810AE300C46742 /* TRActivityInfo.swift in Sources */,
 				33742DB31C83179D00C46742 /* TREventTableCellView.swift in Sources */,
@@ -536,6 +543,7 @@
 				629497341C7C04E1005E4F91 /* ViewControllerExtension.swift in Sources */,
 				62C1FF501C77C15C00A78798 /* TravelerUITests.swift in Sources */,
 				62C1FF611C77CDFF00A78798 /* TRLoginOptionViewController.swift in Sources */,
+				33FDB9B01C850B970066237C /* JoinEventButton.swift in Sources */,
 				33742DAB1C810A6100C46742 /* TRPlayerInfo.swift in Sources */,
 				33742DAF1C810AE300C46742 /* TRActivityInfo.swift in Sources */,
 				33742DB41C83179D00C46742 /* TREventTableCellView.swift in Sources */,
@@ -703,6 +711,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = TravelerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.verizon.feighty.TravelerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -715,6 +724,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = TravelerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.verizon.feighty.TravelerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -76,6 +76,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         let cell = tableView.dequeueReusableCellWithIdentifier(CURRENT_EVENT_CELL) as! TREventTableCellView
         cell.updateCellViewWithEvent(eventsInfo[indexPath.section])
         cell.joinEventButton?.addTarget(self, action: "joinAnEvent:", forControlEvents: .TouchUpInside)
+        cell.joinEventButton?.buttonEventInfo = eventsInfo[indexPath.section]
         
         return cell
     }
@@ -84,8 +85,8 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         
     }
     
-    func joinAnEvent (sender: AnyObject) {
-        
+    func joinAnEvent (sender: JoinEventButton) {
+        print("Senders Event: \(sender.buttonEventInfo?.eventID)")
     }
     
     @IBAction func segmentControlSelection (sender: UISegmentedControl) {
@@ -106,7 +107,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     
     
     @IBAction func createNewEvent (sender: UIButton) {
-        
+
     }
 
     

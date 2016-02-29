@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+
 class TREventTableCellView: UITableViewCell {
 
     @IBOutlet weak var eventIcon:           UIImageView?
@@ -19,7 +20,7 @@ class TREventTableCellView: UITableViewCell {
     @IBOutlet weak var playerImageTwo:      UIImageView!
     @IBOutlet weak var playerCountImage:    UIImageView!
     @IBOutlet weak var playerCountLabel:    UILabel!
-    @IBOutlet weak var joinEventButton:     UIButton!
+    @IBOutlet weak var joinEventButton:     JoinEventButton!
     
     func updateCellViewWithEvent (eventInfo: TREventInfo) {
         
