@@ -78,6 +78,10 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         cell.joinEventButton?.addTarget(self, action: "joinAnEvent:", forControlEvents: .TouchUpInside)
         cell.joinEventButton?.buttonEventInfo = eventsInfo[indexPath.section]
         
+        //Event Creator
+        let eventCreator = eventsInfo[indexPath.section].eventCreator
+        appManager.log.debug("Event Creator: \(eventCreator?.playerUserName)")
+        
         return cell
     }
     
@@ -86,7 +90,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
     
     func joinAnEvent (sender: JoinEventButton) {
-        print("Senders Event: \(sender.buttonEventInfo?.eventID)")
+        print("Senders Event: \(sender.buttonEventInfo?.eventID!)")
     }
     
     @IBAction func segmentControlSelection (sender: UISegmentedControl) {

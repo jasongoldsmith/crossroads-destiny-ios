@@ -27,27 +27,29 @@ class TREventTableCellView: UITableViewCell {
         //Adding Radius to
         self.addRadiusToPlayerIconsForPlayersArray(eventInfo.eventPlayersArray)
         
-        eventTitle?.text = eventInfo.eventActivity?.activitySubType
-        activityLight?.text = "+" + (eventInfo.eventActivity?.activityLight?.stringValue)!
+        self.eventTitle?.text = eventInfo.eventActivity?.activitySubType
+        self.activityLight?.text = "+" + (eventInfo.eventActivity?.activityLight?.stringValue)!
         
         var playersNameString = ""
         for players in eventInfo.eventPlayersArray {
             playersNameString += players.playerUserName!
         }
         
-        eventPlayersName.text = playersNameString
+        self.eventPlayersName.text = playersNameString
     }
     
     func addRadiusToPlayerIconsForPlayersArray (playerArray: [TRPlayerInfo]) {
-        playerImageOne.layer.cornerRadius = playerImageOne.frame.size.width/2
-        playerImageTwo.layer.cornerRadius = playerImageTwo.frame.size.width/2
-        playerCountImage?.layer.cornerRadius = playerCountImage.frame.size.width/2
+        
+        self.playerImageOne.layer.cornerRadius = playerImageOne.frame.size.width/2
+        self.playerImageTwo.layer.cornerRadius = playerImageTwo.frame.size.width/2
         
         if playerArray.count > 2 {
-            playerCountImage.hidden = false
-            playerCountLabel.hidden = false
             
-            playerCountLabel?.text = "+" + String((playerArray.count - 2))
+            self.playerCountImage.hidden = false
+            self.playerCountLabel.hidden = false
+            self.playerCountImage?.layer.cornerRadius = playerCountImage.frame.size.width/2
+            
+            self.playerCountLabel?.text = "+" + String((playerArray.count - 2))
         }
     }
 }
