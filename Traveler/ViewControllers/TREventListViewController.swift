@@ -15,6 +15,8 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     
     @IBOutlet var segmentControl: UISegmentedControl?
     @IBOutlet var eventsTableView: UITableView?
+    @IBOutlet var segmentOneUnderLine: UIImageView?
+    @IBOutlet var segmentTwoUnderLine: UIImageView?
     
     //Events Information
     let eventsInfo = TRApplicationManager.sharedInstance.eventsInfo
@@ -68,6 +70,8 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(CURRENT_EVENT_CELL) as! TREventTableCellView
+        cell.updateCellViewWithEvent(eventsInfo[indexPath.section])
+        
         return cell
     }
     
@@ -76,7 +80,19 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
     
     @IBAction func segmentControlSelection (sender: UISegmentedControl) {
-        print("\(sender.selectedSegmentIndex)")
+
+        switch sender.selectedSegmentIndex {
+        case 0:
+            self.segmentOneUnderLine?.hidden = false
+            self.segmentTwoUnderLine?.hidden = true
+            break;
+        case 1:
+            self.segmentOneUnderLine?.hidden = true
+            self.segmentTwoUnderLine?.hidden = false
+            break;
+        default:
+            break;
+        }
     }
     
     

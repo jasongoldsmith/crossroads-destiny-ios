@@ -11,5 +11,11 @@ import UIKit
 
 class TREventTableCellView: UITableViewCell {
 
-
+    @IBOutlet weak var eventIcon: UIImageView?
+    @IBOutlet weak var eventTitle: UILabel?
+    
+    func updateCellViewWithEvent (eventInfo: TREventInfo) {
+        eventTitle?.text = eventInfo.eventActivity?.activitySubType
+        
+    }
 }
