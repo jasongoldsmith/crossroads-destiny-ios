@@ -83,19 +83,12 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         let eventCreator = eventsInfo[indexPath.section].eventCreator
         appManager.log.debug("Event Creator: \(eventCreator?.playerUserName)")
         
+        
+//        // SDWebImage Usage
+//        let url = NSURL(string: "https://pbs.twimg.com/profile_images/447374371917922304/P4BzupWu.jpeg")
+//        cell.eventIcon?.sd_setImageWithURL(url)
+        
         return cell
-        
-        /*
-
-        // SDWebImage Usage
-        
-        let block: SDWebImageCompletionBlock! = {(image: UIImage!, error: NSError!, cacheType: SDImageCacheType!, imageURL: NSURL!) -> Void in
-        print(self)
-        }
-        let url = NSURL(string: "http://placehold.it/350x150")
-        cell.eventIcon?.sd_setImageWithURL(url, completed: block)
-
-        */
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
