@@ -68,6 +68,14 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         return headerView
     }
     
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0.0
+        }
+        
+        return 10.0
+    }
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.eventsInfo.count
     }

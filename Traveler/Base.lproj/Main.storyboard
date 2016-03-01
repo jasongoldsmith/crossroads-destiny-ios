@@ -423,8 +423,8 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="122" sectionHeaderHeight="5" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="huA-O1-54n">
-                                <rect key="frame" x="10" y="129" width="580" height="421"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="122" sectionHeaderHeight="5" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="huA-O1-54n">
+                                <rect key="frame" x="10" y="138" width="580" height="412"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -466,7 +466,7 @@
                             <constraint firstItem="ros-Bk-ZVy" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leadingMargin" constant="-20" id="EDe-fv-290"/>
                             <constraint firstItem="c5f-7R-NrH" firstAttribute="top" secondItem="eKo-wg-rmi" secondAttribute="bottom" constant="8" id="EO2-EA-2FY"/>
                             <constraint firstItem="bhE-zA-4t7" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leading" id="FXr-aW-zBg"/>
-                            <constraint firstItem="huA-O1-54n" firstAttribute="top" secondItem="ros-Bk-ZVy" secondAttribute="bottom" constant="13" id="Fjb-Qk-Hxt"/>
+                            <constraint firstItem="huA-O1-54n" firstAttribute="top" secondItem="ros-Bk-ZVy" secondAttribute="bottom" constant="22" id="Fjb-Qk-Hxt"/>
                             <constraint firstItem="Otd-07-018" firstAttribute="top" secondItem="eKo-wg-rmi" secondAttribute="bottom" constant="8" id="IxE-Bj-oww"/>
                             <constraint firstAttribute="trailingMargin" secondItem="c5f-7R-NrH" secondAttribute="trailing" constant="-10" id="Jky-SZ-iv3"/>
                             <constraint firstItem="huA-O1-54n" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leading" constant="10" id="Oys-Nr-5Sh"/>
@@ -475,11 +475,11 @@
                             <constraint firstItem="hh2-ts-4BA" firstAttribute="top" secondItem="mLx-w0-FaU" secondAttribute="bottom" id="Stb-OB-cOr"/>
                             <constraint firstItem="bhE-zA-4t7" firstAttribute="top" secondItem="Mwi-1s-bC4" secondAttribute="top" id="Uic-EJ-1aK"/>
                             <constraint firstAttribute="trailing" secondItem="huA-O1-54n" secondAttribute="trailing" constant="10" id="W19-0l-ccd"/>
-                            <constraint firstItem="huA-O1-54n" firstAttribute="top" secondItem="z2g-Bm-q4G" secondAttribute="bottom" constant="1" id="aYD-tk-7eb"/>
+                            <constraint firstItem="huA-O1-54n" firstAttribute="top" secondItem="z2g-Bm-q4G" secondAttribute="bottom" constant="10" id="aYD-tk-7eb"/>
                             <constraint firstAttribute="trailing" secondItem="bhE-zA-4t7" secondAttribute="trailing" id="fdR-Sa-4Fn"/>
                             <constraint firstItem="hh2-ts-4BA" firstAttribute="top" secondItem="bhE-zA-4t7" secondAttribute="bottom" id="fgZ-1S-f2s"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VH7-Fj-a7t" secondAttribute="trailing" id="lZO-TY-WEQ"/>
-                            <constraint firstItem="huA-O1-54n" firstAttribute="top" secondItem="VH7-Fj-a7t" secondAttribute="bottom" constant="1" id="ocw-r0-k8V"/>
+                            <constraint firstItem="huA-O1-54n" firstAttribute="top" secondItem="VH7-Fj-a7t" secondAttribute="bottom" constant="10" id="ocw-r0-k8V"/>
                             <constraint firstItem="Otd-07-018" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leading" constant="18" id="pTk-uu-ITd"/>
                             <constraint firstItem="ros-Bk-ZVy" firstAttribute="top" secondItem="Otd-07-018" secondAttribute="bottom" constant="6" id="rUP-DC-uYo"/>
                             <constraint firstItem="GC0-EZ-x8P" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leading" id="sCu-TU-OCv"/>
