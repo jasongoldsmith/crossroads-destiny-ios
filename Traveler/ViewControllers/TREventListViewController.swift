@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import SDWebImage
 
 private let CURRENT_EVENT_CELL = "currentEventCell"
 
@@ -83,6 +84,18 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         appManager.log.debug("Event Creator: \(eventCreator?.playerUserName)")
         
         return cell
+        
+        /*
+
+        // SDWebImage Usage
+        
+        let block: SDWebImageCompletionBlock! = {(image: UIImage!, error: NSError!, cacheType: SDImageCacheType!, imageURL: NSURL!) -> Void in
+        print(self)
+        }
+        let url = NSURL(string: "http://placehold.it/350x150")
+        cell.eventIcon?.sd_setImageWithURL(url, completed: block)
+
+        */
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
