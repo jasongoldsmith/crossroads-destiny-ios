@@ -40,24 +40,32 @@ class TREventTableCellView: UITableViewCell {
     
     func addRadiusToPlayerIconsForPlayersArray (playerArray: [TRPlayerInfo]) {
         
-        self.playerImageOne.layer.cornerRadius = playerImageOne.frame.size.width/2
-        self.playerImageTwo.layer.cornerRadius = playerImageTwo.frame.size.width/2
-        
-        self.playerImageOne.layer.borderWidth = 1.0
-        self.playerImageTwo.layer.borderWidth = 1.0
-        self.playerImageOne.layer.borderColor = UIColor.grayColor().CGColor
-        self.playerImageTwo.layer.borderColor = UIColor.grayColor().CGColor
-        
-        if playerArray.count > 2 {
-            
-            self.playerCountImage.hidden = false
-            self.playerCountLabel.hidden = false
-            self.playerCountImage.layer.borderWidth = 1.0
-            self.playerCountImage.layer.borderColor = UIColor.grayColor().CGColor
-            self.playerCountImage?.layer.cornerRadius = playerCountImage.frame.size.width/2
-            
-            self.playerCountLabel?.text = "+" + String((playerArray.count - 2))
+        for (index, _) in playerArray.enumerate() {
+            switch index {
+            case 0:
+                self.addCostmeticsToPlayerAvatorIcon(self.playerImageOne)
+                
+                break;
+            case 1:
+                self.playerImageTwo.hidden = false
+                self.addCostmeticsToPlayerAvatorIcon(self.playerImageTwo)
+                
+                break;
+            default:
+                self.playerCountImage.hidden = false
+                self.playerCountLabel.hidden = false
+                self.playerCountLabel?.text = "+" + String((playerArray.count - 2))
+                self.addCostmeticsToPlayerAvatorIcon(self.playerCountImage)
+                
+                break;
+            }
         }
+    }
+    
+    func addCostmeticsToPlayerAvatorIcon (imageView: UIImageView) {
+        imageView.layer.borderWidth = 1.0
+        imageView.layer.cornerRadius = playerImageOne.frame.size.width/2
+        imageView.layer.borderColor = UIColor.grayColor().CGColor
     }
 }
 
