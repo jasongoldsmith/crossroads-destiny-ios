@@ -43,10 +43,17 @@ class TREventTableCellView: UITableViewCell {
         self.playerImageOne.layer.cornerRadius = playerImageOne.frame.size.width/2
         self.playerImageTwo.layer.cornerRadius = playerImageTwo.frame.size.width/2
         
+        self.playerImageOne.layer.borderWidth = 1.0
+        self.playerImageTwo.layer.borderWidth = 1.0
+        self.playerImageOne.layer.borderColor = UIColor.grayColor().CGColor
+        self.playerImageTwo.layer.borderColor = UIColor.grayColor().CGColor
+        
         if playerArray.count > 2 {
             
             self.playerCountImage.hidden = false
             self.playerCountLabel.hidden = false
+            self.playerCountImage.layer.borderWidth = 1.0
+            self.playerCountImage.layer.borderColor = UIColor.grayColor().CGColor
             self.playerCountImage?.layer.cornerRadius = playerCountImage.frame.size.width/2
             
             self.playerCountLabel?.text = "+" + String((playerArray.count - 2))
