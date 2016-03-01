@@ -33,7 +33,7 @@ class TRCreateEventRequest: TRRequest {
                             let createdEvent = TREventInfo()
                             
                             //Adding it to "eventsInfo"
-                            TRApplicationManager.sharedInstance.eventsInfo.append(createdEvent)
+                            TRApplicationManager.sharedInstance.eventsList.append(createdEvent)
 
                             completion(value: true )
                         }

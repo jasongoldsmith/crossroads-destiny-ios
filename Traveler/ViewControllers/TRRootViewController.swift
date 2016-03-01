@@ -38,7 +38,17 @@ class TRRootViewController: TRBaseViewController {
                 }
             })
             
+                //GET ACTIVITIES REQUEST
+//            _ = TRgetActivityList().getActivityList({ (value) -> () in
+//                if (value == true) {
+//                    print("Success")
+//                } else {
+//                    print("Failed")
+//                }
+//            })
 
+            
+            // CREATE EVENT REQUEST
 //            _ = TRCreateEventRequest().createAnEvent({ (value) -> () in
 //                if(value == true) {
 //                    self.performSegueWithIdentifier("TREventListView", sender: self)

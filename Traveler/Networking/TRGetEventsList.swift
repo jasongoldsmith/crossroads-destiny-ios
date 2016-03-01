@@ -88,7 +88,7 @@ class TRGetEventsList: TRRequest {
                                 }
                                 
                                 //Adding it to "eventsInfo"
-                                TRApplicationManager.sharedInstance.eventsInfo.append(eventInfo)
+                                TRApplicationManager.sharedInstance.eventsList.append(eventInfo)
                             }
                             
                             completion(value: true )

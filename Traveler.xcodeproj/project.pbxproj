@@ -54,6 +54,9 @@
 		33FDB9B81C8621160066237C /* TRCreateEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB9B51C861AB10066237C /* TRCreateEventRequest.swift */; };
 		33FDB9B91C86247C0066237C /* TRRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C1FF311C77C15C00A78798 /* TRRootViewController.swift */; };
 		33FDB9BA1C86247C0066237C /* TRRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C1FF311C77C15C00A78798 /* TRRootViewController.swift */; };
+		33FDB9BC1C863A550066237C /* TRgetActivityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB9BB1C863A550066237C /* TRgetActivityList.swift */; };
+		33FDB9BD1C863AF30066237C /* TRgetActivityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB9BB1C863A550066237C /* TRgetActivityList.swift */; };
+		33FDB9BE1C863AF40066237C /* TRgetActivityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB9BB1C863A550066237C /* TRgetActivityList.swift */; };
 		6238D2E21C7ADE8E0085C8AA /* TRUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6238D2E11C7ADE8E0085C8AA /* TRUserInfo.swift */; };
 		6238D2E31C7ADE8E0085C8AA /* TRUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6238D2E11C7ADE8E0085C8AA /* TRUserInfo.swift */; };
 		6238D2E41C7ADE8E0085C8AA /* TRUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6238D2E11C7ADE8E0085C8AA /* TRUserInfo.swift */; };
@@ -119,6 +122,7 @@
 		33FDB9AD1C850AFC0066237C /* JoinEventButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinEventButton.swift; sourceTree = "<group>"; };
 		33FDB9B41C8512E60066237C /* TR-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TR-Bridging-Header.h"; sourceTree = "<group>"; };
 		33FDB9B51C861AB10066237C /* TRCreateEventRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCreateEventRequest.swift; sourceTree = "<group>"; };
+		33FDB9BB1C863A550066237C /* TRgetActivityList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRgetActivityList.swift; sourceTree = "<group>"; };
 		4909F40824E557126E933B36 /* Pods-Traveler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Traveler/Pods-Traveler.debug.xcconfig"; sourceTree = "<group>"; };
 		6238D2E11C7ADE8E0085C8AA /* TRUserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRUserInfo.swift; sourceTree = "<group>"; };
 		6294972C1C7BB5F3005E4F91 /* TRAuthenticationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRAuthenticationRequest.swift; sourceTree = "<group>"; };
@@ -208,6 +212,7 @@
 				6294972C1C7BB5F3005E4F91 /* TRAuthenticationRequest.swift */,
 				33742D9C1C80FFAE00C46742 /* TRGetEventsList.swift */,
 				33FDB9B51C861AB10066237C /* TRCreateEventRequest.swift */,
+				33FDB9BB1C863A550066237C /* TRgetActivityList.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -505,6 +510,7 @@
 				33742D8A1C7FC51700C46742 /* TRStoryBoardManager.swift in Sources */,
 				62C1FF321C77C15C00A78798 /* TRRootViewController.swift in Sources */,
 				629497321C7C04E1005E4F91 /* ViewControllerExtension.swift in Sources */,
+				33FDB9BC1C863A550066237C /* TRgetActivityList.swift in Sources */,
 				33FDB9A81C84F7C50066237C /* TRCreatorInfo.swift in Sources */,
 				62C1FF301C77C15C00A78798 /* AppDelegate.swift in Sources */,
 				33742DAD1C810AE300C46742 /* TRActivityInfo.swift in Sources */,
@@ -535,6 +541,7 @@
 				33742D8B1C7FC66500C46742 /* TRBaseViewController.swift in Sources */,
 				62C1FF641C77D7F000A78798 /* TRCreateAccountViewController.swift in Sources */,
 				33742D811C7FC17700C46742 /* TRConstants.swift in Sources */,
+				33FDB9BD1C863AF30066237C /* TRgetActivityList.swift in Sources */,
 				62C5DF7A1C79769C0039A88E /* TREventListViewController.swift in Sources */,
 				33742D941C7FC9B900C46742 /* TRRequest.swift in Sources */,
 				33FDB9A91C84F82F0066237C /* TRCreatorInfo.swift in Sources */,
@@ -565,6 +572,7 @@
 				33742D8C1C7FC66600C46742 /* TRBaseViewController.swift in Sources */,
 				62C1FF651C77D7F000A78798 /* TRCreateAccountViewController.swift in Sources */,
 				33742D821C7FC17800C46742 /* TRConstants.swift in Sources */,
+				33FDB9BE1C863AF40066237C /* TRgetActivityList.swift in Sources */,
 				62C5DF7B1C79769C0039A88E /* TREventListViewController.swift in Sources */,
 				33742D951C7FC9BA00C46742 /* TRRequest.swift in Sources */,
 				33FDB9AA1C84F8300066237C /* TRCreatorInfo.swift in Sources */,

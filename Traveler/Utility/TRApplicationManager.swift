@@ -22,7 +22,10 @@ class TRApplicationManager: NSObject {
     let stroryBoardManager = TRStoryBoardManager()
     
     //Event Info Objet
-    var eventsInfo: [TREventInfo] = []
+    var eventsList: [TREventInfo] = []
+    
+    //Activity List
+    var activityList: [TRActivityInfo] = []
     
     private override init() {
         super.init()
