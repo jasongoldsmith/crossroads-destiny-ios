@@ -75,22 +75,16 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(CURRENT_EVENT_CELL) as! TREventTableCellView
-        cell.updateCellViewWithEvent(eventsInfo[indexPath.section])
-        cell.joinEventButton?.addTarget(self, action: "joinAnEvent:", forControlEvents: .TouchUpInside)
-        cell.joinEventButton?.buttonEventInfo = eventsInfo[indexPath.section]
         
-        //Event Creator
-        let eventCreator = eventsInfo[indexPath.section].eventCreator
-        appManager.log.debug("Event Creator: \(eventCreator?.playerUserName)")
-        
-        
-//        // SDWebImage Usage
-//        let url = NSURL(string: "https://pbs.twimg.com/profile_images/447374371917922304/P4BzupWu.jpeg")
-//        let block: SDWebImageCompletionBlock! = {(image: UIImage!, error: NSError!, cacheType: SDImageCacheType!, imageURL: NSURL!) -> Void in
-//            print("Image: \(image)")
-//        }
-//        cell.eventIcon?.sd_setImageWithURL(url, completed: block)
-        
+        if segmentControl?.selectedSegmentIndex == 0 {
+            cell.updateCellViewWithEvent(eventsInfo[indexPath.section])
+            cell.joinEventButton?.addTarget(self, action: "joinAnEvent:", forControlEvents: .TouchUpInside)
+            cell.joinEventButton?.buttonEventInfo = eventsInfo[indexPath.section]
+        } else {
+            cell.updateCellViewWithEvent(eventsInfo[4])
+            cell.joinEventButton?.addTarget(self, action: "joinAnEvent:", forControlEvents: .TouchUpInside)
+            cell.joinEventButton?.buttonEventInfo = eventsInfo[indexPath.section]
+        }
         
         return cell
     }
@@ -117,6 +111,9 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         default:
             break;
         }
+        
+        //Reload Data
+        self.eventsTableView?.reloadData()
     }
     
     

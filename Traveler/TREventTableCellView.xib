@@ -157,7 +157,7 @@
                 <outlet property="playerImageOne" destination="3rA-ji-cCh" id="D5g-BG-G2O"/>
                 <outlet property="playerImageTwo" destination="dtk-b7-EX5" id="Pms-cV-3E0"/>
             </connections>
-            <point key="canvasLocation" x="-504" y="205"/>
+            <point key="canvasLocation" x="-628" y="205"/>
         </tableViewCell>
     </objects>
     <resources>
