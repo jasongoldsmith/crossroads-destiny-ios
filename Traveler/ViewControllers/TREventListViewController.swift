@@ -86,7 +86,11 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         
 //        // SDWebImage Usage
 //        let url = NSURL(string: "https://pbs.twimg.com/profile_images/447374371917922304/P4BzupWu.jpeg")
-//        cell.eventIcon?.sd_setImageWithURL(url)
+//        let block: SDWebImageCompletionBlock! = {(image: UIImage!, error: NSError!, cacheType: SDImageCacheType!, imageURL: NSURL!) -> Void in
+//            print("Image: \(image)")
+//        }
+//        cell.eventIcon?.sd_setImageWithURL(url, completed: block)
+        
         
         return cell
     }

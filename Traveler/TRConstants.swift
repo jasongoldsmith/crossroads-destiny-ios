@@ -22,6 +22,7 @@ struct K {
         static let TR_LoginUrl           =   "/api/v1/auth/login"
         static let TR_LogoutUrl          =   "/api/v1/auth/logout"
         static let TR_EventListUrl       =   "/api/v1/a/event/list"
+        static let TR_EventCreationUrl   =   "api/v1/a/event/create"
     }
     
     struct StoryBoard {
