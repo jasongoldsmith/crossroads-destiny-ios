@@ -29,12 +29,13 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         self.segmentControl?.removeBorders()
       
         let boldFont = UIFont(name: "Helvetica-Bold", size: 16.0)
-        let boldTextAttributes: [NSObject : AnyObject] = [
+        let normalTextAttributes: [NSObject : AnyObject] = [
             NSForegroundColorAttributeName : UIColor.whiteColor(),
             NSFontAttributeName : boldFont!,
         ]
-        self.segmentControl!.setTitleTextAttributes(boldTextAttributes, forState: .Normal)
-        self.segmentControl!.setTitleTextAttributes(boldTextAttributes, forState: .Selected)
+        
+        self.segmentControl!.setTitleTextAttributes(normalTextAttributes, forState: .Normal)
+        self.segmentControl!.setTitleTextAttributes(normalTextAttributes, forState: .Selected)
         
     
         self.eventsTableView?.registerNib(UINib(nibName: "TREventTableCellView", bundle: nil), forCellReuseIdentifier: CURRENT_EVENT_CELL)
@@ -98,7 +99,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        self.eventsTableView?.deselectRowAtIndexPath(indexPath, animated: false)
     }
     
     func joinAnEvent (sender: JoinEventButton) {

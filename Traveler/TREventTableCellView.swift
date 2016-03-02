@@ -64,7 +64,7 @@ class TREventTableCellView: UITableViewCell {
     
     func addCostmeticsToPlayerAvatorIcon (imageView: UIImageView) {
         imageView.layer.borderWidth = 1.0
-        imageView.layer.cornerRadius = playerImageOne.frame.size.width/2
+        imageView.layer.cornerRadius = imageView.frame.size.width/2
         imageView.layer.borderColor = UIColor.grayColor().CGColor
     }
 }
