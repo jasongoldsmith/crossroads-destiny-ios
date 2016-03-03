@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import SDWebImage
 
+
 class TREventTableCellView: UITableViewCell {
 
     @IBOutlet weak var eventIcon:           UIImageView?
@@ -39,6 +40,15 @@ class TREventTableCellView: UITableViewCell {
         self.eventIcon!.sd_setImageWithURL(url)
         
         self.eventPlayersName.text = playersNameString
+        
+        
+        //Change Join Button Title to match the Event Joining Status
+        if (eventInfo.eventStatus == EVENT_STATUS.CAN_JOIN.rawValue) {
+            self.joinEventButton?.backgroundColor = UIColor.greenColor()
+            self.joinEventButton?.titleLabel?.text = "Leave"
+        } else {
+            self.joinEventButton?.backgroundColor = UIColor.clearColor()
+        }
     }
     
     func addRadiusToPlayerIconsForPlayersArray (playerArray: [TRPlayerInfo]) {

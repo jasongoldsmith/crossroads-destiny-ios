@@ -39,3 +39,9 @@ struct K {
         static let ViewController_Main_RootViewController   = "Main_RootViewController"
     }
 }
+
+enum EVENT_STATUS : String {
+    case CAN_JOIN   = "can_join"
+    case MAXED      = "maxed"
+    case JOINED     = "joined"
+}
