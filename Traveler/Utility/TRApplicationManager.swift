@@ -59,5 +59,23 @@ class TRApplicationManager: NSObject {
         return nil
     }
     
+    func isCurrentPlayerInAnEvent (event: TREventInfo) -> Bool {
+        
+        for (_, player) in event.eventPlayersArray.enumerate() {
+            if player.playerID == TRUserInfo.getUserID() {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func isCurrentPlayerOrganizerOfAnEvent (event: TREventInfo) -> Bool {
+        
+        if event.eventCreator?.playerID == TRUserInfo.getUserID() {
+            return true
+        }
+        
+        return false
+    }
 }
 

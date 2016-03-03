@@ -42,6 +42,7 @@ struct K {
 
 enum EVENT_STATUS : String {
     case CAN_JOIN   = "can_join"
-    case MAXED      = "maxed"
-    case JOINED     = "joined"
+    case FULL       = "full"
+    case OPEN       = "open"
+    case NEW        = "new"
 }
