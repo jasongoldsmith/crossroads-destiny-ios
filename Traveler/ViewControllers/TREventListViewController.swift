@@ -9,7 +9,10 @@
 import UIKit
 import Foundation
 
+
 private let CURRENT_EVENT_CELL = "currentEventCell"
+private let EVENT_TABLE_HEADER_HEIGHT:CGFloat = 10.0
+
 
 class TREventListViewController: TRBaseViewController, UITableViewDataSource, UITableViewDelegate{
     
@@ -73,7 +76,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             return 0.0
         }
         
-        return 10.0
+        return EVENT_TABLE_HEADER_HEIGHT
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

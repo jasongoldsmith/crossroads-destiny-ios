@@ -60,7 +60,7 @@ class TRJoinEventRequest: TRRequest {
                                     activityInfo.activityIconImage  = activity["aIconUrl"]?.stringValue
                                     
                                     //Event Activity added
-                                    eventInfo.eventActivity = activityInfo
+                                    existingEvent?.eventActivity = activityInfo
                                 }
                                 
                                 // Creating Creator Object from Events List
@@ -75,11 +75,11 @@ class TRJoinEventRequest: TRRequest {
                                     creatorInfo.playerUdate     = creator["uDate"]?.stringValue
                                     
                                     // Event Creator Added
-                                    eventInfo.eventCreator = creatorInfo
+                                    existingEvent?.eventCreator = creatorInfo
                                 }
                                 
                                 //Delete the player Array and add new updated one
-                                eventInfo.eventPlayersArray.removeAll()
+                                existingEvent?.eventPlayersArray.removeAll()
                                 
                                 let playersArray = swiftyJsonVar["players"].arrayValue
                                 for playerInfoObject in playersArray {
@@ -92,7 +92,7 @@ class TRJoinEventRequest: TRRequest {
                                     playerInfo.playerUdate = playerInfoObject["uDate"].stringValue
                                     
                                     // Players of an Event Added
-                                    eventInfo.eventPlayersArray.append(playerInfo)
+                                    existingEvent?.eventPlayersArray.append(playerInfo)
                                 }
                             }
                             

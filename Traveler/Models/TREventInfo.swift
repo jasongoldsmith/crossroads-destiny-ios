@@ -17,7 +17,8 @@ class TREventInfo: NSObject {
     var eventMaxPlayers         : NSNumber?
     var eventMinPlayer          : NSNumber?
     var eventCreatedDate        : String?
-    var eventActivity           :TRActivityInfo?
+    var eventActivity           : TRActivityInfo?
     var eventCreator            : TRCreatorInfo?
-    var eventPlayersArray       :[TRPlayerInfo] = []
+    var eventPlayersArray       : [TRPlayerInfo] = []
 }
+
