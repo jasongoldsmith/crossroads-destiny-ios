@@ -9,6 +9,7 @@ struct K {
             static let TR_UserName  = "TR_UserName"
             static let TR_UserPwd   = "TR_UserPwd"
             static let TR_PsnId     = "TR_PsnId"
+            static let TR_UserID    = "TR_UserID"
         }
     }
     
@@ -24,6 +25,7 @@ struct K {
         static let TR_EventListUrl       =   "/api/v1/a/event/list"
         static let TR_EventCreationUrl   =   "/api/v1/a/event/create"
         static let TR_ActivityListUrl    =   "/api/v1/activity/list"
+        static let TR_JoinEventUrl       =   "/api/v1/a/event/join"
     }
     
     struct StoryBoard {

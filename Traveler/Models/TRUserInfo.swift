@@ -10,9 +10,11 @@ import Foundation
 
 class TRUserInfo: NSObject {
     
-    var userName: String?
-    var password: String?
-    var psnID: String?
+    var userName    :String?
+    var password    :String?
+    var psnID       :String?
+    var userID      :String?
+    
     
     class func saveUserData (userData:TRUserInfo?) -> Bool {
         
@@ -22,8 +24,9 @@ class TRUserInfo: NSObject {
         
         let userDefaults = NSUserDefaults.standardUserDefaults()
         userDefaults.setValue(userData?.userName, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserName)
-        //userDefaults.setValue(userData?.password, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
         userDefaults.setValue(userData?.psnID, forKey: K.UserDefaultKey.UserAccountInfo.TR_PsnId)
+        userDefaults.setValue(userData?.userID, forKeyPath: K.UserDefaultKey.UserAccountInfo.TR_UserID)
+        
         userDefaults.synchronize()
         
         return false
@@ -51,6 +54,16 @@ class TRUserInfo: NSObject {
         return nil
     }
 
+    class func getUserID() -> String? {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+            if (userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_UserID) != nil) {
+            let userID = userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_UserID) as! String
+                
+            return userID
+        }
+        
+        return nil
+    }
     
     class func removeUserData () {
         NSUserDefaults.standardUserDefaults().removePersistentDomainForName(NSBundle.mainBundle().bundleIdentifier!)

@@ -8,7 +8,6 @@
 
 import UIKit
 import Foundation
-import SDWebImage
 
 private let CURRENT_EVENT_CELL = "currentEventCell"
 
@@ -103,7 +102,20 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
     
     func joinAnEvent (sender: JoinEventButton) {
-        print("Senders Event: \(sender.buttonEventInfo?.eventID!)")
+      
+        if let eventInfo = sender.buttonEventInfo {
+            _ = TRJoinEventRequest().joinEventWithUserForEvent(TRUserInfo.getUserID()!, eventInfo: eventInfo, completion: { (value) -> () in
+                if (value == true) {
+                    self.reloadEventTable()
+                } else {
+                    print("Failed")
+                }
+            })
+        }
+    }
+    
+    func reloadEventTable () {
+        self.eventsTableView?.reloadData()
     }
     
     @IBAction func segmentControlSelection (sender: UISegmentedControl) {
@@ -122,7 +134,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         }
         
         //Reload Data
-        self.eventsTableView?.reloadData()
+        self.reloadEventTable()
     }
     
     

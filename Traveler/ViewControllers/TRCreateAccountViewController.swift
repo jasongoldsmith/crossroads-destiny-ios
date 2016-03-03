@@ -41,55 +41,58 @@ class TRCreateAccountViewController: TRBaseViewController {
         
         if userNameTxtField.text?.isEmpty  == true {
             displayAlertWithTitle("Enter UserName")
+            
             return
         }
         else {
             let textcount = userNameTxtField.text?.characters.count
             if textcount < 4 || textcount > 50 {
                 displayAlertWithTitle("User Name must be between 4 and 50 characters")
+                
                 return
             }
         }
         
-        
         if userPwdTxtField.text?.isEmpty == true {
             displayAlertWithTitle("Enter UserPassword")
-            return
             
+            return
         }
         else {
             
             let textcount = userPwdTxtField.text?.characters.count
             if textcount < 4 || textcount > 50 {
                 displayAlertWithTitle("User password must be between 4 and 50 characters")
+                
                 return
             }
             
         }
-        //        if userPSNIDTxtField.text?.isEmpty == true {
-        //            displayAlertWithTitle("Enter PSNID")
-        //            return
-        //        }
         
         let userInfo = TRUserInfo()
         userInfo.userName = userNameTxtField.text
         userInfo.password = userPwdTxtField.text
         userInfo.psnID = userPSNIDTxtField.text
         
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setValue(userPwdTxtField.text, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
+        defaults.synchronize()
+
         let createRequest = TRAuthenticationRequest()
         createRequest.registerTRUserWith(userInfo) { (value ) in  //, errorData) in
             
             if value == true {
                 self.createAccountSuccess()
-                
             }
-            else
-            {
+            else {
+                
+                //Delete the saved Password if sign-in was not successful
+                defaults.setValue(nil, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
+                defaults.synchronize()
+
                 self.displayAlertWithTitle("Your credentails info is wrong")
             }
         }
-        
-        
     }
     
     func createAccountSuccess() {

@@ -41,7 +41,8 @@ class TRgetActivityList: TRRequest {
                                 activityInfo.activityLight      = activity["aLight"].number
                                 activityInfo.activityMaxPlayers = activity["maxPlayers"].number
                                 activityInfo.activityMinPlayers = activity["minPlayers"].number
-
+                                activityInfo.activityIconImage  = activity["aIconUrl"].stringValue
+                                 
                                 TRApplicationManager.sharedInstance.activityList.append(activityInfo)
                             }
 

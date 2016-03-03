@@ -1,8 +1,8 @@
 //
-//  TRGetEventsList.swift
+//  TRJoinEventRequest.swift
 //  Traveler
 //
-//  Created by Ashutosh on 2/26/16.
+//  Created by Ashutosh on 3/2/16.
 //  Copyright © 2016 Forcecatalyst. All rights reserved.
 //
 
@@ -10,13 +10,17 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-class TRGetEventsList: TRRequest {
+
+class TRJoinEventRequest: TRRequest {
     
-    func getEventsList (completion: TRValueCallBack) {
+    func joinEventWithUserForEvent (userId: String, eventInfo: TREventInfo, completion: TRValueCallBack) {
+        let joinEventUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_JoinEventUrl
         
-        let eventListingUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_EventListUrl
+        var params         = [String: AnyObject]()
+        params["eId"]      = eventInfo.eventID
+        params["player"]   = userId
         
-        request(.GET, eventListingUrl, parameters:nil)
+        request(.POST, joinEventUrl, parameters:params)
             .responseJSON { response in
                 if response.result.isSuccess {
                     
@@ -25,22 +29,23 @@ class TRGetEventsList: TRRequest {
                         
                         if swiftyJsonVar.isEmpty {
                             completion(value: false )
-                    } else if swiftyJsonVar["responseType"].string == "ERR" {
-                        completion(value: false )
-                    } else {
-                            for events in swiftyJsonVar.arrayValue {
-                                
-                                // Creating Event Objects from Events List
-                                let eventInfo = TREventInfo()
-                                eventInfo.eventID           = events["_id"].string
-                                eventInfo.eventStatus       = events["status"].string
-                                eventInfo.eventUpdatedDate  = events["updated"].string
-                                eventInfo.eventMaxPlayers   = events["maxPlayers"].number
-                                eventInfo.eventMinPlayer    = events["minPlayers"].number
-                                eventInfo.eventCreatedDate  = events["created"].string
+                        } else if swiftyJsonVar["responseType"].string == "ERR" {
+                            completion(value: false )
+                        } else {
+                            
+                            // Creating Event Objects from Events List
+                            let existingEvent = TRApplicationManager.sharedInstance.getEventById(swiftyJsonVar["_id"].string!)
+                            
+                            if let _ = existingEvent {
+                                existingEvent?.eventID           = swiftyJsonVar["_id"].string
+                                existingEvent?.eventStatus       = swiftyJsonVar["status"].string
+                                existingEvent?.eventUpdatedDate  = swiftyJsonVar["updated"].string
+                                existingEvent?.eventMaxPlayers   = swiftyJsonVar["maxPlayers"].number
+                                existingEvent?.eventMinPlayer    = swiftyJsonVar["minPlayers"].number
+                                existingEvent?.eventCreatedDate  = swiftyJsonVar["created"].string
                                 
                                 // Dictionary of Activities in an Event
-                                let activityDictionary = events["eType"].dictionary
+                                let activityDictionary = swiftyJsonVar["eType"].dictionary
                                 if let activity = activityDictionary {
                                     let activityInfo = TRActivityInfo()
                                     
@@ -59,7 +64,7 @@ class TRGetEventsList: TRRequest {
                                 }
                                 
                                 // Creating Creator Object from Events List
-                                let creatorDictionary = events["creator"].dictionary
+                                let creatorDictionary = swiftyJsonVar["creator"].dictionary
                                 if let creator = creatorDictionary {
                                     let creatorInfo = TRCreatorInfo()
                                     
@@ -73,7 +78,10 @@ class TRGetEventsList: TRRequest {
                                     eventInfo.eventCreator = creatorInfo
                                 }
                                 
-                                let playersArray = events["players"].arrayValue
+                                //Delete the player Array and add new updated one
+                                eventInfo.eventPlayersArray.removeAll()
+                                
+                                let playersArray = swiftyJsonVar["players"].arrayValue
                                 for playerInfoObject in playersArray {
                                     let playerInfo = TRPlayerInfo()
                                     
@@ -86,9 +94,6 @@ class TRGetEventsList: TRRequest {
                                     // Players of an Event Added
                                     eventInfo.eventPlayersArray.append(playerInfo)
                                 }
-                                
-                                //Adding it to "eventsInfo"
-                                TRApplicationManager.sharedInstance.eventsList.append(eventInfo)
                             }
                             
                             completion(value: true )
@@ -99,7 +104,7 @@ class TRGetEventsList: TRRequest {
                 }
                 else
                 {
-                    completion(value: false ) 
+                    completion(value: false )
                 }
         }
     }

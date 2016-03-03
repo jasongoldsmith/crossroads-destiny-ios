@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import SDWebImage
 
 class TREventTableCellView: UITableViewCell {
 
@@ -32,8 +32,11 @@ class TREventTableCellView: UITableViewCell {
         
         var playersNameString = ""
         for players in eventInfo.eventPlayersArray {
-            playersNameString += players.playerUserName!
+            playersNameString += players.playerUserName! + " "
         }
+        
+        let url = NSURL(string: (eventInfo.eventActivity?.activityIconImage)!)
+        self.eventIcon!.sd_setImageWithURL(url)
         
         self.eventPlayersName.text = playersNameString
     }

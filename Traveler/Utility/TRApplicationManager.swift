@@ -12,6 +12,8 @@ import XCGLogger
 
 class TRApplicationManager: NSObject {
     
+    // MARK:- Instances
+    
     // Shared Instance
     static let sharedInstance = TRApplicationManager()
     
@@ -27,6 +29,8 @@ class TRApplicationManager: NSObject {
     //Activity List
     var activityList: [TRActivityInfo] = []
     
+    
+    // MARK:- Initializer
     private override init() {
         super.init()
         
@@ -40,6 +44,19 @@ class TRApplicationManager: NSObject {
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    // MARK:- Data Helper Methods
+    func getEventById (eventId: String) -> TREventInfo? {
+        
+        for eventObject in TRApplicationManager.sharedInstance.eventsList {
+            if eventObject.eventID == eventId {
+                return eventObject
+            }
+        }
+        
+        return nil
     }
     
 }

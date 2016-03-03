@@ -33,6 +33,8 @@ class TRAuthenticationRequest: TRRequest {
             params["psnId"] = userData?.psnID
         }
         
+        //params["imageUrl"] = "http://images4.fanpop.com/image/photos/17800000/Benders-evolution-bender-17855605-650-487.jpg"
+        
         request(self.URLMethod!, registerUserUrl, parameters:params)
             .responseJSON { response in
                 if response.result.isSuccess {
@@ -50,7 +52,9 @@ class TRAuthenticationRequest: TRRequest {
                         {
                             let userData = TRUserInfo()
                             userData.userName = swiftyJsonVar["value"]["userName"].string
-                            userData.password = swiftyJsonVar["value"]["passWord"].string
+                            userData.userID   = swiftyJsonVar["value"]["_id"].string
+                            userData.psnID   = swiftyJsonVar["value"]["psnID"].string
+
                             TRUserInfo.saveUserData(userData)
                             completion(value: true )
                         }
@@ -81,6 +85,7 @@ class TRAuthenticationRequest: TRRequest {
         if userData?.password?.characters.isEmpty == false {
             params["passWord"] = userData?.password
         }
+        
         request(.POST, registerUserUrl,parameters:params)
             .responseJSON { response in
                 if response.result.isSuccess {
@@ -95,6 +100,8 @@ class TRAuthenticationRequest: TRRequest {
                         else {
                             let userData = TRUserInfo()
                             userData.userName = swiftyJsonVar["value"]["userName"].string
+                            userData.userID   = swiftyJsonVar["value"]["_id"].string
+                            
                             TRUserInfo.saveUserData(userData)
                             completion(value: true )
                         }

@@ -20,5 +20,5 @@ class TRActivityInfo: NSObject {
     var activityDificulty     : String?
     var activityMaxPlayers    : NSNumber?
     var activityMinPlayers    : NSNumber?
-    
+    var activityIconImage     : String?
 }
