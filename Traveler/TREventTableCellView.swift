@@ -11,6 +11,9 @@ import UIKit
 import SDWebImage
 
 
+typealias ShouldAddGreenBorder = (value: Bool?) -> ()
+
+
 class TREventTableCellView: UITableViewCell {
 
     @IBOutlet weak var eventIcon            :UIImageView?
@@ -59,7 +62,13 @@ class TREventTableCellView: UITableViewCell {
         self.eventIcon!.sd_setImageWithURL(url)
         
         // Set Event Button Status
-        self.eventButtonStatusForCurrentPlayer(eventInfo, button: self.joinEventButton)
+        self.eventButtonStatusForCurrentPlayer(eventInfo, button: self.joinEventButton, completion: {value in
+            if value == true {
+                // Adding Green Border Around an event which is FULL && READY
+                self.contentView.layer.borderWidth = 1.0
+                self.contentView.layer.borderColor = UIColor(red: 96/255, green: 184/255, blue: 0/255, alpha: 1).CGColor
+            }
+        })
     }
     
     func addRadiusToPlayerIconsForPlayersArray (eventInfo: TREventInfo) {
@@ -101,16 +110,13 @@ class TREventTableCellView: UITableViewCell {
         }
     }
         
-    func eventButtonStatusForCurrentPlayer (event: TREventInfo, button: JoinEventButton) {
+    func eventButtonStatusForCurrentPlayer (event: TREventInfo, button: JoinEventButton, completion: ShouldAddGreenBorder) {
 
         if (event.eventStatus == EVENT_STATUS.FULL.rawValue) {
             if(TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(event)) {
                 button.setImage(UIImage(named: "btnREADY"), forState: .Normal)
                 leaveEventButton.hidden = false
-                
-                // Adding Green Border Around an event which is FULL && READY
-                self.contentView.layer.borderWidth = 1.0
-                self.contentView.layer.borderColor = UIColor(red: 96/255, green: 184/255, blue: 0/255, alpha: 1).CGColor
+                completion(value: true)
             } else {
                 button.setImage(UIImage(named: "btnFULL"), forState: .Normal)
                 leaveEventButton.hidden = true
