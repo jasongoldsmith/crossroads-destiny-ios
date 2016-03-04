@@ -107,6 +107,10 @@ class TREventTableCellView: UITableViewCell {
             if(TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(event)) {
                 button.setImage(UIImage(named: "btnREADY"), forState: .Normal)
                 leaveEventButton.hidden = false
+                
+                // Adding Green Border Around an event which is FULL && READY
+                self.contentView.layer.borderWidth = 1.0
+                self.contentView.layer.borderColor = UIColor(red: 96/255, green: 184/255, blue: 0/255, alpha: 1).CGColor
             } else {
                 button.setImage(UIImage(named: "btnFULL"), forState: .Normal)
                 leaveEventButton.hidden = true
