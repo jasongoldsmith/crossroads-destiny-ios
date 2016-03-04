@@ -13,15 +13,17 @@ import SDWebImage
 
 class TREventTableCellView: UITableViewCell {
 
-    @IBOutlet weak var eventIcon:           UIImageView?
-    @IBOutlet weak var eventTitle:          UILabel?
-    @IBOutlet weak var activityLight:       UILabel?
-    @IBOutlet weak var eventPlayersName:    UILabel!
-    @IBOutlet weak var playerImageOne:      UIImageView!
-    @IBOutlet weak var playerImageTwo:      UIImageView!
-    @IBOutlet weak var playerCountImage:    UIImageView!
-    @IBOutlet weak var playerCountLabel:    UILabel!
-    @IBOutlet weak var joinEventButton:     JoinEventButton!
+    @IBOutlet weak var eventIcon            :UIImageView?
+    @IBOutlet weak var eventTitle           :UILabel?
+    @IBOutlet weak var activityLight        :UILabel?
+    @IBOutlet weak var eventPlayersName     :UILabel!
+    @IBOutlet weak var playerImageOne       :UIImageView!
+    @IBOutlet weak var playerImageTwo       :UIImageView!
+    @IBOutlet weak var playerCountImage     :UIImageView!
+    @IBOutlet weak var playerCountLabel     :UILabel!
+    @IBOutlet weak var joinEventButton      :JoinEventButton!
+    @IBOutlet weak var leaveEventButton     :UIButton!
+    
     
     func updateCellViewWithEvent (eventInfo: TREventInfo) {
         
@@ -42,13 +44,13 @@ class TREventTableCellView: UITableViewCell {
             
             // Attributed Strings
             let extraPlayersRequiredCountStringNewAttributed = NSAttributedString(string: extraPlayersRequiredCountStringNew, attributes: stringColorAttribute)
-            let finalString = NSMutableAttributedString(string: "Created by" + (eventInfo.eventCreator?.playerUserName!)!)
+            let finalString = NSMutableAttributedString(string: "Created by " + (eventInfo.eventCreator?.playerUserName!)!)
             finalString.appendAttributedString(extraPlayersRequiredCountStringNewAttributed)
             
             self.eventPlayersName.attributedText = finalString
             
         } else {
-            let playersNameString = "Created by" + (eventInfo.eventCreator?.playerUserName!)!
+            let playersNameString = "Created by " + (eventInfo.eventCreator?.playerUserName!)!
             self.eventPlayersName.text = playersNameString
         }
         
@@ -64,58 +66,79 @@ class TREventTableCellView: UITableViewCell {
         
         let playerArray = eventInfo.eventPlayersArray
         
-        for (index, _) in playerArray.enumerate() {
+        for (index, player) in playerArray.enumerate() {
             switch index {
             case 0:
-                self.addCostmeticsToPlayerAvatorIcon(self.playerImageOne)
-//                self.playerImageOne.sd_setImageWithURL(NSURL(string: player)))
+                let imageUrl = NSURL(string: player.playerImageUrl!)
+                self.playerImageOne!.sd_setImageWithURL(imageUrl)
+                TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.playerImageOne)
                 
                 break;
             case 1:
                 self.playerImageTwo.hidden = false
-                self.addCostmeticsToPlayerAvatorIcon(self.playerImageTwo)
-//                self.playerImageOne.sd_setImageWithURL(NSURL(string: player)))
+                let imageUrl = NSURL(string: player.playerImageUrl!)
+                self.playerImageTwo.sd_setImageWithURL(imageUrl)
+                TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.playerImageTwo)
                 
                 break;
             default:
-                
                 if(eventInfo.eventMaxPlayers?.integerValue > 3) {
                     self.playerCountImage.hidden = false
                     self.playerCountLabel.hidden = false
                     self.playerCountLabel?.text = "+" + String((playerArray.count - 2))
-                    self.addCostmeticsToPlayerAvatorIcon(self.playerCountImage)
-//                    self.playerImageOne.sd_setImageWithURL(NSURL(string: player)))
+                    TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.playerCountImage)
 
                 } else {
                     self.playerCountImage.hidden = false
                     self.playerCountLabel.hidden = true
-                    self.addCostmeticsToPlayerAvatorIcon(self.playerCountImage)
-//                    self.playerImageOne.sd_setImageWithURL(NSURL(string: player)))
+                    let imageUrl = NSURL(string: player.playerImageUrl!)
+                    self.playerCountImage.sd_setImageWithURL(imageUrl)
+                    TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.playerCountImage)
                 }
                 
                 break;
             }
         }
     }
-    
-    func addCostmeticsToPlayerAvatorIcon (imageView: UIImageView) {
-        imageView.layer.borderWidth = 1.0
-        imageView.layer.cornerRadius = imageView.frame.size.width/2
-        imageView.layer.borderColor = UIColor.grayColor().CGColor
-    }
-    
+        
     func eventButtonStatusForCurrentPlayer (event: TREventInfo, button: JoinEventButton) {
 
         if (event.eventStatus == EVENT_STATUS.FULL.rawValue) {
+            if(TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(event)) {
+                button.setImage(UIImage(named: "btnREADY"), forState: .Normal)
+                leaveEventButton.hidden = false
+            } else {
+                button.setImage(UIImage(named: "btnFULL"), forState: .Normal)
+                leaveEventButton.hidden = true
+            }
             
         } else if (event.eventStatus == EVENT_STATUS.NEW.rawValue) {
+            if (TRApplicationManager.sharedInstance.isCurrentPlayerCreatorOfTheEvent(event)) {
+                button.setImage(UIImage(named: "btnGOING"), forState: .Normal)
+                leaveEventButton.hidden = false
+            } else {
+                button.setImage(UIImage(named: "btnJOIN"), forState: .Normal)
+                leaveEventButton.hidden = true
+            }
             
         } else if (event.eventStatus == EVENT_STATUS.OPEN.rawValue) {
-            
+            if (TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(event)) {
+                button.setImage(UIImage(named: "btnGOING"), forState: .Normal)
+                leaveEventButton.hidden = false
+            } else {
+                button.setImage(UIImage(named: "btnJOIN"), forState: .Normal)
+                leaveEventButton.hidden = true
+            }
         } else {
-            
+            //CAN_JOIN
+            if (TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(event)) {
+                button.setImage(UIImage(named: "btnGOING"), forState: .Normal)
+                leaveEventButton.hidden = false
+            } else {
+                button.setImage(UIImage(named: "btnJOIN"), forState: .Normal)
+                leaveEventButton.hidden = true
+            }
         }
-        
     }
 }
 

@@ -29,6 +29,8 @@ class TRApplicationManager: NSObject {
     //Activity List
     var activityList: [TRActivityInfo] = []
     
+    //Image Helper
+    var imageHelper = ImageHelper()
     
     // MARK:- Initializer
     private override init() {
@@ -69,7 +71,7 @@ class TRApplicationManager: NSObject {
         return false
     }
     
-    func isCurrentPlayerOrganizerOfAnEvent (event: TREventInfo) -> Bool {
+    func isCurrentPlayerCreatorOfTheEvent (event: TREventInfo) -> Bool {
         
         if event.eventCreator?.playerID == TRUserInfo.getUserID() {
             return true
@@ -77,5 +79,18 @@ class TRApplicationManager: NSObject {
         
         return false
     }
+    
+    func getPlayerObjectForCurrentUser () -> TRPlayerInfo? {
+        for event in self.eventsList {
+            for player in event.eventPlayersArray {
+                if player.playerID == TRUserInfo.getUserID() {
+                    return player
+                }
+            }
+        }
+        
+        return nil
+    }
+
 }
 

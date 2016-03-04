@@ -17,4 +17,5 @@ class TRPlayerInfo: NSObject {
     var playerDate          : String?
     var playerPsnID         : String?
     var playerUdate         : String?
+    var playerImageUrl      : String?
 }

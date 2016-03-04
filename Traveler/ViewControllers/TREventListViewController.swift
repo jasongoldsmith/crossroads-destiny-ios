@@ -45,6 +45,11 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         
         //Adding Radius to the Current Player Avator
         self.currentPlayerAvatorIcon?.layer.cornerRadius = (self.currentPlayerAvatorIcon?.frame.width)!/2
+
+        //Avator for Current Player
+        let imageUrl = NSURL(string: (TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()?.playerImageUrl)!)
+        self.currentPlayerAvatorIcon?.sd_setImageWithURL(imageUrl)
+        TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.currentPlayerAvatorIcon!)
     }
 
     
@@ -89,14 +94,14 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         
         if segmentControl?.selectedSegmentIndex == 0 {
             cell.updateCellViewWithEvent(eventsInfo[indexPath.section])
-            cell.joinEventButton?.addTarget(self, action: "joinAnEvent:", forControlEvents: .TouchUpInside)
-            cell.joinEventButton?.buttonEventInfo = eventsInfo[indexPath.section]
         } else {
             cell.updateCellViewWithEvent(eventsInfo[4])
-            cell.joinEventButton?.addTarget(self, action: "joinAnEvent:", forControlEvents: .TouchUpInside)
-            cell.joinEventButton?.buttonEventInfo = eventsInfo[indexPath.section]
         }
-        
+
+        cell.joinEventButton?.addTarget(self, action: "joinAnEvent:", forControlEvents: .TouchUpInside)
+        cell.leaveEventButton?.addTarget(self, action: "leaveAnEvent:", forControlEvents: .TouchUpInside)
+        cell.joinEventButton?.buttonEventInfo = eventsInfo[indexPath.section]
+
         return cell
     }
     
@@ -115,6 +120,10 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
                 }
             })
         }
+    }
+    
+    func leaveAnEvent (sender: JoinEventButton) {
+        
     }
     
     func reloadEventTable () {

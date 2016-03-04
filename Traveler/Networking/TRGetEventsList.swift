@@ -77,11 +77,12 @@ class TRGetEventsList: TRRequest {
                                 for playerInfoObject in playersArray {
                                     let playerInfo = TRPlayerInfo()
                                     
-                                    playerInfo.playerID = playerInfoObject["_id"].stringValue
-                                    playerInfo.playerUserName = playerInfoObject["userName"].stringValue
-                                    playerInfo.playerDate = playerInfoObject["date"].stringValue
-                                    playerInfo.playerPsnID = playerInfoObject["psnId"].stringValue
-                                    playerInfo.playerUdate = playerInfoObject["uDate"].stringValue
+                                    playerInfo.playerID         = playerInfoObject["_id"].stringValue
+                                    playerInfo.playerUserName   = playerInfoObject["userName"].stringValue
+                                    playerInfo.playerDate       = playerInfoObject["date"].stringValue
+                                    playerInfo.playerPsnID      = playerInfoObject["psnId"].stringValue
+                                    playerInfo.playerUdate      = playerInfoObject["uDate"].stringValue
+                                    playerInfo.playerImageUrl   = playerInfoObject["imageUrl"].stringValue
                                     
                                     // Players of an Event Added
                                     eventInfo.eventPlayersArray.append(playerInfo)
