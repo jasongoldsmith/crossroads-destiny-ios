@@ -149,12 +149,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         self.reloadEventTable()
     }
     
-    
-    @IBAction func createNewEvent (sender: UIButton) {
-
-    }
-
-    
+        
     deinit {
         self.appManager.log.debug("de-init")
     }
