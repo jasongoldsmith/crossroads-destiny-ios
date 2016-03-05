@@ -1,8 +1,8 @@
 //
-//  TRJoinEventRequest.swift
+//  TRLeaveEventRequest.swift
 //  Traveler
 //
-//  Created by Ashutosh on 3/2/16.
+//  Created by Ashutosh on 3/5/16.
 //  Copyright © 2016 Forcecatalyst. All rights reserved.
 //
 
@@ -11,16 +11,17 @@ import Alamofire
 import SwiftyJSON
 
 
-class TRJoinEventRequest: TRRequest {
+class TRLeaveEventRequest: TRRequest {
     
-    func joinEventWithUserForEvent (userId: String, eventInfo: TREventInfo, completion: TRValueCallBack) {
-        let joinEventUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_JoinEventUrl
+    func leaveAnEvent (eventInfo: TREventInfo, completion: TRValueCallBack) {
         
-        var params         = [String: AnyObject]()
-        params["eId"]      = eventInfo.eventID
-        params["player"]   = userId
+        let leaveEventtUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_LeaveEventUrl
         
-        request(.POST, joinEventUrl, parameters:params)
+        var params = [String: AnyObject]()
+        params["eId"]    = eventInfo.eventID
+        params["player"] = TRUserInfo.getUserID()
+        
+        request(.POST, leaveEventtUrl, parameters:params)
             .responseJSON { response in
                 if response.result.isSuccess {
                     
@@ -97,7 +98,6 @@ class TRJoinEventRequest: TRRequest {
                                         existingEvent?.eventPlayersArray.append(playerInfo)
                                     }
                                 }
-                                
                                 completion(value: true )
                             } else {
                                 completion(value: false)

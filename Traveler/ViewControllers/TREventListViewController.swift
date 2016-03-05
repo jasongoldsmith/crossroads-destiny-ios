@@ -99,9 +99,11 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         }
 
         cell.joinEventButton?.addTarget(self, action: "joinAnEvent:", forControlEvents: .TouchUpInside)
-        cell.leaveEventButton?.addTarget(self, action: "leaveAnEvent:", forControlEvents: .TouchUpInside)
         cell.joinEventButton?.buttonEventInfo = eventsInfo[indexPath.section]
 
+        cell.leaveEventButton?.addTarget(self, action: "leaveAnEvent:", forControlEvents: .TouchUpInside)
+        cell.leaveEventButton.buttonEventInfo = eventsInfo[indexPath.section]
+        
         return cell
     }
     
@@ -109,7 +111,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         self.eventsTableView?.deselectRowAtIndexPath(indexPath, animated: false)
     }
     
-    func joinAnEvent (sender: JoinEventButton) {
+    func joinAnEvent (sender: EventButton) {
       
         if let eventInfo = sender.buttonEventInfo {
             _ = TRJoinEventRequest().joinEventWithUserForEvent(TRUserInfo.getUserID()!, eventInfo: eventInfo, completion: { (value) -> () in
@@ -122,8 +124,15 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         }
     }
     
-    func leaveAnEvent (sender: JoinEventButton) {
+    func leaveAnEvent (sender: EventButton) {
         
+        _ = TRLeaveEventRequest().leaveAnEvent(sender.buttonEventInfo!,completion: {value in
+            if (value == true) {
+                self.reloadEventTable()
+            } else {
+                
+            }
+        })
     }
     
     func reloadEventTable () {

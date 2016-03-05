@@ -1,5 +1,5 @@
 //
-//  JoinEventButton.swift
+//  EventButton.swift
 //  Traveler
 //
 //  Created by Ashutosh on 2/29/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JoinEventButton: UIButton {
+class EventButton: UIButton {
     
     var buttonEventInfo: TREventInfo?
     

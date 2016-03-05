@@ -14,9 +14,9 @@ class TRCreateEventViewController: TRBaseViewController {
     @IBOutlet var activityIcon      : UIImageView?
     @IBOutlet var cancelButton      : UIButton?
     @IBOutlet var nextBUtton        : UIButton?
-    @IBOutlet var activityOneButton     : JoinEventButton?
-    @IBOutlet var activityTwoButton     : JoinEventButton?
-    @IBOutlet var activityThreeButton   : JoinEventButton?
+    @IBOutlet var activityOneButton     : EventButton?
+    @IBOutlet var activityTwoButton     : EventButton?
+    @IBOutlet var activityThreeButton   : EventButton?
     
     
     override func viewDidLoad() {
@@ -56,15 +56,15 @@ class TRCreateEventViewController: TRBaseViewController {
         }
     }
     
-    @IBAction func activityButtonPressed (sender: JoinEventButton) {
+    @IBAction func activityButtonPressed (sender: EventButton) {
         print("Button Event: \(sender.buttonEventInfo?.eventActivity?.activityID!)")
         self.addButtonBorder(sender)
     }
     
     @IBAction func cancelButtonPressed (sender: UIButton) {
         for view in self.view.subviews as [UIView] {
-            if view.isKindOfClass(JoinEventButton) {
-                self.removeButtonBorde((view as? JoinEventButton)!)
+            if view.isKindOfClass(EventButton) {
+                self.removeButtonBorde((view as? EventButton)!)
             }
         }
     }
@@ -73,12 +73,12 @@ class TRCreateEventViewController: TRBaseViewController {
         
     }
     
-    func addButtonBorder (sender: JoinEventButton) {
+    func addButtonBorder (sender: EventButton) {
         sender.layer.borderWidth = 1.0
         sender.layer.borderColor = UIColor(red: 96/255, green: 184/255, blue: 0/255, alpha: 1).CGColor
     }
     
-    func removeButtonBorde (sender: JoinEventButton) {
+    func removeButtonBorde (sender: EventButton) {
         sender.layer.borderWidth = 0
         sender.layer.borderColor = UIColor.clearColor().CGColor
     }

@@ -531,7 +531,7 @@
                                     <constraint firstAttribute="width" constant="600" id="TWl-4l-ty1"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rqR-A6-np8" customClass="JoinEventButton" customModule="Traveler" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rqR-A6-np8" customClass="EventButton" customModule="Traveler" customModuleProvider="target">
                                 <rect key="frame" x="153" y="296" width="94" height="96"/>
                                 <animations/>
                                 <constraints>
@@ -543,7 +543,7 @@
                                     <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="rng-Fz-hAu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWj-rT-82b" customClass="JoinEventButton" customModule="Traveler" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWj-rT-82b" customClass="EventButton">
                                 <rect key="frame" x="353" y="296" width="94" height="96"/>
                                 <animations/>
                                 <constraints>
@@ -555,7 +555,7 @@
                                     <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="FtS-Lc-bFZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zec-Re-cT2" customClass="JoinEventButton" customModule="Traveler" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zec-Re-cT2" customClass="EventButton" customModule="Traveler" customModuleProvider="target">
                                 <rect key="frame" x="253" y="296" width="94" height="96"/>
                                 <animations/>
                                 <constraints>

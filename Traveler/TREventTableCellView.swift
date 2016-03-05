@@ -24,8 +24,8 @@ class TREventTableCellView: UITableViewCell {
     @IBOutlet weak var playerImageTwo       :UIImageView!
     @IBOutlet weak var playerCountImage     :UIImageView!
     @IBOutlet weak var playerCountLabel     :UILabel!
-    @IBOutlet weak var joinEventButton      :JoinEventButton!
-    @IBOutlet weak var leaveEventButton     :UIButton!
+    @IBOutlet weak var joinEventButton      :EventButton!
+    @IBOutlet weak var leaveEventButton     :EventButton!
     
     
     func updateCellViewWithEvent (eventInfo: TREventInfo) {
@@ -110,21 +110,26 @@ class TREventTableCellView: UITableViewCell {
         }
     }
         
-    func eventButtonStatusForCurrentPlayer (event: TREventInfo, button: JoinEventButton, completion: ShouldAddGreenBorder) {
+    func eventButtonStatusForCurrentPlayer (event: TREventInfo, button: EventButton, completion: ShouldAddGreenBorder) {
 
+        button.userInteractionEnabled = true
+        
         if (event.eventStatus == EVENT_STATUS.FULL.rawValue) {
             if(TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(event)) {
                 button.setImage(UIImage(named: "btnREADY"), forState: .Normal)
+                button.userInteractionEnabled = false
                 leaveEventButton.hidden = false
                 completion(value: true)
             } else {
                 button.setImage(UIImage(named: "btnFULL"), forState: .Normal)
+                button.userInteractionEnabled = false
                 leaveEventButton.hidden = true
             }
             
         } else if (event.eventStatus == EVENT_STATUS.NEW.rawValue) {
             if (TRApplicationManager.sharedInstance.isCurrentPlayerCreatorOfTheEvent(event)) {
                 button.setImage(UIImage(named: "btnGOING"), forState: .Normal)
+                button.userInteractionEnabled = false
                 leaveEventButton.hidden = false
             } else {
                 button.setImage(UIImage(named: "btnJOIN"), forState: .Normal)
@@ -134,6 +139,7 @@ class TREventTableCellView: UITableViewCell {
         } else if (event.eventStatus == EVENT_STATUS.OPEN.rawValue) {
             if (TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(event)) {
                 button.setImage(UIImage(named: "btnGOING"), forState: .Normal)
+                button.userInteractionEnabled = false
                 leaveEventButton.hidden = false
             } else {
                 button.setImage(UIImage(named: "btnJOIN"), forState: .Normal)
@@ -143,6 +149,7 @@ class TREventTableCellView: UITableViewCell {
             //CAN_JOIN
             if (TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(event)) {
                 button.setImage(UIImage(named: "btnGOING"), forState: .Normal)
+                button.userInteractionEnabled = false
                 leaveEventButton.hidden = false
             } else {
                 button.setImage(UIImage(named: "btnJOIN"), forState: .Normal)
