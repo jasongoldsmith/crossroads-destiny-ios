@@ -531,7 +531,7 @@
                                     <constraint firstAttribute="width" constant="600" id="TWl-4l-ty1"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rqR-A6-np8">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rqR-A6-np8" customClass="JoinEventButton" customModule="Traveler" customModuleProvider="target">
                                 <rect key="frame" x="153" y="296" width="94" height="96"/>
                                 <animations/>
                                 <constraints>
@@ -539,8 +539,11 @@
                                     <constraint firstAttribute="height" constant="96" id="fWG-NR-bnO"/>
                                 </constraints>
                                 <state key="normal" image="imgRaids"/>
+                                <connections>
+                                    <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="rng-Fz-hAu"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWj-rT-82b">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWj-rT-82b" customClass="JoinEventButton" customModule="Traveler" customModuleProvider="target">
                                 <rect key="frame" x="353" y="296" width="94" height="96"/>
                                 <animations/>
                                 <constraints>
@@ -548,8 +551,11 @@
                                     <constraint firstAttribute="height" constant="96" id="wq7-sn-YhW"/>
                                 </constraints>
                                 <state key="normal" image="imgCruicible"/>
+                                <connections>
+                                    <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="FtS-Lc-bFZ"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zec-Re-cT2">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zec-Re-cT2" customClass="JoinEventButton" customModule="Traveler" customModuleProvider="target">
                                 <rect key="frame" x="253" y="296" width="94" height="96"/>
                                 <animations/>
                                 <constraints>
@@ -557,6 +563,9 @@
                                     <constraint firstAttribute="width" constant="94" id="fC6-li-Y4q"/>
                                 </constraints>
                                 <state key="normal" image="imgWeeklies"/>
+                                <connections>
+                                    <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="g8G-hm-9sb"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgActivityBanner" translatesAutoresizingMaskIntoConstraints="NO" id="xX4-xG-ytT">
                                 <rect key="frame" x="275" y="191" width="50" height="50"/>
