@@ -13,13 +13,10 @@ class TRRootViewController: TRBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -37,28 +34,6 @@ class TRRootViewController: TRBaseViewController {
                     self.appManager.log.debug("Failed")
                 }
             })
-            
-                //GET ACTIVITIES REQUEST
-//            _ = TRgetActivityList().getActivityList({ (value) -> () in
-//                if (value == true) {
-//                    print("Success")
-//                } else {
-//                    print("Failed")
-//                }
-//            })
-
-            
-            // CREATE EVENT REQUEST
-//            _ = TRCreateEventRequest().createAnEvent({ (value) -> () in
-//                if(value == true) {
-//                    self.performSegueWithIdentifier("TREventListView", sender: self)
-//                    self.appManager.log.debug("Success")
-//                    
-//                } else {
-//                    self.appManager.log.debug("Failed")
-//                }
-//            })
-            
         }
         else {
             self.performSegueWithIdentifier("TRLoginOptionView", sender: self)
@@ -68,7 +43,5 @@ class TRRootViewController: TRBaseViewController {
     @IBAction func trUnwindAction(segue: UIStoryboardSegue) {
         
     }
-
-
 }
 

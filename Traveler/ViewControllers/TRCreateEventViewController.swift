@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import SDWebImage
+
 
 class TRCreateEventViewController: TRBaseViewController {
  
@@ -36,17 +38,17 @@ class TRCreateEventViewController: TRBaseViewController {
         leftButton.addTarget(self, action: Selector("backButtonPressed:"), forControlEvents: .TouchUpInside)
         let leftBarButton = UIBarButtonItem()
         leftBarButton.customView = leftButton
-
-        let rightButton = UIButton(frame: CGRectMake(0,0,30,30))
-        rightButton.setImage(UIImage(named: "iconBackArrow"), forState: .Normal)
-        rightButton.addTarget(self, action: Selector("backButtonPressed:"), forControlEvents: .TouchUpInside)
-        let rightBarButton = UIBarButtonItem()
-        rightBarButton.customView = rightButton
-
         
-        self.navigationItem.rightBarButtonItem = rightBarButton
+        // Avator Image View
+        let imageUrl = NSURL(string: (TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()?.playerImageUrl)!)
+        let avatorImageView = UIImageView()
+        avatorImageView.sd_setImageWithURL(imageUrl)
+        let avatorImageFrame = CGRectMake((self.navigationController?.navigationBar.frame.width)! - avatorImageView.frame.size.width - 50, (self.navigationController?.navigationBar.frame.height)! - avatorImageView.frame.size.height - 40, 30, 30)
+        avatorImageView.frame = avatorImageFrame
+        TRApplicationManager.sharedInstance.imageHelper.roundImageView(avatorImageView)
+        
         self.navigationItem.leftBarButtonItem = leftBarButton
-
+        self.navigationController?.navigationBar.addSubview(avatorImageView)
     }
     
     func backButtonPressed (sender: UIBarButtonItem) {
@@ -57,7 +59,6 @@ class TRCreateEventViewController: TRBaseViewController {
     }
     
     @IBAction func activityButtonPressed (sender: EventButton) {
-        print("Button Event: \(sender.buttonEventInfo?.eventActivity?.activityID!)")
         self.addButtonBorder(sender)
     }
     
@@ -74,8 +75,10 @@ class TRCreateEventViewController: TRBaseViewController {
     }
     
     func addButtonBorder (sender: EventButton) {
-        sender.layer.borderWidth = 1.0
-        sender.layer.borderColor = UIColor(red: 96/255, green: 184/255, blue: 0/255, alpha: 1).CGColor
+        if sender.layer.borderWidth == 0 {
+            sender.layer.borderWidth = 1.0
+            sender.layer.borderColor = UIColor(red: 96/255, green: 184/255, blue: 0/255, alpha: 1).CGColor
+        }
     }
     
     func removeButtonBorde (sender: EventButton) {
