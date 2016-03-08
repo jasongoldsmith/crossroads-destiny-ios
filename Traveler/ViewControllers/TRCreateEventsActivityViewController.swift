@@ -27,7 +27,7 @@ class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDa
         
         
         // Get all Activities of selected activityType
-        self.activitiesOfSelectedType       = TRApplicationManager.sharedInstance.getActivitiesOfType((self.seletectedActivity?.activityType)!)!
+        self.activitiesOfSelectedType = TRApplicationManager.sharedInstance.getActivitiesOfType((self.seletectedActivity?.activityType)!)!
         
         // Get all of Individual Type activities of ActivitySubType
         if let arrayWithSeperateSubActivities = self.getActivitiesOfDifferentSubType(self.activitiesOfSelectedType) {
@@ -56,6 +56,7 @@ class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDa
     func getActivitiesOfDifferentSubType (activityArray: [TRActivityInfo]) -> [TRActivityInfo]? {
         
         var newIndivdualActivityArray: [TRActivityInfo] = []
+        
         for(_, activity) in activitiesOfSelectedType.enumerate() {
             if (newIndivdualActivityArray.count == 0) {
                 newIndivdualActivityArray.append(activity)
