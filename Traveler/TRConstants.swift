@@ -35,9 +35,10 @@ struct K {
     }
     
     struct ViewControllerIdenifier {
-        static let ViewController_OnBoarding_Login          = "OnBoarding_Login"
-        static let ViewController_OnBoarding_Initial        = "OnBoarding_InitialVC"
-        static let ViewController_Main_RootViewController   = "Main_RootViewController"
+        static let VIEWCONTROLLER_LOGIN                    = "login"
+        static let VIEWCONTROLLER_SIGNUP                   = "signup"
+        static let VIEWCONTROLLER_CREATE_EVENT             = "createeventvc"
+        static let VIEW_CONTROLLER_CREATE_EVENT_ACTIVITY   = "createEventsActivityVC"
     }
 }
 

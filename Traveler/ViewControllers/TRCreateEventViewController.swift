@@ -13,6 +13,7 @@ import SDWebImage
 
 class TRCreateEventViewController: TRBaseViewController {
  
+    var selectedButton              : EventButton?
     @IBOutlet var activityIcon      : UIImageView?
     @IBOutlet var cancelButton      : UIButton?
     @IBOutlet var nextBUtton        : UIButton?
@@ -29,6 +30,26 @@ class TRCreateEventViewController: TRBaseViewController {
         nav?.barTintColor = UIColor(red: 10/255, green: 31/255, blue: 39/255, alpha: 1)
         
         addNavigationBarButtons()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // This is going to be a temporary code, at present we have only couple of activity sub-types and we have UI designed only for that.
+        // Will have to re-write this method when UI is updated to reflect number of activities
+        
+        //Fetch Activities by Type
+        for (_, activity) in TRApplicationManager.sharedInstance.activityList.enumerate() {
+            if (activity.activityType == "Raid" && activityOneButton?.buttonActivityInfo == nil) {
+                activityOneButton?.buttonActivityInfo = activity
+            } else if (activity.activityType == "Weeklies" && activityTwoButton?.buttonActivityInfo == nil) {
+                activityTwoButton?.buttonActivityInfo = activity
+            } else {
+                if (activityThreeButton?.buttonActivityInfo == nil) {
+                    activityThreeButton?.buttonActivityInfo = activity
+                }
+            }
+        }
     }
     
     func addNavigationBarButtons () {
@@ -51,7 +72,7 @@ class TRCreateEventViewController: TRBaseViewController {
         self.navigationController?.navigationBar.addSubview(avatorImageView)
     }
     
-    func backButtonPressed (sender: UIBarButtonItem) {
+    func backButtonPressed (sender: UIBarButtonItem?) {
         self.dismissViewControllerAnimated(true) { () -> Void in
             self.didMoveToParentViewController(nil)
             self.removeFromParentViewController()
@@ -59,19 +80,26 @@ class TRCreateEventViewController: TRBaseViewController {
     }
     
     @IBAction func activityButtonPressed (sender: EventButton) {
+        
+        if let _ = self.selectedButton {
+            self.removeButtonHighlight(self.selectedButton!)
+        }
+        
+        self.selectedButton = sender
         self.addButtonBorder(sender)
     }
     
     @IBAction func cancelButtonPressed (sender: UIButton) {
-        for view in self.view.subviews as [UIView] {
-            if view.isKindOfClass(EventButton) {
-                self.removeButtonBorde((view as? EventButton)!)
-            }
-        }
+        self.backButtonPressed(nil)
     }
     
     @IBAction func nextButtonPressed (sender: UIButton) {
-        
+        let vc = TRApplicationManager.sharedInstance.stroryBoardManager.getViewControllerWithID(K.ViewControllerIdenifier.VIEW_CONTROLLER_CREATE_EVENT_ACTIVITY, storyBoardID: K.StoryBoard.StoryBoard_Main)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func removeButtonHighlight (sender: EventButton) {
+        self.removeButtonBorde(sender)
     }
     
     func addButtonBorder (sender: EventButton) {

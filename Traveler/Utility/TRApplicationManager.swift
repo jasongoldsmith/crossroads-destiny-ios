@@ -80,6 +80,7 @@ class TRApplicationManager: NSObject {
         return false
     }
     
+    // Rewrite this method- User Server Login Response to save userID, psnID, UserImage
     func getPlayerObjectForCurrentUser () -> TRPlayerInfo? {
         for event in self.eventsList {
             for player in event.eventPlayersArray {
@@ -91,6 +92,8 @@ class TRApplicationManager: NSObject {
         
         return nil
     }
+    
+    
 
 }
 

@@ -10,7 +10,8 @@ import UIKit
 
 class EventButton: UIButton {
     
-    var buttonEventInfo: TREventInfo?
+    var buttonEventInfo     : TREventInfo?
+    var buttonActivityInfo  : TRActivityInfo?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

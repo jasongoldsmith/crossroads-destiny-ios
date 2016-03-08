@@ -137,6 +137,20 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         })
     }
     
+    @IBAction func createAnEvent () {
+        
+        _ = TRgetActivityList().getActivityList({ (value) -> () in
+            if (value == true) {
+                let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc : TRCreateEventViewController = storyboard.instantiateViewControllerWithIdentifier(K.ViewControllerIdenifier.VIEWCONTROLLER_CREATE_EVENT) as! TRCreateEventViewController
+                let navigationController = UINavigationController(rootViewController: vc)
+                self.presentViewController(navigationController, animated: true, completion: nil)
+            } else {
+                self.appManager.log.debug("Activity List fetch failed")
+            }
+        })
+    }
+    
     func reloadEventTable () {
         self.eventsTableView?.reloadData()
     }

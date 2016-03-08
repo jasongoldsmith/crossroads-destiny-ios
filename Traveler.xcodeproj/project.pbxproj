@@ -10,6 +10,9 @@
 		332C9CE41C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
 		332C9CE51C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
 		332C9CE61C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
+		334ED0C21C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334ED0C11C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift */; };
+		334ED0C31C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334ED0C11C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift */; };
+		334ED0C41C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334ED0C11C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift */; };
 		33742D801C7FBDF100C46742 /* TRConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33742D7F1C7FBDF100C46742 /* TRConstants.swift */; };
 		33742D811C7FC17700C46742 /* TRConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33742D7F1C7FBDF100C46742 /* TRConstants.swift */; };
 		33742D821C7FC17800C46742 /* TRConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33742D7F1C7FBDF100C46742 /* TRConstants.swift */; };
@@ -122,6 +125,7 @@
 
 /* Begin PBXFileReference section */
 		332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLeaveEventRequest.swift; sourceTree = "<group>"; };
+		334ED0C11C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCreateEventsActivityViewController.swift; sourceTree = "<group>"; };
 		33742D7F1C7FBDF100C46742 /* TRConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRConstants.swift; sourceTree = "<group>"; };
 		33742D851C7FC46B00C46742 /* TRBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRBaseViewController.swift; sourceTree = "<group>"; };
 		33742D871C7FC4B400C46742 /* TRApplicationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRApplicationManager.swift; sourceTree = "<group>"; };
@@ -321,6 +325,7 @@
 				62C5DF781C79769C0039A88E /* TREventListViewController.swift */,
 				33742D851C7FC46B00C46742 /* TRBaseViewController.swift */,
 				33F427481C8A0DBD00560BD3 /* TRCreateEventViewController.swift */,
+				334ED0C11C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -542,6 +547,7 @@
 				33FDB9BC1C863A550066237C /* TRgetActivityList.swift in Sources */,
 				33FDB9A81C84F7C50066237C /* TRCreatorInfo.swift in Sources */,
 				62C1FF301C77C15C00A78798 /* AppDelegate.swift in Sources */,
+				334ED0C21C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift in Sources */,
 				33742DAD1C810AE300C46742 /* TRActivityInfo.swift in Sources */,
 				33742DA51C81092D00C46742 /* TREventInfo.swift in Sources */,
 				33FDB9AE1C850AFC0066237C /* EventButton.swift in Sources */,
@@ -578,6 +584,7 @@
 				33FDB9BD1C863AF30066237C /* TRgetActivityList.swift in Sources */,
 				62C5DF7A1C79769C0039A88E /* TREventListViewController.swift in Sources */,
 				33742D941C7FC9B900C46742 /* TRRequest.swift in Sources */,
+				334ED0C31C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift in Sources */,
 				33FDB9A91C84F82F0066237C /* TRCreatorInfo.swift in Sources */,
 				33742D9E1C80FFAE00C46742 /* TRGetEventsList.swift in Sources */,
 				33742D9A1C800A5D00C46742 /* UISegmentedControlExtension.swift in Sources */,
@@ -614,6 +621,7 @@
 				33FDB9BE1C863AF40066237C /* TRgetActivityList.swift in Sources */,
 				62C5DF7B1C79769C0039A88E /* TREventListViewController.swift in Sources */,
 				33742D951C7FC9BA00C46742 /* TRRequest.swift in Sources */,
+				334ED0C41C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift in Sources */,
 				33FDB9AA1C84F8300066237C /* TRCreatorInfo.swift in Sources */,
 				33742D9F1C80FFAE00C46742 /* TRGetEventsList.swift in Sources */,
 				33742D9B1C800A5E00C46742 /* UISegmentedControlExtension.swift in Sources */,
@@ -745,6 +753,7 @@
 			baseConfigurationReference = 4909F40824E557126E933B36 /* Pods-Traveler.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = Traveler/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
