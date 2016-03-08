@@ -11,9 +11,9 @@ import UIKit
 
 class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    var seletectedActivity : TRActivityInfo?
-    var activitiesOfSelectedType: [TRActivityInfo] = []
-    
+    var seletectedActivity             : TRActivityInfo?
+    var activitiesOfSelectedType       : [TRActivityInfo] = []
+    var activitiesCheckPoints          : [TRActivityInfo] = []
     var activitySubTypeOfDifferentType : [TRActivityInfo] = []
     
     @IBOutlet var pickerOne: UIPickerView?
@@ -71,6 +71,10 @@ class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDa
         return newIndivdualActivityArray
     }
 
+    func getActivitiesCheckPointsForTheSelectedActivity (activity: TRActivityInfo) -> [TRActivityInfo] {
+        return self.activitiesOfSelectedType.filter {$0.activitySubType == activity.activitySubType}
+    }
+    
     func backButtonPressed (sender: UIBarButtonItem) {
         self.navigationController?.popViewControllerAnimated(true)
     }
@@ -81,6 +85,8 @@ class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDa
         _ = TRCreateEventRequest().createAnEvent({ (value) -> () in
             if (value == true) {
                 self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                    self.didMoveToParentViewController(nil)
+                    self.removeFromParentViewController()
                 })
             } else {
                 self.appManager.log.debug("Create Event Failed")
@@ -102,7 +108,10 @@ class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDa
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        appManager.log.debug("\(self.activitySubTypeOfDifferentType[row].activityID!)")
+        
+        if (self.activitySubTypeOfDifferentType[row].activityID) != nil {
+            self.activitiesCheckPoints = self.getActivitiesCheckPointsForTheSelectedActivity(self.activitySubTypeOfDifferentType[row])
+        }
     }
     
     deinit {
