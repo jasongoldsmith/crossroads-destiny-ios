@@ -97,11 +97,11 @@ class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDa
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.activitiesOfSelectedType[row].activitySubType
+        return self.activitySubTypeOfDifferentType[row].activitySubType
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        appManager.log.debug("\(self.activitiesOfSelectedType[row].activityID!)")
+        appManager.log.debug("\(self.activitySubTypeOfDifferentType[row].activityID!)")
     }
     
     deinit {
