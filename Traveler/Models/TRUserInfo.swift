@@ -10,11 +10,11 @@ import Foundation
 
 class TRUserInfo: NSObject {
     
-    var userName    :String?
-    var password    :String?
-    var psnID       :String?
-    var userID      :String?
-    
+    var userName        :String?
+    var password        :String?
+    var psnID           :String?
+    var userID          :String?
+    var userImageURL    :String?
     
     class func saveUserData (userData:TRUserInfo?) -> Bool {
         
@@ -26,6 +26,7 @@ class TRUserInfo: NSObject {
         userDefaults.setValue(userData?.userName, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserName)
         userDefaults.setValue(userData?.psnID, forKey: K.UserDefaultKey.UserAccountInfo.TR_PsnId)
         userDefaults.setValue(userData?.userID, forKeyPath: K.UserDefaultKey.UserAccountInfo.TR_UserID)
+        userDefaults.setValue(userData?.userImageURL  , forKeyPath: K.UserDefaultKey.UserAccountInfo.TR_USER_IMAGE)
         
         userDefaults.synchronize()
         
@@ -64,6 +65,18 @@ class TRUserInfo: NSObject {
         
         return nil
     }
+
+    class func getUserImageString() -> String? {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        if (userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_USER_IMAGE) != nil) {
+            let userImageUrl = userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_USER_IMAGE) as! String
+            
+            return userImageUrl
+        }
+        
+        return nil
+    }
+
     
     class func removeUserData () {
         NSUserDefaults.standardUserDefaults().removePersistentDomainForName(NSBundle.mainBundle().bundleIdentifier!)

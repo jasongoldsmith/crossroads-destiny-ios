@@ -61,15 +61,18 @@ class TRCreateEventViewController: TRBaseViewController {
         leftBarButton.customView = leftButton
         
         // Avator Image View
-        let imageUrl = NSURL(string: (TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()?.playerImageUrl)!)
-        let avatorImageView = UIImageView()
-        avatorImageView.sd_setImageWithURL(imageUrl)
-        let avatorImageFrame = CGRectMake((self.navigationController?.navigationBar.frame.width)! - avatorImageView.frame.size.width - 50, (self.navigationController?.navigationBar.frame.height)! - avatorImageView.frame.size.height - 40, 30, 30)
-        avatorImageView.frame = avatorImageFrame
-        TRApplicationManager.sharedInstance.imageHelper.roundImageView(avatorImageView)
-        
+        if let imageString = TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()?.playerImageUrl {
+            let imageUrl = NSURL(string: imageString)
+            let avatorImageView = UIImageView()
+            avatorImageView.sd_setImageWithURL(imageUrl)
+            let avatorImageFrame = CGRectMake((self.navigationController?.navigationBar.frame.width)! - avatorImageView.frame.size.width - 50, (self.navigationController?.navigationBar.frame.height)! - avatorImageView.frame.size.height - 40, 30, 30)
+            avatorImageView.frame = avatorImageFrame
+            TRApplicationManager.sharedInstance.imageHelper.roundImageView(avatorImageView)
+            
+            self.navigationController?.navigationBar.addSubview(avatorImageView)
+        }
+
         self.navigationItem.leftBarButtonItem = leftBarButton
-        self.navigationController?.navigationBar.addSubview(avatorImageView)
     }
     
     func backButtonPressed (sender: UIBarButtonItem?) {
