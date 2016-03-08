@@ -20,9 +20,70 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Initializing Manager
         TRApplicationManager.sharedInstance
         
+        //Add Notifications
+        self.addNotificationsPermission()
+        
+        
+        //Local Notifications
+        let localNotification:UILocalNotification = UILocalNotification()
+        localNotification.alertAction = "Testing notifications on iOS8"
+        localNotification.fireDate = NSDate(timeIntervalSinceNow: 10)
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        
         return true
     }
 
+    // MARK:-
+    // MARK:- Push Notifications related methods
+    // MARK:-
+    
+    // MARK:- Notifications
+    
+    func addNotificationsPermission () {
+        if UIApplication.sharedApplication().respondsToSelector("registerUserNotificationSettings:") {
+            
+            let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: [])
+            
+            UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+            UIApplication.sharedApplication().registerForRemoteNotifications()
+        } else {
+            UIApplication.sharedApplication().registerForRemoteNotifications()
+        }
+    }
+
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        
+        let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
+        var tokenString = ""
+        for var i = 0; i < deviceToken.length; i++ {
+            tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
+        }
+        print("Device Token: \(tokenString)")
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        if error.code == 3010 {
+            print("Push notifications are not supported in the iOS Simulator.")
+        } else {
+            print("application:didFailToRegisterForRemoteNotificationsWithError: %@", error)
+        }
+    }
+    
+    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+       
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        
+        if application.applicationState == UIApplicationState.Active {
+            NSNotificationCenter.defaultCenter().postNotificationName("RemoteNotificationWithActiveSesion", object: self, userInfo: userInfo)
+        }
+        if application.applicationState != UIApplicationState.Active {
+            NSNotificationCenter.defaultCenter().postNotificationName("UIApplicationDidReceiveRemoteNotification", object: self, userInfo: userInfo)
+        }
+    }
+    
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
