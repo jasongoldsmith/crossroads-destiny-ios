@@ -12,14 +12,20 @@ import UIKit
 class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     var seletectedActivity : TRActivityInfo?
+    var activitiesOfSelectedType: [TRActivityInfo] = []
     
     @IBOutlet var pickerOne: UIPickerView?
+    @IBOutlet var createEventButton: UIButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //ADD NAVIGATION BAR BUTTON
         addNavigationBarButtons()
+        
+        
+        //Get Activities
+        activitiesOfSelectedType = TRApplicationManager.sharedInstance.getActivitiesOfSubType((self.seletectedActivity?.activityType)!)!
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -42,21 +48,33 @@ class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDa
     }
     
     
+    @IBAction func createEventButtonTapped (sender: UIButton) {
+        
+        _ = TRCreateEventRequest().createAnEvent({ (value) -> () in
+            if (value == true) {
+                self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                })
+            } else {
+                self.appManager.log.debug("Create Event Failed")
+            }
+        })
+    }
+    
     //#MARK:- PICKER_VIEW
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 10
+        return self.activitiesOfSelectedType.count
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "hello"
+        return self.activitiesOfSelectedType[row].activitySubType
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
+        appManager.log.debug("\(self.activitiesOfSelectedType[row].activityID!)")
     }
     
     deinit {

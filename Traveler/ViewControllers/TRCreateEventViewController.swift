@@ -95,7 +95,7 @@ class TRCreateEventViewController: TRBaseViewController {
     
     @IBAction func nextButtonPressed (sender: UIButton) {
         
-        if let _ = self.selectedButton {
+        if let _ = self.selectedButton?.buttonActivityInfo {
             let vc = TRApplicationManager.sharedInstance.stroryBoardManager.getViewControllerWithID(K.ViewControllerIdenifier.VIEW_CONTROLLER_CREATE_EVENT_ACTIVITY, storyBoardID: K.StoryBoard.StoryBoard_Main) as! TRCreateEventsActivityViewController
             vc.seletectedActivity = self.selectedButton?.buttonActivityInfo
             

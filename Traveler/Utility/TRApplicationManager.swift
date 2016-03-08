@@ -63,16 +63,15 @@ class TRApplicationManager: NSObject {
     
     func isCurrentPlayerInAnEvent (event: TREventInfo) -> Bool {
         
-        for (_, player) in event.eventPlayersArray.enumerate() {
-            if player.playerID == TRUserInfo.getUserID() {
-                return true
-            }
+        let found = event.eventPlayersArray.filter {$0.playerID == TRUserInfo.getUserID()}
+        if found.count > 0 {
+            return true
         }
+
         return false
     }
     
     func isCurrentPlayerCreatorOfTheEvent (event: TREventInfo) -> Bool {
-        
         if event.eventCreator?.playerID == TRUserInfo.getUserID() {
             return true
         }
@@ -93,7 +92,11 @@ class TRApplicationManager: NSObject {
         return nil
     }
     
+    // Filter Activity Array Based on ActivityType
+    func getActivitiesOfSubType (activityType: String) -> [TRActivityInfo]? {
+        let activityArray = self.activityList.filter {$0.activityType == activityType}
+        return activityArray
+    }
     
-
 }
 

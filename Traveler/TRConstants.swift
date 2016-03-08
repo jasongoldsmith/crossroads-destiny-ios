@@ -37,6 +37,7 @@ struct K {
     struct ViewControllerIdenifier {
         static let VIEWCONTROLLER_LOGIN                    = "login"
         static let VIEWCONTROLLER_SIGNUP                   = "signup"
+        static let VIEWCONTROLLER_EVENT_LIST               = "eventListVC"
         static let VIEWCONTROLLER_CREATE_EVENT             = "createeventvc"
         static let VIEW_CONTROLLER_CREATE_EVENT_ACTIVITY   = "createEventsActivityVC"
     }
