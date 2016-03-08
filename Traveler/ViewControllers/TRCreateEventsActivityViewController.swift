@@ -9,7 +9,11 @@
 import Foundation
 import UIKit
 
-class TRCreateEventsActivityViewController: TRBaseViewController {
+class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    var seletectedActivity : TRActivityInfo?
+    
+    @IBOutlet var pickerOne: UIPickerView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +39,24 @@ class TRCreateEventsActivityViewController: TRBaseViewController {
 
     func backButtonPressed (sender: UIBarButtonItem) {
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    
+    //#MARK:- PICKER_VIEW
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 10
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "hello"
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
     }
     
     deinit {

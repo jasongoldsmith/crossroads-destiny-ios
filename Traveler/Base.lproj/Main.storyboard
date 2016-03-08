@@ -640,13 +640,28 @@
                                     <constraint firstAttribute="width" constant="600" id="m6Q-mz-p9B"/>
                                 </constraints>
                             </imageView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wJZ-0T-fY3">
+                                <rect key="frame" x="0.0" y="182" width="600" height="44"/>
+                                <color key="backgroundColor" red="0.0078431372550000003" green="0.65098039220000004" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="UQL-FR-sq8"/>
+                                    <constraint firstAttribute="width" constant="600" id="hEX-ft-8hN"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="SIb-ex-Vef" id="4xH-dF-ndQ"/>
+                                    <outlet property="delegate" destination="SIb-ex-Vef" id="ghY-Og-m1X"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wJZ-0T-fY3" firstAttribute="top" secondItem="bIp-zP-IRu" secondAttribute="bottom" constant="162" id="2LU-Fr-8df"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Pxz-vb-hdf" secondAttribute="trailing" constant="-20" id="IVo-fM-1Lh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wcG-mQ-lOI" secondAttribute="trailing" constant="-20" id="KQh-Yl-nN1"/>
                             <constraint firstItem="sDh-UW-KEB" firstAttribute="top" secondItem="ZhQ-dE-tgK" secondAttribute="topMargin" id="L4e-Jg-feS"/>
                             <constraint firstItem="sDh-UW-KEB" firstAttribute="leading" secondItem="ZhQ-dE-tgK" secondAttribute="leadingMargin" constant="-20" id="PfS-KI-2Af"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wJZ-0T-fY3" secondAttribute="trailing" constant="-20" id="UQ4-g6-gav"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sDh-UW-KEB" secondAttribute="trailing" constant="-20" id="UWa-YL-sbY"/>
                             <constraint firstItem="wcG-mQ-lOI" firstAttribute="top" secondItem="ZhQ-dE-tgK" secondAttribute="topMargin" id="a4t-YR-BGj"/>
                             <constraint firstItem="Pxz-vb-hdf" firstAttribute="leading" secondItem="ZhQ-dE-tgK" secondAttribute="leadingMargin" constant="-20" id="lOj-jK-ZKD"/>
@@ -654,8 +669,12 @@
                             <constraint firstItem="Jb2-so-eWb" firstAttribute="top" secondItem="Pxz-vb-hdf" secondAttribute="bottom" id="p1h-nE-j2D"/>
                             <constraint firstItem="Jb2-so-eWb" firstAttribute="top" secondItem="sDh-UW-KEB" secondAttribute="bottom" id="rB3-vu-ecd"/>
                             <constraint firstItem="Pxz-vb-hdf" firstAttribute="top" secondItem="ZhQ-dE-tgK" secondAttribute="topMargin" id="urf-Wz-tTk"/>
+                            <constraint firstItem="wJZ-0T-fY3" firstAttribute="leading" secondItem="ZhQ-dE-tgK" secondAttribute="leadingMargin" constant="-20" id="y8M-cR-dz1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pickerOne" destination="wJZ-0T-fY3" id="1L6-6c-KtI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="svx-oS-Jpy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

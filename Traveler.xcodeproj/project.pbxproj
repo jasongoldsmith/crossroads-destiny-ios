@@ -11,8 +11,8 @@
 		332C9CE51C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
 		332C9CE61C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
 		334ED0C21C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334ED0C11C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift */; };
-		334ED0C31C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334ED0C11C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift */; };
-		334ED0C41C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334ED0C11C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift */; };
+		334ED0C51C8E5B71007523AC /* TRCreateEventsActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334ED0C11C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift */; };
+		334ED0C61C8E5B72007523AC /* TRCreateEventsActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334ED0C11C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift */; };
 		33742D801C7FBDF100C46742 /* TRConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33742D7F1C7FBDF100C46742 /* TRConstants.swift */; };
 		33742D811C7FC17700C46742 /* TRConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33742D7F1C7FBDF100C46742 /* TRConstants.swift */; };
 		33742D821C7FC17800C46742 /* TRConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33742D7F1C7FBDF100C46742 /* TRConstants.swift */; };
@@ -584,7 +584,7 @@
 				33FDB9BD1C863AF30066237C /* TRgetActivityList.swift in Sources */,
 				62C5DF7A1C79769C0039A88E /* TREventListViewController.swift in Sources */,
 				33742D941C7FC9B900C46742 /* TRRequest.swift in Sources */,
-				334ED0C31C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift in Sources */,
+				334ED0C51C8E5B71007523AC /* TRCreateEventsActivityViewController.swift in Sources */,
 				33FDB9A91C84F82F0066237C /* TRCreatorInfo.swift in Sources */,
 				33742D9E1C80FFAE00C46742 /* TRGetEventsList.swift in Sources */,
 				33742D9A1C800A5D00C46742 /* UISegmentedControlExtension.swift in Sources */,
@@ -621,7 +621,7 @@
 				33FDB9BE1C863AF40066237C /* TRgetActivityList.swift in Sources */,
 				62C5DF7B1C79769C0039A88E /* TREventListViewController.swift in Sources */,
 				33742D951C7FC9BA00C46742 /* TRRequest.swift in Sources */,
-				334ED0C41C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift in Sources */,
+				334ED0C61C8E5B72007523AC /* TRCreateEventsActivityViewController.swift in Sources */,
 				33FDB9AA1C84F8300066237C /* TRCreatorInfo.swift in Sources */,
 				33742D9F1C80FFAE00C46742 /* TRGetEventsList.swift in Sources */,
 				33742D9B1C800A5E00C46742 /* UISegmentedControlExtension.swift in Sources */,

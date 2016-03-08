@@ -94,8 +94,13 @@ class TRCreateEventViewController: TRBaseViewController {
     }
     
     @IBAction func nextButtonPressed (sender: UIButton) {
-        let vc = TRApplicationManager.sharedInstance.stroryBoardManager.getViewControllerWithID(K.ViewControllerIdenifier.VIEW_CONTROLLER_CREATE_EVENT_ACTIVITY, storyBoardID: K.StoryBoard.StoryBoard_Main)
-        self.navigationController?.pushViewController(vc, animated: true)
+        
+        if let _ = self.selectedButton {
+            let vc = TRApplicationManager.sharedInstance.stroryBoardManager.getViewControllerWithID(K.ViewControllerIdenifier.VIEW_CONTROLLER_CREATE_EVENT_ACTIVITY, storyBoardID: K.StoryBoard.StoryBoard_Main) as! TRCreateEventsActivityViewController
+            vc.seletectedActivity = self.selectedButton?.buttonActivityInfo
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func removeButtonHighlight (sender: EventButton) {
