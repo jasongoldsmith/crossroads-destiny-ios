@@ -14,19 +14,27 @@ class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDa
     var seletectedActivity : TRActivityInfo?
     var activitiesOfSelectedType: [TRActivityInfo] = []
     
+    var activitySubTypeOfDifferentType : [TRActivityInfo] = []
+    
     @IBOutlet var pickerOne: UIPickerView?
     @IBOutlet var createEventButton: UIButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //ADD NAVIGATION BAR BUTTON
+        // ADD NAVIGATION BAR BUTTON
         addNavigationBarButtons()
         
         
-        //Get Activities
-        activitiesOfSelectedType = TRApplicationManager.sharedInstance.getActivitiesOfSubType((self.seletectedActivity?.activityType)!)!
+        // Get all Activities of selected activityType
+        self.activitiesOfSelectedType       = TRApplicationManager.sharedInstance.getActivitiesOfType((self.seletectedActivity?.activityType)!)!
+        
+        // Get all of Individual Type activities of ActivitySubType
+        if let arrayWithSeperateSubActivities = self.getActivitiesOfDifferentSubType(self.activitiesOfSelectedType) {
+            self.activitySubTypeOfDifferentType = arrayWithSeperateSubActivities
+        }
     }
+    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidLoad()
@@ -41,6 +49,25 @@ class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDa
         let leftBarButton = UIBarButtonItem()
         leftBarButton.customView = leftButton
         self.navigationItem.leftBarButtonItem = leftBarButton
+    }
+    
+    
+    // Loop through received activities and eliminate activities with same "activitySubType"
+    func getActivitiesOfDifferentSubType (activityArray: [TRActivityInfo]) -> [TRActivityInfo]? {
+        
+        var newIndivdualActivityArray: [TRActivityInfo] = []
+        for(_, activity) in activitiesOfSelectedType.enumerate() {
+            if (newIndivdualActivityArray.count == 0) {
+                newIndivdualActivityArray.append(activity)
+            } else {
+                let activityArray = newIndivdualActivityArray.filter {$0.activitySubType == activity.activitySubType}
+                if (activityArray.count == 0) {
+                    newIndivdualActivityArray.append(activity)
+                }
+            }
+        }
+        
+        return newIndivdualActivityArray
     }
 
     func backButtonPressed (sender: UIBarButtonItem) {
@@ -66,7 +93,7 @@ class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDa
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.activitiesOfSelectedType.count
+        return self.activitySubTypeOfDifferentType.count
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {

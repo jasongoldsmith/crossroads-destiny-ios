@@ -93,7 +93,7 @@ class TRApplicationManager: NSObject {
     }
     
     // Filter Activity Array Based on ActivityType
-    func getActivitiesOfSubType (activityType: String) -> [TRActivityInfo]? {
+    func getActivitiesOfType (activityType: String) -> [TRActivityInfo]? {
         let activityArray = self.activityList.filter {$0.activityType == activityType}
         return activityArray
     }
