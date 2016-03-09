@@ -28,9 +28,13 @@ class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDa
     //Contains all Unique checkPoints for a certain ActivityType
     var activitiesUniqueCheckPoints     : [TRActivityInfo] = []
 
+    // Contains All Unique Dificulty Level from "activitiesDifficultLevel"
+    var activitiesUniqueDifficultLevel  : [TRActivityInfo] = []
+
     
-    @IBOutlet var pickerOne: UIPickerView?
-    @IBOutlet var pickerTwo: UIPickerView?
+    @IBOutlet var pickerOne     : UIPickerView?
+    @IBOutlet var pickerTwo     : UIPickerView?
+    @IBOutlet var pickerThree   : UIPickerView?
     @IBOutlet var createEventButton: UIButton?
     
     override func viewDidLoad() {
@@ -48,8 +52,9 @@ class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDa
             self.activityUniqueSubType = arrayWithSeperateSubActivities
         }
         
-        self.activitiesCheckPoints = self.getActivitiesCheckPointsForTheSelectedActivity(self.activityUniqueSubType[0])!
-        self.activitiesUniqueCheckPoints = self.getUniqueCheckPoints(self.activitiesCheckPoints)!
+        self.activitiesCheckPoints          = self.getActivitiesCheckPointsForTheSelectedActivity(self.activityUniqueSubType[0])!
+        self.activitiesUniqueCheckPoints    = self.getUniqueCheckPoints(self.activitiesCheckPoints)!
+        self.activitiesUniqueDifficultLevel = self.getAllDificultyLevelsForActiviitySubType(self.activitiesUniqueCheckPoints)!
     }
     
     
@@ -67,35 +72,37 @@ class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDa
         leftBarButton.customView = leftButton
         self.navigationItem.leftBarButtonItem = leftBarButton
     }
+   
     
-    
+    //MARK:- DATA METHODS
     // Loop through received activities and eliminate activities with same "activitySubType"
     func getUniqueActivitiesOfSubType (activityArray: [TRActivityInfo]) -> [TRActivityInfo]? {
         
-        var newIndivdualActivityArray: [TRActivityInfo] = []
+        var newUniqueActivityArray: [TRActivityInfo] = []
         
         for(_, activity) in activitiesOfSelectedType.enumerate() {
-            if (newIndivdualActivityArray.count == 0) {
-                newIndivdualActivityArray.append(activity)
+            if (newUniqueActivityArray.count == 0) {
+                newUniqueActivityArray.append(activity)
             } else {
-                let activityArray = newIndivdualActivityArray.filter {$0.activitySubType == activity.activitySubType}
+                let activityArray = newUniqueActivityArray.filter {$0.activitySubType == activity.activitySubType}
                 if (activityArray.count == 0) {
-                    newIndivdualActivityArray.append(activity)
+                    newUniqueActivityArray.append(activity)
                 }
             }
         }
         
-        return newIndivdualActivityArray
+        return newUniqueActivityArray
     }
 
     func getUniqueCheckPoints (activity: [TRActivityInfo]) -> [TRActivityInfo]? {
         var newUniqueCheckPoints: [TRActivityInfo] = []
         
         for(_, activity) in activity.enumerate() {
+            
             if (newUniqueCheckPoints.count == 0) {
                 newUniqueCheckPoints.append(activity)
             } else {
-                let activityArray = newUniqueCheckPoints.filter {$0.activitySubType == activity.activitySubType}
+                let activityArray = newUniqueCheckPoints.filter {$0.activityCheckPoint == activity.activityCheckPoint}
                 if (activityArray.count == 0) {
                     newUniqueCheckPoints.append(activity)
                 }
@@ -109,6 +116,27 @@ class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDa
         return self.activitiesOfSelectedType.filter {$0.activitySubType == activity.activitySubType}
     }
     
+    func getAllDificultyLevelsForActiviitySubType (currentCheckPoints: [TRActivityInfo]) -> [TRActivityInfo]? {
+        
+        var currentUniqueDificultyLevel: [TRActivityInfo] = []
+        
+        for(_, activity) in currentCheckPoints.enumerate() {
+            
+            if (currentUniqueDificultyLevel.count == 0) {
+                currentUniqueDificultyLevel.append(activity)
+            } else {
+                let activityArray = currentUniqueDificultyLevel.filter {$0.activityDificulty == activity.activityDificulty}
+                if (activityArray.count == 0) {
+                    currentUniqueDificultyLevel.append(activity)
+                }
+            }
+        }
+        
+        return currentUniqueDificultyLevel
+
+    }
+    
+    //MARK:- UI-ACTIONS
     func backButtonPressed (sender: UIBarButtonItem) {
         self.navigationController?.popViewControllerAnimated(true)
     }
@@ -140,8 +168,8 @@ class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDa
         } else if (pickerView == self.pickerTwo) {
             return self.activitiesUniqueCheckPoints.count
         }
-
-        return self.activitiesUniqueCheckPoints.count
+        
+        return self.activitiesUniqueDifficultLevel.count
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -152,8 +180,7 @@ class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDa
             return self.activitiesUniqueCheckPoints[row].activityCheckPoint
         }
         
-        return self.activitiesUniqueCheckPoints[row].activityCheckPoint
-        
+        return self.activitiesUniqueDifficultLevel[row].activityDificulty
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -161,12 +188,13 @@ class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDa
         if pickerView == self.pickerOne {
             if (self.activityUniqueSubType[row].activityID) != nil {
                 
-                self.activitiesCheckPoints = self.getActivitiesCheckPointsForTheSelectedActivity(self.activityUniqueSubType[row])!
-                self.activitiesUniqueCheckPoints = self.getUniqueCheckPoints(self.activitiesCheckPoints)!
+                self.activitiesCheckPoints          = self.getActivitiesCheckPointsForTheSelectedActivity(self.activityUniqueSubType[row])!
+                self.activitiesUniqueCheckPoints    = self.getUniqueCheckPoints(self.activitiesCheckPoints)!
+                self.activitiesUniqueDifficultLevel = self.getAllDificultyLevelsForActiviitySubType(self.activitiesCheckPoints)!
                 
-                self.pickerTwo?.reloadAllComponents()
                 self.pickerTwo!.selectRow(0, inComponent: 0, animated: true)
-                self.pickerView(self.pickerTwo!, didSelectRow: 0, inComponent: 0)
+                self.pickerThree!.selectRow(0, inComponent: 0, animated: true)
+                self.pickerTwo?.reloadAllComponents()
             }
         }
     }
