@@ -51,14 +51,9 @@ class TRApplicationManager: NSObject {
     
     // MARK:- Data Helper Methods
     func getEventById (eventId: String) -> TREventInfo? {
-        
-        for eventObject in TRApplicationManager.sharedInstance.eventsList {
-            if eventObject.eventID == eventId {
-                return eventObject
-            }
-        }
-        
-        return nil
+
+        let eventObjectArray = TRApplicationManager.sharedInstance.eventsList.filter{$0.eventID == eventId}
+        return eventObjectArray.first
     }
     
     func isCurrentPlayerInAnEvent (event: TREventInfo) -> Bool {

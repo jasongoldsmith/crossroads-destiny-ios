@@ -47,8 +47,8 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         self.currentPlayerAvatorIcon?.layer.cornerRadius = (self.currentPlayerAvatorIcon?.frame.width)!/2
 
         //Avator for Current Player
-        if let _ = TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser() {
-            let imageUrl = NSURL(string: (TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()?.playerImageUrl)!)
+        if let imageUrl = TRUserInfo.getUserImageString() {
+            let imageUrl = NSURL(string: imageUrl)
             self.currentPlayerAvatorIcon?.sd_setImageWithURL(imageUrl)
             TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.currentPlayerAvatorIcon!)
         }
