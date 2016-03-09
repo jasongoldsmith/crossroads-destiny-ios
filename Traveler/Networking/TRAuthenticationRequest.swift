@@ -51,10 +51,11 @@ class TRAuthenticationRequest: TRRequest {
                         } else
                         {
                             let userData = TRUserInfo()
-                            userData.userName = swiftyJsonVar["value"]["userName"].string
-                            userData.userID   = swiftyJsonVar["value"]["_id"].string
-                            userData.psnID   = swiftyJsonVar["value"]["psnID"].string
-
+                            userData.userName       = swiftyJsonVar["value"]["userName"].string
+                            userData.userID         = swiftyJsonVar["value"]["_id"].string
+                            userData.psnID          = swiftyJsonVar["value"]["psnID"].string
+                            userData.userImageURL   = swiftyJsonVar["value"]["imageUrl"].string
+                            
                             TRUserInfo.saveUserData(userData)
                             completion(value: true )
                         }
@@ -99,9 +100,11 @@ class TRAuthenticationRequest: TRRequest {
                         }
                         else {
                             let userData = TRUserInfo()
-                            userData.userName = swiftyJsonVar["value"]["userName"].string
-                            userData.userID   = swiftyJsonVar["value"]["_id"].string
-                            
+                            userData.userName       = swiftyJsonVar["value"]["userName"].string
+                            userData.userID         = swiftyJsonVar["value"]["_id"].string
+                            userData.psnID          = swiftyJsonVar["value"]["psnID"].string
+                            userData.userImageURL   = swiftyJsonVar["value"]["imageUrl"].string
+
                             TRUserInfo.saveUserData(userData)
                             completion(value: true )
                         }

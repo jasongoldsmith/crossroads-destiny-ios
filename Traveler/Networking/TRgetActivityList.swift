@@ -35,7 +35,7 @@ class TRgetActivityList: TRRequest {
                                 
                                 activityInfo.activityID         = activity["_id"].stringValue
                                 activityInfo.activitySubType    = activity["aSubType"].stringValue
-                                activityInfo.activityCheckPoint = activity["aLight"].stringValue
+                                activityInfo.activityCheckPoint = activity["aCheckpoint"].stringValue
                                 activityInfo.activityType       = activity["aType"].stringValue
                                 activityInfo.activityDificulty  = activity["aDifficulty"].stringValue
                                 activityInfo.activityLight      = activity["aLight"].number

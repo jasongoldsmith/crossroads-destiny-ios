@@ -13,10 +13,21 @@ private let PICKER_COLUMN_COUNT = 1
 
 class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
+    // Contains all the activities
     var seletectedActivity             : TRActivityInfo?
+    
+    // Contains Activities of only "selected" type
     var activitiesOfSelectedType       : [TRActivityInfo] = []
+    
+    //Contains Unique Activity Type
+    var activityUniqueSubType          : [TRActivityInfo] = []
+    
+    //Contains all checkPoints for a certain ActivityType
     var activitiesCheckPoints          : [TRActivityInfo] = []
-    var activitySubTypeOfDifferentType : [TRActivityInfo] = []
+
+    //Contains all Unique checkPoints for a certain ActivityType
+    var activitiesUniqueCheckPoints     : [TRActivityInfo] = []
+
     
     @IBOutlet var pickerOne: UIPickerView?
     @IBOutlet var pickerTwo: UIPickerView?
@@ -33,11 +44,12 @@ class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDa
         self.activitiesOfSelectedType = TRApplicationManager.sharedInstance.getActivitiesOfType((self.seletectedActivity?.activityType)!)!
         
         // Get all of Individual Type activities of ActivitySubType
-        if let arrayWithSeperateSubActivities = self.getActivitiesOfDifferentSubType(self.activitiesOfSelectedType) {
-            self.activitySubTypeOfDifferentType = arrayWithSeperateSubActivities
+        if let arrayWithSeperateSubActivities = self.getUniqueActivitiesOfSubType(self.activitiesOfSelectedType) {
+            self.activityUniqueSubType = arrayWithSeperateSubActivities
         }
         
-        self.activitiesCheckPoints = self.getActivitiesCheckPointsForTheSelectedActivity(self.activitySubTypeOfDifferentType[0])
+        self.activitiesCheckPoints = self.getActivitiesCheckPointsForTheSelectedActivity(self.activityUniqueSubType[0])!
+        self.activitiesUniqueCheckPoints = self.getUniqueCheckPoints(self.activitiesCheckPoints)!
     }
     
     
@@ -58,7 +70,7 @@ class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDa
     
     
     // Loop through received activities and eliminate activities with same "activitySubType"
-    func getActivitiesOfDifferentSubType (activityArray: [TRActivityInfo]) -> [TRActivityInfo]? {
+    func getUniqueActivitiesOfSubType (activityArray: [TRActivityInfo]) -> [TRActivityInfo]? {
         
         var newIndivdualActivityArray: [TRActivityInfo] = []
         
@@ -76,7 +88,24 @@ class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDa
         return newIndivdualActivityArray
     }
 
-    func getActivitiesCheckPointsForTheSelectedActivity (activity: TRActivityInfo) -> [TRActivityInfo] {
+    func getUniqueCheckPoints (activity: [TRActivityInfo]) -> [TRActivityInfo]? {
+        var newUniqueCheckPoints: [TRActivityInfo] = []
+        
+        for(_, activity) in activity.enumerate() {
+            if (newUniqueCheckPoints.count == 0) {
+                newUniqueCheckPoints.append(activity)
+            } else {
+                let activityArray = newUniqueCheckPoints.filter {$0.activitySubType == activity.activitySubType}
+                if (activityArray.count == 0) {
+                    newUniqueCheckPoints.append(activity)
+                }
+            }
+        }
+        
+        return newUniqueCheckPoints
+    }
+    
+    func getActivitiesCheckPointsForTheSelectedActivity (activity: TRActivityInfo) -> [TRActivityInfo]? {
         return self.activitiesOfSelectedType.filter {$0.activitySubType == activity.activitySubType}
     }
     
@@ -107,35 +136,36 @@ class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDa
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         if pickerView == self.pickerOne {
-            return self.activitySubTypeOfDifferentType.count
+            return self.activityUniqueSubType.count
         } else if (pickerView == self.pickerTwo) {
-            return self.activitiesCheckPoints.count
+            return self.activitiesUniqueCheckPoints.count
         }
 
-        return self.activitiesCheckPoints.count
+        return self.activitiesUniqueCheckPoints.count
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         if pickerView == self.pickerOne {
-            return self.activitySubTypeOfDifferentType[row].activitySubType
+            return self.activityUniqueSubType[row].activitySubType
         } else if (pickerView == self.pickerTwo) {
-            return self.activitiesCheckPoints[row].activityCheckPoint
+            return self.activitiesUniqueCheckPoints[row].activityCheckPoint
         }
         
-        return self.activitiesCheckPoints[row].activityCheckPoint
+        return self.activitiesUniqueCheckPoints[row].activityCheckPoint
         
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         if pickerView == self.pickerOne {
-            if (self.activitySubTypeOfDifferentType[row].activityID) != nil {
-                self.activitiesCheckPoints = self.getActivitiesCheckPointsForTheSelectedActivity(self.activitySubTypeOfDifferentType[row])
+            if (self.activityUniqueSubType[row].activityID) != nil {
+                
+                self.activitiesCheckPoints = self.getActivitiesCheckPointsForTheSelectedActivity(self.activityUniqueSubType[row])!
+                self.activitiesUniqueCheckPoints = self.getUniqueCheckPoints(self.activitiesCheckPoints)!
                 
                 self.pickerTwo?.reloadAllComponents()
-                
-                self.pickerTwo!.selectRow(0, inComponent: 0, animated: false)
+                self.pickerTwo!.selectRow(0, inComponent: 0, animated: true)
                 self.pickerView(self.pickerTwo!, didSelectRow: 0, inComponent: 0)
             }
         }
