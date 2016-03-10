@@ -55,6 +55,9 @@ class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDa
         self.activitiesCheckPoints          = self.getActivitiesCheckPointsForTheSelectedActivity(self.activityUniqueSubType[0])!
         self.activitiesUniqueCheckPoints    = self.getUniqueCheckPoints(self.activitiesCheckPoints)!
         self.activitiesUniqueDifficultLevel = self.getAllDificultyLevelsForActiviitySubType(self.activitiesUniqueCheckPoints)!
+        
+        
+        
     }
     
     
@@ -141,21 +144,7 @@ class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDa
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    
-    @IBAction func createEventButtonTapped (sender: UIButton) {
         
-        _ = TRCreateEventRequest().createAnEvent({ (value) -> () in
-            if (value == true) {
-                self.dismissViewControllerAnimated(true, completion: { () -> Void in
-                    self.didMoveToParentViewController(nil)
-                    self.removeFromParentViewController()
-                })
-            } else {
-                self.appManager.log.debug("Create Event Failed")
-            }
-        })
-    }
-    
     //#MARK:- PICKER_VIEW
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return PICKER_COLUMN_COUNT

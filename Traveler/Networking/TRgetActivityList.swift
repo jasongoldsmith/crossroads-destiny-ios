@@ -29,6 +29,9 @@ class TRgetActivityList: TRRequest {
                             completion(value: false )
                         } else {
                             
+                            // Remove all pre-fetched and saved activities
+                            TRApplicationManager.sharedInstance.activityList.removeAll()
+                            
                             for activity in swiftyJsonVar.arrayValue {
                                 
                                 let activityInfo = TRActivityInfo()

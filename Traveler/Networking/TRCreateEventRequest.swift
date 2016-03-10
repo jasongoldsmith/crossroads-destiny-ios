@@ -13,9 +13,17 @@ import SwiftyJSON
 
 class TRCreateEventRequest: TRRequest {
  
-    func createAnEvent (completion: TRValueCallBack) {
+    func createAnEventWithActivity (activity: TRActivityInfo, completion: TRValueCallBack) {
         
         let createEventUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_EventCreationUrl
+        
+        //Add Parameters
+        var params = [String: AnyObject]()
+        params["eType"] = activity.activityID!
+        params["minPlayers"] = 1
+        params["maxPlayers"] = 6
+        params["creator"] = TRUserInfo().userID
+        params["players"] = [activity.activityID!]
         
         request(.GET, createEventUrl, parameters:self.params)
             .responseJSON { response in

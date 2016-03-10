@@ -13,10 +13,7 @@ import SDWebImage
 
 class TRCreateEventViewController: TRBaseViewController {
  
-    var selectedButton              : EventButton?
-    @IBOutlet var activityIcon      : UIImageView?
-    @IBOutlet var cancelButton      : UIButton?
-    @IBOutlet var nextBUtton        : UIButton?
+    @IBOutlet var activityIcon          : UIImageView?
     @IBOutlet var activityOneButton     : EventButton?
     @IBOutlet var activityTwoButton     : EventButton?
     @IBOutlet var activityThreeButton   : EventButton?
@@ -61,7 +58,7 @@ class TRCreateEventViewController: TRBaseViewController {
         leftBarButton.customView = leftButton
         
         // Avator Image View
-        if let imageString = TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()?.playerImageUrl {
+        if let imageString = TRUserInfo.getUserImageString() {
             let imageUrl = NSURL(string: imageString)
             let avatorImageView = UIImageView()
             avatorImageView.sd_setImageWithURL(imageUrl)
@@ -83,42 +80,13 @@ class TRCreateEventViewController: TRBaseViewController {
     }
     
     @IBAction func activityButtonPressed (sender: EventButton) {
-        
-        if let _ = self.selectedButton {
-            self.removeButtonHighlight(self.selectedButton!)
-        }
-        
-        self.selectedButton = sender
-        self.addButtonBorder(sender)
-    }
-    
-    @IBAction func cancelButtonPressed (sender: UIButton) {
-        self.backButtonPressed(nil)
-    }
-    
-    @IBAction func nextButtonPressed (sender: UIButton) {
-        
-        if let _ = self.selectedButton?.buttonActivityInfo {
-            let vc = TRApplicationManager.sharedInstance.stroryBoardManager.getViewControllerWithID(K.ViewControllerIdenifier.VIEW_CONTROLLER_CREATE_EVENT_ACTIVITY, storyBoardID: K.StoryBoard.StoryBoard_Main) as! TRCreateEventsActivityViewController
-            vc.seletectedActivity = self.selectedButton?.buttonActivityInfo
+        if let _ = sender.buttonActivityInfo {
+            let vc = TRApplicationManager.sharedInstance.stroryBoardManager.getViewControllerWithID(K.ViewControllerIdenifier.VIEW_CONTROLLER_CREATE_EVENT_SELECTION, storyBoardID: K.StoryBoard.StoryBoard_Main) as! TRCreateEventSelectionViewController
+            vc.seletectedActivity = sender.buttonActivityInfo
             
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
-    func removeButtonHighlight (sender: EventButton) {
-        self.removeButtonBorde(sender)
-    }
-    
-    func addButtonBorder (sender: EventButton) {
-        if sender.layer.borderWidth == 0 {
-            sender.layer.borderWidth = 1.0
-            sender.layer.borderColor = UIColor(red: 96/255, green: 184/255, blue: 0/255, alpha: 1).CGColor
-        }
-    }
-    
-    func removeButtonBorde (sender: EventButton) {
-        sender.layer.borderWidth = 0
-        sender.layer.borderColor = UIColor.clearColor().CGColor
-    }
 }
+

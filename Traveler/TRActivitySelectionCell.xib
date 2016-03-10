@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="activitySelectionCell" rowHeight="68" id="wa7-Av-Guj" customClass="TRActivitySelectionCell" customModule="Traveler" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wa7-Av-Guj" id="vbI-mf-zHg">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="67.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vdq-Jc-kwg">
+                        <rect key="frame" x="8" y="14" width="40" height="40"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="7gv-X5-hx3"/>
+                            <constraint firstAttribute="width" constant="40" id="8SR-fk-V2y"/>
+                            <constraint firstAttribute="width" constant="40" id="8za-uR-gHx"/>
+                            <constraint firstAttribute="height" constant="40" id="Ziw-YT-vB7"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8SR-fk-V2y"/>
+                                <exclude reference="Ziw-YT-vB7"/>
+                            </mask>
+                        </variation>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKJ-3l-uTv">
+                        <rect key="frame" x="56" y="0.0" width="264" height="68"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="256" id="66t-J2-MVt"/>
+                            <constraint firstAttribute="width" constant="256" id="6OO-RO-EqN"/>
+                            <constraint firstAttribute="height" constant="40" id="owZ-42-Oyj"/>
+                            <constraint firstAttribute="height" constant="40" id="vKv-ln-e1s"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="66t-J2-MVt"/>
+                                <exclude reference="6OO-RO-EqN"/>
+                                <exclude reference="owZ-42-Oyj"/>
+                                <exclude reference="vKv-ln-e1s"/>
+                            </mask>
+                        </variation>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="CKJ-3l-uTv" firstAttribute="trailing" secondItem="vbI-mf-zHg" secondAttribute="trailingMargin" constant="8" id="4Qc-bo-wpK"/>
+                    <constraint firstItem="CKJ-3l-uTv" firstAttribute="top" secondItem="vbI-mf-zHg" secondAttribute="topMargin" constant="-8" id="6W5-1w-vX3"/>
+                    <constraint firstItem="CKJ-3l-uTv" firstAttribute="leading" secondItem="vdq-Jc-kwg" secondAttribute="trailing" constant="8" id="8g0-Zs-tgF"/>
+                    <constraint firstItem="vdq-Jc-kwg" firstAttribute="top" secondItem="vbI-mf-zHg" secondAttribute="topMargin" constant="6" id="c0s-3V-ese"/>
+                    <constraint firstItem="vdq-Jc-kwg" firstAttribute="leading" secondItem="vbI-mf-zHg" secondAttribute="leadingMargin" id="cTf-Tv-Xlc"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="CKJ-3l-uTv" secondAttribute="bottom" constant="-8" id="fN4-J4-ROO"/>
+                    <constraint firstItem="vdq-Jc-kwg" firstAttribute="leading" secondItem="vbI-mf-zHg" secondAttribute="leadingMargin" id="flD-nV-Dny"/>
+                    <constraint firstItem="CKJ-3l-uTv" firstAttribute="leading" secondItem="vdq-Jc-kwg" secondAttribute="trailing" constant="8" id="o6Y-os-Hfg"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="vdq-Jc-kwg" secondAttribute="bottom" constant="5.5" id="q9q-Yi-IGU"/>
+                    <constraint firstItem="vdq-Jc-kwg" firstAttribute="centerY" secondItem="CKJ-3l-uTv" secondAttribute="centerY" id="uye-d1-VXv"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="c0s-3V-ese"/>
+                        <exclude reference="cTf-Tv-Xlc"/>
+                        <exclude reference="q9q-Yi-IGU"/>
+                        <exclude reference="8g0-Zs-tgF"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.082352941176470587" green="0.52941176470588236" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="activityIconImage" destination="vdq-Jc-kwg" id="e0l-CZ-ebR"/>
+                <outlet property="activityInfoLabel" destination="CKJ-3l-uTv" id="ZiK-gf-zG1"/>
+            </connections>
+            <point key="canvasLocation" x="312" y="313"/>
+        </tableViewCell>
+    </objects>
+</document>
