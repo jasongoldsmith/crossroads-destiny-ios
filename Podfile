@@ -6,6 +6,7 @@ target 'Traveler' do
 	pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 	pod 'XCGLogger', '~> 3.2'
     pod 'SDWebImage', '~>3.7'
+    pod 'AFDateHelper'
 end
 
 target 'TravelerTests' do

@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import AFDateHelper
 
 class TRCreateEventConfirmationViewController: TRBaseViewController {
     
@@ -52,7 +52,7 @@ class TRCreateEventConfirmationViewController: TRBaseViewController {
         //Adding Back Button to nav Bar
         let leftButton = UIButton(frame: CGRectMake(0,0,30,30))
         leftButton.setImage(UIImage(named: "iconBackArrow"), forState: .Normal)
-        leftButton.addTarget(self, action: Selector("backButtonPressed:"), forControlEvents: .TouchUpInside)
+        leftButton.addTarget(self, action: Selector("backButtonPressed"), forControlEvents: .TouchUpInside)
         let leftBarButton = UIBarButtonItem()
         leftBarButton.customView = leftButton
         self.navigationItem.leftBarButtonItem = leftBarButton
@@ -63,7 +63,7 @@ class TRCreateEventConfirmationViewController: TRBaseViewController {
     }
     
     //MARK:- UI-ACTIONS
-    func backButtonPressed (sender: UIBarButtonItem) {
+    @IBAction func backButtonPressed () {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
@@ -100,8 +100,17 @@ class TRCreateEventConfirmationViewController: TRBaseViewController {
             self.datePickerBackgroundImage?.alpha = 0
         }
         
+        var timeString = ""
         let choosenDate = self.datePickerView?.date
-        self.buttonThress?.setTitle("\(choosenDate!)", forState: .Normal)
+        if ((choosenDate?.isToday()) == true) {
+            timeString = "Start Time - Now"
+        } else if ((choosenDate?.isTomorrow()) == true) {
+            timeString = "Start Time - Tomorrow"
+        } else {
+            timeString = (choosenDate?.toString(dateStyle: .ShortStyle, timeStyle: .ShortStyle))!
+        }
+        
+        self.buttonThress?.setTitle(timeString, forState: .Normal)
     }
     
     deinit {
