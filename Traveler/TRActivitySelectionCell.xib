@@ -39,6 +39,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKJ-3l-uTv">
                         <rect key="frame" x="56" y="0.0" width="264" height="68"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.0" green="0.52549019607843139" blue="0.81568627450980391" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="256" id="66t-J2-MVt"/>
                             <constraint firstAttribute="width" constant="256" id="6OO-RO-EqN"/>
@@ -57,34 +58,34 @@
                             </mask>
                         </variation>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconArrowRight" translatesAutoresizingMaskIntoConstraints="NO" id="aDz-1g-9rt">
+                        <rect key="frame" x="302" y="28" width="5" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="5" id="CwN-Rc-jpD"/>
+                            <constraint firstAttribute="height" constant="10" id="MU0-n4-taI"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="aDz-1g-9rt" firstAttribute="trailing" secondItem="vbI-mf-zHg" secondAttribute="trailingMargin" constant="-5" id="05F-be-71c"/>
                     <constraint firstItem="CKJ-3l-uTv" firstAttribute="trailing" secondItem="vbI-mf-zHg" secondAttribute="trailingMargin" constant="8" id="4Qc-bo-wpK"/>
                     <constraint firstItem="CKJ-3l-uTv" firstAttribute="top" secondItem="vbI-mf-zHg" secondAttribute="topMargin" constant="-8" id="6W5-1w-vX3"/>
-                    <constraint firstItem="CKJ-3l-uTv" firstAttribute="leading" secondItem="vdq-Jc-kwg" secondAttribute="trailing" constant="8" id="8g0-Zs-tgF"/>
-                    <constraint firstItem="vdq-Jc-kwg" firstAttribute="top" secondItem="vbI-mf-zHg" secondAttribute="topMargin" constant="6" id="c0s-3V-ese"/>
-                    <constraint firstItem="vdq-Jc-kwg" firstAttribute="leading" secondItem="vbI-mf-zHg" secondAttribute="leadingMargin" id="cTf-Tv-Xlc"/>
+                    <constraint firstItem="aDz-1g-9rt" firstAttribute="centerY" secondItem="vbI-mf-zHg" secondAttribute="centerY" id="8e3-wZ-xA4"/>
                     <constraint firstAttribute="bottomMargin" secondItem="CKJ-3l-uTv" secondAttribute="bottom" constant="-8" id="fN4-J4-ROO"/>
                     <constraint firstItem="vdq-Jc-kwg" firstAttribute="leading" secondItem="vbI-mf-zHg" secondAttribute="leadingMargin" id="flD-nV-Dny"/>
                     <constraint firstItem="CKJ-3l-uTv" firstAttribute="leading" secondItem="vdq-Jc-kwg" secondAttribute="trailing" constant="8" id="o6Y-os-Hfg"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="vdq-Jc-kwg" secondAttribute="bottom" constant="5.5" id="q9q-Yi-IGU"/>
                     <constraint firstItem="vdq-Jc-kwg" firstAttribute="centerY" secondItem="CKJ-3l-uTv" secondAttribute="centerY" id="uye-d1-VXv"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="c0s-3V-ese"/>
-                        <exclude reference="cTf-Tv-Xlc"/>
-                        <exclude reference="q9q-Yi-IGU"/>
-                        <exclude reference="8g0-Zs-tgF"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.082352941176470587" green="0.52941176470588236" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="activityIconImage" destination="vdq-Jc-kwg" id="e0l-CZ-ebR"/>
                 <outlet property="activityInfoLabel" destination="CKJ-3l-uTv" id="ZiK-gf-zG1"/>
             </connections>
-            <point key="canvasLocation" x="312" y="313"/>
+            <point key="canvasLocation" x="130" y="319"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="iconArrowRight" width="5" height="10"/>
+    </resources>
 </document>

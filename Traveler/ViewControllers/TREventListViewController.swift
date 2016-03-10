@@ -23,7 +23,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     @IBOutlet var currentPlayerAvatorIcon: UIImageView?
     
     //Events Information
-    let eventsInfo = TRApplicationManager.sharedInstance.eventsList
+    var eventsInfo: [TREventInfo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +56,11 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
 
     
     override func viewWillAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+        super.viewWillAppear(animated)
+        
+        //Reload Table
+        self.eventsInfo = TRApplicationManager.sharedInstance.eventsList
+        self.reloadEventTable()
     }
     
     override func viewDidAppear(animated: Bool) {

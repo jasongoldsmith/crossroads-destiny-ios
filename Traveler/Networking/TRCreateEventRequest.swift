@@ -22,10 +22,12 @@ class TRCreateEventRequest: TRRequest {
         params["eType"] = activity.activityID!
         params["minPlayers"] = 1
         params["maxPlayers"] = 6
-        params["creator"] = TRUserInfo().userID
-        params["players"] = [activity.activityID!]
+        params["creator"] = TRUserInfo.getUserID()
         
-        request(.GET, createEventUrl, parameters:self.params)
+        let player = TRUserInfo.getUserID()
+        params["players"] = ["\(player)"]
+        
+        request(.POST, createEventUrl, parameters:params)
             .responseJSON { response in
                 if response.result.isSuccess {
                     
@@ -37,11 +39,72 @@ class TRCreateEventRequest: TRRequest {
                         } else if swiftyJsonVar["responseType"].string == "ERR" {
                             completion(value: false )
                         } else {
+
+                            // Creating Event Objects from Events List
+                            let eventInfo = TREventInfo()
+                           
+                            eventInfo.eventID           = swiftyJsonVar["_id"].string
+                            eventInfo.eventUpdatedDate  = swiftyJsonVar["updated"].string
+                            eventInfo.eventMaxPlayers   = swiftyJsonVar["maxPlayers"].number
+                            eventInfo.eventMinPlayer    = swiftyJsonVar["minPlayers"].number
+                            eventInfo.eventCreatedDate  = swiftyJsonVar["created"].string
+                            eventInfo.eventStatus       = swiftyJsonVar["status"].string
                             
-                            let createdEvent = TREventInfo()
+                            // Dictionary of Activities in an Event
+                            let activityDictionary = swiftyJsonVar["eType"].dictionary
+                            if let activity = activityDictionary {
+                                let activityInfo = TRActivityInfo()
+                                
+                                activityInfo.activityID         = activity["_id"]?.stringValue
+                                activityInfo.activitySubType    = activity["aSubType"]?.stringValue
+                                activityInfo.activityCheckPoint = activity["aCheckpoint"]?.stringValue
+                                activityInfo.activityType       = activity["aType"]?.stringValue
+                                activityInfo.activityDificulty  = activity["aDifficulty"]?.stringValue
+                                activityInfo.activityLight      = activity["aLight"]?.number
+                                activityInfo.activityMaxPlayers = activity["maxPlayers"]?.number
+                                activityInfo.activityMinPlayers = activity["minPlayers"]?.number
+                                activityInfo.activityIconImage  = activity["aIconUrl"]?.stringValue
+                                
+                                //Event Activity added
+                                eventInfo.eventActivity = activityInfo
+                            }
+                            
+                            // Creating Creator Object from Events List
+                            let creatorDictionary = swiftyJsonVar["creator"].dictionary
+                            if let creator = creatorDictionary {
+                                let creatorInfo = TRCreatorInfo()
+                                
+                                creatorInfo.playerID        = creator["_id"]?.stringValue
+                                creatorInfo.playerUserName  = creator["userName"]?.stringValue
+                                creatorInfo.playerDate      = creator["date"]?.stringValue
+                                creatorInfo.playerPsnID     = creator["psnId"]?.stringValue
+                                creatorInfo.playerUdate     = creator["uDate"]?.stringValue
+                                
+                                // Event Creator Added
+                                eventInfo.eventCreator = creatorInfo
+                            }
+                            
+                            let playersArray = swiftyJsonVar["players"].arrayValue
+                            for playerInfoObject in playersArray {
+                                let playerInfo = TRPlayerInfo()
+                                
+                                playerInfo.playerID         = playerInfoObject["_id"].stringValue
+                                playerInfo.playerUserName   = playerInfoObject["userName"].stringValue
+                                playerInfo.playerDate       = playerInfoObject["date"].stringValue
+                                playerInfo.playerPsnID      = playerInfoObject["psnId"].stringValue
+                                playerInfo.playerUdate      = playerInfoObject["uDate"].stringValue
+                                playerInfo.playerImageUrl   = playerInfoObject["imageUrl"].stringValue
+                                
+                                // Players of an Event Added
+                                eventInfo.eventPlayersArray.append(playerInfo)
+                            }
                             
                             //Adding it to "eventsInfo"
-                            TRApplicationManager.sharedInstance.eventsList.append(createdEvent)
+                            let eventToUpdate = TRApplicationManager.sharedInstance.getEventById(eventInfo.eventID!)
+                            let eventIndex = TRApplicationManager.sharedInstance.eventsList.indexOf(eventToUpdate!)
+
+                            TRApplicationManager.sharedInstance.eventsList.removeAtIndex(eventIndex!)
+                            TRApplicationManager.sharedInstance.eventsList.append(eventInfo)
 
                             completion(value: true )
                         }
