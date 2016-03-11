@@ -39,6 +39,8 @@ class TRLeaveEventRequest: TRRequest {
                                 let existingEvent = TRApplicationManager.sharedInstance.getEventById(swiftyJsonVar["_id"].string!)
                                 
                                 
+                                // If there's no creator info in the JSON feed then it means you were the last person in the event and since you left
+                                // the whole event has been deleted.
                                 let creatorDict = swiftyJsonVar["creator"].dictionary
                                 if (creatorDict == nil) {
                                     TRApplicationManager.sharedInstance.eventsList.removeAtIndex(TRApplicationManager.sharedInstance.eventsList.indexOf(existingEvent!)!)
