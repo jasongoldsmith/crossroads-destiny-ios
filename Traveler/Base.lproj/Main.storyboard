@@ -878,12 +878,12 @@
                                     <action selector="changeDateButtonPressed:" destination="Qer-Wa-Bhw" eventType="touchUpInside" id="lZJ-My-9uK"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RyD-cs-rbu">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RyD-cs-rbu">
+                                <rect key="frame" x="0.0" y="600" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <datePicker alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Iyq-Vd-eiI">
-                                <rect key="frame" x="30" y="144" width="540" height="231"/>
+                            <datePicker alpha="0.0" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Iyq-Vd-eiI">
+                                <rect key="frame" x="30" y="600" width="540" height="231"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="421" id="4Mg-S1-u9g"/>
@@ -926,6 +926,7 @@
                             <constraint firstItem="d1E-Mo-4IL" firstAttribute="top" secondItem="0kb-Z5-oMd" secondAttribute="bottom" id="Y2c-lS-IBd"/>
                             <constraint firstItem="HaO-B3-0i5" firstAttribute="top" secondItem="g60-hL-efX" secondAttribute="bottom" constant="28" id="YrN-T4-9h0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RyD-cs-rbu" secondAttribute="trailing" constant="-20" id="ZH8-xz-7q2"/>
+                            <constraint firstItem="9ue-JR-J0g" firstAttribute="top" secondItem="g60-hL-efX" secondAttribute="bottom" constant="96" id="Zwy-9s-KQm"/>
                             <constraint firstItem="0kb-Z5-oMd" firstAttribute="top" secondItem="gc7-xU-0jx" secondAttribute="topMargin" id="aMJ-7M-XX2"/>
                             <constraint firstItem="0kb-Z5-oMd" firstAttribute="leading" secondItem="gc7-xU-0jx" secondAttribute="leadingMargin" constant="-20" id="cIk-Wu-CqT"/>
                             <constraint firstItem="Xrn-7L-Bug" firstAttribute="top" secondItem="Iyq-Vd-eiI" secondAttribute="bottom" constant="175" id="d2o-Ij-2GI"/>
@@ -939,6 +940,7 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="9z7-38-U3F"/>
+                                <exclude reference="fmL-z6-lHD"/>
                             </mask>
                         </variation>
                     </view>
@@ -946,6 +948,7 @@
                         <outlet property="activityIconImage" destination="gzx-q8-nbG" id="ueR-Uw-ZUv"/>
                         <outlet property="buttonOne" destination="g60-hL-efX" id="tcg-JC-i5X"/>
                         <outlet property="buttonThreeBottomConstraint" destination="Nw1-4f-CJa" id="4wR-ny-fWa"/>
+                        <outlet property="buttonThreeTopConstraint" destination="Zwy-9s-KQm" id="7lu-ve-Asa"/>
                         <outlet property="buttonThress" destination="9ue-JR-J0g" id="Lr2-Ds-SjJ"/>
                         <outlet property="buttonTwo" destination="HaO-B3-0i5" id="RX1-MS-l1g"/>
                         <outlet property="datePickerBackgroundImage" destination="RyD-cs-rbu" id="nHb-2R-x4K"/>
