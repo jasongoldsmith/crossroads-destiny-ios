@@ -33,18 +33,19 @@ class TRLeaveEventRequest: TRRequest {
                         } else if swiftyJsonVar["responseType"].string == "ERR" {
                             completion(value: false )
                         } else {
-                            if (response.response?.statusCode == 200){
-                                if let existingEvent = TRApplicationManager.sharedInstance.getEventById(swiftyJsonVar["_id"].string!) {
-                                    TRApplicationManager.sharedInstance.eventsList.removeAtIndex(TRApplicationManager.sharedInstance.eventsList.indexOf(existingEvent)!)
-                                }
-                                
-                                completion(value: true )
-                                return
-                            }
                             
                             if let _ = swiftyJsonVar["_id"].string {
                                 // Creating Event Objects from Events List
                                 let existingEvent = TRApplicationManager.sharedInstance.getEventById(swiftyJsonVar["_id"].string!)
+                                
+                                
+                                let creatorDict = swiftyJsonVar["creator"].dictionary
+                                if (creatorDict == nil) {
+                                    TRApplicationManager.sharedInstance.eventsList.removeAtIndex(TRApplicationManager.sharedInstance.eventsList.indexOf(existingEvent!)!)
+                                    completion(value: true)
+                                    return
+                                }
+                                
                                 
                                 if let _ = existingEvent {
                                     existingEvent?.eventID           = swiftyJsonVar["_id"].string
