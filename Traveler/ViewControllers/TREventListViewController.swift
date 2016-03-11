@@ -51,9 +51,17 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             let imageUrl = NSURL(string: imageUrl)
             self.currentPlayerAvatorIcon?.sd_setImageWithURL(imageUrl)
             TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.currentPlayerAvatorIcon!)
+            
+            // Add LogOut event action to Avator Image
+            self.addLogOutEventToAvatorImageView()
         }
     }
 
+    func addLogOutEventToAvatorImageView () {
+        let logOutGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("logoutBtnTapped:"))
+        self.currentPlayerAvatorIcon?.userInteractionEnabled = true
+        self.currentPlayerAvatorIcon?.addGestureRecognizer(logOutGestureRecognizer)
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -178,27 +186,22 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         self.reloadEventTable()
     }
     
-        
+    
+    func logoutBtnTapped(sender: AnyObject) {
+        let createRequest = TRAuthenticationRequest()
+        createRequest.logoutTRUser() { (value ) in  //, errorData) in
+            if value == true {
+                TRUserInfo.removeUserData()
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+            else
+            {
+                self.displayAlertWithTitle("Logout Failed")
+            }
+        }
+    }
+
     deinit {
         self.appManager.log.debug("de-init")
     }
-    
-    
-    /*
-    @IBAction func logoutBtnTapped(sender: AnyObject) {
-    
-    let createRequest = TRAuthenticationRequest()
-    createRequest.logoutTRUser() { (value ) in  //, errorData) in
-    if value == true {
-    
-    TRUserInfo.removeUserData()
-    self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    else
-    {
-    self.displayAlertWithTitle("Logout Failed")
-    }
-    }
-    }
-    */
 }
