@@ -878,12 +878,12 @@
                                     <action selector="changeDateButtonPressed:" destination="Qer-Wa-Bhw" eventType="touchUpInside" id="lZJ-My-9uK"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RyD-cs-rbu">
-                                <rect key="frame" x="0.0" y="600" width="600" height="600"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RyD-cs-rbu">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <datePicker alpha="0.0" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Iyq-Vd-eiI">
-                                <rect key="frame" x="30" y="600" width="540" height="231"/>
+                            <datePicker alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Iyq-Vd-eiI">
+                                <rect key="frame" x="30" y="144" width="540" height="231"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="421" id="4Mg-S1-u9g"/>
@@ -911,7 +911,6 @@
                         <constraints>
                             <constraint firstItem="g60-hL-efX" firstAttribute="leading" secondItem="HaO-B3-0i5" secondAttribute="leading" id="1zp-A4-HLa"/>
                             <constraint firstItem="Xrn-7L-Bug" firstAttribute="leading" secondItem="gc7-xU-0jx" secondAttribute="leadingMargin" constant="-20" id="3pc-zY-O3I"/>
-                            <constraint firstItem="g60-hL-efX" firstAttribute="top" secondItem="gzx-q8-nbG" secondAttribute="bottom" constant="51" id="9z7-38-U3F"/>
                             <constraint firstItem="g60-hL-efX" firstAttribute="leading" secondItem="9ue-JR-J0g" secondAttribute="leading" id="AL8-Zg-Wtk"/>
                             <constraint firstItem="g60-hL-efX" firstAttribute="trailing" secondItem="HaO-B3-0i5" secondAttribute="trailing" id="BkV-v1-3ho"/>
                             <constraint firstItem="Iyq-Vd-eiI" firstAttribute="top" secondItem="gzx-q8-nbG" secondAttribute="bottom" constant="23" id="Bqg-df-4wA"/>
@@ -930,19 +929,12 @@
                             <constraint firstItem="0kb-Z5-oMd" firstAttribute="top" secondItem="gc7-xU-0jx" secondAttribute="topMargin" id="aMJ-7M-XX2"/>
                             <constraint firstItem="0kb-Z5-oMd" firstAttribute="leading" secondItem="gc7-xU-0jx" secondAttribute="leadingMargin" constant="-20" id="cIk-Wu-CqT"/>
                             <constraint firstItem="Xrn-7L-Bug" firstAttribute="top" secondItem="Iyq-Vd-eiI" secondAttribute="bottom" constant="175" id="d2o-Ij-2GI"/>
-                            <constraint firstItem="9ue-JR-J0g" firstAttribute="top" secondItem="HaO-B3-0i5" secondAttribute="bottom" constant="28" id="fmL-z6-lHD"/>
                             <constraint firstItem="RyD-cs-rbu" firstAttribute="top" secondItem="gc7-xU-0jx" secondAttribute="topMargin" id="pLg-cd-Vdq"/>
                             <constraint firstItem="g60-hL-efX" firstAttribute="centerX" secondItem="gzx-q8-nbG" secondAttribute="centerX" id="r8z-5E-Udg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0kb-Z5-oMd" secondAttribute="trailing" constant="-20" id="rVQ-nt-H7G"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Iyq-Vd-eiI" secondAttribute="trailing" constant="10" id="rm6-pL-Qr4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Xrn-7L-Bug" secondAttribute="trailing" constant="-20" id="vKY-6l-Bv8"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="9z7-38-U3F"/>
-                                <exclude reference="fmL-z6-lHD"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="activityIconImage" destination="gzx-q8-nbG" id="ueR-Uw-ZUv"/>
