@@ -72,7 +72,7 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         self.checkpointPickerView?.imageView?.addGestureRecognizer(checkPointPickerGestureRecognizer)
 
         //Add Target to Done Button
-        self.checkpointPickerView?.doneButton.addTarget(self, action: "checkPointPickerimageTapped", forControlEvents: .TouchUpInside)
+        //self.checkpointPickerView?.doneButton.addTarget(self, action: "checkPointPickerimageTapped", forControlEvents: .TouchUpInside)
         
         self.view.addSubview(self.checkpointPickerView)
     }

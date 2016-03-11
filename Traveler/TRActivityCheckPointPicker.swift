@@ -26,6 +26,9 @@ class TRActivityCheckPointPicker: UIView {
         self.buttonContainerView?.layer.cornerRadius = 5.0
         self.buttonContainerView?.backgroundColor = UIColor.whiteColor()
         self.buttonContainerView?.layer.masksToBounds = true
+        
+        // Setting it hidden 
+        self.buttonContainerView?.hidden = true
     }
 }
 
