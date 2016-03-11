@@ -58,8 +58,6 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        //Reload Table
-        self.eventsInfo = TRApplicationManager.sharedInstance.eventsList
         self.reloadEventTable()
     }
     
@@ -133,7 +131,6 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         
         _ = TRLeaveEventRequest().leaveAnEvent(sender.buttonEventInfo!,completion: {value in
             if (value == true) {
-                self.eventsInfo = TRApplicationManager.sharedInstance.eventsList
                 self.reloadEventTable()
             } else {
                 
@@ -156,6 +153,9 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
     
     func reloadEventTable () {
+        
+        //Reload Table
+        self.eventsInfo = TRApplicationManager.sharedInstance.eventsList
         self.eventsTableView?.reloadData()
     }
     
