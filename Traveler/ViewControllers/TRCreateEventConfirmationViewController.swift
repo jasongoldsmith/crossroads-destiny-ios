@@ -67,10 +67,13 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         self.checkpointPickerView?.alpha = 0
         
         // Add Tap Gesture to Date PickerBackGround ImageView
-        let checkPointPickerGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("checkPointPickerimageTapped:"))
+        let checkPointPickerGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("checkPointPickerimageTapped"))
         self.checkpointPickerView?.imageView?.userInteractionEnabled = true
         self.checkpointPickerView?.imageView?.addGestureRecognizer(checkPointPickerGestureRecognizer)
 
+        //Add Target to Done Button
+        self.checkpointPickerView?.doneButton.addTarget(self, action: "checkPointPickerimageTapped", forControlEvents: .TouchUpInside)
+        
         self.view.addSubview(self.checkpointPickerView)
     }
     
@@ -159,7 +162,7 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         self.buttonThress?.setTitle(timeString, forState: .Normal)
     }
     
-    func checkPointPickerimageTapped (sender: UIPickerView) {
+    func checkPointPickerimageTapped () {
         UIView.animateWithDuration(0.4) { () -> Void in
             self.checkpointPickerView?.alpha = 0
             
