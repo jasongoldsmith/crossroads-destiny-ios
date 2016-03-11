@@ -101,7 +101,6 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         if segmentControl?.selectedSegmentIndex == 0 {
             cell.updateCellViewWithEvent(eventsInfo[indexPath.section])
         } else {
-            cell.updateCellViewWithEvent(eventsInfo[4])
         }
 
         cell.joinEventButton?.addTarget(self, action: "joinAnEvent:", forControlEvents: .TouchUpInside)
@@ -134,6 +133,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         
         _ = TRLeaveEventRequest().leaveAnEvent(sender.buttonEventInfo!,completion: {value in
             if (value == true) {
+                self.eventsInfo = TRApplicationManager.sharedInstance.eventsList
                 self.reloadEventTable()
             } else {
                 

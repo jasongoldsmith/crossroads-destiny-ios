@@ -90,21 +90,25 @@ class TREventTableCellView: UITableViewCell {
                 TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.playerImageTwo)
                 
                 break;
-            default:
+                
+            case 2:
+                self.playerCountImage.hidden = false
                 if(eventInfo.eventMaxPlayers?.integerValue > 3) {
-                    self.playerCountImage.hidden = false
+                    self.playerCountImage.image = nil
                     self.playerCountLabel.hidden = false
                     self.playerCountLabel?.text = "+" + String((playerArray.count - 2))
                     TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.playerCountImage)
-
+                    
                 } else {
-                    self.playerCountImage.hidden = false
                     self.playerCountLabel.hidden = true
                     let imageUrl = NSURL(string: player.playerImageUrl!)
                     self.playerCountImage.sd_setImageWithURL(imageUrl)
                     TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.playerCountImage)
                 }
                 
+                break;
+                
+            default:
                 break;
             }
         }
