@@ -58,7 +58,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         for var i = 0; i < deviceToken.length; i++ {
             tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
         }
+       
         print("Device Token: \(tokenString)")
+        
+        _ = TRDeviceTokenRequest().sendDeviceToken(tokenString, completion: { (value) -> () in
+            if (value == true) {
+                print("Device token registration Success")
+            } else {
+                print("Device token registration failed")
+            }
+        })
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {

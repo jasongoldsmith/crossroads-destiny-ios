@@ -945,6 +945,7 @@
                     <connections>
                         <outlet property="activityIconImage" destination="gzx-q8-nbG" id="ueR-Uw-ZUv"/>
                         <outlet property="buttonOne" destination="g60-hL-efX" id="tcg-JC-i5X"/>
+                        <outlet property="buttonThreeBottomConstraint" destination="Nw1-4f-CJa" id="4wR-ny-fWa"/>
                         <outlet property="buttonThress" destination="9ue-JR-J0g" id="Lr2-Ds-SjJ"/>
                         <outlet property="buttonTwo" destination="HaO-B3-0i5" id="RX1-MS-l1g"/>
                         <outlet property="datePickerBackgroundImage" destination="RyD-cs-rbu" id="nHb-2R-x4K"/>

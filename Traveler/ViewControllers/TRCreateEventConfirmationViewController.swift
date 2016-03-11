@@ -22,6 +22,9 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
     @IBOutlet weak var datePickerView: UIDatePicker?
     @IBOutlet weak var datePickerBackgroundImage: UIImageView?
     
+    // Constraints OutLet
+    @IBOutlet weak var buttonThreeBottomConstraint: NSLayoutConstraint?
+    
     var selectedActivity: TRActivityInfo?
     var similarActivitiesDifferentCheckPoints: [TRActivityInfo]?
     var checkpointPickerView: TRActivityCheckPointPicker! = nil
@@ -50,8 +53,19 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         //Get similar activities with different CheckPoints
         self.similarActivitiesDifferentCheckPoints = TRApplicationManager.sharedInstance.getActivitiesMatchingSubTypeAndLevel(self.selectedActivity!)
         
-        //Add Checkpoint PickerView
-        self.addCheckpointPickerView()
+        
+        
+        
+        //Check if Checkpoint are availble or not, if no checkPoints avaliable then just hide the whole UI Button Element
+        if let _ = self.selectedActivity?.activityCheckPoint where self.selectedActivity?.activityCheckPoint != "" {
+        
+            //Add Checkpoint PickerView
+            self.addCheckpointPickerView()
+        } else {
+            
+//            self.buttonTwo?.hidden = true
+//            self.buttonThreeBottomConstraint?.constant = 300.0
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
