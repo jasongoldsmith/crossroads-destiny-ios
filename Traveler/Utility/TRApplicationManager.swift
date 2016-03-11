@@ -93,5 +93,10 @@ class TRApplicationManager: NSObject {
         return activityArray
     }
     
+    func getActivitiesMatchingSubTypeAndLevel(activity: TRActivityInfo) -> [TRActivityInfo]? {
+        let activityArray = self.activityList.filter {$0.activitySubType == activity.activitySubType && $0.activityDificulty == activity.activityDificulty}
+        return activityArray
+    }
+    
 }
 

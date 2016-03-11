@@ -33,11 +33,6 @@ class TRCreateEventSelectionViewController: TRBaseViewController {
         // Get all Activities of selected activityType
         self.filteredActivitiesOfSelectedType = TRApplicationManager.sharedInstance.getActivitiesOfType((self.seletectedActivity?.activityType)!)!
 
-        
-        for activ in self.filteredActivitiesOfSelectedType {
-            print("\(activ.activitySubType)")
-        }
-        
         //Register Cell Nib
         self.activitySelectionTable?.registerNib(UINib(nibName: "TRActivitySelectionCell", bundle: nil), forCellReuseIdentifier: ACTIVITY_SELECTION_CELL)
         self.activitySelectionTable?.tableFooterView = UIView(frame: CGRectZero)

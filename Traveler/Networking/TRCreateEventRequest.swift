@@ -25,7 +25,7 @@ class TRCreateEventRequest: TRRequest {
         params["creator"] = TRUserInfo.getUserID()
         
         let player = TRUserInfo.getUserID()
-        params["players"] = ["\(player)"]
+        params["players"] = ["\(player!)"]
         
         request(.POST, createEventUrl, parameters:params)
             .responseJSON { response in
@@ -101,11 +101,12 @@ class TRCreateEventRequest: TRRequest {
                             
                             //Adding it to "eventsInfo"
                             let eventToUpdate = TRApplicationManager.sharedInstance.getEventById(eventInfo.eventID!)
-                            let eventIndex = TRApplicationManager.sharedInstance.eventsList.indexOf(eventToUpdate!)
+                            if let _ = eventToUpdate {
+                                let eventIndex = TRApplicationManager.sharedInstance.eventsList.indexOf(eventToUpdate!)
+                                TRApplicationManager.sharedInstance.eventsList.removeAtIndex(eventIndex!)
+                            }
 
-                            TRApplicationManager.sharedInstance.eventsList.removeAtIndex(eventIndex!)
                             TRApplicationManager.sharedInstance.eventsList.append(eventInfo)
-
                             completion(value: true )
                         }
                     } else {

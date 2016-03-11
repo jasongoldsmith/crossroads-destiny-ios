@@ -49,6 +49,12 @@
 		33742DB71C8317EF00C46742 /* TREventTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33742DB61C8317EF00C46742 /* TREventTableCellView.xib */; };
 		33742DB81C8317EF00C46742 /* TREventTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33742DB61C8317EF00C46742 /* TREventTableCellView.xib */; };
 		33742DB91C8317EF00C46742 /* TREventTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33742DB61C8317EF00C46742 /* TREventTableCellView.xib */; };
+		3374D74D1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374D74C1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift */; };
+		3374D74E1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374D74C1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift */; };
+		3374D74F1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374D74C1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift */; };
+		3374D7511C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3374D7501C92591F0036E9C8 /* TRActivityCheckPointPicker.xib */; };
+		3374D7521C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3374D7501C92591F0036E9C8 /* TRActivityCheckPointPicker.xib */; };
+		3374D7531C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3374D7501C92591F0036E9C8 /* TRActivityCheckPointPicker.xib */; };
 		339D8F241C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D8F231C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift */; };
 		339D8F251C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D8F231C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift */; };
 		339D8F261C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D8F231C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift */; };
@@ -150,6 +156,8 @@
 		33742DAC1C810AE300C46742 /* TRActivityInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRActivityInfo.swift; sourceTree = "<group>"; };
 		33742DB11C83179D00C46742 /* TREventTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREventTableCellView.swift; sourceTree = "<group>"; };
 		33742DB61C8317EF00C46742 /* TREventTableCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TREventTableCellView.xib; sourceTree = "<group>"; };
+		3374D74C1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRActivityCheckPointPicker.swift; sourceTree = "<group>"; };
+		3374D7501C92591F0036E9C8 /* TRActivityCheckPointPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRActivityCheckPointPicker.xib; sourceTree = "<group>"; };
 		339D8F231C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCreateEventSelectionViewController.swift; sourceTree = "<group>"; };
 		339D8F271C90F77E00A2620F /* TRActivitySelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRActivitySelectionCell.swift; sourceTree = "<group>"; };
 		339D8F2B1C90F79800A2620F /* TRActivitySelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRActivitySelectionCell.xib; sourceTree = "<group>"; };
@@ -222,6 +230,8 @@
 				33FDB9AD1C850AFC0066237C /* EventButton.swift */,
 				339D8F271C90F77E00A2620F /* TRActivitySelectionCell.swift */,
 				339D8F2B1C90F79800A2620F /* TRActivitySelectionCell.xib */,
+				3374D74C1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift */,
+				3374D7501C92591F0036E9C8 /* TRActivityCheckPointPicker.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -468,6 +478,7 @@
 			files = (
 				339D8F2C1C90F79800A2620F /* TRActivitySelectionCell.xib in Resources */,
 				33742DB71C8317EF00C46742 /* TREventTableCellView.xib in Resources */,
+				3374D7511C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */,
 				62F279BF1C7D1318008D67DC /* Assets.xcassets in Resources */,
 				62C1FF3A1C77C15C00A78798 /* LaunchScreen.storyboard in Resources */,
 				62C1FF351C77C15C00A78798 /* Main.storyboard in Resources */,
@@ -480,6 +491,7 @@
 			files = (
 				33742DB81C8317EF00C46742 /* TREventTableCellView.xib in Resources */,
 				339D8F2D1C90F79800A2620F /* TRActivitySelectionCell.xib in Resources */,
+				3374D7521C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +501,7 @@
 			files = (
 				33742DB91C8317EF00C46742 /* TREventTableCellView.xib in Resources */,
 				339D8F2E1C90F79800A2620F /* TRActivitySelectionCell.xib in Resources */,
+				3374D7531C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,6 +580,7 @@
 				339D8F281C90F77E00A2620F /* TRActivitySelectionCell.swift in Sources */,
 				33742D8A1C7FC51700C46742 /* TRStoryBoardManager.swift in Sources */,
 				33F427491C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */,
+				3374D74D1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift in Sources */,
 				62C1FF321C77C15C00A78798 /* TRRootViewController.swift in Sources */,
 				629497321C7C04E1005E4F91 /* ViewControllerExtension.swift in Sources */,
 				33FDB9BC1C863A550066237C /* TRgetActivityList.swift in Sources */,
@@ -607,6 +621,7 @@
 				339D8F291C90F77E00A2620F /* TRActivitySelectionCell.swift in Sources */,
 				33742D8B1C7FC66500C46742 /* TRBaseViewController.swift in Sources */,
 				33F4274A1C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */,
+				3374D74E1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift in Sources */,
 				62C1FF641C77D7F000A78798 /* TRCreateAccountViewController.swift in Sources */,
 				33742D811C7FC17700C46742 /* TRConstants.swift in Sources */,
 				33FDB9BD1C863AF30066237C /* TRgetActivityList.swift in Sources */,
@@ -647,6 +662,7 @@
 				339D8F2A1C90F77E00A2620F /* TRActivitySelectionCell.swift in Sources */,
 				33742D8C1C7FC66600C46742 /* TRBaseViewController.swift in Sources */,
 				33F4274B1C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */,
+				3374D74F1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift in Sources */,
 				62C1FF651C77D7F000A78798 /* TRCreateAccountViewController.swift in Sources */,
 				33742D821C7FC17800C46742 /* TRConstants.swift in Sources */,
 				33FDB9BE1C863AF40066237C /* TRgetActivityList.swift in Sources */,

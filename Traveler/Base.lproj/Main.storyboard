@@ -834,7 +834,7 @@
                                     <constraint firstAttribute="width" constant="50" id="8s1-C8-yyv"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HaO-B3-0i5">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HaO-B3-0i5">
                                 <rect key="frame" x="150" y="240" width="300" height="40"/>
                                 <color key="backgroundColor" red="0.08235294118" green="0.52941176469999995" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -845,6 +845,9 @@
                                 <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="changeCheckPoint" destination="Qer-Wa-Bhw" eventType="touchUpInside" id="lq4-br-sjI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g60-hL-efX">
                                 <rect key="frame" x="150" y="172" width="300" height="40"/>
@@ -880,7 +883,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <datePicker alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Iyq-Vd-eiI">
-                                <rect key="frame" x="40" y="144" width="520" height="231"/>
+                                <rect key="frame" x="30" y="144" width="540" height="231"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="421" id="4Mg-S1-u9g"/>
@@ -919,7 +922,7 @@
                             <constraint firstItem="gzx-q8-nbG" firstAttribute="centerX" secondItem="gc7-xU-0jx" secondAttribute="centerX" id="Tvn-Cc-RLM"/>
                             <constraint firstItem="RyD-cs-rbu" firstAttribute="leading" secondItem="gc7-xU-0jx" secondAttribute="leadingMargin" constant="-20" id="UlZ-iY-OP2"/>
                             <constraint firstItem="d1E-Mo-4IL" firstAttribute="top" secondItem="Xrn-7L-Bug" secondAttribute="bottom" id="WTi-B9-9vE"/>
-                            <constraint firstItem="Iyq-Vd-eiI" firstAttribute="leading" secondItem="gc7-xU-0jx" secondAttribute="leadingMargin" constant="20" id="WUP-MZ-lSy"/>
+                            <constraint firstItem="Iyq-Vd-eiI" firstAttribute="leading" secondItem="gc7-xU-0jx" secondAttribute="leadingMargin" constant="10" id="WUP-MZ-lSy"/>
                             <constraint firstItem="d1E-Mo-4IL" firstAttribute="top" secondItem="0kb-Z5-oMd" secondAttribute="bottom" id="Y2c-lS-IBd"/>
                             <constraint firstItem="HaO-B3-0i5" firstAttribute="top" secondItem="g60-hL-efX" secondAttribute="bottom" constant="28" id="YrN-T4-9h0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RyD-cs-rbu" secondAttribute="trailing" constant="-20" id="ZH8-xz-7q2"/>
@@ -930,7 +933,7 @@
                             <constraint firstItem="RyD-cs-rbu" firstAttribute="top" secondItem="gc7-xU-0jx" secondAttribute="topMargin" id="pLg-cd-Vdq"/>
                             <constraint firstItem="g60-hL-efX" firstAttribute="centerX" secondItem="gzx-q8-nbG" secondAttribute="centerX" id="r8z-5E-Udg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0kb-Z5-oMd" secondAttribute="trailing" constant="-20" id="rVQ-nt-H7G"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Iyq-Vd-eiI" secondAttribute="trailing" constant="20" id="rm6-pL-Qr4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Iyq-Vd-eiI" secondAttribute="trailing" constant="10" id="rm6-pL-Qr4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Xrn-7L-Bug" secondAttribute="trailing" constant="-20" id="vKY-6l-Bv8"/>
                         </constraints>
                         <variation key="default">
