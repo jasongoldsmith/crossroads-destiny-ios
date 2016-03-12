@@ -10,6 +10,8 @@
 		332C9CE41C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
 		332C9CE51C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
 		332C9CE61C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
+		334E05BF1C939D7B00973068 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C1FF2F1C77C15C00A78798 /* AppDelegate.swift */; };
+		334E05C01C939D7C00973068 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C1FF2F1C77C15C00A78798 /* AppDelegate.swift */; };
 		334ED0C21C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334ED0C11C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift */; };
 		334ED0C51C8E5B71007523AC /* TRCreateEventsActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334ED0C11C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift */; };
 		334ED0C61C8E5B72007523AC /* TRCreateEventsActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334ED0C11C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift */; };
@@ -619,6 +621,7 @@
 				62C1FF451C77C15C00A78798 /* TravelerTests.swift in Sources */,
 				62C1FF601C77CDFF00A78798 /* TRLoginOptionViewController.swift in Sources */,
 				33FDB9AF1C850B960066237C /* EventButton.swift in Sources */,
+				334E05BF1C939D7B00973068 /* AppDelegate.swift in Sources */,
 				33FDB9B71C8621150066237C /* TRCreateEventRequest.swift in Sources */,
 				33742DAA1C810A6100C46742 /* TRPlayerInfo.swift in Sources */,
 				33742DAE1C810AE300C46742 /* TRActivityInfo.swift in Sources */,
@@ -661,6 +664,7 @@
 				62C1FF501C77C15C00A78798 /* TravelerUITests.swift in Sources */,
 				62C1FF611C77CDFF00A78798 /* TRLoginOptionViewController.swift in Sources */,
 				33FDB9B01C850B970066237C /* EventButton.swift in Sources */,
+				334E05C01C939D7C00973068 /* AppDelegate.swift in Sources */,
 				33FDB9B81C8621160066237C /* TRCreateEventRequest.swift in Sources */,
 				33742DAB1C810A6100C46742 /* TRPlayerInfo.swift in Sources */,
 				33742DAF1C810AE300C46742 /* TRActivityInfo.swift in Sources */,

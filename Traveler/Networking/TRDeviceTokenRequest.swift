@@ -15,6 +15,9 @@ class TRDeviceTokenRequest: TRRequest {
     func sendDeviceToken (deviceToken: String, completion: TRValueCallBack) {
         
         let registerDevice = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_REGISTER_DEVICE
+        var params         = [String: AnyObject]()
+        params["deviceToken"]      = deviceToken
+        
         
         request(self.URLMethod!, registerDevice, parameters:params)
             .responseJSON { response in
@@ -28,6 +31,7 @@ class TRDeviceTokenRequest: TRRequest {
                         else if swiftyJsonVar["responseType"].string == "ERR" {
                             completion(value: false )
                         } else {
+                            print("Token Response: \(swiftyJsonVar)")
                             completion(value: true )
                         }
                     } else {

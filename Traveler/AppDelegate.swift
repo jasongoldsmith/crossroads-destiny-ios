@@ -20,10 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Initializing Manager
         TRApplicationManager.sharedInstance
         
-        //Add Notifications
-        self.addNotificationsPermission()
-        
-        
         //Local Notifications
         let localNotification:UILocalNotification = UILocalNotification()
         localNotification.alertAction = "Testing notifications on iOS8"
@@ -85,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         
         if application.applicationState == UIApplicationState.Active {
-            NSNotificationCenter.defaultCenter().postNotificationName("RemoteNotificationWithActiveSesion", object: self, userInfo: userInfo)
+            NSNotificationCenter.defaultCenter().postNotificationName("didReceiveRemoteNotificationInActiveSesion", object: self, userInfo: userInfo)
         }
         if application.applicationState != UIApplicationState.Active {
             NSNotificationCenter.defaultCenter().postNotificationName("UIApplicationDidReceiveRemoteNotification", object: self, userInfo: userInfo)
@@ -115,6 +111,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+
+    
+    func didReceiveRemoteNotificationInActiveSesion(sender: NSNotification)
+    {
+        if let userInfo = sender.userInfo as NSDictionary? {
+            print("UserInfo: \(userInfo)")
+        }
+    }
 
 }
 

@@ -123,7 +123,7 @@ class TREventTableCellView: UITableViewCell {
                 button.setImage(UIImage(named: "btnREADY"), forState: .Normal)
                 button.userInteractionEnabled = false
                 leaveEventButton.hidden = false
-                completion(value: true)
+//                completion(value: true)
             } else {
                 button.setImage(UIImage(named: "btnFULL"), forState: .Normal)
                 button.userInteractionEnabled = false
