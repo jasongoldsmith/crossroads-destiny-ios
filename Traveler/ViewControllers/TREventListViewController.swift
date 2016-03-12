@@ -56,8 +56,10 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             self.addLogOutEventToAvatorImageView()
         }
         
+        // Notification Observer
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceiveRemoteNotificationInActiveSesion:", name: "RemoteNotificationWithActiveSesion", object: nil)
 
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceiveRemoteNotificationInActiveSesion:", name: "UIApplicationDidReceiveRemoteNotification", object: nil)
     }
 
     func addLogOutEventToAvatorImageView () {

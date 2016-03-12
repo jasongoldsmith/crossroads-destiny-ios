@@ -26,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         localNotification.fireDate = NSDate(timeIntervalSinceNow: 10)
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
         
-        
         return true
     }
 
@@ -82,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         
         if application.applicationState == UIApplicationState.Active {
-            NSNotificationCenter.defaultCenter().postNotificationName("didReceiveRemoteNotificationInActiveSesion", object: self, userInfo: userInfo)
+            NSNotificationCenter.defaultCenter().postNotificationName("RemoteNotificationWithActiveSesion", object: self, userInfo: userInfo)
         }
         if application.applicationState != UIApplicationState.Active {
             NSNotificationCenter.defaultCenter().postNotificationName("UIApplicationDidReceiveRemoteNotification", object: self, userInfo: userInfo)
@@ -110,6 +109,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+
+
+    
+    func didReceiveRemoteNotificationInActiveSesion(sender: NSNotification)
+    {
+        if let userInfo = sender.userInfo as NSDictionary? {
+            print("UserInfo: \(userInfo)")
+        }
     }
 
 }
