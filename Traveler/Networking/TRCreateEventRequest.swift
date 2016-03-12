@@ -37,6 +37,12 @@ class TRCreateEventRequest: TRRequest {
                         if swiftyJsonVar.isEmpty {
                             completion(value: false )
                         } else if swiftyJsonVar["responseType"].string == "ERR" {
+                            
+                            if swiftyJsonVar["error"].string == "Player is already in the event" {
+                                completion(value: true)
+                                return
+                            }
+                            
                             completion(value: false )
                         } else {
 
