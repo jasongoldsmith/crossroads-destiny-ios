@@ -43,8 +43,11 @@ class TRLeaveEventRequest: TRRequest {
                                 // the whole event has been deleted.
                                 let creatorDict = swiftyJsonVar["creator"].dictionary
                                 if (creatorDict == nil) {
-                                    TRApplicationManager.sharedInstance.eventsList.removeAtIndex(TRApplicationManager.sharedInstance.eventsList.indexOf(existingEvent!)!)
+                                    if existingEvent != nil {
+                                        TRApplicationManager.sharedInstance.eventsList.removeAtIndex(TRApplicationManager.sharedInstance.eventsList.indexOf(existingEvent!)!)
+                                    }
                                     completion(value: true)
+                                    
                                     return
                                 }
                                 

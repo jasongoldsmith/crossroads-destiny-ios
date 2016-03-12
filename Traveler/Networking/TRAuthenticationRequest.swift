@@ -56,9 +56,6 @@ class TRAuthenticationRequest: TRRequest {
                             userData.psnID          = swiftyJsonVar["value"]["psnID"].string
                             userData.userImageURL   = swiftyJsonVar["value"]["imageUrl"].string
                             
-                            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                            appDelegate.addNotificationsPermission()
-
                             TRUserInfo.saveUserData(userData)
                             completion(value: true )
                         }
