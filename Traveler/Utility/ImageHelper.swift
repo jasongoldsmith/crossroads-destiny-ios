@@ -14,7 +14,7 @@ class ImageHelper {
     func roundImageView (imageView: UIImageView) {
         imageView.layer.borderWidth     = 1.0
         imageView.layer.cornerRadius    = imageView.frame.size.width/2
-        imageView.layer.borderColor     = UIColor.grayColor().CGColor
+        imageView.layer.borderColor     = UIColor(red: 44/255, green: 53/255, blue: 59/255, alpha: 1).CGColor
         imageView.layer.masksToBounds   = true
     }
 }

@@ -55,8 +55,6 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         self.similarActivitiesDifferentCheckPoints = TRApplicationManager.sharedInstance.getActivitiesMatchingSubTypeAndLevel(self.selectedActivity!)
         
         
-        
-        
         //Check if Checkpoint are availble or not, if no checkPoints avaliable then just hide the whole UI Button Element
         if let _ = self.selectedActivity?.activityCheckPoint where self.selectedActivity?.activityCheckPoint != "" {
         
@@ -95,6 +93,9 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
     
     func addNavigationBarButtons () {
         
+        //Add Title
+        self.title = "CREATE EVENT"
+
         //Adding Back Button to nav Bar
         let leftButton = UIButton(frame: CGRectMake(0,0,30,30))
         leftButton.setImage(UIImage(named: "iconBackArrow"), forState: .Normal)

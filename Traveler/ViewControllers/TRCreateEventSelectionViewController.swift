@@ -49,6 +49,9 @@ class TRCreateEventSelectionViewController: TRBaseViewController {
     
     func addNavigationBarButtons () {
         
+        //Add Title
+        self.title = "CREATE EVENT"
+        
         //Adding Back Button to nav Bar
         let leftButton = UIButton(frame: CGRectMake(0,0,30,30))
         leftButton.setImage(UIImage(named: "iconBackArrow"), forState: .Normal)
