@@ -113,12 +113,24 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         self.buttonTwo?.setTitle("Checkpoint - " + (self.selectedActivity?.activityCheckPoint!)!, forState: .Normal)
         self.buttonThress?.setTitle("Start Time - Now", forState: .Normal)
         
-        self.buttonOne?.layer.cornerRadius = 5
-        self.buttonTwo?.layer.cornerRadius = 5
-        self.buttonThress?.layer.cornerRadius = 5
-        self.buttonOne?.layer.masksToBounds = true
-        self.buttonTwo?.layer.masksToBounds = true
-        self.buttonThress?.layer.masksToBounds = true
+        self.addCosmeticsToButtons(self.buttonOne!)
+        self.addCosmeticsToButtons(self.buttonTwo!)
+        self.addCosmeticsToButtons(self.buttonThress!)
+    }
+    
+    func addCosmeticsToButtons (sender: UIButton) {
+        sender.layer.cornerRadius = 3
+        sender.layer.masksToBounds = true
+        
+        sender.layer.shadowOffset = CGSizeMake(0, 1)
+        sender.layer.shadowColor = UIColor.blackColor().CGColor
+        sender.layer.shadowRadius = 3.0
+        sender.layer.shadowOpacity = 0.7
+        sender.clipsToBounds = false
+        
+        let shadowFrame: CGRect = (sender.layer.bounds)
+        let shadowPath: CGPathRef = UIBezierPath(rect: shadowFrame).CGPath
+        sender.layer.shadowPath = shadowPath
     }
     
     //MARK:- UI-ACTIONS
