@@ -502,6 +502,8 @@
                                     <constraint firstAttribute="height" constant="96" id="fWG-NR-bnO"/>
                                 </constraints>
                                 <state key="normal" image="imgRaids"/>
+                                <state key="selected" image="imgRaidsSelected"/>
+                                <state key="highlighted" image="imgRaidsSelected"/>
                                 <connections>
                                     <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="Ug9-Ni-eOA"/>
                                 </connections>
@@ -513,6 +515,8 @@
                                     <constraint firstAttribute="height" constant="96" id="wq7-sn-YhW"/>
                                 </constraints>
                                 <state key="normal" image="imgCruicible"/>
+                                <state key="selected" image="imgCruicibleSelected"/>
+                                <state key="highlighted" image="imgCruicibleSelected"/>
                                 <connections>
                                     <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="bOu-0q-cTW"/>
                                 </connections>
@@ -524,6 +528,8 @@
                                     <constraint firstAttribute="width" constant="94" id="fC6-li-Y4q"/>
                                 </constraints>
                                 <state key="normal" image="imgWeeklies"/>
+                                <state key="selected" image="imgWeekliesSelected"/>
+                                <state key="highlighted" image="imgWeekliesSelected"/>
                                 <connections>
                                     <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="byL-t2-KNt"/>
                                 </connections>
@@ -1192,9 +1198,12 @@
         <image name="imgBackgroundMap" width="375" height="586"/>
         <image name="imgChooseEventBG" width="375" height="597"/>
         <image name="imgCruicible" width="98" height="100"/>
+        <image name="imgCruicibleSelected" width="98" height="100"/>
         <image name="imgGuardianBg" width="375" height="280"/>
         <image name="imgRaids" width="98" height="100"/>
+        <image name="imgRaidsSelected" width="98" height="100"/>
         <image name="imgTravelerBadge" width="45" height="52"/>
         <image name="imgWeeklies" width="98" height="100"/>
+        <image name="imgWeekliesSelected" width="98" height="100"/>
     </resources>
 </document>
