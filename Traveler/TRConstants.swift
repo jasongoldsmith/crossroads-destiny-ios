@@ -45,6 +45,12 @@ struct K {
         static let VIEW_CONTROLLER_CREATE_EVENT_SELECTION  = "createEventsSelection"
         static let VIEW_CONTROLLER_CREATE_EVENT_CONFIRM    = "createEventConfirmation"
     }
+    
+    struct ActivityType {
+        static let WEEKLY   = "Weekly"
+        static let RAIDS    = "Raid"
+        static let CRUCIBLE = "Crucible"
+    }
 }
 
 enum EVENT_STATUS : String {

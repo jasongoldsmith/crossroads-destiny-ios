@@ -118,6 +118,14 @@ class TREventTableCellView: UITableViewCell {
 
         button.userInteractionEnabled = true
         
+        if (event.eventCreator?.playerID == TRUserInfo.getUserID()) {
+            button.setImage(UIImage(named: "btnOWNER"), forState: .Normal)
+            button.userInteractionEnabled = true
+            leaveEventButton.hidden = false
+            
+            return
+        }
+        
         if (event.eventStatus == EVENT_STATUS.FULL.rawValue) {
             if(TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(event)) {
                 button.setImage(UIImage(named: "btnREADY"), forState: .Normal)

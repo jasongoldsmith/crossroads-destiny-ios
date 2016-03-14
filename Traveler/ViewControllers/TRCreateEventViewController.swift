@@ -37,9 +37,9 @@ class TRCreateEventViewController: TRBaseViewController {
         
         //Fetch Activities by Type
         for (_, activity) in TRApplicationManager.sharedInstance.activityList.enumerate() {
-            if (activity.activityType == "Raid" && activityOneButton?.buttonActivityInfo == nil) {
+            if (activity.activityType == K.ActivityType.RAIDS && activityOneButton?.buttonActivityInfo == nil) {
                 activityOneButton?.buttonActivityInfo = activity
-            } else if (activity.activityType == "Weeklies" && activityTwoButton?.buttonActivityInfo == nil) {
+            } else if (activity.activityType == K.ActivityType.WEEKLY && activityTwoButton?.buttonActivityInfo == nil) {
                 activityTwoButton?.buttonActivityInfo = activity
             } else {
                 if (activityThreeButton?.buttonActivityInfo == nil) {
