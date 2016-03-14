@@ -19,6 +19,7 @@
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue-Bold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -911,12 +912,12 @@
                                     <constraint firstAttribute="height" constant="10" id="cKy-gK-Med"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RyD-cs-rbu">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RyD-cs-rbu">
+                                <rect key="frame" x="0.0" y="600" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <datePicker alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Iyq-Vd-eiI">
-                                <rect key="frame" x="30" y="144" width="540" height="231"/>
+                            <datePicker alpha="0.0" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Iyq-Vd-eiI">
+                                <rect key="frame" x="30" y="600" width="540" height="231"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="421" id="4Mg-S1-u9g"/>
@@ -946,6 +947,16 @@
                                     <constraint firstAttribute="width" constant="5" id="tXD-QZ-SkC"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hoF-7R-3Kp">
+                                <rect key="frame" x="233" y="127" width="135" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="Zgu-SS-CqW"/>
+                                    <constraint firstAttribute="height" constant="21" id="fGK-in-bDY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -971,14 +982,24 @@
                             <constraint firstItem="0kb-Z5-oMd" firstAttribute="top" secondItem="gc7-xU-0jx" secondAttribute="topMargin" id="aMJ-7M-XX2"/>
                             <constraint firstItem="0kb-Z5-oMd" firstAttribute="leading" secondItem="gc7-xU-0jx" secondAttribute="leadingMargin" constant="-20" id="cIk-Wu-CqT"/>
                             <constraint firstItem="Xrn-7L-Bug" firstAttribute="top" secondItem="Iyq-Vd-eiI" secondAttribute="bottom" constant="175" id="d2o-Ij-2GI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hoF-7R-3Kp" secondAttribute="trailing" constant="212" id="dxh-tH-h8L"/>
+                            <constraint firstItem="hoF-7R-3Kp" firstAttribute="centerX" secondItem="gc7-xU-0jx" secondAttribute="centerX" id="e7i-4V-Lue"/>
                             <constraint firstItem="Yif-gd-HbE" firstAttribute="top" secondItem="g60-hL-efX" secondAttribute="bottom" constant="43" id="hWs-bv-KC8"/>
+                            <constraint firstItem="hoF-7R-3Kp" firstAttribute="leading" secondItem="gc7-xU-0jx" secondAttribute="leadingMargin" constant="213" id="kjy-UZ-0Zq"/>
                             <constraint firstItem="RyD-cs-rbu" firstAttribute="top" secondItem="gc7-xU-0jx" secondAttribute="topMargin" id="pLg-cd-Vdq"/>
                             <constraint firstItem="6l7-vH-SU8" firstAttribute="leading" secondItem="9ue-JR-J0g" secondAttribute="trailing" constant="-19" id="qgb-wK-tpA"/>
                             <constraint firstItem="g60-hL-efX" firstAttribute="centerX" secondItem="gzx-q8-nbG" secondAttribute="centerX" id="r8z-5E-Udg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0kb-Z5-oMd" secondAttribute="trailing" constant="-20" id="rVQ-nt-H7G"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Iyq-Vd-eiI" secondAttribute="trailing" constant="10" id="rm6-pL-Qr4"/>
+                            <constraint firstItem="hoF-7R-3Kp" firstAttribute="top" secondItem="gzx-q8-nbG" secondAttribute="bottom" constant="6" id="tbO-WW-luQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Xrn-7L-Bug" secondAttribute="trailing" constant="-20" id="vKY-6l-Bv8"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="dxh-tH-h8L"/>
+                                <exclude reference="kjy-UZ-0Zq"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="activityIconImage" destination="gzx-q8-nbG" id="ueR-Uw-ZUv"/>
@@ -989,6 +1010,7 @@
                         <outlet property="buttonTwo" destination="HaO-B3-0i5" id="RX1-MS-l1g"/>
                         <outlet property="datePickerBackgroundImage" destination="RyD-cs-rbu" id="nHb-2R-x4K"/>
                         <outlet property="datePickerView" destination="Iyq-Vd-eiI" id="L08-O5-fKa"/>
+                        <outlet property="eventTitleLabel" destination="hoF-7R-3Kp" id="aAC-Xl-Fjy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dmu-We-2vm" userLabel="First Responder" sceneMemberID="firstResponder"/>

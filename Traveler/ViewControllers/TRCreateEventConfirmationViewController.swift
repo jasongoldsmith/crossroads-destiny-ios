@@ -21,6 +21,7 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
     @IBOutlet weak var buttonThress: UIButton?
     @IBOutlet weak var datePickerView: UIDatePicker?
     @IBOutlet weak var datePickerBackgroundImage: UIImageView?
+    @IBOutlet weak var eventTitleLabel: UILabel?
     
     // Constraints OutLet
     @IBOutlet weak var buttonThreeTopConstraint: NSLayoutConstraint?
@@ -66,6 +67,9 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
             self.buttonThreeTopConstraint?.constant = 40.0
             self.buttonThreeBottomConstraint?.constant = 300.0
         }
+        
+        // Add Event Title
+        self.eventTitleLabel?.text = self.selectedActivity?.activityType
     }
     
     override func viewDidAppear(animated: Bool) {
