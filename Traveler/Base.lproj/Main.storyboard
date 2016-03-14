@@ -15,6 +15,8 @@
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue-Bold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -94,32 +96,32 @@
                                     <constraint firstAttribute="height" constant="137" id="sIG-L1-f57"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" alpha="0.57999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9OI-ue-1e9">
-                                <rect key="frame" x="0.0" y="536" width="300" height="64"/>
-                                <color key="backgroundColor" red="0.011764705882352941" green="0.31764705882352939" blue="0.40000000000000002" alpha="0.57999999999999996" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="pqT-xB-x2g"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                <state key="normal" title="CREATE ACCOUNT">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="createAccountBtnTapped:" destination="GCe-sl-3u9" eventType="touchUpInside" id="4r9-ll-mwr"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.57999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vp9-6u-dUS">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vp9-6u-dUS">
                                 <rect key="frame" x="300" y="536" width="300" height="64"/>
                                 <color key="backgroundColor" red="0.011764705882352941" green="0.40000000000000002" blue="0.25882352941176467" alpha="0.57999999999999996" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="SMz-sD-47M"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                                 <state key="normal" title="SIGN IN">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="signIntBtnTapped:" destination="GCe-sl-3u9" eventType="touchUpInside" id="Ybc-N6-flL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9OI-ue-1e9">
+                                <rect key="frame" x="0.0" y="536" width="300" height="64"/>
+                                <color key="backgroundColor" red="0.011764705882352941" green="0.31764705882352939" blue="0.40000000000000002" alpha="0.57999999999999996" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="pqT-xB-x2g"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
+                                <state key="normal" title="CREATE ACCOUNT">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="createAccountBtnTapped:" destination="GCe-sl-3u9" eventType="touchUpInside" id="4r9-ll-mwr"/>
                                 </connections>
                             </button>
                         </subviews>
