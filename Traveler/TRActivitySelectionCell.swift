@@ -20,28 +20,34 @@ class TRActivitySelectionCell: UITableViewCell {
     
     func updateCell (activity: TRActivityInfo) {
         
-        let imageUrl = NSURL(string: activity.activityIconImage!)
-        
         var labelSting = activity.activitySubType! + " - " + activity.activityDificulty! + " "
         if let light = activity.activityLight?.integerValue where light > 0 {
             labelSting = labelSting + (activity.activityLight?.stringValue)! + " Light"
         }
         
-        self.activityIconImage.sd_setImageWithURL(imageUrl)
+//        let imageUrl = NSURL(string: activity.activityIconImage!)
+//        self.activityIconImage.sd_setImageWithURL(imageUrl)
         self.activityInfoLabel.text = labelSting
 
         self.layer.cornerRadius = 3
         self.layer.masksToBounds = true
         
+        // Cell Shadow
         self.layer.shadowOffset = CGSizeMake(0, 1)
         self.layer.shadowColor = UIColor.blackColor().CGColor
         self.layer.shadowRadius = 3.0
         self.layer.shadowOpacity = 0.8
         self.clipsToBounds = false
-        
         let shadowFrame: CGRect = (self.bounds)
         let shadowPath: CGPathRef = UIBezierPath(rect: shadowFrame).CGPath
         self.layer.shadowPath = shadowPath
-
+        
+        //Selection Color
+        let myCustomSelectionColorView = UIView()
+        myCustomSelectionColorView.backgroundColor = UIColor(red: 96/255, green: 184/255, blue: 0/255, alpha: 1)
+        myCustomSelectionColorView.layer.cornerRadius = 3.0
+        myCustomSelectionColorView.clipsToBounds = true
+        self.selectedBackgroundView = myCustomSelectionColorView
     }
 }
+

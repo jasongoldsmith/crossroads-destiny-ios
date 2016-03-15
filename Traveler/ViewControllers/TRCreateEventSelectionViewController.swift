@@ -20,6 +20,8 @@ class TRCreateEventSelectionViewController: TRBaseViewController {
     // Contains Activities of only "selected" type
     var filteredActivitiesOfSelectedType: [TRActivityInfo] = []
 
+    // Contains Unique Activities Based on SubType/ Difficulty
+    var filteredActivitiesOfSubTypeAndDifficulty: [TRActivityInfo] = []
     
     @IBOutlet weak var activityIconImage: UIImageView!
     @IBOutlet weak var activitySelectionTable: UITableView!
@@ -34,6 +36,13 @@ class TRCreateEventSelectionViewController: TRBaseViewController {
         // Get all Activities of selected activityType
         self.filteredActivitiesOfSelectedType = TRApplicationManager.sharedInstance.getActivitiesOfType((self.seletectedActivity?.activityType)!)!
 
+        // Get All activities filtered on Difficulty and SubType
+        self.filteredActivitiesOfSubTypeAndDifficulty = self.getFiletreObjOfSubTypeAndDifficulty()!
+        for activity in self.filteredActivitiesOfSubTypeAndDifficulty {
+            print("\(activity.activitySubType), \(activity.activityLight), \(activity.activityDificulty)")
+        }
+        
+        
         //Register Cell Nib
         self.activitySelectionTable?.registerNib(UINib(nibName: "TRActivitySelectionCell", bundle: nil), forCellReuseIdentifier: ACTIVITY_SELECTION_CELL)
         self.activitySelectionTable?.tableFooterView = UIView(frame: CGRectZero)
@@ -45,9 +54,13 @@ class TRCreateEventSelectionViewController: TRBaseViewController {
         
         // Activity Name Label
         self.activityNameLabel?.text = self.seletectedActivity?.activityType
+        
+        // Set seperator clear color
+        self.activitySelectionTable.separatorColor = UIColor.clearColor()
     }
     
     override func viewDidAppear(animated: Bool) {
+        
         super.viewDidAppear(animated)
     }
     
@@ -67,15 +80,18 @@ class TRCreateEventSelectionViewController: TRBaseViewController {
 
     //MARK:- UI-ACTIONS
     func backButtonPressed (sender: UIBarButtonItem) {
+        
         self.navigationController?.popViewControllerAnimated(true)
     }
 
     //MARK:- UI-Table Methods
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return 1
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
         let headerView = UIView()
         headerView.backgroundColor = UIColor.clearColor()
         
@@ -83,6 +99,7 @@ class TRCreateEventSelectionViewController: TRBaseViewController {
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+       
         if section == 0 {
             return 0.0
         }
@@ -91,26 +108,46 @@ class TRCreateEventSelectionViewController: TRBaseViewController {
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.filteredActivitiesOfSelectedType.count
+        
+        return self.filteredActivitiesOfSubTypeAndDifficulty.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(ACTIVITY_SELECTION_CELL) as! TRActivitySelectionCell
-        cell.updateCell(self.filteredActivitiesOfSelectedType[indexPath.section])
+        cell.updateCell(self.filteredActivitiesOfSubTypeAndDifficulty[indexPath.section])
         
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
         self.activitySelectionTable?.deselectRowAtIndexPath(indexPath, animated: false)
         
         let vc = TRApplicationManager.sharedInstance.stroryBoardManager.getViewControllerWithID(K.ViewControllerIdenifier.VIEW_CONTROLLER_CREATE_EVENT_CONFIRM, storyBoardID: K.StoryBoard.StoryBoard_Main) as! TRCreateEventConfirmationViewController
-        vc.selectedActivity = self.filteredActivitiesOfSelectedType[indexPath.section]
+        vc.selectedActivity = self.filteredActivitiesOfSubTypeAndDifficulty[indexPath.section]
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
+    //MARK:- DATA METHODS
+    func getFiletreObjOfSubTypeAndDifficulty () -> [TRActivityInfo]? {
+
+        var filteredArray: [TRActivityInfo] = []
+        for (_, activity) in self.filteredActivitiesOfSelectedType.enumerate() {
+            if (self.filteredActivitiesOfSelectedType.count < 1) {
+                filteredArray.append(activity)
+            } else {
+                let activityArray = filteredArray.filter {$0.activityDificulty == activity.activityDificulty && $0.activitySubType == activity.activitySubType}
+                if (activityArray.count == 0) {
+                    filteredArray.append(activity)
+                }
+            }
+        }
+        
+        return filteredArray
+    }
+    
     
     deinit {
         appManager.log.debug("")

@@ -106,10 +106,11 @@ class TRCreateEventRequest: TRRequest {
                             }
                             
                             //Adding it to "eventsInfo"
-                            let eventToUpdate = TRApplicationManager.sharedInstance.getEventById(eventInfo.eventID!)
-                            if let _ = eventToUpdate {
-                                let eventIndex = TRApplicationManager.sharedInstance.eventsList.indexOf(eventToUpdate!)
-                                TRApplicationManager.sharedInstance.eventsList.removeAtIndex(eventIndex!)
+                            if (eventInfo.eventID != nil) {
+                                if let eventToUpdate = TRApplicationManager.sharedInstance.getEventById(eventInfo.eventID!) {
+                                    let eventIndex = TRApplicationManager.sharedInstance.eventsList.indexOf(eventToUpdate)
+                                    TRApplicationManager.sharedInstance.eventsList.removeAtIndex(eventIndex!)
+                                }
                             }
 
                             TRApplicationManager.sharedInstance.eventsList.insert(eventInfo, atIndex: 0)

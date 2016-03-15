@@ -134,14 +134,12 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         }
         
         if let eventInfo = sender.buttonEventInfo {
-            
-            dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
-            }
-
             _ = TRJoinEventRequest().joinEventWithUserForEvent(TRUserInfo.getUserID()!, eventInfo: eventInfo, completion: { (value) -> () in
                 if (value == true) {
-                    self.reloadEventTable()
+                    dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                        TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
+                        self.reloadEventTable()
+                    }
                 } else {
                     print("Failed")
                 }
@@ -157,7 +155,10 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
 
         _ = TRLeaveEventRequest().leaveAnEvent(sender.buttonEventInfo!,completion: {value in
             if (value == true) {
-                self.reloadEventTable()
+                dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                    TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
+                    self.reloadEventTable()
+                }
             } else {
                 
             }
@@ -195,10 +196,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         
         //Reload Table
         self.eventsInfo = TRApplicationManager.sharedInstance.eventsList
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
-            self.eventsTableView?.reloadData()
-        }
-        
+        self.eventsTableView?.reloadData()
     }
     
     @IBAction func segmentControlSelection (sender: UISegmentedControl) {
@@ -217,7 +215,9 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         }
         
         //Reload Data
-        self.reloadEventTable()
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            self.reloadEventTable()
+        }
     }
     
     
