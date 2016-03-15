@@ -120,7 +120,7 @@ class TREventTableCellView: UITableViewCell {
         
         if (event.eventCreator?.playerID == TRUserInfo.getUserID()) {
             button.setImage(UIImage(named: "btnOWNER"), forState: .Normal)
-            button.userInteractionEnabled = true
+            button.userInteractionEnabled = false
             leaveEventButton.hidden = false
             
             return
