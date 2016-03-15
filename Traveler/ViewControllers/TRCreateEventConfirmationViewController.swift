@@ -213,6 +213,9 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
                     labelSting = labelSting + (self.selectedActivity!.activityLight?.stringValue)! + " Light"
                 }
 
+                // Update Label
+                // Add Event Title
+                self.eventTitleLabel?.text = self.selectedActivity?.activityType
                 self.buttonOne?.setTitle(labelSting, forState: .Normal)
                 self.buttonTwo?.setTitle("Checkpoint - " + (self.selectedActivity?.activityCheckPoint!)!, forState: .Normal)
             }

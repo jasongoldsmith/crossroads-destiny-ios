@@ -23,6 +23,7 @@ class TRCreateEventSelectionViewController: TRBaseViewController {
     
     @IBOutlet weak var activityIconImage: UIImageView!
     @IBOutlet weak var activitySelectionTable: UITableView!
+    @IBOutlet weak var activityNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,9 @@ class TRCreateEventSelectionViewController: TRBaseViewController {
         //IMAGE VIEW
         let imageUrl = NSURL(string: (seletectedActivity?.activityIconImage)!)
         self.activityIconImage.sd_setImageWithURL(imageUrl)
+        
+        // Activity Name Label
+        self.activityNameLabel?.text = self.seletectedActivity?.activityType
     }
     
     override func viewDidAppear(animated: Bool) {

@@ -20,6 +20,7 @@
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue-Bold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -781,7 +782,7 @@
                                 </state>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="10" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Wo9-gi-7Gq">
-                                <rect key="frame" x="50" y="130" width="500" height="384"/>
+                                <rect key="frame" x="50" y="145" width="500" height="384"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="444" id="41h-Zk-Ppf"/>
@@ -797,14 +798,26 @@
                                     <outlet property="delegate" destination="ZzQ-z0-tdJ" id="PNI-q1-kt1"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIc-7i-OBt">
+                                <rect key="frame" x="174" y="106" width="253" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="IIH-fq-J82"/>
+                                    <constraint firstAttribute="width" constant="253" id="jmP-fa-Dv0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Qg3-TW-Gsi" secondAttribute="trailing" constant="-20" id="0DJ-oL-pu6"/>
+                            <constraint firstItem="vIc-7i-OBt" firstAttribute="centerX" secondItem="gY3-2q-CGj" secondAttribute="centerX" id="4fM-Gd-eBi"/>
                             <constraint firstItem="Wo9-gi-7Gq" firstAttribute="leading" secondItem="gY3-2q-CGj" secondAttribute="leadingMargin" constant="30" id="6jN-XW-Xy8"/>
                             <constraint firstItem="qVn-Ie-Rpx" firstAttribute="top" secondItem="Rx5-b2-bRz" secondAttribute="bottom" constant="30" id="BYc-kw-QVV"/>
-                            <constraint firstItem="Wo9-gi-7Gq" firstAttribute="top" secondItem="qVn-Ie-Rpx" secondAttribute="bottom" constant="30" id="HJj-DJ-Tmm"/>
+                            <constraint firstItem="Wo9-gi-7Gq" firstAttribute="top" secondItem="qVn-Ie-Rpx" secondAttribute="bottom" constant="45" id="HJj-DJ-Tmm"/>
                             <constraint firstItem="Sdo-KP-jFj" firstAttribute="top" secondItem="p5R-qB-cd6" secondAttribute="bottom" id="LsN-7A-AA3"/>
+                            <constraint firstItem="vIc-7i-OBt" firstAttribute="top" secondItem="qVn-Ie-Rpx" secondAttribute="bottom" constant="6" id="Pw8-oi-dZS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Wo9-gi-7Gq" secondAttribute="trailing" constant="30" id="RbB-5E-Bxm"/>
                             <constraint firstItem="Qg3-TW-Gsi" firstAttribute="leading" secondItem="gY3-2q-CGj" secondAttribute="leadingMargin" constant="-20" id="YDB-R0-5RF"/>
                             <constraint firstItem="p5R-qB-cd6" firstAttribute="top" secondItem="gY3-2q-CGj" secondAttribute="topMargin" id="bOi-GP-4XI"/>
@@ -816,6 +829,7 @@
                     </view>
                     <connections>
                         <outlet property="activityIconImage" destination="qVn-Ie-Rpx" id="cOF-Lj-dku"/>
+                        <outlet property="activityNameLabel" destination="vIc-7i-OBt" id="or8-mt-WBy"/>
                         <outlet property="activitySelectionTable" destination="Wo9-gi-7Gq" id="Qqm-UF-Q2I"/>
                     </connections>
                 </viewController>
@@ -912,12 +926,12 @@
                                     <constraint firstAttribute="height" constant="10" id="cKy-gK-Med"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RyD-cs-rbu">
-                                <rect key="frame" x="0.0" y="600" width="600" height="600"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RyD-cs-rbu">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <datePicker alpha="0.0" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Iyq-Vd-eiI">
-                                <rect key="frame" x="30" y="600" width="540" height="231"/>
+                            <datePicker alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Iyq-Vd-eiI">
+                                <rect key="frame" x="30" y="144" width="540" height="231"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="421" id="4Mg-S1-u9g"/>
