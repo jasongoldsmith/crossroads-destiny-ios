@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33104BFB1C97B1E70024D601 /* TRActivityIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33104BFA1C97B1E70024D601 /* TRActivityIndicatorView.xib */; };
+		33104BFC1C97B1E70024D601 /* TRActivityIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33104BFA1C97B1E70024D601 /* TRActivityIndicatorView.xib */; };
+		33104BFD1C97B1E70024D601 /* TRActivityIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33104BFA1C97B1E70024D601 /* TRActivityIndicatorView.xib */; };
+		33104BFF1C97B1F40024D601 /* TRActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33104BFE1C97B1F40024D601 /* TRActivityIndicatorView.swift */; };
+		33104C001C97B1F40024D601 /* TRActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33104BFE1C97B1F40024D601 /* TRActivityIndicatorView.swift */; };
+		33104C011C97B1F40024D601 /* TRActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33104BFE1C97B1F40024D601 /* TRActivityIndicatorView.swift */; };
 		332C9CE41C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
 		332C9CE51C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
 		332C9CE61C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
@@ -147,6 +153,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		33104BFA1C97B1E70024D601 /* TRActivityIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRActivityIndicatorView.xib; sourceTree = "<group>"; };
+		33104BFE1C97B1F40024D601 /* TRActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRActivityIndicatorView.swift; sourceTree = "<group>"; };
 		332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLeaveEventRequest.swift; sourceTree = "<group>"; };
 		334ED0C11C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCreateEventsActivityViewController.swift; sourceTree = "<group>"; };
 		33742D7F1C7FBDF100C46742 /* TRConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRConstants.swift; sourceTree = "<group>"; };
@@ -238,6 +246,8 @@
 				339D8F2B1C90F79800A2620F /* TRActivitySelectionCell.xib */,
 				3374D74C1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift */,
 				3374D7501C92591F0036E9C8 /* TRActivityCheckPointPicker.xib */,
+				33104BFA1C97B1E70024D601 /* TRActivityIndicatorView.xib */,
+				33104BFE1C97B1F40024D601 /* TRActivityIndicatorView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -486,6 +496,7 @@
 				339D8F2C1C90F79800A2620F /* TRActivitySelectionCell.xib in Resources */,
 				33742DB71C8317EF00C46742 /* TREventTableCellView.xib in Resources */,
 				3374D7511C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */,
+				33104BFB1C97B1E70024D601 /* TRActivityIndicatorView.xib in Resources */,
 				62F279BF1C7D1318008D67DC /* Assets.xcassets in Resources */,
 				62C1FF3A1C77C15C00A78798 /* LaunchScreen.storyboard in Resources */,
 				62C1FF351C77C15C00A78798 /* Main.storyboard in Resources */,
@@ -499,6 +510,7 @@
 				33742DB81C8317EF00C46742 /* TREventTableCellView.xib in Resources */,
 				339D8F2D1C90F79800A2620F /* TRActivitySelectionCell.xib in Resources */,
 				3374D7521C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */,
+				33104BFC1C97B1E70024D601 /* TRActivityIndicatorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +521,7 @@
 				33742DB91C8317EF00C46742 /* TREventTableCellView.xib in Resources */,
 				339D8F2E1C90F79800A2620F /* TRActivitySelectionCell.xib in Resources */,
 				3374D7531C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */,
+				33104BFD1C97B1E70024D601 /* TRActivityIndicatorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +591,7 @@
 				62C1FF5F1C77CDFF00A78798 /* TRLoginOptionViewController.swift in Sources */,
 				33742D921C7FC8D300C46742 /* TRRequest.swift in Sources */,
 				33742DA91C810A6100C46742 /* TRPlayerInfo.swift in Sources */,
+				33104BFF1C97B1F40024D601 /* TRActivityIndicatorView.swift in Sources */,
 				62C5DF791C79769C0039A88E /* TREventListViewController.swift in Sources */,
 				33742D9D1C80FFAE00C46742 /* TRGetEventsList.swift in Sources */,
 				6294972D1C7BB5F3005E4F91 /* TRAuthenticationRequest.swift in Sources */,
@@ -627,6 +641,7 @@
 				33742DAE1C810AE300C46742 /* TRActivityInfo.swift in Sources */,
 				33742DB31C83179D00C46742 /* TREventTableCellView.swift in Sources */,
 				33742D8F1C7FC66E00C46742 /* TRStoryBoardManager.swift in Sources */,
+				33104C001C97B1F40024D601 /* TRActivityIndicatorView.swift in Sources */,
 				33FDB9CA1C86A0D60066237C /* TRUpcomingActivities.swift in Sources */,
 				339D8F291C90F77E00A2620F /* TRActivitySelectionCell.swift in Sources */,
 				33742D8B1C7FC66500C46742 /* TRBaseViewController.swift in Sources */,
@@ -670,6 +685,7 @@
 				33742DAF1C810AE300C46742 /* TRActivityInfo.swift in Sources */,
 				33742DB41C83179D00C46742 /* TREventTableCellView.swift in Sources */,
 				33742D901C7FC66F00C46742 /* TRStoryBoardManager.swift in Sources */,
+				33104C011C97B1F40024D601 /* TRActivityIndicatorView.swift in Sources */,
 				33FDB9CB1C86A0D60066237C /* TRUpcomingActivities.swift in Sources */,
 				339D8F2A1C90F77E00A2620F /* TRActivitySelectionCell.swift in Sources */,
 				33742D8C1C7FC66600C46742 /* TRBaseViewController.swift in Sources */,

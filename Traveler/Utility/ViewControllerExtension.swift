@@ -10,10 +10,24 @@ import UIKit
 
 extension UIViewController {
     
-    func displayAlertWithTitle(title: String)
+    typealias TRActivityIndicatorCompletion = (complete: Bool?) -> ()
+    
+    func displayAlertWithTitle(title: String, complete: TRActivityIndicatorCompletion)
     {
         let alertView = UIAlertController(title: title, message: " ", preferredStyle: .Alert)
-        alertView.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+        alertView.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
+            switch action.style{
+            case .Default:
+                complete(complete: true)
+                
+            case .Cancel:
+                print("cancel")
+                
+            case .Destructive:
+                print("destructive")
+            }
+        }))
+        
         presentViewController(alertView, animated: true, completion: nil)
     }
 }

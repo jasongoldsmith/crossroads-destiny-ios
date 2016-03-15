@@ -45,21 +45,27 @@ class TRCreateAccountViewController: TRBaseViewController {
     @IBAction func createAccountBtnTapped(sender: AnyObject) {
         
         if userNameTxtField.text?.isEmpty  == true {
-            displayAlertWithTitle("Enter UserName")
+            displayAlertWithTitle("Enter UserName", complete: { (complete) -> () in
+                
+            })
             
             return
         }
         else {
             let textcount = userNameTxtField.text?.characters.count
             if textcount < 4 || textcount > 50 {
-                displayAlertWithTitle("User Name must be between 4 and 50 characters")
+                displayAlertWithTitle("User Name must be between 4 and 50 characters", complete: { (complete) -> () in
+                    
+                })
                 
                 return
             }
         }
         
         if userPwdTxtField.text?.isEmpty == true {
-            displayAlertWithTitle("Enter UserPassword")
+            displayAlertWithTitle("Enter UserPassword", complete: { (complete) -> () in
+                
+            })
             
             return
         }
@@ -67,7 +73,9 @@ class TRCreateAccountViewController: TRBaseViewController {
             
             let textcount = userPwdTxtField.text?.characters.count
             if textcount < 4 || textcount > 50 {
-                displayAlertWithTitle("User password must be between 4 and 50 characters")
+                displayAlertWithTitle("User password must be between 4 and 50 characters", complete: { (complete) -> () in
+                    
+                })
                 
                 return
             }
@@ -95,7 +103,9 @@ class TRCreateAccountViewController: TRBaseViewController {
                 defaults.setValue(nil, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
                 defaults.synchronize()
 
-                self.displayAlertWithTitle("Your credentails info is wrong")
+                self.displayAlertWithTitle("Your credentails info is wrong", complete: { (complete) -> () in
+                    
+                })
             }
         }
     }

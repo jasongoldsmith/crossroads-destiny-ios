@@ -24,13 +24,20 @@ class TRApplicationManager: NSObject {
     let stroryBoardManager = TRStoryBoardManager()
     
     //Event Info Objet
-    var eventsList: [TREventInfo] = []
+    var eventsList: [TREventInfo] = [] {
+        didSet{
+            print("Did Set or update: \(self)")
+        }
+    }
     
     //Activity List
     var activityList: [TRActivityInfo] = []
     
     //Image Helper
     var imageHelper = ImageHelper()
+    
+    // Activity Indicator
+    var activityIndicator = ActivityIndicatorView()
     
     // MARK:- Initializer
     private override init() {
@@ -42,6 +49,9 @@ class TRApplicationManager: NSObject {
         #else
             self.log.setup(.Debug, showLogLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: nil)
         #endif
+        
+        // Init Activity Indicator with nib
+        self.activityIndicator = NSBundle.mainBundle().loadNibNamed("TRActivityIndicatorView", owner: self, options: nil)[0] as! ActivityIndicatorView
     }
     
     required init(coder aDecoder: NSCoder) {

@@ -49,20 +49,27 @@ class TRSignInViewController: TRBaseViewController {
     @IBAction func signInBtnTapped(sender: AnyObject) {
         
         if userNameTxtField.text?.isEmpty  == true {
-            displayAlertWithTitle("Enter your UserName")
+            displayAlertWithTitle("Enter your UserName", complete: { (complete) -> () in
+                
+            })
             return
         }
         else {
             let textcount = userNameTxtField.text?.characters.count
             if textcount < 4 || textcount > 50 {
-                displayAlertWithTitle("User Name must be between 4 and 50 characters")
+                displayAlertWithTitle("User Name must be between 4 and 50 characters", complete: { (complete) -> () in
+                    
+                })
                 return
             }
         }
         
         
         if userPwdTxtField.text?.isEmpty == true {
-            displayAlertWithTitle("Enter your Password")
+            displayAlertWithTitle("Enter your Password", complete: { (complete) -> () in
+                
+            })
+            
             return
             
         }
@@ -70,7 +77,10 @@ class TRSignInViewController: TRBaseViewController {
             
             let textcount = userPwdTxtField.text?.characters.count
             if textcount < 4 || textcount > 50 {
-                displayAlertWithTitle("User password must be between 4 and 50 characters")
+                displayAlertWithTitle("User password must be between 4 and 50 characters", complete: { (complete) -> () in
+                    
+                })
+                
                 return
             }
             
@@ -101,7 +111,9 @@ class TRSignInViewController: TRBaseViewController {
                 defaults.setValue(nil, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
                 defaults.synchronize()
                 
-                self.displayAlertWithTitle("Your credentails info is wrong")
+                self.displayAlertWithTitle("Your credentails info is wrong", complete: { (complete) -> () in
+                    
+                })
             }
         }
     }
