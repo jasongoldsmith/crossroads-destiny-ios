@@ -22,10 +22,13 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
     @IBOutlet weak var datePickerView: UIDatePicker?
     @IBOutlet weak var datePickerBackgroundImage: UIImageView?
     @IBOutlet weak var eventTitleLabel: UILabel?
+    @IBOutlet weak var buttonTwoNextIconImage: UIImageView?
+    @IBOutlet weak var buttonThreeNextIconImage: UIImageView?
     
     // Constraints OutLet
     @IBOutlet weak var buttonThreeTopConstraint: NSLayoutConstraint?
     @IBOutlet weak var buttonThreeBottomConstraint: NSLayoutConstraint?
+    @IBOutlet weak var buttonTwoNextIconTopConstraint: NSLayoutConstraint?
     
     var selectedActivity: TRActivityInfo?
     var similarActivitiesDifferentCheckPoints: [TRActivityInfo]?
@@ -62,10 +65,12 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
             //Add Checkpoint PickerView
             self.addCheckpointPickerView()
         } else {
-
-            self.buttonTwo?.hidden = true
+            self.buttonTwoNextIconTopConstraint?.constant = 55.0
             self.buttonThreeTopConstraint?.constant = 40.0
             self.buttonThreeBottomConstraint?.constant = 300.0
+            
+            self.buttonTwo?.hidden = true
+            self.buttonThreeNextIconImage?.hidden = true
         }
         
         // Add Event Title

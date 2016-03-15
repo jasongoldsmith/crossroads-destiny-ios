@@ -1005,9 +1005,12 @@
                         <outlet property="activityIconImage" destination="gzx-q8-nbG" id="ueR-Uw-ZUv"/>
                         <outlet property="buttonOne" destination="g60-hL-efX" id="tcg-JC-i5X"/>
                         <outlet property="buttonThreeBottomConstraint" destination="Nw1-4f-CJa" id="4wR-ny-fWa"/>
+                        <outlet property="buttonThreeNextIconImage" destination="6l7-vH-SU8" id="RNQ-hU-5pM"/>
                         <outlet property="buttonThreeTopConstraint" destination="Zwy-9s-KQm" id="7lu-ve-Asa"/>
                         <outlet property="buttonThress" destination="9ue-JR-J0g" id="Lr2-Ds-SjJ"/>
                         <outlet property="buttonTwo" destination="HaO-B3-0i5" id="RX1-MS-l1g"/>
+                        <outlet property="buttonTwoNextIconImage" destination="Yif-gd-HbE" id="flm-KX-ubG"/>
+                        <outlet property="buttonTwoNextIconTopConstraint" destination="hWs-bv-KC8" id="TlR-UX-b4D"/>
                         <outlet property="datePickerBackgroundImage" destination="RyD-cs-rbu" id="nHb-2R-x4K"/>
                         <outlet property="datePickerView" destination="Iyq-Vd-eiI" id="L08-O5-fKa"/>
                         <outlet property="eventTitleLabel" destination="hoF-7R-3Kp" id="aAC-Xl-Fjy"/>

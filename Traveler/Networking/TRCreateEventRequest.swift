@@ -112,7 +112,7 @@ class TRCreateEventRequest: TRRequest {
                                 TRApplicationManager.sharedInstance.eventsList.removeAtIndex(eventIndex!)
                             }
 
-                            TRApplicationManager.sharedInstance.eventsList.append(eventInfo)
+                            TRApplicationManager.sharedInstance.eventsList.insert(eventInfo, atIndex: 0)
                             completion(value: true )
                         }
                     } else {
