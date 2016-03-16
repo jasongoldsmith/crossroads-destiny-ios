@@ -112,6 +112,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         if segmentControl?.selectedSegmentIndex == 0 {
             cell.updateCellViewWithEvent(eventsInfo[indexPath.section])
         } else {
+            cell.updateCellViewWithEvent(eventsInfo[indexPath.section])
         }
 
         cell.joinEventButton?.addTarget(self, action: "joinAnEvent:", forControlEvents: .TouchUpInside)

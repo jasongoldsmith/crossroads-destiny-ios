@@ -25,6 +25,10 @@ class ActivityIndicatorView: UIView {
     }
     
     func startActivityIndicator (vc: TRBaseViewController, withClearBackGround: Bool, activityTopConstraintValue: CGFloat?) {
+        
+        self.activityIndicatorBGImage.alpha = 0.7
+        self.activityIndicatorTopConstraint?.constant = 281.0
+        
         self.parentViewController = vc
         self.frame = (self.parentViewController?.view.bounds)!
         self.parentViewController?.view.addSubview(self)
