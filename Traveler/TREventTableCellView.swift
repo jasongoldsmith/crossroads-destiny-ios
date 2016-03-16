@@ -28,6 +28,19 @@ class TREventTableCellView: UITableViewCell {
     @IBOutlet weak var leaveEventButton     :EventButton!
     
     
+    override func prepareForReuse() {
+        
+        self.playerImageOne.image = nil
+        self.playerImageTwo.image = nil
+        self.playerCountLabel.text = nil
+        self.playerCountImage.image = nil
+        
+        self.playerImageOne.hidden = true
+        self.playerImageTwo.hidden = true
+        self.playerCountLabel.hidden = true
+        self.playerCountImage.hidden = true
+    }
+    
     func updateCellViewWithEvent (eventInfo: TREventInfo) {
         
         //Adding Radius to
@@ -37,11 +50,9 @@ class TREventTableCellView: UITableViewCell {
         self.activityLight?.text = "+" + (eventInfo.eventActivity?.activityLight?.stringValue)!
         
         // Set  Event Player Names
-        if (eventInfo.eventPlayersArray.count < eventInfo.eventMaxPlayers?.integerValue) {
-            
-            
+        if (eventInfo.eventPlayersArray.count < eventInfo.eventActivity?.activityMaxPlayers?.integerValue) {
             let stringColorAttribute = [NSForegroundColorAttributeName: UIColor.yellowColor()]
-            let extraPlayersRequiredCount = ((eventInfo.eventMaxPlayers?.integerValue)! - eventInfo.eventPlayersArray.count)
+            let extraPlayersRequiredCount = ((eventInfo.eventActivity?.activityMaxPlayers?.integerValue)! - eventInfo.eventPlayersArray.count)
             let extraPlayersRequiredCountString = String(extraPlayersRequiredCount)
             let extraPlayersRequiredCountStringNew = " LF" + "\(extraPlayersRequiredCountString)M"
             
@@ -78,12 +89,16 @@ class TREventTableCellView: UITableViewCell {
         for (index, player) in playerArray.enumerate() {
             switch index {
             case 0:
+                
+                self.playerImageOne.hidden = false
                 let imageUrl = NSURL(string: player.playerImageUrl!)
                 self.playerImageOne!.sd_setImageWithURL(imageUrl)
                 TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.playerImageOne)
                 
                 break;
             case 1:
+                
+                self.playerImageTwo.hidden = false
                 self.playerImageTwo.hidden = false
                 let imageUrl = NSURL(string: player.playerImageUrl!)
                 self.playerImageTwo.sd_setImageWithURL(imageUrl)
@@ -92,6 +107,7 @@ class TREventTableCellView: UITableViewCell {
                 break;
                 
             case 2:
+                
                 self.playerCountImage.hidden = false
                 if(eventInfo.eventMaxPlayers?.integerValue > 3) {
                     self.playerCountImage.image = nil
