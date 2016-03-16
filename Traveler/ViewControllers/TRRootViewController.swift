@@ -11,6 +11,9 @@ import UIKit
 
 class TRRootViewController: TRBaseViewController {
 
+    
+    private let ACTIVITY_INDICATOR_TOP_CONSTRAINT: CGFloat = 365.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -22,11 +25,19 @@ class TRRootViewController: TRBaseViewController {
     override func viewDidAppear(animated: Bool) {
 
         super.viewDidAppear(animated)
+        
         if (TRUserInfo.isUserLoggedIn()) {
+            
+            // Add Activity Indicator
+            TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(self, withClearBackGround: true, activityTopConstraintValue: ACTIVITY_INDICATOR_TOP_CONSTRAINT)
             
             //Sending Request to fetch the Events List and OnSuccess loading the TREventListViewController ViewController
             _ = TRGetEventsList().getEventsList({ (value) -> () in
                 if(value == true) {
+                    
+                    // Stop Activity Indicator
+                    TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
+
                     self.performSegueWithIdentifier("TREventListView", sender: self)
                     self.appManager.log.debug("Success")
                     

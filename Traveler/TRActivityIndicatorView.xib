@@ -23,13 +23,22 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="PVT-rT-Gek" secondAttribute="trailing" id="CGA-7f-MvD"/>
                 <constraint firstItem="W3v-tn-p9X" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Fck-1B-Tqd"/>
+                <constraint firstItem="W3v-tn-p9X" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="281" id="Gz2-UM-wZH"/>
                 <constraint firstItem="PVT-rT-Gek" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="JMK-Im-qp5"/>
                 <constraint firstAttribute="bottom" secondItem="PVT-rT-Gek" secondAttribute="bottom" id="aEi-hg-amv"/>
                 <constraint firstItem="W3v-tn-p9X" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="dBC-Ym-Wc5"/>
+                <constraint firstAttribute="bottom" secondItem="W3v-tn-p9X" secondAttribute="bottom" constant="282" id="j1E-q2-w4p"/>
                 <constraint firstItem="PVT-rT-Gek" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vQF-W4-ctt"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Fck-1B-Tqd"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="activityIndicator" destination="W3v-tn-p9X" id="wF3-q4-aBD"/>
+                <outlet property="activityIndicatorBGImage" destination="PVT-rT-Gek" id="DPb-oL-eHK"/>
+                <outlet property="activityIndicatorTopConstraint" destination="Gz2-UM-wZH" id="vqB-gU-21E"/>
             </connections>
         </view>
     </objects>

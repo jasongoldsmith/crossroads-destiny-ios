@@ -46,26 +46,14 @@
                                     <constraint firstAttribute="height" constant="137" id="I1F-zM-joe"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading…" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CxY-ZP-OPG">
-                                <rect key="frame" x="277" y="292" width="47" height="16"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="47" id="Grs-8a-pW5"/>
-                                    <constraint firstAttribute="height" constant="16" id="gAx-bs-9el"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CxY-ZP-OPG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7kQ-s6-DV3"/>
                             <constraint firstItem="vWc-bB-0Dl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CqD-AH-qZn"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="pzR-GQ-Feb" secondAttribute="bottom" id="EO8-Py-ooc"/>
                             <constraint firstItem="pzR-GQ-Feb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="MXi-PK-KlI"/>
-                            <constraint firstItem="CxY-ZP-OPG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QwC-SY-8x3"/>
+                            <constraint firstItem="vWc-bB-0Dl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="85" id="N1W-BH-8f9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="pzR-GQ-Feb" secondAttribute="trailing" constant="-20" id="S8t-uO-dd6"/>
-                            <constraint firstItem="CxY-ZP-OPG" firstAttribute="top" secondItem="vWc-bB-0Dl" secondAttribute="bottom" constant="50" id="hf5-Zn-GxK"/>
                             <constraint firstItem="pzR-GQ-Feb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="v8u-VO-7Zu"/>
                         </constraints>
                     </view>
@@ -166,7 +154,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBackground" translatesAutoresizingMaskIntoConstraints="NO" id="QNn-lH-hYo">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrLoadingimgBackgroundMap" translatesAutoresizingMaskIntoConstraints="NO" id="QNn-lH-hYo">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBadge" translatesAutoresizingMaskIntoConstraints="NO" id="PXD-xD-2hM">
@@ -1053,7 +1041,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBackground" translatesAutoresizingMaskIntoConstraints="NO" id="8zj-GS-nmN">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrLoadingimgBackgroundMap" translatesAutoresizingMaskIntoConstraints="NO" id="8zj-GS-nmN">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBadge" translatesAutoresizingMaskIntoConstraints="NO" id="EfW-Rr-lwB">
@@ -1291,8 +1279,7 @@
     </scenes>
     <resources>
         <image name="EventHeaderBg" width="375" height="129"/>
-        <image name="TrImgBackground" width="375" height="667"/>
-        <image name="TrImgBadge" width="181" height="140"/>
+        <image name="TrImgBadge" width="192" height="143"/>
         <image name="TrImgIconID" width="17" height="23"/>
         <image name="TrImgIconName" width="23" height="23"/>
         <image name="TrImgIconPassword" width="21" height="23"/>
