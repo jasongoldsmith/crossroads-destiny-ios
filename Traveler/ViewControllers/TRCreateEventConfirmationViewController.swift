@@ -49,6 +49,7 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         self.datePickerView?.backgroundColor = UIColor.whiteColor()
         self.datePickerView?.layer.cornerRadius = 5
         self.datePickerView?.layer.masksToBounds = true
+        self.datePickerView?.transform = CGAffineTransformMake(1, 0, 0, 1, 0, 30);
         
         // Add Tap Gesture to Date PickerBackGround ImageView
         let datePickerGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("datePickerimageTapped:"))
