@@ -1015,6 +1015,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
                         <outlet property="activityIconImage" destination="gzx-q8-nbG" id="ueR-Uw-ZUv"/>
                         <outlet property="buttonOne" destination="g60-hL-efX" id="tcg-JC-i5X"/>
