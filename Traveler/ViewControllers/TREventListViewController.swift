@@ -226,7 +226,10 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         let createRequest = TRAuthenticationRequest()
         createRequest.logoutTRUser() { (value ) in  //, errorData) in
             if value == true {
+                
                 TRUserInfo.removeUserData()
+                TRApplicationManager.sharedInstance.purgeSavedData()
+                
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
             else

@@ -108,5 +108,9 @@ class TRApplicationManager: NSObject {
         return activityArray
     }
     
+    func purgeSavedData () {
+        self.activityList.removeAll()
+        self.eventsList.removeAll()
+    }
 }
 
