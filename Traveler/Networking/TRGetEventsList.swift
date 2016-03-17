@@ -28,6 +28,10 @@ class TRGetEventsList: TRRequest {
                     } else if swiftyJsonVar["responseType"].string == "ERR" {
                         completion(value: false )
                     } else {
+                            
+                            //Clear the array before fetting 
+                            TRApplicationManager.sharedInstance.eventsList.removeAll()
+                            
                             for events in swiftyJsonVar.arrayValue {
                                 
                                 // Creating Event Objects from Events List

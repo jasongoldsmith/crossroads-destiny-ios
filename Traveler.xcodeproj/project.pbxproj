@@ -78,6 +78,8 @@
 		339D8F301C911FB900A2620F /* TRCreateEventConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D8F2F1C911FB900A2620F /* TRCreateEventConfirmationViewController.swift */; };
 		339D8F311C911FB900A2620F /* TRCreateEventConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D8F2F1C911FB900A2620F /* TRCreateEventConfirmationViewController.swift */; };
 		339D8F321C911FB900A2620F /* TRCreateEventConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D8F2F1C911FB900A2620F /* TRCreateEventConfirmationViewController.swift */; };
+		33B5BC701C9A2F0B000D94DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C1FF361C77C15C00A78798 /* Assets.xcassets */; };
+		33B5BC711C9A2F0C000D94DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C1FF361C77C15C00A78798 /* Assets.xcassets */; };
 		33F427491C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F427481C8A0DBD00560BD3 /* TRCreateEventViewController.swift */; };
 		33F4274A1C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F427481C8A0DBD00560BD3 /* TRCreateEventViewController.swift */; };
 		33F4274B1C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F427481C8A0DBD00560BD3 /* TRCreateEventViewController.swift */; };
@@ -511,6 +513,7 @@
 				339D8F2D1C90F79800A2620F /* TRActivitySelectionCell.xib in Resources */,
 				3374D7521C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */,
 				33104BFC1C97B1E70024D601 /* TRActivityIndicatorView.xib in Resources */,
+				33B5BC701C9A2F0B000D94DE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +525,7 @@
 				339D8F2E1C90F79800A2620F /* TRActivitySelectionCell.xib in Resources */,
 				3374D7531C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */,
 				33104BFD1C97B1E70024D601 /* TRActivityIndicatorView.xib in Resources */,
+				33B5BC711C9A2F0C000D94DE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
