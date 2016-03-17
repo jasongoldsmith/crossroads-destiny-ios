@@ -26,7 +26,6 @@ class TRApplicationManager: NSObject {
     //Event Info Objet
     var eventsList: [TREventInfo] = [] {
         didSet{
-            print("Did Set or update: \(self)")
         }
     }
     

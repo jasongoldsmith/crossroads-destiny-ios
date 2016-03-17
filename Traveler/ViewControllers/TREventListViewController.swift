@@ -25,6 +25,14 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     //Events Information
     var eventsInfo: [TREventInfo] = []
     
+    // Pull to Refresh
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
+        
+        return refreshControl
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,9 +47,9 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         self.segmentControl!.setTitleTextAttributes(normalTextAttributes, forState: .Normal)
         self.segmentControl!.setTitleTextAttributes(normalTextAttributes, forState: .Selected)
         
-    
         self.eventsTableView?.registerNib(UINib(nibName: "TREventTableCellView", bundle: nil), forCellReuseIdentifier: CURRENT_EVENT_CELL)
         self.eventsTableView?.tableFooterView = UIView(frame: CGRectZero)
+        self.eventsTableView?.addSubview(self.refreshControl)
         
         //Adding Radius to the Current Player Avator
         self.currentPlayerAvatorIcon?.layer.cornerRadius = (self.currentPlayerAvatorIcon?.frame.width)!/2
@@ -192,6 +200,20 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             }
         })
     }
+    
+    func handleRefresh(refreshControl: UIRefreshControl) {
+        
+        _ = TRGetEventsList().getEventsList({ (value) -> () in
+            if(value == true) {
+                
+                self.reloadEventTable()
+                refreshControl.endRefreshing()
+            } else {
+                self.appManager.log.debug("Failed")
+            }
+        })
+    }
+    
     
     func reloadEventTable () {
         
