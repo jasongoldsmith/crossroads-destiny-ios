@@ -292,6 +292,7 @@
                                     <constraint firstAttribute="width" constant="90" id="tN9-5e-fIW"/>
                                 </constraints>
                                 <state key="normal" image="TrImgLoginBtn"/>
+                                <state key="highlighted" image="imgLoginBtnTapped"/>
                                 <connections>
                                     <action selector="signInBtnTapped:" destination="wsB-4U-0gI" eventType="touchUpInside" id="vJK-ip-Gyy"/>
                                 </connections>
@@ -1222,6 +1223,7 @@
                                     <constraint firstAttribute="width" constant="90" id="bwR-H9-8jv"/>
                                 </constraints>
                                 <state key="normal" image="TrImgLoginBtn"/>
+                                <state key="highlighted" image="imgLoginBtnTapped"/>
                                 <connections>
                                     <action selector="createAccountBtnTapped:" destination="8fv-qL-jQi" eventType="touchUpInside" id="6dt-EF-hCE"/>
                                 </connections>
@@ -1296,6 +1298,7 @@
         <image name="imgCruicible" width="98" height="100"/>
         <image name="imgCruicibleSelected" width="98" height="100"/>
         <image name="imgGuardianBg" width="375" height="280"/>
+        <image name="imgLoginBtnTapped" width="90" height="90"/>
         <image name="imgRaids" width="98" height="100"/>
         <image name="imgRaidsSelected" width="98" height="100"/>
         <image name="imgTravelerBadge" width="45" height="52"/>
