@@ -21,7 +21,7 @@ struct K {
     struct TRUrls {
         
         #if RELEASE
-            static let TR_BaseUrl            =   "https://travelerbackend.herokuapp.com"
+            static let TR_BaseUrl            =   "https://travelerbackendproduction.herokuapp.com"
         #else
             static let TR_BaseUrl            =   "https://travelerbackend.herokuapp.com"
         #endif
