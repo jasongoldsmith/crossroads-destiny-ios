@@ -19,7 +19,13 @@ struct K {
     }
     
     struct TRUrls {
-        static let TR_BaseUrl            =   "https://travelerbackend.herokuapp.com"
+        
+        #if RELEASE
+            static let TR_BaseUrl            =   "https://travelerbackend.herokuapp.com"
+        #else
+            static let TR_BaseUrl            =   "https://travelerbackend.herokuapp.com"
+        #endif
+        
         static let TR_RegisterUrl        =   "/api/v1/auth/register"
         static let TR_LoginUrl           =   "/api/v1/auth/login"
         static let TR_LogoutUrl          =   "/api/v1/auth/logout"

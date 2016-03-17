@@ -36,12 +36,10 @@ class TRCreateEventSelectionViewController: TRBaseViewController {
         // Get all Activities of selected activityType
         self.filteredActivitiesOfSelectedType = TRApplicationManager.sharedInstance.getActivitiesOfType((self.seletectedActivity?.activityType)!)!
 
+        
         // Get All activities filtered on Difficulty and SubType
         self.filteredActivitiesOfSubTypeAndDifficulty = self.getFiletreObjOfSubTypeAndDifficulty()!
-        for activity in self.filteredActivitiesOfSubTypeAndDifficulty {
-            print("\(activity.activitySubType), \(activity.activityLight), \(activity.activityDificulty)")
-        }
-        
+
         
         //Register Cell Nib
         self.activitySelectionTable?.registerNib(UINib(nibName: "TRActivitySelectionCell", bundle: nil), forCellReuseIdentifier: ACTIVITY_SELECTION_CELL)
@@ -52,8 +50,10 @@ class TRCreateEventSelectionViewController: TRBaseViewController {
         let imageUrl = NSURL(string: (seletectedActivity?.activityIconImage)!)
         self.activityIconImage.sd_setImageWithURL(imageUrl)
         
+        
         // Activity Name Label
         self.activityNameLabel?.text = self.seletectedActivity?.activityType
+        
         
         // Set seperator clear color
         self.activitySelectionTable.separatorColor = UIColor.clearColor()
