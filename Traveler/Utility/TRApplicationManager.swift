@@ -24,10 +24,7 @@ class TRApplicationManager: NSObject {
     let stroryBoardManager = TRStoryBoardManager()
     
     //Event Info Objet
-    var eventsList: [TREventInfo] = [] {
-        didSet{
-        }
-    }
+    var eventsList: [TREventInfo] = []
     
     //Activity List
     var activityList: [TRActivityInfo] = []
@@ -36,7 +33,13 @@ class TRApplicationManager: NSObject {
     var imageHelper = ImageHelper()
     
     // Activity Indicator
-    var activityIndicator = ActivityIndicatorView()
+    var activityIndicator = TRActivityIndicatorView()
+    
+    
+    // Error Notification View 
+    var errorNotificationView = TRErrorNotificationView()
+    
+    
     
     // MARK:- Initializer
     private override init() {
@@ -50,7 +53,18 @@ class TRApplicationManager: NSObject {
         #endif
         
         // Init Activity Indicator with nib
-        self.activityIndicator = NSBundle.mainBundle().loadNibNamed("TRActivityIndicatorView", owner: self, options: nil)[0] as! ActivityIndicatorView
+        self.activityIndicator = NSBundle.mainBundle().loadNibNamed("TRActivityIndicatorView", owner: self, options: nil)[0] as! TRActivityIndicatorView
+        
+        // Init Error Notification View with nib
+        self.errorNotificationView = NSBundle.mainBundle().loadNibNamed("TRErrorNotificationView", owner: self, options: nil)[0] as! TRErrorNotificationView
+    }
+    
+    func addErrorSubViewWithMessage (errorMessage: String) -> TRErrorNotificationView {
+        
+        self.errorNotificationView.removeFromSuperview()
+        self.errorNotificationView.layoutIfNeeded()
+        self.errorNotificationView.errorMessage.text = errorMessage
+        return self.errorNotificationView
     }
     
     required init(coder aDecoder: NSCoder) {

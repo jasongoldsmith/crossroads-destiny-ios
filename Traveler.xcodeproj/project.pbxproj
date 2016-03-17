@@ -13,6 +13,12 @@
 		33104BFF1C97B1F40024D601 /* TRActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33104BFE1C97B1F40024D601 /* TRActivityIndicatorView.swift */; };
 		33104C001C97B1F40024D601 /* TRActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33104BFE1C97B1F40024D601 /* TRActivityIndicatorView.swift */; };
 		33104C011C97B1F40024D601 /* TRActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33104BFE1C97B1F40024D601 /* TRActivityIndicatorView.swift */; };
+		3329B58C1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3329B58B1C9B524D00CC1F9B /* TRErrorNotificationView.swift */; };
+		3329B58D1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3329B58B1C9B524D00CC1F9B /* TRErrorNotificationView.swift */; };
+		3329B58E1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3329B58B1C9B524D00CC1F9B /* TRErrorNotificationView.swift */; };
+		3329B5901C9B528F00CC1F9B /* TRErrorNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3329B58F1C9B528F00CC1F9B /* TRErrorNotificationView.xib */; };
+		3329B5911C9B528F00CC1F9B /* TRErrorNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3329B58F1C9B528F00CC1F9B /* TRErrorNotificationView.xib */; };
+		3329B5921C9B528F00CC1F9B /* TRErrorNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3329B58F1C9B528F00CC1F9B /* TRErrorNotificationView.xib */; };
 		332C9CE41C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
 		332C9CE51C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
 		332C9CE61C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
@@ -157,6 +163,8 @@
 /* Begin PBXFileReference section */
 		33104BFA1C97B1E70024D601 /* TRActivityIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRActivityIndicatorView.xib; sourceTree = "<group>"; };
 		33104BFE1C97B1F40024D601 /* TRActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRActivityIndicatorView.swift; sourceTree = "<group>"; };
+		3329B58B1C9B524D00CC1F9B /* TRErrorNotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRErrorNotificationView.swift; sourceTree = "<group>"; };
+		3329B58F1C9B528F00CC1F9B /* TRErrorNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRErrorNotificationView.xib; sourceTree = "<group>"; };
 		332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLeaveEventRequest.swift; sourceTree = "<group>"; };
 		334ED0C11C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCreateEventsActivityViewController.swift; sourceTree = "<group>"; };
 		33742D7F1C7FBDF100C46742 /* TRConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRConstants.swift; sourceTree = "<group>"; };
@@ -250,6 +258,8 @@
 				3374D7501C92591F0036E9C8 /* TRActivityCheckPointPicker.xib */,
 				33104BFA1C97B1E70024D601 /* TRActivityIndicatorView.xib */,
 				33104BFE1C97B1F40024D601 /* TRActivityIndicatorView.swift */,
+				3329B58B1C9B524D00CC1F9B /* TRErrorNotificationView.swift */,
+				3329B58F1C9B528F00CC1F9B /* TRErrorNotificationView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -501,6 +511,7 @@
 				33104BFB1C97B1E70024D601 /* TRActivityIndicatorView.xib in Resources */,
 				62F279BF1C7D1318008D67DC /* Assets.xcassets in Resources */,
 				62C1FF3A1C77C15C00A78798 /* LaunchScreen.storyboard in Resources */,
+				3329B5901C9B528F00CC1F9B /* TRErrorNotificationView.xib in Resources */,
 				62C1FF351C77C15C00A78798 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,6 +522,7 @@
 			files = (
 				33742DB81C8317EF00C46742 /* TREventTableCellView.xib in Resources */,
 				339D8F2D1C90F79800A2620F /* TRActivitySelectionCell.xib in Resources */,
+				3329B5911C9B528F00CC1F9B /* TRErrorNotificationView.xib in Resources */,
 				3374D7521C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */,
 				33104BFC1C97B1E70024D601 /* TRActivityIndicatorView.xib in Resources */,
 				33B5BC701C9A2F0B000D94DE /* Assets.xcassets in Resources */,
@@ -523,6 +535,7 @@
 			files = (
 				33742DB91C8317EF00C46742 /* TREventTableCellView.xib in Resources */,
 				339D8F2E1C90F79800A2620F /* TRActivitySelectionCell.xib in Resources */,
+				3329B5921C9B528F00CC1F9B /* TRErrorNotificationView.xib in Resources */,
 				3374D7531C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */,
 				33104BFD1C97B1E70024D601 /* TRActivityIndicatorView.xib in Resources */,
 				33B5BC711C9A2F0C000D94DE /* Assets.xcassets in Resources */,
@@ -605,6 +618,7 @@
 				33FDB9C91C86A0D60066237C /* TRUpcomingActivities.swift in Sources */,
 				339D8F281C90F77E00A2620F /* TRActivitySelectionCell.swift in Sources */,
 				33742D8A1C7FC51700C46742 /* TRStoryBoardManager.swift in Sources */,
+				3329B58C1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */,
 				33F427491C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */,
 				3374D74D1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift in Sources */,
 				62C1FF321C77C15C00A78798 /* TRRootViewController.swift in Sources */,
@@ -661,6 +675,7 @@
 				33742D9E1C80FFAE00C46742 /* TRGetEventsList.swift in Sources */,
 				33742D9A1C800A5D00C46742 /* UISegmentedControlExtension.swift in Sources */,
 				33FDB9D21C8778150066237C /* TRJoinEventRequest.swift in Sources */,
+				3329B58D1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */,
 				339D8F311C911FB900A2620F /* TRCreateEventConfirmationViewController.swift in Sources */,
 				6294972E1C7BB5F3005E4F91 /* TRAuthenticationRequest.swift in Sources */,
 				339D8F251C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift in Sources */,
@@ -705,6 +720,7 @@
 				33742D9F1C80FFAE00C46742 /* TRGetEventsList.swift in Sources */,
 				33742D9B1C800A5E00C46742 /* UISegmentedControlExtension.swift in Sources */,
 				33FDB9D31C8778150066237C /* TRJoinEventRequest.swift in Sources */,
+				3329B58E1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */,
 				339D8F321C911FB900A2620F /* TRCreateEventConfirmationViewController.swift in Sources */,
 				6294972F1C7BB5F3005E4F91 /* TRAuthenticationRequest.swift in Sources */,
 				339D8F261C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift in Sources */,

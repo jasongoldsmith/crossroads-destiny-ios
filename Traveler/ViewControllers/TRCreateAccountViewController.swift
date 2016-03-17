@@ -54,36 +54,28 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
     @IBAction func createAccountBtnTapped(sender: AnyObject) {
         
         if userNameTxtField.text?.isEmpty  == true {
-            displayAlertWithTitle("Enter UserName", complete: { (complete) -> () in
-                
-            })
+            self.view.addSubview(TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter UserName"))
             
             return
         } else {
             let textcount = userNameTxtField.text?.characters.count
             if textcount < 4 || textcount > 50 {
-                displayAlertWithTitle("User Name must be between 4 and 50 characters", complete: { (complete) -> () in
-                    
-                })
+                self.view.addSubview(TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("User Name must be between 4 and 50 characters"))
                 
                 return
             }
         }
         
         if userPwdTxtField.text?.isEmpty == true {
-            displayAlertWithTitle("Enter UserPassword", complete: { (complete) -> () in
-                
-            })
+            self.view.addSubview(TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter UserPassword"))
             
             return
         } else {
             
             let textcount = userPwdTxtField.text?.characters.count
             if textcount < 4 || textcount > 50 {
-                displayAlertWithTitle("User password must be between 4 and 50 characters", complete: { (complete) -> () in
-                    
-                })
-                
+                self.view.addSubview(TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("User password must be between 4 and 50 characters"))
+
                 return
             }
         }
@@ -108,9 +100,7 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
                 defaults.setValue(nil, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
                 defaults.synchronize()
 
-                self.displayAlertWithTitle("Your credentails info is wrong", complete: { (complete) -> () in
-                    
-                })
+                self.view.addSubview(TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Your credentails info is wrong"))
             }
         }
     }

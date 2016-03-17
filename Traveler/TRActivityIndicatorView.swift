@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class ActivityIndicatorView: UIView {
+class TRActivityIndicatorView: UIView {
 
     private let TIMER_INTERVAL: Double = 10
     private var timer: NSTimer = NSTimer()
