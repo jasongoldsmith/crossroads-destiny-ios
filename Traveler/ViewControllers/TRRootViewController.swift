@@ -39,7 +39,6 @@ class TRRootViewController: TRBaseViewController {
                     TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
 
                     self.performSegueWithIdentifier("TREventListView", sender: self)
-                    self.appManager.log.debug("Success")
                     
                 } else {
                     self.appManager.log.debug("Failed")

@@ -297,6 +297,13 @@
                                     <action selector="signInBtnTapped:" destination="wsB-4U-0gI" eventType="touchUpInside" id="vJK-ip-Gyy"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Alg-fO-SEO">
+                                <rect key="frame" x="20" y="15" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="XJ1-EK-ne3" kind="unwind" unwindAction="trUnwindAction:" id="V2d-0K-NAe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1226,6 +1233,13 @@
                                 <state key="highlighted" image="imgLoginBtnTapped"/>
                                 <connections>
                                     <action selector="createAccountBtnTapped:" destination="8fv-qL-jQi" eventType="touchUpInside" id="6dt-EF-hCE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIM-Bo-Bpg">
+                                <rect key="frame" x="10" y="28" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="pLH-ez-YJx" kind="unwind" unwindAction="trUnwindAction:" id="3KC-gq-SHp"/>
                                 </connections>
                             </button>
                         </subviews>
