@@ -64,6 +64,7 @@ class TRApplicationManager: NSObject {
         self.errorNotificationView.removeFromSuperview()
         self.errorNotificationView.layoutIfNeeded()
         self.errorNotificationView.errorMessage.text = errorMessage
+        
         return self.errorNotificationView
     }
     

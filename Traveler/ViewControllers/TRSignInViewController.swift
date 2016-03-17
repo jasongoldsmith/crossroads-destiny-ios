@@ -100,6 +100,8 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
         createRequest.loginTRUserWith(userInfo) { (value ) in
             if value == true {
                 self.signInSuccess()
+                
+                TRApplicationManager.sharedInstance.errorNotificationView.removeFromSuperview()
             } else{
                 
                 //Delete the saved Password if sign-in was not successful
