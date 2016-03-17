@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TRSignInViewController: TRBaseViewController {
+class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
     
     @IBOutlet weak var userNameTxtField: UITextField!
     @IBOutlet weak var userPwdTxtField: UITextField!
@@ -21,6 +21,8 @@ class TRSignInViewController: TRBaseViewController {
         
         self.userNameTxtField.attributedPlaceholder = NSAttributedString(string:"Enter username", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         self.userPwdTxtField.attributedPlaceholder = NSAttributedString(string:"Enter password", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+        
+        self.userPwdTxtField.delegate = self
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -46,44 +48,41 @@ class TRSignInViewController: TRBaseViewController {
     }
     
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        self.signInBtnTapped(self.userPwdTxtField)
+        
+        return true
+    }
+
     @IBAction func signInBtnTapped(sender: AnyObject) {
         
         if userNameTxtField.text?.isEmpty  == true {
             displayAlertWithTitle("Enter your UserName", complete: { (complete) -> () in
-                
             })
             return
-        }
-        else {
+        } else {
             let textcount = userNameTxtField.text?.characters.count
             if textcount < 4 || textcount > 50 {
                 displayAlertWithTitle("User Name must be between 4 and 50 characters", complete: { (complete) -> () in
-                    
                 })
                 return
             }
         }
         
-        
         if userPwdTxtField.text?.isEmpty == true {
             displayAlertWithTitle("Enter your Password", complete: { (complete) -> () in
-                
             })
             
             return
-            
-        }
-        else {
-            
+        } else {
             let textcount = userPwdTxtField.text?.characters.count
             if textcount < 4 || textcount > 50 {
                 displayAlertWithTitle("User password must be between 4 and 50 characters", complete: { (complete) -> () in
                     
                 })
-                
                 return
             }
-            
         }
 
         
@@ -100,12 +99,10 @@ class TRSignInViewController: TRBaseViewController {
         defaults.synchronize()
         
         let createRequest = TRAuthenticationRequest()
-        createRequest.loginTRUserWith(userInfo) { (value ) in  //, errorData) in
-            
+        createRequest.loginTRUserWith(userInfo) { (value ) in
             if value == true {
                 self.signInSuccess()
-            }
-            else{
+            } else{
                 
                 //Delete the saved Password if sign-in was not successful
                 defaults.setValue(nil, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)

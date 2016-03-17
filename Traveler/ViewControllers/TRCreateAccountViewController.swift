@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TRCreateAccountViewController: TRBaseViewController {
+class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
     
     @IBOutlet weak var userNameTxtField: UITextField!
     @IBOutlet weak var userPwdTxtField: UITextField!
@@ -25,6 +25,8 @@ class TRCreateAccountViewController: TRBaseViewController {
         self.userNameTxtField.attributedPlaceholder = NSAttributedString(string:"Enter username", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         self.userPwdTxtField.attributedPlaceholder = NSAttributedString(string:"Enter password", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         self.userPSNIDTxtField.attributedPlaceholder = NSAttributedString(string:"Enter PSN ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+        
+        self.userPSNIDTxtField.delegate = self
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -36,6 +38,13 @@ class TRCreateAccountViewController: TRBaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        self.resignFirstResponder()
+        self.createAccountBtnTapped(textField)
+        
+        return true
+    }
     
     @IBAction func handleSwipeRight(sender: AnyObject) {
         
@@ -50,8 +59,7 @@ class TRCreateAccountViewController: TRBaseViewController {
             })
             
             return
-        }
-        else {
+        } else {
             let textcount = userNameTxtField.text?.characters.count
             if textcount < 4 || textcount > 50 {
                 displayAlertWithTitle("User Name must be between 4 and 50 characters", complete: { (complete) -> () in
@@ -68,8 +76,7 @@ class TRCreateAccountViewController: TRBaseViewController {
             })
             
             return
-        }
-        else {
+        } else {
             
             let textcount = userPwdTxtField.text?.characters.count
             if textcount < 4 || textcount > 50 {
@@ -79,7 +86,6 @@ class TRCreateAccountViewController: TRBaseViewController {
                 
                 return
             }
-            
         }
         
         let userInfo = TRUserInfo()
@@ -96,8 +102,7 @@ class TRCreateAccountViewController: TRBaseViewController {
             
             if value == true {
                 self.createAccountSuccess()
-            }
-            else {
+            } else {
                 
                 //Delete the saved Password if sign-in was not successful
                 defaults.setValue(nil, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
