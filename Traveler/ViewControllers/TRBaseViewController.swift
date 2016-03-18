@@ -42,6 +42,8 @@ class TRBaseViewController: UIViewController {
             name: "UIApplicationDidReceiveRemoteNotification",
             object: nil)
 
+        
+        self.setStatusBarBackgroundColor(UIColor.clearColor())
         appManager.log.debug("\(NSStringFromClass(self.dynamicType))")
     }
     
@@ -80,7 +82,6 @@ class TRBaseViewController: UIViewController {
     }
     
     func setStatusBarBackgroundColor(color: UIColor) {
-        
         guard  let statusBar = UIApplication.sharedApplication().valueForKey("statusBarWindow")?.valueForKey("statusBar") as? UIView else {
             return
         }

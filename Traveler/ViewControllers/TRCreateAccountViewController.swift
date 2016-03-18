@@ -70,6 +70,9 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
     
     @IBAction func createAccountBtnTapped(sender: AnyObject) {
         
+        //Close KeyBoard
+        self.resignKeyBoardResponders()
+        
         if userNameTxtField.text?.isEmpty  == true {
             self.errorView = TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter UserName", parentView: self)
             self.view.addSubview(self.errorView!)
@@ -126,6 +129,7 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
                 defaults.synchronize()
 
                 self.view.addSubview(TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Your credentails info is wrong", parentView: self))
+                self.adjustKeyBoardFrame()
             }
         }
     }
@@ -148,16 +152,7 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
         self.isShowingKeyBoard = false
         
         self.errorView?.frame = CGRectMake(xAxis, yAxisWithClosedKeyBoard, self.errorView!.frame.size.width, self.errorView!.frame.size.height)
-        
-        if userNameTxtField.isFirstResponder() {
-            userNameTxtField.resignFirstResponder()
-        }
-        if userPwdTxtField.isFirstResponder() {
-            userPwdTxtField.resignFirstResponder()
-        }
-        if userPSNIDTxtField.isFirstResponder() {
-            userPSNIDTxtField.resignFirstResponder()
-        }
+        self.resignKeyBoardResponders()
     }
     
     
@@ -197,4 +192,18 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
         }
     }
     
+    func resignKeyBoardResponders () {
+        if userNameTxtField.isFirstResponder() {
+            self.isShowingKeyBoard = false
+            userNameTxtField.resignFirstResponder()
+        }
+        if userPwdTxtField.isFirstResponder() {
+            self.isShowingKeyBoard = false
+            userPwdTxtField.resignFirstResponder()
+        }
+        if userPSNIDTxtField.isFirstResponder() {
+            self.isShowingKeyBoard = false
+            userPSNIDTxtField.resignFirstResponder()
+        }
+    }
 }

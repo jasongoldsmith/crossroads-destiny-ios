@@ -69,7 +69,6 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
-        self.isShowingKeyBoard = false
         textField.resignFirstResponder()
         self.signInBtnTapped(self.userPwdTxtField)
         
@@ -78,6 +77,9 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
 
     @IBAction func signInBtnTapped(sender: AnyObject) {
 
+        // Close KeyBoards
+        self.resignKeyBoardResponders()
+        
         if userNameTxtField.text?.isEmpty  == true {
             self.errorView = TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter UserName", parentView: self)
             self.view.addSubview(self.errorView!)
@@ -124,12 +126,18 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setValue(userPwdTxtField.text, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
         defaults.synchronize()
-        
+
+        //Start Activity Indicator
+        TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(self)
+
         let createRequest = TRAuthenticationRequest()
         createRequest.loginTRUserWith(userInfo) { (value ) in
             if value == true {
                 self.signInSuccess()
                 
+                //Stop Activity Indicator
+                TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
+
                 TRApplicationManager.sharedInstance.errorNotificationView.removeFromSuperview()
             } else{
                 
@@ -137,7 +145,11 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
                 defaults.setValue(nil, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
                 defaults.synchronize()
                 
+                //Stop Activity Indicator
+                TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
+
                 self.view.addSubview(TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Your username and password do not match", parentView: self))
+                self.adjustKeyBoardFrame()
             }
         }
     }
@@ -155,13 +167,7 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
         self.isShowingKeyBoard = false
         
         self.errorView?.frame = CGRectMake(xAxis, yAxisWithClosedKeyBoard, self.errorView!.frame.size.width, self.errorView!.frame.size.height)
-        
-        if userNameTxtField.isFirstResponder() {
-            userNameTxtField.resignFirstResponder()
-        }
-        else if userPwdTxtField.isFirstResponder() {
-            userPwdTxtField.resignFirstResponder()
-        }
+        self.resignKeyBoardResponders()
     }
     
     
@@ -203,4 +209,15 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
         }
     }
     
+    func resignKeyBoardResponders () {
+        if userNameTxtField.isFirstResponder() {
+            self.isShowingKeyBoard = false
+            userNameTxtField.resignFirstResponder()
+        }
+        if userPwdTxtField.isFirstResponder() {
+            self.isShowingKeyBoard = false
+            userPwdTxtField.resignFirstResponder()
+        }
+    }
+
 }
