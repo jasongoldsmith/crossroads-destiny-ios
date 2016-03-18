@@ -32,9 +32,7 @@ class TRAuthenticationRequest: TRRequest {
         if userData?.psnID?.characters.isEmpty == false {
             params["psnId"] = userData?.psnID
         }
-        
-        params["imageUrl"] = "http://images4.fanpop.com/image/photos/17800000/Benders-evolution-bender-17855605-650-487.jpg"
-        
+                
         request(self.URLMethod!, registerUserUrl, parameters:params)
             .responseJSON { response in
                 if response.result.isSuccess {
