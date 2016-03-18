@@ -40,6 +40,10 @@ class TRApplicationManager: NSObject {
     var errorNotificationView = TRErrorNotificationView()
     
     
+    // Push Notification View
+    var pushNotificationView = TRPushNotificationView()
+    
+    
     
     // MARK:- Initializer
     private override init() {
@@ -57,15 +61,24 @@ class TRApplicationManager: NSObject {
         
         // Init Error Notification View with nib
         self.errorNotificationView = NSBundle.mainBundle().loadNibNamed("TRErrorNotificationView", owner: self, options: nil)[0] as! TRErrorNotificationView
+        
+        // Init Push Notification View with nib
+        self.pushNotificationView = NSBundle.mainBundle().loadNibNamed("TRPushNotificationView", owner: self, options: nil)[0] as! TRPushNotificationView
     }
     
-    func addErrorSubViewWithMessage (errorMessage: String) -> TRErrorNotificationView {
+    func addErrorSubViewWithMessage (errorMessage: String, parentView: TRBaseViewController) -> TRErrorNotificationView {
         
+        self.errorNotificationView.frame = CGRectMake(0, 20, parentView.view.frame.width, self.errorNotificationView.frame.height)
         self.errorNotificationView.removeFromSuperview()
-        self.errorNotificationView.layoutIfNeeded()
         self.errorNotificationView.errorMessage.text = errorMessage
         
         return self.errorNotificationView
+    }
+    
+    func addNotificationViewWithMessages () -> TRPushNotificationView {
+        
+        self.pushNotificationView.removeFromSuperview()
+        return self.pushNotificationView
     }
     
     required init(coder aDecoder: NSCoder) {

@@ -36,6 +36,7 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         // Add Navigation Buttons

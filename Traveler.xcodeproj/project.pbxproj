@@ -13,12 +13,18 @@
 		33104BFF1C97B1F40024D601 /* TRActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33104BFE1C97B1F40024D601 /* TRActivityIndicatorView.swift */; };
 		33104C001C97B1F40024D601 /* TRActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33104BFE1C97B1F40024D601 /* TRActivityIndicatorView.swift */; };
 		33104C011C97B1F40024D601 /* TRActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33104BFE1C97B1F40024D601 /* TRActivityIndicatorView.swift */; };
+		331E0F051C9B852200A80D32 /* TRPushNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3329B5931C9B7A8500CC1F9B /* TRPushNotificationView.swift */; };
+		331E0F061C9B852F00A80D32 /* TRPushNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3329B5971C9B7A9000CC1F9B /* TRPushNotificationView.xib */; };
 		3329B58C1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3329B58B1C9B524D00CC1F9B /* TRErrorNotificationView.swift */; };
 		3329B58D1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3329B58B1C9B524D00CC1F9B /* TRErrorNotificationView.swift */; };
 		3329B58E1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3329B58B1C9B524D00CC1F9B /* TRErrorNotificationView.swift */; };
 		3329B5901C9B528F00CC1F9B /* TRErrorNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3329B58F1C9B528F00CC1F9B /* TRErrorNotificationView.xib */; };
 		3329B5911C9B528F00CC1F9B /* TRErrorNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3329B58F1C9B528F00CC1F9B /* TRErrorNotificationView.xib */; };
 		3329B5921C9B528F00CC1F9B /* TRErrorNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3329B58F1C9B528F00CC1F9B /* TRErrorNotificationView.xib */; };
+		3329B5951C9B7A8500CC1F9B /* TRPushNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3329B5931C9B7A8500CC1F9B /* TRPushNotificationView.swift */; };
+		3329B5961C9B7A8500CC1F9B /* TRPushNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3329B5931C9B7A8500CC1F9B /* TRPushNotificationView.swift */; };
+		3329B5991C9B7A9000CC1F9B /* TRPushNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3329B5971C9B7A9000CC1F9B /* TRPushNotificationView.xib */; };
+		3329B59A1C9B7A9000CC1F9B /* TRPushNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3329B5971C9B7A9000CC1F9B /* TRPushNotificationView.xib */; };
 		332C9CE41C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
 		332C9CE51C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
 		332C9CE61C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
@@ -165,6 +171,8 @@
 		33104BFE1C97B1F40024D601 /* TRActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRActivityIndicatorView.swift; sourceTree = "<group>"; };
 		3329B58B1C9B524D00CC1F9B /* TRErrorNotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRErrorNotificationView.swift; sourceTree = "<group>"; };
 		3329B58F1C9B528F00CC1F9B /* TRErrorNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRErrorNotificationView.xib; sourceTree = "<group>"; };
+		3329B5931C9B7A8500CC1F9B /* TRPushNotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRPushNotificationView.swift; sourceTree = "<group>"; };
+		3329B5971C9B7A9000CC1F9B /* TRPushNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRPushNotificationView.xib; sourceTree = "<group>"; };
 		332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLeaveEventRequest.swift; sourceTree = "<group>"; };
 		334ED0C11C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCreateEventsActivityViewController.swift; sourceTree = "<group>"; };
 		33742D7F1C7FBDF100C46742 /* TRConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRConstants.swift; sourceTree = "<group>"; };
@@ -260,6 +268,8 @@
 				33104BFE1C97B1F40024D601 /* TRActivityIndicatorView.swift */,
 				3329B58B1C9B524D00CC1F9B /* TRErrorNotificationView.swift */,
 				3329B58F1C9B528F00CC1F9B /* TRErrorNotificationView.xib */,
+				3329B5931C9B7A8500CC1F9B /* TRPushNotificationView.swift */,
+				3329B5971C9B7A9000CC1F9B /* TRPushNotificationView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -505,6 +515,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				331E0F061C9B852F00A80D32 /* TRPushNotificationView.xib in Resources */,
 				339D8F2C1C90F79800A2620F /* TRActivitySelectionCell.xib in Resources */,
 				33742DB71C8317EF00C46742 /* TREventTableCellView.xib in Resources */,
 				3374D7511C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */,
@@ -521,6 +532,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33742DB81C8317EF00C46742 /* TREventTableCellView.xib in Resources */,
+				3329B5991C9B7A9000CC1F9B /* TRPushNotificationView.xib in Resources */,
 				339D8F2D1C90F79800A2620F /* TRActivitySelectionCell.xib in Resources */,
 				3329B5911C9B528F00CC1F9B /* TRErrorNotificationView.xib in Resources */,
 				3374D7521C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */,
@@ -534,6 +546,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33742DB91C8317EF00C46742 /* TREventTableCellView.xib in Resources */,
+				3329B59A1C9B7A9000CC1F9B /* TRPushNotificationView.xib in Resources */,
 				339D8F2E1C90F79800A2620F /* TRActivitySelectionCell.xib in Resources */,
 				3329B5921C9B528F00CC1F9B /* TRErrorNotificationView.xib in Resources */,
 				3374D7531C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */,
@@ -597,6 +610,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				331E0F051C9B852200A80D32 /* TRPushNotificationView.swift in Sources */,
 				33742DB21C83179D00C46742 /* TREventTableCellView.swift in Sources */,
 				3397E2831C93822F008CCCDB /* TRDeviceTokenRequest.swift in Sources */,
 				62C1FF671C77D83800A78798 /* TRSignInViewController.swift in Sources */,
@@ -662,6 +676,7 @@
 				33104C001C97B1F40024D601 /* TRActivityIndicatorView.swift in Sources */,
 				33FDB9CA1C86A0D60066237C /* TRUpcomingActivities.swift in Sources */,
 				339D8F291C90F77E00A2620F /* TRActivitySelectionCell.swift in Sources */,
+				3329B5951C9B7A8500CC1F9B /* TRPushNotificationView.swift in Sources */,
 				33742D8B1C7FC66500C46742 /* TRBaseViewController.swift in Sources */,
 				33F4274A1C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */,
 				3374D74E1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift in Sources */,
@@ -707,6 +722,7 @@
 				33104C011C97B1F40024D601 /* TRActivityIndicatorView.swift in Sources */,
 				33FDB9CB1C86A0D60066237C /* TRUpcomingActivities.swift in Sources */,
 				339D8F2A1C90F77E00A2620F /* TRActivitySelectionCell.swift in Sources */,
+				3329B5961C9B7A8500CC1F9B /* TRPushNotificationView.swift in Sources */,
 				33742D8C1C7FC66600C46742 /* TRBaseViewController.swift in Sources */,
 				33F4274B1C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */,
 				3374D74F1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift in Sources */,
