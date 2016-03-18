@@ -55,8 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
         }
        
-        print("Device Token: \(tokenString)")
-        
         _ = TRDeviceTokenRequest().sendDeviceToken(tokenString, completion: { (value) -> () in
             if (value == true) {
                 print("Device token registration Success")

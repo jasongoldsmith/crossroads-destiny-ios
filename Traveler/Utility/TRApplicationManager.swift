@@ -14,7 +14,7 @@ class TRApplicationManager: NSObject {
     
     // MARK:- Instances
     
-    private let TIMER_INTERVAL: Double = 10
+    private let TIMER_INTERVAL: Double = 5
     private var timer: NSTimer = NSTimer()
 
     // Shared Instance
@@ -81,15 +81,27 @@ class TRApplicationManager: NSObject {
         return self.errorNotificationView
     }
     
-    func addNotificationViewWithMessages (parentView: TRBaseViewController) -> TRPushNotificationView {
+    func addNotificationViewWithMessages (parentView: TRBaseViewController, sender: NSNotification) -> TRPushNotificationView {
         
         let xAxiDistance:CGFloat  = 0
         let yAxisDistance:CGFloat = 130
-        
         self.pushNotificationView.frame = CGRectMake(xAxiDistance, yAxisDistance, parentView.view.frame.width, self.pushNotificationView.frame.height)
         self.pushNotificationView.removeFromSuperview()
-        
         self.timer = NSTimer.scheduledTimerWithTimeInterval(TIMER_INTERVAL, target: self, selector: "notificationTimer", userInfo: nil, repeats: false)
+        
+        if let userInfo = sender.userInfo as NSDictionary? {
+            if let payload = userInfo.objectForKey("payload") as? NSDictionary {
+                if let eType = payload.objectForKey("eType") as? NSDictionary {
+                    if let eventType = eType.objectForKey("aType") as? String {
+                        self.pushNotificationView.eventStatusDescription.text = eventType
+                    }
+                }
+            }
+            if let apsData = userInfo.objectForKey("aps") as? NSDictionary {
+                print("\(apsData.objectForKey("alert")?.stringValue)")
+                self.pushNotificationView.eventStatusLabel.text =  apsData.objectForKey("alert") as? String
+            }
+        }
         
         return self.pushNotificationView
     }
