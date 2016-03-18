@@ -14,6 +14,9 @@ class TRApplicationManager: NSObject {
     
     // MARK:- Instances
     
+    private let TIMER_INTERVAL: Double = 10
+    private var timer: NSTimer = NSTimer()
+
     // Shared Instance
     static let sharedInstance = TRApplicationManager()
     
@@ -85,7 +88,16 @@ class TRApplicationManager: NSObject {
         
         self.pushNotificationView.frame = CGRectMake(xAxiDistance, yAxisDistance, parentView.view.frame.width, self.pushNotificationView.frame.height)
         self.pushNotificationView.removeFromSuperview()
+        
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(TIMER_INTERVAL, target: self, selector: "notificationTimer", userInfo: nil, repeats: false)
+        
         return self.pushNotificationView
+    }
+    
+    func notificationTimer() {
+        
+        self.pushNotificationView.removeFromSuperview()
+        self.timer.invalidate()
     }
     
     required init(coder aDecoder: NSCoder) {

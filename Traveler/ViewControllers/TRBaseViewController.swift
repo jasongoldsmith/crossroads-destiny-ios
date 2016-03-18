@@ -29,6 +29,17 @@ class TRBaseViewController: UIViewController {
             name: UIApplicationDidEnterBackgroundNotification,
             object: nil)
         
+        // Notification Observer
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "didReceiveRemoteNotificationInActiveSesion:",
+            name: "RemoteNotificationWithActiveSesion",
+            object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "didReceiveRemoteNotificationInActiveSesion:",
+            name: "UIApplicationDidReceiveRemoteNotification",
+            object: nil)
+
         appManager.log.debug("\(NSStringFromClass(self.dynamicType))")
     }
     
@@ -77,6 +88,11 @@ class TRBaseViewController: UIViewController {
     func applicationDidEnterBackground() {
         appManager.log.debug("applicationDidEnterBackground")
     }
+    
+    func didReceiveRemoteNotificationInActiveSesion(sender: NSNotification) {
+        self.view.addSubview(TRApplicationManager.sharedInstance.addNotificationViewWithMessages(self))
+    }
+
     
     deinit {
         
