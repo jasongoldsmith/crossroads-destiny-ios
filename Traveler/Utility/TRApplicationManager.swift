@@ -68,15 +68,22 @@ class TRApplicationManager: NSObject {
     
     func addErrorSubViewWithMessage (errorMessage: String, parentView: TRBaseViewController) -> TRErrorNotificationView {
         
-        self.errorNotificationView.frame = CGRectMake(0, 20, parentView.view.frame.width, self.errorNotificationView.frame.height)
+        let xAxiDistance:CGFloat  = 0
+        let yAxisDistance:CGFloat = 20
+
+        self.errorNotificationView.frame = CGRectMake(xAxiDistance, yAxisDistance, parentView.view.frame.width, self.errorNotificationView.frame.height)
         self.errorNotificationView.removeFromSuperview()
         self.errorNotificationView.errorMessage.text = errorMessage
         
         return self.errorNotificationView
     }
     
-    func addNotificationViewWithMessages () -> TRPushNotificationView {
+    func addNotificationViewWithMessages (parentView: TRBaseViewController) -> TRPushNotificationView {
         
+        let xAxiDistance:CGFloat  = 0
+        let yAxisDistance:CGFloat = 130
+        
+        self.pushNotificationView.frame = CGRectMake(xAxiDistance, yAxisDistance, parentView.view.frame.width, self.pushNotificationView.frame.height)
         self.pushNotificationView.removeFromSuperview()
         return self.pushNotificationView
     }
