@@ -7,6 +7,7 @@ target 'Traveler' do
 	pod 'XCGLogger', '~> 3.2'
     pod 'SDWebImage', '~>3.7'
     pod 'AFDateHelper'
+    pod 'pop', :git => 'https://github.com/facebook/pop.git'
 end
 
 target 'TravelerTests' do
