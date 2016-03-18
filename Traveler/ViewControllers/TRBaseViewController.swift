@@ -10,9 +10,11 @@ import Foundation
 import UIKit
 
 class TRBaseViewController: UIViewController {
+    
     var currentViewController: UIViewController?
     let appManager  = TRApplicationManager.sharedInstance
     let defaults    = NSUserDefaults.standardUserDefaults()
+    
     
     override func viewDidLoad() {
         

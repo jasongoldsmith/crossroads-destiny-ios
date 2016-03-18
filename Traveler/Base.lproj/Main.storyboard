@@ -329,6 +329,7 @@
                             <outletCollection property="gestureRecognizers" destination="Qji-RK-OE2" appends="YES" id="nnv-cS-1jV"/>
                         </connections>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="userNameTxtField" destination="z5h-68-hi8" id="LVJ-XN-H1b"/>
                         <outlet property="userPwdTxtField" destination="ycE-Lh-dgU" id="yCz-OT-haX"/>

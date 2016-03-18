@@ -10,15 +10,24 @@ import UIKit
 
 class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
     
+    
+    private let xAxis: CGFloat = 0.0
+    private let yAxisWithOpenKeyBoard: CGFloat = 235.0
+    private let yAxisWithClosedKeyBoard: CGFloat = 20.0
+    private var isShowingKeyBoard: Bool?
+    
     @IBOutlet weak var userNameTxtField: UITextField!
     @IBOutlet weak var userPwdTxtField: UITextField!
     
+    var errorView: TRErrorNotificationView?
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: self.view.window)
-
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: self.view.window)
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: self.view.window)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: self.view.window)
+
         self.userNameTxtField.attributedPlaceholder = NSAttributedString(string:"Enter username", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         self.userPwdTxtField.attributedPlaceholder = NSAttributedString(string:"Enter password", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         
@@ -26,6 +35,8 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
     }
     
     override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: self.view.window)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: self.view.window)
     }
@@ -49,6 +60,8 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
     
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        self.isShowingKeyBoard = false
         textField.resignFirstResponder()
         self.signInBtnTapped(self.userPwdTxtField)
         
@@ -58,26 +71,34 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
     @IBAction func signInBtnTapped(sender: AnyObject) {
 
         if userNameTxtField.text?.isEmpty  == true {
-            self.view.addSubview(TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter your username", parentView: self))
+            self.errorView = TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter UserName", parentView: self)
+            self.view.addSubview(self.errorView!)
+            self.adjustKeyBoardFrame()
             
             return
         } else {
             let textcount = userNameTxtField.text?.characters.count
             if textcount < 4 || textcount > 50 {
-                self.view.addSubview(TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("User Name must be between 4 and 50 characters", parentView: self ))
+                self.errorView = TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("User Name must be between 4 and 50 characters", parentView: self)
+                self.view.addSubview(self.errorView!)
+                self.adjustKeyBoardFrame()
                 
                 return
             }
         }
     
         if userPwdTxtField.text?.isEmpty == true {
-            self.view.addSubview(TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter your password", parentView: self))
+            self.errorView = TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter your password", parentView: self)
+            self.view.addSubview(self.errorView!)
+            self.adjustKeyBoardFrame()
             
             return
         } else {
             let textcount = userPwdTxtField.text?.characters.count
             if textcount < 4 || textcount > 50 {
-                self.view.addSubview(TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("User password must be between 4 and 50 characters", parentView: self))
+                self.errorView = TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("User password must be between 4 and 50 characters", parentView: self)
+                self.view.addSubview(self.errorView!)
+                self.adjustKeyBoardFrame()
                 
                 return
             }
@@ -113,7 +134,19 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
         }
     }
     
+    func adjustKeyBoardFrame () {
+        if (self.isShowingKeyBoard == true) {
+            self.errorView?.frame = CGRectMake(xAxis, yAxisWithOpenKeyBoard, self.errorView!.frame.size.width, self.errorView!.frame.size.height)
+        } else {
+            self.errorView?.frame = CGRectMake(xAxis, yAxisWithClosedKeyBoard, self.errorView!.frame.size.width, self.errorView!.frame.size.height)
+        }
+    }
+
     @IBAction func dismissKeyboard(recognizer : UITapGestureRecognizer) {
+        
+        self.isShowingKeyBoard = false
+        
+        self.errorView?.frame = CGRectMake(xAxis, yAxisWithClosedKeyBoard, self.errorView!.frame.size.width, self.errorView!.frame.size.height)
         
         if userNameTxtField.isFirstResponder() {
             userNameTxtField.resignFirstResponder()
@@ -126,7 +159,10 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
     
     func keyboardWillShow(sender: NSNotification) {
 
-       
+        self.isShowingKeyBoard = true
+        
+        self.errorView?.frame = CGRectMake(xAxis, yAxisWithOpenKeyBoard, self.errorView!.frame.size.width, self.errorView!.frame.size.height)
+        
         let userInfo: [NSObject : AnyObject] = sender.userInfo!
         
         let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
