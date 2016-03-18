@@ -117,11 +117,17 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
         defaults.setValue(userPwdTxtField.text, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
         defaults.synchronize()
 
+        //Start Activity Indicator
+        TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(self)
+
         let createRequest = TRAuthenticationRequest()
         createRequest.registerTRUserWith(userInfo) { (value ) in  //, errorData) in
             
             if value == true {
                 self.createAccountSuccess()
+                
+                //Stop Activity Indicator
+                TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
             } else {
                 
                 //Delete the saved Password if sign-in was not successful
@@ -130,6 +136,9 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
 
                 self.view.addSubview(TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Your credentails info is wrong", parentView: self))
                 self.adjustKeyBoardFrame()
+                
+                //Stop Activity Indicator
+                TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
             }
         }
     }
