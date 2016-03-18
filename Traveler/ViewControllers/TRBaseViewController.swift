@@ -76,8 +76,18 @@ class TRBaseViewController: UIViewController {
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return (self.navigationController?.navigationBarHidden == true) ? UIStatusBarStyle.LightContent : UIStatusBarStyle.Default
+        return UIStatusBarStyle.Default
     }
+    
+    func setStatusBarBackgroundColor(color: UIColor) {
+        
+        guard  let statusBar = UIApplication.sharedApplication().valueForKey("statusBarWindow")?.valueForKey("statusBar") as? UIView else {
+            return
+        }
+        
+        statusBar.backgroundColor = color
+    }
+
     
     override func shouldAutorotate() -> Bool {
         return false

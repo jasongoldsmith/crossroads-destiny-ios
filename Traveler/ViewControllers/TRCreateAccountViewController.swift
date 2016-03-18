@@ -33,6 +33,9 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
         self.userPSNIDTxtField.attributedPlaceholder = NSAttributedString(string:"Enter PSN ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         
         self.userPSNIDTxtField.delegate = self
+        
+        //Set Status Bar Background
+        self.setStatusBarBackgroundColor(UIColor.blackColor())
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -42,6 +45,10 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: self.view.window)
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
