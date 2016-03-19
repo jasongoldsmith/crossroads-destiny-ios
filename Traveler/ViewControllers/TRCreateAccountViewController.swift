@@ -74,35 +74,27 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
         self.resignKeyBoardResponders()
         
         if userNameTxtField.text?.isEmpty  == true {
-            self.errorView = TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter UserName", parentView: self)
-            self.view.addSubview(self.errorView!)
-            self.adjustKeyBoardFrame()
+            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter UserName", parentView: self)
             
             return
         } else {
             let textcount = userNameTxtField.text?.characters.count
             if textcount < 4 || textcount > 50 {
-                self.errorView = TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("User Name must be between 4 and 50 characters", parentView: self)
-                self.view.addSubview(self.errorView!)
-                self.adjustKeyBoardFrame()
+                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("User Name must be between 4 and 50 characters", parentView: self)
                 
                 return
             }
         }
         
         if userPwdTxtField.text?.isEmpty == true {
-            self.errorView = TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter UserPassword", parentView: self)
-            self.view.addSubview(self.errorView!)
-            self.adjustKeyBoardFrame()
+            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter UserPassword", parentView: self)
             
             return
         } else {
             
             let textcount = userPwdTxtField.text?.characters.count
             if textcount < 4 || textcount > 50 {
-                self.errorView = TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("User password must be between 4 and 50 characters", parentView: self)
-                self.view.addSubview(self.errorView!)
-                self.adjustKeyBoardFrame()
+                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("User password must be between 4 and 50 characters", parentView: self)
                 
                 return
             }
@@ -134,8 +126,7 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
                 defaults.setValue(nil, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
                 defaults.synchronize()
 
-                self.view.addSubview(TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Your credentails info is wrong", parentView: self))
-                self.adjustKeyBoardFrame()
+                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Your credentails info is wrong", parentView: self)
                 
                 //Stop Activity Indicator
                 TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
@@ -148,13 +139,6 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
         performSegueWithIdentifier("TRAccountCreationUnwindAction", sender: nil)
     }
     
-    func adjustKeyBoardFrame () {
-        if (self.isShowingKeyBoard == true) {
-            self.errorView?.frame = CGRectMake(xAxis, yAxisWithOpenKeyBoard, self.errorView!.frame.size.width, self.errorView!.frame.size.height)
-        } else {
-            self.errorView?.frame = CGRectMake(xAxis, yAxisWithClosedKeyBoard, self.errorView!.frame.size.width, self.errorView!.frame.size.height)
-        }
-    }
     
     @IBAction func dismissKeyboard(recognizer : UITapGestureRecognizer) {
         
@@ -166,9 +150,6 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
     
     
     func keyboardWillShow(sender: NSNotification) {
-        
-        self.isShowingKeyBoard = true
-        self.errorView?.frame = CGRectMake(xAxis, yAxisWithOpenKeyBoard, self.errorView!.frame.size.width, self.errorView!.frame.size.height)
         
         let userInfo: [NSObject : AnyObject] = sender.userInfo!
         let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size

@@ -81,34 +81,26 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
         self.resignKeyBoardResponders()
         
         if userNameTxtField.text?.isEmpty  == true {
-            self.errorView = TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter UserName", parentView: self)
-            self.view.addSubview(self.errorView!)
-            self.adjustKeyBoardFrame()
+            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter UserName", parentView: self)
             
             return
         } else {
             let textcount = userNameTxtField.text?.characters.count
             if textcount < 4 || textcount > 50 {
-                self.errorView = TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("User Name must be between 4 and 50 characters", parentView: self)
-                self.view.addSubview(self.errorView!)
-                self.adjustKeyBoardFrame()
+                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("User Name must be between 4 and 50 characters", parentView: self)
                 
                 return
             }
         }
     
         if userPwdTxtField.text?.isEmpty == true {
-            self.errorView = TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter your password", parentView: self)
-            self.view.addSubview(self.errorView!)
-            self.adjustKeyBoardFrame()
+            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter your password", parentView: self)
             
             return
         } else {
             let textcount = userPwdTxtField.text?.characters.count
             if textcount < 4 || textcount > 50 {
-                self.errorView = TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("User password must be between 4 and 50 characters", parentView: self)
-                self.view.addSubview(self.errorView!)
-                self.adjustKeyBoardFrame()
+                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("User password must be between 4 and 50 characters", parentView: self)
                 
                 return
             }
@@ -148,23 +140,14 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
                 //Stop Activity Indicator
                 TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
 
-                self.view.addSubview(TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Your username and password do not match", parentView: self))
-                self.adjustKeyBoardFrame()
+                // Add Error View
+                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Your username and password do not match", parentView: self)
             }
         }
     }
     
-    func adjustKeyBoardFrame () {
-        if (self.isShowingKeyBoard == true) {
-            self.errorView?.frame = CGRectMake(xAxis, yAxisWithOpenKeyBoard, self.errorView!.frame.size.width, self.errorView!.frame.size.height)
-        } else {
-            self.errorView?.frame = CGRectMake(xAxis, yAxisWithClosedKeyBoard, self.errorView!.frame.size.width, self.errorView!.frame.size.height)
-        }
-    }
 
     @IBAction func dismissKeyboard(recognizer : UITapGestureRecognizer) {
-        
-        self.isShowingKeyBoard = false
         
         self.errorView?.frame = CGRectMake(xAxis, yAxisWithClosedKeyBoard, self.errorView!.frame.size.width, self.errorView!.frame.size.height)
         self.resignKeyBoardResponders()
@@ -172,10 +155,6 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
     
     
     func keyboardWillShow(sender: NSNotification) {
-
-        self.isShowingKeyBoard = true
-        
-        self.errorView?.frame = CGRectMake(xAxis, yAxisWithOpenKeyBoard, self.errorView!.frame.size.width, self.errorView!.frame.size.height)
         
         let userInfo: [NSObject : AnyObject] = sender.userInfo!
         
