@@ -110,16 +110,16 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
         defaults.synchronize()
 
         //Start Activity Indicator
-        TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(self)
+        //Start Activity Indicator
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(self)
+        }
 
         let createRequest = TRAuthenticationRequest()
         createRequest.registerTRUserWith(userInfo) { (value ) in  //, errorData) in
             
             if value == true {
                 self.createAccountSuccess()
-                
-                //Stop Activity Indicator
-                TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
             } else {
                 
                 //Delete the saved Password if sign-in was not successful
@@ -127,11 +127,11 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
                 defaults.synchronize()
 
                 TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Your credentails info is wrong", parentView: self)
-                
-                //Stop Activity Indicator
-                TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
             }
         }
+        
+        //Stop Activity Indicator
+        TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
     }
     
     func createAccountSuccess() {

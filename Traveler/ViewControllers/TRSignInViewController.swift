@@ -120,30 +120,27 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
         defaults.synchronize()
 
         //Start Activity Indicator
-        TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(self)
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(self)
+        }
 
         let createRequest = TRAuthenticationRequest()
         createRequest.loginTRUserWith(userInfo) { (value ) in
             if value == true {
                 self.signInSuccess()
-                
-                //Stop Activity Indicator
-                TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
-
-                TRApplicationManager.sharedInstance.errorNotificationView.removeFromSuperview()
             } else{
                 
                 //Delete the saved Password if sign-in was not successful
                 defaults.setValue(nil, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
                 defaults.synchronize()
                 
-                //Stop Activity Indicator
-                TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
-
                 // Add Error View
                 TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Your username and password do not match", parentView: self)
             }
         }
+
+        //Stop Activity Indicator
+        TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
     }
     
 
