@@ -24,7 +24,7 @@ class TRGetEventsList: TRRequest {
                         let swiftyJsonVar = JSON(response.result.value!)
                         
                         if swiftyJsonVar.isEmpty {
-                            completion(value: false )
+                            completion(value: true )
                     } else if swiftyJsonVar["responseType"].string == "ERR" {
                         completion(value: false )
                     } else {
