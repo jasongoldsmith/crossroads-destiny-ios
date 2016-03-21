@@ -133,15 +133,10 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     
     func joinAnEvent (sender: EventButton) {
       
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
-            TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(self)
-        }
-        
         if let eventInfo = sender.buttonEventInfo {
             _ = TRJoinEventRequest().joinEventWithUserForEvent(TRUserInfo.getUserID()!, eventInfo: eventInfo, completion: { (value) -> () in
                 if (value == true) {
                     dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                        TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
                         self.reloadEventTable()
                     }
                 } else {
@@ -153,14 +148,9 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     
     func leaveAnEvent (sender: EventButton) {
         
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
-            TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(self)
-        }
-
-        _ = TRLeaveEventRequest().leaveAnEvent(sender.buttonEventInfo!,completion: {value in
+        _  = TRLeaveEventRequest().leaveAnEvent(sender.buttonEventInfo!,completion: {value in
             if (value == true) {
                 dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                    TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
                     self.reloadEventTable()
                 }
             } else {
@@ -171,21 +161,9 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     
     @IBAction func createAnEvent () {
         
-        //Start Activity Indicator
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
-            TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(self)
-        }
-        
-        
         _ = TRgetActivityList().getActivityList({ (value) -> () in
             if (value == true) {
                 
-                //Stop Activity Indicator
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
-                })
-                
-
                 let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
                 let vc : TRCreateEventViewController = storyboard.instantiateViewControllerWithIdentifier(K.ViewControllerIdenifier.VIEWCONTROLLER_CREATE_EVENT) as! TRCreateEventViewController
                 let navigationController = UINavigationController(rootViewController: vc)
@@ -197,9 +175,9 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
     
     func handleRefresh(refreshControl: UIRefreshControl) {
-        
-        _ = TRGetEventsList().getEventsList({ (value) -> () in
-            if(value == true) {
+
+        _ = TRGetEventsList().getEventsListWithClearActivityBackGround(false, completion: { (didSucceed) -> () in
+            if(didSucceed == true) {
                 
                 self.reloadEventTable()
                 refreshControl.endRefreshing()
@@ -242,10 +220,6 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     func logoutBtnTapped(sender: AnyObject) {
         
         let createRequest = TRAuthenticationRequest()
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
-            TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(self)
-        }
-        
         createRequest.logoutTRUser() { (value ) in
             if value == true {
                 TRUserInfo.removeUserData()
@@ -256,8 +230,6 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
                 self.displayAlertWithTitle("Logout Failed", complete: { (complete) -> () in
                 })
             }
-            
-            TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
         }
     }
 

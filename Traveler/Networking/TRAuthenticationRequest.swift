@@ -18,7 +18,7 @@ class TRAuthenticationRequest: TRRequest {
         let registerUserUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_RegisterUrl
         
         if (userData == nil) {
-            completion(value: false)
+            completion(didSucceed: false)
             return
         }
         
@@ -40,11 +40,11 @@ class TRAuthenticationRequest: TRRequest {
                     if let _ = response.result.value {
                         let swiftyJsonVar = JSON(response.result.value!)
                         if swiftyJsonVar.isEmpty {
-                            completion(value: false )
+                            completion(didSucceed: false )
                         }
                             
                         else if swiftyJsonVar["responseType"].string == "ERR" {
-                            completion(value: false )
+                            completion(didSucceed: false )
                             
                         } else
                         {
@@ -55,15 +55,15 @@ class TRAuthenticationRequest: TRRequest {
                             userData.userImageURL   = swiftyJsonVar["value"]["imageUrl"].string
                             
                             TRUserInfo.saveUserData(userData)
-                            completion(value: true )
+                            completion(didSucceed: true )
                         }
                     } else {
-                        completion(value: false )
+                        completion(didSucceed: false )
                     }
                 }
                 else
                 {
-                    completion(value: false )
+                    completion(didSucceed: false )
                 }
         }
     }
@@ -72,7 +72,7 @@ class TRAuthenticationRequest: TRRequest {
     func loginTRUserWith(userData: TRUserInfo?,completion:TRValueCallBack)  {
         
         if (userData == nil) {
-            completion(value: false)
+            completion(didSucceed: false)
             return
         }
         
@@ -92,9 +92,9 @@ class TRAuthenticationRequest: TRRequest {
                     if let _ = response.result.value {
                         let swiftyJsonVar = JSON(response.result.value!)
                         if swiftyJsonVar.isEmpty {
-                            completion(value: false)
+                            completion(didSucceed: false)
                         } else if swiftyJsonVar["responseType"].string == "ERR" {
-                            completion(value: false )
+                            completion(didSucceed: false )
                         }
                         else {
                             let userData = TRUserInfo()
@@ -108,13 +108,13 @@ class TRAuthenticationRequest: TRRequest {
 
                             
                             TRUserInfo.saveUserData(userData)
-                            completion(value: true )
+                            completion(didSucceed: true )
                         }
                     } else {
-                        completion(value: false )
+                        completion(didSucceed: false )
                     }
                 } else {
-                    completion(value: false )
+                    completion(didSucceed: false )
                 }
         }
     }

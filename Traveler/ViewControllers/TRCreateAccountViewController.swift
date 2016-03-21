@@ -74,27 +74,27 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
         self.resignKeyBoardResponders()
         
         if userNameTxtField.text?.isEmpty  == true {
-            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter UserName", parentView: self)
+            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter UserName")
             
             return
         } else {
             let textcount = userNameTxtField.text?.characters.count
             if textcount < 4 || textcount > 50 {
-                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("User Name must be between 4 and 50 characters", parentView: self)
+                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("User Name must be between 4 and 50 characters")
                 
                 return
             }
         }
         
         if userPwdTxtField.text?.isEmpty == true {
-            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter UserPassword", parentView: self)
+            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter UserPassword")
             
             return
         } else {
             
             let textcount = userPwdTxtField.text?.characters.count
             if textcount < 4 || textcount > 50 {
-                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("User password must be between 4 and 50 characters", parentView: self)
+                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("User password must be between 4 and 50 characters")
                 
                 return
             }
@@ -109,11 +109,6 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
         defaults.setValue(userPwdTxtField.text, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
         defaults.synchronize()
 
-        //Start Activity Indicator
-        //Start Activity Indicator
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
-            TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(self)
-        }
 
         let createRequest = TRAuthenticationRequest()
         createRequest.registerTRUserWith(userInfo) { (value ) in  //, errorData) in
@@ -126,12 +121,9 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
                 defaults.setValue(nil, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
                 defaults.synchronize()
 
-                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Your credentails info is wrong", parentView: self)
+                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Your credentails info is wrong")
             }
         }
-        
-        //Stop Activity Indicator
-        TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
     }
     
     func createAccountSuccess() {

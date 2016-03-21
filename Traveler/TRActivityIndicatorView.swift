@@ -20,18 +20,17 @@ class TRActivityIndicatorView: UIView {
     @IBOutlet var activityIndicatorBGImage: UIImageView!
     @IBOutlet var activityIndicatorTopConstraint: NSLayoutConstraint!
     
-    func startActivityIndicator (vc: TRBaseViewController) {
-        self.startActivityIndicator(vc, withClearBackGround: false, activityTopConstraintValue: nil)
-    }
     
-    func startActivityIndicator (vc: TRBaseViewController, withClearBackGround: Bool, activityTopConstraintValue: CGFloat?) {
+    func startActivityIndicator (withClearBackGround: Bool, activityTopConstraintValue: CGFloat?) {
         
         self.activityIndicatorBGImage.alpha = 0.7
         self.activityIndicatorTopConstraint?.constant = 281.0
         
-        self.parentViewController = vc
-        self.frame = (self.parentViewController?.view.bounds)!
-        self.parentViewController?.view.addSubview(self)
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let window = appDelegate.window
+        self.frame = (window?.bounds)!
+        window?.addSubview(self)
+
         
         self.timer = NSTimer.scheduledTimerWithTimeInterval(TIMER_INTERVAL, target: self, selector: "animationTimer", userInfo: nil, repeats: false)
         self.activityIndicator?.startAnimating()

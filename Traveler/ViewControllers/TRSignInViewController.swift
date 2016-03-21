@@ -81,26 +81,26 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
         self.resignKeyBoardResponders()
         
         if userNameTxtField.text?.isEmpty  == true {
-            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter UserName", parentView: self)
+            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter UserName")
             
             return
         } else {
             let textcount = userNameTxtField.text?.characters.count
             if textcount < 4 || textcount > 50 {
-                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("User Name must be between 4 and 50 characters", parentView: self)
+                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("User Name must be between 4 and 50 characters")
                 
                 return
             }
         }
     
         if userPwdTxtField.text?.isEmpty == true {
-            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter your password", parentView: self)
+            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter your password")
             
             return
         } else {
             let textcount = userPwdTxtField.text?.characters.count
             if textcount < 4 || textcount > 50 {
-                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("User password must be between 4 and 50 characters", parentView: self)
+                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("User password must be between 4 and 50 characters")
                 
                 return
             }
@@ -119,11 +119,6 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
         defaults.setValue(userPwdTxtField.text, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
         defaults.synchronize()
 
-        //Start Activity Indicator
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
-            TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(self)
-        }
-
         let createRequest = TRAuthenticationRequest()
         createRequest.loginTRUserWith(userInfo) { (value ) in
             if value == true {
@@ -135,12 +130,9 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
                 defaults.synchronize()
                 
                 // Add Error View
-                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Your username and password do not match", parentView: self)
+                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Your username and password do not match")
             }
         }
-
-        //Stop Activity Indicator
-        TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
     }
     
 

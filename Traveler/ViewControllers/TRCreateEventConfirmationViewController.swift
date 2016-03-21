@@ -166,16 +166,11 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
     
     @IBAction func createEvent () {
         
-        //Add Activity Indicator
-        TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(self)
         let selectedTime = self.datePickerView?.date
         
         let _ = TRCreateEventRequest().createAnEventWithActivity(self.selectedActivity!, selectedTime: selectedTime!) { (value) -> () in
             if (value == true) {
                 
-                //Stop Activity Indicator
-                TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
-
                 self.dismissViewControllerAnimated(true, completion: { () -> Void in
                     self.didMoveToParentViewController(nil)
                     self.removeFromParentViewController()

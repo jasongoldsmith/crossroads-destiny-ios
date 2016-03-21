@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import XCGLogger
-import pop
+
 
 class TRApplicationManager: NSObject {
     
@@ -69,40 +69,7 @@ class TRApplicationManager: NSObject {
         // Init Push Notification View with nib
         self.pushNotificationView = NSBundle.mainBundle().loadNibNamed("TRPushNotificationView", owner: self, options: nil)[0] as! TRPushNotificationView
     }
-    
-    func addErrorSubViewWithMessage (errorMessage: String, parentView: TRBaseViewController) {
-        let yAxisDistance:CGFloat = -50
-        self.addErrorSubViewWithMessage(errorMessage, parentView: parentView, yAxisDistance: yAxisDistance)
-    }
-    
-    func addErrorSubViewWithMessage (errorMessage: String, parentView: TRBaseViewController, yAxisDistance: CGFloat) {
-        
-        if self.errorNotificationView.superview != nil {
-            return
-        }
-        
-        
-        let xAxiDistance:CGFloat  = 0
-        self.errorNotificationView.frame = CGRectMake(xAxiDistance, yAxisDistance, parentView.view.frame.width, self.errorNotificationView.frame.height)
-        self.errorNotificationView.errorMessage.text = errorMessage
-        
-        let popAnimation:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPLayerPositionY)
-        popAnimation.toValue = 50
-        self.errorNotificationView.layer.pop_addAnimation(popAnimation, forKey: "slideIn")
 
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let window = appDelegate.window
-        window?.addSubview(self.errorNotificationView)
-        
-        self.delay(1.0) { () -> () in
-            let popAnimation:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPLayerPositionY)
-            popAnimation.toValue = -50
-            popAnimation.completionBlock =  {(animation, finished) in
-                self.errorNotificationView.removeFromSuperview()
-            }
-            self.errorNotificationView.layer.pop_addAnimation(popAnimation, forKey: "slideOut")
-        }
-    }
     
     func addNotificationViewWithMessages (parentView: TRBaseViewController, sender: NSNotification) -> TRPushNotificationView {
         
@@ -128,19 +95,15 @@ class TRApplicationManager: NSObject {
         return self.pushNotificationView
     }
     
-    func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
-    }
     
     func notificationTimer() {
         
         self.pushNotificationView.removeFromSuperview()
         self.timer.invalidate()
+    }
+    
+    func addErrorSubViewWithMessage(errorString: String) {
+        self.errorNotificationView.addErrorSubViewWithMessage(errorString)
     }
     
     required init(coder aDecoder: NSCoder) {

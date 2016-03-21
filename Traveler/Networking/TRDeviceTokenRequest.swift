@@ -15,32 +15,49 @@ class TRDeviceTokenRequest: TRRequest {
     func sendDeviceToken (deviceToken: String, completion: TRValueCallBack) {
         
         let registerDevice = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_REGISTER_DEVICE
-        var params         = [String: AnyObject]()
+        var params = [String: AnyObject]()
         params["deviceToken"]      = deviceToken
         
-        
-        request(self.URLMethod!, registerDevice, parameters:params)
-            .responseJSON { response in
-                if response.result.isSuccess {
-                    
-                    if let _ = response.result.value {
-                        let swiftyJsonVar = JSON(response.result.value!)
-                        if swiftyJsonVar.isEmpty {
-                            completion(value: false )
-                        }
-                        else if swiftyJsonVar["responseType"].string == "ERR" {
-                            completion(value: false )
-                        } else {
-                            print("Token Response: \(swiftyJsonVar)")
-                            completion(value: true )
-                        }
-                    } else {
-                        completion(value: false )
-                    }
-                } else {
-                    completion(value: false )
-                }
+        let request = TRRequest()
+        request.params = params
+        request.requestURL = registerDevice
+        request.sendRequestWithCompletion { (error, swiftyJsonVar) -> () in
+            
+            if let _ = error {
+                TRApplicationManager.sharedInstance.errorNotificationView.addErrorSubViewWithMessage("response error")
+                completion(didSucceed: false)
+                
+                return
             }
+
+            completion(didSucceed: true )
         }
+    }
 }
+
+        
+//        request(self.URLMethod!, registerDevice, parameters:params)
+//            .responseJSON { response in
+//                if response.result.isSuccess {
+//                    
+//                    if let _ = response.result.value {
+//                        let swiftyJsonVar = JSON(response.result.value!)
+//                        if swiftyJsonVar.isEmpty {
+//                            completion(didSucceed: false )
+//                        }
+//                        else if swiftyJsonVar["responseType"].string == "ERR" {
+//                            completion(didSucceed: false )
+//                        } else {
+//                            print("Token Response: \(swiftyJsonVar)")
+//                            completion(didSucceed: true )
+//                        }
+//                    } else {
+//                        completion(didSucceed: false )
+//                    }
+//                } else {
+//                    completion(didSucceed: false )
+//                }
+//            }
+//        }
+//}
 

@@ -81,18 +81,7 @@ class TRCreateEventViewController: TRBaseViewController {
     
     @IBAction func activityButtonPressed (sender: EventButton) {
         
-        //Add Activity Indicator
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
-            TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(self)
-        }
-        
         if let _ = sender.buttonActivityInfo {
-            
-            //Stop Activity Indicator
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
-            })
-            
             
             let vc = TRApplicationManager.sharedInstance.stroryBoardManager.getViewControllerWithID(K.ViewControllerIdenifier.VIEW_CONTROLLER_CREATE_EVENT_SELECTION, storyBoardID: K.StoryBoard.StoryBoard_Main) as! TRCreateEventSelectionViewController
             vc.seletectedActivity = sender.buttonActivityInfo
