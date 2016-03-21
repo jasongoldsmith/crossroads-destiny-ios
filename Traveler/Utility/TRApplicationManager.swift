@@ -16,8 +16,9 @@ class TRApplicationManager: NSObject {
     // MARK:- Instances
     
     private let TIMER_INTERVAL: Double = 5
+    private let REQUEST_TIME_OUT = 15.0
     private var timer: NSTimer = NSTimer()
-
+    
     // Shared Instance
     static let sharedInstance = TRApplicationManager()
     
@@ -57,8 +58,8 @@ class TRApplicationManager: NSObject {
         
         // Network Configuration
         let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        configuration.timeoutIntervalForRequest = 0.5
-        configuration.timeoutIntervalForResource = 0.5
+        configuration.timeoutIntervalForRequest = REQUEST_TIME_OUT
+        configuration.timeoutIntervalForResource = REQUEST_TIME_OUT
         self.alamoFireManager = Alamofire.Manager(configuration: configuration)
 
         

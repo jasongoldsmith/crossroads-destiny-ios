@@ -55,7 +55,7 @@ class TRRequest {
                 }
                 
                 switch response.result {
-                case .Failure(let _):
+                case .Failure( _):
                     TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("SERVER ERROR")
                 case .Success( _):
                     
@@ -63,9 +63,9 @@ class TRRequest {
                         let swiftyJsonVar = JSON(response.result.value!)
                         
                         if swiftyJsonVar.isEmpty {
-                            //false
+                            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Json is Empty")
                         } else if swiftyJsonVar["responseType"].string == "ERR" {
-                            //false
+                            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Some Error")
                         } else {
                             //True
                             completion(error: nil, responseObject: (swiftyJsonVar))
