@@ -27,7 +27,7 @@ class TRRootViewController: TRBaseViewController {
         super.viewDidAppear(animated)
         
         if (TRUserInfo.isUserLoggedIn()) {
-            _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, completion: { (didSucceed) -> () in
+            _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, indicatorTopConstraint: ACTIVITY_INDICATOR_TOP_CONSTRAINT, completion: { (didSucceed) -> () in
                 if(didSucceed == true) {
                     
                     self.performSegueWithIdentifier("TREventListView", sender: self)

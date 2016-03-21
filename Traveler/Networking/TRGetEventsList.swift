@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class TRGetEventsList: TRRequest {
     
-    func getEventsListWithClearActivityBackGround (clearBG: Bool, completion: TRValueCallBack) {
+    func getEventsListWithClearActivityBackGround (clearBG: Bool, indicatorTopConstraint: CGFloat?, completion: TRValueCallBack) {
         
         let eventListingUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_EventListUrl
         
@@ -20,6 +20,11 @@ class TRGetEventsList: TRRequest {
         request.requestURL = eventListingUrl
         request.URLMethod = .GET
         request.showActivityIndicatorBgClear = clearBG
+        if let topConstraint = indicatorTopConstraint {
+            request.activityIndicatorTopConstraint = topConstraint
+        }
+
+        
         request.sendRequestWithCompletion { (error, swiftyJsonVar) -> () in
             
             if let _ = error {

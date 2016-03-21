@@ -20,7 +20,7 @@ class TRActivityIndicatorView: UIView {
     func startActivityIndicator (withClearBackGround: Bool, activityTopConstraintValue: CGFloat?) {
         
         self.activityIndicatorBGImage.alpha = 0.7
-        self.activityIndicatorTopConstraint?.constant = 281.0
+        self.activityIndicatorTopConstraint?.constant = activityTopConstraintValue!
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let window = appDelegate.window

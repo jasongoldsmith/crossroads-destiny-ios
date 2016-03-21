@@ -28,9 +28,11 @@ class TRRequest {
     var encodingType: ParameterEncoding?
     var requestHandler: TRRequestClosure?
     var requestURL: String?
+    
+    // Activity Indicator
     var showActivityIndicator: Bool = true
     var showActivityIndicatorBgClear: Bool = false
-
+    var activityIndicatorTopConstraint: CGFloat = 281.0
     
     init() {
         self.shouldDrop = false
@@ -42,7 +44,7 @@ class TRRequest {
         
         //Start Activity Indicator
         if self.showActivityIndicator == true {
-            TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(self.showActivityIndicatorBgClear, activityTopConstraintValue: nil)
+            TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(self.showActivityIndicatorBgClear, activityTopConstraintValue: self.activityIndicatorTopConstraint)
         }
         
         

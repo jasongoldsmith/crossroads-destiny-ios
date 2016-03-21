@@ -176,7 +176,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     
     func handleRefresh(refreshControl: UIRefreshControl) {
 
-        _ = TRGetEventsList().getEventsListWithClearActivityBackGround(false, completion: { (didSucceed) -> () in
+        _ = TRGetEventsList().getEventsListWithClearActivityBackGround(false, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
             if(didSucceed == true) {
                 
                 self.reloadEventTable()
