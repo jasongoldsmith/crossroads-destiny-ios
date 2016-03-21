@@ -43,7 +43,7 @@ class TRErrorNotificationView: UIView {
         popAnimation.toValue = 50
         self.layer.pop_addAnimation(popAnimation, forKey: "slideIn")
         
-        self.delay(1.0) { () -> () in
+        self.delay(3.0) { () -> () in
             let popAnimation:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPLayerPositionY)
             popAnimation.toValue = -50
             popAnimation.completionBlock =  {(animation, finished) in

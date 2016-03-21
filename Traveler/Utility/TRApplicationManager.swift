@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import XCGLogger
-
+import Alamofire
 
 class TRApplicationManager: NSObject {
     
@@ -46,12 +46,21 @@ class TRApplicationManager: NSObject {
     
     // Push Notification View
     var pushNotificationView = TRPushNotificationView()
-    
+
+    //AlamoreFire Manager
+    var alamoFireManager : Alamofire.Manager?
     
     
     // MARK:- Initializer
     private override init() {
         super.init()
+        
+        // Network Configuration
+        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        configuration.timeoutIntervalForRequest = 0.5
+        configuration.timeoutIntervalForResource = 0.5
+        self.alamoFireManager = Alamofire.Manager(configuration: configuration)
+
         
         #if DEBUG
             self.log.setup(.Debug, showLogLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: nil)

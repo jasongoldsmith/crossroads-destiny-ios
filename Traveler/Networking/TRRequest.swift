@@ -45,7 +45,8 @@ class TRRequest {
             TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(self.showActivityIndicatorBgClear, activityTopConstraintValue: nil)
         }
         
-        request(self.URLMethod!, self.requestURL!, parameters:self.params)
+        
+        TRApplicationManager.sharedInstance.alamoFireManager!.request(self.URLMethod!, self.requestURL!, parameters:self.params)
             .responseJSON { response in
                 
                 // Stop Activity Indicator
@@ -54,8 +55,8 @@ class TRRequest {
                 }
                 
                 switch response.result {
-                case .Failure(let error):
-                    TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("server error: \(error)")
+                case .Failure(let _):
+                    TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("SERVER ERROR")
                 case .Success( _):
                     
                     if let _ = response.result.value {

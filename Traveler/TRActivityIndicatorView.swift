@@ -53,12 +53,16 @@ class TRActivityIndicatorView: UIView {
     
     func animationTimer() {
         if ((self.activityIndicator?.isAnimating()) != nil) {
-            self.parentViewController?.displayAlertWithTitle("No Server Response", complete: { (complete) -> () in
-                self.stopActivityIndicator()
-                self.removeFromSuperview()
-                self.timer.invalidate()
-                self.parentViewController = nil
-            })
+
+            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("No Server Response")
+            
+//            self.parentViewController?.displayAlertWithTitle("No Server Response", complete: { (complete) -> () in
+//                self.stopActivityIndicator()
+//                self.removeFromSuperview()
+//                self.timer.invalidate()
+//                self.parentViewController = nil
+//            })
+            
         }
     }
 }
