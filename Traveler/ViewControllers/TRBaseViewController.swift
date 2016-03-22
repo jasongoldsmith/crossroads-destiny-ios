@@ -22,23 +22,23 @@ class TRBaseViewController: UIViewController {
         
         // Add app state observers
         NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "applicationWillEnterForeground",
+            selector: #selector(TRBaseViewController.applicationWillEnterForeground),
             name: UIApplicationWillEnterForegroundNotification,
             object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "applicationDidEnterBackground",
+            selector: #selector(TRBaseViewController.applicationDidEnterBackground),
             name: UIApplicationDidEnterBackgroundNotification,
             object: nil)
         
         // Notification Observer
         NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "didReceiveRemoteNotificationInActiveSesion:",
+            selector: #selector(TRBaseViewController.didReceiveRemoteNotificationInActiveSesion(_:)),
             name: "RemoteNotificationWithActiveSesion",
             object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "didReceiveRemoteNotificationInActiveSesion:",
+            selector: #selector(TRBaseViewController.didReceiveRemoteNotificationInActiveSesion(_:)),
             name: "UIApplicationDidReceiveRemoteNotification",
             object: nil)
 

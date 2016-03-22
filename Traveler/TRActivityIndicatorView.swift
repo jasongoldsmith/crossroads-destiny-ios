@@ -34,6 +34,8 @@ class TRActivityIndicatorView: UIView {
         if let newConstraint = activityTopConstraintValue {
             self.activityIndicatorTopConstraint?.constant = newConstraint
         }
+        
+        self.activityIndicator?.startAnimating()
     }
     
     func stopActivityIndicator () {

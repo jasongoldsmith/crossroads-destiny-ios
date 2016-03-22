@@ -28,7 +28,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     // Pull to Refresh
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl.addTarget(self, action: #selector(TREventListViewController.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
         return refreshControl
     }()
@@ -66,7 +66,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
 
     func addLogOutEventToAvatorImageView () {
-        let logOutGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("logoutBtnTapped:"))
+        let logOutGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(TREventListViewController.logoutBtnTapped(_:)))
         self.currentPlayerAvatorIcon?.userInteractionEnabled = true
         self.currentPlayerAvatorIcon?.addGestureRecognizer(logOutGestureRecognizer)
     }
@@ -118,10 +118,10 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             cell.updateCellViewWithEvent(eventsInfo[indexPath.section])
         }
 
-        cell.joinEventButton?.addTarget(self, action: "joinAnEvent:", forControlEvents: .TouchUpInside)
+        cell.joinEventButton?.addTarget(self, action: #selector(TREventListViewController.joinAnEvent(_:)), forControlEvents: .TouchUpInside)
         cell.joinEventButton?.buttonEventInfo = eventsInfo[indexPath.section]
 
-        cell.leaveEventButton?.addTarget(self, action: "leaveAnEvent:", forControlEvents: .TouchUpInside)
+        cell.leaveEventButton?.addTarget(self, action: #selector(TREventListViewController.leaveAnEvent(_:)), forControlEvents: .TouchUpInside)
         cell.leaveEventButton.buttonEventInfo = eventsInfo[indexPath.section]
         
         return cell

@@ -53,7 +53,7 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         self.datePickerView?.transform = CGAffineTransformMake(1, 0, 0, 1, 0, 30);
         
         // Add Tap Gesture to Date PickerBackGround ImageView
-        let datePickerGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("datePickerimageTapped:"))
+        let datePickerGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(TRCreateEventConfirmationViewController.datePickerimageTapped(_:)))
         self.datePickerBackgroundImage?.userInteractionEnabled = true
         self.datePickerBackgroundImage?.addGestureRecognizer(datePickerGestureRecognizer)
 
@@ -92,7 +92,7 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         self.checkpointPickerView?.alpha = 0
         
         // Add Tap Gesture to Date PickerBackGround ImageView
-        let checkPointPickerGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("checkPointPickerimageTapped"))
+        let checkPointPickerGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(TRCreateEventConfirmationViewController.checkPointPickerimageTapped))
         self.checkpointPickerView?.imageView?.userInteractionEnabled = true
         self.checkpointPickerView?.imageView?.addGestureRecognizer(checkPointPickerGestureRecognizer)
 
@@ -110,7 +110,7 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         //Adding Back Button to nav Bar
         let leftButton = UIButton(frame: CGRectMake(0,0,30,30))
         leftButton.setImage(UIImage(named: "iconBackArrow"), forState: .Normal)
-        leftButton.addTarget(self, action: Selector("backButtonPressed"), forControlEvents: .TouchUpInside)
+        leftButton.addTarget(self, action: #selector(TRCreateEventConfirmationViewController.backButtonPressed), forControlEvents: .TouchUpInside)
         let leftBarButton = UIBarButtonItem()
         leftBarButton.customView = leftButton
         self.navigationItem.leftBarButtonItem = leftBarButton

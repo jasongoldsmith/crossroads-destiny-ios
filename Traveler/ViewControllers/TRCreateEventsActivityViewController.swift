@@ -70,7 +70,7 @@ class TRCreateEventsActivityViewController: TRBaseViewController, UIPickerViewDa
         //Adding Back Button to nav Bar
         let leftButton = UIButton(frame: CGRectMake(0,0,30,30))
         leftButton.setImage(UIImage(named: "iconBackArrow"), forState: .Normal)
-        leftButton.addTarget(self, action: Selector("backButtonPressed:"), forControlEvents: .TouchUpInside)
+        leftButton.addTarget(self, action: #selector(TRCreateEventsActivityViewController.backButtonPressed(_:)), forControlEvents: .TouchUpInside)
         let leftBarButton = UIBarButtonItem()
         leftBarButton.customView = leftButton
         self.navigationItem.leftBarButtonItem = leftBarButton

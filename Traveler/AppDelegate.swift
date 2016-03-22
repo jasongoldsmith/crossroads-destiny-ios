@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK:- Notifications
     
     func addNotificationsPermission () {
-        if UIApplication.sharedApplication().respondsToSelector("registerUserNotificationSettings:") {
+        if UIApplication.sharedApplication().respondsToSelector(#selector(UIApplication.registerUserNotificationSettings(_:))) {
             
             let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: [])
             
@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
         var tokenString = ""
-        for var i = 0; i < deviceToken.length; i++ {
+        for i in 0 ..< deviceToken.length {
             tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
         }
        

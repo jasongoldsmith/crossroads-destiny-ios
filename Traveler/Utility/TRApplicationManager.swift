@@ -87,7 +87,8 @@ class TRApplicationManager: NSObject {
         let yAxisDistance:CGFloat = 130
         self.pushNotificationView.frame = CGRectMake(xAxiDistance, yAxisDistance, parentView.view.frame.width, self.pushNotificationView.frame.height)
         self.pushNotificationView.removeFromSuperview()
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(TIMER_INTERVAL, target: self, selector: "notificationTimer", userInfo: nil, repeats: false)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(TIMER_INTERVAL, target: self, selector: #selector(TRApplicationManager.notificationTimer), userInfo: nil, repeats: false)
+        
         
         if let userInfo = sender.userInfo as NSDictionary? {
             if let payload = userInfo.objectForKey("payload") as? NSDictionary {
