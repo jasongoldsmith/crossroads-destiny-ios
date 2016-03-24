@@ -29,10 +29,10 @@ class TRApplicationManager: NSObject {
     let stroryBoardManager = TRStoryBoardManager()
     
     //Event Info Objet
-    var eventsList: [TREventInfo] = []
+    lazy var eventsList: [TREventInfo] = []
     
     //Activity List
-    var activityList: [TRActivityInfo] = []
+    lazy var activityList: [TRActivityInfo] = []
     
     //Image Helper
     var imageHelper = ImageHelper()

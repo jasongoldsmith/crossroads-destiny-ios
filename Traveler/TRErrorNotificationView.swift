@@ -43,22 +43,15 @@ class TRErrorNotificationView: UIView {
         popAnimation.toValue = 50
         self.layer.pop_addAnimation(popAnimation, forKey: "slideIn")
         
-        self.delay(3.0) { () -> () in
+        delay(3.0) { () -> () in
             let popAnimation:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPLayerPositionY)
-            popAnimation.toValue = -50
+            popAnimation.toValue = -20
             popAnimation.completionBlock =  {(animation, finished) in
                 self.removeFromSuperview()
             }
             self.layer.pop_addAnimation(popAnimation, forKey: "slideOut")
         }
     }
-    
-    func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
-    }
 }
+
+

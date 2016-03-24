@@ -178,9 +178,8 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
 
         _ = TRGetEventsList().getEventsListWithClearActivityBackGround(false, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
             if(didSucceed == true) {
-                
-                self.reloadEventTable()
                 refreshControl.endRefreshing()
+                self.reloadEventTable()
             } else {
                 self.appManager.log.debug("Failed")
             }

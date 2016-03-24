@@ -33,6 +33,8 @@
 		334ED0C21C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334ED0C11C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift */; };
 		334ED0C51C8E5B71007523AC /* TRCreateEventsActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334ED0C11C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift */; };
 		334ED0C61C8E5B72007523AC /* TRCreateEventsActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334ED0C11C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift */; };
+		335AF5E81CA49DF500EBB6EF /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338AECFD1C9D03AE008B064F /* Utility.swift */; };
+		335AF5E91CA49DF500EBB6EF /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338AECFD1C9D03AE008B064F /* Utility.swift */; };
 		33742D801C7FBDF100C46742 /* TRConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33742D7F1C7FBDF100C46742 /* TRConstants.swift */; };
 		33742D811C7FC17700C46742 /* TRConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33742D7F1C7FBDF100C46742 /* TRConstants.swift */; };
 		33742D821C7FC17800C46742 /* TRConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33742D7F1C7FBDF100C46742 /* TRConstants.swift */; };
@@ -679,6 +681,7 @@
 				33742D8F1C7FC66E00C46742 /* TRStoryBoardManager.swift in Sources */,
 				33104C001C97B1F40024D601 /* TRActivityIndicatorView.swift in Sources */,
 				33FDB9CA1C86A0D60066237C /* TRUpcomingActivities.swift in Sources */,
+				335AF5E81CA49DF500EBB6EF /* Utility.swift in Sources */,
 				339D8F291C90F77E00A2620F /* TRActivitySelectionCell.swift in Sources */,
 				3329B5951C9B7A8500CC1F9B /* TRPushNotificationView.swift in Sources */,
 				33742D8B1C7FC66500C46742 /* TRBaseViewController.swift in Sources */,
@@ -725,6 +728,7 @@
 				33742D901C7FC66F00C46742 /* TRStoryBoardManager.swift in Sources */,
 				33104C011C97B1F40024D601 /* TRActivityIndicatorView.swift in Sources */,
 				33FDB9CB1C86A0D60066237C /* TRUpcomingActivities.swift in Sources */,
+				335AF5E91CA49DF500EBB6EF /* Utility.swift in Sources */,
 				339D8F2A1C90F77E00A2620F /* TRActivitySelectionCell.swift in Sources */,
 				3329B5961C9B7A8500CC1F9B /* TRPushNotificationView.swift in Sources */,
 				33742D8C1C7FC66600C46742 /* TRBaseViewController.swift in Sources */,
