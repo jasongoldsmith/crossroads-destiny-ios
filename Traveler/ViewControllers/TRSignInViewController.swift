@@ -14,7 +14,6 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
     private let xAxis: CGFloat = 0.0
     private let yAxisWithOpenKeyBoard: CGFloat = 235.0
     private let yAxisWithClosedKeyBoard: CGFloat = 20.0
-    private var isShowingKeyBoard: Bool?
     
     @IBOutlet weak var userNameTxtField: UITextField!
     @IBOutlet weak var userPwdTxtField: UITextField!
@@ -30,8 +29,6 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
 
         self.userNameTxtField.attributedPlaceholder = NSAttributedString(string:"Enter username", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         self.userPwdTxtField.attributedPlaceholder = NSAttributedString(string:"Enter password", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
-        
-        self.userPwdTxtField.delegate = self
        
         //Set Status Bar Background
         self.setStatusBarBackgroundColor(UIColor.blackColor())
@@ -69,8 +66,12 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
-        textField.resignFirstResponder()
-        self.signInBtnTapped(self.userPwdTxtField)
+        if (textField == self.userNameTxtField) {
+            self.userPwdTxtField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+            self.signInBtnTapped(self.userPwdTxtField)
+        }
         
         return true
     }
@@ -179,11 +180,9 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
     
     func resignKeyBoardResponders () {
         if userNameTxtField.isFirstResponder() {
-            self.isShowingKeyBoard = false
             userNameTxtField.resignFirstResponder()
         }
         if userPwdTxtField.isFirstResponder() {
-            self.isShowingKeyBoard = false
             userPwdTxtField.resignFirstResponder()
         }
     }

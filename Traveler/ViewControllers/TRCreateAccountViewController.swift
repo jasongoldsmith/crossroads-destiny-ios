@@ -13,7 +13,6 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
     private let xAxis: CGFloat = 0.0
     private let yAxisWithOpenKeyBoard: CGFloat = 235.0
     private let yAxisWithClosedKeyBoard: CGFloat = 20.0
-    private var isShowingKeyBoard: Bool?
     
     @IBOutlet weak var userNameTxtField: UITextField!
     @IBOutlet weak var userPwdTxtField: UITextField!
@@ -56,9 +55,14 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
-        self.isShowingKeyBoard = false
-        self.resignFirstResponder()
-        self.createAccountBtnTapped(textField)
+        if (textField == self.userNameTxtField) {
+            self.userPwdTxtField.becomeFirstResponder()
+        } else if (textField == self.userPwdTxtField) {
+            self.userPSNIDTxtField.becomeFirstResponder()
+        } else {
+            self.resignFirstResponder()
+            self.createAccountBtnTapped(textField)
+        }
         
         return true
     }
@@ -134,8 +138,6 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
     
     @IBAction func dismissKeyboard(recognizer : UITapGestureRecognizer) {
         
-        self.isShowingKeyBoard = false
-        
         self.errorView?.frame = CGRectMake(xAxis, yAxisWithClosedKeyBoard, self.errorView!.frame.size.width, self.errorView!.frame.size.height)
         self.resignKeyBoardResponders()
     }
@@ -176,15 +178,12 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
     
     func resignKeyBoardResponders () {
         if userNameTxtField.isFirstResponder() {
-            self.isShowingKeyBoard = false
             userNameTxtField.resignFirstResponder()
         }
         if userPwdTxtField.isFirstResponder() {
-            self.isShowingKeyBoard = false
             userPwdTxtField.resignFirstResponder()
         }
         if userPSNIDTxtField.isFirstResponder() {
-            self.isShowingKeyBoard = false
             userPSNIDTxtField.resignFirstResponder()
         }
     }
