@@ -153,7 +153,7 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
         if keyboardSize.height == offset.height {
             if self.view.frame.origin.y == 0 {
                 UIView.animateWithDuration(0.2, animations: { () -> Void in
-                    self.view.frame.origin.y -= keyboardSize.height
+                    self.view.frame.origin.y -= keyboardSize.height - 20
                 })
             }
         } else {
