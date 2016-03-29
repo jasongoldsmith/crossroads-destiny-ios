@@ -201,6 +201,7 @@ class TRApplicationManager: NSObject {
     func purgeSavedData () {
         self.activityList.removeAll()
         self.eventsList.removeAll()
+        self.upComingEventsList.removeAll()
     }
 }
 

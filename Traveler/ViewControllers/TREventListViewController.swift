@@ -234,19 +234,10 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     
     
     func logoutBtnTapped(sender: AnyObject) {
+        let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+        let vc : TRProfileViewController = storyboard.instantiateViewControllerWithIdentifier(K.ViewControllerIdenifier.VIEW_CONTROLLER_PROFILE) as! TRProfileViewController
         
-        let createRequest = TRAuthenticationRequest()
-        createRequest.logoutTRUser() { (value ) in
-            if value == true {
-                TRUserInfo.removeUserData()
-                TRApplicationManager.sharedInstance.purgeSavedData()
-                
-                self.dismissViewControllerAnimated(true, completion: nil)
-            } else {
-                self.displayAlertWithTitle("Logout Failed", complete: { (complete) -> () in
-                })
-            }
-        }
+        self.presentViewController(vc, animated: true, completion: nil)
     }
 
     deinit {
