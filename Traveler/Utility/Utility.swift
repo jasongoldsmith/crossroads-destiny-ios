@@ -23,6 +23,22 @@ func delay(delay:Double, closure:()->()) {
         dispatch_get_main_queue(), closure)
 }
 
+func isTimeDifferenceMoreThenAnHour(dateString: String) -> Bool {
+  
+    let formatter = NSDateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    
+    if let eventDate = formatter.dateFromString(dateString) {
+        eventDate.dateBySubtractingHours(1)
+        
+        if eventDate.isInFuture() {
+            return true
+        }
+    }
+    
+    return false
+}
+
 func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
     
     return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)

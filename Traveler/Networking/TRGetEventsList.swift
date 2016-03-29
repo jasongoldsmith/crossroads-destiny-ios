@@ -47,6 +47,16 @@ class TRGetEventsList: TRRequest {
                 eventInfo.eventMaxPlayers   = events["maxPlayers"].number
                 eventInfo.eventMinPlayer    = events["minPlayers"].number
                 eventInfo.eventCreatedDate  = events["created"].string
+//                eventInfo.eventLaunchDate   = events["launchDate"].strin
+                
+                if let futureLaunchDate = events["launchDate"].string {
+                    let isFutureEvent = isTimeDifferenceMoreThenAnHour(futureLaunchDate)
+                    
+                    if isFutureEvent {
+                        _ = TRUpComingEventInfo()
+                    }
+                    
+                }
                 
                 // Dictionary of Activities in an Event
                 let activityDictionary = events["eType"].dictionary
