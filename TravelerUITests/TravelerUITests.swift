@@ -32,9 +32,40 @@ class TravelerUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testSignIn() {
+        if #available(iOS 9.0, *) {
+            XCUIDevice.sharedDevice().orientation = .FaceUp
+            XCUIDevice.sharedDevice().orientation = .FaceUp
+            
+            let app = XCUIApplication()
+            app.buttons["SIGN IN"].tap()
+            app.textFields["Enter username"].tap()
+            app.typeText("bender")
+            sleep(2)
+            app.secureTextFields["Enter password"].tap()
+            app.typeText("password")
+            app.buttons["TrImgLoginBtn"].tap()
+            
+            sleep(5)
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
+    func testSignUp() {
+        if #available(iOS 9.0, *) {
+            let app = XCUIApplication()
+            app.buttons["CREATE ACCOUNT"].tap()
+            app.textFields["Enter username"].tap()
+            app.textFields["Enter username"]
+            app.secureTextFields["Enter password"].tap()
+            app.secureTextFields["Enter password"]
+            app.textFields["Enter PSN ID"].tap()
+            app.textFields["Enter PSN ID"]
+            app.buttons["TrImgLoginBtn"].tap()
+        } else {
+            // Fallback on earlier versions
+        }
+    }
 }
