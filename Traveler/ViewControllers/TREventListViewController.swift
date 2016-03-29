@@ -190,7 +190,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         _ = TRGetEventsList().getEventsListWithClearActivityBackGround(false, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
             if(didSucceed == true) {
                 refreshControl.endRefreshing()
-                delay(3.0, closure: {
+                delay(0.5, closure: {
                     dispatch_async(dispatch_get_main_queue(), { 
                         self.reloadEventTable()
                     })
