@@ -17,6 +17,7 @@ class TRApplicationManager: NSObject {
     
     private let TIMER_INTERVAL: Double = 5
     private let REQUEST_TIME_OUT = 15.0
+    private let UPCOMING_EVENT_TIME_THREASHOLD = 1
     private var timer: NSTimer = NSTimer()
     
     // Shared Instance
@@ -126,6 +127,23 @@ class TRApplicationManager: NSObject {
     
     
     // MARK:- Data Helper Methods
+    func isTimeDifferenceMoreThenAnHour(dateString: String) -> Bool {
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        
+        if let eventDate = formatter.dateFromString(dateString) {
+            eventDate.dateBySubtractingHours(UPCOMING_EVENT_TIME_THREASHOLD)
+            
+            if eventDate.isInFuture() {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    
     func getEventById (eventId: String) -> TREventInfo? {
 
         let eventObjectArray = TRApplicationManager.sharedInstance.eventsList.filter{$0.eventID == eventId}

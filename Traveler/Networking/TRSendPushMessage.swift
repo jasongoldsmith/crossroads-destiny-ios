@@ -1,26 +1,26 @@
 //
-//  TRDeviceTokenRequest.swift
+//  TRSendPushMessage.swift
 //  Traveler
 //
-//  Created by Ashutosh on 3/11/16.
+//  Created by Ashutosh on 3/29/16.
 //  Copyright © 2016 Forcecatalyst. All rights reserved.
 //
 
 import Foundation
-import Alamofire
-import SwiftyJSON
 
-class TRDeviceTokenRequest: TRRequest {
+
+class TRSendPushMessage: TRRequest {
     
-    func sendDeviceToken (deviceToken: String, completion: TRValueCallBack) {
+    func sendPushMessageTo (userId: String, messageString: String, completion: TRValueCallBack) {
         
-        let registerDevice = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_REGISTER_DEVICE
+        let pushMessage = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_SEND_PUSH_MESSAGE
         var params = [String: AnyObject]()
-        params["deviceToken"]      = deviceToken
+        params["id"] = userId
+        params["message"] = messageString
         
         let request = TRRequest()
         request.params = params
-        request.requestURL = registerDevice
+        request.requestURL = pushMessage
         request.sendRequestWithCompletion { (error, swiftyJsonVar) -> () in
             
             if let _ = error {
@@ -29,9 +29,8 @@ class TRDeviceTokenRequest: TRRequest {
                 
                 return
             }
-
+            
             completion(didSucceed: true )
         }
     }
 }
-
