@@ -84,6 +84,9 @@
 		3397E2831C93822F008CCCDB /* TRDeviceTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3397E2821C93822F008CCCDB /* TRDeviceTokenRequest.swift */; };
 		3397E2841C93822F008CCCDB /* TRDeviceTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3397E2821C93822F008CCCDB /* TRDeviceTokenRequest.swift */; };
 		3397E2851C93822F008CCCDB /* TRDeviceTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3397E2821C93822F008CCCDB /* TRDeviceTokenRequest.swift */; };
+		3398E1A51CAB18C7001F022B /* TREventInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3398E1A41CAB18C7001F022B /* TREventInformationViewController.swift */; };
+		3398E1A61CAB18C7001F022B /* TREventInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3398E1A41CAB18C7001F022B /* TREventInformationViewController.swift */; };
+		3398E1A71CAB18C7001F022B /* TREventInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3398E1A41CAB18C7001F022B /* TREventInformationViewController.swift */; };
 		339D8F241C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D8F231C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift */; };
 		339D8F251C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D8F231C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift */; };
 		339D8F261C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D8F231C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift */; };
@@ -198,6 +201,7 @@
 		337E55F51CAAF63700E6D66F /* TRUpComingEventInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRUpComingEventInfo.swift; sourceTree = "<group>"; };
 		338AECFD1C9D03AE008B064F /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		3397E2821C93822F008CCCDB /* TRDeviceTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRDeviceTokenRequest.swift; sourceTree = "<group>"; };
+		3398E1A41CAB18C7001F022B /* TREventInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREventInformationViewController.swift; sourceTree = "<group>"; };
 		339D8F231C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCreateEventSelectionViewController.swift; sourceTree = "<group>"; };
 		339D8F271C90F77E00A2620F /* TRActivitySelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRActivitySelectionCell.swift; sourceTree = "<group>"; };
 		339D8F2B1C90F79800A2620F /* TRActivitySelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRActivitySelectionCell.xib; sourceTree = "<group>"; };
@@ -405,6 +409,7 @@
 				334ED0C11C8E4FC8007523AC /* TRCreateEventsActivityViewController.swift */,
 				339D8F231C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift */,
 				339D8F2F1C911FB900A2620F /* TRCreateEventConfirmationViewController.swift */,
+				3398E1A41CAB18C7001F022B /* TREventInformationViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -642,6 +647,7 @@
 				33FDB9B61C861AB10066237C /* TRCreateEventRequest.swift in Sources */,
 				33FDB9C91C86A0D60066237C /* TRUpcomingActivities.swift in Sources */,
 				338AECFE1C9D03AE008B064F /* Utility.swift in Sources */,
+				3398E1A51CAB18C7001F022B /* TREventInformationViewController.swift in Sources */,
 				339D8F281C90F77E00A2620F /* TRActivitySelectionCell.swift in Sources */,
 				33742D8A1C7FC51700C46742 /* TRStoryBoardManager.swift in Sources */,
 				3329B58C1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */,
@@ -697,6 +703,7 @@
 				33742D811C7FC17700C46742 /* TRConstants.swift in Sources */,
 				33FDB9BD1C863AF30066237C /* TRgetActivityList.swift in Sources */,
 				62C5DF7A1C79769C0039A88E /* TREventListViewController.swift in Sources */,
+				3398E1A61CAB18C7001F022B /* TREventInformationViewController.swift in Sources */,
 				33742D941C7FC9B900C46742 /* TRRequest.swift in Sources */,
 				337E55F71CAAF63700E6D66F /* TRUpComingEventInfo.swift in Sources */,
 				334ED0C51C8E5B71007523AC /* TRCreateEventsActivityViewController.swift in Sources */,
@@ -745,6 +752,7 @@
 				33742D821C7FC17800C46742 /* TRConstants.swift in Sources */,
 				33FDB9BE1C863AF40066237C /* TRgetActivityList.swift in Sources */,
 				62C5DF7B1C79769C0039A88E /* TREventListViewController.swift in Sources */,
+				3398E1A71CAB18C7001F022B /* TREventInformationViewController.swift in Sources */,
 				33742D951C7FC9BA00C46742 /* TRRequest.swift in Sources */,
 				337E55F81CAAF63700E6D66F /* TRUpComingEventInfo.swift in Sources */,
 				334ED0C61C8E5B72007523AC /* TRCreateEventsActivityViewController.swift in Sources */,

@@ -31,6 +31,9 @@ class TRApplicationManager: NSObject {
     //Event Info Objet
     lazy var eventsList: [TREventInfo] = []
     
+    //UpComing Events Info Object
+    lazy var upComingEventsList: [TRUpComingEventInfo] = []
+    
     //Activity List
     lazy var activityList: [TRActivityInfo] = []
     
@@ -126,6 +129,12 @@ class TRApplicationManager: NSObject {
     func getEventById (eventId: String) -> TREventInfo? {
 
         let eventObjectArray = TRApplicationManager.sharedInstance.eventsList.filter{$0.eventID == eventId}
+        return eventObjectArray.first
+    }
+
+    func getUpComingById (eventId: String) -> TRUpComingEventInfo? {
+        
+        let eventObjectArray = TRApplicationManager.sharedInstance.upComingEventsList.filter{$0.eventID == eventId}
         return eventObjectArray.first
     }
     

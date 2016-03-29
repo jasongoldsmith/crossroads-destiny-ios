@@ -50,6 +50,7 @@ struct K {
         static let VIEW_CONTROLLER_CREATE_EVENT_ACTIVITY   = "createEventsActivityVC"
         static let VIEW_CONTROLLER_CREATE_EVENT_SELECTION  = "createEventsSelection"
         static let VIEW_CONTROLLER_CREATE_EVENT_CONFIRM    = "createEventConfirmation"
+        static let VIEW_CONTROLLER_EVENT_INFORMATION       = "eventInfoVC"
     }
     
     struct ActivityType {

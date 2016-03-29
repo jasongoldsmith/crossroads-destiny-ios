@@ -36,27 +36,29 @@ class TRGetEventsList: TRRequest {
 
             //Clear the array before fetting
             TRApplicationManager.sharedInstance.eventsList.removeAll()
+            TRApplicationManager.sharedInstance.upComingEventsList.removeAll()
             
             for events in swiftyJsonVar.arrayValue {
                 
+                var eventInfo = TREventInfo()
+                
+                if let futureLaunchDate = events["launchDate"].string {
+                    let isFutureEvent = isTimeDifferenceMoreThenAnHour(futureLaunchDate)
+                    
+                    if isFutureEvent {
+                        eventInfo = TRUpComingEventInfo()
+                    }
+                }
+
                 // Creating Event Objects from Events List
-                let eventInfo = TREventInfo()
                 eventInfo.eventID           = events["_id"].string
                 eventInfo.eventStatus       = events["status"].string
                 eventInfo.eventUpdatedDate  = events["updated"].string
                 eventInfo.eventMaxPlayers   = events["maxPlayers"].number
                 eventInfo.eventMinPlayer    = events["minPlayers"].number
                 eventInfo.eventCreatedDate  = events["created"].string
-//                eventInfo.eventLaunchDate   = events["launchDate"].strin
+                eventInfo.eventLaunchDate   = events["launchDate"].string
                 
-                if let futureLaunchDate = events["launchDate"].string {
-                    let isFutureEvent = isTimeDifferenceMoreThenAnHour(futureLaunchDate)
-                    
-                    if isFutureEvent {
-                        _ = TRUpComingEventInfo()
-                    }
-                    
-                }
                 
                 // Dictionary of Activities in an Event
                 let activityDictionary = events["eType"].dictionary
@@ -107,11 +109,18 @@ class TRGetEventsList: TRRequest {
                     eventInfo.eventPlayersArray.append(playerInfo)
                 }
                 
-                //Adding it to "eventsInfo"
-                TRApplicationManager.sharedInstance.eventsList.append(eventInfo)
+                if eventInfo.isKindOfClass(TRUpComingEventInfo) {
+                    let upComingEvent = eventInfo as? TRUpComingEventInfo
+                    TRApplicationManager.sharedInstance.upComingEventsList.append(upComingEvent!)
+
+                } else {
+                    TRApplicationManager.sharedInstance.eventsList.append(eventInfo)
+                }
             }
             
             completion(didSucceed: true)
         }
     }
+
+    
 }

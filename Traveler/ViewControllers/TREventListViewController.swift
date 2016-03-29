@@ -24,6 +24,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     
     //Events Information
     var eventsInfo: [TREventInfo] = []
+    var upComingEvents: [TRUpComingEventInfo] = []
     
     // Pull to Refresh
     lazy var refreshControl: UIRefreshControl = {
@@ -105,7 +106,12 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.eventsInfo.count
+        
+        if self.segmentControl?.selectedSegmentIndex == 0 {
+            return self.eventsInfo.count
+        }
+        
+        return self.upComingEvents.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -115,7 +121,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         if segmentControl?.selectedSegmentIndex == 0 {
             cell.updateCellViewWithEvent(eventsInfo[indexPath.section])
         } else {
-            cell.updateCellViewWithEvent(eventsInfo[indexPath.section])
+            cell.updateCellViewWithEvent(upComingEvents[indexPath.section])
         }
 
         cell.joinEventButton?.addTarget(self, action: #selector(TREventListViewController.joinAnEvent(_:)), forControlEvents: .TouchUpInside)
@@ -129,6 +135,11 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.eventsTableView?.deselectRowAtIndexPath(indexPath, animated: false)
+        
+        let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+        let vc : TREventInformationViewController = storyboard.instantiateViewControllerWithIdentifier(K.ViewControllerIdenifier.VIEW_CONTROLLER_EVENT_INFORMATION) as! TREventInformationViewController
+        
+        self.presentViewController(vc, animated: true, completion: nil)
     }
     
     func joinAnEvent (sender: EventButton) {
@@ -179,7 +190,11 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         _ = TRGetEventsList().getEventsListWithClearActivityBackGround(false, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
             if(didSucceed == true) {
                 refreshControl.endRefreshing()
-                self.reloadEventTable()
+                delay(3.0, closure: {
+                    dispatch_async(dispatch_get_main_queue(), { 
+                        self.reloadEventTable()
+                    })
+                })
             } else {
                 self.appManager.log.debug("Failed")
             }
@@ -191,6 +206,8 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         
         //Reload Table
         self.eventsInfo = TRApplicationManager.sharedInstance.eventsList
+        self.upComingEvents = TRApplicationManager.sharedInstance.upComingEventsList
+        
         self.eventsTableView?.reloadData()
     }
     
