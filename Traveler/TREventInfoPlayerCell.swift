@@ -13,17 +13,19 @@ class TREventInfoPlayerCell: UITableViewCell {
     
     @IBOutlet weak var playerAvatorImageView: UIImageView?
     @IBOutlet weak var playerNameLable: UILabel?
-    @IBOutlet weak var chatButton: UIButton?
+    @IBOutlet weak var chatButton: EventButton?
     
     override func prepareForReuse() {
         self.playerAvatorImageView?.image = nil
         self.playerNameLable?.text = nil
         self.chatButton?.hidden = false
+        self.chatButton?.buttonPlayerInfo = nil
     }
     
     func updateCellViewWithEvent (playerInfo: TRPlayerInfo, eventInfo: TREventInfo) {
         
         self.playerNameLable?.text = playerInfo.playerPsnID
+        self.chatButton?.buttonPlayerInfo = playerInfo
         
         //Adding Image and Radius to Avatar
         let imageURL = NSURL(string: playerInfo.playerImageUrl!)

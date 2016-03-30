@@ -124,6 +124,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         
         if indexPath.row < self.eventInfo?.eventPlayersArray.count {
             cell.updateCellViewWithEvent((self.eventInfo?.eventPlayersArray[indexPath.row])!, eventInfo: self.eventInfo!)
+            cell.chatButton?.addTarget(self, action: #selector(TREventInformationViewController.sendChatMessage(_:)), forControlEvents: .TouchUpInside)
         } else {
             cell.chatButton?.hidden = true
             cell.playerAvatorImageView?.image = UIImage(named: "imgJoin")
@@ -146,6 +147,19 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     }
     
     
+    func sendChatMessage(sender: EventButton) {
+        
+        guard let player = sender.buttonPlayerInfo else {
+            
+            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("No Player Object Found")
+            return
+        }
+        
+        print("Send Message to player: \(player.playerID) with Event: \(self.eventInfo?.eventID)")
+    }
+    
+    
+    // THIS IS HOW TO SEND MESSAGE REQUEST -- DELETE FROM HERE AND ADD TO YOUR VIEW
     func joinAnEvent (eventInfo: TREventInfo) {
         
         _ = TRJoinEventRequest().joinEventWithUserForEvent(TRUserInfo.getUserID()!, eventInfo: eventInfo, completion: { (value) -> () in
