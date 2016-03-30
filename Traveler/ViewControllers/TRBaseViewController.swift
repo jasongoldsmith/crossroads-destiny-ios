@@ -11,6 +11,8 @@ import UIKit
 
 class TRBaseViewController: UIViewController {
     
+    typealias viewControllerDismissed = (didDismiss: Bool?) -> ()
+    
     var currentViewController: UIViewController?
     let appManager  = TRApplicationManager.sharedInstance
     let defaults    = NSUserDefaults.standardUserDefaults()
@@ -106,6 +108,14 @@ class TRBaseViewController: UIViewController {
         self.view.addSubview(TRApplicationManager.sharedInstance.addNotificationViewWithMessages(self, sender: sender))
     }
 
+    func dismissViewController (isAnimated:Bool, dismissed: viewControllerDismissed) {
+        
+        self.dismissViewControllerAnimated(isAnimated) {
+            self.didMoveToParentViewController(nil)
+            self.removeFromParentViewController()
+            dismissed(didDismiss: true)
+        }
+    }
     
     deinit {
         

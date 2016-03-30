@@ -44,9 +44,7 @@ class TRProfileViewController: TRBaseViewController {
     }
     
     @IBAction func backButtonPressed (sender: AnyObject) {
-        self.dismissViewControllerAnimated(true) { 
-            self.didMoveToParentViewController(nil)
-            self.removeFromParentViewController()
+        self.dismissViewController(true) { (didDismiss) in
         }
     }
 }

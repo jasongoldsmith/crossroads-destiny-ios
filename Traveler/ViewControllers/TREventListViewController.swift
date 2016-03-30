@@ -14,7 +14,7 @@ private let CURRENT_EVENT_CELL = "currentEventCell"
 private let EVENT_TABLE_HEADER_HEIGHT:CGFloat = 10.0
 
 
-class TREventListViewController: TRBaseViewController, UITableViewDataSource, UITableViewDelegate{
+class TREventListViewController: TRBaseViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet var segmentControl: UISegmentedControl?
     @IBOutlet var eventsTableView: UITableView?
@@ -86,6 +86,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         super.didReceiveMemoryWarning()
     }
     
+    //MARK:- Table Delegate Methods
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -138,10 +139,12 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         
         let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
         let vc : TREventInformationViewController = storyboard.instantiateViewControllerWithIdentifier(K.ViewControllerIdenifier.VIEW_CONTROLLER_EVENT_INFORMATION) as! TREventInformationViewController
+        vc.eventInfo = self.eventsInfo[indexPath.section]
         
         self.presentViewController(vc, animated: true, completion: nil)
     }
     
+    //MARK:- Event Methods
     func joinAnEvent (sender: EventButton) {
       
         if let eventInfo = sender.buttonEventInfo {
@@ -185,6 +188,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         })
     }
     
+    //MARK:- Table Refresh
     func handleRefresh(refreshControl: UIRefreshControl) {
 
         _ = TRGetEventsList().getEventsListWithClearActivityBackGround(false, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in

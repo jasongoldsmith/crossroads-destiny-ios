@@ -7,12 +7,60 @@
 //
 
 import Foundation
+import UIKit
 
-
-class TREventInformationViewController: TRBaseViewController {
+class TREventInformationViewController: TRBaseViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    private let EVENT_INFO_PLAYER_CELL = "eventInfoPlayersCell"
+    private let HEIGHT_FOR_SECTION:CGFloat = 30
+    
+    var eventInfo: TREventInfo?
+    
+    @IBOutlet weak var eventIcon: UIImageView?
+    @IBOutlet weak var eventTitle: UILabel?
+    @IBOutlet weak var eventDescription: UILabel?
+    @IBOutlet weak var eventLightCount: UILabel?
+    @IBOutlet weak var eventInfoTable: UITableView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let _ = self.eventInfo else {
+            self.dismissViewController(true, dismissed: { (didDismiss) in
+            })
+            
+            return
+        }
+        
+        self.eventInfoTable?.registerNib(UINib(nibName: "TREventInfoPlayerCell", bundle: nil), forCellReuseIdentifier: EVENT_INFO_PLAYER_CELL)
+        self.eventInfoTable?.tableFooterView = UIView(frame: CGRectZero)
+        
+        let imageUrl = NSURL(string: (self.eventInfo?.eventActivity?.activityIconImage)!)
+        if let _ = imageUrl {
+            self.eventIcon?.sd_setImageWithURL(imageUrl)
+        }
+        
+        self.eventTitle?.text = self.eventInfo?.eventActivity?.activitySubType
+        self.eventLightCount?.text = "+" + (self.eventInfo?.eventActivity?.activityLight?.stringValue)!
+        
+        // Set  Event Player Names
+        if (self.eventInfo?.eventPlayersArray.count < self.eventInfo?.eventActivity?.activityMaxPlayers?.integerValue) {
+            let stringColorAttribute = [NSForegroundColorAttributeName: UIColor.yellowColor()]
+            let extraPlayersRequiredCount = ((self.eventInfo?.eventActivity?.activityMaxPlayers?.integerValue)! - (self.eventInfo?.eventPlayersArray.count)!)
+            let extraPlayersRequiredCountString = String(extraPlayersRequiredCount)
+            let extraPlayersRequiredCountStringNew = " LF" + "\(extraPlayersRequiredCountString)M"
+            
+            // Attributed Strings
+            let extraPlayersRequiredCountStringNewAttributed = NSAttributedString(string: extraPlayersRequiredCountStringNew, attributes: stringColorAttribute)
+            if let _ = self.eventInfo?.eventCreator?.playerPsnID {
+                let finalString = NSMutableAttributedString(string: "Created by " + (self.eventInfo?.eventCreator?.playerPsnID!)!)
+                finalString.appendAttributedString(extraPlayersRequiredCountStringNewAttributed)
+                self.eventDescription?.attributedText = finalString
+            }
+        } else {
+            let playersNameString = "Created by " + (self.eventInfo?.eventCreator?.playerUserName!)!
+            self.eventDescription?.text = playersNameString
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -20,5 +68,92 @@ class TREventInformationViewController: TRBaseViewController {
     }
     
     
+    @IBAction func backButtonPressed (sender: AnyObject) {
+        self.dismissViewController(true) { (didDismiss) in
+        }
+    }
     
+    //MARK:- UITable Delegate Methods
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!) {
+            return (self.eventInfo?.eventPlayersArray.count)!
+        }
+        
+        return (self.eventInfo?.eventPlayersArray.count)! + 1
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        let headerBottomSeperator = UIView()
+        let viewLabel = UILabel()
+        
+        viewLabel.frame = CGRectMake(20, 0, self.eventInfoTable!.frame.size.width, HEIGHT_FOR_SECTION)
+        viewLabel.textColor = UIColor.whiteColor()
+        viewLabel.font = UIFont(name:"HelveticaNeue", size: 15)
+        headerView.addSubview(viewLabel)
+
+        headerBottomSeperator.frame = CGRectMake(20, HEIGHT_FOR_SECTION, self.eventInfoTable!.frame.size.width - 40, 1.0)
+        headerBottomSeperator.backgroundColor = UIColor.grayColor()
+        headerView.addSubview(headerBottomSeperator)
+        
+        switch section {
+        case 0:
+            viewLabel.text = "Currently Going"
+            break
+        default:
+            viewLabel.text = "N/A"
+            break
+        }
+        
+        return headerView
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return HEIGHT_FOR_SECTION
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(EVENT_INFO_PLAYER_CELL) as! TREventInfoPlayerCell
+        
+        if indexPath.row < self.eventInfo?.eventPlayersArray.count {
+            cell.updateCellViewWithEvent((self.eventInfo?.eventPlayersArray[indexPath.row])!)
+        } else {
+            cell.chatButton?.hidden = true
+        }
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.eventInfoTable?.deselectRowAtIndexPath(indexPath, animated: false)
+        
+        if indexPath.row == self.eventInfo?.eventPlayersArray.count {
+            self.joinAnEvent(self.eventInfo!)
+        }
+    }
+    
+    func reloadEventTable () {
+        self.eventInfo = TRApplicationManager.sharedInstance.getEventById((self.eventInfo?.eventID)!)
+        self.eventInfoTable?.reloadData()
+    }
+    
+    func joinAnEvent (eventInfo: TREventInfo) {
+        
+        _ = TRJoinEventRequest().joinEventWithUserForEvent(TRUserInfo.getUserID()!, eventInfo: eventInfo, completion: { (value) -> () in
+            if (value == true) {
+                dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                    self.reloadEventTable()
+                }
+            } else {
+                print("Failed")
+            }
+        })
+    }
 }
+
