@@ -21,5 +21,6 @@ class TREventInfo: NSObject {
     var eventActivity           : TRActivityInfo?
     var eventCreator            : TRCreatorInfo?
     var eventPlayersArray       : [TRPlayerInfo] = []
+    var isFutureEvent           : Bool = false
 }
 

@@ -32,9 +32,6 @@ class TRApplicationManager: NSObject {
     //Event Info Objet
     lazy var eventsList: [TREventInfo] = []
     
-    //UpComing Events Info Object
-    lazy var upComingEventsList: [TRUpComingEventInfo] = []
-    
     //Activity List
     lazy var activityList: [TRActivityInfo] = []
     
@@ -149,12 +146,6 @@ class TRApplicationManager: NSObject {
         let eventObjectArray = TRApplicationManager.sharedInstance.eventsList.filter{$0.eventID == eventId}
         return eventObjectArray.first
     }
-
-    func getUpComingById (eventId: String) -> TRUpComingEventInfo? {
-        
-        let eventObjectArray = TRApplicationManager.sharedInstance.upComingEventsList.filter{$0.eventID == eventId}
-        return eventObjectArray.first
-    }
     
     func isCurrentPlayerInAnEvent (event: TREventInfo) -> Bool {
         
@@ -187,6 +178,18 @@ class TRApplicationManager: NSObject {
         return nil
     }
     
+    //Filter Current Events
+    func getCurrentEvents () -> [TREventInfo] {
+        let currentInfo = self.eventsList.filter{$0.isFutureEvent == false}
+        return currentInfo
+    }
+
+    //Filter Future Events
+    func getFutureEvents () -> [TREventInfo] {
+        let futureInfo = self.eventsList.filter{$0.isFutureEvent == true}
+        return futureInfo
+    }
+    
     // Filter Activity Array Based on ActivityType
     func getActivitiesOfType (activityType: String) -> [TRActivityInfo]? {
         let activityArray = self.activityList.filter {$0.activityType == activityType}
@@ -201,7 +204,6 @@ class TRApplicationManager: NSObject {
     func purgeSavedData () {
         self.activityList.removeAll()
         self.eventsList.removeAll()
-        self.upComingEventsList.removeAll()
     }
 }
 

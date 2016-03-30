@@ -24,7 +24,9 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     
     //Events Information
     var eventsInfo: [TREventInfo] = []
-    var upComingEvents: [TRUpComingEventInfo] = []
+    
+    // Future Events Information
+    var futureEventsInfo: [TREventInfo] = []
     
     // Pull to Refresh
     lazy var refreshControl: UIRefreshControl = {
@@ -112,7 +114,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             return self.eventsInfo.count
         }
         
-        return self.upComingEvents.count
+        return self.futureEventsInfo.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -120,16 +122,17 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         let cell = tableView.dequeueReusableCellWithIdentifier(CURRENT_EVENT_CELL) as! TREventTableCellView
         
         if segmentControl?.selectedSegmentIndex == 0 {
-            cell.updateCellViewWithEvent(eventsInfo[indexPath.section])
+            cell.updateCellViewWithEvent(self.eventsInfo[indexPath.section])
+            cell.joinEventButton?.buttonEventInfo = eventsInfo[indexPath.section]
+            cell.leaveEventButton.buttonEventInfo = eventsInfo[indexPath.section]
         } else {
-            cell.updateCellViewWithEvent(upComingEvents[indexPath.section])
+            cell.updateCellViewWithEvent(self.futureEventsInfo[indexPath.section])
+            cell.joinEventButton?.buttonEventInfo = futureEventsInfo[indexPath.section]
+            cell.leaveEventButton.buttonEventInfo = futureEventsInfo[indexPath.section]
         }
 
         cell.joinEventButton?.addTarget(self, action: #selector(TREventListViewController.joinAnEvent(_:)), forControlEvents: .TouchUpInside)
-        cell.joinEventButton?.buttonEventInfo = eventsInfo[indexPath.section]
-
         cell.leaveEventButton?.addTarget(self, action: #selector(TREventListViewController.leaveAnEvent(_:)), forControlEvents: .TouchUpInside)
-        cell.leaveEventButton.buttonEventInfo = eventsInfo[indexPath.section]
         
         return cell
     }
@@ -209,8 +212,8 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     func reloadEventTable () {
         
         //Reload Table
-        self.eventsInfo = TRApplicationManager.sharedInstance.eventsList
-        self.upComingEvents = TRApplicationManager.sharedInstance.upComingEventsList
+        self.eventsInfo       = TRApplicationManager.sharedInstance.getCurrentEvents()
+        self.futureEventsInfo = TRApplicationManager.sharedInstance.getFutureEvents()
         
         self.eventsTableView?.reloadData()
     }

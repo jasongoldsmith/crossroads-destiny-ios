@@ -47,13 +47,14 @@ class TRCreateEventRequest: TRRequest {
             }
             
             // Creating Event Objects from Events List
-            var eventInfo = TREventInfo()
+            let eventInfo = TREventInfo()
             
             if let futureLaunchDate = swiftyJsonVar["launchDate"].string {
                 let isFutureEvent = isTimeDifferenceMoreThenAnHour(futureLaunchDate)
                 
                 if isFutureEvent {
-                    eventInfo = TRUpComingEventInfo()
+                    // UPCOMING EVENT
+                    eventInfo.isFutureEvent = true
                 }
             }
 
@@ -113,24 +114,12 @@ class TRCreateEventRequest: TRRequest {
                 eventInfo.eventPlayersArray.append(playerInfo)
             }
             
-            //Adding it to "eventsInfo"
-            if eventInfo.isKindOfClass(TRUpComingEventInfo) {
-                let upComingEvent = eventInfo as? TRUpComingEventInfo
-                
-                if let eventToUpdate = TRApplicationManager.sharedInstance.getUpComingById(upComingEvent!.eventID!) {
-                    let eventIndex = TRApplicationManager.sharedInstance.upComingEventsList.indexOf(eventToUpdate)
-                    TRApplicationManager.sharedInstance.eventsList.removeAtIndex(eventIndex!)
-                }
-                
-                TRApplicationManager.sharedInstance.upComingEventsList.insert(upComingEvent!, atIndex: 0)
-            } else {
-                if let eventToUpdate = TRApplicationManager.sharedInstance.getEventById(eventInfo.eventID!) {
-                    let eventIndex = TRApplicationManager.sharedInstance.eventsList.indexOf(eventToUpdate)
-                    TRApplicationManager.sharedInstance.eventsList.removeAtIndex(eventIndex!)
-                }
-                
-                TRApplicationManager.sharedInstance.eventsList.insert(eventInfo, atIndex: 0)
+            if let eventToUpdate = TRApplicationManager.sharedInstance.getEventById(eventInfo.eventID!) {
+                let eventIndex = TRApplicationManager.sharedInstance.eventsList.indexOf(eventToUpdate)
+                TRApplicationManager.sharedInstance.eventsList.removeAtIndex(eventIndex!)
             }
+            
+            TRApplicationManager.sharedInstance.eventsList.insert(eventInfo, atIndex: 0)
 
             
             completion(didSucceed: true )

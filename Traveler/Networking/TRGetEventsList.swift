@@ -36,17 +36,17 @@ class TRGetEventsList: TRRequest {
 
             //Clear the array before fetting
             TRApplicationManager.sharedInstance.eventsList.removeAll()
-            TRApplicationManager.sharedInstance.upComingEventsList.removeAll()
             
             for events in swiftyJsonVar.arrayValue {
                 
-                var eventInfo = TREventInfo()
+                let eventInfo = TREventInfo()
                 
                 if let futureLaunchDate = events["launchDate"].string {
                     let isFutureEvent = isTimeDifferenceMoreThenAnHour(futureLaunchDate)
                     
                     if isFutureEvent {
-                        eventInfo = TRUpComingEventInfo()
+                        // UPCOMING EVENT
+                        eventInfo.isFutureEvent = true
                     }
                 }
 
@@ -109,13 +109,7 @@ class TRGetEventsList: TRRequest {
                     eventInfo.eventPlayersArray.append(playerInfo)
                 }
                 
-                if eventInfo.isKindOfClass(TRUpComingEventInfo) {
-                    let upComingEvent = eventInfo as? TRUpComingEventInfo
-                    TRApplicationManager.sharedInstance.upComingEventsList.append(upComingEvent!)
-
-                } else {
-                    TRApplicationManager.sharedInstance.eventsList.append(eventInfo)
-                }
+                TRApplicationManager.sharedInstance.eventsList.append(eventInfo)
             }
             
             completion(didSucceed: true)
