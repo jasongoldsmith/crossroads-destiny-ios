@@ -17,7 +17,7 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eventCellBGImage" translatesAutoresizingMaskIntoConstraints="NO" id="xFe-zn-nLa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
-                        <color key="backgroundColor" red="0.10196078431372549" green="0.16470588235294117" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </imageView>
                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dtk-b7-EX5">
                         <rect key="frame" x="112" y="62.5" width="36" height="36"/>
@@ -152,6 +152,7 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <inset key="separatorInset" minX="30" minY="0.0" maxX="30" maxY="0.0"/>
             <connections>
                 <outlet property="activityLight" destination="vk1-Ju-Lhf" id="xsu-Jm-eGo"/>
@@ -165,7 +166,7 @@
                 <outlet property="playerImageOne" destination="3rA-ji-cCh" id="D5g-BG-G2O"/>
                 <outlet property="playerImageTwo" destination="dtk-b7-EX5" id="Pms-cV-3E0"/>
             </connections>
-            <point key="canvasLocation" x="-1477" y="261"/>
+            <point key="canvasLocation" x="-1427" y="251"/>
         </tableViewCell>
     </objects>
     <resources>
