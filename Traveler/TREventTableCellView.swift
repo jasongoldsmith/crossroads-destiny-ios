@@ -64,7 +64,7 @@ class TREventTableCellView: UITableViewCell {
                 self.eventPlayersName.attributedText = finalString
             }
         } else {
-            let playersNameString = "Created by " + (eventInfo.eventCreator?.playerUserName!)!
+            let playersNameString = "Created by " + (eventInfo.eventCreator?.playerPsnID!)!
             self.eventPlayersName.text = playersNameString
         }
         
