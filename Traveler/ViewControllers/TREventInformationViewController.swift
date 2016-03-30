@@ -159,7 +159,6 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     }
     
     
-    // THIS IS HOW TO SEND MESSAGE REQUEST -- DELETE FROM HERE AND ADD TO YOUR VIEW
     func joinAnEvent (eventInfo: TREventInfo) {
         
         _ = TRJoinEventRequest().joinEventWithUserForEvent(TRUserInfo.getUserID()!, eventInfo: eventInfo, completion: { (value) -> () in
