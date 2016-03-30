@@ -24,7 +24,7 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join Team" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdu-AY-zrC">
                         <rect key="frame" x="74" y="8" width="188" height="28"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -34,7 +34,7 @@
                             <constraint firstAttribute="width" constant="46" id="5mh-6c-OeX"/>
                             <constraint firstAttribute="height" constant="30" id="t8k-Qb-Goz"/>
                         </constraints>
-                        <state key="normal" image="iconBackArrow"/>
+                        <state key="normal" image="iconChatDetailscreen"/>
                         <connections>
                             <action selector="chatButtonPressed:" destination="c3b-Xj-RSA" eventType="touchUpInside" id="59i-xR-pd5"/>
                         </connections>
@@ -62,6 +62,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="iconBackArrow" width="16" height="16"/>
+        <image name="iconChatDetailscreen" width="36" height="36"/>
     </resources>
 </document>

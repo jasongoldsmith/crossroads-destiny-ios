@@ -27,8 +27,10 @@ class TREventInfoPlayerCell: UITableViewCell {
         
         //Adding Image and Radius to Avatar
         let imageURL = NSURL(string: playerInfo.playerImageUrl!)
-        self.playerAvatorImageView?.sd_setImageWithURL(imageURL)
-        TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.playerAvatorImageView!)
+        if let _ = imageURL {
+            self.playerAvatorImageView?.sd_setImageWithURL(imageURL)
+            TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.playerAvatorImageView!)
+        }
     }
     
     @IBAction func chatButtonPressed (sender: AnyObject) {

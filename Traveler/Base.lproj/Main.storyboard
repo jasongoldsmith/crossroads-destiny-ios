@@ -389,7 +389,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EventHeaderBg" translatesAutoresizingMaskIntoConstraints="NO" id="X2L-fH-rpD">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eventDetailHeaderBG" translatesAutoresizingMaskIntoConstraints="NO" id="X2L-fH-rpD">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="127"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="127" id="hcB-AO-mus"/>
@@ -420,7 +420,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a6w-if-ciG">
-                                <rect key="frame" x="0.0" y="133" width="600" height="90"/>
+                                <rect key="frame" x="0.0" y="133" width="600" height="73"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="okI-yi-tkL">
                                         <rect key="frame" x="20" y="15" width="36" height="36"/>
@@ -437,7 +437,7 @@
                                             <constraint firstAttribute="height" constant="19" id="HNb-yx-sfa"/>
                                             <constraint firstAttribute="width" constant="394" id="lB7-QM-FVU"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
@@ -453,7 +453,7 @@
                                             <constraint firstAttribute="height" constant="21" id="LgZ-pp-DiK"/>
                                             <constraint firstAttribute="width" constant="394" id="QGz-mG-blB"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
@@ -463,7 +463,7 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5io-jw-Yt7">
-                                        <rect key="frame" x="493" y="13" width="84" height="24"/>
+                                        <rect key="frame" x="493" y="15" width="84" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="84" id="Nqh-qi-nos"/>
                                         </constraints>
@@ -482,13 +482,13 @@
                                     <constraint firstItem="52j-jL-sAH" firstAttribute="leading" secondItem="okI-yi-tkL" secondAttribute="trailing" constant="20" id="bhE-IW-xKK"/>
                                     <constraint firstItem="5io-jw-Yt7" firstAttribute="trailing" secondItem="a6w-if-ciG" secondAttribute="trailingMargin" constant="-15" id="eZx-Jg-6T9"/>
                                     <constraint firstItem="52j-jL-sAH" firstAttribute="top" secondItem="sn8-Yu-hPO" secondAttribute="bottom" id="fGe-ax-F8L"/>
-                                    <constraint firstAttribute="height" constant="90" id="oK2-AU-PP6"/>
+                                    <constraint firstAttribute="height" constant="73" id="oK2-AU-PP6"/>
                                     <constraint firstItem="5io-jw-Yt7" firstAttribute="leading" secondItem="52j-jL-sAH" secondAttribute="trailing" constant="23" id="wz2-1d-eOc"/>
                                     <constraint firstItem="sn8-Yu-hPO" firstAttribute="top" secondItem="a6w-if-ciG" secondAttribute="top" constant="13" id="yFH-CE-5NA"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="30" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Aqr-oc-sZI">
-                                <rect key="frame" x="0.0" y="223" width="600" height="377"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="50" sectionHeaderHeight="30" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Aqr-oc-sZI">
+                                <rect key="frame" x="0.0" y="206" width="600" height="394"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
@@ -1422,6 +1422,7 @@
         <image name="TrLoginOptionBackground" width="375" height="667"/>
         <image name="chooseActivityBG" width="375" height="597"/>
         <image name="createEventBG" width="375" height="597"/>
+        <image name="eventDetailHeaderBG" width="375" height="129"/>
         <image name="eventsViewBG" width="375" height="667"/>
         <image name="iconArrowRight" width="5" height="10"/>
         <image name="iconBackArrow" width="16" height="16"/>

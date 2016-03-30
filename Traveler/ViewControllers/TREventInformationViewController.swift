@@ -76,10 +76,11 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     //MARK:- UITable Delegate Methods
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!) {
+        if TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!) ||
+        (self.eventInfo?.eventPlayersArray.count == self.eventInfo?.eventActivity?.activityMaxPlayers) {
             return (self.eventInfo?.eventPlayersArray.count)!
         }
-        
+
         return (self.eventInfo?.eventPlayersArray.count)! + 1
     }
     
@@ -90,7 +91,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         
         viewLabel.frame = CGRectMake(20, 0, self.eventInfoTable!.frame.size.width, HEIGHT_FOR_SECTION)
         viewLabel.textColor = UIColor.whiteColor()
-        viewLabel.font = UIFont(name:"HelveticaNeue", size: 15)
+        viewLabel.font = UIFont(name:"HelveticaNeue", size: 12)
         headerView.addSubview(viewLabel)
 
         headerBottomSeperator.frame = CGRectMake(20, HEIGHT_FOR_SECTION, self.eventInfoTable!.frame.size.width - 40, 1.0)
@@ -125,6 +126,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
             cell.updateCellViewWithEvent((self.eventInfo?.eventPlayersArray[indexPath.row])!)
         } else {
             cell.chatButton?.hidden = true
+            cell.playerAvatorImageView?.image = UIImage(named: "imgJoin")
         }
         
         return cell
