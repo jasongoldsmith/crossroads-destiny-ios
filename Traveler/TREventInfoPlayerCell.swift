@@ -21,9 +21,9 @@ class TREventInfoPlayerCell: UITableViewCell {
         self.chatButton?.hidden = false
     }
     
-    func updateCellViewWithEvent (playerInfo: TRPlayerInfo) {
+    func updateCellViewWithEvent (playerInfo: TRPlayerInfo, eventInfo: TREventInfo) {
         
-        self.playerNameLable?.text = playerInfo.playerUserName
+        self.playerNameLable?.text = playerInfo.playerPsnID
         
         //Adding Image and Radius to Avatar
         let imageURL = NSURL(string: playerInfo.playerImageUrl!)
@@ -31,9 +31,16 @@ class TREventInfoPlayerCell: UITableViewCell {
             self.playerAvatorImageView?.sd_setImageWithURL(imageURL)
             TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.playerAvatorImageView!)
         }
-    }
-    
-    @IBAction func chatButtonPressed (sender: AnyObject) {
         
+        // I can not send message to myself, so hide chat button
+        if playerInfo.playerID == TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()?.playerID {
+            self.chatButton?.hidden = true
+        }
+        
+        // A user can only send chat message to the owner, so hide chat for anyone who is not the owner
+        if playerInfo.playerID != eventInfo.eventCreator?.playerID {
+            self.chatButton?.hidden = true
+        }
     }
 }
+

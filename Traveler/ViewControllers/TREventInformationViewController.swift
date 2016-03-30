@@ -123,7 +123,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         let cell = tableView.dequeueReusableCellWithIdentifier(EVENT_INFO_PLAYER_CELL) as! TREventInfoPlayerCell
         
         if indexPath.row < self.eventInfo?.eventPlayersArray.count {
-            cell.updateCellViewWithEvent((self.eventInfo?.eventPlayersArray[indexPath.row])!)
+            cell.updateCellViewWithEvent((self.eventInfo?.eventPlayersArray[indexPath.row])!, eventInfo: self.eventInfo!)
         } else {
             cell.chatButton?.hidden = true
             cell.playerAvatorImageView?.image = UIImage(named: "imgJoin")
@@ -144,6 +144,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         self.eventInfo = TRApplicationManager.sharedInstance.getEventById((self.eventInfo?.eventID)!)
         self.eventInfoTable?.reloadData()
     }
+    
     
     func joinAnEvent (eventInfo: TREventInfo) {
         
