@@ -16,6 +16,18 @@ class TRSendReportViewController: TRBaseViewController {
     
     override func viewDidLoad() {
          super.viewDidLoad()
+        
+        let nav = self.navigationController?.navigationBar
+        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        nav?.barTintColor = UIColor(red: 10/255, green: 31/255, blue: 39/255, alpha: 1)
+
+        //Adding Back Button to nav Bar
+        let leftButton = UIButton(frame: CGRectMake(0,0,30,30))
+        leftButton.setImage(UIImage(named: "iconBackArrow"), forState: .Normal)
+        leftButton.addTarget(self, action: #selector(TRCreateEventSelectionViewController.navBackButtonPressed(_:)), forControlEvents: .TouchUpInside)
+        let leftBarButton = UIBarButtonItem()
+        leftBarButton.customView = leftButton
+        self.navigationItem.leftBarButtonItem = leftBarButton
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -26,6 +38,14 @@ class TRSendReportViewController: TRBaseViewController {
         super.viewDidAppear(animated)
     }
     
+    
+    func navBackButtonPressed (sender: UIBarButtonItem) {
+        self.dismissViewController(true, dismissed: { (didDismiss) in
+            self.didMoveToParentViewController(nil)
+            self.removeFromParentViewController()
+        })
+    }
+
     @IBAction func sendReportButtonAdded (sender: AnyObject) {
         
         let currentUserID = TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()
