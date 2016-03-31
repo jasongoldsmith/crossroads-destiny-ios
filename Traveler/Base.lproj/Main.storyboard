@@ -674,7 +674,7 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="segmentControlBG" translatesAutoresizingMaskIntoConstraints="NO" id="2xU-P6-pHh">
-                                <rect key="frame" x="0.0" y="81" width="600" height="55"/>
+                                <rect key="frame" x="0.0" y="83" width="600" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="Apw-9a-64s"/>
                                     <constraint firstAttribute="width" constant="600" id="G9J-CU-L9H"/>
@@ -780,7 +780,7 @@
                             <constraint firstItem="hh2-ts-4BA" firstAttribute="top" secondItem="bhE-zA-4t7" secondAttribute="bottom" id="fgZ-1S-f2s"/>
                             <constraint firstItem="Otd-07-018" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leadingMargin" constant="10" id="gkF-BL-Pit"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VH7-Fj-a7t" secondAttribute="trailing" id="lZO-TY-WEQ"/>
-                            <constraint firstItem="huA-O1-54n" firstAttribute="top" secondItem="2xU-P6-pHh" secondAttribute="bottom" constant="13" id="o54-D6-a8c"/>
+                            <constraint firstItem="huA-O1-54n" firstAttribute="top" secondItem="2xU-P6-pHh" secondAttribute="bottom" constant="11" id="o54-D6-a8c"/>
                             <constraint firstItem="huA-O1-54n" firstAttribute="top" secondItem="VH7-Fj-a7t" secondAttribute="bottom" constant="11" id="ocw-r0-k8V"/>
                             <constraint firstItem="GC0-EZ-x8P" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leading" id="sCu-TU-OCv"/>
                             <constraint firstItem="2xU-P6-pHh" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leadingMargin" constant="-20" id="t8F-Fh-BgJ"/>
