@@ -20,13 +20,17 @@ class TRActivitySelectionCell: UITableViewCell {
     
     func updateCell (activity: TRActivityInfo) {
         
-        var labelSting = activity.activitySubType! + " - " + activity.activityDificulty! + " "
+        var labelSting = activity.activitySubType!
+        if let hasDifficulty = activity.activityDificulty {
+            if hasDifficulty != "" {
+                labelSting = labelSting + " - " + hasDifficulty + " "
+            }
+        }
+        
         if let light = activity.activityLight?.integerValue where light > 0 {
             labelSting = labelSting + (activity.activityLight?.stringValue)! + " Light"
         }
         
-//        let imageUrl = NSURL(string: activity.activityIconImage!)
-//        self.activityIconImage.sd_setImageWithURL(imageUrl)
         self.activityInfoLabel.text = labelSting
 
         self.layer.cornerRadius = 3

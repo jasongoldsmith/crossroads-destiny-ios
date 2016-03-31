@@ -117,7 +117,13 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         leftBarButton.customView = leftButton
         self.navigationItem.leftBarButtonItem = leftBarButton
         
-        var labelSting = (self.selectedActivity?.activitySubType!)! + " - " + (self.selectedActivity?.activityDificulty!)! + " "
+        var labelSting = (self.selectedActivity?.activitySubType!)!
+        if let hasDifficulty = self.selectedActivity?.activityDificulty {
+            if hasDifficulty != "" {
+                labelSting = labelSting + " - " + hasDifficulty + " "
+            }
+        }
+        
         if let light = self.selectedActivity?.activityLight?.integerValue where light > 0 {
             labelSting = labelSting + (self.selectedActivity!.activityLight?.stringValue)! + " Light"
         }

@@ -20,7 +20,6 @@ class TRProfileViewController: TRBaseViewController {
         super.viewDidLoad()
         
         guard let currentUser = TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser() else {
-            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Current User Information Error")
             return
         }
         
