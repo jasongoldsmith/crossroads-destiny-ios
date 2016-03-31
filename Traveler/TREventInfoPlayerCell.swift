@@ -37,7 +37,9 @@ class TREventInfoPlayerCell: UITableViewCell {
         // I can not send message to myself, so hide chat button
         if playerInfo.playerID == TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()?.playerID {
             self.chatButton?.hidden = true
-        } else if playerInfo.playerID != eventInfo.eventCreator?.playerID {
+        }
+        
+        if playerInfo.playerID != eventInfo.eventCreator?.playerID {
             self.chatButton?.hidden = true
         }
     }
