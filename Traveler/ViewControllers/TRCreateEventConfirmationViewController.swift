@@ -43,6 +43,8 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         self.addNavigationBarButtons()
         
         // Add Icon Image
+        
+        
         let imageUrl = NSURL(string: (self.selectedActivity?.activityIconImage)!)
         self.activityIconImage?.sd_setImageWithURL(imageUrl)
         

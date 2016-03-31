@@ -35,10 +35,11 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         self.eventInfoTable?.registerNib(UINib(nibName: "TREventInfoPlayerCell", bundle: nil), forCellReuseIdentifier: EVENT_INFO_PLAYER_CELL)
         self.eventInfoTable?.tableFooterView = UIView(frame: CGRectZero)
         
-        let imageUrl = NSURL(string: (self.eventInfo?.eventActivity?.activityIconImage)!)
-        if let _ = imageUrl {
-            self.eventIcon?.sd_setImageWithURL(imageUrl)
+        if let imageURLString = self.eventInfo?.eventActivity?.activityIconImage {
+            let url = NSURL(string: imageURLString)
+            self.eventIcon!.sd_setImageWithURL(url)
         }
+
         
         self.eventTitle?.text = self.eventInfo?.eventActivity?.activitySubType
         self.eventLightCount?.text = "+" + (self.eventInfo?.eventActivity?.activityLight?.stringValue)!

@@ -69,8 +69,10 @@ class TREventTableCellView: UITableViewCell {
         }
         
         // Set Event Icon Image
-        let url = NSURL(string: (eventInfo.eventActivity?.activityIconImage)!)
-        self.eventIcon!.sd_setImageWithURL(url)
+        if let imageURLString = eventInfo.eventActivity?.activityIconImage {
+            let url = NSURL(string: imageURLString)
+            self.eventIcon!.sd_setImageWithURL(url)
+        }
         
         // Set Event Button Status
         self.eventButtonStatusForCurrentPlayer(eventInfo, button: self.joinEventButton, completion: {value in
@@ -91,18 +93,24 @@ class TREventTableCellView: UITableViewCell {
             case 0:
                 
                 self.playerImageOne.hidden = false
-                let imageUrl = NSURL(string: player.playerImageUrl!)
-                self.playerImageOne!.sd_setImageWithURL(imageUrl)
-                TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.playerImageOne)
                 
+                if let imageURLString = player.playerImageUrl {
+                    let url = NSURL(string: imageURLString)
+                    self.playerImageOne!.sd_setImageWithURL(url)
+                    TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.playerImageOne)
+                }
+
                 break;
             case 1:
                 
                 self.playerImageTwo.hidden = false
                 self.playerImageTwo.hidden = false
-                let imageUrl = NSURL(string: player.playerImageUrl!)
-                self.playerImageTwo.sd_setImageWithURL(imageUrl)
-                TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.playerImageTwo)
+                
+                if let imageURLString = player.playerImageUrl {
+                    let url = NSURL(string: imageURLString)
+                    self.playerImageTwo!.sd_setImageWithURL(url)
+                    TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.playerImageTwo)
+                }
                 
                 break;
                 
@@ -117,9 +125,12 @@ class TREventTableCellView: UITableViewCell {
                     
                 } else {
                     self.playerCountLabel.hidden = true
-                    let imageUrl = NSURL(string: player.playerImageUrl!)
-                    self.playerCountImage.sd_setImageWithURL(imageUrl)
-                    TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.playerCountImage)
+                    
+                    if let imageURLString = player.playerImageUrl {
+                        let url = NSURL(string: imageURLString)
+                        self.playerCountImage!.sd_setImageWithURL(url)
+                        TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.playerCountImage)
+                    }
                 }
                 
                 break;

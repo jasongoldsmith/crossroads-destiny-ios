@@ -253,6 +253,9 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
 
     deinit {
+        self.eventsInfo.removeAll()
+        self.futureEventsInfo.removeAll()
+        
         self.appManager.log.debug("de-init")
     }
 }
