@@ -23,8 +23,8 @@ struct K {
         #if RELEASE
             static let TR_BaseUrl            =   "https://travelerbackendproduction.herokuapp.com"
         #else
-            static let TR_BaseUrl            =   "https://travelerbackendproduction.herokuapp.com"
-            //static let TR_BaseUrl            =   "https://travelerbackend.herokuapp.com"
+//            static let TR_BaseUrl            =   "https://travelerbackendproduction.herokuapp.com"
+            static let TR_BaseUrl            =   "https://travelerbackend.herokuapp.com"
         #endif
         
         static let TR_RegisterUrl        =   "/api/v1/auth/register"
@@ -55,6 +55,7 @@ struct K {
         static let VIEW_CONTROLLER_CREATE_EVENT_CONFIRM    = "createEventConfirmation"
         static let VIEW_CONTROLLER_EVENT_INFORMATION       = "eventInfoVC"
         static let VIEW_CONTROLLER_PROFILE                 = "profileVC"
+        static let VIEW_CONTROLLER_SEND_REPORT             = "sendReportVC"
     }
     
     struct ActivityType {

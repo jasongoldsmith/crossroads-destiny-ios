@@ -85,4 +85,12 @@ class TRProfileViewController: TRBaseViewController {
     @IBAction func resetPassWordPressed (sender: AnyObject) {
         TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Reset - COMING SOON!")
     }
+    
+    @IBAction func sendReport () {
+        let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+        let vc : TRSendReportViewController = storyboard.instantiateViewControllerWithIdentifier(K.ViewControllerIdenifier.VIEW_CONTROLLER_SEND_REPORT) as! TRSendReportViewController
+        
+        let navigationController = UINavigationController(rootViewController: vc)
+        self.presentViewController(navigationController, animated: true, completion: nil)
+    }
 }
