@@ -73,7 +73,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFP-n8-kSW" customClass="EventButton" customModule="Traveler" customModuleProvider="target">
-                        <rect key="frame" x="246" y="62.5" width="64" height="36"/>
+                        <rect key="frame" x="246" y="63" width="64" height="36"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="64" id="ik7-58-mFt"/>
                             <constraint firstAttribute="height" constant="36" id="wHD-DR-WlB"/>
@@ -137,6 +137,7 @@
                     <constraint firstItem="dIc-sv-e0E" firstAttribute="leading" secondItem="dtk-b7-EX5" secondAttribute="trailing" constant="6" id="iPb-3a-TTl"/>
                     <constraint firstAttribute="bottomMargin" secondItem="dtk-b7-EX5" secondAttribute="bottom" constant="43" id="k6A-am-Bif"/>
                     <constraint firstItem="ytB-QV-e1A" firstAttribute="top" secondItem="ZDu-nM-3dI" secondAttribute="topMargin" constant="2" id="kAt-TB-WqG"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="gFP-n8-kSW" secondAttribute="bottom" constant="42.5" id="lT6-37-eOj"/>
                     <constraint firstAttribute="trailingMargin" secondItem="xFe-zn-nLa" secondAttribute="trailing" constant="-8" id="lnl-wl-RUL"/>
                     <constraint firstItem="81J-YA-le0" firstAttribute="top" secondItem="ZDu-nM-3dI" secondAttribute="topMargin" constant="2" id="nH8-xT-37d"/>
                     <constraint firstAttribute="trailingMargin" secondItem="vk1-Ju-Lhf" secondAttribute="trailing" constant="2" id="tAi-LF-kuy"/>
@@ -147,6 +148,7 @@
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="1pm-OV-iFy"/>
                         <exclude reference="E9k-bl-wE4"/>
                         <exclude reference="gFc-kE-hEn"/>
                     </mask>
