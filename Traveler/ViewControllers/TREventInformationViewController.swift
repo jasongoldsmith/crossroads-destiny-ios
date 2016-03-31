@@ -76,8 +76,11 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     //MARK:- UITable Delegate Methods
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!) ||
-        (self.eventInfo?.eventPlayersArray.count == self.eventInfo?.eventActivity?.activityMaxPlayers) {
+        let isCurrentPlayerInEvent = TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!)
+        let maxPlayersReached = self.eventInfo?.eventPlayersArray.count == self.eventInfo?.eventActivity?.activityMaxPlayers
+        let isEventFull = (eventInfo?.eventStatus == EVENT_STATUS.FULL.rawValue)
+        
+        if isCurrentPlayerInEvent || maxPlayersReached || isEventFull {
             return (self.eventInfo?.eventPlayersArray.count)!
         }
 
