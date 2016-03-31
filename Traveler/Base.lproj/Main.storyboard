@@ -643,6 +643,7 @@
                     <connections>
                         <outlet property="avatorImageView" destination="tHf-b5-jNh" id="gjz-lk-mMf"/>
                         <outlet property="avatorUserName" destination="2Ax-E1-ccC" id="7fA-AP-VWF"/>
+                        <outlet property="backGroundImageView" destination="APu-zA-Kyk" id="ZtR-PJ-PhM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DGE-Oe-lRZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

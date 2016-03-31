@@ -14,7 +14,7 @@ class TRProfileViewController: TRBaseViewController {
     
     @IBOutlet weak var avatorImageView: UIImageView?
     @IBOutlet weak var avatorUserName: UILabel?
-    
+    @IBOutlet weak var backGroundImageView: UIImageView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +36,14 @@ class TRProfileViewController: TRBaseViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+//        self.backGroundImageView?.bounds = self.view.frame
+//        self.backGroundImageView?.clipsToBounds = true
     }
     
     override func prefersStatusBarHidden() -> Bool {

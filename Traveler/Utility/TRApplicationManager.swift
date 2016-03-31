@@ -92,8 +92,9 @@ class TRApplicationManager: NSObject {
         
         self.slideMenuController = SlideMenuController(mainViewController:eventListViewController, rightMenuViewController: profileViewController)
         self.slideMenuController.automaticallyAdjustsScrollViewInsets = true
-        SlideMenuOptions.contentViewScale = 1.0
         self.slideMenuController.closeRight()
+        self.slideMenuController.addRightGestures()
+        self.slideMenuController.changeRightViewWidth(340.0)
         
         parentViewController.presentViewController(self.slideMenuController, animated: true, completion: {
         })
