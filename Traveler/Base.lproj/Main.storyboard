@@ -22,7 +22,6 @@
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
-            <string>HelveticaNeue-Bold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -557,44 +556,94 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eventsViewBG" translatesAutoresizingMaskIntoConstraints="NO" id="opH-Pb-VuF">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileBgImage" translatesAutoresizingMaskIntoConstraints="NO" id="opH-Pb-VuF">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ffq-fJ-qNO">
-                                <rect key="frame" x="262" y="282" width="77" height="36"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                <state key="normal" title="Log Out"/>
-                                <state key="selected">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="logOutUser" destination="RJW-k0-l6u" eventType="touchUpInside" id="1vy-4k-yjo"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEc-XV-f48">
-                                <rect key="frame" x="20" y="20" width="16" height="22"/>
+                                <rect key="frame" x="555" y="40" width="30" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="16" id="BPW-Av-wmv"/>
-                                    <constraint firstAttribute="height" constant="22" id="kVf-zE-gLY"/>
+                                    <constraint firstAttribute="width" constant="30" id="BPW-Av-wmv"/>
+                                    <constraint firstAttribute="height" constant="30" id="kVf-zE-gLY"/>
                                 </constraints>
-                                <state key="normal" image="iconBackArrow"/>
+                                <state key="normal" image="imgCloseX"/>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="RJW-k0-l6u" eventType="touchUpInside" id="bH8-fb-Djk"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tHf-b5-jNh">
+                                <rect key="frame" x="252" y="101" width="96" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="B2D-Vd-eCx"/>
+                                    <constraint firstAttribute="width" constant="96" id="gfD-X2-nP1"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ax-E1-ccC">
+                                <rect key="frame" x="175" y="217" width="249" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="TIK-sg-xcH"/>
+                                    <constraint firstAttribute="width" constant="249" id="VHa-X0-ux0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRAVELER ID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tx4-30-MaM">
+                                <rect key="frame" x="227" y="244" width="145" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="S1w-UB-cxM"/>
+                                    <constraint firstAttribute="width" constant="145" id="lEY-0e-Hhc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lly-Ep-C9p">
+                                <rect key="frame" x="175" y="309" width="250" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="YW7-o7-ArM"/>
+                                    <constraint firstAttribute="width" constant="250" id="bmj-bm-Bqb"/>
+                                </constraints>
+                                <state key="normal" image="btnResetPassword"/>
+                                <connections>
+                                    <action selector="resetPassWordPressed:" destination="RJW-k0-l6u" eventType="touchUpInside" id="trV-nH-htU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yga-kS-xxF">
+                                <rect key="frame" x="175" y="363" width="250" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="n9v-TC-Zwj"/>
+                                    <constraint firstAttribute="width" constant="250" id="xkf-aj-fT9"/>
+                                </constraints>
+                                <state key="normal" image="btnLogout"/>
+                                <connections>
+                                    <action selector="logOutUser" destination="RJW-k0-l6u" eventType="touchUpInside" id="DLO-fp-LsJ"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ffq-fJ-qNO" firstAttribute="centerY" secondItem="NgN-Kf-uF4" secondAttribute="centerY" id="0LW-1G-1wV"/>
-                            <constraint firstItem="ZEc-XV-f48" firstAttribute="top" secondItem="5T3-1W-a1y" secondAttribute="bottom" id="9AQ-by-rSd"/>
-                            <constraint firstItem="ZEc-XV-f48" firstAttribute="leading" secondItem="NgN-Kf-uF4" secondAttribute="leadingMargin" id="EIX-Tr-nWU"/>
+                            <constraint firstItem="2Ax-E1-ccC" firstAttribute="centerX" secondItem="NgN-Kf-uF4" secondAttribute="centerX" id="0ov-PX-oVN"/>
+                            <constraint firstItem="ZEc-XV-f48" firstAttribute="top" secondItem="5T3-1W-a1y" secondAttribute="bottom" constant="20" id="8z4-5C-sLi"/>
+                            <constraint firstItem="yga-kS-xxF" firstAttribute="centerX" secondItem="NgN-Kf-uF4" secondAttribute="centerX" id="AuE-cy-8n3"/>
+                            <constraint firstItem="lly-Ep-C9p" firstAttribute="top" secondItem="Tx4-30-MaM" secondAttribute="bottom" constant="44" id="EYr-QQ-qLX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="opH-Pb-VuF" secondAttribute="trailing" constant="-20" id="Gyj-yc-UxW"/>
-                            <constraint firstItem="Ffq-fJ-qNO" firstAttribute="centerX" secondItem="NgN-Kf-uF4" secondAttribute="centerX" id="MVp-Ia-VSa"/>
-                            <constraint firstItem="opH-Pb-VuF" firstAttribute="leading" secondItem="NgN-Kf-uF4" secondAttribute="leadingMargin" constant="-20" id="mG9-EA-ZDp"/>
+                            <constraint firstItem="yga-kS-xxF" firstAttribute="top" secondItem="lly-Ep-C9p" secondAttribute="bottom" constant="10" id="WBa-YI-6Wf"/>
+                            <constraint firstItem="Tx4-30-MaM" firstAttribute="centerX" secondItem="NgN-Kf-uF4" secondAttribute="centerX" id="Xf7-F8-zmc"/>
+                            <constraint firstItem="opH-Pb-VuF" firstAttribute="leading" secondItem="NgN-Kf-uF4" secondAttribute="leadingMargin" constant="-20" id="aC7-fy-pWN"/>
+                            <constraint firstItem="2Ax-E1-ccC" firstAttribute="top" secondItem="tHf-b5-jNh" secondAttribute="bottom" constant="20" id="aOx-1l-ZZY"/>
+                            <constraint firstItem="ZEc-XV-f48" firstAttribute="trailing" secondItem="NgN-Kf-uF4" secondAttribute="trailingMargin" constant="5" id="g72-W6-0j2"/>
+                            <constraint firstItem="lly-Ep-C9p" firstAttribute="centerX" secondItem="NgN-Kf-uF4" secondAttribute="centerX" id="hK2-6R-Jbj"/>
+                            <constraint firstItem="tHf-b5-jNh" firstAttribute="centerX" secondItem="NgN-Kf-uF4" secondAttribute="centerX" id="k5R-5t-PSN"/>
+                            <constraint firstItem="Tx4-30-MaM" firstAttribute="top" secondItem="2Ax-E1-ccC" secondAttribute="bottom" constant="4" id="oqU-QV-8rk"/>
                             <constraint firstItem="ftz-Fk-rbT" firstAttribute="top" secondItem="opH-Pb-VuF" secondAttribute="bottom" id="r5j-7o-61p"/>
+                            <constraint firstItem="tHf-b5-jNh" firstAttribute="top" secondItem="5T3-1W-a1y" secondAttribute="bottom" constant="81" id="uJ2-8D-C2T"/>
                             <constraint firstItem="opH-Pb-VuF" firstAttribute="top" secondItem="NgN-Kf-uF4" secondAttribute="topMargin" id="xRQ-M9-1ya"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="avatorImageView" destination="tHf-b5-jNh" id="gjz-lk-mMf"/>
+                        <outlet property="avatorUserName" destination="2Ax-E1-ccC" id="7fA-AP-VWF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DGE-Oe-lRZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1420,6 +1469,8 @@
         <image name="TrImgLoginBtn" width="90" height="90"/>
         <image name="TrLoadingimgBackgroundMap" width="375" height="667"/>
         <image name="TrLoginOptionBackground" width="375" height="667"/>
+        <image name="btnLogout" width="250" height="44"/>
+        <image name="btnResetPassword" width="250" height="44"/>
         <image name="chooseActivityBG" width="375" height="597"/>
         <image name="createEventBG" width="375" height="597"/>
         <image name="eventDetailHeaderBG" width="375" height="129"/>
@@ -1428,6 +1479,7 @@
         <image name="iconBackArrow" width="16" height="16"/>
         <image name="imgActivityBanner" width="40" height="51"/>
         <image name="imgChooseEventBG" width="375" height="597"/>
+        <image name="imgCloseX" width="30" height="30"/>
         <image name="imgCruicible" width="98" height="100"/>
         <image name="imgCruicibleSelected" width="98" height="100"/>
         <image name="imgLoginBtnTapped" width="90" height="90"/>
@@ -1436,6 +1488,7 @@
         <image name="imgTravelerBadge" width="45" height="52"/>
         <image name="imgWeeklies" width="98" height="100"/>
         <image name="imgWeekliesSelected" width="98" height="100"/>
+        <image name="profileBgImage" width="344" height="667"/>
         <image name="segmentControlBG" width="375" height="55"/>
     </resources>
 </document>
