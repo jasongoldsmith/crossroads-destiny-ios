@@ -8,6 +8,7 @@ target 'Traveler' do
     pod 'SDWebImage', '~>3.7'
     pod 'AFDateHelper'
     pod 'pop', :git => 'https://github.com/facebook/pop.git'
+    pod 'SlideMenuControllerSwift'
 end
 
 target 'TravelerTests' do

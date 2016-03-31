@@ -66,6 +66,9 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             // Add LogOut event action to Avator Image
             self.addLogOutEventToAvatorImageView()
         }
+        
+        //Load table
+        self.reloadEventTable()
     }
 
     func addLogOutEventToAvatorImageView () {
@@ -241,10 +244,12 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     
     
     func logoutBtnTapped(sender: AnyObject) {
-        let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
-        let vc : TRProfileViewController = storyboard.instantiateViewControllerWithIdentifier(K.ViewControllerIdenifier.VIEW_CONTROLLER_PROFILE) as! TRProfileViewController
         
-        self.presentViewController(vc, animated: true, completion: nil)
+        TRApplicationManager.sharedInstance.slideMenuController.openRight()
+//        let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+//        let vc : TRProfileViewController = storyboard.instantiateViewControllerWithIdentifier(K.ViewControllerIdenifier.VIEW_CONTROLLER_PROFILE) as! TRProfileViewController
+//        
+//        self.presentViewController(vc, animated: true, completion: nil)
     }
 
     deinit {

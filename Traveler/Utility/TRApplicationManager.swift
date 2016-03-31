@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import XCGLogger
 import Alamofire
+import SlideMenuControllerSwift
 
 class TRApplicationManager: NSObject {
     
@@ -52,6 +53,8 @@ class TRApplicationManager: NSObject {
     //AlamoreFire Manager
     var alamoFireManager : Alamofire.Manager?
     
+    // SlideMenu Controller
+    var slideMenuController = SlideMenuController()
     
     // MARK:- Initializer
     private override init() {
@@ -81,6 +84,20 @@ class TRApplicationManager: NSObject {
         self.pushNotificationView = NSBundle.mainBundle().loadNibNamed("TRPushNotificationView", owner: self, options: nil)[0] as! TRPushNotificationView
     }
 
+    func addSlideMenuController(parentViewController: TRBaseViewController) {
+
+        let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+        let profileViewController = storyboard.instantiateViewControllerWithIdentifier(K.ViewControllerIdenifier.VIEW_CONTROLLER_PROFILE) as! TRProfileViewController
+        let eventListViewController = storyboard.instantiateViewControllerWithIdentifier(K.ViewControllerIdenifier.VIEWCONTROLLER_EVENT_LIST) as! TREventListViewController
+        
+        self.slideMenuController = SlideMenuController(mainViewController:eventListViewController, rightMenuViewController: profileViewController)
+        self.slideMenuController.automaticallyAdjustsScrollViewInsets = true
+        SlideMenuOptions.contentViewScale = 1.0
+        self.slideMenuController.closeRight()
+        
+        parentViewController.presentViewController(self.slideMenuController, animated: true, completion: {
+        })
+    }
     
     func addNotificationViewWithMessages (parentView: TRBaseViewController, sender: NSNotification) -> TRPushNotificationView {
         

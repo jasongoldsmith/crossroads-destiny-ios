@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SlideMenuControllerSwift
 
 
 class TRRootViewController: TRBaseViewController {
@@ -29,9 +30,8 @@ class TRRootViewController: TRBaseViewController {
         if (TRUserInfo.isUserLoggedIn()) {
             _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, indicatorTopConstraint: ACTIVITY_INDICATOR_TOP_CONSTRAINT, completion: { (didSucceed) -> () in
                 if(didSucceed == true) {
-                    
-                    self.performSegueWithIdentifier("TREventListView", sender: self)
-                    
+                    TRApplicationManager.sharedInstance.addSlideMenuController(self)
+//                    self.performSegueWithIdentifier("TREventListView", sender: self)
                 } else {
                     self.appManager.log.debug("Failed")
                 }
@@ -40,7 +40,7 @@ class TRRootViewController: TRBaseViewController {
             self.performSegueWithIdentifier("TRLoginOptionView", sender: self)
         }
     }
-    
+
     @IBAction func trUnwindAction(segue: UIStoryboardSegue) {
         
     }

@@ -14,7 +14,7 @@ class TRProfileViewController: TRBaseViewController {
     
     @IBOutlet weak var avatorImageView: UIImageView?
     @IBOutlet weak var avatorUserName: UILabel?
-    @IBOutlet weak var avatorTravlerIDStaticText: UILabel?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,8 +71,7 @@ class TRProfileViewController: TRBaseViewController {
     }
     
     @IBAction func backButtonPressed (sender: AnyObject) {
-        self.dismissViewController(true) { (didDismiss) in
-        }
+        TRApplicationManager.sharedInstance.slideMenuController.closeRight()
     }
     
     @IBAction func resetPassWordPressed (sender: AnyObject) {
