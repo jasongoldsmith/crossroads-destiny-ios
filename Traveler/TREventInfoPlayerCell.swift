@@ -33,13 +33,12 @@ class TREventInfoPlayerCell: UITableViewCell {
             self.playerAvatorImageView?.sd_setImageWithURL(imageURL)
             TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.playerAvatorImageView!)
         }
-        
-        // I can not send message to myself, so hide chat button
-        if playerInfo.playerID == TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()?.playerID {
+
+        if !TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(eventInfo) {
             self.chatButton?.hidden = true
-        }
-        
-        if playerInfo.playerID != eventInfo.eventCreator?.playerID {
+        } else if playerInfo.playerID == TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()?.playerID {
+            self.chatButton?.hidden = true
+        } else if playerInfo.playerID != eventInfo.eventCreator?.playerID {
             self.chatButton?.hidden = true
         }
     }
