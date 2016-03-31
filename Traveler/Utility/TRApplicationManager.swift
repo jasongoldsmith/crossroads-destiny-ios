@@ -182,7 +182,7 @@ class TRApplicationManager: NSObject {
         return false
     }
     
-    // Rewrite this method- User Server Login Response to save userID, psnID, UserImage
+    // Rewrite this method- User Server Login Response to save userID, psnID, UserImage -- ASHU
     func getPlayerObjectForCurrentUser () -> TRPlayerInfo? {
         for event in self.eventsList {
             for player in event.eventPlayersArray {

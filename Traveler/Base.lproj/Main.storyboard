@@ -560,7 +560,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEc-XV-f48">
-                                <rect key="frame" x="555" y="40" width="30" height="30"/>
+                                <rect key="frame" x="545" y="40" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="BPW-Av-wmv"/>
                                     <constraint firstAttribute="height" constant="30" id="kVf-zE-gLY"/>
@@ -631,7 +631,7 @@
                             <constraint firstItem="yga-kS-xxF" firstAttribute="top" secondItem="lly-Ep-C9p" secondAttribute="bottom" constant="10" id="WBa-YI-6Wf"/>
                             <constraint firstItem="Tx4-30-MaM" firstAttribute="centerX" secondItem="NgN-Kf-uF4" secondAttribute="centerX" id="Xf7-F8-zmc"/>
                             <constraint firstItem="2Ax-E1-ccC" firstAttribute="top" secondItem="tHf-b5-jNh" secondAttribute="bottom" constant="20" id="aOx-1l-ZZY"/>
-                            <constraint firstItem="ZEc-XV-f48" firstAttribute="trailing" secondItem="NgN-Kf-uF4" secondAttribute="trailingMargin" constant="5" id="g72-W6-0j2"/>
+                            <constraint firstItem="ZEc-XV-f48" firstAttribute="trailing" secondItem="NgN-Kf-uF4" secondAttribute="trailingMargin" constant="-5" id="g72-W6-0j2"/>
                             <constraint firstItem="lly-Ep-C9p" firstAttribute="centerX" secondItem="NgN-Kf-uF4" secondAttribute="centerX" id="hK2-6R-Jbj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="APu-zA-Kyk" secondAttribute="trailing" constant="-20" id="iik-Mh-8Fk"/>
                             <constraint firstItem="tHf-b5-jNh" firstAttribute="centerX" secondItem="NgN-Kf-uF4" secondAttribute="centerX" id="k5R-5t-PSN"/>
