@@ -145,7 +145,12 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         
         let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
         let vc : TREventInformationViewController = storyboard.instantiateViewControllerWithIdentifier(K.ViewControllerIdenifier.VIEW_CONTROLLER_EVENT_INFORMATION) as! TREventInformationViewController
-        vc.eventInfo = self.eventsInfo[indexPath.section]
+        
+        if self.segmentControl?.selectedSegmentIndex == 0 {
+            vc.eventInfo = self.eventsInfo[indexPath.section]
+        } else {
+            vc.eventInfo = self.futureEventsInfo[indexPath.section]
+        }
         
         self.presentViewController(vc, animated: true, completion: nil)
     }
