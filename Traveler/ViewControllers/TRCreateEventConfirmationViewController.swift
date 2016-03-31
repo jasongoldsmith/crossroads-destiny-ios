@@ -120,12 +120,12 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         var labelSting = (self.selectedActivity?.activitySubType!)!
         if let hasDifficulty = self.selectedActivity?.activityDificulty {
             if hasDifficulty != "" {
-                labelSting = labelSting + " - " + hasDifficulty + " "
+                labelSting = labelSting + " - " + hasDifficulty
             }
         }
         
         if let light = self.selectedActivity?.activityLight?.integerValue where light > 0 {
-            labelSting = labelSting + (self.selectedActivity!.activityLight?.stringValue)! + " Light"
+            labelSting = labelSting + " " + (self.selectedActivity!.activityLight?.stringValue)! + " Light"
         }
         
         self.buttonOne?.setTitle(labelSting, forState: .Normal)

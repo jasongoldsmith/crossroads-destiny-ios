@@ -23,12 +23,12 @@ class TRActivitySelectionCell: UITableViewCell {
         var labelSting = activity.activitySubType!
         if let hasDifficulty = activity.activityDificulty {
             if hasDifficulty != "" {
-                labelSting = labelSting + " - " + hasDifficulty + " "
+                labelSting = labelSting + " - " + hasDifficulty
             }
         }
         
         if let light = activity.activityLight?.integerValue where light > 0 {
-            labelSting = labelSting + (activity.activityLight?.stringValue)! + " Light"
+            labelSting = labelSting + " " + (activity.activityLight?.stringValue)! + " Light"
         }
         
         self.activityInfoLabel.text = labelSting

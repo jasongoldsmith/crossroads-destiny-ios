@@ -101,7 +101,7 @@ class TRBaseViewController: UIViewController {
     }
     
     func applicationDidEnterBackground() {
-        appManager.log.debug("applicationDidEnterBackground")
+        TRApplicationManager.sharedInstance.purgeSavedData()
     }
     
     func didReceiveRemoteNotificationInActiveSesion(sender: NSNotification) {

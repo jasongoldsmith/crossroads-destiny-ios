@@ -16,26 +16,31 @@ class TRProfileViewController: TRBaseViewController {
     @IBOutlet weak var avatorUserName: UILabel?
     @IBOutlet weak var backGroundImageView: UIImageView?
     
+    var currentUser: TRPlayerInfo?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+
+    func updateView () {
+        self.currentUser = TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()
         
-        guard let currentUser = TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser() else {
-            return
+        if let _ = self.currentUser {
+            if let userImage = self.currentUser?.playerImageUrl {
+                let imageURL = NSURL(string: userImage)
+                self.avatorImageView?.sd_setImageWithURL(imageURL)
+                TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.avatorImageView!, borderWidth: 2.0)
+            }
+            
+            // User's psnID
+            self.avatorUserName?.text = self.currentUser?.playerPsnID
         }
-        
-        if let userImage = currentUser.playerImageUrl {
-            let imageURL = NSURL(string: userImage)
-            self.avatorImageView?.sd_setImageWithURL(imageURL)
-            TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.avatorImageView!, borderWidth: 2.0)
-        }
-        
-        // User's psnID
-        self.avatorUserName?.text = currentUser.playerPsnID
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.updateView()
     }
     
     override func viewDidAppear(animated: Bool) {
