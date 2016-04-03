@@ -616,7 +616,7 @@
                                     <constraint firstAttribute="height" constant="44" id="6cf-xM-UQb"/>
                                     <constraint firstAttribute="width" constant="250" id="x1T-pu-Dlr"/>
                                 </constraints>
-                                <state key="normal" title="Send Report"/>
+                                <state key="normal" title="Contact Us"/>
                                 <connections>
                                     <action selector="sendReport" destination="RJW-k0-l6u" eventType="touchUpInside" id="Jvn-Ld-nXP"/>
                                 </connections>
@@ -652,10 +652,10 @@
             </objects>
             <point key="canvasLocation" x="-1517" y="990"/>
         </scene>
-        <!--SEND REPORT-->
+        <!--Contact Us-->
         <scene sceneID="LaP-JU-gQW">
             <objects>
-                <viewController storyboardIdentifier="sendReportVC" title="SEND REPORT" id="vH8-Nd-68e" customClass="TRSendReportViewController" customModule="Traveler" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sendReportVC" title="Contact Us" id="vH8-Nd-68e" customClass="TRSendReportViewController" customModule="Traveler" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lFW-Yw-m9S"/>
                         <viewControllerLayoutGuide type="bottom" id="aYC-fX-WDX"/>
