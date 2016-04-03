@@ -13,14 +13,9 @@ import SwiftyJSON
 
 class TRCreateEventRequest: TRRequest {
     
-    func createAnEventWithActivity (activity: TRActivityInfo, selectedTime: NSDate, completion: TRValueCallBack) {
+    func createAnEventWithActivity (activity: TRActivityInfo, selectedTime: NSDate?, completion: TRValueCallBack) {
         
         let createEventUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_EventCreationUrl
-        
-        let formatter = NSDateFormatter();
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZ";
-        formatter.timeZone = NSTimeZone(abbreviation: "UTC");
-        let utcTimeZoneStr = formatter.stringFromDate(selectedTime);
         
         // Current Player
         let player = TRUserInfo.getUserID()
@@ -31,8 +26,18 @@ class TRCreateEventRequest: TRRequest {
         params["minPlayers"] = activity.activityMaxPlayers!
         params["maxPlayers"] = activity.activityMinPlayers!
         params["creator"] = TRUserInfo.getUserID()
-        params["launchDate"] = utcTimeZoneStr
         params["players"] = ["\(player!)"]
+        
+        if let hasSelectedTime = selectedTime {
+            let formatter = NSDateFormatter();
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZ";
+            formatter.timeZone = NSTimeZone(abbreviation: "UTC");
+            let utcTimeZoneStr = formatter.stringFromDate(hasSelectedTime);
+            
+            params["launchDate"] = utcTimeZoneStr
+        } else {
+            params["launchDate"] = NSNull()
+        }
         
         
         let request = TRRequest()

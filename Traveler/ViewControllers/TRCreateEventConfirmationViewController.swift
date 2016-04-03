@@ -11,6 +11,7 @@ import UIKit
 import AFDateHelper
 
 private let PICKER_COMPONET_COUNT = 1
+private let CURRENT_TIME_THREASHOLD = 3
 
 class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -174,9 +175,13 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
     
     @IBAction func createEvent () {
         
-        let selectedTime = self.datePickerView?.date
+        var selectedTime = self.datePickerView?.date
+        if (!isTimeDifferenceMoreThenGivenMinutes(selectedTime!, minutes: CURRENT_TIME_THREASHOLD)) {
+           selectedTime = nil
+        }
         
-        let _ = TRCreateEventRequest().createAnEventWithActivity(self.selectedActivity!, selectedTime: selectedTime!) { (value) -> () in
+        
+        let _ = TRCreateEventRequest().createAnEventWithActivity(self.selectedActivity!, selectedTime: selectedTime) { (value) -> () in
             if (value == true) {
                 
                 self.dismissViewControllerAnimated(true, completion: { () -> Void in
@@ -203,14 +208,12 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         
         var timeString = ""
         let choosenDate = self.datePickerView?.date
-        if ((choosenDate?.isToday()) == true) {
-            timeString = "Start Time - Now"
-        } else if ((choosenDate?.isTomorrow()) == true) {
-            timeString = "Start Time - Tomorrow"
+        if (isTimeDifferenceMoreThenGivenMinutes(choosenDate!, minutes: CURRENT_TIME_THREASHOLD)) {
+            timeString = (choosenDate?.toString())!
         } else {
-            timeString = (choosenDate?.toString(dateStyle: .ShortStyle, timeStyle: .ShortStyle))!
+            timeString = "Now"
         }
-        
+
         self.buttonThress?.setTitle(timeString, forState: .Normal)
     }
     

@@ -39,6 +39,16 @@ func isTimeDifferenceMoreThenAnHour(dateString: String) -> Bool {
     return false
 }
 
+func isTimeDifferenceMoreThenGivenMinutes(selectedDate: NSDate, minutes: Int) -> Bool {
+    
+    let dateByAddingMinutes = selectedDate.dateBySubtractingMinutes(minutes)
+    if dateByAddingMinutes.isInFuture() {
+        return true
+    }
+
+    return false
+}
+
 func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
     
     return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
