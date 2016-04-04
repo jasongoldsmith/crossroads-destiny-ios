@@ -11,7 +11,7 @@ import UIKit
 import AFDateHelper
 
 private let PICKER_COMPONET_COUNT = 1
-private let CURRENT_TIME_THREASHOLD = 3
+private let CURRENT_TIME_THREASHOLD = 1
 
 class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -34,7 +34,7 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
     var selectedActivity: TRActivityInfo?
     var similarActivitiesDifferentCheckPoints: [TRActivityInfo]?
     var checkpointPickerView: TRActivityCheckPointPicker! = nil
-    
+    var selectedDate: NSDate?
     
     override func viewDidLoad() {
         
@@ -44,8 +44,6 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         self.addNavigationBarButtons()
         
         // Add Icon Image
-        
-        
         let imageUrl = NSURL(string: (self.selectedActivity?.activityIconImage)!)
         self.activityIconImage?.sd_setImageWithURL(imageUrl)
         
@@ -80,6 +78,9 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         
         // Add Event Title
         self.eventTitleLabel?.text = self.selectedActivity?.activityType
+        
+        //Init selected Date as nil
+        self.selectedDate = nil
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -175,13 +176,7 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
     
     @IBAction func createEvent () {
         
-        var selectedTime = self.datePickerView?.date
-        if (!isTimeDifferenceMoreThenGivenMinutes(selectedTime!, minutes: CURRENT_TIME_THREASHOLD)) {
-           selectedTime = nil
-        }
-        
-        
-        let _ = TRCreateEventRequest().createAnEventWithActivity(self.selectedActivity!, selectedTime: selectedTime) { (value) -> () in
+        let _ = TRCreateEventRequest().createAnEventWithActivity(self.selectedActivity!, selectedTime: self.selectedDate) { (value) -> () in
             if (value == true) {
                 
                 self.dismissViewControllerAnimated(true, completion: { () -> Void in
@@ -195,7 +190,7 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
     }
 
     @IBAction func datePickerValueChanged (sender: UIDatePicker) {
-    
+        self.selectedDate = sender.date
     }
     
     // Tapping on Date Picker Image Background will close the date-picker view
@@ -206,15 +201,11 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
             self.datePickerBackgroundImage?.alpha = 0
         }
         
-        var timeString = ""
-        let choosenDate = self.datePickerView?.date
-        if (isTimeDifferenceMoreThenGivenMinutes(choosenDate!, minutes: CURRENT_TIME_THREASHOLD)) {
-            timeString = (choosenDate?.toString())!
+        if let selectedTime = self.selectedDate {
+            self.buttonThress?.setTitle("Start Time - " + selectedTime.toString(), forState: .Normal)
         } else {
-            timeString = "Now"
+            self.buttonThress?.setTitle("Start Time - Now", forState: .Normal)
         }
-
-        self.buttonThress?.setTitle(timeString, forState: .Normal)
     }
     
     func checkPointPickerimageTapped () {
@@ -255,7 +246,7 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
     }
-
+    
     
     deinit {
         appManager.log.debug("")
