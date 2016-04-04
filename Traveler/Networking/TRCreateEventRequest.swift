@@ -23,8 +23,8 @@ class TRCreateEventRequest: TRRequest {
         //Add Parameters
         var params = [String: AnyObject]()
         params["eType"] = activity.activityID!
-        params["minPlayers"] = activity.activityMaxPlayers!
-        params["maxPlayers"] = activity.activityMinPlayers!
+        params["minPlayers"] = activity.activityMinPlayers!
+        params["maxPlayers"] = activity.activityMaxPlayers!
         params["creator"] = TRUserInfo.getUserID()
         params["players"] = ["\(player!)"]
         
