@@ -33,6 +33,9 @@ class TRAuthenticationRequest: TRRequest {
             params["psnId"] = userData?.psnID
         }
 
+        //TODO: Remove this after hard - Coded clan later
+        //params["clanId"] = "forcecatalyst"
+        
         
         TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(false, activityTopConstraintValue: nil)
         
