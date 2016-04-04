@@ -63,6 +63,12 @@ class TRCreateEventRequest: TRRequest {
                 }
             }
 
+            guard swiftyJsonVar["_id"].string != nil else {
+                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("No Event ID received")
+                
+                return
+            }
+            
             eventInfo.eventID           = swiftyJsonVar["_id"].string
             eventInfo.eventUpdatedDate  = swiftyJsonVar["updated"].string
             eventInfo.eventMaxPlayers   = swiftyJsonVar["maxPlayers"].number
