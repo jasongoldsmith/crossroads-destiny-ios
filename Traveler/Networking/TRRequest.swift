@@ -64,12 +64,9 @@ class TRRequest {
                     if let _ = response.result.value {
                         let swiftyJsonVar = JSON(response.result.value!)
                         
-                        if swiftyJsonVar.isEmpty {
-                            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Json is Empty")
-                        } else if swiftyJsonVar["responseType"].string == "ERR" {
+                        if swiftyJsonVar["responseType"].string == "ERR" {
                             TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Some Error")
                         } else {
-                            //True
                             completion(error: nil, responseObject: (swiftyJsonVar))
                         }
                     }
