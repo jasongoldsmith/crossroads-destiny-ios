@@ -32,9 +32,16 @@ class TRAuthenticationRequest: TRRequest {
         if userData?.psnID?.characters.isEmpty == false {
             params["psnId"] = userData?.psnID
         }
-                
+
+        
+        TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(false, activityTopConstraintValue: nil)
+        
         request(self.URLMethod!, registerUserUrl, parameters:params)
             .responseJSON { response in
+                
+                //Stop Indicator
+                TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
+
                 if response.result.isSuccess {
                     
                     if let _ = response.result.value {
@@ -85,8 +92,14 @@ class TRAuthenticationRequest: TRRequest {
             params["passWord"] = userData?.password
         }
         
+        TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(false, activityTopConstraintValue: nil)
+        
         request(.POST, registerUserUrl,parameters:params)
             .responseJSON { response in
+                
+                //Stop Indicator
+                TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
+
                 if response.result.isSuccess {
                     
                     if let _ = response.result.value {
@@ -126,8 +139,14 @@ class TRAuthenticationRequest: TRRequest {
         }
         
         let registerUserUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_LogoutUrl
+        TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(false, activityTopConstraintValue: nil)
+
         request(.POST, registerUserUrl,parameters:["userName":TRUserInfo.getUserName()!])
             .responseJSON { response in
+                
+                //Stop Indicator
+                TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
+                
                 if response.result.isSuccess {
                     
                     if let _ = response.result.value {
