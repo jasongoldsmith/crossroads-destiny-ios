@@ -34,18 +34,18 @@ class TRErrorNotificationView: UIView {
         let window = appDelegate.window
         window?.addSubview(self)
         
-        let yAxisDistance:CGFloat = -50
+        let yAxisDistance:CGFloat = -self.frame.height
         let xAxiDistance:CGFloat  = 0
         self.frame = CGRectMake(xAxiDistance, yAxisDistance, window!.frame.width, self.frame.height)
         self.errorMessage.text = errorMessage
         
         let popAnimation:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPLayerPositionY)
-        popAnimation.toValue = 50
+        popAnimation.toValue = self.frame.height - 10
         self.layer.pop_addAnimation(popAnimation, forKey: "slideIn")
         
         delay(3.0) { () -> () in
             let popAnimation:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPLayerPositionY)
-            popAnimation.toValue = -20
+            popAnimation.toValue = -self.frame.height
             popAnimation.completionBlock =  {(animation, finished) in
                 self.removeFromSuperview()
             }
