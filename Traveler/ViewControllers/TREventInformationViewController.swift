@@ -59,7 +59,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
                 self.eventDescription?.attributedText = finalString
             }
         } else {
-            let playersNameString = "Created by " + (self.eventInfo?.eventCreator?.playerUserName!)!
+            let playersNameString = "Created by " + (self.eventInfo?.eventCreator?.playerPsnID!)!
             self.eventDescription?.text = playersNameString
         }
     }
