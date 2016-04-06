@@ -129,8 +129,10 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         if indexPath.row < self.eventInfo?.eventPlayersArray.count {
             cell.updateCellViewWithEvent((self.eventInfo?.eventPlayersArray[indexPath.row])!, eventInfo: self.eventInfo!)
             cell.chatButton?.addTarget(self, action: #selector(TREventInformationViewController.sendChatMessage(_:)), forControlEvents: .TouchUpInside)
+            cell.leaveEventButton?.addTarget(self, action: #selector(TREventInformationViewController.leaveEvent(_:)), forControlEvents: .TouchUpInside)
         } else {
             cell.chatButton?.hidden = true
+            cell.leaveEventButton?.hidden = true
             cell.playerAvatorImageView?.image = UIImage(named: "imgJoin")
         }
         
@@ -162,6 +164,23 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         print("Send Message to player: \(player.playerID) with Event: \(self.eventInfo?.eventID)")
     }
     
+    
+    func leaveEvent(sender: EventButton) {
+        guard let event = sender.buttonEventInfo else {
+            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("No Event Object Found")
+            return
+
+        }
+        
+        _ = TRLeaveEventRequest().leaveAnEvent(event, completion: { (didSucceed) in
+            if (didSucceed == true) {
+                dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                    self.reloadEventTable()
+                }
+            } else {
+            }
+        })
+    }
     
     func joinAnEvent (eventInfo: TREventInfo) {
         

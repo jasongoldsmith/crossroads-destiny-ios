@@ -14,18 +14,22 @@ class TREventInfoPlayerCell: UITableViewCell {
     @IBOutlet weak var playerAvatorImageView: UIImageView?
     @IBOutlet weak var playerNameLable: UILabel?
     @IBOutlet weak var chatButton: EventButton?
+    @IBOutlet weak var leaveEventButton: EventButton?
     
     override func prepareForReuse() {
+        self.playerAvatorImageView?.layer.borderWidth = 0.0
         self.playerAvatorImageView?.image = nil
         self.playerNameLable?.text = nil
         self.chatButton?.hidden = false
         self.chatButton?.buttonPlayerInfo = nil
+        self.leaveEventButton?.buttonEventInfo = nil
     }
     
     func updateCellViewWithEvent (playerInfo: TRPlayerInfo, eventInfo: TREventInfo) {
         
         self.playerNameLable?.text = playerInfo.playerPsnID
         self.chatButton?.buttonPlayerInfo = playerInfo
+        self.leaveEventButton?.buttonEventInfo = eventInfo
         
         //Adding Image and Radius to Avatar
         let imageURL = NSURL(string: playerInfo.playerImageUrl!)
@@ -34,6 +38,11 @@ class TREventInfoPlayerCell: UITableViewCell {
             TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.playerAvatorImageView!)
         }
 
+        // If current user is in the event, give an option to leave the event
+        if TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(eventInfo) &&  playerInfo.playerID == TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()?.playerID {
+            self.leaveEventButton?.hidden = false
+        }
+        
         if !TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(eventInfo) {
             self.chatButton?.hidden = true
         } else if playerInfo.playerID == TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()?.playerID {
