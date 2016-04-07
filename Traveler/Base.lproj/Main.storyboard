@@ -1190,8 +1190,15 @@
                                     <action selector="changeDateButtonPressed:" destination="Qer-Wa-Bhw" eventType="touchUpInside" id="lZJ-My-9uK"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconArrowRight" translatesAutoresizingMaskIntoConstraints="NO" id="Yif-gd-HbE">
+                                <rect key="frame" x="431" y="260" width="5" height="10"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="XH1-JO-mGr"/>
+                                    <constraint firstAttribute="width" constant="5" id="tXD-QZ-SkC"/>
+                                </constraints>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconArrowRight" translatesAutoresizingMaskIntoConstraints="NO" id="6l7-vH-SU8">
-                                <rect key="frame" x="431" y="323" width="5" height="10"/>
+                                <rect key="frame" x="431" y="328" width="5" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="5" id="Had-cq-KJW"/>
                                     <constraint firstAttribute="height" constant="10" id="cKy-gK-Med"/>
@@ -1225,20 +1232,13 @@
                                     <action selector="datePickerValueChanged:" destination="Qer-Wa-Bhw" eventType="valueChanged" id="n9W-73-1ja"/>
                                 </connections>
                             </datePicker>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconArrowRight" translatesAutoresizingMaskIntoConstraints="NO" id="Yif-gd-HbE">
-                                <rect key="frame" x="431" y="255" width="5" height="10"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="10" id="XH1-JO-mGr"/>
-                                    <constraint firstAttribute="width" constant="5" id="tXD-QZ-SkC"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="g60-hL-efX" firstAttribute="leading" secondItem="HaO-B3-0i5" secondAttribute="leading" id="1zp-A4-HLa"/>
                             <constraint firstItem="Xrn-7L-Bug" firstAttribute="leading" secondItem="gc7-xU-0jx" secondAttribute="leadingMargin" constant="-20" id="3pc-zY-O3I"/>
                             <constraint firstItem="g60-hL-efX" firstAttribute="leading" secondItem="9ue-JR-J0g" secondAttribute="leading" id="AL8-Zg-Wtk"/>
-                            <constraint firstItem="6l7-vH-SU8" firstAttribute="top" secondItem="HaO-B3-0i5" secondAttribute="bottom" constant="33" id="BXr-uy-U8L"/>
+                            <constraint firstItem="6l7-vH-SU8" firstAttribute="top" secondItem="HaO-B3-0i5" secondAttribute="bottom" constant="38" id="BXr-uy-U8L"/>
                             <constraint firstItem="g60-hL-efX" firstAttribute="trailing" secondItem="HaO-B3-0i5" secondAttribute="trailing" id="BkV-v1-3ho"/>
                             <constraint firstItem="Iyq-Vd-eiI" firstAttribute="top" secondItem="gzx-q8-nbG" secondAttribute="bottom" constant="23" id="Bqg-df-4wA"/>
                             <constraint firstItem="d1E-Mo-4IL" firstAttribute="top" secondItem="RyD-cs-rbu" secondAttribute="bottom" id="IMU-zf-XoC"/>
@@ -1259,7 +1259,7 @@
                             <constraint firstItem="Xrn-7L-Bug" firstAttribute="top" secondItem="Iyq-Vd-eiI" secondAttribute="bottom" constant="175" id="d2o-Ij-2GI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hoF-7R-3Kp" secondAttribute="trailing" constant="212" id="dxh-tH-h8L"/>
                             <constraint firstItem="hoF-7R-3Kp" firstAttribute="centerX" secondItem="gc7-xU-0jx" secondAttribute="centerX" id="e7i-4V-Lue"/>
-                            <constraint firstItem="Yif-gd-HbE" firstAttribute="top" secondItem="g60-hL-efX" secondAttribute="bottom" constant="33" id="hWs-bv-KC8"/>
+                            <constraint firstItem="Yif-gd-HbE" firstAttribute="top" secondItem="g60-hL-efX" secondAttribute="bottom" constant="38" id="hWs-bv-KC8"/>
                             <constraint firstItem="hoF-7R-3Kp" firstAttribute="leading" secondItem="gc7-xU-0jx" secondAttribute="leadingMargin" constant="213" id="kjy-UZ-0Zq"/>
                             <constraint firstItem="RyD-cs-rbu" firstAttribute="top" secondItem="gc7-xU-0jx" secondAttribute="topMargin" id="pLg-cd-Vdq"/>
                             <constraint firstItem="6l7-vH-SU8" firstAttribute="leading" secondItem="9ue-JR-J0g" secondAttribute="trailing" constant="-19" id="qgb-wK-tpA"/>
