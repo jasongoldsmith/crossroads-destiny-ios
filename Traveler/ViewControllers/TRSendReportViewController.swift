@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 
-class TRSendReportViewController: TRBaseViewController {
+class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
     
-    @IBOutlet weak var reportTextView: UITextView?
+    @IBOutlet weak var reportTextView: UITextView!
     
     override func viewDidLoad() {
          super.viewDidLoad()
@@ -28,6 +28,10 @@ class TRSendReportViewController: TRBaseViewController {
         let leftBarButton = UIBarButtonItem()
         leftBarButton.customView = leftButton
         self.navigationItem.leftBarButtonItem = leftBarButton
+
+        // Key-Board Notifications
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRCreateAccountViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRCreateAccountViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -38,14 +42,66 @@ class TRSendReportViewController: TRBaseViewController {
         super.viewDidAppear(animated)
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: self.view.window)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: self.view.window)
+    }
     
     func navBackButtonPressed (sender: UIBarButtonItem) {
+        
+        if self.reportTextView.isFirstResponder() {
+            self.reportTextView.resignFirstResponder()
+        }
+
         self.dismissViewController(true, dismissed: { (didDismiss) in
             self.didMoveToParentViewController(nil)
             self.removeFromParentViewController()
         })
     }
 
+    
+    func keyboardWillShow(sender: NSNotification) {
+        
+        let userInfo: [NSObject : AnyObject] = sender.userInfo!
+        let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
+        let offset: CGSize = userInfo[UIKeyboardFrameEndUserInfoKey]!.CGRectValue.size
+        
+        if keyboardSize.height == offset.height {
+            if self.view.frame.origin.y == 0 {
+                UIView.animateWithDuration(0.2, animations: { () -> Void in
+                    self.view.frame.origin.y -= keyboardSize.height - 65
+                })
+            }
+        } else {
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                self.view.frame.origin.y += keyboardSize.height - offset.height
+            })
+        }
+        
+    }
+    
+    @IBAction func dismissKeyboard(recognizer : UITapGestureRecognizer) {
+        if self.reportTextView.isFirstResponder() {
+            self.reportTextView.resignFirstResponder()
+        }
+    }
+    
+    
+    func keyboardWillHide(sender: NSNotification) {
+        let userInfo: [NSObject : AnyObject] = sender.userInfo!
+        let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
+        
+        if self.view.frame.origin.y == self.view.frame.origin.y - keyboardSize.height {
+            self.view.frame.origin.y += keyboardSize.height
+        }
+        else {
+            self.view.frame.origin.y = 0
+        }
+    }
+
+    
     @IBAction func sendReportButtonAdded (sender: AnyObject) {
         
         let currentUserID = TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()
@@ -60,7 +116,12 @@ class TRSendReportViewController: TRBaseViewController {
         
         _ = TRCreateAReportRequest().sendCreatedReport((self.reportTextView?.text)!, reportType: "issue", reporterID: (currentUserID?.playerID)!, completion: { (didSucceed) in
             if (didSucceed != nil)  {
-                self.displayAlertWithTitle("Report Send", complete: { (complete) in
+
+                if self.reportTextView.isFirstResponder() {
+                    self.reportTextView.resignFirstResponder()
+                }
+
+                self.displayAlertWithTitle("Report Sent", complete: { (complete) in
                     self.dismissViewController(true, dismissed: { (didDismiss) in
                         self.didMoveToParentViewController(nil)
                         self.removeFromParentViewController()

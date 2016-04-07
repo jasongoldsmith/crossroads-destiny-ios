@@ -666,6 +666,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrLoadingimgBackgroundMap" translatesAutoresizingMaskIntoConstraints="NO" id="ZPG-Pm-LKH">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <gestureRecognizers/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Need help with something? Want to send us feedback? Let us know in the form below!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhx-jG-gxI">
                                 <rect key="frame" x="77" y="72" width="445" height="47"/>
@@ -742,12 +743,20 @@
                                 <exclude reference="ASo-He-sSw"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Iep-ZX-CqL" appends="YES" id="kuw-A9-lUA"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="reportTextView" destination="SHC-Yf-EmA" id="o2V-Rl-WtO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Zw-Jj-Sh4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Iep-ZX-CqL">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="vH8-Nd-68e" id="8c4-eC-7vV"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1535" y="2322"/>
         </scene>
