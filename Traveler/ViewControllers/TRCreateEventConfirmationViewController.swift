@@ -70,8 +70,7 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
             self.addCheckpointPickerView()
         } else {
             self.buttonTwoNextIconTopConstraint?.constant = 55.0
-            self.buttonThreeTopConstraint?.constant = 40.0
-            self.buttonThreeBottomConstraint?.constant = 300.0
+            self.buttonThreeTopConstraint?.constant = -50.0
             
             self.buttonTwo?.hidden = true
             self.buttonThreeNextIconImage?.hidden = true
