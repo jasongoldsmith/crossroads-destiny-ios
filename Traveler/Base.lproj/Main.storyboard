@@ -694,13 +694,16 @@
                                     <constraint firstAttribute="width" constant="499" id="t5Q-f1-8Zs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="SeV-K3-GTO"/>
                                         <exclude reference="cCa-bk-omn"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="vH8-Nd-68e" id="XrR-tf-Rmm"/>
+                                </connections>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahp-Nk-xyg">
                                 <rect key="frame" x="460" y="474" width="90" height="30"/>

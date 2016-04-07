@@ -89,6 +89,15 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
     }
     
     
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            self.reportTextView.resignFirstResponder()
+            self.sendReportButtonAdded(self.reportTextView)
+        }
+        
+        return true
+    }
+    
     func keyboardWillHide(sender: NSNotification) {
         let userInfo: [NSObject : AnyObject] = sender.userInfo!
         let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
