@@ -80,7 +80,7 @@ class TRBaseViewController: UIViewController {
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.Default
+        return UIStatusBarStyle.LightContent
     }
     
     func setStatusBarBackgroundColor(color: UIColor) {

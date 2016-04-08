@@ -192,6 +192,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
                 let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
                 let vc : TRCreateEventViewController = storyboard.instantiateViewControllerWithIdentifier(K.ViewControllerIdenifier.VIEWCONTROLLER_CREATE_EVENT) as! TRCreateEventViewController
                 let navigationController = UINavigationController(rootViewController: vc)
+                navigationController.navigationBar.barStyle = .Black
                 self.presentViewController(navigationController, animated: true, completion: nil)
             } else {
                 self.appManager.log.debug("Activity List fetch failed")

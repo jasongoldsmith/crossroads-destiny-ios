@@ -95,7 +95,6 @@ class TRApplicationManager: NSObject {
         self.slideMenuController.closeRight()
         self.slideMenuController.addRightGestures()
         self.slideMenuController.changeRightViewWidth(340.0)
-        
         parentViewController.presentViewController(self.slideMenuController, animated: true, completion: {
         })
     }

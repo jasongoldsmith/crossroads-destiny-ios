@@ -32,9 +32,6 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
         self.userPSNIDTxtField.attributedPlaceholder = NSAttributedString(string:"Enter PSN ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         
         self.userPSNIDTxtField.delegate = self
-        
-        //Set Status Bar Background
-        self.setStatusBarBackgroundColor(UIColor.blackColor())
     }
     
     override func viewWillDisappear(animated: Bool) {

@@ -29,9 +29,6 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
 
         self.userNameTxtField.attributedPlaceholder = NSAttributedString(string:"Enter username", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         self.userPwdTxtField.attributedPlaceholder = NSAttributedString(string:"Enter password", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
-       
-        //Set Status Bar Background
-        self.setStatusBarBackgroundColor(UIColor.blackColor())
     }
     
     override func viewWillDisappear(animated: Bool) {
