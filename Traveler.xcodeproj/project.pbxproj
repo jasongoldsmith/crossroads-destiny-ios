@@ -139,6 +139,10 @@
 		33FDB9D71C892FEF0066237C /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB9D61C892FEF0066237C /* ImageHelper.swift */; };
 		33FDB9D81C8930A50066237C /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB9D61C892FEF0066237C /* ImageHelper.swift */; };
 		33FDB9D91C8930A60066237C /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB9D61C892FEF0066237C /* ImageHelper.swift */; };
+		5C2671741CBB2DD800C47615 /* TRSendChatMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBD7BCD1CAC91C70078636D /* TRSendChatMessageView.swift */; };
+		5C2671751CBB2DD900C47615 /* TRSendChatMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBD7BCD1CAC91C70078636D /* TRSendChatMessageView.swift */; };
+		5CBD7BCC1CAC91A90078636D /* TRSendChatMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CBD7BCB1CAC91A90078636D /* TRSendChatMessageView.xib */; };
+		5CBD7BCE1CAC91C70078636D /* TRSendChatMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBD7BCD1CAC91C70078636D /* TRSendChatMessageView.swift */; };
 		6238D2E21C7ADE8E0085C8AA /* TRUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6238D2E11C7ADE8E0085C8AA /* TRUserInfo.swift */; };
 		6238D2E31C7ADE8E0085C8AA /* TRUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6238D2E11C7ADE8E0085C8AA /* TRUserInfo.swift */; };
 		6238D2E41C7ADE8E0085C8AA /* TRUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6238D2E11C7ADE8E0085C8AA /* TRUserInfo.swift */; };
@@ -232,6 +236,8 @@
 		33FDB9D01C8778150066237C /* TRJoinEventRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRJoinEventRequest.swift; sourceTree = "<group>"; };
 		33FDB9D61C892FEF0066237C /* ImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		4909F40824E557126E933B36 /* Pods-Traveler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Traveler/Pods-Traveler.debug.xcconfig"; sourceTree = "<group>"; };
+		5CBD7BCB1CAC91A90078636D /* TRSendChatMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRSendChatMessageView.xib; sourceTree = "<group>"; };
+		5CBD7BCD1CAC91C70078636D /* TRSendChatMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRSendChatMessageView.swift; sourceTree = "<group>"; };
 		6238D2E11C7ADE8E0085C8AA /* TRUserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRUserInfo.swift; sourceTree = "<group>"; };
 		6294972C1C7BB5F3005E4F91 /* TRAuthenticationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRAuthenticationRequest.swift; sourceTree = "<group>"; };
 		629497311C7C04E1005E4F91 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
@@ -285,21 +291,23 @@
 		33742DB51C8317A400C46742 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				33742DB11C83179D00C46742 /* TREventTableCellView.swift */,
-				33742DB61C8317EF00C46742 /* TREventTableCellView.xib */,
 				33FDB9AD1C850AFC0066237C /* EventButton.swift */,
-				339D8F271C90F77E00A2620F /* TRActivitySelectionCell.swift */,
-				339D8F2B1C90F79800A2620F /* TRActivitySelectionCell.xib */,
 				3374D74C1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift */,
 				3374D7501C92591F0036E9C8 /* TRActivityCheckPointPicker.xib */,
-				33104BFA1C97B1E70024D601 /* TRActivityIndicatorView.xib */,
 				33104BFE1C97B1F40024D601 /* TRActivityIndicatorView.swift */,
+				33104BFA1C97B1E70024D601 /* TRActivityIndicatorView.xib */,
+				339D8F271C90F77E00A2620F /* TRActivitySelectionCell.swift */,
+				339D8F2B1C90F79800A2620F /* TRActivitySelectionCell.xib */,
 				3329B58B1C9B524D00CC1F9B /* TRErrorNotificationView.swift */,
 				3329B58F1C9B528F00CC1F9B /* TRErrorNotificationView.xib */,
-				3329B5931C9B7A8500CC1F9B /* TRPushNotificationView.swift */,
-				3329B5971C9B7A9000CC1F9B /* TRPushNotificationView.xib */,
 				3398E1B11CAB7EE0001F022B /* TREventInfoPlayerCell.swift */,
 				3398E1B51CAB7F14001F022B /* TREventInfoPlayerCell.xib */,
+				33742DB11C83179D00C46742 /* TREventTableCellView.swift */,
+				33742DB61C8317EF00C46742 /* TREventTableCellView.xib */,
+				3329B5931C9B7A8500CC1F9B /* TRPushNotificationView.swift */,
+				3329B5971C9B7A9000CC1F9B /* TRPushNotificationView.xib */,
+				5CBD7BCD1CAC91C70078636D /* TRSendChatMessageView.swift */,
+				5CBD7BCB1CAC91A90078636D /* TRSendChatMessageView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -515,6 +523,11 @@
 					62C1FF2B1C77C15C00A78798 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 7MUH8L24FY;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					62C1FF3F1C77C15C00A78798 = {
 						CreatedOnToolsVersion = 7.2;
@@ -557,6 +570,7 @@
 				33742DB71C8317EF00C46742 /* TREventTableCellView.xib in Resources */,
 				3374D7511C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */,
 				33104BFB1C97B1E70024D601 /* TRActivityIndicatorView.xib in Resources */,
+				5CBD7BCC1CAC91A90078636D /* TRSendChatMessageView.xib in Resources */,
 				62F279BF1C7D1318008D67DC /* Assets.xcassets in Resources */,
 				62C1FF3A1C77C15C00A78798 /* LaunchScreen.storyboard in Resources */,
 				3329B5901C9B528F00CC1F9B /* TRErrorNotificationView.xib in Resources */,
@@ -665,6 +679,7 @@
 			files = (
 				331E0F051C9B852200A80D32 /* TRPushNotificationView.swift in Sources */,
 				33742DB21C83179D00C46742 /* TREventTableCellView.swift in Sources */,
+				5CBD7BCE1CAC91C70078636D /* TRSendChatMessageView.swift in Sources */,
 				3397E2831C93822F008CCCDB /* TRDeviceTokenRequest.swift in Sources */,
 				62C1FF671C77D83800A78798 /* TRSignInViewController.swift in Sources */,
 				33974F1A1CADD9CD0015C9D5 /* TRSendReportViewController.swift in Sources */,
@@ -746,6 +761,7 @@
 				3374D74E1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift in Sources */,
 				62C1FF641C77D7F000A78798 /* TRCreateAccountViewController.swift in Sources */,
 				33742D811C7FC17700C46742 /* TRConstants.swift in Sources */,
+				5C2671741CBB2DD800C47615 /* TRSendChatMessageView.swift in Sources */,
 				33FDB9BD1C863AF30066237C /* TRgetActivityList.swift in Sources */,
 				62C5DF7A1C79769C0039A88E /* TREventListViewController.swift in Sources */,
 				3398E1A61CAB18C7001F022B /* TREventInformationViewController.swift in Sources */,
@@ -798,6 +814,7 @@
 				3374D74F1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift in Sources */,
 				62C1FF651C77D7F000A78798 /* TRCreateAccountViewController.swift in Sources */,
 				33742D821C7FC17800C46742 /* TRConstants.swift in Sources */,
+				5C2671751CBB2DD900C47615 /* TRSendChatMessageView.swift in Sources */,
 				33FDB9BE1C863AF40066237C /* TRgetActivityList.swift in Sources */,
 				62C5DF7B1C79769C0039A88E /* TREventListViewController.swift in Sources */,
 				3398E1A71CAB18C7001F022B /* TREventInformationViewController.swift in Sources */,
@@ -867,7 +884,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -939,15 +956,15 @@
 			baseConfigurationReference = 4909F40824E557126E933B36 /* Pods-Traveler.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jason Goldsmith (SCPHHM7K6R)";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = Traveler/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.verizon.feighty.Traveler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5469a359-4f81-49a6-b5a6-ca352efec429";
 				SWIFT_OBJC_BRIDGING_HEADER = "TR-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -958,15 +975,15 @@
 			baseConfigurationReference = B5F403861766ABE58376D5E8 /* Pods-Traveler.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jason Goldsmith (SCPHHM7K6R)";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = Traveler/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.verizon.feighty.Traveler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5469a359-4f81-49a6-b5a6-ca352efec429";
 				SWIFT_OBJC_BRIDGING_HEADER = "TR-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

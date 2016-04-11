@@ -104,7 +104,6 @@ class TREventTableCellView: UITableViewCell {
             case 1:
                 
                 self.playerImageTwo.hidden = false
-                self.playerImageTwo.hidden = false
                 
                 if let imageURLString = player.playerImageUrl {
                     let url = NSURL(string: imageURLString)

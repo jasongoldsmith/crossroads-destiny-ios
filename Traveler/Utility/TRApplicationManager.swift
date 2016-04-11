@@ -17,7 +17,7 @@ class TRApplicationManager: NSObject {
     // MARK:- Instances
     
     private let TIMER_INTERVAL: Double = 5
-    private let REQUEST_TIME_OUT = 15.0
+    private let REQUEST_TIME_OUT = 30.0
     private let UPCOMING_EVENT_TIME_THREASHOLD = 1
     private var timer: NSTimer = NSTimer()
     
@@ -115,9 +115,17 @@ class TRApplicationManager: NSObject {
                         self.pushNotificationView.eventStatusDescription.text = eventType
                     }
                 }
-            }
-            if let apsData = userInfo.objectForKey("aps") as? NSDictionary {
-                self.pushNotificationView.eventStatusLabel.text =  apsData.objectForKey("alert") as? String
+                if let _ = payload.objectForKey("playerMessage"){
+                    if let apsData = userInfo.objectForKey("aps") as? NSDictionary {
+                        self.pushNotificationView.eventStatusDescription.text =  apsData.objectForKey("alert") as? String
+                        self.pushNotificationView.eventStatusLabel.text =  "Chat Message"
+
+                    }
+                } else {
+                    if let apsData = userInfo.objectForKey("aps") as? NSDictionary {
+                        self.pushNotificationView.eventStatusLabel.text =  apsData.objectForKey("alert") as? String
+                    }
+                }
             }
         }
         

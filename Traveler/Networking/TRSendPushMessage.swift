@@ -11,12 +11,13 @@ import Foundation
 
 class TRSendPushMessage: TRRequest {
     
-    func sendPushMessageTo (userId: String, messageString: String, completion: TRValueCallBack) {
+    func sendPushMessageTo (userId: String, eventId: String, messageString: String, completion: TRValueCallBack) {
         
         let pushMessage = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_SEND_PUSH_MESSAGE
         var params = [String: AnyObject]()
-        params["id"] = userId
-        params["message"] = messageString
+        params["id"]        = userId
+        params["eId"]       = eventId
+        params["message"]   = messageString
         
         let request = TRRequest()
         request.params = params

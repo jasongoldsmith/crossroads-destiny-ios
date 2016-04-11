@@ -22,13 +22,27 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     @IBOutlet weak var eventLightCount: UILabel?
     @IBOutlet weak var eventInfoTable: UITableView?
     
+    var sendChatMessageView : TRSendChatMessageView!
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.sendChatMessageView = NSBundle.mainBundle().loadNibNamed("TRSendChatMessageView", owner: self, options: nil)[0] as! TRSendChatMessageView
+        let xAxiDistance:CGFloat  = 0
+        let yAxisDistance:CGFloat = 300
+        
+        if let topController = UIApplication.sharedApplication().keyWindow?.rootViewController {
+            self.sendChatMessageView.frame = CGRectMake(xAxiDistance, yAxisDistance, topController.view.bounds.width, self.sendChatMessageView.frame.height)
+            self.sendChatMessageView.removeFromSuperview()
+        }
+                
         guard let _ = self.eventInfo else {
             self.dismissViewController(true, dismissed: { (didDismiss) in
             })
-            
             return
         }
         
@@ -62,6 +76,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
             let playersNameString = "Created by " + (self.eventInfo?.eventCreator?.playerPsnID!)!
             self.eventDescription?.text = playersNameString
         }
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -128,6 +143,10 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         
         if indexPath.row < self.eventInfo?.eventPlayersArray.count {
             cell.updateCellViewWithEvent((self.eventInfo?.eventPlayersArray[indexPath.row])!, eventInfo: self.eventInfo!)
+            if (TRApplicationManager.sharedInstance.isCurrentPlayerCreatorOfTheEvent(self.eventInfo!)) {
+                cell.chatButton?.hidden = false
+            }
+            cell.chatButton?.tag = indexPath.row
             cell.chatButton?.addTarget(self, action: #selector(TREventInformationViewController.sendChatMessage(_:)), forControlEvents: .TouchUpInside)
             cell.leaveEventButton?.addTarget(self, action: #selector(TREventInformationViewController.leaveEvent(_:)), forControlEvents: .TouchUpInside)
         } else {
@@ -160,6 +179,10 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
             TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("No Player Object Found")
             return
         }
+        self.sendChatMessageView.sendToLabel.text = self.eventInfo?.eventPlayersArray[sender.tag].playerPsnID
+        self.sendChatMessageView.userId = player.playerID
+        self.sendChatMessageView.eventId = self.eventInfo?.eventID
+        self.view.addSubview(self.sendChatMessageView)
         
         print("Send Message to player: \(player.playerID) with Event: \(self.eventInfo?.eventID)")
     }

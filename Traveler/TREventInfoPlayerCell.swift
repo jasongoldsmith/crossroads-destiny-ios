@@ -38,16 +38,23 @@ class TREventInfoPlayerCell: UITableViewCell {
             TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.playerAvatorImageView!)
         }
 
+        if !TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(eventInfo) {
+            self.chatButton?.hidden = true
+            return
+        }
+        
         // If current user is in the event, give an option to leave the event
         if TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(eventInfo) &&  playerInfo.playerID == TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()?.playerID {
             self.leaveEventButton?.hidden = false
+            self.chatButton?.hidden = true
         }
         
-        if !TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(eventInfo) {
-            self.chatButton?.hidden = true
-        } else if playerInfo.playerID == TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()?.playerID {
-            self.chatButton?.hidden = true
-        } else if playerInfo.playerID != eventInfo.eventCreator?.playerID {
+        if playerInfo.playerID == eventInfo.eventCreator?.playerID {
+            self.chatButton?.hidden = false
+            return
+        }
+        
+        if playerInfo.playerID != eventInfo.eventCreator?.playerID {
             self.chatButton?.hidden = true
         }
     }

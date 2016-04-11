@@ -24,3 +24,4 @@ class TREventInfo: NSObject {
     var isFutureEvent           : Bool = false
 }
 
+
