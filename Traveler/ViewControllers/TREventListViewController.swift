@@ -93,6 +93,9 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     
     //MARK:- Table Delegate Methods
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard self.eventsInfo.count > 0 else {
+            return 0
+        }
         return 1
     }
     
@@ -112,6 +115,10 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        guard self.eventsInfo.count > 0 else {
+            return 0
+        }
         
         if self.segmentControl?.selectedSegmentIndex == 0 {
             return self.eventsInfo.count

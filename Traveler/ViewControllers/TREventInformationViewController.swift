@@ -179,7 +179,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
             TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("No Player Object Found")
             return
         }
-        self.sendChatMessageView.sendToLabel.text = self.eventInfo?.eventPlayersArray[sender.tag].playerPsnID
+        self.sendChatMessageView.sendToLabel.text = "To: " + (self.eventInfo?.eventPlayersArray[sender.tag].playerPsnID!)!
         self.sendChatMessageView.userId = player.playerID
         self.sendChatMessageView.eventId = self.eventInfo?.eventID
         self.view.addSubview(self.sendChatMessageView)
