@@ -28,6 +28,7 @@ class TRBaseViewController: UIViewController {
             name: UIApplicationWillEnterForegroundNotification,
             object: nil)
         
+        
         NSNotificationCenter.defaultCenter().addObserver(self,
             selector: #selector(TRBaseViewController.applicationDidEnterBackground),
             name: UIApplicationDidEnterBackgroundNotification,
@@ -36,12 +37,12 @@ class TRBaseViewController: UIViewController {
         // Notification Observer
         NSNotificationCenter.defaultCenter().addObserver(self,
             selector: #selector(TRBaseViewController.didReceiveRemoteNotificationInActiveSesion(_:)),
-            name: "RemoteNotificationWithActiveSesion",
+            name: K.NOTIFICATION_TYPE.RemoteNotificationWithActiveSesion,
             object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self,
             selector: #selector(TRBaseViewController.didReceiveRemoteNotificationInActiveSesion(_:)),
-            name: "UIApplicationDidReceiveRemoteNotification",
+            name: K.NOTIFICATION_TYPE.UIApplicationDidReceiveRemoteNotification,
             object: nil)
 
         
@@ -97,11 +98,13 @@ class TRBaseViewController: UIViewController {
     }
     
     func applicationWillEnterForeground() {
-        appManager.log.debug("applicationWillEnterForeground")
+        //FETCH NEW EVENT/ ACTIVITIES HERE
     }
     
     func applicationDidEnterBackground() {
-        TRApplicationManager.sharedInstance.purgeSavedData()
+        // PURGE EXISTING DATA HERE
+        
+        //TRApplicationManager.sharedInstance.purgeSavedData()
     }
     
     func didReceiveRemoteNotificationInActiveSesion(sender: NSNotification) {
@@ -122,7 +125,8 @@ class TRBaseViewController: UIViewController {
         //Remove Observers
         NSNotificationCenter.defaultCenter().removeObserver(UIApplicationWillEnterForegroundNotification)
         NSNotificationCenter.defaultCenter().removeObserver(UIApplicationDidEnterBackgroundNotification)
-        
+        NSNotificationCenter.defaultCenter().removeObserver(K.NOTIFICATION_TYPE.RemoteNotificationWithActiveSesion)
+        NSNotificationCenter.defaultCenter().removeObserver(K.NOTIFICATION_TYPE.UIApplicationDidReceiveRemoteNotification)
         
         appManager.log.debug("\(NSStringFromClass(self.dynamicType))")
     }

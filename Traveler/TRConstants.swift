@@ -63,6 +63,11 @@ struct K {
         static let RAIDS    = "Raid"
         static let CRUCIBLE = "Crucible"
     }
+    
+    struct NOTIFICATION_TYPE {
+        static let RemoteNotificationWithActiveSesion = "REMOTE_NOTIFICATION_WITH_ACTIVE_SESSION"
+        static let UIApplicationDidReceiveRemoteNotification = "APPLICATION_DID_RECEIVE_REMOTE_NOTIFICATION"
+    }
 }
 
 enum EVENT_STATUS : String {
