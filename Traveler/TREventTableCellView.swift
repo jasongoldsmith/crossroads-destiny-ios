@@ -97,9 +97,6 @@ class TREventTableCellView: UITableViewCell {
                 if let imageURLString = player.playerImageUrl {
                     let url = NSURL(string: imageURLString)
                     self.playerImageOne!.sd_setImageWithURL(url)
-//                    self.playerImageOne!.sd_setImageWithURL(url, completed: { (image: UIImage?, error: NSError?, cacheType: SDImageCacheType!, imageURL: NSURL?) in
-//                        print("***** Fectched the Image")
-//                    })
                     TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.playerImageOne)
                 }
 
@@ -111,10 +108,6 @@ class TREventTableCellView: UITableViewCell {
                 if let imageURLString = player.playerImageUrl {
                     let url = NSURL(string: imageURLString)
                     self.playerImageTwo!.sd_setImageWithURL(url)
-//                    self.playerImageTwo!.sd_setImageWithURL(url, completed: { (image: UIImage?, error: NSError?, cacheType: SDImageCacheType!, imageURL: NSURL?) in
-//                        print("***** Fectched the Image")
-//                    })
-                    
                     TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.playerImageTwo)
                 }
                 
