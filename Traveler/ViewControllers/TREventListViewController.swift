@@ -156,10 +156,12 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             cell.updateCellViewWithEvent(self.eventsInfo[indexPath.section])
             cell.joinEventButton?.buttonEventInfo = eventsInfo[indexPath.section]
             cell.leaveEventButton.buttonEventInfo = eventsInfo[indexPath.section]
+            cell.eventTimeLabel.hidden = true
         } else {
             cell.updateCellViewWithEvent(self.futureEventsInfo[indexPath.section])
             cell.joinEventButton?.buttonEventInfo = futureEventsInfo[indexPath.section]
             cell.leaveEventButton.buttonEventInfo = futureEventsInfo[indexPath.section]
+            cell.eventTimeLabel.hidden = false
         }
 
         cell.joinEventButton?.addTarget(self, action: #selector(TREventListViewController.joinAnEvent(_:)), forControlEvents: .TouchUpInside)

@@ -26,7 +26,7 @@ class TREventTableCellView: UITableViewCell {
     @IBOutlet weak var playerCountLabel     :UILabel!
     @IBOutlet weak var joinEventButton      :EventButton!
     @IBOutlet weak var leaveEventButton     :EventButton!
-    
+    @IBOutlet weak var eventTimeLabel       :UILabel!
     
     override func prepareForReuse() {
         
@@ -51,7 +51,7 @@ class TREventTableCellView: UITableViewCell {
         
         // Set  Event Player Names
         if (eventInfo.eventPlayersArray.count < eventInfo.eventActivity?.activityMaxPlayers?.integerValue) {
-            let stringColorAttribute = [NSForegroundColorAttributeName: UIColor.yellowColor()]
+            let stringColorAttribute = [NSForegroundColorAttributeName: UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)]
             let extraPlayersRequiredCount = ((eventInfo.eventActivity?.activityMaxPlayers?.integerValue)! - eventInfo.eventPlayersArray.count)
             let extraPlayersRequiredCountString = String(extraPlayersRequiredCount)
             let extraPlayersRequiredCountStringNew = " LF" + "\(extraPlayersRequiredCountString)M"
@@ -82,6 +82,14 @@ class TREventTableCellView: UITableViewCell {
                 self.contentView.layer.borderColor = UIColor(red: 96/255, green: 184/255, blue: 0/255, alpha: 1).CGColor
             }
         })
+        
+        
+        if let hasLaunchDate = eventInfo.eventLaunchDate {
+            let formatter = NSDateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+            let eventDate = formatter.dateFromString(hasLaunchDate)
+            self.eventTimeLabel.text = eventDate!.toString()
+        }
     }
     
     func addRadiusToPlayerIconsForPlayersArray (eventInfo: TREventInfo) {
