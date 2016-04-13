@@ -65,10 +65,10 @@ class TRRequest {
                         let swiftyJsonVar = JSON(response.result.value!)
                         
                         if swiftyJsonVar["responseType"].string == "ERR" {
-                            if let message = swiftyJsonVar["message"]["message"].string {
+                            if let message = swiftyJsonVar["error"].string {
                                 TRApplicationManager.sharedInstance.addErrorSubViewWithMessage(message)
                             } else {
-                                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Some Error")
+                                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Undefined Server Error")
                             }
                             
                         } else {
