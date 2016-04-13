@@ -77,6 +77,13 @@ class TRUserInfo: NSObject {
 
     class func getUserImageString() -> String? {
         
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        if (userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_USER_IMAGE) != nil) {
+            let userImageUrl = userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_USER_IMAGE) as! String
+            
+            return userImageUrl
+        }
+        
         let currentUser = TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()
         guard let currentUserImage = currentUser?.playerImageUrl else {
             return nil

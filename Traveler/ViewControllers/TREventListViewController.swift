@@ -26,7 +26,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     var eventsInfo: [TREventInfo] = []
     
     // Future Events Information
-    var futureEventsInfo: [TREventInfo] = []
+    var futureEventsInfo: [TREventInfo] = [] 
     
     // Pull to Refresh
     lazy var refreshControl: UIRefreshControl = {
@@ -57,20 +57,28 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         //Adding Radius to the Current Player Avator
         self.currentPlayerAvatorIcon?.layer.cornerRadius = (self.currentPlayerAvatorIcon?.frame.width)!/2
 
-        //Avator for Current Player
-        if let imageUrl = TRUserInfo.getUserImageString() {
-            let imageUrl = NSURL(string: imageUrl)
-            self.currentPlayerAvatorIcon?.sd_setImageWithURL(imageUrl)
-            TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.currentPlayerAvatorIcon!)
-            
-            // Add LogOut event action to Avator Image
-            self.addLogOutEventToAvatorImageView()
-        }
-        
         //Load table
         self.reloadEventTable()
+        
+        //Add User Avator Image
+        self.updateUserAvatorImage()
     }
 
+    func updateUserAvatorImage () {
+        
+        //Avator for Current Player
+        if self.currentPlayerAvatorIcon?.image == nil {
+            if let imageUrl = TRUserInfo.getUserImageString() {
+                let imageUrl = NSURL(string: imageUrl)
+                self.currentPlayerAvatorIcon?.sd_setImageWithURL(imageUrl)
+                TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.currentPlayerAvatorIcon!)
+                
+                // Add LogOut event action to Avator Image
+                self.addLogOutEventToAvatorImageView()
+            }
+        }
+    }
+    
     func addLogOutEventToAvatorImageView () {
         let logOutGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(TREventListViewController.logoutBtnTapped(_:)))
         self.currentPlayerAvatorIcon?.userInteractionEnabled = true
