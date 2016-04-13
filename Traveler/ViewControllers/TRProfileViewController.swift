@@ -26,15 +26,26 @@ class TRProfileViewController: TRBaseViewController {
     func updateView () {
         self.currentUser = TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()
         
-        if let _ = self.currentUser {
-            if let userImage = self.currentUser?.playerImageUrl {
-                let imageURL = NSURL(string: userImage)
-                self.avatorImageView?.sd_setImageWithURL(imageURL)
-                TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.avatorImageView!, borderWidth: 2.0)
-            }
+        // User Image
+        self.updateUserAvatorImage()
             
-            // User's psnID
-            self.avatorUserName?.text = self.currentUser?.playerPsnID
+        // User's psnID
+        if let hasUserName = self.currentUser?.playerPsnID {
+            self.avatorUserName?.text = hasUserName
+        } else {
+            self.avatorUserName?.text = TRUserInfo.getUserName()
+        }
+    }
+    
+    func updateUserAvatorImage () {
+        
+        //Avator for Current Player
+        if self.avatorImageView?.image == nil {
+            if let imageUrl = TRUserInfo.getUserImageString() {
+                let imageUrl = NSURL(string: imageUrl)
+                self.avatorImageView?.sd_setImageWithURL(imageUrl)
+                TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.avatorImageView!)
+            }
         }
     }
     
