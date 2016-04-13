@@ -32,6 +32,9 @@
 		334E05C01C939D7C00973068 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C1FF2F1C77C15C00A78798 /* AppDelegate.swift */; };
 		335AF5E81CA49DF500EBB6EF /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338AECFD1C9D03AE008B064F /* Utility.swift */; };
 		335AF5E91CA49DF500EBB6EF /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338AECFD1C9D03AE008B064F /* Utility.swift */; };
+		336BF5271CBEB214005CD3DE /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */; };
+		336BF5281CBEB214005CD3DE /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */; };
+		336BF5291CBEB214005CD3DE /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */; };
 		33742D801C7FBDF100C46742 /* TRConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33742D7F1C7FBDF100C46742 /* TRConstants.swift */; };
 		33742D811C7FC17700C46742 /* TRConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33742D7F1C7FBDF100C46742 /* TRConstants.swift */; };
 		33742D821C7FC17800C46742 /* TRConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33742D7F1C7FBDF100C46742 /* TRConstants.swift */; };
@@ -199,6 +202,7 @@
 		3329B5931C9B7A8500CC1F9B /* TRPushNotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRPushNotificationView.swift; sourceTree = "<group>"; };
 		3329B5971C9B7A9000CC1F9B /* TRPushNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRPushNotificationView.xib; sourceTree = "<group>"; };
 		332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLeaveEventRequest.swift; sourceTree = "<group>"; };
+		336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		33742D7F1C7FBDF100C46742 /* TRConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRConstants.swift; sourceTree = "<group>"; };
 		33742D851C7FC46B00C46742 /* TRBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRBaseViewController.swift; sourceTree = "<group>"; };
 		33742D871C7FC4B400C46742 /* TRApplicationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRApplicationManager.swift; sourceTree = "<group>"; };
@@ -360,6 +364,7 @@
 				33742D871C7FC4B400C46742 /* TRApplicationManager.swift */,
 				33742D891C7FC51700C46742 /* TRStoryBoardManager.swift */,
 				33FDB9D61C892FEF0066237C /* ImageHelper.swift */,
+				336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -679,6 +684,7 @@
 			files = (
 				331E0F051C9B852200A80D32 /* TRPushNotificationView.swift in Sources */,
 				33742DB21C83179D00C46742 /* TREventTableCellView.swift in Sources */,
+				336BF5271CBEB214005CD3DE /* UIApplicationExtension.swift in Sources */,
 				5CBD7BCE1CAC91C70078636D /* TRSendChatMessageView.swift in Sources */,
 				3397E2831C93822F008CCCDB /* TRDeviceTokenRequest.swift in Sources */,
 				62C1FF671C77D83800A78798 /* TRSignInViewController.swift in Sources */,
@@ -733,6 +739,7 @@
 				3397E2841C93822F008CCCDB /* TRDeviceTokenRequest.swift in Sources */,
 				33FDB9B91C86247C0066237C /* TRRootViewController.swift in Sources */,
 				33974F171CADD0740015C9D5 /* TRCreateAReportRequest.swift in Sources */,
+				336BF5281CBEB214005CD3DE /* UIApplicationExtension.swift in Sources */,
 				33974F1B1CADD9CD0015C9D5 /* TRSendReportViewController.swift in Sources */,
 				33FDB9D81C8930A50066237C /* ImageHelper.swift in Sources */,
 				6238D2E31C7ADE8E0085C8AA /* TRUserInfo.swift in Sources */,
@@ -786,6 +793,7 @@
 				3397E2851C93822F008CCCDB /* TRDeviceTokenRequest.swift in Sources */,
 				33FDB9BA1C86247C0066237C /* TRRootViewController.swift in Sources */,
 				33974F181CADD0740015C9D5 /* TRCreateAReportRequest.swift in Sources */,
+				336BF5291CBEB214005CD3DE /* UIApplicationExtension.swift in Sources */,
 				33974F1C1CADD9CD0015C9D5 /* TRSendReportViewController.swift in Sources */,
 				33FDB9D91C8930A60066237C /* ImageHelper.swift in Sources */,
 				6238D2E41C7ADE8E0085C8AA /* TRUserInfo.swift in Sources */,

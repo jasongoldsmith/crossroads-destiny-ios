@@ -92,6 +92,18 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         super.didReceiveMemoryWarning()
     }
     
+    
+    override  func applicationWillEnterForeground() {
+        _ = TRGetEventsList().getEventsListWithClearActivityBackGround(false, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
+            if(didSucceed == true) {
+                    self.reloadEventTable()
+            } else {
+                self.appManager.log.debug("Failed")
+            }
+        })
+    }
+
+    
     //MARK:- Table Delegate Methods
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard self.eventsInfo.count > 0 else {

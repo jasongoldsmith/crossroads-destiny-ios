@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SlideMenuControllerSwift
 
 class TRBaseViewController: UIViewController {
     
@@ -98,14 +99,32 @@ class TRBaseViewController: UIViewController {
     }
     
     func applicationWillEnterForeground() {
-        self.view.window?.rootViewController?.dismissViewControllerAnimated(true, completion: {
-        })
+        
     }
     
     func applicationDidEnterBackground() {
         
         // PURGE EXISTING DATA HERE
         TRApplicationManager.sharedInstance.purgeSavedData()
+        
+        if let topController = UIApplication.topViewController() {
+            
+            if topController.isKindOfClass(SlideMenuController) {
+                
+                let slideVC = topController as! SlideMenuController
+                if slideVC.isRightOpen() {
+                    slideVC.closeRight()
+                } else {
+                    // If main is open, don't do anything. EventListVc will send request to fetch the eventList 
+                    // in it's overwritten "applicationWillEnterForeground" method
+                }
+            } else {
+                self.view.window?.rootViewController?.dismissViewControllerAnimated(true, completion: {
+                    self.didMoveToParentViewController(nil)
+                    self.removeFromParentViewController()
+                })
+            }
+        }
     }
     
     func didReceiveRemoteNotificationInActiveSesion(sender: NSNotification) {
