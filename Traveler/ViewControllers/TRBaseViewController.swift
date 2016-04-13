@@ -98,13 +98,14 @@ class TRBaseViewController: UIViewController {
     }
     
     func applicationWillEnterForeground() {
-        //FETCH NEW EVENT/ ACTIVITIES HERE
+        self.view.window?.rootViewController?.dismissViewControllerAnimated(true, completion: {
+        })
     }
     
     func applicationDidEnterBackground() {
-        // PURGE EXISTING DATA HERE
         
-        //TRApplicationManager.sharedInstance.purgeSavedData()
+        // PURGE EXISTING DATA HERE
+        TRApplicationManager.sharedInstance.purgeSavedData()
     }
     
     func didReceiveRemoteNotificationInActiveSesion(sender: NSNotification) {
@@ -118,6 +119,10 @@ class TRBaseViewController: UIViewController {
             self.removeFromParentViewController()
             dismissed(didDismiss: true)
         }
+    }
+    
+    func removeNavigationStackViewControllers () {
+        
     }
     
     deinit {

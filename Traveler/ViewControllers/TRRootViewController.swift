@@ -31,7 +31,6 @@ class TRRootViewController: TRBaseViewController {
             _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, indicatorTopConstraint: ACTIVITY_INDICATOR_TOP_CONSTRAINT, completion: { (didSucceed) -> () in
                 if(didSucceed == true) {
                     TRApplicationManager.sharedInstance.addSlideMenuController(self)
-//                    self.performSegueWithIdentifier("TREventListView", sender: self)
                 } else {
                     self.appManager.log.debug("Failed")
                 }

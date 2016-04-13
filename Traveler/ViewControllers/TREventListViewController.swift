@@ -88,12 +88,6 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
     
     
-    override func applicationDidEnterBackground() {
-    }
-    
-    override func applicationWillEnterForeground() {
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
