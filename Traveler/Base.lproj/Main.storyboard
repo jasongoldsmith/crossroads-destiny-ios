@@ -429,10 +429,10 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sn8-Yu-hPO">
-                                        <rect key="frame" x="76" y="13" width="394" height="19"/>
+                                        <rect key="frame" x="76" y="13" width="394" height="23"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="19" id="HNb-yx-sfa"/>
+                                            <constraint firstAttribute="height" constant="23" id="HNb-yx-sfa"/>
                                             <constraint firstAttribute="width" constant="394" id="lB7-QM-FVU"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
@@ -445,10 +445,10 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52j-jL-sAH">
-                                        <rect key="frame" x="76" y="32" width="31" height="21"/>
+                                        <rect key="frame" x="76" y="37" width="31" height="15"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="LgZ-pp-DiK"/>
+                                            <constraint firstAttribute="height" constant="15" id="LgZ-pp-DiK"/>
                                             <constraint firstAttribute="width" constant="394" id="QGz-mG-blB"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -470,6 +470,16 @@
                                         <color key="textColor" red="1" green="0.77647058820000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fp9-Y7-aCP">
+                                        <rect key="frame" x="76" y="53" width="138" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="138" id="ir9-Cd-DBc"/>
+                                            <constraint firstAttribute="height" constant="15" id="tXo-LX-W6R"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                        <color key="textColor" red="1" green="0.77647058820000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -478,9 +488,11 @@
                                     <constraint firstItem="okI-yi-tkL" firstAttribute="top" secondItem="a6w-if-ciG" secondAttribute="top" constant="15" id="Odj-Ao-DlX"/>
                                     <constraint firstItem="okI-yi-tkL" firstAttribute="leading" secondItem="a6w-if-ciG" secondAttribute="leading" constant="20" id="Q8n-M7-bVG"/>
                                     <constraint firstItem="5io-jw-Yt7" firstAttribute="firstBaseline" secondItem="sn8-Yu-hPO" secondAttribute="firstBaseline" constant="2" id="VFM-pn-4Rp"/>
+                                    <constraint firstItem="fp9-Y7-aCP" firstAttribute="top" secondItem="sn8-Yu-hPO" secondAttribute="bottom" constant="17" id="bK1-0J-bgr"/>
+                                    <constraint firstItem="fp9-Y7-aCP" firstAttribute="leading" secondItem="a6w-if-ciG" secondAttribute="leading" constant="76" id="bT0-F9-SmF"/>
                                     <constraint firstItem="52j-jL-sAH" firstAttribute="leading" secondItem="okI-yi-tkL" secondAttribute="trailing" constant="20" id="bhE-IW-xKK"/>
                                     <constraint firstItem="5io-jw-Yt7" firstAttribute="trailing" secondItem="a6w-if-ciG" secondAttribute="trailingMargin" constant="-15" id="eZx-Jg-6T9"/>
-                                    <constraint firstItem="52j-jL-sAH" firstAttribute="top" secondItem="sn8-Yu-hPO" secondAttribute="bottom" id="fGe-ax-F8L"/>
+                                    <constraint firstItem="52j-jL-sAH" firstAttribute="top" secondItem="sn8-Yu-hPO" secondAttribute="bottom" constant="1" id="fGe-ax-F8L"/>
                                     <constraint firstAttribute="height" constant="73" id="oK2-AU-PP6"/>
                                     <constraint firstItem="sn8-Yu-hPO" firstAttribute="top" secondItem="a6w-if-ciG" secondAttribute="top" constant="13" id="yFH-CE-5NA"/>
                                 </constraints>
@@ -536,6 +548,7 @@
                         <outlet property="eventIcon" destination="okI-yi-tkL" id="QK1-rD-Xmg"/>
                         <outlet property="eventInfoTable" destination="Aqr-oc-sZI" id="srG-Uv-1Wx"/>
                         <outlet property="eventLightCount" destination="5io-jw-Yt7" id="gMy-rr-SCQ"/>
+                        <outlet property="eventTimeLabel" destination="fp9-Y7-aCP" id="ABp-nq-ZxC"/>
                         <outlet property="eventTitle" destination="sn8-Yu-hPO" id="Y2X-0B-qCj"/>
                     </connections>
                 </viewController>

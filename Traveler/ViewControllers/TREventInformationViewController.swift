@@ -21,6 +21,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     @IBOutlet weak var eventDescription: UILabel?
     @IBOutlet weak var eventLightCount: UILabel?
     @IBOutlet weak var eventInfoTable: UITableView?
+    @IBOutlet var eventTimeLabel: UILabel?
     
     var sendChatMessageView : TRSendChatMessageView!
     
@@ -60,7 +61,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         
         // Set  Event Player Names
         if (self.eventInfo?.eventPlayersArray.count < self.eventInfo?.eventActivity?.activityMaxPlayers?.integerValue) {
-            let stringColorAttribute = [NSForegroundColorAttributeName: UIColor.yellowColor()]
+            let stringColorAttribute = [NSForegroundColorAttributeName: UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)]
             let extraPlayersRequiredCount = ((self.eventInfo?.eventActivity?.activityMaxPlayers?.integerValue)! - (self.eventInfo?.eventPlayersArray.count)!)
             let extraPlayersRequiredCountString = String(extraPlayersRequiredCount)
             let extraPlayersRequiredCountStringNew = " LF" + "\(extraPlayersRequiredCountString)M"
@@ -77,6 +78,14 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
             self.eventDescription?.text = playersNameString
         }
         
+        
+        //Event time label
+        if let hasLaunchDate = self.eventInfo?.eventLaunchDate {
+            let formatter = NSDateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+            let eventDate = formatter.dateFromString(hasLaunchDate)
+            self.eventTimeLabel?.text = eventDate!.toString()
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -183,8 +192,6 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         self.sendChatMessageView.userId = player.playerID
         self.sendChatMessageView.eventId = self.eventInfo?.eventID
         self.view.addSubview(self.sendChatMessageView)
-        
-        print("Send Message to player: \(player.playerID) with Event: \(self.eventInfo?.eventID)")
     }
     
     
