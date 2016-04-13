@@ -964,7 +964,7 @@
 			baseConfigurationReference = 4909F40824E557126E933B36 /* Pods-Traveler.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jason Goldsmith (SCPHHM7K6R)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jason Goldsmith (SCPHHM7K6R)";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = Traveler/Info.plist;
@@ -983,15 +983,15 @@
 			baseConfigurationReference = B5F403861766ABE58376D5E8 /* Pods-Traveler.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jason Goldsmith (SCPHHM7K6R)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Jason Goldsmith (7MUH8L24FY)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jason Goldsmith (7MUH8L24FY)";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = Traveler/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.verizon.feighty.Traveler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5469a359-4f81-49a6-b5a6-ca352efec429";
+				PROVISIONING_PROFILE = "7dc957e8-97b1-470c-a754-077097a81227";
 				SWIFT_OBJC_BRIDGING_HEADER = "TR-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
