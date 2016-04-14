@@ -38,12 +38,12 @@ class TRBaseViewController: UIViewController {
         // Notification Observer
         NSNotificationCenter.defaultCenter().addObserver(self,
             selector: #selector(TRBaseViewController.didReceiveRemoteNotificationInActiveSesion(_:)),
-            name: K.NOTIFICATION_TYPE.RemoteNotificationWithActiveSesion,
+            name: K.NOTIFICATION_TYPE.REMOTE_NOTIFICATION_WITH_ACTIVE_SESSION,
             object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self,
             selector: #selector(TRBaseViewController.didReceiveRemoteNotificationInActiveSesion(_:)),
-            name: K.NOTIFICATION_TYPE.UIApplicationDidReceiveRemoteNotification,
+            name: K.NOTIFICATION_TYPE.APPLICATION_DID_RECEIVE_REMOTE_NOTIFICATION,
             object: nil)
 
         
@@ -149,8 +149,8 @@ class TRBaseViewController: UIViewController {
         //Remove Observers
         NSNotificationCenter.defaultCenter().removeObserver(UIApplicationWillEnterForegroundNotification)
         NSNotificationCenter.defaultCenter().removeObserver(UIApplicationDidEnterBackgroundNotification)
-        NSNotificationCenter.defaultCenter().removeObserver(K.NOTIFICATION_TYPE.RemoteNotificationWithActiveSesion)
-        NSNotificationCenter.defaultCenter().removeObserver(K.NOTIFICATION_TYPE.UIApplicationDidReceiveRemoteNotification)
+        NSNotificationCenter.defaultCenter().removeObserver(K.NOTIFICATION_TYPE.REMOTE_NOTIFICATION_WITH_ACTIVE_SESSION)
+        NSNotificationCenter.defaultCenter().removeObserver(K.NOTIFICATION_TYPE.APPLICATION_DID_RECEIVE_REMOTE_NOTIFICATION)
         
         appManager.log.debug("\(NSStringFromClass(self.dynamicType))")
     }

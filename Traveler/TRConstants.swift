@@ -23,8 +23,8 @@ struct K {
         #if RELEASE
             static let TR_BaseUrl            =   "https://travelerbackendproduction.herokuapp.com"
         #else
-            static let TR_BaseUrl            =   "https://travelerbackendproduction.herokuapp.com"
-//            static let TR_BaseUrl            =   "https://travelerbackend.herokuapp.com"
+//            static let TR_BaseUrl            =   "https://travelerbackendproduction.herokuapp.com"
+            static let TR_BaseUrl            =   "https://travelerbackend.herokuapp.com"
         #endif
         
         static let TR_RegisterUrl        =   "/api/v1/auth/register"
@@ -65,8 +65,8 @@ struct K {
     }
     
     struct NOTIFICATION_TYPE {
-        static let RemoteNotificationWithActiveSesion = "REMOTE_NOTIFICATION_WITH_ACTIVE_SESSION"
-        static let UIApplicationDidReceiveRemoteNotification = "APPLICATION_DID_RECEIVE_REMOTE_NOTIFICATION"
+        static let REMOTE_NOTIFICATION_WITH_ACTIVE_SESSION = "RemoteNotificationWithActiveSesion"
+        static let APPLICATION_DID_RECEIVE_REMOTE_NOTIFICATION = "UIApplicationDidReceiveRemoteNotification"
     }
 }
 
