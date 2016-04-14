@@ -617,8 +617,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lly-Ep-C9p">
-                                <rect key="frame" x="175" y="309" width="250" height="44"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lly-Ep-C9p">
+                                <rect key="frame" x="175" y="423" width="250" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="YW7-o7-ArM"/>
                                     <constraint firstAttribute="width" constant="250" id="bmj-bm-Bqb"/>
@@ -639,14 +639,16 @@
                                     <action selector="logOutUser" destination="RJW-k0-l6u" eventType="touchUpInside" id="DLO-fp-LsJ"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gnx-Nj-sRV">
-                                <rect key="frame" x="175" y="417" width="250" height="44"/>
-                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gnx-Nj-sRV">
+                                <rect key="frame" x="175" y="301" width="250" height="44"/>
+                                <color key="backgroundColor" red="0.12156862745098039" green="0.19607843137254902" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="6cf-xM-UQb"/>
                                     <constraint firstAttribute="width" constant="250" id="x1T-pu-Dlr"/>
                                 </constraints>
-                                <state key="normal" title="Contact Us"/>
+                                <state key="normal" title="Contact Us">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="sendReport" destination="RJW-k0-l6u" eventType="touchUpInside" id="Jvn-Ld-nXP"/>
                                 </connections>
@@ -660,10 +662,10 @@
                             <constraint firstItem="yga-kS-xxF" firstAttribute="centerX" secondItem="NgN-Kf-uF4" secondAttribute="centerX" id="AuE-cy-8n3"/>
                             <constraint firstItem="Gnx-Nj-sRV" firstAttribute="centerX" secondItem="NgN-Kf-uF4" secondAttribute="centerX" id="Pyp-rA-c8Q"/>
                             <constraint firstItem="ftz-Fk-rbT" firstAttribute="top" secondItem="APu-zA-Kyk" secondAttribute="bottom" id="RoG-Rp-lm1"/>
-                            <constraint firstItem="yga-kS-xxF" firstAttribute="top" secondItem="lly-Ep-C9p" secondAttribute="bottom" constant="10" id="WBa-YI-6Wf"/>
+                            <constraint firstItem="yga-kS-xxF" firstAttribute="top" secondItem="lly-Ep-C9p" secondAttribute="bottom" constant="-104" id="WBa-YI-6Wf"/>
                             <constraint firstItem="2Ax-E1-ccC" firstAttribute="top" secondItem="tHf-b5-jNh" secondAttribute="bottom" constant="20" id="aOx-1l-ZZY"/>
-                            <constraint firstItem="Gnx-Nj-sRV" firstAttribute="top" secondItem="yga-kS-xxF" secondAttribute="bottom" constant="10" id="ab9-oZ-PJI"/>
-                            <constraint firstItem="lly-Ep-C9p" firstAttribute="top" secondItem="2Ax-E1-ccC" secondAttribute="bottom" constant="69" id="fwE-xg-XuX"/>
+                            <constraint firstItem="Gnx-Nj-sRV" firstAttribute="top" secondItem="yga-kS-xxF" secondAttribute="bottom" constant="-106" id="ab9-oZ-PJI"/>
+                            <constraint firstItem="lly-Ep-C9p" firstAttribute="top" secondItem="2Ax-E1-ccC" secondAttribute="bottom" constant="183" id="fwE-xg-XuX"/>
                             <constraint firstItem="ZEc-XV-f48" firstAttribute="trailing" secondItem="NgN-Kf-uF4" secondAttribute="trailingMargin" constant="-5" id="g72-W6-0j2"/>
                             <constraint firstItem="lly-Ep-C9p" firstAttribute="centerX" secondItem="NgN-Kf-uF4" secondAttribute="centerX" id="hK2-6R-Jbj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="APu-zA-Kyk" secondAttribute="trailing" constant="-20" id="iik-Mh-8Fk"/>
