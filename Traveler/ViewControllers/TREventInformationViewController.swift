@@ -86,6 +86,11 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         } else {
             self.eventTimeLabel?.hidden = true
         }
+        
+        //Hide Send All message if user is not part of the event
+        if (!TRApplicationManager.sharedInstance.isCurrentPlayerCreatorOfTheEvent(self.eventInfo!) || TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()?.playerID == self.eventInfo?.eventCreator?.playerID) {
+            self.sendMessageToAllButton?.hidden = true
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
