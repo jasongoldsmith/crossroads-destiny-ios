@@ -36,34 +36,22 @@
                         </constraints>
                         <state key="normal" image="iconChatDetailscreen"/>
                     </button>
-                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3r-CD-WeA" customClass="EventButton" customModule="Traveler" customModuleProvider="target">
-                        <rect key="frame" x="275" y="12" width="25" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20" id="iui-dQ-sbJ"/>
-                            <constraint firstAttribute="width" constant="25" id="y6X-uv-rf5"/>
-                        </constraints>
-                        <state key="normal" image="imgCancelX"/>
-                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="fxN-h5-4mk" firstAttribute="leading" secondItem="nDY-qg-Xm9" secondAttribute="leadingMargin" constant="10" id="ILg-04-Wq7"/>
                     <constraint firstItem="mdu-AY-zrC" firstAttribute="centerY" secondItem="nDY-qg-Xm9" secondAttribute="centerY" id="ML2-cd-jPr"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="H3r-CD-WeA" secondAttribute="bottom" constant="3.5" id="NHj-BP-Vxp"/>
                     <constraint firstItem="mdu-AY-zrC" firstAttribute="top" secondItem="nDY-qg-Xm9" secondAttribute="topMargin" id="USw-Fe-9xG"/>
-                    <constraint firstItem="H3r-CD-WeA" firstAttribute="top" secondItem="nDY-qg-Xm9" secondAttribute="topMargin" constant="4" id="ZLv-zW-i7K"/>
                     <constraint firstItem="Sz5-K0-lzH" firstAttribute="top" secondItem="mdu-AY-zrC" secondAttribute="top" id="dhM-9i-t5e"/>
                     <constraint firstItem="Sz5-K0-lzH" firstAttribute="leading" secondItem="mdu-AY-zrC" secondAttribute="trailing" constant="4" id="hBx-CP-t49"/>
                     <constraint firstItem="mdu-AY-zrC" firstAttribute="leading" secondItem="fxN-h5-4mk" secondAttribute="trailing" constant="20" id="mkf-rF-dVV"/>
                     <constraint firstItem="fxN-h5-4mk" firstAttribute="centerY" secondItem="nDY-qg-Xm9" secondAttribute="centerY" id="sBv-qb-xty"/>
                     <constraint firstItem="Sz5-K0-lzH" firstAttribute="trailing" secondItem="nDY-qg-Xm9" secondAttribute="trailingMargin" id="vMh-Bz-jny"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="H3r-CD-WeA" secondAttribute="trailing" constant="12" id="vrN-rS-TsS"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="chatButton" destination="Sz5-K0-lzH" id="maI-ZI-WHx"/>
-                <outlet property="leaveEventButton" destination="H3r-CD-WeA" id="sDQ-xk-RsF"/>
                 <outlet property="playerAvatorImageView" destination="fxN-h5-4mk" id="KLG-vy-avl"/>
                 <outlet property="playerNameLable" destination="mdu-AY-zrC" id="BVw-T2-X8k"/>
             </connections>
@@ -72,6 +60,5 @@
     </objects>
     <resources>
         <image name="iconChatDetailscreen" width="36" height="36"/>
-        <image name="imgCancelX" width="36" height="36"/>
     </resources>
 </document>

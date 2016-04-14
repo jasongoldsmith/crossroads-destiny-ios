@@ -23,6 +23,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     @IBOutlet weak var eventInfoTable: UITableView?
     @IBOutlet weak var eventTimeLabel: UILabel?
     @IBOutlet weak var sendMessageToAllButton: UIButton?
+    @IBOutlet weak var leaveEventButton: UIButton?
     
     var sendChatMessageView : TRSendChatMessageView!
     
@@ -60,8 +61,6 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         }
         
         
-        
-        
         // Set  Event Player Names
         if (self.eventInfo?.eventPlayersArray.count < self.eventInfo?.eventActivity?.activityMaxPlayers?.integerValue) {
             let stringColorAttribute = [NSForegroundColorAttributeName: UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)]
@@ -93,13 +92,28 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         } else {
             self.eventTimeLabel?.hidden = true
         }
-        
+     
+        //Leave Event and Send Message To All button update
+        self.updateBottomButtons()
+    }
+    
+    func updateBottomButtons () {
         //Hide Send All message if user is not part of the event
         let isCurrentUserCreatorOfEvent = TRApplicationManager.sharedInstance.isCurrentPlayerCreatorOfTheEvent(self.eventInfo!)
-        if (isCurrentUserCreatorOfEvent == true && self.eventInfo?.eventPlayersArray.count > 1) {
-            self.sendMessageToAllButton?.hidden = false
+        let isCurrentUserInTheEvent = TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!)
+        
+        if (isCurrentUserCreatorOfEvent == true) {
+            if self.eventInfo?.eventPlayersArray.count > 1 {
+                self.sendMessageToAllButton?.hidden = false
+            }
         } else {
             self.sendMessageToAllButton?.hidden = true
+            
+            if (isCurrentUserInTheEvent) {
+                self.leaveEventButton?.hidden = false
+            } else {
+                self.leaveEventButton?.hidden = true
+            }
         }
     }
     
@@ -171,16 +185,12 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         
         if indexPath.row < self.eventInfo?.eventPlayersArray.count {
             cell.updateCellViewWithEvent((self.eventInfo?.eventPlayersArray[indexPath.row])!, eventInfo: self.eventInfo!)
-            if (TRApplicationManager.sharedInstance.isCurrentPlayerCreatorOfTheEvent(self.eventInfo!)) {
-                cell.chatButton?.hidden = false
-            }
             cell.chatButton?.tag = indexPath.row
             cell.chatButton?.addTarget(self, action: #selector(TREventInformationViewController.sendChatMessage(_:)), forControlEvents: .TouchUpInside)
-            cell.leaveEventButton?.addTarget(self, action: #selector(TREventInformationViewController.leaveEvent(_:)), forControlEvents: .TouchUpInside)
         } else {
-            cell.chatButton?.hidden = true
-            cell.leaveEventButton?.hidden = true
             cell.playerAvatorImageView?.image = UIImage(named: "imgJoin")
+            cell.playerNameLable?.text = "Join Team"
+            cell.chatButton?.hidden = true
         }
         
         return cell
@@ -197,8 +207,11 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     func reloadEventTable () {
         self.eventInfo = TRApplicationManager.sharedInstance.getEventById((self.eventInfo?.eventID)!)
         self.eventInfoTable?.reloadData()
+        self.updateBottomButtons()
     }
     
+    
+    //MARK: Network Request Methods
     
     func sendChatMessage(sender: EventButton) {
         
@@ -217,8 +230,9 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     }
     
     
-    func leaveEvent(sender: EventButton) {
-        guard let event = sender.buttonEventInfo else {
+    @IBAction func leaveEvent(sender: UIButton) {
+        
+        guard let event = self.eventInfo else {
             TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("No Event Object Found")
             return
 

@@ -14,7 +14,6 @@ class TREventInfoPlayerCell: UITableViewCell {
     @IBOutlet weak var playerAvatorImageView: UIImageView?
     @IBOutlet weak var playerNameLable: UILabel?
     @IBOutlet weak var chatButton: EventButton?
-    @IBOutlet weak var leaveEventButton: EventButton?
     
     override func prepareForReuse() {
         self.playerAvatorImageView?.layer.borderWidth = 0.0
@@ -22,15 +21,12 @@ class TREventInfoPlayerCell: UITableViewCell {
         self.playerNameLable?.text = nil
         self.chatButton?.hidden = false
         self.chatButton?.buttonPlayerInfo = nil
-        self.leaveEventButton?.buttonEventInfo = nil
-        self.leaveEventButton?.hidden = true
     }
     
     func updateCellViewWithEvent (playerInfo: TRPlayerInfo, eventInfo: TREventInfo) {
         
         self.playerNameLable?.text = playerInfo.playerPsnID
         self.chatButton?.buttonPlayerInfo = playerInfo
-        self.leaveEventButton?.buttonEventInfo = eventInfo
         
         //Adding Image and Radius to Avatar
         let imageURL = NSURL(string: playerInfo.playerImageUrl!)
@@ -38,30 +34,25 @@ class TREventInfoPlayerCell: UITableViewCell {
             self.playerAvatorImageView?.sd_setImageWithURL(imageURL)
             TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.playerAvatorImageView!)
         }
-
+        
+        // If the user is not in the event set the chat button hidden and return
         if !TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(eventInfo) {
             self.chatButton?.hidden = true
             return
         }
         
-        // If current user is in the event, give an option to leave the event
-        if TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(eventInfo) &&  playerInfo.playerID == TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()?.playerID {
-            self.leaveEventButton?.hidden = false
-            self.chatButton?.hidden = true
-        }
-        
-        if playerInfo.playerID == eventInfo.eventCreator?.playerID {
-            self.chatButton?.hidden = false
-            return
-        }
-        
-        if playerInfo.playerID != eventInfo.eventCreator?.playerID {
-            self.chatButton?.hidden = true
-        }
-        
-        if playerInfo.playerID == TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()?.playerID &&
-         playerInfo.playerID == eventInfo.eventCreator?.playerID {
-            self.leaveEventButton?.hidden = true
+        if TRApplicationManager.sharedInstance.isCurrentPlayerCreatorOfTheEvent(eventInfo) {
+            if playerInfo.playerID == eventInfo.eventCreator?.playerID {
+                self.chatButton?.hidden = true
+            } else {
+                self.chatButton?.hidden = false
+            }
+        } else {
+            if playerInfo.playerID == eventInfo.eventCreator?.playerID {
+                self.chatButton?.hidden = false
+            } else {
+                self.chatButton?.hidden = true
+            }
         }
     }
 }

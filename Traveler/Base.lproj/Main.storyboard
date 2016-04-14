@@ -23,6 +23,7 @@
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue-Bold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -508,7 +509,7 @@
                                     <outlet property="delegate" destination="nhR-P4-WsZ" id="Mha-UT-mWP"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8LA-QM-6f9">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8LA-QM-6f9">
                                 <rect key="frame" x="0.0" y="550" width="600" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.52549019610000003" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -520,6 +521,21 @@
                                 </state>
                                 <connections>
                                     <action selector="sendMessageToAll:" destination="nhR-P4-WsZ" eventType="touchUpInside" id="yeR-Ae-RDn"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUg-3p-3Ty">
+                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.52549019610000003" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="Odn-rQ-fid"/>
+                                    <constraint firstAttribute="height" constant="50" id="etx-PI-sKk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="LEAVE EVENT">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="leaveEvent:" destination="nhR-P4-WsZ" eventType="touchUpInside" id="hZz-KB-gv2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -542,6 +558,8 @@
                             <constraint firstAttribute="trailingMargin" secondItem="9pG-2I-H5x" secondAttribute="trailing" constant="196" id="hIh-6N-Qeu"/>
                             <constraint firstItem="Aqr-oc-sZI" firstAttribute="top" secondItem="a6w-if-ciG" secondAttribute="bottom" id="iwO-Kj-gdw"/>
                             <constraint firstItem="8LA-QM-6f9" firstAttribute="bottom" secondItem="is0-W8-hbX" secondAttribute="top" id="khy-bj-DLl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cUg-3p-3Ty" secondAttribute="trailing" constant="-20" id="lLc-rf-G2b"/>
+                            <constraint firstItem="is0-W8-hbX" firstAttribute="top" secondItem="cUg-3p-3Ty" secondAttribute="bottom" id="lXk-hZ-r3b"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Aqr-oc-sZI" secondAttribute="trailing" constant="-20" id="lrp-DE-M6O"/>
                             <constraint firstItem="a6w-if-ciG" firstAttribute="leading" secondItem="9SH-CB-Ydz" secondAttribute="leadingMargin" constant="-20" id="mNs-9y-6VJ"/>
                             <constraint firstItem="X2L-fH-rpD" firstAttribute="top" secondItem="9SH-CB-Ydz" secondAttribute="topMargin" id="qzA-Pr-5eT"/>
@@ -549,6 +567,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="yHM-Lz-gby" secondAttribute="trailing" constant="-20" id="sq8-hs-23p"/>
                             <constraint firstItem="yHM-Lz-gby" firstAttribute="leading" secondItem="9SH-CB-Ydz" secondAttribute="leadingMargin" constant="-20" id="t1y-ga-IYH"/>
                             <constraint firstItem="uC7-JN-GI4" firstAttribute="leading" secondItem="9SH-CB-Ydz" secondAttribute="leadingMargin" id="wAC-g2-ZkB"/>
+                            <constraint firstItem="cUg-3p-3Ty" firstAttribute="leading" secondItem="9SH-CB-Ydz" secondAttribute="leadingMargin" constant="-20" id="xBh-Io-6I2"/>
                             <constraint firstItem="a6w-if-ciG" firstAttribute="top" secondItem="yHM-Lz-gby" secondAttribute="bottom" constant="6" id="xWx-aB-NsD"/>
                             <constraint firstItem="yHM-Lz-gby" firstAttribute="top" secondItem="uC7-JN-GI4" secondAttribute="bottom" constant="18" id="z6i-kh-iri"/>
                             <constraint firstItem="Aqr-oc-sZI" firstAttribute="leading" secondItem="9SH-CB-Ydz" secondAttribute="leadingMargin" constant="-20" id="zaH-Zi-fxJ"/>
@@ -568,6 +587,7 @@
                         <outlet property="eventLightCount" destination="5io-jw-Yt7" id="gMy-rr-SCQ"/>
                         <outlet property="eventTimeLabel" destination="fp9-Y7-aCP" id="ABp-nq-ZxC"/>
                         <outlet property="eventTitle" destination="sn8-Yu-hPO" id="Y2X-0B-qCj"/>
+                        <outlet property="leaveEventButton" destination="cUg-3p-3Ty" id="bHV-kI-6wi"/>
                         <outlet property="sendMessageToAllButton" destination="8LA-QM-6f9" id="MhM-zk-fVX"/>
                     </connections>
                 </viewController>
