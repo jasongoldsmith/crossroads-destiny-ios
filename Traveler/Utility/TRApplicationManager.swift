@@ -118,7 +118,7 @@ class TRApplicationManager: NSObject {
                 if let _ = payload.objectForKey("playerMessage"){
                     if let apsData = userInfo.objectForKey("aps") as? NSDictionary {
                         self.pushNotificationView.eventStatusDescription.text =  apsData.objectForKey("alert") as? String
-                        self.pushNotificationView.eventStatusLabel.text =  "Chat Message"
+                        self.pushNotificationView.eventStatusLabel.text =  "Fireteam Message"
 
                     }
                 } else {
