@@ -15,17 +15,17 @@ class TRSendChatMessageView: UIView, UITextFieldDelegate {
     @IBOutlet weak var sendToLabel: UILabel!
     @IBOutlet weak var chatBubbleTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
+    
     var userId:String!
     var eventId:String!
-    
+    var sendToAll: Bool?
     
     override func layoutSubviews() {
         super.layoutSubviews()
+
         self.chatBubbleTextField.delegate = self
         self.chatBubbleTextField.layer.cornerRadius = self.chatBubbleTextField.frame.height * 0.5
-        
         self.sendButton?.addTarget(self, action: #selector(TRSendChatMessageView.sendChatMessage(_:)), forControlEvents: .TouchUpInside)
-
     }
     
 // Mark: UITextFieldDelegate methods
@@ -44,25 +44,34 @@ class TRSendChatMessageView: UIView, UITextFieldDelegate {
         
         
         let message: String = (self.chatBubbleTextField?.text)!
-        
         if (message.characters.count == 0) {
-            
             TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Empty report message!")
             return
         }
         
-        _ = TRSendPushMessage().sendPushMessageTo(self.userId, eventId: self.eventId, messageString: message, completion: { (didSucceed) in
-        
-            if (didSucceed != nil)  {
-                
-                self.chatBubbleTextField.resignFirstResponder()
-                self.chatBubbleTextField.text = nil
-                self.removeFromSuperview()
-
+        if let sendAll = sendToAll {
+            if sendAll {
+                _ = TRSendPushMessage().sendPushMessageToAll(self.eventId, messageString: message, completion: { (didSucceed) in
+                    if (didSucceed != nil)  {
+                        self.chatBubbleTextField.resignFirstResponder()
+                        self.chatBubbleTextField.text = nil
+                        self.removeFromSuperview()
+                    } else {
+                        self.chatBubbleTextField.becomeFirstResponder()
+                    }
+                })
             } else {
-                self.chatBubbleTextField.becomeFirstResponder()
+                _ = TRSendPushMessage().sendPushMessageTo(self.userId, eventId: self.eventId, messageString: message, completion: { (didSucceed) in
+                    if (didSucceed != nil)  {
+                        self.chatBubbleTextField.resignFirstResponder()
+                        self.chatBubbleTextField.text = nil
+                        self.removeFromSuperview()
+                    } else {
+                        self.chatBubbleTextField.becomeFirstResponder()
+                    }
+                })
             }
-        })
+        }
     }
-    
 }
+

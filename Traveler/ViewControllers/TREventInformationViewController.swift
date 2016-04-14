@@ -101,15 +101,19 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     //MARK:- UITable Delegate Methods
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        let isCurrentPlayerInEvent = TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!)
-        let maxPlayersReached = self.eventInfo?.eventPlayersArray.count == self.eventInfo?.eventActivity?.activityMaxPlayers
-        let isEventFull = (eventInfo?.eventStatus == EVENT_STATUS.FULL.rawValue)
-        
-        if isCurrentPlayerInEvent || maxPlayersReached || isEventFull {
-            return (self.eventInfo?.eventPlayersArray.count)!
+        if let _ = self.eventInfo {
+            let isCurrentPlayerInEvent = TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!)
+            let maxPlayersReached = self.eventInfo?.eventPlayersArray.count == self.eventInfo?.eventActivity?.activityMaxPlayers
+            let isEventFull = (eventInfo?.eventStatus == EVENT_STATUS.FULL.rawValue)
+            
+            if isCurrentPlayerInEvent || maxPlayersReached || isEventFull {
+                return (self.eventInfo?.eventPlayersArray.count)!
+            }
+            
+            return (self.eventInfo?.eventPlayersArray.count)! + 1
         }
-
-        return (self.eventInfo?.eventPlayersArray.count)! + 1
+        
+        return 1
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -188,9 +192,12 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
             TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("No Player Object Found")
             return
         }
+        
         self.sendChatMessageView.sendToLabel.text = "To: " + (self.eventInfo?.eventPlayersArray[sender.tag].playerPsnID!)!
         self.sendChatMessageView.userId = player.playerID
         self.sendChatMessageView.eventId = self.eventInfo?.eventID
+        self.sendChatMessageView.sendToAll = false
+        
         self.view.addSubview(self.sendChatMessageView)
     }
     
@@ -205,7 +212,13 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         _ = TRLeaveEventRequest().leaveAnEvent(event, completion: { (didSucceed) in
             if (didSucceed == true) {
                 dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                    self.reloadEventTable()
+                    if let _ = TRApplicationManager.sharedInstance.getEventById((self.eventInfo?.eventID)!) {
+                        self.reloadEventTable()
+                    } else {
+                        self.dismissViewController(true, dismissed: { (didDismiss) in
+                            
+                        })
+                    }
                 }
             } else {
             }
@@ -224,5 +237,15 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
             }
         })
     }
+    
+    @IBAction func sendMessageToAll (sender: UIButton) {
+        
+        self.sendChatMessageView.sendToLabel.text = "To: All Players"
+        self.sendChatMessageView.sendToAll = true
+        self.sendChatMessageView.eventId = self.eventInfo?.eventID
+        
+        self.view.addSubview(self.sendChatMessageView)
+    }
+
 }
 

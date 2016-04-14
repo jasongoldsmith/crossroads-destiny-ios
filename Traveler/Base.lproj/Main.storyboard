@@ -22,6 +22,7 @@
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue-Bold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -507,12 +508,27 @@
                                     <outlet property="delegate" destination="nhR-P4-WsZ" id="Mha-UT-mWP"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8LA-QM-6f9">
+                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.52549019610000003" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="w0Y-DL-Sh3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                <state key="normal" title="SEND MESSAGE TO ALL">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendMessageToAll:" destination="nhR-P4-WsZ" eventType="touchUpInside" id="yeR-Ae-RDn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="is0-W8-hbX" firstAttribute="top" secondItem="Aqr-oc-sZI" secondAttribute="bottom" id="4lH-ee-HDR"/>
                             <constraint firstItem="uC7-JN-GI4" firstAttribute="top" secondItem="9SH-CB-Ydz" secondAttribute="topMargin" constant="18" id="5DM-Gx-FW3"/>
                             <constraint firstItem="ukI-FG-5gA" firstAttribute="leading" secondItem="9SH-CB-Ydz" secondAttribute="leadingMargin" constant="-20" id="J7c-LL-16V"/>
+                            <constraint firstItem="8LA-QM-6f9" firstAttribute="leading" secondItem="9SH-CB-Ydz" secondAttribute="leadingMargin" constant="-20" id="Kl5-Rf-xuC"/>
                             <constraint firstItem="X2L-fH-rpD" firstAttribute="leading" secondItem="9SH-CB-Ydz" secondAttribute="leadingMargin" constant="-20" id="Kw9-ZM-Oce"/>
                             <constraint firstItem="9pG-2I-H5x" firstAttribute="top" secondItem="lms-Zo-2cQ" secondAttribute="bottom" constant="74" id="LFQ-iG-eX4"/>
                             <constraint firstItem="is0-W8-hbX" firstAttribute="top" secondItem="ukI-FG-5gA" secondAttribute="bottom" id="OdW-8s-XD2"/>
@@ -521,9 +537,11 @@
                             <constraint firstItem="ukI-FG-5gA" firstAttribute="top" secondItem="9SH-CB-Ydz" secondAttribute="topMargin" id="VHR-mP-xDJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="a6w-if-ciG" secondAttribute="trailing" constant="-20" id="aeK-XI-Tfz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="X2L-fH-rpD" secondAttribute="trailing" constant="-20" id="bAi-Lp-QWc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8LA-QM-6f9" secondAttribute="trailing" constant="-20" id="dgQ-RP-ZpD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ukI-FG-5gA" secondAttribute="trailing" constant="-20" id="eJt-6e-E0d"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9pG-2I-H5x" secondAttribute="trailing" constant="196" id="hIh-6N-Qeu"/>
                             <constraint firstItem="Aqr-oc-sZI" firstAttribute="top" secondItem="a6w-if-ciG" secondAttribute="bottom" id="iwO-Kj-gdw"/>
+                            <constraint firstItem="8LA-QM-6f9" firstAttribute="bottom" secondItem="is0-W8-hbX" secondAttribute="top" id="khy-bj-DLl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Aqr-oc-sZI" secondAttribute="trailing" constant="-20" id="lrp-DE-M6O"/>
                             <constraint firstItem="a6w-if-ciG" firstAttribute="leading" secondItem="9SH-CB-Ydz" secondAttribute="leadingMargin" constant="-20" id="mNs-9y-6VJ"/>
                             <constraint firstItem="X2L-fH-rpD" firstAttribute="top" secondItem="9SH-CB-Ydz" secondAttribute="topMargin" id="qzA-Pr-5eT"/>

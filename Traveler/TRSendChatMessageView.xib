@@ -71,7 +71,7 @@
                 <outlet property="sendButton" destination="qXl-6L-xGz" id="sSB-NM-Bhv"/>
                 <outlet property="sendToLabel" destination="td9-Fa-ao4" id="tCg-4n-6PF"/>
             </connections>
-            <point key="canvasLocation" x="391.5" y="469"/>
+            <point key="canvasLocation" x="393" y="263"/>
         </view>
     </objects>
     <resources>

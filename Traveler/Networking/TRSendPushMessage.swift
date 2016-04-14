@@ -34,4 +34,37 @@ class TRSendPushMessage: TRRequest {
             completion(didSucceed: true )
         }
     }
+    
+    func sendPushMessageToAll(eventId: String, messageString: String, completion: TRValueCallBack) {
+        
+        let eventInfo = TRApplicationManager.sharedInstance.getEventById(eventId)
+        
+        if let _ = eventInfo {
+            for players in eventInfo!.eventPlayersArray {
+                
+                if players.playerID != TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()?.playerID {
+                    let pushMessage = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_SEND_PUSH_MESSAGE
+                    var params = [String: AnyObject]()
+                    params["id"]        = players.playerID
+                    params["eId"]       = eventInfo!.eventID
+                    params["message"]   = messageString
+                    
+                    let request = TRRequest()
+                    request.params = params
+                    request.requestURL = pushMessage
+                    request.sendRequestWithCompletion { (error, swiftyJsonVar) -> () in
+                        
+                        if let _ = error {
+                            TRApplicationManager.sharedInstance.errorNotificationView.addErrorSubViewWithMessage("response error")
+                            completion(didSucceed: false)
+                            
+                            return
+                        }
+                        
+                        completion(didSucceed: true )
+                    }
+                }
+            }
+        }
+    }
 }
