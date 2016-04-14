@@ -34,11 +34,11 @@ class TREventTableCellView: UITableViewCell {
         self.playerImageTwo.image = nil
         self.playerCountLabel.text = nil
         self.playerCountImage.image = nil
-        
         self.playerImageOne.hidden = true
         self.playerImageTwo.hidden = true
         self.playerCountLabel.hidden = true
         self.playerCountImage.hidden = true
+        self.eventTimeLabel.hidden = true
     }
     
     func updateCellViewWithEvent (eventInfo: TREventInfo) {
