@@ -8,17 +8,21 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TRSendChatMessageView" customModule="Traveler" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UQX-ls-YgD">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="td9-Fa-ao4">
-                    <rect key="frame" x="35" y="17" width="36" height="17"/>
+                    <rect key="frame" x="35" y="336" width="36" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgBackgroundBubble" translatesAutoresizingMaskIntoConstraints="NO" id="wnl-6I-3LU">
-                    <rect key="frame" x="19" y="44" width="525" height="34"/>
+                    <rect key="frame" x="19" y="363" width="525" height="34"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="52" id="Ga5-LL-v7F"/>
                         <constraint firstAttribute="height" constant="34" id="irA-C8-bEk"/>
@@ -30,7 +34,7 @@
                     </variation>
                 </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jYb-qe-rc6">
-                    <rect key="frame" x="19" y="44" width="525" height="34"/>
+                    <rect key="frame" x="19" y="363" width="525" height="34"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="34" id="cUX-ft-1oZ"/>
                     </constraints>
@@ -38,7 +42,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXl-6L-xGz">
-                    <rect key="frame" x="549" y="44" width="34" height="34"/>
+                    <rect key="frame" x="549" y="363" width="34" height="34"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="34" id="2q0-JU-U3s"/>
                         <constraint firstAttribute="height" constant="34" id="Tlu-hl-rEX"/>
@@ -46,32 +50,36 @@
                     <state key="normal" backgroundImage="imgSendBtn"/>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.15294117647058825" green="0.22745098039215686" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="qXl-6L-xGz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="44" id="2tR-Go-YGf"/>
-                <constraint firstItem="jYb-qe-rc6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="44" id="Mf1-L1-c9V"/>
-                <constraint firstItem="td9-Fa-ao4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="17" id="TqR-xG-amB"/>
+                <constraint firstItem="qXl-6L-xGz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="363" id="2tR-Go-YGf"/>
+                <constraint firstAttribute="bottom" secondItem="UQX-ls-YgD" secondAttribute="bottom" id="BhL-NY-1Dh"/>
+                <constraint firstItem="UQX-ls-YgD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ehj-Ed-Rbm"/>
+                <constraint firstItem="jYb-qe-rc6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="363" id="Mf1-L1-c9V"/>
+                <constraint firstItem="td9-Fa-ao4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="336" id="TqR-xG-amB"/>
                 <constraint firstItem="qXl-6L-xGz" firstAttribute="leading" secondItem="jYb-qe-rc6" secondAttribute="trailing" constant="5" id="UKT-62-eHS"/>
                 <constraint firstItem="wnl-6I-3LU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="19" id="UOR-MO-5dN"/>
+                <constraint firstItem="UQX-ls-YgD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="WQa-FC-5JQ"/>
                 <constraint firstItem="td9-Fa-ao4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="35" id="ltn-vx-JYd"/>
+                <constraint firstAttribute="trailing" secondItem="UQX-ls-YgD" secondAttribute="trailing" id="noU-UX-Fmq"/>
                 <constraint firstItem="jYb-qe-rc6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="19" id="qkH-Lc-J8M"/>
                 <constraint firstAttribute="bottom" secondItem="wnl-6I-3LU" secondAttribute="bottom" constant="23" id="tvs-dQ-WvB"/>
-                <constraint firstItem="wnl-6I-3LU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="44" id="vGD-3O-gxW"/>
+                <constraint firstItem="wnl-6I-3LU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="363" id="vGD-3O-gxW"/>
                 <constraint firstAttribute="trailing" secondItem="qXl-6L-xGz" secondAttribute="trailing" constant="17" id="x60-D7-HeT"/>
                 <constraint firstItem="qXl-6L-xGz" firstAttribute="leading" secondItem="wnl-6I-3LU" secondAttribute="trailing" constant="5" id="zaa-EA-iqm"/>
             </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="tvs-dQ-WvB"/>
                 </mask>
             </variation>
             <connections>
+                <outlet property="backGroundImageView" destination="UQX-ls-YgD" id="nSv-DC-lkm"/>
                 <outlet property="chatBubbleTextField" destination="jYb-qe-rc6" id="uN1-yT-iLo"/>
                 <outlet property="sendButton" destination="qXl-6L-xGz" id="sSB-NM-Bhv"/>
                 <outlet property="sendToLabel" destination="td9-Fa-ao4" id="tCg-4n-6PF"/>
             </connections>
-            <point key="canvasLocation" x="393" y="263"/>
+            <point key="canvasLocation" x="240" y="224"/>
         </view>
     </objects>
     <resources>

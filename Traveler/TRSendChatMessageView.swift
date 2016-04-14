@@ -15,6 +15,7 @@ class TRSendChatMessageView: UIView, UITextFieldDelegate {
     @IBOutlet weak var sendToLabel: UILabel!
     @IBOutlet weak var chatBubbleTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var backGroundImageView: UIImageView!
     
     var userId:String!
     var eventId:String!
@@ -26,17 +27,30 @@ class TRSendChatMessageView: UIView, UITextFieldDelegate {
         self.chatBubbleTextField.delegate = self
         self.chatBubbleTextField.layer.cornerRadius = self.chatBubbleTextField.frame.height * 0.5
         self.sendButton?.addTarget(self, action: #selector(TRSendChatMessageView.sendChatMessage(_:)), forControlEvents: .TouchUpInside)
+        self.chatBubbleTextField.becomeFirstResponder()
+        
+        // Close View on Clicking BackGround Image View
+        self.addCloseToBackGroundImageView()
+    }
+    
+    func addCloseToBackGroundImageView () {
+        let closeViewGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(TRSendChatMessageView.closeView))
+        self.backGroundImageView?.userInteractionEnabled = true
+        self.backGroundImageView?.addGestureRecognizer(closeViewGestureRecognizer)
+    }
+    
+    
+    func closeView()  {
+        self.removeFromSuperview()
     }
     
 // Mark: UITextFieldDelegate methods
     
-    func textFieldShouldBeginEditing(textField: UITextField) -> Bool
-    {
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         return true
     }
 
-    func textFieldDidBeginEditing(textField: UITextField)
-    {
+    func textFieldDidBeginEditing(textField: UITextField) {
         self.chatBubbleTextField.becomeFirstResponder()
     }
     

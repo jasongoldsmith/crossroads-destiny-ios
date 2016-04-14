@@ -32,15 +32,10 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Send Chat View
         self.sendChatMessageView = NSBundle.mainBundle().loadNibNamed("TRSendChatMessageView", owner: self, options: nil)[0] as! TRSendChatMessageView
-        let xAxiDistance:CGFloat  = 0
-        let yAxisDistance:CGFloat = 300
+       self.sendChatMessageView.frame = self.view.bounds
         
-        if let topController = UIApplication.sharedApplication().keyWindow?.rootViewController {
-            self.sendChatMessageView.frame = CGRectMake(xAxiDistance, yAxisDistance, topController.view.bounds.width, self.sendChatMessageView.frame.height)
-            self.sendChatMessageView.removeFromSuperview()
-        }
-                
         guard let _ = self.eventInfo else {
             self.dismissViewController(true, dismissed: { (didDismiss) in
             })
