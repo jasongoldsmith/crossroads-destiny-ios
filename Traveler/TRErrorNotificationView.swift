@@ -40,7 +40,7 @@ class TRErrorNotificationView: UIView {
         self.errorMessage.text = errorMessage
         
         let popAnimation:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPLayerPositionY)
-        popAnimation.toValue = self.frame.height - 10
+        popAnimation.toValue = self.frame.height - 25
         self.layer.pop_addAnimation(popAnimation, forKey: "slideIn")
         
         delay(3.0) { () -> () in

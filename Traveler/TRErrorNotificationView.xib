@@ -13,28 +13,30 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TRErrorNotificationView" customModule="Traveler" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="376" height="60"/>
+            <rect key="frame" x="0.0" y="0.0" width="376" height="86"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MISADVENTURE" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LtI-9a-eR6">
-                    <rect key="frame" x="64" y="6" width="235" height="21"/>
+                    <rect key="frame" x="64" y="12" width="235" height="23"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="235" id="93B-bM-Ku0"/>
-                        <constraint firstAttribute="height" constant="21" id="DFf-lM-00S"/>
+                        <constraint firstAttribute="height" constant="23" id="DFf-lM-00S"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
+                    <size key="shadowOffset" width="0.0" height="0.0"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51N-eg-el7">
-                    <rect key="frame" x="64" y="27" width="304" height="14"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51N-eg-el7">
+                    <rect key="frame" x="64" y="24" width="304" height="54"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="14" id="3Jq-xa-amB"/>
+                        <constraint firstAttribute="height" constant="54" id="3Jq-xa-amB"/>
                         <constraint firstAttribute="width" constant="304" id="n5J-1a-A4E"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
+                    <size key="shadowOffset" width="0.0" height="0.0"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCf-uw-Hc9">
                     <rect key="frame" x="353" y="9" width="14" height="22"/>
@@ -65,8 +67,8 @@
                 <constraint firstItem="51N-eg-el7" firstAttribute="leading" secondItem="t7E-fo-wzO" secondAttribute="trailing" constant="13" id="VwL-ek-ap1"/>
                 <constraint firstItem="LtI-9a-eR6" firstAttribute="leading" secondItem="t7E-fo-wzO" secondAttribute="trailing" constant="13" id="WFd-df-qFO"/>
                 <constraint firstAttribute="trailing" secondItem="hCf-uw-Hc9" secondAttribute="trailing" constant="9" id="cff-4F-CbO"/>
-                <constraint firstItem="LtI-9a-eR6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="6" id="hyh-l1-MlW"/>
-                <constraint firstItem="51N-eg-el7" firstAttribute="top" secondItem="LtI-9a-eR6" secondAttribute="bottom" id="qfB-Pd-yJk"/>
+                <constraint firstItem="LtI-9a-eR6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="hyh-l1-MlW"/>
+                <constraint firstItem="51N-eg-el7" firstAttribute="top" secondItem="LtI-9a-eR6" secondAttribute="bottom" constant="-11" id="qfB-Pd-yJk"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
@@ -79,7 +81,7 @@
             <connections>
                 <outlet property="errorMessage" destination="51N-eg-el7" id="gEE-xz-k44"/>
             </connections>
-            <point key="canvasLocation" x="-188" y="-75"/>
+            <point key="canvasLocation" x="-349" y="105"/>
         </view>
     </objects>
     <resources>

@@ -30,7 +30,7 @@ class TRProfileViewController: TRBaseViewController {
         self.updateUserAvatorImage()
             
         // User's psnID
-        if let hasUserName = self.currentUser?.playerPsnID {
+        if let hasUserName = self.currentUser?.playerUserName {
             self.avatorUserName?.text = hasUserName
         } else {
             self.avatorUserName?.text = TRUserInfo.getUserName()
