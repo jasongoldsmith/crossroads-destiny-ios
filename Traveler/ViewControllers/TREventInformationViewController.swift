@@ -21,7 +21,8 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     @IBOutlet weak var eventDescription: UILabel?
     @IBOutlet weak var eventLightCount: UILabel?
     @IBOutlet weak var eventInfoTable: UITableView?
-    @IBOutlet var eventTimeLabel: UILabel?
+    @IBOutlet weak var eventTimeLabel: UILabel?
+    @IBOutlet weak var sendMessageToAllButton: UIButton?
     
     var sendChatMessageView : TRSendChatMessageView!
     
@@ -74,12 +75,16 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         }
         
         
-        //Event time label
-        if let hasLaunchDate = self.eventInfo?.eventLaunchDate {
-            let formatter = NSDateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-            let eventDate = formatter.dateFromString(hasLaunchDate)
-            self.eventTimeLabel?.text = eventDate!.toString()
+        if (eventInfo?.isFutureEvent == true) {
+            //Event time label
+            if let hasLaunchDate = self.eventInfo?.eventLaunchDate {
+                let formatter = NSDateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                let eventDate = formatter.dateFromString(hasLaunchDate)
+                self.eventTimeLabel?.text = eventDate!.toString()
+            }
+        } else {
+            self.eventTimeLabel?.hidden = true
         }
     }
     

@@ -568,6 +568,7 @@
                         <outlet property="eventLightCount" destination="5io-jw-Yt7" id="gMy-rr-SCQ"/>
                         <outlet property="eventTimeLabel" destination="fp9-Y7-aCP" id="ABp-nq-ZxC"/>
                         <outlet property="eventTitle" destination="sn8-Yu-hPO" id="Y2X-0B-qCj"/>
+                        <outlet property="sendMessageToAllButton" destination="8LA-QM-6f9" id="MhM-zk-fVX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u2m-Ce-8jD" userLabel="First Responder" sceneMemberID="firstResponder"/>
