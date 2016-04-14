@@ -23,6 +23,7 @@ class TREventInfoPlayerCell: UITableViewCell {
         self.chatButton?.hidden = false
         self.chatButton?.buttonPlayerInfo = nil
         self.leaveEventButton?.buttonEventInfo = nil
+        self.leaveEventButton?.hidden = true
     }
     
     func updateCellViewWithEvent (playerInfo: TRPlayerInfo, eventInfo: TREventInfo) {
@@ -56,6 +57,11 @@ class TREventInfoPlayerCell: UITableViewCell {
         
         if playerInfo.playerID != eventInfo.eventCreator?.playerID {
             self.chatButton?.hidden = true
+        }
+        
+        if playerInfo.playerID == TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()?.playerID &&
+         playerInfo.playerID == eventInfo.eventCreator?.playerID {
+            self.leaveEventButton?.hidden = true
         }
     }
 }
