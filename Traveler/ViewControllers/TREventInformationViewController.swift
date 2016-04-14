@@ -51,9 +51,16 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
             self.eventIcon!.sd_setImageWithURL(url)
         }
 
-        
         self.eventTitle?.text = self.eventInfo?.eventActivity?.activitySubType
-        self.eventLightCount?.text = "+" + (self.eventInfo?.eventActivity?.activityLight?.stringValue)!
+        
+        if let _ = self.eventInfo?.eventActivity?.activityLight?.integerValue where self.eventInfo?.eventActivity?.activityLight?.integerValue > 0 {
+            self.eventLightCount?.text = "+" + (self.eventInfo?.eventActivity?.activityLight?.stringValue)!
+        } else {
+            self.eventLightCount?.hidden = true
+        }
+        
+        
+        
         
         // Set  Event Player Names
         if (self.eventInfo?.eventPlayersArray.count < self.eventInfo?.eventActivity?.activityMaxPlayers?.integerValue) {

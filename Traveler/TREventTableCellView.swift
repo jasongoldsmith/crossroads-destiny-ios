@@ -47,7 +47,14 @@ class TREventTableCellView: UITableViewCell {
         self.addRadiusToPlayerIconsForPlayersArray(eventInfo)
         
         self.eventTitle?.text = eventInfo.eventActivity?.activitySubType
-        self.activityLight?.text = "+" + (eventInfo.eventActivity?.activityLight?.stringValue)!
+        
+        if let _ = eventInfo.eventActivity?.activityLight?.intValue where eventInfo.eventActivity?.activityLight?.intValue > 0 {
+            self.activityLight?.text = "+" + (eventInfo.eventActivity?.activityLight?.stringValue)!
+            self.activityLight?.hidden = false
+        } else {
+            self.activityLight?.hidden = true
+        }
+        
         
         // Set  Event Player Names
         if (eventInfo.eventPlayersArray.count < eventInfo.eventActivity?.activityMaxPlayers?.integerValue) {
