@@ -95,7 +95,10 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         }
         
         //Hide Send All message if user is not part of the event
-        if (!TRApplicationManager.sharedInstance.isCurrentPlayerCreatorOfTheEvent(self.eventInfo!) || TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()?.playerID == self.eventInfo?.eventCreator?.playerID) {
+        let isCurrentUserCreatorOfEvent = TRApplicationManager.sharedInstance.isCurrentPlayerCreatorOfTheEvent(self.eventInfo!)
+        if (isCurrentUserCreatorOfEvent == true && self.eventInfo?.eventPlayersArray.count > 1) {
+            self.sendMessageToAllButton?.hidden = false
+        } else {
             self.sendMessageToAllButton?.hidden = true
         }
     }
