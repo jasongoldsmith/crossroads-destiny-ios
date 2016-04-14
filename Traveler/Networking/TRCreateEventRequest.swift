@@ -76,6 +76,7 @@ class TRCreateEventRequest: TRRequest {
             eventInfo.eventMinPlayer    = swiftyJsonVar["minPlayers"].number
             eventInfo.eventCreatedDate  = swiftyJsonVar["created"].string
             eventInfo.eventStatus       = swiftyJsonVar["status"].string
+            eventInfo.eventLaunchDate   = swiftyJsonVar["launchDate"].string
             
             // Dictionary of Activities in an Event
             let activityDictionary = swiftyJsonVar["eType"].dictionary

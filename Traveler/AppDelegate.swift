@@ -78,6 +78,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         
+        
+        NSLog("PUSH RECEIVED")
+        
         if application.applicationState == UIApplicationState.Active {
             NSNotificationCenter.defaultCenter().postNotificationName("RemoteNotificationWithActiveSesion", object: self, userInfo: userInfo)
         }
