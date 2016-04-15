@@ -76,3 +76,8 @@ enum EVENT_STATUS : String {
     case OPEN       = "open"
     case NEW        = "new"
 }
+
+enum EVENT_TIME_STATUS: String {
+    case UP_COMING  = "upcoming"
+    case CURRENT    = "now"
+}

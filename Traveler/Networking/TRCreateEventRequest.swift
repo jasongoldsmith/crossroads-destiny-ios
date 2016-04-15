@@ -54,15 +54,6 @@ class TRCreateEventRequest: TRRequest {
             
             // Creating Event Objects from Events List
             let eventInfo = TREventInfo()
-            
-            if let futureLaunchDate = swiftyJsonVar["launchDate"].string {
-                let isFutureEvent = isTimeDifferenceMoreThenAnHour(futureLaunchDate)
-                
-                if isFutureEvent {
-                    // UPCOMING EVENT
-                    eventInfo.isFutureEvent = true
-                }
-            }
 
             guard swiftyJsonVar["_id"].string != nil else {
                 TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("No Event ID received")
@@ -70,6 +61,12 @@ class TRCreateEventRequest: TRRequest {
                 return
             }
             
+            if let isUpComing = swiftyJsonVar["launchStatus"].string {
+                if isUpComing == EVENT_TIME_STATUS.UP_COMING.rawValue {
+                    eventInfo.isFutureEvent = true
+                }
+            }
+
             eventInfo.eventID           = swiftyJsonVar["_id"].string
             eventInfo.eventUpdatedDate  = swiftyJsonVar["updated"].string
             eventInfo.eventMaxPlayers   = swiftyJsonVar["maxPlayers"].number
