@@ -879,7 +879,7 @@
                                 </connections>
                             </segmentedControl>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgTravelerBadge" translatesAutoresizingMaskIntoConstraints="NO" id="Otd-07-018">
-                                <rect key="frame" x="21" y="29" width="45" height="52"/>
+                                <rect key="frame" x="30" y="29" width="45" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="2ZP-5P-FC2"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="iVJ-cS-l3P"/>
@@ -943,7 +943,7 @@
                             <constraint firstItem="huA-O1-54n" firstAttribute="top" secondItem="z2g-Bm-q4G" secondAttribute="bottom" constant="11" id="aYD-tk-7eb"/>
                             <constraint firstAttribute="trailing" secondItem="bhE-zA-4t7" secondAttribute="trailing" id="fdR-Sa-4Fn"/>
                             <constraint firstItem="hh2-ts-4BA" firstAttribute="top" secondItem="bhE-zA-4t7" secondAttribute="bottom" id="fgZ-1S-f2s"/>
-                            <constraint firstItem="Otd-07-018" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leadingMargin" constant="1" id="gkF-BL-Pit"/>
+                            <constraint firstItem="Otd-07-018" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leadingMargin" constant="10" id="gkF-BL-Pit"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VH7-Fj-a7t" secondAttribute="trailing" id="lZO-TY-WEQ"/>
                             <constraint firstItem="huA-O1-54n" firstAttribute="top" secondItem="2xU-P6-pHh" secondAttribute="bottom" constant="11" id="o54-D6-a8c"/>
                             <constraint firstItem="huA-O1-54n" firstAttribute="top" secondItem="VH7-Fj-a7t" secondAttribute="bottom" constant="11" id="ocw-r0-k8V"/>
