@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import pop
 
 class TRSendChatMessageView: UIView, UITextFieldDelegate {
     
@@ -41,7 +42,19 @@ class TRSendChatMessageView: UIView, UITextFieldDelegate {
     
     
     func closeView()  {
-        self.removeFromSuperview()
+
+        if self.chatBubbleTextField.isFirstResponder() {
+            self.chatBubbleTextField.resignFirstResponder()
+        }
+
+        let popAnimation:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+        popAnimation.toValue = 0.0
+        popAnimation.duration = 0.2
+        popAnimation.completionBlock = {(animation, finished) in
+            self.removeFromSuperview()
+        }
+        
+        self.pop_addAnimation(popAnimation, forKey: "alphasIn")
     }
     
 // Mark: UITextFieldDelegate methods

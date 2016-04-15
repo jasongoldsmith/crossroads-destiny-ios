@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import pop
+
 
 class TREventInformationViewController: TRBaseViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -36,7 +38,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         
         // Send Chat View
         self.sendChatMessageView = NSBundle.mainBundle().loadNibNamed("TRSendChatMessageView", owner: self, options: nil)[0] as! TRSendChatMessageView
-       self.sendChatMessageView.frame = self.view.bounds
+        self.sendChatMessageView.frame = self.view.bounds
         
         guard let _ = self.eventInfo else {
             self.dismissViewController(true, dismissed: { (didDismiss) in
@@ -225,8 +227,13 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         self.sendChatMessageView.userId = player.playerID
         self.sendChatMessageView.eventId = self.eventInfo?.eventID
         self.sendChatMessageView.sendToAll = false
-        
+        self.sendChatMessageView.alpha = 0.0
         self.view.addSubview(self.sendChatMessageView)
+        
+        let popAnimation:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+        popAnimation.toValue = 1.0
+        popAnimation.duration = 0.3
+        self.sendChatMessageView.pop_addAnimation(popAnimation, forKey: "alphasIn")
     }
     
     
