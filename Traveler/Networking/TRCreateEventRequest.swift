@@ -35,8 +35,6 @@ class TRCreateEventRequest: TRRequest {
             let utcTimeZoneStr = formatter.stringFromDate(hasSelectedTime);
             
             params["launchDate"] = utcTimeZoneStr
-        } else {
-            params["launchDate"] = NSNull()
         }
         
         
