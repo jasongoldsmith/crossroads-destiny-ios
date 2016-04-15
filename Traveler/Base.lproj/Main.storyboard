@@ -1212,7 +1212,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HaO-B3-0i5">
-                                <rect key="frame" x="150" y="320" width="300" height="50"/>
+                                <rect key="frame" x="150" y="312" width="300" height="50"/>
                                 <color key="backgroundColor" red="0.08235294118" green="0.52941176469999995" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="A0m-G0-ZxT"/>
@@ -1242,7 +1242,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ue-JR-J0g">
-                                <rect key="frame" x="150" y="388" width="300" height="50"/>
+                                <rect key="frame" x="150" y="372" width="300" height="50"/>
                                 <color key="backgroundColor" red="0.08235294118" green="0.52941176469999995" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Vpr-U7-0QP"/>
@@ -1257,14 +1257,14 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconArrowRight" translatesAutoresizingMaskIntoConstraints="NO" id="Yif-gd-HbE">
-                                <rect key="frame" x="431" y="340" width="5" height="10"/>
+                                <rect key="frame" x="431" y="332" width="5" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="10" id="XH1-JO-mGr"/>
                                     <constraint firstAttribute="width" constant="5" id="tXD-QZ-SkC"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconArrowRight" translatesAutoresizingMaskIntoConstraints="NO" id="6l7-vH-SU8">
-                                <rect key="frame" x="431" y="408" width="5" height="10"/>
+                                <rect key="frame" x="431" y="392" width="5" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="5" id="Had-cq-KJW"/>
                                     <constraint firstAttribute="height" constant="10" id="cKy-gK-Med"/>
@@ -1313,7 +1313,7 @@
                             <constraint firstItem="RyD-cs-rbu" firstAttribute="leading" secondItem="gc7-xU-0jx" secondAttribute="leadingMargin" constant="-20" id="UlZ-iY-OP2"/>
                             <constraint firstItem="d1E-Mo-4IL" firstAttribute="top" secondItem="Xrn-7L-Bug" secondAttribute="bottom" id="WTi-B9-9vE"/>
                             <constraint firstItem="Iyq-Vd-eiI" firstAttribute="leading" secondItem="gc7-xU-0jx" secondAttribute="leadingMargin" constant="10" id="WUP-MZ-lSy"/>
-                            <constraint firstItem="9ue-JR-J0g" firstAttribute="top" secondItem="HaO-B3-0i5" secondAttribute="bottom" constant="18" id="WtI-aG-KOW"/>
+                            <constraint firstItem="9ue-JR-J0g" firstAttribute="top" secondItem="HaO-B3-0i5" secondAttribute="bottom" constant="10" id="WtI-aG-KOW"/>
                             <constraint firstItem="d1E-Mo-4IL" firstAttribute="top" secondItem="0kb-Z5-oMd" secondAttribute="bottom" id="Y2c-lS-IBd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RyD-cs-rbu" secondAttribute="trailing" constant="-20" id="ZH8-xz-7q2"/>
                             <constraint firstItem="0kb-Z5-oMd" firstAttribute="top" secondItem="gc7-xU-0jx" secondAttribute="topMargin" id="aMJ-7M-XX2"/>
@@ -1328,7 +1328,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="0kb-Z5-oMd" secondAttribute="trailing" constant="-20" id="rVQ-nt-H7G"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Iyq-Vd-eiI" secondAttribute="trailing" constant="10" id="rm6-pL-Qr4"/>
                             <constraint firstItem="hoF-7R-3Kp" firstAttribute="top" secondItem="gzx-q8-nbG" secondAttribute="bottom" constant="6" id="tbO-WW-luQ"/>
-                            <constraint firstItem="HaO-B3-0i5" firstAttribute="top" secondItem="g60-hL-efX" secondAttribute="bottom" constant="18" id="ukq-0z-lvt"/>
+                            <constraint firstItem="HaO-B3-0i5" firstAttribute="top" secondItem="g60-hL-efX" secondAttribute="bottom" constant="10" id="ukq-0z-lvt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Xrn-7L-Bug" secondAttribute="trailing" constant="-20" id="vKY-6l-Bv8"/>
                         </constraints>
                     </view>
