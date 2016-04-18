@@ -75,27 +75,27 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
         self.resignKeyBoardResponders()
         
         if userNameTxtField.text?.isEmpty  == true {
-            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter UserName")
+            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Please enter a username")
             
             return
         } else {
             let textcount = userNameTxtField.text?.characters.count
             if textcount < 4 || textcount > 50 {
-                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("User Name must be between 4 and 50 characters")
+                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Your username must have at least 5 characters.")
                 
                 return
             }
         }
         
         if userPwdTxtField.text?.isEmpty == true {
-            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter UserPassword")
+            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Please enter a password.")
             
             return
         } else {
             
             let textcount = userPwdTxtField.text?.characters.count
             if textcount < 4 || textcount > 50 {
-                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("User password must be between 4 and 50 characters")
+                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Your password must have at least 5 characters.")
                 
                 return
             }
@@ -122,7 +122,7 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
                 defaults.setValue(nil, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
                 defaults.synchronize()
 
-                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Your credentails info is wrong")
+                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Account creation failed.")
             }
         }
     }

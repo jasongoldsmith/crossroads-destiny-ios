@@ -94,7 +94,7 @@ class TRProfileViewController: TRBaseViewController {
     }
     
     @IBAction func resetPassWordPressed (sender: AnyObject) {
-        TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Reset - COMING SOON!")
+        TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("We're sorry! That feature is coming soon")
     }
     
     @IBAction func sendReport () {

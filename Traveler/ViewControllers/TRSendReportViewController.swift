@@ -119,7 +119,7 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
         
         if (textString.characters.count == 0) {
             
-            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Empty report message!")
+            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Please enter a message")
             return
         }
         

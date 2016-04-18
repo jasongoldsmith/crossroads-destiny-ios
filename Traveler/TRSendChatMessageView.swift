@@ -72,7 +72,7 @@ class TRSendChatMessageView: UIView, UITextFieldDelegate {
         
         let message: String = (self.chatBubbleTextField?.text)!
         if (message.characters.count == 0) {
-            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Empty report message!")
+            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Please enter a message.")
             return
         }
         

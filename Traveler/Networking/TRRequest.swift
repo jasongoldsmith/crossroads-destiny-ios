@@ -58,7 +58,7 @@ class TRRequest {
                 
                 switch response.result {
                 case .Failure( _):
-                    TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("SERVER ERROR")
+                    TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Server request failed. Please wait a few seconds and refresh.")
                 case .Success( _):
                     
                     if let _ = response.result.value {
@@ -68,7 +68,7 @@ class TRRequest {
                             if let message = swiftyJsonVar["error"].string {
                                 TRApplicationManager.sharedInstance.addErrorSubViewWithMessage(message)
                             } else {
-                                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Undefined Server Error")
+                                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Undefined server error. Please wait a few seconds and refresh.")
                             }
                             
                         } else {
