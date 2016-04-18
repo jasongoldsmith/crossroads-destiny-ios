@@ -16,10 +16,8 @@ class TRApplicationManager: NSObject {
     
     // MARK:- Instances
     
-    private let TIMER_INTERVAL: Double = 5
     private let REQUEST_TIME_OUT = 30.0
     private let UPCOMING_EVENT_TIME_THREASHOLD = 1
-    private var timer: NSTimer = NSTimer()
     
     // Shared Instance
     static let sharedInstance = TRApplicationManager()
@@ -36,8 +34,6 @@ class TRApplicationManager: NSObject {
     //Activity List
     lazy var activityList: [TRActivityInfo] = []
     
-    //Image Helper
-    var imageHelper = ImageHelper()
     
     // Activity Indicator
     var activityIndicator = TRActivityIndicatorView()
@@ -101,43 +97,9 @@ class TRApplicationManager: NSObject {
     
     func addNotificationViewWithMessages (parentView: TRBaseViewController, sender: NSNotification) -> TRPushNotificationView {
         
-        let xAxiDistance:CGFloat  = 0
-        let yAxisDistance:CGFloat = 130
-        self.pushNotificationView.frame = CGRectMake(xAxiDistance, yAxisDistance, parentView.view.frame.width, self.pushNotificationView.frame.height)
-        self.pushNotificationView.removeFromSuperview()
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(TIMER_INTERVAL, target: self, selector: #selector(TRApplicationManager.notificationTimer), userInfo: nil, repeats: false)
-        
-        
-        if let userInfo = sender.userInfo as NSDictionary? {
-            if let payload = userInfo.objectForKey("payload") as? NSDictionary {
-                if let eType = payload.objectForKey("eType") as? NSDictionary {
-                    if let eventType = eType.objectForKey("aType") as? String {
-                        self.pushNotificationView.eventStatusDescription.text = eventType
-                    }
-                }
-                if let _ = payload.objectForKey("playerMessage"){
-                    if let apsData = userInfo.objectForKey("aps") as? NSDictionary {
-                        self.pushNotificationView.eventStatusDescription.text =  apsData.objectForKey("alert") as? String
-                        self.pushNotificationView.eventStatusLabel.text =  "Fireteam Message"
-
-                    }
-                } else {
-                    if let apsData = userInfo.objectForKey("aps") as? NSDictionary {
-                        self.pushNotificationView.eventStatusLabel.text =  apsData.objectForKey("alert") as? String
-                    }
-                }
-            }
-        }
-        
-        return self.pushNotificationView
+        return self.pushNotificationView.addNotificationViewWithMessages(parentView, sender: sender)
     }
     
-    
-    func notificationTimer() {
-        
-        self.pushNotificationView.removeFromSuperview()
-        self.timer.invalidate()
-    }
     
     func addErrorSubViewWithMessage(errorString: String) {
         self.errorNotificationView.addErrorSubViewWithMessage(errorString)

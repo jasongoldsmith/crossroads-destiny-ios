@@ -44,7 +44,7 @@ class TRProfileViewController: TRBaseViewController {
             if let imageUrl = TRUserInfo.getUserImageString() {
                 let imageUrl = NSURL(string: imageUrl)
                 self.avatorImageView?.sd_setImageWithURL(imageUrl)
-                TRApplicationManager.sharedInstance.imageHelper.roundImageView(self.avatorImageView!)
+                self.avatorImageView?.roundImageView()
             }
         }
     }
