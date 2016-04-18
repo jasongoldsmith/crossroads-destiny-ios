@@ -145,7 +145,7 @@ class TRBaseViewController: UIViewController {
     }
     
     func didReceiveRemoteNotificationInActiveSesion(sender: NSNotification) {
-        self.view.addSubview(TRApplicationManager.sharedInstance.addNotificationViewWithMessages(self, sender: sender))
+        TRApplicationManager.sharedInstance.addNotificationViewWithMessages(sender)
     }
 
     func didReceiveRemoteNotification (sender: NSNotification) {

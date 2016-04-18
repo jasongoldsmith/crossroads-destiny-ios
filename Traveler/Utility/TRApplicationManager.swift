@@ -100,9 +100,9 @@ class TRApplicationManager: NSObject {
         })
     }
     
-    func addNotificationViewWithMessages (parentView: TRBaseViewController, sender: NSNotification) -> TRPushNotificationView {
+    func addNotificationViewWithMessages (sender: NSNotification) {
         
-        return self.pushNotificationView.addNotificationViewWithMessages(parentView, sender: sender)
+        return self.pushNotificationView.addNotificationViewWithMessages(sender)
     }
     
     

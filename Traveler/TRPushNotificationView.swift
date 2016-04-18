@@ -25,12 +25,18 @@ class TRPushNotificationView: UIView {
     }
 
     
-    func addNotificationViewWithMessages (parentView: TRBaseViewController, sender: NSNotification) -> TRPushNotificationView {
-        
+    func addNotificationViewWithMessages (sender: NSNotification) {
+
+        if self.superview != nil {
+            self.removeFromSuperview()
+        }
+
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let window = appDelegate.window
+
         let xAxiDistance:CGFloat  = 0
         let yAxisDistance:CGFloat = 130
-        self.frame = CGRectMake(xAxiDistance, yAxisDistance, parentView.view.frame.width, self.frame.height)
-        self.removeFromSuperview()
+        self.frame = CGRectMake(xAxiDistance, yAxisDistance, window!.frame.width, self.frame.height)
         
         if let userInfo = sender.userInfo as NSDictionary? {
             if let payload = userInfo.objectForKey("payload") as? NSDictionary {
@@ -53,10 +59,11 @@ class TRPushNotificationView: UIView {
             }
         }
         
+        // Add view to the window
+        window?.addSubview(self)
+
         delay(10) {
             self.removeFromSuperview()
         }
-        
-        return self
     }
 }
