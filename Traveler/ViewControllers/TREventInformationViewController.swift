@@ -73,12 +73,12 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
             // Attributed Strings
             let extraPlayersRequiredCountStringNewAttributed = NSAttributedString(string: extraPlayersRequiredCountStringNew, attributes: stringColorAttribute)
             if let _ = self.eventInfo?.eventCreator?.playerPsnID {
-                let finalString = NSMutableAttributedString(string: "Created by " + (self.eventInfo?.eventCreator?.playerPsnID!)!)
+                let finalString = NSMutableAttributedString(string: (self.eventInfo?.eventCreator?.playerPsnID!)!)
                 finalString.appendAttributedString(extraPlayersRequiredCountStringNewAttributed)
                 self.eventDescription?.attributedText = finalString
             }
         } else {
-            let playersNameString = "Created by " + (self.eventInfo?.eventCreator?.playerPsnID!)!
+            let playersNameString = (self.eventInfo?.eventCreator?.playerPsnID!)!
             self.eventDescription?.text = playersNameString
         }
         

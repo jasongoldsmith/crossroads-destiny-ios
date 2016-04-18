@@ -66,12 +66,12 @@ class TREventTableCellView: UITableViewCell {
             // Attributed Strings
             let extraPlayersRequiredCountStringNewAttributed = NSAttributedString(string: extraPlayersRequiredCountStringNew, attributes: stringColorAttribute)
             if let _ = eventInfo.eventCreator?.playerPsnID {
-                let finalString = NSMutableAttributedString(string: "Created by " + (eventInfo.eventCreator?.playerPsnID!)!)
+                let finalString = NSMutableAttributedString(string: (eventInfo.eventCreator?.playerPsnID!)!)
                 finalString.appendAttributedString(extraPlayersRequiredCountStringNewAttributed)
                 self.eventPlayersName.attributedText = finalString
             }
         } else {
-            let playersNameString = "Created by " + (eventInfo.eventCreator?.playerPsnID!)!
+            let playersNameString = (eventInfo.eventCreator?.playerPsnID!)!
             self.eventPlayersName.text = playersNameString
         }
         
