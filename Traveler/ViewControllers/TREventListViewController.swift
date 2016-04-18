@@ -71,7 +71,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             if let imageUrl = TRUserInfo.getUserImageString() {
                 let imageUrl = NSURL(string: imageUrl)
                 self.currentPlayerAvatorIcon?.sd_setImageWithURL(imageUrl)
-                self.currentPlayerAvatorIcon?.roundImageView()
+                self.currentPlayerAvatorIcon?.roundRectView()
                 
                 // Add LogOut event action to Avator Image
                 self.addLogOutEventToAvatorImageView()

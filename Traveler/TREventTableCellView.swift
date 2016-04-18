@@ -112,7 +112,7 @@ class TREventTableCellView: UITableViewCell {
                 if let imageURLString = player.playerImageUrl {
                     let url = NSURL(string: imageURLString)
                     self.playerImageOne!.sd_setImageWithURL(url)
-                    self.playerImageOne?.roundImageView()
+                    self.playerImageOne?.roundRectView()
                 }
 
                 break;
@@ -123,7 +123,7 @@ class TREventTableCellView: UITableViewCell {
                 if let imageURLString = player.playerImageUrl {
                     let url = NSURL(string: imageURLString)
                     self.playerImageTwo!.sd_setImageWithURL(url)
-                    self.playerImageTwo?.roundImageView()
+                    self.playerImageTwo?.roundRectView()
                 }
                 
                 break;
@@ -135,7 +135,7 @@ class TREventTableCellView: UITableViewCell {
                     self.playerCountImage.image = nil
                     self.playerCountLabel.hidden = false
                     self.playerCountLabel?.text = "+" + String((playerArray.count - 2))
-                    self.playerCountImage?.roundImageView()
+                    self.playerCountImage?.roundRectView()
                     
                 } else {
                     self.playerCountLabel.hidden = true
@@ -143,7 +143,7 @@ class TREventTableCellView: UITableViewCell {
                     if let imageURLString = player.playerImageUrl {
                         let url = NSURL(string: imageURLString)
                         self.playerCountImage!.sd_setImageWithURL(url)
-                        self.playerCountImage?.roundImageView()
+                        self.playerCountImage?.roundRectView()
                     }
                 }
                 

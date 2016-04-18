@@ -32,7 +32,7 @@ class TREventInfoPlayerCell: UITableViewCell {
         let imageURL = NSURL(string: playerInfo.playerImageUrl!)
         if let _ = imageURL {
             self.playerAvatorImageView?.sd_setImageWithURL(imageURL)
-            self.playerAvatorImageView?.roundImageView()
+            self.playerAvatorImageView?.roundRectView()
         }
         
         // If the user is not in the event set the chat button hidden and return

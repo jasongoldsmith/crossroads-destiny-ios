@@ -51,7 +51,7 @@ class TRCreateEventSelectionViewController: TRBaseViewController {
         if let imageUrlString = seletectedActivity?.activityIconImage {
             let imageURL = NSURL(string: imageUrlString)
             self.activityIconImage?.sd_setImageWithURL(imageURL)
-            self.activityIconImage?.roundImageView(2.0)
+            self.activityIconImage?.roundRectView(2.0)
         }
         
         // Activity Name Label
