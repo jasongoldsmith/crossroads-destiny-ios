@@ -102,7 +102,8 @@ class TRApplicationManager: NSObject {
     
     
     func addErrorSubViewWithMessage(errorString: String) {
-        self.errorNotificationView.addErrorSubViewWithMessage(errorString)
+        self.errorNotificationView.errorSting = errorString
+        self.errorNotificationView.addErrorSubViewWithMessage()
     }
     
     required init(coder aDecoder: NSCoder) {

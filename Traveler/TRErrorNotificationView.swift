@@ -13,6 +13,7 @@ import pop
 
 class TRErrorNotificationView: UIView {
     
+    var errorSting: String? = nil
     @IBOutlet weak var errorMessage: UILabel!
     
     override func layoutSubviews() {
@@ -24,9 +25,13 @@ class TRErrorNotificationView: UIView {
         self.removeFromSuperview()
     }
     
-    func addErrorSubViewWithMessage (errorMessage: String) {
+    func addErrorSubViewWithMessage () {
         
         if self.superview != nil {
+            return
+        }
+        
+        guard let _ = errorSting else {
             return
         }
         
@@ -37,7 +42,7 @@ class TRErrorNotificationView: UIView {
         let yAxisDistance:CGFloat = -self.frame.height
         let xAxiDistance:CGFloat  = 0
         self.frame = CGRectMake(xAxiDistance, yAxisDistance, window!.frame.width, self.frame.height)
-        self.errorMessage.text = errorMessage
+        self.errorMessage.text = errorSting!
         
         let popAnimation:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPLayerPositionY)
         popAnimation.toValue = self.frame.height - 25

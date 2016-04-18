@@ -29,7 +29,7 @@ class TRLeaveEventRequest: TRRequest {
         request.sendRequestWithCompletion { (error, swiftyJsonVar) -> () in
             
             if let _ = error {
-                TRApplicationManager.sharedInstance.errorNotificationView.addErrorSubViewWithMessage("response error")
+                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("response error")
                 completion(didSucceed: false)
                 
                 return
