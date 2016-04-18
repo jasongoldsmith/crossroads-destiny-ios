@@ -80,7 +80,7 @@ class TRApplicationManager: NSObject {
         self.pushNotificationView = NSBundle.mainBundle().loadNibNamed("TRPushNotificationView", owner: self, options: nil)[0] as! TRPushNotificationView
     }
 
-    func addSlideMenuController(parentViewController: TRBaseViewController) {
+    func addSlideMenuController(parentViewController: TRBaseViewController, pushData: NSDictionary?) {
 
         let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
         let profileViewController = storyboard.instantiateViewControllerWithIdentifier(K.ViewControllerIdenifier.VIEW_CONTROLLER_PROFILE) as! TRProfileViewController
@@ -91,7 +91,12 @@ class TRApplicationManager: NSObject {
         self.slideMenuController.closeRight()
         self.slideMenuController.addRightGestures()
         self.slideMenuController.changeRightViewWidth(340.0)
+        
         parentViewController.presentViewController(self.slideMenuController, animated: true, completion: {
+            
+            if let _ = pushData {
+                //eventListViewController.showEventInfoViewController(nil)
+            }
         })
     }
     

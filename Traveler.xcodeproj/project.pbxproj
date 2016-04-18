@@ -80,6 +80,7 @@
 		3374D7511C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3374D7501C92591F0036E9C8 /* TRActivityCheckPointPicker.xib */; };
 		3374D7521C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3374D7501C92591F0036E9C8 /* TRActivityCheckPointPicker.xib */; };
 		3374D7531C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3374D7501C92591F0036E9C8 /* TRActivityCheckPointPicker.xib */; };
+		338404C81CC5830E00AB543C /* TRRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C1FF311C77C15C00A78798 /* TRRootViewController.swift */; };
 		338AECFE1C9D03AE008B064F /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338AECFD1C9D03AE008B064F /* Utility.swift */; };
 		33974F121CADA0E40015C9D5 /* ExSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33974F0E1CADA0620015C9D5 /* ExSlideMenuController.swift */; };
 		33974F131CADA0E40015C9D5 /* ExSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33974F0E1CADA0620015C9D5 /* ExSlideMenuController.swift */; };
@@ -156,7 +157,6 @@
 		629497331C7C04E1005E4F91 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629497311C7C04E1005E4F91 /* ViewControllerExtension.swift */; };
 		629497341C7C04E1005E4F91 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629497311C7C04E1005E4F91 /* ViewControllerExtension.swift */; };
 		62C1FF301C77C15C00A78798 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C1FF2F1C77C15C00A78798 /* AppDelegate.swift */; };
-		62C1FF321C77C15C00A78798 /* TRRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C1FF311C77C15C00A78798 /* TRRootViewController.swift */; };
 		62C1FF351C77C15C00A78798 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62C1FF331C77C15C00A78798 /* Main.storyboard */; };
 		62C1FF3A1C77C15C00A78798 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62C1FF381C77C15C00A78798 /* LaunchScreen.storyboard */; };
 		62C1FF451C77C15C00A78798 /* TravelerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C1FF441C77C15C00A78798 /* TravelerTests.swift */; };
@@ -706,6 +706,7 @@
 				33742D991C800A3300C46742 /* UISegmentedControlExtension.swift in Sources */,
 				33FDB9B61C861AB10066237C /* TRCreateEventRequest.swift in Sources */,
 				338AECFE1C9D03AE008B064F /* Utility.swift in Sources */,
+				338404C81CC5830E00AB543C /* TRRootViewController.swift in Sources */,
 				3398E1A51CAB18C7001F022B /* TREventInformationViewController.swift in Sources */,
 				339D8F281C90F77E00A2620F /* TRActivitySelectionCell.swift in Sources */,
 				33974F141CADA0E50015C9D5 /* ExSlideMenuController.swift in Sources */,
@@ -714,7 +715,6 @@
 				3398E1AD1CAB3D3D001F022B /* TRProfileViewController.swift in Sources */,
 				33F427491C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */,
 				3374D74D1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift in Sources */,
-				62C1FF321C77C15C00A78798 /* TRRootViewController.swift in Sources */,
 				629497321C7C04E1005E4F91 /* ViewControllerExtension.swift in Sources */,
 				33FDB9BC1C863A550066237C /* TRgetActivityList.swift in Sources */,
 				33974F161CADD0740015C9D5 /* TRCreateAReportRequest.swift in Sources */,

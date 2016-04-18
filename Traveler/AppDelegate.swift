@@ -20,6 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Initializing Manager
         TRApplicationManager.sharedInstance
         
+        
+        if let remoteNotification = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? NSDictionary? {
+            let rootViewController = self.window!.rootViewController as! TRRootViewController
+            rootViewController.pushNotificationData = remoteNotification
+        }
+
+        
         //Local Notifications
         let localNotification:UILocalNotification = UILocalNotification()
         localNotification.alertAction = "Testing notifications on iOS8"

@@ -65,8 +65,10 @@ struct K {
     }
     
     struct NOTIFICATION_TYPE {
-        static let REMOTE_NOTIFICATION_WITH_ACTIVE_SESSION = "RemoteNotificationWithActiveSesion"
-        static let APPLICATION_DID_RECEIVE_REMOTE_NOTIFICATION = "UIApplicationDidReceiveRemoteNotification"
+        static let REMOTE_NOTIFICATION_WITH_ACTIVE_SESSION      = "RemoteNotificationWithActiveSesion"
+        static let APPLICATION_DID_RECEIVE_REMOTE_NOTIFICATION  = "UIApplicationDidReceiveRemoteNotification"
+        static let APPLICATION_WILL_TERMINATE                   = "UIApplicationWillTerminateNotification"
+        static let APPLICATION_WILL_RESIGN_ACTIVE               = "UIApplicationWillResignActiveNotification"
     }
 }
 

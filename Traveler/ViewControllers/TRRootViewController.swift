@@ -12,6 +12,8 @@ import SlideMenuControllerSwift
 
 class TRRootViewController: TRBaseViewController {
     
+    // Push Data
+    var pushNotificationData: NSDictionary? = nil
     
     private let ACTIVITY_INDICATOR_TOP_CONSTRAINT: CGFloat = 365.0
     
@@ -30,7 +32,8 @@ class TRRootViewController: TRBaseViewController {
         if (TRUserInfo.isUserLoggedIn()) {
             _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, indicatorTopConstraint: ACTIVITY_INDICATOR_TOP_CONSTRAINT, completion: { (didSucceed) -> () in
                 if(didSucceed == true) {
-                    TRApplicationManager.sharedInstance.addSlideMenuController(self)
+                    TRApplicationManager.sharedInstance.addSlideMenuController(self, pushData: self.pushNotificationData)
+                    self.pushNotificationData = nil
                 } else {
                     self.appManager.log.debug("Failed")
                 }

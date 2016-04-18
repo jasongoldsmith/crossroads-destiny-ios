@@ -171,16 +171,25 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+      
         self.eventsTableView?.deselectRowAtIndexPath(indexPath, animated: false)
+        
+        let eventInfo: TREventInfo!
+        if self.segmentControl?.selectedSegmentIndex == 0 {
+            eventInfo = self.eventsInfo[indexPath.section]
+        } else {
+            eventInfo = self.futureEventsInfo[indexPath.section]
+        }
+        
+        // Show event detail view controller
+        self.showEventInfoViewController(eventInfo)
+    }
+    
+    func showEventInfoViewController(eventInfo: TREventInfo?) {
         
         let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
         let vc : TREventInformationViewController = storyboard.instantiateViewControllerWithIdentifier(K.ViewControllerIdenifier.VIEW_CONTROLLER_EVENT_INFORMATION) as! TREventInformationViewController
-        
-        if self.segmentControl?.selectedSegmentIndex == 0 {
-            vc.eventInfo = self.eventsInfo[indexPath.section]
-        } else {
-            vc.eventInfo = self.futureEventsInfo[indexPath.section]
-        }
+        vc.eventInfo = eventInfo
         
         self.presentViewController(vc, animated: true, completion: nil)
     }
