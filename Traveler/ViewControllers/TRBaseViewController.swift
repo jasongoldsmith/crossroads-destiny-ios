@@ -124,10 +124,7 @@ class TRBaseViewController: UIViewController {
                     // in it's overwritten "applicationWillEnterForeground" method
                 }
             } else {
-                self.view.window?.rootViewController?.dismissViewControllerAnimated(true, completion: {
-                    self.didMoveToParentViewController(nil)
-                    self.removeFromParentViewController()
-                })
+                self.applicationDidTerminate()
             }
         }
     }

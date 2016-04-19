@@ -21,4 +21,6 @@ class TRActivityInfo: NSObject {
     var activityMaxPlayers    : NSNumber?
     var activityMinPlayers    : NSNumber?
     var activityIconImage     : String?
+    var activityIsFeatured    : Bool?
+    var activitylocation      : String?
 }
