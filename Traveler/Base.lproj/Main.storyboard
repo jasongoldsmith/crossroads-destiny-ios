@@ -773,12 +773,15 @@
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahp-Nk-xyg">
                                 <rect key="frame" x="460" y="474" width="90" height="30"/>
-                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.1215686275" green="0.1960784314" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="QGP-kg-UHm"/>
                                     <constraint firstAttribute="height" constant="30" id="bei-7b-o3j"/>
                                 </constraints>
-                                <state key="normal" title="Send"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="sendReportButtonAdded:" destination="vH8-Nd-68e" eventType="touchUpInside" id="CnL-oY-1wE"/>
                                 </connections>
