@@ -46,11 +46,6 @@ class TRBaseViewController: UIViewController {
             name: K.NOTIFICATION_TYPE.APPLICATION_DID_RECEIVE_REMOTE_NOTIFICATION,
             object: nil)
 
-        NSNotificationCenter.defaultCenter().addObserver(self,
-             selector: #selector(TRBaseViewController.applicationDidTerminate),
-             name: K.NOTIFICATION_TYPE.APPLICATION_WILL_TERMINATE,
-             object: nil)
-
         
         self.setStatusBarBackgroundColor(UIColor.clearColor())
         appManager.log.debug("\(NSStringFromClass(self.dynamicType))")
@@ -109,7 +104,7 @@ class TRBaseViewController: UIViewController {
     
     func applicationDidEnterBackground() {
         
-        self.applicationDidTerminate()
+//        self.applicationDidTerminate()
         
         // PURGE EXISTING DATA HERE
 //        //TRApplicationManager.sharedInstance.purgeSavedData()
@@ -171,7 +166,6 @@ class TRBaseViewController: UIViewController {
         NSNotificationCenter.defaultCenter().removeObserver(UIApplicationDidEnterBackgroundNotification)
         NSNotificationCenter.defaultCenter().removeObserver(K.NOTIFICATION_TYPE.REMOTE_NOTIFICATION_WITH_ACTIVE_SESSION)
         NSNotificationCenter.defaultCenter().removeObserver(K.NOTIFICATION_TYPE.APPLICATION_DID_RECEIVE_REMOTE_NOTIFICATION)
-        NSNotificationCenter.defaultCenter().removeObserver(K.NOTIFICATION_TYPE.APPLICATION_WILL_TERMINATE)
         
         appManager.log.debug("\(NSStringFromClass(self.dynamicType))")
     }

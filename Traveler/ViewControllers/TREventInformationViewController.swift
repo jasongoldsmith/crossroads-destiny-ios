@@ -121,7 +121,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
                 self.leaveEventButton?.addTarget(self, action: #selector(leaveEvent(_:)), forControlEvents: .TouchUpInside)
             } else {
                 self.leaveEventButton?.hidden = false
-                self.leaveEventButton?.setTitle("JOINT EVENT", forState: .Normal)
+                self.leaveEventButton?.setTitle("JOIN EVENT", forState: .Normal)
                 self.leaveEventButton?.addTarget(self, action: #selector(joinAnEvent(_:)), forControlEvents: .TouchUpInside)
             }
         }
