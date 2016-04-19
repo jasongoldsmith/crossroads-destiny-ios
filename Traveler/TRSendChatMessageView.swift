@@ -12,11 +12,13 @@ import pop
 
 class TRSendChatMessageView: UIView, UITextFieldDelegate {
     
+    private let MAX_MESSAGE_CHARACTER_COUNT = 140
     
     @IBOutlet weak var sendToLabel: UILabel!
     @IBOutlet weak var chatBubbleTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var backGroundImageView: UIImageView!
+    @IBOutlet weak var characterCount: UILabel!
     
     var userId:String!
     var eventId:String!
@@ -58,6 +60,20 @@ class TRSendChatMessageView: UIView, UITextFieldDelegate {
     }
     
 // Mark: UITextFieldDelegate methods
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        let newLength = MAX_MESSAGE_CHARACTER_COUNT - (textField.text?.characters.count)!
+        self.characterCount.text = "\(newLength)"
+        
+        if (newLength <= 0) {
+            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Message limit reached.")
+            
+            return false
+        }
+        
+        return true
+    }
     
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         return true

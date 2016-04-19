@@ -49,17 +49,29 @@
                     </constraints>
                     <state key="normal" backgroundImage="imgSendBtn"/>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="140" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lcc-KC-nnW">
+                    <rect key="frame" x="482" y="334" width="57" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="57" id="21E-SB-ht9"/>
+                        <constraint firstAttribute="height" constant="21" id="yNO-C1-KWE"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="qXl-6L-xGz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="363" id="2tR-Go-YGf"/>
                 <constraint firstAttribute="bottom" secondItem="UQX-ls-YgD" secondAttribute="bottom" id="BhL-NY-1Dh"/>
+                <constraint firstAttribute="trailing" secondItem="Lcc-KC-nnW" secondAttribute="trailing" constant="61" id="E2N-ND-rkm"/>
                 <constraint firstItem="UQX-ls-YgD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ehj-Ed-Rbm"/>
                 <constraint firstItem="jYb-qe-rc6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="363" id="Mf1-L1-c9V"/>
                 <constraint firstItem="td9-Fa-ao4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="336" id="TqR-xG-amB"/>
                 <constraint firstItem="qXl-6L-xGz" firstAttribute="leading" secondItem="jYb-qe-rc6" secondAttribute="trailing" constant="5" id="UKT-62-eHS"/>
                 <constraint firstItem="wnl-6I-3LU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="19" id="UOR-MO-5dN"/>
                 <constraint firstItem="UQX-ls-YgD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="WQa-FC-5JQ"/>
+                <constraint firstItem="jYb-qe-rc6" firstAttribute="top" secondItem="Lcc-KC-nnW" secondAttribute="bottom" constant="8" id="XeF-WT-fnt"/>
                 <constraint firstItem="td9-Fa-ao4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="35" id="ltn-vx-JYd"/>
                 <constraint firstAttribute="trailing" secondItem="UQX-ls-YgD" secondAttribute="trailing" id="noU-UX-Fmq"/>
                 <constraint firstItem="jYb-qe-rc6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="19" id="qkH-Lc-J8M"/>
@@ -75,6 +87,7 @@
             </variation>
             <connections>
                 <outlet property="backGroundImageView" destination="UQX-ls-YgD" id="nSv-DC-lkm"/>
+                <outlet property="characterCount" destination="Lcc-KC-nnW" id="Ucp-zl-khZ"/>
                 <outlet property="chatBubbleTextField" destination="jYb-qe-rc6" id="uN1-yT-iLo"/>
                 <outlet property="sendButton" destination="qXl-6L-xGz" id="sSB-NM-Bhv"/>
                 <outlet property="sendToLabel" destination="td9-Fa-ao4" id="tCg-4n-6PF"/>

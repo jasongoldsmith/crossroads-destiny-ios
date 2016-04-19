@@ -279,8 +279,13 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         self.sendChatMessageView.sendToLabel.text = "To: All Players"
         self.sendChatMessageView.sendToAll = true
         self.sendChatMessageView.eventId = self.eventInfo?.eventID
-        
         self.view.addSubview(self.sendChatMessageView)
+        
+        let popAnimation:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+        popAnimation.toValue = 1.0
+        popAnimation.duration = 0.3
+        self.sendChatMessageView.alpha = 0.0
+        self.sendChatMessageView.pop_addAnimation(popAnimation, forKey: "alphasIn")
     }
 
 }
