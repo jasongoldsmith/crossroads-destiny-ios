@@ -118,10 +118,12 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
             if (isCurrentUserInTheEvent) {
                 self.leaveEventButton?.hidden = false
                 self.leaveEventButton?.setTitle("LEAVE EVENT", forState: .Normal)
+                self.leaveEventButton?.backgroundColor = UIColor(red: 255/255, green: 175/255, blue: 0/255, alpha: 1)
                 self.leaveEventButton?.addTarget(self, action: #selector(leaveEvent(_:)), forControlEvents: .TouchUpInside)
             } else {
                 self.leaveEventButton?.hidden = false
                 self.leaveEventButton?.setTitle("JOIN EVENT", forState: .Normal)
+                self.leaveEventButton?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
                 self.leaveEventButton?.addTarget(self, action: #selector(joinAnEvent(_:)), forControlEvents: .TouchUpInside)
             }
         }
@@ -203,7 +205,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
             cell.chatButton?.tag = indexPath.row
             cell.chatButton?.addTarget(self, action: #selector(TREventInformationViewController.sendChatMessage(_:)), forControlEvents: .TouchUpInside)
         } else {
-            cell.playerAvatorImageView?.image = UIImage(named: "imgJoin")
+            cell.playerAvatorImageView?.image = UIImage(named: "iconProfileBlank")
             cell.playerNameLable?.text = "Searching ..."
             cell.chatButton?.hidden = true
         }

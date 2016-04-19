@@ -321,7 +321,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Alg-fO-SEO">
-                                <rect key="frame" x="20" y="20" width="16" height="22"/>
+                                <rect key="frame" x="20" y="20" width="44" height="44"/>
                                 <state key="normal" image="iconBackArrow"/>
                                 <connections>
                                     <segue destination="XJ1-EK-ne3" kind="unwind" unwindAction="trUnwindAction:" id="V2d-0K-NAe"/>
@@ -409,10 +409,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uC7-JN-GI4">
-                                <rect key="frame" x="20" y="32" width="16" height="22"/>
+                                <rect key="frame" x="10" y="22" width="44" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="16" id="T5U-5i-NI8"/>
-                                    <constraint firstAttribute="height" constant="22" id="Zej-m1-xVf"/>
+                                    <constraint firstAttribute="width" constant="44" id="T5U-5i-NI8"/>
+                                    <constraint firstAttribute="height" constant="44" id="Zej-m1-xVf"/>
                                 </constraints>
                                 <state key="normal" image="iconBackArrow"/>
                                 <connections>
@@ -542,7 +542,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="is0-W8-hbX" firstAttribute="top" secondItem="Aqr-oc-sZI" secondAttribute="bottom" id="4lH-ee-HDR"/>
-                            <constraint firstItem="uC7-JN-GI4" firstAttribute="top" secondItem="9SH-CB-Ydz" secondAttribute="topMargin" constant="32" id="5DM-Gx-FW3"/>
+                            <constraint firstItem="uC7-JN-GI4" firstAttribute="top" secondItem="9SH-CB-Ydz" secondAttribute="topMargin" constant="22" id="5DM-Gx-FW3"/>
                             <constraint firstItem="ukI-FG-5gA" firstAttribute="leading" secondItem="9SH-CB-Ydz" secondAttribute="leadingMargin" constant="-20" id="J7c-LL-16V"/>
                             <constraint firstItem="8LA-QM-6f9" firstAttribute="leading" secondItem="9SH-CB-Ydz" secondAttribute="leadingMargin" constant="-20" id="Kl5-Rf-xuC"/>
                             <constraint firstItem="X2L-fH-rpD" firstAttribute="leading" secondItem="9SH-CB-Ydz" secondAttribute="leadingMargin" constant="-20" id="Kw9-ZM-Oce"/>
@@ -566,10 +566,10 @@
                             <constraint firstItem="9pG-2I-H5x" firstAttribute="top" secondItem="lms-Zo-2cQ" secondAttribute="bottom" constant="74" id="sRN-Ad-Ouu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yHM-Lz-gby" secondAttribute="trailing" constant="-20" id="sq8-hs-23p"/>
                             <constraint firstItem="yHM-Lz-gby" firstAttribute="leading" secondItem="9SH-CB-Ydz" secondAttribute="leadingMargin" constant="-20" id="t1y-ga-IYH"/>
-                            <constraint firstItem="uC7-JN-GI4" firstAttribute="leading" secondItem="9SH-CB-Ydz" secondAttribute="leadingMargin" id="wAC-g2-ZkB"/>
+                            <constraint firstItem="uC7-JN-GI4" firstAttribute="leading" secondItem="9SH-CB-Ydz" secondAttribute="leadingMargin" constant="-10" id="wAC-g2-ZkB"/>
                             <constraint firstItem="cUg-3p-3Ty" firstAttribute="leading" secondItem="9SH-CB-Ydz" secondAttribute="leadingMargin" constant="-20" id="xBh-Io-6I2"/>
                             <constraint firstItem="a6w-if-ciG" firstAttribute="top" secondItem="yHM-Lz-gby" secondAttribute="bottom" constant="6" id="xWx-aB-NsD"/>
-                            <constraint firstItem="yHM-Lz-gby" firstAttribute="top" secondItem="uC7-JN-GI4" secondAttribute="bottom" constant="18" id="z6i-kh-iri"/>
+                            <constraint firstItem="yHM-Lz-gby" firstAttribute="top" secondItem="uC7-JN-GI4" secondAttribute="bottom" constant="6" id="z6i-kh-iri"/>
                             <constraint firstItem="Aqr-oc-sZI" firstAttribute="leading" secondItem="9SH-CB-Ydz" secondAttribute="leadingMargin" constant="-20" id="zaH-Zi-fxJ"/>
                         </constraints>
                         <variation key="default">
@@ -1574,7 +1574,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIM-Bo-Bpg">
-                                <rect key="frame" x="20" y="28" width="16" height="22"/>
+                                <rect key="frame" x="20" y="28" width="44" height="44"/>
                                 <state key="normal" image="iconBackArrow"/>
                                 <connections>
                                     <segue destination="pLH-ez-YJx" kind="unwind" unwindAction="trUnwindAction:" id="3KC-gq-SHp"/>
@@ -1647,7 +1647,7 @@
         <image name="eventDetailHeaderBG" width="375" height="129"/>
         <image name="eventsViewBG" width="375" height="667"/>
         <image name="iconArrowRight" width="5" height="10"/>
-        <image name="iconBackArrow" width="16" height="16"/>
+        <image name="iconBackArrow" width="44" height="44"/>
         <image name="imgActivityBanner" width="40" height="51"/>
         <image name="imgChooseEventBG" width="375" height="597"/>
         <image name="imgCloseX" width="30" height="30"/>

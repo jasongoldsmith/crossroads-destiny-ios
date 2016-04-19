@@ -23,16 +23,16 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join Team" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdu-AY-zrC">
-                        <rect key="frame" x="74" y="8" width="188" height="28"/>
+                        <rect key="frame" x="74" y="8" width="190" height="28"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sz5-K0-lzH" customClass="EventButton" customModule="Traveler" customModuleProvider="target">
-                        <rect key="frame" x="266" y="8" width="46" height="30"/>
+                        <rect key="frame" x="268" y="0.0" width="44" height="44"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="46" id="5mh-6c-OeX"/>
-                            <constraint firstAttribute="height" constant="30" id="t8k-Qb-Goz"/>
+                            <constraint firstAttribute="width" constant="44" id="5mh-6c-OeX"/>
+                            <constraint firstAttribute="height" constant="44" id="t8k-Qb-Goz"/>
                         </constraints>
                         <state key="normal" image="iconChatDetailscreen"/>
                     </button>
@@ -42,7 +42,7 @@
                     <constraint firstItem="fxN-h5-4mk" firstAttribute="leading" secondItem="nDY-qg-Xm9" secondAttribute="leadingMargin" constant="10" id="ILg-04-Wq7"/>
                     <constraint firstItem="mdu-AY-zrC" firstAttribute="centerY" secondItem="nDY-qg-Xm9" secondAttribute="centerY" id="ML2-cd-jPr"/>
                     <constraint firstItem="mdu-AY-zrC" firstAttribute="top" secondItem="nDY-qg-Xm9" secondAttribute="topMargin" id="USw-Fe-9xG"/>
-                    <constraint firstItem="Sz5-K0-lzH" firstAttribute="top" secondItem="mdu-AY-zrC" secondAttribute="top" id="dhM-9i-t5e"/>
+                    <constraint firstItem="Sz5-K0-lzH" firstAttribute="top" secondItem="mdu-AY-zrC" secondAttribute="top" constant="-8" id="dhM-9i-t5e"/>
                     <constraint firstItem="Sz5-K0-lzH" firstAttribute="leading" secondItem="mdu-AY-zrC" secondAttribute="trailing" constant="4" id="hBx-CP-t49"/>
                     <constraint firstItem="mdu-AY-zrC" firstAttribute="leading" secondItem="fxN-h5-4mk" secondAttribute="trailing" constant="20" id="mkf-rF-dVV"/>
                     <constraint firstItem="fxN-h5-4mk" firstAttribute="centerY" secondItem="nDY-qg-Xm9" secondAttribute="centerY" id="sBv-qb-xty"/>
@@ -55,10 +55,10 @@
                 <outlet property="playerAvatorImageView" destination="fxN-h5-4mk" id="KLG-vy-avl"/>
                 <outlet property="playerNameLable" destination="mdu-AY-zrC" id="BVw-T2-X8k"/>
             </connections>
-            <point key="canvasLocation" x="-234" y="236"/>
+            <point key="canvasLocation" x="-575" y="232"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="iconChatDetailscreen" width="36" height="36"/>
+        <image name="iconChatDetailscreen" width="44" height="44"/>
     </resources>
 </document>
