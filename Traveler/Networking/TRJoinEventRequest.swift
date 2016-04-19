@@ -59,7 +59,9 @@ class TRJoinEventRequest: TRRequest {
                         activityInfo.activityMaxPlayers = activity["maxPlayers"]?.number
                         activityInfo.activityMinPlayers = activity["minPlayers"]?.number
                         activityInfo.activityIconImage  = activity["aIconUrl"]?.stringValue
-                        
+                        activityInfo.activityIsFeatured = activity["isFeatured"]?.boolValue
+                        activityInfo.activitylocation   = activity["location"]?.stringValue
+
                         //Event Activity added
                         existingEvent?.eventActivity = activityInfo
                     }
