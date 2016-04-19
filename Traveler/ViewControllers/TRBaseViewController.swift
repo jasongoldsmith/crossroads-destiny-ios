@@ -47,7 +47,7 @@ class TRBaseViewController: UIViewController {
             object: nil)
 
         NSNotificationCenter.defaultCenter().addObserver(self,
-             selector: #selector(TRBaseViewController.didReceiveRemoteNotification(_:)),
+             selector: #selector(TRBaseViewController.applicationDidTerminate),
              name: K.NOTIFICATION_TYPE.APPLICATION_WILL_TERMINATE,
              object: nil)
 
