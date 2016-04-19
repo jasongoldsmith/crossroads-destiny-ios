@@ -57,8 +57,7 @@ class TRRequest {
                 }
                 
                 switch response.result {
-                case .Failure( _):
-                    TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Server request failed. Please wait a few seconds and refresh.")
+                case .Failure( _): break
                 case .Success( _):
                     
                     if let _ = response.result.value {
