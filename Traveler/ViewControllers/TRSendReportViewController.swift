@@ -113,17 +113,27 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
     
     @IBAction func sendReportButtonAdded (sender: AnyObject) {
         
-        let currentUserID = TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()
+        let currentUser = TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()
+        let currentUserID: String?
         
+        if let hasUserID = currentUser?.playerID {
+            currentUserID = hasUserID
+        } else {
+            currentUserID = TRUserInfo.getUserName()
+        }
+
         let textString: String = (self.reportTextView?.text)!
-        
         if (textString.characters.count == 0) {
             
             TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Please enter a message")
             return
         }
         
-        _ = TRCreateAReportRequest().sendCreatedReport((self.reportTextView?.text)!, reportType: "issue", reporterID: (currentUserID?.playerID)!, completion: { (didSucceed) in
+        guard let _ = currentUserID else {
+            return
+        }
+        
+        _ = TRCreateAReportRequest().sendCreatedReport((self.reportTextView?.text)!, reportType: "issue", reporterID: currentUserID!, completion: { (didSucceed) in
             if (didSucceed != nil)  {
 
                 if self.reportTextView.isFirstResponder() {
