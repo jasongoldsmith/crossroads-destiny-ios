@@ -34,7 +34,7 @@ class TRAuthenticationRequest: TRRequest {
         }
 
         //TODO: Remove this after hard - Coded clan later
-        //params["clanId"] = "forcecatalyst"
+        params["clanId"] = "forcecatalyst"
         
         
         TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(false, activityTopConstraintValue: nil)

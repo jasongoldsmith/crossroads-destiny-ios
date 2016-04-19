@@ -25,7 +25,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     @IBOutlet weak var eventInfoTable: UITableView?
     @IBOutlet weak var eventTimeLabel: UILabel?
     @IBOutlet weak var sendMessageToAllButton: UIButton?
-    @IBOutlet weak var leaveEventButton: UIButton?
+    @IBOutlet weak var leaveEventButton: EventButton?
     
     var sendChatMessageView : TRSendChatMessageView!
     
@@ -96,6 +96,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         }
      
         //Leave Event and Send Message To All button update
+        self.leaveEventButton?.buttonEventInfo = self.eventInfo
         self.updateBottomButtons()
     }
     
@@ -107,14 +108,21 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         if (isCurrentUserCreatorOfEvent == true) {
             if self.eventInfo?.eventPlayersArray.count > 1 {
                 self.sendMessageToAllButton?.hidden = false
+                self.leaveEventButton?.hidden = true
             }
         } else {
             self.sendMessageToAllButton?.hidden = true
+            self.leaveEventButton?.removeTarget(self, action: #selector(leaveEvent(_:)), forControlEvents: .TouchUpInside)
+            self.leaveEventButton?.removeTarget(self, action: #selector(joinAnEvent(_:)), forControlEvents: .TouchUpInside)
             
             if (isCurrentUserInTheEvent) {
                 self.leaveEventButton?.hidden = false
+                self.leaveEventButton?.setTitle("LEAVE EVENT", forState: .Normal)
+                self.leaveEventButton?.addTarget(self, action: #selector(leaveEvent(_:)), forControlEvents: .TouchUpInside)
             } else {
-                self.leaveEventButton?.hidden = true
+                self.leaveEventButton?.hidden = false
+                self.leaveEventButton?.setTitle("JOINT EVENT", forState: .Normal)
+                self.leaveEventButton?.addTarget(self, action: #selector(joinAnEvent(_:)), forControlEvents: .TouchUpInside)
             }
         }
     }
@@ -131,20 +139,25 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     
     //MARK:- UITable Delegate Methods
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+
         if let _ = self.eventInfo {
-            let isCurrentPlayerInEvent = TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!)
-            let maxPlayersReached = self.eventInfo?.eventPlayersArray.count == self.eventInfo?.eventActivity?.activityMaxPlayers
-            let isEventFull = (eventInfo?.eventStatus == EVENT_STATUS.FULL.rawValue)
-            
-            if isCurrentPlayerInEvent || maxPlayersReached || isEventFull {
-                return (self.eventInfo?.eventPlayersArray.count)!
-            }
-            
-            return (self.eventInfo?.eventPlayersArray.count)! + 1
+            return (self.eventInfo?.eventActivity?.activityMaxPlayers?.integerValue)!
         }
         
-        return 1
+        return 0
+//        if let _ = self.eventInfo {
+//            let isCurrentPlayerInEvent = TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!)
+//            let maxPlayersReached = self.eventInfo?.eventPlayersArray.count == self.eventInfo?.eventActivity?.activityMaxPlayers
+//            let isEventFull = (eventInfo?.eventStatus == EVENT_STATUS.FULL.rawValue)
+//            
+//            if isCurrentPlayerInEvent || maxPlayersReached || isEventFull {
+//                return (self.eventInfo?.eventPlayersArray.count)!
+//            }
+//            
+//            return (self.eventInfo?.eventPlayersArray.count)! + 1
+//        }
+//        
+//        return 1
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -191,7 +204,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
             cell.chatButton?.addTarget(self, action: #selector(TREventInformationViewController.sendChatMessage(_:)), forControlEvents: .TouchUpInside)
         } else {
             cell.playerAvatorImageView?.image = UIImage(named: "imgJoin")
-            cell.playerNameLable?.text = "Join Team"
+            cell.playerNameLable?.text = "Searching ..."
             cell.chatButton?.hidden = true
         }
         
@@ -200,10 +213,6 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.eventInfoTable?.deselectRowAtIndexPath(indexPath, animated: false)
-        
-        if indexPath.row == self.eventInfo?.eventPlayersArray.count {
-            self.joinAnEvent(self.eventInfo!)
-        }
     }
     
     func reloadEventTable () {
@@ -237,15 +246,13 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     }
     
     
-    @IBAction func leaveEvent(sender: UIButton) {
+    @IBAction func leaveEvent(eventInfoButton: EventButton) {
         
-        guard let event = self.eventInfo else {
-            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("No Event Object Found")
+        guard let buttonHasEvent = eventInfoButton.buttonEventInfo else {
             return
-
         }
         
-        _ = TRLeaveEventRequest().leaveAnEvent(event, completion: { (didSucceed) in
+        _ = TRLeaveEventRequest().leaveAnEvent(buttonHasEvent, completion: { (didSucceed) in
             if (didSucceed == true) {
                 dispatch_async(dispatch_get_main_queue()) { () -> Void in
                     if let _ = TRApplicationManager.sharedInstance.getEventById((self.eventInfo?.eventID)!) {
@@ -261,9 +268,13 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         })
     }
     
-    func joinAnEvent (eventInfo: TREventInfo) {
+    func joinAnEvent (eventInfoButton: EventButton) {
         
-        _ = TRJoinEventRequest().joinEventWithUserForEvent(TRUserInfo.getUserID()!, eventInfo: eventInfo, completion: { (value) -> () in
+        guard let buttonHasEvent = eventInfoButton.buttonEventInfo else {
+            return
+        }
+        
+        _ = TRJoinEventRequest().joinEventWithUserForEvent(TRUserInfo.getUserID()!, eventInfo: buttonHasEvent, completion: { (value) -> () in
             if (value == true) {
                 dispatch_async(dispatch_get_main_queue()) { () -> Void in
                     self.reloadEventTable()
