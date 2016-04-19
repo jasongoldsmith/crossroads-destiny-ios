@@ -674,6 +674,16 @@
                                     <action selector="sendReport" destination="RJW-k0-l6u" eventType="touchUpInside" id="Jvn-Ld-nXP"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9P-C3-JX9">
+                                <rect key="frame" x="205" y="569" width="191" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="191" id="HqI-Qg-oIR"/>
+                                    <constraint firstAttribute="height" constant="21" id="Oru-dj-Hrv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.36470588240000001" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -683,9 +693,11 @@
                             <constraint firstItem="yga-kS-xxF" firstAttribute="centerX" secondItem="NgN-Kf-uF4" secondAttribute="centerX" id="AuE-cy-8n3"/>
                             <constraint firstItem="Gnx-Nj-sRV" firstAttribute="centerX" secondItem="NgN-Kf-uF4" secondAttribute="centerX" id="Pyp-rA-c8Q"/>
                             <constraint firstItem="ftz-Fk-rbT" firstAttribute="top" secondItem="APu-zA-Kyk" secondAttribute="bottom" id="RoG-Rp-lm1"/>
+                            <constraint firstItem="Z9P-C3-JX9" firstAttribute="centerX" secondItem="NgN-Kf-uF4" secondAttribute="centerX" id="U42-xN-4K6"/>
                             <constraint firstItem="yga-kS-xxF" firstAttribute="top" secondItem="lly-Ep-C9p" secondAttribute="bottom" constant="-104" id="WBa-YI-6Wf"/>
                             <constraint firstItem="2Ax-E1-ccC" firstAttribute="top" secondItem="tHf-b5-jNh" secondAttribute="bottom" constant="20" id="aOx-1l-ZZY"/>
                             <constraint firstItem="Gnx-Nj-sRV" firstAttribute="top" secondItem="yga-kS-xxF" secondAttribute="bottom" constant="-106" id="ab9-oZ-PJI"/>
+                            <constraint firstItem="ftz-Fk-rbT" firstAttribute="top" secondItem="Z9P-C3-JX9" secondAttribute="bottom" constant="10" id="eYc-yS-vBx"/>
                             <constraint firstItem="lly-Ep-C9p" firstAttribute="top" secondItem="2Ax-E1-ccC" secondAttribute="bottom" constant="183" id="fwE-xg-XuX"/>
                             <constraint firstItem="ZEc-XV-f48" firstAttribute="trailing" secondItem="NgN-Kf-uF4" secondAttribute="trailingMargin" constant="-5" id="g72-W6-0j2"/>
                             <constraint firstItem="lly-Ep-C9p" firstAttribute="centerX" secondItem="NgN-Kf-uF4" secondAttribute="centerX" id="hK2-6R-Jbj"/>
@@ -699,6 +711,7 @@
                         <outlet property="avatorImageView" destination="tHf-b5-jNh" id="gjz-lk-mMf"/>
                         <outlet property="avatorUserName" destination="2Ax-E1-ccC" id="7fA-AP-VWF"/>
                         <outlet property="backGroundImageView" destination="APu-zA-Kyk" id="ZtR-PJ-PhM"/>
+                        <outlet property="buildNumberLabel" destination="Z9P-C3-JX9" id="gXo-n1-1FR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DGE-Oe-lRZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

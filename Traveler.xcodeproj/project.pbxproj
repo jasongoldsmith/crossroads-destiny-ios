@@ -35,6 +35,9 @@
 		334E05C01C939D7C00973068 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C1FF2F1C77C15C00A78798 /* AppDelegate.swift */; };
 		335AF5E81CA49DF500EBB6EF /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338AECFD1C9D03AE008B064F /* Utility.swift */; };
 		335AF5E91CA49DF500EBB6EF /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338AECFD1C9D03AE008B064F /* Utility.swift */; };
+		3369499C1CC5CFEB004979C0 /* NSBundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369499B1CC5CFEB004979C0 /* NSBundleExtension.swift */; };
+		3369499D1CC5CFEB004979C0 /* NSBundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369499B1CC5CFEB004979C0 /* NSBundleExtension.swift */; };
+		3369499E1CC5CFEB004979C0 /* NSBundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369499B1CC5CFEB004979C0 /* NSBundleExtension.swift */; };
 		336BF5271CBEB214005CD3DE /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */; };
 		336BF5281CBEB214005CD3DE /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */; };
 		336BF5291CBEB214005CD3DE /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */; };
@@ -203,6 +206,7 @@
 		3329B5971C9B7A9000CC1F9B /* TRPushNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRPushNotificationView.xib; sourceTree = "<group>"; };
 		332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLeaveEventRequest.swift; sourceTree = "<group>"; };
 		333E1CA31CC54A27000B843C /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		3369499B1CC5CFEB004979C0 /* NSBundleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSBundleExtension.swift; sourceTree = "<group>"; };
 		336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		33742D7F1C7FBDF100C46742 /* TRConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRConstants.swift; sourceTree = "<group>"; };
 		33742D851C7FC46B00C46742 /* TRBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRBaseViewController.swift; sourceTree = "<group>"; };
@@ -350,6 +354,7 @@
 				3397E2821C93822F008CCCDB /* TRDeviceTokenRequest.swift */,
 				3398E1A81CAB2994001F022B /* TRSendPushMessage.swift */,
 				33974F151CADD0740015C9D5 /* TRCreateAReportRequest.swift */,
+				3369499B1CC5CFEB004979C0 /* NSBundleExtension.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -685,6 +690,7 @@
 				331E0F051C9B852200A80D32 /* TRPushNotificationView.swift in Sources */,
 				33742DB21C83179D00C46742 /* TREventTableCellView.swift in Sources */,
 				336BF5271CBEB214005CD3DE /* UIApplicationExtension.swift in Sources */,
+				3369499C1CC5CFEB004979C0 /* NSBundleExtension.swift in Sources */,
 				5CBD7BCE1CAC91C70078636D /* TRSendChatMessageView.swift in Sources */,
 				3397E2831C93822F008CCCDB /* TRDeviceTokenRequest.swift in Sources */,
 				333E1CA41CC54A27000B843C /* UIViewExtension.swift in Sources */,
@@ -777,6 +783,7 @@
 				33742D9E1C80FFAE00C46742 /* TRGetEventsList.swift in Sources */,
 				33742D9A1C800A5D00C46742 /* UISegmentedControlExtension.swift in Sources */,
 				33FDB9D21C8778150066237C /* TRJoinEventRequest.swift in Sources */,
+				3369499D1CC5CFEB004979C0 /* NSBundleExtension.swift in Sources */,
 				3329B58D1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */,
 				3398E1AA1CAB2994001F022B /* TRSendPushMessage.swift in Sources */,
 				339D8F311C911FB900A2620F /* TRCreateEventConfirmationViewController.swift in Sources */,
@@ -831,6 +838,7 @@
 				33742D9F1C80FFAE00C46742 /* TRGetEventsList.swift in Sources */,
 				33742D9B1C800A5E00C46742 /* UISegmentedControlExtension.swift in Sources */,
 				33FDB9D31C8778150066237C /* TRJoinEventRequest.swift in Sources */,
+				3369499E1CC5CFEB004979C0 /* NSBundleExtension.swift in Sources */,
 				3329B58E1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */,
 				3398E1AB1CAB2994001F022B /* TRSendPushMessage.swift in Sources */,
 				339D8F321C911FB900A2620F /* TRCreateEventConfirmationViewController.swift in Sources */,

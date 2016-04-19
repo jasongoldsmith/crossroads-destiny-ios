@@ -15,11 +15,15 @@ class TRProfileViewController: TRBaseViewController {
     @IBOutlet weak var avatorImageView: UIImageView?
     @IBOutlet weak var avatorUserName: UILabel?
     @IBOutlet weak var backGroundImageView: UIImageView?
+    @IBOutlet weak var buildNumberLabel: UILabel!
     
     var currentUser: TRPlayerInfo?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Update build number
+        self.buildNumberLabel.text = "Version: \(NSBundle.mainBundle().releaseVersionNumber!) - Build: \(NSBundle.mainBundle().buildVersionNumber!)"
     }
     
 
