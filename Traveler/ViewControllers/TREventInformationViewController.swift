@@ -105,6 +105,11 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
                 self.leaveEventButton?.backgroundColor = UIColor(red: 255/255, green: 175/255, blue: 0/255, alpha: 1)
                 self.leaveEventButton?.addTarget(self, action: #selector(leaveEvent(_:)), forControlEvents: .TouchUpInside)
             } else {
+                if self.eventInfo?.eventStatus == EVENT_STATUS.FULL.rawValue {
+                    self.leaveEventButton?.hidden = true
+                    return
+                }
+
                 self.leaveEventButton?.hidden = false
                 self.leaveEventButton?.setTitle("JOIN EVENT", forState: .Normal)
                 self.leaveEventButton?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
