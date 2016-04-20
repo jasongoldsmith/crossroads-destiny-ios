@@ -33,20 +33,7 @@ class TRgetActivityList: TRRequest {
             
             for activity in swiftyJsonVar.arrayValue {
                 
-                let activityInfo = TRActivityInfo()
-                
-                activityInfo.activityID         = activity["_id"].stringValue
-                activityInfo.activitySubType    = activity["aSubType"].stringValue
-                activityInfo.activityCheckPoint = activity["aCheckpoint"].stringValue
-                activityInfo.activityType       = activity["aType"].stringValue
-                activityInfo.activityDificulty  = activity["aDifficulty"].stringValue
-                activityInfo.activityLight      = activity["aLight"].number
-                activityInfo.activityMaxPlayers = activity["maxPlayers"].number
-                activityInfo.activityMinPlayers = activity["minPlayers"].number
-                activityInfo.activityIconImage  = activity["aIconUrl"].stringValue
-                activityInfo.activityIsFeatured = activity["isFeatured"].boolValue
-                activityInfo.activitylocation   = activity["location"].stringValue
-                
+                let activityInfo = TRActivityInfo().parseAndCreateActivityObject(activity)
                 TRApplicationManager.sharedInstance.activityList.append(activityInfo)
             }
             

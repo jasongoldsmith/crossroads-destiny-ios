@@ -95,7 +95,7 @@ class TRApplicationManager: NSObject {
         parentViewController.presentViewController(self.slideMenuController, animated: true, completion: {
             
             if let _ = pushData {
-                //eventListViewController.showEventInfoViewController(nil)
+                eventListViewController.showEventInfoViewController(nil)
             }
         })
     }
