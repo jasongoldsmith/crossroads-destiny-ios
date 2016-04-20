@@ -40,6 +40,22 @@ class TRRequest {
         self.encodingType = .JSON
     }
     
+
+    /* Adding re-try logic */
+
+    
+//    func retry(numberOfTimes: Int, task: (completion: TRResponseCallBack) -> Void, completion: TRResponseCallBack) {
+//        task { (error, responseObject) in
+//            if (error != nil) {
+//                if numberOfTimes > 1 {
+//                    self.retry(numberOfTimes - 1, task: task, completion: completion)
+//                }
+//            } else {
+//                completion(error: nil, responseObject: responseObject)
+//            }
+//        }
+//    }
+    
     func sendRequestWithCompletion (completion: TRResponseCallBack) {
         
         //Start Activity Indicator
@@ -57,7 +73,9 @@ class TRRequest {
                 }
                 
                 switch response.result {
-                case .Failure( _): break
+                case .Failure( _):
+                    TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Server request failed. Please wait a few seconds and refresh.")
+                    break
                 case .Success( _):
                     
                     if let _ = response.result.value {
