@@ -38,7 +38,7 @@ class TRJoinEventRequest: TRRequest {
                 let existingEvent = TRApplicationManager.sharedInstance.getEventById(swiftyJsonVar["_id"].string!)
                 
                 if let _ = existingEvent {
-                    existingEvent?.parseAndCreateActivityObject(swiftyJsonVar)
+                    existingEvent?.parseCreateEventInfoObject(swiftyJsonVar)
                 }
                             
                 completion(didSucceed: true )

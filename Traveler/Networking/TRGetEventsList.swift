@@ -38,7 +38,7 @@ class TRGetEventsList: TRRequest {
             TRApplicationManager.sharedInstance.eventsList.removeAll()
             
             for events in swiftyJsonVar.arrayValue {
-                let eventInfo = TREventInfo().parseAndCreateActivityObject(events)
+                let eventInfo = TREventInfo().parseCreateEventInfoObject(events)
                 TRApplicationManager.sharedInstance.eventsList.append(eventInfo)
             }
             

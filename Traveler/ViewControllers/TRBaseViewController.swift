@@ -143,7 +143,6 @@ class TRBaseViewController: UIViewController {
     }
 
     func didReceiveRemoteNotification (sender: NSNotification) {
-        
     }
     
     func dismissViewController (isAnimated:Bool, dismissed: viewControllerDismissed) {

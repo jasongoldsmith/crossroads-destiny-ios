@@ -8,7 +8,7 @@
 
 import UIKit
 import Foundation
-
+import SwiftyJSON
 
 private let CURRENT_EVENT_CELL = "currentEventCell"
 private let EVENT_TABLE_HEADER_HEIGHT:CGFloat = 10.0
@@ -192,6 +192,29 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         vc.eventInfo = eventInfo
         
         self.presentViewController(vc, animated: true, completion: nil)
+    }
+    
+    override func didReceiveRemoteNotification(sender: NSNotification) {
+        
+        // If Event Info is open, If Navigations are open, close them too
+        if let topController = UIApplication.topViewController() {
+            if topController.isKindOfClass(TREventInformationViewController) {
+                topController.dismissViewControllerAnimated(false, completion: {
+                    topController.didMoveToParentViewController(nil)
+                    topController.removeFromParentViewController()
+                })
+            } else if (topController.navigationController != nil) {
+                topController.dismissViewControllerAnimated(false, completion: {
+                })
+            }
+        }
+        
+        if let pushData = sender.userInfo!["payload"] {
+            let swiftyJson = JSON(pushData)
+            let eventInfo = TREventInfo().parseCreateEventInfoObject(swiftyJson)
+            
+            self.showEventInfoViewController(eventInfo)
+        }
     }
     
     //MARK:- Event Methods

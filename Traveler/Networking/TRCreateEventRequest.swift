@@ -51,7 +51,7 @@ class TRCreateEventRequest: TRRequest {
             }
             
             // Creating Event Objects from Events List
-            let eventInfo = TREventInfo().parseAndCreateActivityObject(swiftyJsonVar)
+            let eventInfo = TREventInfo().parseCreateEventInfoObject(swiftyJsonVar)
             
             if let eventToUpdate = TRApplicationManager.sharedInstance.getEventById(eventInfo.eventID!) {
                 let eventIndex = TRApplicationManager.sharedInstance.eventsList.indexOf(eventToUpdate)

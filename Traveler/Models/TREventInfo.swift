@@ -24,7 +24,7 @@ class TREventInfo: NSObject {
     var eventPlayersArray       : [TRPlayerInfo] = []
     var isFutureEvent           : Bool = false
     
-    func parseAndCreateActivityObject (swiftyJason: JSON) -> TREventInfo {
+    func parseCreateEventInfoObject (swiftyJason: JSON) -> TREventInfo {
         
         if let futureLaunchDate = swiftyJason["launchDate"].string {
             let isFutureEvent = isTimeDifferenceMoreThenAnHour(futureLaunchDate)

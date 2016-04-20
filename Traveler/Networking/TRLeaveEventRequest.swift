@@ -58,7 +58,7 @@ class TRLeaveEventRequest: TRRequest {
             }
             
             if let _ = existingEvent {
-                existingEvent?.parseAndCreateActivityObject(swiftyJsonVar)
+                existingEvent?.parseCreateEventInfoObject(swiftyJsonVar)
             }
             
             completion(didSucceed: true )

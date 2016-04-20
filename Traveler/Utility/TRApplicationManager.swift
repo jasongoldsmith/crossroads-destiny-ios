@@ -11,6 +11,7 @@ import UIKit
 import XCGLogger
 import Alamofire
 import SlideMenuControllerSwift
+import SwiftyJSON
 
 class TRApplicationManager: NSObject {
     
@@ -95,7 +96,12 @@ class TRApplicationManager: NSObject {
         parentViewController.presentViewController(self.slideMenuController, animated: true, completion: {
             
             if let _ = pushData {
-                eventListViewController.showEventInfoViewController(nil)
+                if let payload = pushData!.objectForKey("payload") {
+                    let swiftyJson = JSON(payload)
+                    let eventInfo = TREventInfo().parseCreateEventInfoObject(swiftyJson)
+                    
+                    eventListViewController.showEventInfoViewController(eventInfo)
+                }
             }
         })
     }
