@@ -64,25 +64,9 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         
         
         // Set  Event Player Names
-        if (self.eventInfo?.eventPlayersArray.count < self.eventInfo?.eventActivity?.activityMaxPlayers?.integerValue) {
-            let stringColorAttribute = [NSForegroundColorAttributeName: UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)]
-            let extraPlayersRequiredCount = ((self.eventInfo?.eventActivity?.activityMaxPlayers?.integerValue)! - (self.eventInfo?.eventPlayersArray.count)!)
-            let extraPlayersRequiredCountString = String(extraPlayersRequiredCount)
-            let extraPlayersRequiredCountStringNew = " LF" + "\(extraPlayersRequiredCountString)M"
-            
-            // Attributed Strings
-            let extraPlayersRequiredCountStringNewAttributed = NSAttributedString(string: extraPlayersRequiredCountStringNew, attributes: stringColorAttribute)
-            if let _ = self.eventInfo?.eventCreator?.playerPsnID {
-                let finalString = NSMutableAttributedString(string: (self.eventInfo?.eventCreator?.playerPsnID!)!)
-                finalString.appendAttributedString(extraPlayersRequiredCountStringNewAttributed)
-                self.eventDescription?.attributedText = finalString
-            }
-        } else {
-            let playersNameString = (self.eventInfo?.eventCreator?.playerPsnID!)!
-            self.eventDescription?.text = playersNameString
-        }
+        self.updateEventStatusAndPlayerNameString()
         
-        
+        // Set date string
         if (eventInfo?.isFutureEvent == true) {
             //Event time label
             if let hasLaunchDate = self.eventInfo?.eventLaunchDate {
@@ -126,6 +110,26 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
                 self.leaveEventButton?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
                 self.leaveEventButton?.addTarget(self, action: #selector(joinAnEvent(_:)), forControlEvents: .TouchUpInside)
             }
+        }
+    }
+    
+    func updateEventStatusAndPlayerNameString () {
+        if (self.eventInfo?.eventPlayersArray.count < self.eventInfo?.eventActivity?.activityMaxPlayers?.integerValue) {
+            let stringColorAttribute = [NSForegroundColorAttributeName: UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)]
+            let extraPlayersRequiredCount = ((self.eventInfo?.eventActivity?.activityMaxPlayers?.integerValue)! - (self.eventInfo?.eventPlayersArray.count)!)
+            let extraPlayersRequiredCountString = String(extraPlayersRequiredCount)
+            let extraPlayersRequiredCountStringNew = " LF" + "\(extraPlayersRequiredCountString)M"
+            
+            // Attributed Strings
+            let extraPlayersRequiredCountStringNewAttributed = NSAttributedString(string: extraPlayersRequiredCountStringNew, attributes: stringColorAttribute)
+            if let _ = self.eventInfo?.eventCreator?.playerPsnID {
+                let finalString = NSMutableAttributedString(string: (self.eventInfo?.eventCreator?.playerPsnID!)!)
+                finalString.appendAttributedString(extraPlayersRequiredCountStringNewAttributed)
+                self.eventDescription?.attributedText = finalString
+            }
+        } else {
+            let playersNameString = (self.eventInfo?.eventCreator?.playerPsnID!)!
+            self.eventDescription?.text = playersNameString
         }
     }
     
@@ -221,6 +225,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         self.eventInfo = TRApplicationManager.sharedInstance.getEventById((self.eventInfo?.eventID)!)
         self.eventInfoTable?.reloadData()
         self.updateBottomButtons()
+        self.updateEventStatusAndPlayerNameString()
     }
     
     
