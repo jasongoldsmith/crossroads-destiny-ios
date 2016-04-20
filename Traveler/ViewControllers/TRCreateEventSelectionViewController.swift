@@ -75,9 +75,17 @@ class TRCreateEventSelectionViewController: TRBaseViewController {
         //Adding Back Button to nav Bar
         let leftButton = UIButton(frame: CGRectMake(0,0,44,44))
         leftButton.setImage(UIImage(named: "iconBackArrow"), forState: .Normal)
+        leftButton.transform = CGAffineTransformMakeTranslation(-10, 0)
         leftButton.addTarget(self, action: #selector(TRCreateEventSelectionViewController.navBackButtonPressed(_:)), forControlEvents: .TouchUpInside)
+        
+        // Add the button to a container, otherwise the transform will be ignored
+        let leftButtonContainer = UIView(frame: leftButton.frame)
+        leftButtonContainer.addSubview(leftButton)
+        
         let leftBarButton = UIBarButtonItem()
-        leftBarButton.customView = leftButton
+        leftBarButton.customView = leftButtonContainer
+
+        
         self.navigationItem.leftBarButtonItem = leftBarButton
     }
 

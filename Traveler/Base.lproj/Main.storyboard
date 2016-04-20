@@ -321,7 +321,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Alg-fO-SEO">
-                                <rect key="frame" x="20" y="20" width="44" height="44"/>
+                                <rect key="frame" x="10" y="20" width="44" height="44"/>
                                 <state key="normal" image="iconBackArrow"/>
                                 <connections>
                                     <segue destination="XJ1-EK-ne3" kind="unwind" unwindAction="trUnwindAction:" id="V2d-0K-NAe"/>
@@ -1574,7 +1574,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIM-Bo-Bpg">
-                                <rect key="frame" x="20" y="28" width="44" height="44"/>
+                                <rect key="frame" x="10" y="28" width="44" height="44"/>
                                 <state key="normal" image="iconBackArrow"/>
                                 <connections>
                                     <segue destination="pLH-ez-YJx" kind="unwind" unwindAction="trUnwindAction:" id="3KC-gq-SHp"/>
