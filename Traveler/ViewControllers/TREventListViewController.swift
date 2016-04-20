@@ -194,6 +194,8 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         self.presentViewController(vc, animated: true, completion: nil)
     }
     
+    
+    //Called when app is in background state
     override func didReceiveRemoteNotification(sender: NSNotification) {
         
         // If Event Info is open, If Navigations are open, close them too
