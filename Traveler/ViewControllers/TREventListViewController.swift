@@ -10,9 +10,17 @@ import UIKit
 import Foundation
 import SwiftyJSON
 
-private let CURRENT_EVENT_CELL = "currentEventCell"
+private let CURRENT_EVENT_WITH_CHECK_POINT_CELL     = "currentEventCellWithCheckPoint"
+private let CURRENT_EVENT_NO_CHECK_POINT_CELL       = "currentEventCellNoCheckPoint"
+private let UPCOMING_EVENT_WITH_CHECK_POINT_CELL    = "upcomingEventCellWithCheckPoint"
+private let UPCOMING_EVENT_NO_CHECK_POINT_CELL      = "upcomingEventCellNoCheckPoint"
+
 private let EVENT_TABLE_HEADER_HEIGHT:CGFloat = 10.0
 
+private let EVENT_CURRENT_WITH_CHECK_POINT_CELL_HEIGHT: CGFloat  = 142.0
+private let EVENT_CURRENT_NO_CHECK_POINT_CELL_HEIGHT:CGFloat     = 124.0
+private let EVENT_UPCOMING_WITH_CHECK_POINT_CELL_HEIGHT:CGFloat  = 160.0
+private let EVENT_UPCOMING_NO_CHECK_POINT_CELL_HEIGHT:CGFloat    = 142.0
 
 class TREventListViewController: TRBaseViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -50,7 +58,11 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         self.segmentControl!.setTitleTextAttributes(normalTextAttributes, forState: .Normal)
         self.segmentControl!.setTitleTextAttributes(normalTextAttributes, forState: .Selected)
         
-        self.eventsTableView?.registerNib(UINib(nibName: "TREventTableCellView", bundle: nil), forCellReuseIdentifier: CURRENT_EVENT_CELL)
+        self.eventsTableView?.registerNib(UINib(nibName: "TREventCurrentWithCheckPointCell", bundle: nil), forCellReuseIdentifier: CURRENT_EVENT_WITH_CHECK_POINT_CELL)
+        self.eventsTableView?.registerNib(UINib(nibName: "TREventCurrentNoCheckPointCell", bundle: nil), forCellReuseIdentifier: CURRENT_EVENT_NO_CHECK_POINT_CELL)
+        self.eventsTableView?.registerNib(UINib(nibName: "TREventUpcomingWithCheckPointCell", bundle: nil), forCellReuseIdentifier: UPCOMING_EVENT_WITH_CHECK_POINT_CELL)
+        self.eventsTableView?.registerNib(UINib(nibName: "TREventUpcomingNoCheckPointCell", bundle: nil), forCellReuseIdentifier: UPCOMING_EVENT_NO_CHECK_POINT_CELL)
+
         self.eventsTableView?.tableFooterView = UIView(frame: CGRectZero)
         self.eventsTableView?.addSubview(self.refreshControl)
         
@@ -150,24 +162,42 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(CURRENT_EVENT_CELL) as! TREventTableCellView
+        var cell: TRBaseEventTableCell?
         
         if segmentControl?.selectedSegmentIndex == 0 {
-            cell.updateCellViewWithEvent(self.eventsInfo[indexPath.section])
-            cell.joinEventButton?.buttonEventInfo = eventsInfo[indexPath.section]
-            cell.leaveEventButton.buttonEventInfo = eventsInfo[indexPath.section]
-            cell.eventTimeLabel.hidden = true
+            if self.eventsInfo[indexPath.section].eventActivity?.activityCheckPoint != "" {
+                cell = tableView.dequeueReusableCellWithIdentifier(CURRENT_EVENT_WITH_CHECK_POINT_CELL) as! TREventCurrentWithCheckPointCell
+                self.eventsTableView?.rowHeight = EVENT_CURRENT_WITH_CHECK_POINT_CELL_HEIGHT
+            } else {
+                cell = tableView.dequeueReusableCellWithIdentifier(CURRENT_EVENT_NO_CHECK_POINT_CELL) as! TREventCurrentNoCheckPointCell
+                self.eventsTableView?.rowHeight = EVENT_CURRENT_NO_CHECK_POINT_CELL_HEIGHT
+            }
         } else {
-            cell.updateCellViewWithEvent(self.futureEventsInfo[indexPath.section])
-            cell.joinEventButton?.buttonEventInfo = futureEventsInfo[indexPath.section]
-            cell.leaveEventButton.buttonEventInfo = futureEventsInfo[indexPath.section]
-            cell.eventTimeLabel.hidden = false
+            if self.eventsInfo[indexPath.section].eventActivity?.activityCheckPoint != "" {
+                cell = tableView.dequeueReusableCellWithIdentifier(UPCOMING_EVENT_WITH_CHECK_POINT_CELL) as! TREventUpcomingWithCheckPointCell
+                self.eventsTableView?.rowHeight = EVENT_UPCOMING_WITH_CHECK_POINT_CELL_HEIGHT
+            } else {
+                cell = tableView.dequeueReusableCellWithIdentifier(UPCOMING_EVENT_NO_CHECK_POINT_CELL) as! TREventUpcomingNoCheckPointCell
+                self.eventsTableView?.rowHeight = EVENT_UPCOMING_NO_CHECK_POINT_CELL_HEIGHT
+            }
+        }
+        
+        if segmentControl?.selectedSegmentIndex == 0 {
+            cell?.updateCellViewWithEvent(self.eventsInfo[indexPath.section])
+            cell?.joinEventButton?.buttonEventInfo = eventsInfo[indexPath.section]
+            cell?.leaveEventButton.buttonEventInfo = eventsInfo[indexPath.section]
+            cell?.eventTimeLabel?.hidden = true
+        } else {
+            cell?.updateCellViewWithEvent(self.futureEventsInfo[indexPath.section])
+            cell?.joinEventButton?.buttonEventInfo = futureEventsInfo[indexPath.section]
+            cell?.leaveEventButton.buttonEventInfo = futureEventsInfo[indexPath.section]
+            cell?.eventTimeLabel?.hidden = false
         }
 
-        cell.joinEventButton?.addTarget(self, action: #selector(TREventListViewController.joinAnEvent(_:)), forControlEvents: .TouchUpInside)
-        cell.leaveEventButton?.addTarget(self, action: #selector(TREventListViewController.leaveAnEvent(_:)), forControlEvents: .TouchUpInside)
+        cell?.joinEventButton?.addTarget(self, action: #selector(TREventListViewController.joinAnEvent(_:)), forControlEvents: .TouchUpInside)
+        cell?.leaveEventButton?.addTarget(self, action: #selector(TREventListViewController.leaveAnEvent(_:)), forControlEvents: .TouchUpInside)
         
-        return cell
+        return cell!
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

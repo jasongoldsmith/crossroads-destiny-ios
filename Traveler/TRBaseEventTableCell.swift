@@ -1,32 +1,15 @@
 //
-//  TREventTableCellView.swift
+//  TRBaseEventTableCell.swift
 //  Traveler
 //
-//  Created by Ashutosh on 2/28/16.
+//  Created by Ashutosh on 4/21/16.
 //  Copyright © 2016 Forcecatalyst. All rights reserved.
 //
 
 import Foundation
 import UIKit
-import SDWebImage
 
-
-typealias ShouldAddGreenBorder = (value: Bool?) -> ()
-
-
-class TREventTableCellView: UITableViewCell {
-
-    @IBOutlet weak var eventIcon            :UIImageView?
-    @IBOutlet weak var eventTitle           :UILabel?
-    @IBOutlet weak var activityLight        :UILabel?
-    @IBOutlet weak var eventPlayersName     :UILabel!
-    @IBOutlet weak var playerImageOne       :UIImageView!
-    @IBOutlet weak var playerImageTwo       :UIImageView!
-    @IBOutlet weak var playerCountImage     :UIImageView!
-    @IBOutlet weak var playerCountLabel     :UILabel!
-    @IBOutlet weak var joinEventButton      :EventButton!
-    @IBOutlet weak var leaveEventButton     :EventButton!
-    @IBOutlet weak var eventTimeLabel       :UILabel!
+class TRBaseEventTableCell: UITableViewCell {
     
     override func prepareForReuse() {
         
@@ -38,8 +21,23 @@ class TREventTableCellView: UITableViewCell {
         self.playerImageTwo.hidden = true
         self.playerCountLabel.hidden = true
         self.playerCountImage.hidden = true
-        self.eventTimeLabel.hidden = true
+        self.eventTimeLabel?.hidden = true
+        self.activityCheckPointLabel?.text = nil
+        self.activityCheckPointLabel?.hidden = true
     }
+    
+    @IBOutlet weak var eventIcon            :UIImageView?
+    @IBOutlet weak var eventTitle           :UILabel?
+    @IBOutlet weak var activityLight        :UILabel?
+    @IBOutlet weak var eventPlayersName     :UILabel!
+    @IBOutlet weak var playerImageOne       :UIImageView!
+    @IBOutlet weak var playerImageTwo       :UIImageView!
+    @IBOutlet weak var playerCountImage     :UIImageView!
+    @IBOutlet weak var playerCountLabel     :UILabel!
+    @IBOutlet weak var joinEventButton      :EventButton!
+    @IBOutlet weak var leaveEventButton     :EventButton!
+    @IBOutlet weak var activityCheckPointLabel : UILabel?
+    @IBOutlet weak var eventTimeLabel       :UILabel?
     
     func updateCellViewWithEvent (eventInfo: TREventInfo) {
         
@@ -82,21 +80,18 @@ class TREventTableCellView: UITableViewCell {
         }
         
         // Set Event Button Status
-        self.eventButtonStatusForCurrentPlayer(eventInfo, button: self.joinEventButton, completion: {value in
-            if value == true {
-                // Adding Green Border Around an event which is FULL && READY
-                self.contentView.layer.borderWidth = 1.0
-                self.contentView.layer.borderColor = UIColor(red: 96/255, green: 184/255, blue: 0/255, alpha: 1).CGColor
-            }
-        })
+        self.eventButtonStatusForCurrentPlayer(eventInfo, button: self.joinEventButton)
         
         
         if let hasLaunchDate = eventInfo.eventLaunchDate {
             let formatter = NSDateFormatter()
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
             let eventDate = formatter.dateFromString(hasLaunchDate)
-            self.eventTimeLabel.text = eventDate!.toString()
+            self.eventTimeLabel?.text = eventDate!.toString()
         }
+        
+        self.activityCheckPointLabel?.hidden = false
+        self.activityCheckPointLabel?.text = eventInfo.eventActivity?.activityCheckPoint
     }
     
     func addRadiusToPlayerIconsForPlayersArray (eventInfo: TREventInfo) {
@@ -114,7 +109,7 @@ class TREventTableCellView: UITableViewCell {
                     self.playerImageOne!.sd_setImageWithURL(url)
                     self.playerImageOne?.roundRectView()
                 }
-
+                
                 break;
             case 1:
                 
@@ -154,9 +149,9 @@ class TREventTableCellView: UITableViewCell {
             }
         }
     }
+    
+    func eventButtonStatusForCurrentPlayer (event: TREventInfo, button: EventButton) {
         
-    func eventButtonStatusForCurrentPlayer (event: TREventInfo, button: EventButton, completion: ShouldAddGreenBorder) {
-
         button.userInteractionEnabled = true
         
         if (event.eventCreator?.playerID == TRUserInfo.getUserID()) {
@@ -172,7 +167,7 @@ class TREventTableCellView: UITableViewCell {
                 button.setImage(UIImage(named: "btnREADY"), forState: .Normal)
                 button.userInteractionEnabled = false
                 leaveEventButton.hidden = false
-//                completion(value: true)
+                //                completion(value: true)
             } else {
                 button.setImage(UIImage(named: "btnFULL"), forState: .Normal)
                 button.userInteractionEnabled = false
@@ -211,6 +206,3 @@ class TREventTableCellView: UITableViewCell {
         }
     }
 }
-
-
-
