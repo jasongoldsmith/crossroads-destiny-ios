@@ -10,15 +10,17 @@ import Foundation
 import UIKit
 import pop
 
-class TRSendChatMessageView: UIView, UITextFieldDelegate {
+class TRSendChatMessageView: UIView, UITextViewDelegate {
     
     private let MAX_MESSAGE_CHARACTER_COUNT = 140
     
     @IBOutlet weak var sendToLabel: UILabel!
-    @IBOutlet weak var chatBubbleTextField: UITextField!
+    @IBOutlet weak var chatBubbleTextView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var backGroundImageView: UIImageView!
     @IBOutlet weak var characterCount: UILabel!
+    @IBOutlet weak var textViewBackgroundImage: UIImageView!
+    @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
     
     var userId:String!
     var eventId:String!
@@ -27,10 +29,10 @@ class TRSendChatMessageView: UIView, UITextFieldDelegate {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        self.chatBubbleTextField.delegate = self
-        self.chatBubbleTextField.layer.cornerRadius = self.chatBubbleTextField.frame.height * 0.5
+        self.chatBubbleTextView.delegate = self
+        self.chatBubbleTextView.layer.cornerRadius = 15
         self.sendButton?.addTarget(self, action: #selector(TRSendChatMessageView.sendChatMessage(_:)), forControlEvents: .TouchUpInside)
-        self.chatBubbleTextField.becomeFirstResponder()
+        self.chatBubbleTextView.becomeFirstResponder()
         
         // Close View on Clicking BackGround Image View
         self.addCloseToBackGroundImageView()
@@ -45,8 +47,8 @@ class TRSendChatMessageView: UIView, UITextFieldDelegate {
     
     func closeView()  {
 
-        if self.chatBubbleTextField.isFirstResponder() {
-            self.chatBubbleTextField.resignFirstResponder()
+        if self.chatBubbleTextView.isFirstResponder() {
+            self.chatBubbleTextView.resignFirstResponder()
         }
 
         let popAnimation:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
@@ -60,12 +62,23 @@ class TRSendChatMessageView: UIView, UITextFieldDelegate {
     }
     
 // Mark: UITextFieldDelegate methods
+    func textViewDidChange(textView: UITextView) {
+       
+        let contentSizeHeight = textView.contentSize.height
+        self.textViewHeightConstraint.constant = contentSizeHeight
+        self.updateConstraints()
+    }
     
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
         
-        let newLength = MAX_MESSAGE_CHARACTER_COUNT - (textField.text?.characters.count)!
+        
+        let newLength = MAX_MESSAGE_CHARACTER_COUNT - (textView.text?.characters.count)!
         self.characterCount.text = "\(newLength)"
         
+        if text == "" {
+            return true
+        }
+
         if (newLength <= 0) {
             TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Message limit reached.")
             
@@ -75,18 +88,18 @@ class TRSendChatMessageView: UIView, UITextFieldDelegate {
         return true
     }
     
-    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
         return true
     }
 
-    func textFieldDidBeginEditing(textField: UITextField) {
-        self.chatBubbleTextField.becomeFirstResponder()
+    func textViewDidBeginEditing(textField: UITextView) {
+        self.chatBubbleTextView.becomeFirstResponder()
     }
     
     func sendChatMessage(sender: EventButton) {
         
         
-        let message: String = (self.chatBubbleTextField?.text)!
+        let message: String = (self.chatBubbleTextView?.text)!
         if (message.characters.count == 0) {
             TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Please enter a message.")
             return
@@ -96,21 +109,21 @@ class TRSendChatMessageView: UIView, UITextFieldDelegate {
             if sendAll {
                 _ = TRSendPushMessage().sendPushMessageToAll(self.eventId, messageString: message, completion: { (didSucceed) in
                     if (didSucceed != nil)  {
-                        self.chatBubbleTextField.resignFirstResponder()
-                        self.chatBubbleTextField.text = nil
+                        self.chatBubbleTextView.resignFirstResponder()
+                        self.chatBubbleTextView.text = nil
                         self.removeFromSuperview()
                     } else {
-                        self.chatBubbleTextField.becomeFirstResponder()
+                        self.chatBubbleTextView.becomeFirstResponder()
                     }
                 })
             } else {
                 _ = TRSendPushMessage().sendPushMessageTo(self.userId, eventId: self.eventId, messageString: message, completion: { (didSucceed) in
                     if (didSucceed != nil)  {
-                        self.chatBubbleTextField.resignFirstResponder()
-                        self.chatBubbleTextField.text = nil
+                        self.chatBubbleTextView.resignFirstResponder()
+                        self.chatBubbleTextView.text = nil
                         self.removeFromSuperview()
                     } else {
-                        self.chatBubbleTextField.becomeFirstResponder()
+                        self.chatBubbleTextView.becomeFirstResponder()
                     }
                 })
             }
