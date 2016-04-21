@@ -172,22 +172,24 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
                 cell = tableView.dequeueReusableCellWithIdentifier(CURRENT_EVENT_NO_CHECK_POINT_CELL) as! TREventCurrentNoCheckPointCell
                 self.eventsTableView?.rowHeight = EVENT_CURRENT_NO_CHECK_POINT_CELL_HEIGHT
             }
+            
+            cell?.updateCellViewWithEvent(self.eventsInfo[indexPath.section])
+            cell?.joinEventButton?.buttonEventInfo = eventsInfo[indexPath.section]
+            cell?.leaveEventButton.buttonEventInfo = eventsInfo[indexPath.section]
+            cell?.eventTimeLabel?.hidden = true
+
         } else {
-            if self.eventsInfo[indexPath.section].eventActivity?.activityCheckPoint != "" {
+            
+            print("Activity: \(self.eventsInfo[indexPath.section].eventActivity?.activityCheckPoint), Name: \(self.eventsInfo[indexPath.section].eventActivity?.activitySubType)")
+            
+            if self.futureEventsInfo[indexPath.section].eventActivity?.activityCheckPoint != "" {
                 cell = tableView.dequeueReusableCellWithIdentifier(UPCOMING_EVENT_WITH_CHECK_POINT_CELL) as! TREventUpcomingWithCheckPointCell
                 self.eventsTableView?.rowHeight = EVENT_UPCOMING_WITH_CHECK_POINT_CELL_HEIGHT
             } else {
                 cell = tableView.dequeueReusableCellWithIdentifier(UPCOMING_EVENT_NO_CHECK_POINT_CELL) as! TREventUpcomingNoCheckPointCell
                 self.eventsTableView?.rowHeight = EVENT_UPCOMING_NO_CHECK_POINT_CELL_HEIGHT
             }
-        }
-        
-        if segmentControl?.selectedSegmentIndex == 0 {
-            cell?.updateCellViewWithEvent(self.eventsInfo[indexPath.section])
-            cell?.joinEventButton?.buttonEventInfo = eventsInfo[indexPath.section]
-            cell?.leaveEventButton.buttonEventInfo = eventsInfo[indexPath.section]
-            cell?.eventTimeLabel?.hidden = true
-        } else {
+            
             cell?.updateCellViewWithEvent(self.futureEventsInfo[indexPath.section])
             cell?.joinEventButton?.buttonEventInfo = futureEventsInfo[indexPath.section]
             cell?.leaveEventButton.buttonEventInfo = futureEventsInfo[indexPath.section]

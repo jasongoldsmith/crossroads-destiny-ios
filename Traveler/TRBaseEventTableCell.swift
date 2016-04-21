@@ -90,8 +90,11 @@ class TRBaseEventTableCell: UITableViewCell {
             self.eventTimeLabel?.text = eventDate!.toString()
         }
         
-        self.activityCheckPointLabel?.hidden = false
-        self.activityCheckPointLabel?.text = eventInfo.eventActivity?.activityCheckPoint
+        if eventInfo.eventActivity?.activityCheckPoint != "" {
+            print("check Point: \(eventInfo.eventActivity?.activityCheckPoint)")
+            self.activityCheckPointLabel?.hidden = false
+            self.activityCheckPointLabel?.text = eventInfo.eventActivity?.activityCheckPoint
+        }
     }
     
     func addRadiusToPlayerIconsForPlayersArray (eventInfo: TREventInfo) {
