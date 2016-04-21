@@ -23,6 +23,7 @@ class TRActivityInfo: NSObject {
     var activityIconImage     : String?
     var activityIsFeatured    : Bool?
     var activitylocation      : String?
+    var activityLevel         : String?
     
     func parseAndCreateActivityObject (swiftyJson: JSON) -> TRActivityInfo {
         
@@ -37,6 +38,7 @@ class TRActivityInfo: NSObject {
         self.activityIconImage  = swiftyJson["aIconUrl"].stringValue
         self.activityIsFeatured = swiftyJson["isFeatured"].boolValue
         self.activitylocation   = swiftyJson["location"].stringValue
+        self.activityLevel      = swiftyJson["aLevel"].stringValue
         
         return self
     }

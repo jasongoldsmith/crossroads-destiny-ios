@@ -61,6 +61,7 @@ class TREventInfo: NSObject {
             activityInfo.activityIconImage  = activity["aIconUrl"]?.stringValue
             activityInfo.activityIsFeatured = activity["isFeatured"]?.boolValue
             activityInfo.activitylocation   = activity["location"]?.stringValue
+            activityInfo.activityLevel      = activity["aLevel"]?.stringValue
             
             //Event Activity added
             self.eventActivity = activityInfo

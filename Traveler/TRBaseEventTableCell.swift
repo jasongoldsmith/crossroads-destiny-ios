@@ -50,7 +50,18 @@ class TRBaseEventTableCell: UITableViewCell {
             self.activityLight?.text = "+" + (eventInfo.eventActivity?.activityLight?.stringValue)!
             self.activityLight?.hidden = false
         } else {
-            self.activityLight?.hidden = true
+            self.activityLight?.hidden = false
+            
+            let lvlString = "lvl "
+            let stringFontAttribute = [NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 15)!]
+            
+            let levelAttributedStr = NSAttributedString(string: lvlString, attributes: stringFontAttribute)
+            let activityLevelAttributedStr = NSAttributedString(string: (eventInfo.eventActivity?.activityLevel)!, attributes: nil)
+            
+            let finalString:NSMutableAttributedString = levelAttributedStr.mutableCopy() as! NSMutableAttributedString
+            finalString.appendAttributedString(activityLevelAttributedStr)
+            
+            self.activityLight?.attributedText = finalString
         }
         
         
@@ -91,7 +102,6 @@ class TRBaseEventTableCell: UITableViewCell {
         }
         
         if eventInfo.eventActivity?.activityCheckPoint != "" {
-            print("check Point: \(eventInfo.eventActivity?.activityCheckPoint)")
             self.activityCheckPointLabel?.hidden = false
             self.activityCheckPointLabel?.text = eventInfo.eventActivity?.activityCheckPoint
         }

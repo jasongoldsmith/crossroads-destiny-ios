@@ -179,9 +179,6 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             cell?.eventTimeLabel?.hidden = true
 
         } else {
-            
-            print("Activity: \(self.eventsInfo[indexPath.section].eventActivity?.activityCheckPoint), Name: \(self.eventsInfo[indexPath.section].eventActivity?.activitySubType)")
-            
             if self.futureEventsInfo[indexPath.section].eventActivity?.activityCheckPoint != "" {
                 cell = tableView.dequeueReusableCellWithIdentifier(UPCOMING_EVENT_WITH_CHECK_POINT_CELL) as! TREventUpcomingWithCheckPointCell
                 self.eventsTableView?.rowHeight = EVENT_UPCOMING_WITH_CHECK_POINT_CELL_HEIGHT

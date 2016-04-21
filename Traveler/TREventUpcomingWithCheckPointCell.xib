@@ -53,10 +53,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vk1-Ju-Lhf">
-                        <rect key="frame" x="264" y="10" width="46" height="24"/>
+                        <rect key="frame" x="246" y="10" width="64" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="DH0-X0-hV1"/>
-                            <constraint firstAttribute="width" constant="46" id="oSf-0M-FaD"/>
+                            <constraint firstAttribute="width" constant="64" id="oSf-0M-FaD"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                         <color key="textColor" red="1" green="0.77647058820000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
