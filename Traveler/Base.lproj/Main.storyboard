@@ -1000,18 +1000,41 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bim-z1-0Mm" customClass="EventButton" customModule="Traveler" customModuleProvider="target">
+                                <rect key="frame" x="153" y="353" width="94" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="N1V-YT-g8O"/>
+                                    <constraint firstAttribute="width" constant="94" id="Qmq-en-F2B"/>
+                                </constraints>
+                                <state key="normal" image="imgCruicible"/>
+                                <state key="selected" image="imgRaidsSelected"/>
+                                <state key="highlighted" image="imgRaidsSelected"/>
+                                <connections>
+                                    <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="FHn-Cl-JvZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edw-uz-yzl" customClass="EventButton" customModule="Traveler" customModuleProvider="target">
+                                <rect key="frame" x="253" y="353" width="94" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="L5Q-3Z-jpq"/>
+                                    <constraint firstAttribute="width" constant="94" id="nFS-bB-NCr"/>
+                                </constraints>
+                                <state key="normal" image="imgStrikes"/>
+                                <state key="selected" image="imgRaidsSelected"/>
+                                <state key="highlighted" image="imgStrikesOnTap"/>
+                                <connections>
+                                    <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="REL-pJ-m5g"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rqR-A6-np8" customClass="EventButton" customModule="Traveler" customModuleProvider="target">
                                 <rect key="frame" x="153" y="252" width="94" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="94" id="NbN-os-73Q"/>
                                     <constraint firstAttribute="height" constant="96" id="fWG-NR-bnO"/>
                                 </constraints>
-                                <state key="normal" image="imgRaids"/>
+                                <state key="normal" image="imgFeatured"/>
                                 <state key="selected" image="imgRaidsSelected"/>
-                                <state key="highlighted" image="imgRaidsSelected"/>
-                                <connections>
-                                    <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="Ug9-Ni-eOA"/>
-                                </connections>
+                                <state key="highlighted" image="imgFeaturedOnTap"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWj-rT-82b" customClass="EventButton" customModule="Traveler" customModuleProvider="target">
                                 <rect key="frame" x="353" y="252" width="94" height="96"/>
@@ -1019,11 +1042,11 @@
                                     <constraint firstAttribute="width" constant="94" id="Kqa-DB-X7o"/>
                                     <constraint firstAttribute="height" constant="96" id="wq7-sn-YhW"/>
                                 </constraints>
-                                <state key="normal" image="imgCruicible"/>
+                                <state key="normal" image="imgArena"/>
                                 <state key="selected" image="imgCruicibleSelected"/>
-                                <state key="highlighted" image="imgCruicibleSelected"/>
+                                <state key="highlighted" image="imgArenaOnTap"/>
                                 <connections>
-                                    <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="bOu-0q-cTW"/>
+                                    <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="0Nx-WU-NPD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zec-Re-cT2" customClass="EventButton" customModule="Traveler" customModuleProvider="target">
@@ -1032,11 +1055,11 @@
                                     <constraint firstAttribute="height" constant="96" id="P37-aR-9QB"/>
                                     <constraint firstAttribute="width" constant="94" id="fC6-li-Y4q"/>
                                 </constraints>
-                                <state key="normal" image="imgWeeklies"/>
+                                <state key="normal" image="imgRaids"/>
                                 <state key="selected" image="imgWeekliesSelected"/>
-                                <state key="highlighted" image="imgWeekliesSelected"/>
+                                <state key="highlighted" image="imgRaidsSelected"/>
                                 <connections>
-                                    <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="byL-t2-KNt"/>
+                                    <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="tBD-Rw-pWH"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgActivityBanner" translatesAutoresizingMaskIntoConstraints="NO" id="xX4-xG-ytT">
@@ -1055,20 +1078,39 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbn-l8-9hm" customClass="EventButton" customModule="Traveler" customModuleProvider="target">
+                                <rect key="frame" x="355" y="353" width="94" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="f20-Zw-YeK"/>
+                                    <constraint firstAttribute="width" constant="94" id="xYF-vF-o1W"/>
+                                </constraints>
+                                <state key="normal" image="imgPatrol"/>
+                                <state key="selected" image="imgRaidsSelected"/>
+                                <state key="highlighted" image="imgPatrolOnTap"/>
+                                <connections>
+                                    <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="lrJ-yk-W0Z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zec-Re-cT2" firstAttribute="top" secondItem="qBH-9P-IF2" secondAttribute="bottom" constant="23" id="01y-ZS-HQ7"/>
                             <constraint firstItem="0ju-Zl-M2q" firstAttribute="leading" secondItem="VHb-Gc-Kgz" secondAttribute="leadingMargin" constant="-20" id="4yB-Ri-ctI"/>
+                            <constraint firstItem="bim-z1-0Mm" firstAttribute="leading" secondItem="rqR-A6-np8" secondAttribute="leading" id="7KE-h0-WDE"/>
                             <constraint firstItem="rqR-A6-np8" firstAttribute="centerY" secondItem="zec-Re-cT2" secondAttribute="centerY" id="DBJ-dD-KH4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0ju-Zl-M2q" secondAttribute="trailing" constant="-20" id="IQ9-a1-49c"/>
                             <constraint firstItem="RWj-rT-82b" firstAttribute="leading" secondItem="zec-Re-cT2" secondAttribute="trailing" constant="6" id="MNJ-V5-fuc"/>
                             <constraint firstItem="qBH-9P-IF2" firstAttribute="centerX" secondItem="xX4-xG-ytT" secondAttribute="centerX" id="PMQ-9B-Rmb"/>
                             <constraint firstItem="RWj-rT-82b" firstAttribute="centerY" secondItem="zec-Re-cT2" secondAttribute="centerY" id="XKG-mV-ozz"/>
+                            <constraint firstItem="wbn-l8-9hm" firstAttribute="leading" secondItem="edw-uz-yzl" secondAttribute="trailing" constant="8" symbolic="YES" id="bsE-EW-L6b"/>
                             <constraint firstItem="i2g-3I-3sz" firstAttribute="top" secondItem="0ju-Zl-M2q" secondAttribute="bottom" id="eUr-mA-sDd"/>
                             <constraint firstItem="zec-Re-cT2" firstAttribute="top" secondItem="xX4-xG-ytT" secondAttribute="bottom" constant="55" id="hzd-sf-6RO"/>
+                            <constraint firstItem="wbn-l8-9hm" firstAttribute="top" secondItem="RWj-rT-82b" secondAttribute="bottom" constant="5" id="jdS-bd-dMj"/>
                             <constraint firstItem="zec-Re-cT2" firstAttribute="top" secondItem="ayi-je-Xfm" secondAttribute="bottom" constant="232" id="k9E-s5-I38"/>
+                            <constraint firstItem="bim-z1-0Mm" firstAttribute="centerY" secondItem="edw-uz-yzl" secondAttribute="centerY" id="kBl-HI-Hnv"/>
+                            <constraint firstItem="edw-uz-yzl" firstAttribute="centerY" secondItem="wbn-l8-9hm" secondAttribute="centerY" id="lCU-WX-iFg"/>
                             <constraint firstItem="qBH-9P-IF2" firstAttribute="top" secondItem="xX4-xG-ytT" secondAttribute="bottom" constant="4" id="sAf-xG-bBC"/>
+                            <constraint firstItem="edw-uz-yzl" firstAttribute="centerX" secondItem="zec-Re-cT2" secondAttribute="centerX" id="sdQ-jR-23c"/>
                             <constraint firstItem="zec-Re-cT2" firstAttribute="leading" secondItem="rqR-A6-np8" secondAttribute="trailing" constant="6" id="tZY-vP-sQA"/>
                             <constraint firstItem="xX4-xG-ytT" firstAttribute="centerX" secondItem="zec-Re-cT2" secondAttribute="centerX" id="wVW-hw-9dv"/>
                             <constraint firstItem="zec-Re-cT2" firstAttribute="centerX" secondItem="VHb-Gc-Kgz" secondAttribute="centerX" id="wy1-OK-MMu"/>
@@ -1077,14 +1119,17 @@
                     </view>
                     <navigationItem key="navigationItem" title="CREATE EVENT" id="CYd-EP-I8v"/>
                     <connections>
-                        <outlet property="activityOneButton" destination="rqR-A6-np8" id="ZgK-Qb-r9i"/>
-                        <outlet property="activityThreeButton" destination="RWj-rT-82b" id="hOr-PM-0R0"/>
-                        <outlet property="activityTwoButton" destination="zec-Re-cT2" id="NaB-kB-8dU"/>
+                        <outlet property="activityArenaButton" destination="RWj-rT-82b" id="08Z-LI-zpk"/>
+                        <outlet property="activityCrucibleButton" destination="bim-z1-0Mm" id="uuT-zb-wU8"/>
+                        <outlet property="activityFeaturedButton" destination="rqR-A6-np8" id="STL-EY-LHi"/>
+                        <outlet property="activityPatrolButton" destination="wbn-l8-9hm" id="WH9-HT-8Fa"/>
+                        <outlet property="activityRaidButton" destination="zec-Re-cT2" id="xk8-sr-4yd"/>
+                        <outlet property="activityStrikeButton" destination="edw-uz-yzl" id="05L-Md-unz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pXY-wc-I4E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-48" y="1794"/>
+            <point key="canvasLocation" x="-195" y="1835"/>
         </scene>
         <!--Create Event Selection View Controller-->
         <scene sceneID="Ive-K3-IJl">
@@ -1649,15 +1694,22 @@
         <image name="iconArrowRight" width="5" height="10"/>
         <image name="iconBackArrow" width="44" height="44"/>
         <image name="imgActivityBanner" width="40" height="51"/>
+        <image name="imgArena" width="98" height="100"/>
+        <image name="imgArenaOnTap" width="98" height="100"/>
         <image name="imgChooseEventBG" width="375" height="597"/>
         <image name="imgCloseX" width="30" height="30"/>
         <image name="imgCruicible" width="98" height="100"/>
         <image name="imgCruicibleSelected" width="98" height="100"/>
+        <image name="imgFeatured" width="98" height="100"/>
+        <image name="imgFeaturedOnTap" width="98" height="100"/>
         <image name="imgLoginBtnTapped" width="90" height="90"/>
+        <image name="imgPatrol" width="98" height="100"/>
+        <image name="imgPatrolOnTap" width="98" height="100"/>
         <image name="imgRaids" width="98" height="100"/>
         <image name="imgRaidsSelected" width="98" height="100"/>
+        <image name="imgStrikes" width="98" height="100"/>
+        <image name="imgStrikesOnTap" width="98" height="100"/>
         <image name="imgTravelerBadge" width="45" height="52"/>
-        <image name="imgWeeklies" width="98" height="100"/>
         <image name="imgWeekliesSelected" width="98" height="100"/>
         <image name="profileBgImage" width="344" height="667"/>
         <image name="segmentControlBG" width="375" height="55"/>

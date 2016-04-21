@@ -14,10 +14,12 @@ import SDWebImage
 class TRCreateEventViewController: TRBaseViewController {
  
     @IBOutlet var activityIcon          : UIImageView?
-    @IBOutlet var activityOneButton     : EventButton?
-    @IBOutlet var activityTwoButton     : EventButton?
-    @IBOutlet var activityThreeButton   : EventButton?
-    
+    @IBOutlet var activityFeaturedButton     : EventButton?
+    @IBOutlet var activityRaidButton        : EventButton?
+    @IBOutlet var activityArenaButton   : EventButton?
+    @IBOutlet var activityCrucibleButton   : EventButton?
+    @IBOutlet var activityStrikeButton   : EventButton?
+    @IBOutlet var activityPatrolButton   : EventButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,18 +37,45 @@ class TRCreateEventViewController: TRBaseViewController {
         // This is going to be a temporary code, at present we have only couple of activity sub-types and we have UI designed only for that.
         // Will have to re-write this method when UI is updated to reflect number of activities
         
-        //Fetch Activities by Type
         for (_, activity) in TRApplicationManager.sharedInstance.activityList.enumerate() {
-            if (activity.activityType == K.ActivityType.RAIDS && activityOneButton?.buttonActivityInfo == nil) {
-                activityOneButton?.buttonActivityInfo = activity
-            } else if (activity.activityType == K.ActivityType.WEEKLY && activityTwoButton?.buttonActivityInfo == nil) {
-                activityTwoButton?.buttonActivityInfo = activity
-            } else {
-                if (activityThreeButton?.buttonActivityInfo == nil) {
-                    activityThreeButton?.buttonActivityInfo = activity
+            switch activity.activityType! {
+//            case K.ActivityType.FEATURED:
+//                if activityFeaturedButton?.buttonActivityInfo == nil {
+//                    activityFeaturedButton?.buttonActivityInfo = activity
+//                }
+//                break
+            case K.ActivityType.RAIDS:
+                if activityRaidButton?.buttonActivityInfo == nil {
+                    activityRaidButton?.buttonActivityInfo = activity
                 }
+                break
+            case K.ActivityType.CRUCIBLE:
+                if activityCrucibleButton?.buttonActivityInfo == nil {
+                    activityCrucibleButton?.buttonActivityInfo = activity
+                }
+                break
+            case K.ActivityType.ARENA:
+                if activityArenaButton?.buttonActivityInfo == nil {
+                    activityArenaButton?.buttonActivityInfo = activity
+                }
+                break
+            case K.ActivityType.STRIKES:
+                if activityStrikeButton?.buttonActivityInfo == nil {
+                    activityStrikeButton?.buttonActivityInfo = activity
+                }
+                break
+            case K.ActivityType.PATROL:
+                if activityPatrolButton?.buttonActivityInfo == nil {
+                    activityPatrolButton?.buttonActivityInfo = activity
+                }
+                break
+
+            default:
+                break
             }
+            
         }
+        
     }
     
     func addNavigationBarButtons () {
@@ -95,6 +124,5 @@ class TRCreateEventViewController: TRBaseViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
 }
 

@@ -62,6 +62,9 @@ struct K {
         static let WEEKLY   = "Weekly"
         static let RAIDS    = "Raid"
         static let CRUCIBLE = "Crucible"
+        static let ARENA    = "Arena"
+        static let STRIKES  = "Strike"
+        static let PATROL   = "Patrol"
     }
     
     struct NOTIFICATION_TYPE {
