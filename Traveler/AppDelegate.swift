@@ -33,6 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         localNotification.fireDate = NSDate(timeIntervalSinceNow: 10)
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
         
+        //Clear Notifications
+        application.applicationIconBadgeNumber = 0;
+        
         return true
     }
 
@@ -84,6 +87,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        
+        // Clear Notofications
+        if ( application.applicationState == UIApplicationState.Inactive || application.applicationState == UIApplicationState.Background) {
+            application.applicationIconBadgeNumber = 0;
+        }
         
         if application.applicationState == UIApplicationState.Active {
             NSNotificationCenter.defaultCenter().postNotificationName("RemoteNotificationWithActiveSesion", object: self, userInfo: userInfo)
