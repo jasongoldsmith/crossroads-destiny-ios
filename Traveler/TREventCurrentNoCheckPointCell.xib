@@ -63,7 +63,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5f-XM-Con">
-                        <rect key="frame" x="70" y="34" width="185" height="14"/>
+                        <rect key="frame" x="70" y="36" width="185" height="14"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="185" id="bbR-CH-UQz"/>
                             <constraint firstAttribute="height" constant="14" id="dQi-JW-LSD"/>
@@ -110,7 +110,7 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="gFP-n8-kSW" secondAttribute="bottom" constant="43" id="1pm-OV-iFy"/>
-                    <constraint firstItem="c5f-XM-Con" firstAttribute="top" secondItem="ytB-QV-e1A" secondAttribute="bottom" id="3Oh-sZ-AYs"/>
+                    <constraint firstItem="c5f-XM-Con" firstAttribute="top" secondItem="ytB-QV-e1A" secondAttribute="bottom" constant="2" id="3Oh-sZ-AYs"/>
                     <constraint firstItem="3rA-ji-cCh" firstAttribute="leading" secondItem="ZDu-nM-3dI" secondAttribute="leadingMargin" constant="62" id="6ry-cv-zqs"/>
                     <constraint firstItem="Fec-iC-qHn" firstAttribute="leading" secondItem="dtk-b7-EX5" secondAttribute="trailing" constant="6" id="Aja-MI-rMK"/>
                     <constraint firstAttribute="trailingMargin" secondItem="gFP-n8-kSW" secondAttribute="trailing" constant="2" id="BU4-Cb-w3I"/>
@@ -159,7 +159,7 @@
                 <outlet property="playerImageOne" destination="3rA-ji-cCh" id="D5g-BG-G2O"/>
                 <outlet property="playerImageTwo" destination="dtk-b7-EX5" id="Pms-cV-3E0"/>
             </connections>
-            <point key="canvasLocation" x="-1629" y="242"/>
+            <point key="canvasLocation" x="-1763" y="240"/>
         </tableViewCell>
     </objects>
     <resources>
