@@ -26,6 +26,9 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     @IBOutlet weak var eventTimeLabel: UILabel?
     @IBOutlet weak var sendMessageToAllButton: UIButton?
     @IBOutlet weak var leaveEventButton: EventButton?
+    @IBOutlet weak var eventActivityCheckPoint: UILabel?
+    @IBOutlet weak var eventActivityCheckPointHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var eventActivityCheckPointTopConstraint: NSLayoutConstraint!
     
     var sendChatMessageView : TRSendChatMessageView!
     
@@ -62,6 +65,13 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
             self.eventLightCount?.hidden = true
         }
         
+        if let eventCheckPoint = self.eventInfo?.eventActivity?.activityCheckPoint where eventCheckPoint != "" {
+            self.eventActivityCheckPoint?.text = eventCheckPoint
+        } else {
+            self.eventActivityCheckPointHeightConstraint.constant = 0
+            self.eventActivityCheckPointTopConstraint.constant = -2
+            self.updateViewConstraints()
+        }
         
         // Set  Event Player Names
         self.updateEventStatusAndPlayerNameString()
@@ -156,19 +166,6 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         }
         
         return 0
-//        if let _ = self.eventInfo {
-//            let isCurrentPlayerInEvent = TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!)
-//            let maxPlayersReached = self.eventInfo?.eventPlayersArray.count == self.eventInfo?.eventActivity?.activityMaxPlayers
-//            let isEventFull = (eventInfo?.eventStatus == EVENT_STATUS.FULL.rawValue)
-//            
-//            if isCurrentPlayerInEvent || maxPlayersReached || isEventFull {
-//                return (self.eventInfo?.eventPlayersArray.count)!
-//            }
-//            
-//            return (self.eventInfo?.eventPlayersArray.count)! + 1
-//        }
-//        
-//        return 1
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
