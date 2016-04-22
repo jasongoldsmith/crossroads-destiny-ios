@@ -27,10 +27,6 @@ class TRActivitySelectionCell: UITableViewCell {
             }
         }
         
-        if let light = activity.activityLight?.integerValue where light > 0 {
-            labelSting = labelSting + " " + (activity.activityLight?.stringValue)! + " Light"
-        }
-        
         self.activityInfoLabel.text = labelSting
 
         self.layer.cornerRadius = 3
