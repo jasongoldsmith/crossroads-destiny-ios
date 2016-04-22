@@ -50,6 +50,12 @@ class TRBaseEventTableCell: UITableViewCell {
             self.activityLight?.text = "+" + (eventInfo.eventActivity?.activityLight?.stringValue)!
             self.activityLight?.hidden = false
         } else {
+            
+            guard let _ = eventInfo.eventActivity?.activityLevel else {
+                self.activityLight?.hidden = false
+                return
+            }
+            
             self.activityLight?.hidden = false
             
             let lvlString = "lvl "
