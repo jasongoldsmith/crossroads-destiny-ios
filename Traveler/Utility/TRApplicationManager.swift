@@ -97,10 +97,18 @@ class TRApplicationManager: NSObject {
             
             if let _ = pushData {
                 if let payload = pushData!.objectForKey("payload") {
-                    let swiftyJson = JSON(payload)
-                    let eventInfo = TREventInfo().parseCreateEventInfoObject(swiftyJson)
                     
-                    eventListViewController.showEventInfoViewController(eventInfo)
+                    if let eventDict = payload.objectForKey("event") {
+                        let swiftyJson = JSON(eventDict)
+                        let eventInfo = TREventInfo().parseCreateEventInfoObject(swiftyJson)
+                        eventListViewController.showEventInfoViewController(eventInfo)
+                    } else {
+                        let swiftyJson = JSON(payload)
+                        let eventInfo = TREventInfo().parseCreateEventInfoObject(swiftyJson)
+                        if eventInfo.eventID != nil {
+                            eventListViewController.showEventInfoViewController(eventInfo)
+                        }
+                    }
                 }
             }
         })
