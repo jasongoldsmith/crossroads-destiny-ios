@@ -39,11 +39,6 @@ class TRCreateEventViewController: TRBaseViewController {
         
         for (_, activity) in TRApplicationManager.sharedInstance.activityList.enumerate() {
             switch activity.activityType! {
-//            case K.ActivityType.FEATURED:
-//                if activityFeaturedButton?.buttonActivityInfo == nil {
-//                    activityFeaturedButton?.buttonActivityInfo = activity
-//                }
-//                break
             case K.ActivityType.RAIDS:
                 if activityRaidButton?.buttonActivityInfo == nil {
                     activityRaidButton?.buttonActivityInfo = activity
@@ -123,6 +118,13 @@ class TRCreateEventViewController: TRBaseViewController {
             
             self.navigationController?.pushViewController(vc, animated: true)
         }
+    }
+    
+    @IBAction func featuredActiviyButtonPressed (sender: EventButton) {
+        let vc = TRApplicationManager.sharedInstance.stroryBoardManager.getViewControllerWithID(K.ViewControllerIdenifier.VIEW_CONTROLLER_CREATE_EVENT_SELECTION, storyBoardID: K.StoryBoard.StoryBoard_Main) as! TRCreateEventSelectionViewController
+        vc.isFeaturedEvent = true
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

@@ -17,6 +17,9 @@ class TRCreateEventSelectionViewController: TRBaseViewController {
     // Contains all the activities
     var seletectedActivity: TRActivityInfo?
     
+    //Show Featured Events
+    var isFeaturedEvent: Bool = false
+    
     // Contains Activities of only "selected" type
     var filteredActivitiesOfSelectedType: [TRActivityInfo] = []
 
@@ -32,13 +35,16 @@ class TRCreateEventSelectionViewController: TRBaseViewController {
         
         // ADD NAVIGATION BAR BUTTON
         addNavigationBarButtons()
-     
-        // Get all Activities of selected activityType
-        self.filteredActivitiesOfSelectedType = TRApplicationManager.sharedInstance.getActivitiesOfType((self.seletectedActivity?.activityType)!)!
 
-        
-        // Get All activities filtered on Difficulty and SubType
-        self.filteredActivitiesOfSubTypeAndDifficulty = self.getFiletreObjOfSubTypeAndDifficulty()!
+        if self.isFeaturedEvent == false {
+            // Get all Activities of selected activityType
+            self.filteredActivitiesOfSelectedType = TRApplicationManager.sharedInstance.getActivitiesOfType((self.seletectedActivity?.activityType)!)!
+            // Get All activities filtered on Difficulty and SubType
+            self.filteredActivitiesOfSubTypeAndDifficulty = self.getFiletreObjOfSubTypeAndDifficulty()!
+        } else {
+            self.filteredActivitiesOfSelectedType = TRApplicationManager.sharedInstance.getFeaturedActivities()!
+            self.filteredActivitiesOfSubTypeAndDifficulty = self.getFiletreObjOfSubTypeAndDifficulty()!
+        }
 
         
         //Register Cell Nib

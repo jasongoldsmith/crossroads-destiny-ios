@@ -200,6 +200,11 @@ class TRApplicationManager: NSObject {
         return activityArray
     }
     
+    func getFeaturedActivities () -> [TRActivityInfo]? {
+        let activityArray = self.activityList.filter {$0.activityIsFeatured == true}
+        return activityArray
+    }
+    
     func purgeSavedData () {
         self.activityList.removeAll()
         self.eventsList.removeAll()
