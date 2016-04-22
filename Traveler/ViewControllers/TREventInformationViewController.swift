@@ -14,7 +14,7 @@ import pop
 class TREventInformationViewController: TRBaseViewController, UITableViewDataSource, UITableViewDelegate {
     
     private let EVENT_INFO_PLAYER_CELL = "eventInfoPlayersCell"
-    private let HEIGHT_FOR_SECTION:CGFloat = 30
+    private let HEIGHT_FOR_SECTION:CGFloat = 45
     
     var eventInfo: TREventInfo?
     
@@ -190,7 +190,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         viewLabel.font = UIFont(name:"HelveticaNeue", size: 12)
         headerView.addSubview(viewLabel)
 
-        headerBottomSeperator.frame = CGRectMake(20, HEIGHT_FOR_SECTION, self.eventInfoTable!.frame.size.width - 40, 1.0)
+        headerBottomSeperator.frame = CGRectMake(20, HEIGHT_FOR_SECTION - 8, self.eventInfoTable!.frame.size.width - 40, 1.0)
         headerBottomSeperator.backgroundColor = UIColor.grayColor()
         headerView.addSubview(headerBottomSeperator)
         
