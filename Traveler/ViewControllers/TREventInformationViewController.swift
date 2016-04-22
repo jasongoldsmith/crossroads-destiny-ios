@@ -62,7 +62,18 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         if let _ = self.eventInfo?.eventActivity?.activityLight?.integerValue where self.eventInfo?.eventActivity?.activityLight?.integerValue > 0 {
             self.eventLightCount?.text = "+" + (self.eventInfo?.eventActivity?.activityLight?.stringValue)!
         } else {
-            self.eventLightCount?.hidden = true
+            self.eventLightCount?.hidden = false
+            
+            let lvlString = "lvl "
+            let stringFontAttribute = [NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 15)!]
+            
+            let levelAttributedStr = NSAttributedString(string: lvlString, attributes: stringFontAttribute)
+            let activityLevelAttributedStr = NSAttributedString(string: (self.eventInfo?.eventActivity?.activityLevel)!, attributes: nil)
+            
+            let finalString:NSMutableAttributedString = levelAttributedStr.mutableCopy() as! NSMutableAttributedString
+            finalString.appendAttributedString(activityLevelAttributedStr)
+            
+            self.eventLightCount?.attributedText = finalString
         }
         
         if let eventCheckPoint = self.eventInfo?.eventActivity?.activityCheckPoint where eventCheckPoint != "" {
