@@ -1098,7 +1098,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbn-l8-9hm" customClass="EventButton" customModule="Traveler" customModuleProvider="target">
-                                <rect key="frame" x="355" y="353" width="94" height="96"/>
+                                <rect key="frame" x="353" y="353" width="94" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="f20-Zw-YeK"/>
                                     <constraint firstAttribute="width" constant="94" id="xYF-vF-o1W"/>
@@ -1121,7 +1121,7 @@
                             <constraint firstItem="RWj-rT-82b" firstAttribute="leading" secondItem="zec-Re-cT2" secondAttribute="trailing" constant="6" id="MNJ-V5-fuc"/>
                             <constraint firstItem="qBH-9P-IF2" firstAttribute="centerX" secondItem="xX4-xG-ytT" secondAttribute="centerX" id="PMQ-9B-Rmb"/>
                             <constraint firstItem="RWj-rT-82b" firstAttribute="centerY" secondItem="zec-Re-cT2" secondAttribute="centerY" id="XKG-mV-ozz"/>
-                            <constraint firstItem="wbn-l8-9hm" firstAttribute="leading" secondItem="edw-uz-yzl" secondAttribute="trailing" constant="8" symbolic="YES" id="bsE-EW-L6b"/>
+                            <constraint firstItem="wbn-l8-9hm" firstAttribute="leading" secondItem="edw-uz-yzl" secondAttribute="trailing" constant="6" id="bsE-EW-L6b"/>
                             <constraint firstItem="i2g-3I-3sz" firstAttribute="top" secondItem="0ju-Zl-M2q" secondAttribute="bottom" id="eUr-mA-sDd"/>
                             <constraint firstItem="zec-Re-cT2" firstAttribute="top" secondItem="xX4-xG-ytT" secondAttribute="bottom" constant="55" id="hzd-sf-6RO"/>
                             <constraint firstItem="wbn-l8-9hm" firstAttribute="top" secondItem="RWj-rT-82b" secondAttribute="bottom" constant="5" id="jdS-bd-dMj"/>
