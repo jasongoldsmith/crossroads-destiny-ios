@@ -80,7 +80,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
             self.eventActivityCheckPoint?.text = eventCheckPoint
         } else {
             self.eventActivityCheckPointHeightConstraint.constant = 0
-            self.eventActivityCheckPointTopConstraint.constant = -2
+            self.eventActivityCheckPointTopConstraint.constant = -3
             self.updateViewConstraints()
         }
         

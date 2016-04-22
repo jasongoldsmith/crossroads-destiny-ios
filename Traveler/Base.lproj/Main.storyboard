@@ -486,7 +486,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUr-D5-wNu">
-                                        <rect key="frame" x="76" y="37" width="138" height="15"/>
+                                        <rect key="frame" x="76" y="38" width="138" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="138" id="DDB-8F-DTR"/>
                                             <constraint firstAttribute="height" constant="15" id="Jcl-fz-cSu"/>
@@ -508,35 +508,19 @@
                                 <constraints>
                                     <constraint firstItem="sn8-Yu-hPO" firstAttribute="leading" secondItem="okI-yi-tkL" secondAttribute="trailing" constant="20" id="1HE-KW-dl1"/>
                                     <constraint firstItem="fp9-Y7-aCP" firstAttribute="leading" secondItem="a6w-if-ciG" secondAttribute="leading" constant="76" id="2yN-Lj-GEY"/>
-                                    <constraint firstItem="LUr-D5-wNu" firstAttribute="top" secondItem="sn8-Yu-hPO" secondAttribute="bottom" constant="1" id="74g-Ie-nuZ"/>
+                                    <constraint firstItem="LUr-D5-wNu" firstAttribute="top" secondItem="sn8-Yu-hPO" secondAttribute="bottom" constant="2" id="74g-Ie-nuZ"/>
                                     <constraint firstItem="5io-jw-Yt7" firstAttribute="leading" secondItem="sn8-Yu-hPO" secondAttribute="trailing" constant="42" id="G4R-8Z-4wF"/>
-                                    <constraint firstItem="52j-jL-sAH" firstAttribute="top" secondItem="LUr-D5-wNu" secondAttribute="bottom" constant="2" id="M3Z-Oa-HE4"/>
+                                    <constraint firstItem="52j-jL-sAH" firstAttribute="top" secondItem="LUr-D5-wNu" secondAttribute="bottom" constant="1" id="M3Z-Oa-HE4"/>
                                     <constraint firstItem="okI-yi-tkL" firstAttribute="top" secondItem="a6w-if-ciG" secondAttribute="top" constant="15" id="Odj-Ao-DlX"/>
                                     <constraint firstItem="52j-jL-sAH" firstAttribute="leading" secondItem="a6w-if-ciG" secondAttribute="leading" constant="76" id="PTG-8E-GyZ"/>
                                     <constraint firstItem="okI-yi-tkL" firstAttribute="leading" secondItem="a6w-if-ciG" secondAttribute="leading" constant="20" id="Q8n-M7-bVG"/>
                                     <constraint firstItem="5io-jw-Yt7" firstAttribute="firstBaseline" secondItem="sn8-Yu-hPO" secondAttribute="firstBaseline" id="VFM-pn-4Rp"/>
                                     <constraint firstItem="fp9-Y7-aCP" firstAttribute="top" secondItem="52j-jL-sAH" secondAttribute="bottom" constant="2" id="Wgu-EV-LlV"/>
-                                    <constraint firstItem="LUr-D5-wNu" firstAttribute="leading" secondItem="a6w-if-ciG" secondAttribute="leading" constant="76" id="Xc9-ts-8j2"/>
-                                    <constraint firstItem="LUr-D5-wNu" firstAttribute="top" secondItem="fp9-Y7-aCP" secondAttribute="bottom" constant="-47" id="arm-jk-LxW"/>
-                                    <constraint firstItem="fp9-Y7-aCP" firstAttribute="top" secondItem="sn8-Yu-hPO" secondAttribute="bottom" constant="33" id="bK1-0J-bgr"/>
-                                    <constraint firstItem="fp9-Y7-aCP" firstAttribute="leading" secondItem="a6w-if-ciG" secondAttribute="leading" constant="76" id="bT0-F9-SmF"/>
-                                    <constraint firstItem="52j-jL-sAH" firstAttribute="leading" secondItem="okI-yi-tkL" secondAttribute="trailing" constant="20" id="bhE-IW-xKK"/>
                                     <constraint firstItem="5io-jw-Yt7" firstAttribute="trailing" secondItem="a6w-if-ciG" secondAttribute="trailingMargin" constant="-15" id="eZx-Jg-6T9"/>
-                                    <constraint firstItem="52j-jL-sAH" firstAttribute="top" secondItem="sn8-Yu-hPO" secondAttribute="bottom" constant="18" id="fGe-ax-F8L"/>
                                     <constraint firstItem="LUr-D5-wNu" firstAttribute="leading" secondItem="okI-yi-tkL" secondAttribute="trailing" constant="20" id="iYc-vG-ufW"/>
                                     <constraint firstAttribute="height" constant="83" id="oK2-AU-PP6"/>
                                     <constraint firstItem="sn8-Yu-hPO" firstAttribute="top" secondItem="a6w-if-ciG" secondAttribute="top" constant="13" id="yFH-CE-5NA"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Xc9-ts-8j2"/>
-                                        <exclude reference="arm-jk-LxW"/>
-                                        <exclude reference="bhE-IW-xKK"/>
-                                        <exclude reference="fGe-ax-F8L"/>
-                                        <exclude reference="bK1-0J-bgr"/>
-                                        <exclude reference="bT0-F9-SmF"/>
-                                    </mask>
-                                </variation>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="50" sectionHeaderHeight="30" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Aqr-oc-sZI">
                                 <rect key="frame" x="0.0" y="215" width="600" height="385"/>
