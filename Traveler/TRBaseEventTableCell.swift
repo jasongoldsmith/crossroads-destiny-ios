@@ -47,7 +47,9 @@ class TRBaseEventTableCell: UITableViewCell {
         self.eventTitle?.text = eventInfo.eventActivity?.activitySubType
         
         if let _ = eventInfo.eventActivity?.activityLight?.intValue where eventInfo.eventActivity?.activityLight?.intValue > 0 {
-            self.activityLight?.text = "+" + (eventInfo.eventActivity?.activityLight?.stringValue)!
+            
+            let fontStarIcon = "\u{02726}"
+            self.activityLight?.text = fontStarIcon + (eventInfo.eventActivity?.activityLight?.stringValue)!
             self.activityLight?.hidden = false
         } else {
             

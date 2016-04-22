@@ -59,8 +59,9 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
 
         self.eventTitle?.text = self.eventInfo?.eventActivity?.activitySubType
         
+        let fontStarIcon = "\u{02726}"
         if let _ = self.eventInfo?.eventActivity?.activityLight?.integerValue where self.eventInfo?.eventActivity?.activityLight?.integerValue > 0 {
-            self.eventLightCount?.text = "+" + (self.eventInfo?.eventActivity?.activityLight?.stringValue)!
+            self.eventLightCount?.text = fontStarIcon + (self.eventInfo?.eventActivity?.activityLight?.stringValue)!
         } else {
             self.eventLightCount?.hidden = false
             
