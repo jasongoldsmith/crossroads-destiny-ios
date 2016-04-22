@@ -240,11 +240,19 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             }
         }
         
-        if let pushData = sender.userInfo!["payload"] {
-            let swiftyJson = JSON(pushData)
-            let eventInfo = TREventInfo().parseCreateEventInfoObject(swiftyJson)
-            
-            self.showEventInfoViewController(eventInfo)
+        
+        if let payload = sender.userInfo!["payload"] {
+            if let eventDict = payload.objectForKey("event") {
+                let swiftyJson = JSON(eventDict)
+                let eventInfo = TREventInfo().parseCreateEventInfoObject(swiftyJson)
+                self.showEventInfoViewController(eventInfo)
+            } else {
+                let swiftyJson = JSON(payload)
+                let eventInfo = TREventInfo().parseCreateEventInfoObject(swiftyJson)
+                if eventInfo.eventID != nil {
+                    self.showEventInfoViewController(eventInfo)
+                }
+            }
         }
     }
     
