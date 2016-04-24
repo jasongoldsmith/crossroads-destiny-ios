@@ -24,16 +24,6 @@ class TRCreateEventViewController: TRBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let nav = self.navigationController?.navigationBar
-        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        nav?.barTintColor = UIColor(red: 10/255, green: 31/255, blue: 39/255, alpha: 1)
-        
-        addNavigationBarButtons()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
         // This is going to be a temporary code, at present we have only couple of activity sub-types and we have UI designed only for that.
         // Will have to re-write this method when UI is updated to reflect number of activities
         
@@ -64,45 +54,22 @@ class TRCreateEventViewController: TRBaseViewController {
                     activityPatrolButton?.buttonActivityInfo = activity
                 }
                 break
-
+                
             default:
                 break
             }
-            
-        }
-        
-    }
-    
-    func addNavigationBarButtons () {
-        //Adding Back Button to nav Bar
-        let leftButton = UIButton(frame: CGRectMake(0,0,44,44))
-        leftButton.setImage(UIImage(named: "iconBackArrow"), forState: .Normal)
-        leftButton.addTarget(self, action: #selector(TRCreateEventViewController.navBackButtonPressed(_:)), forControlEvents: .TouchUpInside)
-        leftButton.transform = CGAffineTransformMakeTranslation(-10, 0)
-        
-        // Add the button to a container, otherwise the transform will be ignored
-        let leftButtonContainer = UIView(frame: leftButton.frame)
-        leftButtonContainer.addSubview(leftButton)
-        
-        let leftBarButton = UIBarButtonItem()
-        leftBarButton.customView = leftButtonContainer
-        
-        // Avator Image View
-        if let imageString = TRUserInfo.getUserImageString() {
-            let imageUrl = NSURL(string: imageString)
-            let avatorImageView = UIImageView()
-            avatorImageView.sd_setImageWithURL(imageUrl)
-            let avatorImageFrame = CGRectMake((self.navigationController?.navigationBar.frame.width)! - avatorImageView.frame.size.width - 50, (self.navigationController?.navigationBar.frame.height)! - avatorImageView.frame.size.height - 40, 30, 30)
-            avatorImageView.frame = avatorImageFrame
-            avatorImageView.roundRectView()
-            
-            self.navigationController?.navigationBar.addSubview(avatorImageView)
         }
 
-        self.navigationItem.leftBarButtonItem = leftBarButton
+        //Navigation
+        self.title = "CREATE EVENT"
+        self.addNavigationBarButtons()
     }
     
-    func navBackButtonPressed (sender: UIBarButtonItem?) {
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func navBackButtonPressed (sender: UIBarButtonItem?) {
         self.dismissViewControllerAnimated(true) { () -> Void in
             self.didMoveToParentViewController(nil)
             self.removeFromParentViewController()

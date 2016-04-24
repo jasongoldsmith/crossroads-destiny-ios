@@ -496,11 +496,11 @@
 			isa = PBXGroup;
 			children = (
 				62C1FF311C77C15C00A78798 /* TRRootViewController.swift */,
+				33742D851C7FC46B00C46742 /* TRBaseViewController.swift */,
 				62C1FF5E1C77CDFF00A78798 /* TRLoginOptionViewController.swift */,
 				62C1FF621C77D7F000A78798 /* TRCreateAccountViewController.swift */,
 				62C1FF661C77D83800A78798 /* TRSignInViewController.swift */,
 				62C5DF781C79769C0039A88E /* TREventListViewController.swift */,
-				33742D851C7FC46B00C46742 /* TRBaseViewController.swift */,
 				33F427481C8A0DBD00560BD3 /* TRCreateEventViewController.swift */,
 				339D8F231C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift */,
 				339D8F2F1C911FB900A2620F /* TRCreateEventConfirmationViewController.swift */,

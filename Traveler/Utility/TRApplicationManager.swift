@@ -86,8 +86,9 @@ class TRApplicationManager: NSObject {
         let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
         let profileViewController = storyboard.instantiateViewControllerWithIdentifier(K.ViewControllerIdenifier.VIEW_CONTROLLER_PROFILE) as! TRProfileViewController
         let eventListViewController = storyboard.instantiateViewControllerWithIdentifier(K.ViewControllerIdenifier.VIEWCONTROLLER_EVENT_LIST) as! TREventListViewController
-        
-        self.slideMenuController = SlideMenuController(mainViewController:eventListViewController, rightMenuViewController: profileViewController)
+        let navigationController = UINavigationController(rootViewController: eventListViewController)
+
+        self.slideMenuController = SlideMenuController(mainViewController:navigationController, rightMenuViewController: profileViewController)
         self.slideMenuController.automaticallyAdjustsScrollViewInsets = true
         self.slideMenuController.closeRight()
         self.slideMenuController.addRightGestures()

@@ -33,9 +33,6 @@ class TRCreateEventSelectionViewController: TRBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // ADD NAVIGATION BAR BUTTON
-        addNavigationBarButtons()
-
         if self.isFeaturedEvent == false {
             // Get all Activities of selected activityType
             self.filteredActivitiesOfSelectedType = TRApplicationManager.sharedInstance.getActivitiesOfType((self.seletectedActivity?.activityType)!)!
@@ -66,40 +63,17 @@ class TRCreateEventSelectionViewController: TRBaseViewController {
         
         // Set seperator clear color
         self.activitySelectionTable.separatorColor = UIColor.clearColor()
+        
+        //Navigation
+        self.title = "CREATE EVENT"
+        self.addNavigationBarButtons()
     }
     
     override func viewDidAppear(animated: Bool) {
         
         super.viewDidAppear(animated)
     }
-    
-    func addNavigationBarButtons () {
-        
-        //Add Title
-        self.title = "CREATE EVENT"
-        
-        //Adding Back Button to nav Bar
-        let leftButton = UIButton(frame: CGRectMake(0,0,44,44))
-        leftButton.setImage(UIImage(named: "iconBackArrow"), forState: .Normal)
-        leftButton.transform = CGAffineTransformMakeTranslation(-10, 0)
-        leftButton.addTarget(self, action: #selector(TRCreateEventSelectionViewController.navBackButtonPressed(_:)), forControlEvents: .TouchUpInside)
-        
-        // Add the button to a container, otherwise the transform will be ignored
-        let leftButtonContainer = UIView(frame: leftButton.frame)
-        leftButtonContainer.addSubview(leftButton)
-        
-        let leftBarButton = UIBarButtonItem()
-        leftBarButton.customView = leftButtonContainer
 
-        
-        self.navigationItem.leftBarButtonItem = leftBarButton
-    }
-
-    //MARK:- UI-ACTIONS
-    func navBackButtonPressed (sender: UIBarButtonItem) {
-        
-        self.navigationController?.popViewControllerAnimated(true)
-    }
 
     //MARK:- UI-Table Methods
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

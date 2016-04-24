@@ -158,6 +158,12 @@ class TRBaseViewController: UIViewController {
         
     }
     
+    
+    //MARK:- Navigation
+    func navBackButtonPressed (sender: UIBarButtonItem?) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+
     deinit {
         
         //Remove Observers

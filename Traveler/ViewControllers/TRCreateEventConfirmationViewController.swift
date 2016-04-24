@@ -40,9 +40,6 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         
         super.viewDidLoad()
         
-        // Add Navigation Buttons
-        self.addNavigationBarButtons()
-        
         // Add Icon Image
         let imageUrl = NSURL(string: (self.selectedActivity?.activityIconImage)!)
         self.activityIconImage?.sd_setImageWithURL(imageUrl)
@@ -81,6 +78,13 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         
         //Init selected Date as nil
         self.selectedDate = nil
+        
+        //Add Buttons
+        self.addButtons()
+        
+        //Navigation
+        self.title = "CREATE EVENT"
+        self.addNavigationBarButtons()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -106,25 +110,7 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         self.view.addSubview(self.checkpointPickerView)
     }
     
-    func addNavigationBarButtons () {
-        
-        //Add Title
-        self.title = "CREATE EVENT"
-
-        //Adding Back Button to nav Bar
-        let leftButton = UIButton(frame: CGRectMake(0,0,44,44))
-        leftButton.setImage(UIImage(named: "iconBackArrow"), forState: .Normal)
-        leftButton.transform = CGAffineTransformMakeTranslation(-10, 0)
-        leftButton.addTarget(self, action: #selector(TRCreateEventConfirmationViewController.navBackButtonPressed), forControlEvents: .TouchUpInside)
-        
-        // Add the button to a container, otherwise the transform will be ignored
-        let leftButtonContainer = UIView(frame: leftButton.frame)
-        leftButtonContainer.addSubview(leftButton)
-        
-        let leftBarButton = UIBarButtonItem()
-        leftBarButton.customView = leftButtonContainer
-        self.navigationItem.leftBarButtonItem = leftBarButton
-        
+    func addButtons () {
         var labelSting = (self.selectedActivity?.activitySubType!)!
         if let hasDifficulty = self.selectedActivity?.activityDificulty {
             if hasDifficulty != "" {
@@ -144,6 +130,7 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         self.addCosmeticsToButtons(self.buttonTwo!)
         self.addCosmeticsToButtons(self.buttonThress!)
     }
+
     
     func addCosmeticsToButtons (sender: UIButton) {
         sender.layer.cornerRadius = 3
@@ -161,10 +148,6 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
     }
     
     //MARK:- UI-ACTIONS
-    @IBAction func navBackButtonPressed () {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-    
     @IBAction func changeDateButtonPressed (sender: UIButton) {
         
         UIView.animateWithDuration(0.4) { () -> Void in

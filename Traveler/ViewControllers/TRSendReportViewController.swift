@@ -16,25 +16,28 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
          super.viewDidLoad()
+
+        self.title = "SEND REPORT"
+        self.addNavigationBarButtons()
         
-        let nav = self.navigationController?.navigationBar
-        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        nav?.barTintColor = UIColor(red: 10/255, green: 31/255, blue: 39/255, alpha: 1)
-
-        //Adding Back Button to nav Bar
-        let leftButton = UIButton(frame: CGRectMake(0,0,44,44))
-        leftButton.setImage(UIImage(named: "iconBackArrow"), forState: .Normal)
-        leftButton.transform = CGAffineTransformMakeTranslation(-10, 0)
-        leftButton.addTarget(self, action: #selector(TRCreateEventSelectionViewController.navBackButtonPressed(_:)), forControlEvents: .TouchUpInside)
-
-        // Add the button to a container, otherwise the transform will be ignored
-        let leftButtonContainer = UIView(frame: leftButton.frame)
-        leftButtonContainer.addSubview(leftButton)
-        
-        let leftBarButton = UIBarButtonItem()
-        leftBarButton.customView = leftButtonContainer
-
-        self.navigationItem.leftBarButtonItem = leftBarButton
+//        let nav = self.navigationController?.navigationBar
+//        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+//        nav?.barTintColor = UIColor(red: 10/255, green: 31/255, blue: 39/255, alpha: 1)
+//
+//        //Adding Back Button to nav Bar
+//        let leftButton = UIButton(frame: CGRectMake(0,0,44,44))
+//        leftButton.setImage(UIImage(named: "iconBackArrow"), forState: .Normal)
+//        leftButton.transform = CGAffineTransformMakeTranslation(-10, 0)
+//        leftButton.addTarget(self, action: #selector(TRCreateEventSelectionViewController.navBackButtonPressed(_:)), forControlEvents: .TouchUpInside)
+//
+//        // Add the button to a container, otherwise the transform will be ignored
+//        let leftButtonContainer = UIView(frame: leftButton.frame)
+//        leftButtonContainer.addSubview(leftButton)
+//        
+//        let leftBarButton = UIBarButtonItem()
+//        leftBarButton.customView = leftButtonContainer
+//
+//        self.navigationItem.leftBarButtonItem = leftBarButton
 
         // Key-Board Notifications
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRCreateAccountViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
@@ -56,7 +59,7 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: self.view.window)
     }
     
-    func navBackButtonPressed (sender: UIBarButtonItem) {
+    override func navBackButtonPressed (sender: UIBarButtonItem?) {
         
         if self.reportTextView.isFirstResponder() {
             self.reportTextView.resignFirstResponder()

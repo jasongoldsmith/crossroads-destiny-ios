@@ -74,6 +74,9 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         
         //Add User Avator Image
         self.updateUserAvatorImage()
+        
+        // Hide Navigation Bar
+        self.hideNavigationBar()
     }
 
     func updateUserAvatorImage () {
