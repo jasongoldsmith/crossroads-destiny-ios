@@ -91,6 +91,11 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         super.viewDidAppear(animated)
     }
     
+    
+    @IBAction func goBack () {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
     func addCheckpointPickerView () {
         
         self.checkpointPickerView = NSBundle.mainBundle().loadNibNamed("TRActivityCheckPointPicker", owner: self, options: nil)[0] as! TRActivityCheckPointPicker

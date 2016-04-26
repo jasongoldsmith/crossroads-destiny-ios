@@ -1332,7 +1332,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="navBackButtonPressed" destination="Qer-Wa-Bhw" eventType="touchUpInside" id="Un9-aL-vnT"/>
+                                    <action selector="goBack" destination="Qer-Wa-Bhw" eventType="touchUpInside" id="le2-r8-Lxb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ue-JR-J0g">
