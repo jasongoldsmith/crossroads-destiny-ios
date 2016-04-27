@@ -13,6 +13,8 @@ import SDWebImage
 
 class TRCreateEventViewController: TRBaseViewController {
  
+    lazy var animator: TRCustomNavTransitionAnimator = TRCustomNavTransitionAnimator(transitioningController: self)
+    
     @IBOutlet var activityIcon          : UIImageView?
     @IBOutlet var activityFeaturedButton     : EventButton?
     @IBOutlet var activityRaidButton        : EventButton?
@@ -26,6 +28,8 @@ class TRCreateEventViewController: TRBaseViewController {
         
         // This is going to be a temporary code, at present we have only couple of activity sub-types and we have UI designed only for that.
         // Will have to re-write this method when UI is updated to reflect number of activities
+        
+        //self.navigationController?.delegate = self
         
         for (_, activity) in TRApplicationManager.sharedInstance.activityList.enumerate() {
             switch activity.activityType! {
@@ -82,7 +86,6 @@ class TRCreateEventViewController: TRBaseViewController {
             
             let vc = TRApplicationManager.sharedInstance.stroryBoardManager.getViewControllerWithID(K.ViewControllerIdenifier.VIEW_CONTROLLER_CREATE_EVENT_SELECTION, storyBoardID: K.StoryBoard.StoryBoard_Main) as! TRCreateEventSelectionViewController
             vc.seletectedActivity = sender.buttonActivityInfo
-            
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -92,6 +95,19 @@ class TRCreateEventViewController: TRBaseViewController {
         vc.isFeaturedEvent = true
         
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return animator
+    }
+    
+    func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        if animator.usingGesture {
+            return animator
+        } else {
+            return nil
+        }
     }
 }
 
