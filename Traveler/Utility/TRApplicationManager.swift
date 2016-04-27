@@ -97,8 +97,7 @@ class TRApplicationManager: NSObject {
         parentViewController.presentViewController(self.slideMenuController, animated: true, completion: {
             
             if let _ = pushData {
-                if let payload = pushData!.objectForKey("payload") {
-                    
+                if let payload = pushData!.objectForKey("payload") as? NSDictionary{
                     if let eventDict = payload.objectForKey("event") {
                         let swiftyJson = JSON(eventDict)
                         let eventInfo = TREventInfo().parseCreateEventInfoObject(swiftyJson)

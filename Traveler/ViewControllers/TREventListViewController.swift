@@ -244,8 +244,8 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         }
         
         
-        if let payload = sender.userInfo!["payload"] {
-            if let eventDict = payload.objectForKey("event") {
+        if let payload = sender.userInfo!["payload"] as? NSDictionary {
+            if let eventDict = payload.objectForKey("event") as? NSDictionary {
                 let swiftyJson = JSON(eventDict)
                 let eventInfo = TREventInfo().parseCreateEventInfoObject(swiftyJson)
                 self.showEventInfoViewController(eventInfo)
