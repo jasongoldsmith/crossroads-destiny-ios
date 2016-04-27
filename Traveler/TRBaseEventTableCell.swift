@@ -106,7 +106,7 @@ class TRBaseEventTableCell: UITableViewCell {
             let formatter = NSDateFormatter()
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
             let eventDate = formatter.dateFromString(hasLaunchDate)
-            self.eventTimeLabel?.text = eventDate!.toString()
+            self.eventTimeLabel?.text = eventDate!.toString(format: .Custom(trDateFormat()))
         }
         
         if eventInfo.eventActivity?.activityCheckPoint != "" {

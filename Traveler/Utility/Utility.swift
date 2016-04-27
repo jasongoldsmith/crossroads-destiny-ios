@@ -70,6 +70,9 @@ func secondsToHoursMinutesSeconds (seconds : Int) -> String {
     } else{
         return "\(minutes!):\(seconds!)"
     }
-    
-    
 }
+
+func trDateFormat () -> String {
+    return "EEE, d MMM '-' hh:mm a"
+}
+

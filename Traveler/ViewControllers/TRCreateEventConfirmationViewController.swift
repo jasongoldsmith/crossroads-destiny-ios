@@ -196,7 +196,7 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         }
         
         if let selectedTime = self.selectedDate {
-            self.buttonThress?.setTitle("Start Time - " + selectedTime.toString(), forState: .Normal)
+            self.buttonThress?.setTitle("Start Time - " + selectedTime.toString(format: .Custom(trDateFormat())), forState: .Normal)
         } else {
             self.buttonThress?.setTitle("Start Time - Now", forState: .Normal)
         }
