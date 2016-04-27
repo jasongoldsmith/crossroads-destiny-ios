@@ -1081,7 +1081,7 @@
                                     <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="tBD-Rw-pWH"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgActivityBanner" translatesAutoresizingMaskIntoConstraints="NO" id="xX4-xG-ytT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgGlobeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="xX4-xG-ytT">
                                 <rect key="frame" x="275" y="147" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="WlJ-Z0-ArL"/>
@@ -1726,7 +1726,6 @@
         <image name="eventsViewBG" width="375" height="667"/>
         <image name="iconArrowRight" width="5" height="10"/>
         <image name="iconBackArrow" width="44" height="44"/>
-        <image name="imgActivityBanner" width="40" height="51"/>
         <image name="imgArena" width="98" height="100"/>
         <image name="imgArenaOnTap" width="98" height="100"/>
         <image name="imgChooseEventBG" width="375" height="597"/>
@@ -1735,6 +1734,7 @@
         <image name="imgCruicibleSelected" width="98" height="100"/>
         <image name="imgFeatured" width="98" height="100"/>
         <image name="imgFeaturedOnTap" width="98" height="100"/>
+        <image name="imgGlobeIcon" width="60" height="60"/>
         <image name="imgLoginBtnTapped" width="90" height="90"/>
         <image name="imgPatrol" width="98" height="100"/>
         <image name="imgPatrolOnTap" width="98" height="100"/>
