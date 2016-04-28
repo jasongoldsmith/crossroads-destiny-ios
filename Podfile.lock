@@ -5,7 +5,7 @@ PODS:
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
-  - SlideMenuControllerSwift (2.1.0)
+  - SlideMenuControllerSwift (2.1.1)
   - SwiftyJSON (2.3.2)
   - XCGLogger (3.3)
 
@@ -26,7 +26,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   pop:
-    :commit: 79d0a9708ac60a635adf7b5aec56e6206d61a3e1
+    :commit: 5fff11a68a9c5327f153d7d1e39a87a8e42f76a6
     :git: https://github.com/facebook/pop.git
   SwiftyJSON:
     :commit: 2a5b70f06001316d4fb54501edc70b4084705da0
@@ -37,7 +37,7 @@ SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
-  SlideMenuControllerSwift: 0ed532750dc8574eefda189d0f25805bc967ab7a
+  SlideMenuControllerSwift: 82ada9b04e03538c84d034cf1c09e5849c0113f7
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   XCGLogger: d6e196e78940ff6daab17d6917107876f973fa31
 
