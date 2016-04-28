@@ -109,7 +109,7 @@ class TRBaseEventTableCell: UITableViewCell {
             self.eventTimeLabel?.text = eventDate!.toString(format: .Custom(trDateFormat()))
         }
         
-        if eventInfo.eventActivity?.activityCheckPoint != "" {
+        if eventInfo.eventActivity?.activityCheckPoint != "" &&  eventInfo.eventActivity?.activityCheckPoint != nil{
             self.activityCheckPointLabel?.hidden = false
             self.activityCheckPointLabel?.text = eventInfo.eventActivity?.activityCheckPoint
         }

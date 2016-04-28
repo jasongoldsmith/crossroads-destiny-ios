@@ -168,7 +168,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         var cell: TRBaseEventTableCell?
         
         if segmentControl?.selectedSegmentIndex == 0 {
-            if self.eventsInfo[indexPath.section].eventActivity?.activityCheckPoint != "" {
+            if self.eventsInfo[indexPath.section].eventActivity?.activityCheckPoint != "" && self.eventsInfo[indexPath.section].eventActivity?.activityCheckPoint != nil{
                 cell = tableView.dequeueReusableCellWithIdentifier(CURRENT_EVENT_WITH_CHECK_POINT_CELL) as! TREventCurrentWithCheckPointCell
                 self.eventsTableView?.rowHeight = EVENT_CURRENT_WITH_CHECK_POINT_CELL_HEIGHT
             } else {
