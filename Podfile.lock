@@ -26,7 +26,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   pop:
-    :commit: 5fff11a68a9c5327f153d7d1e39a87a8e42f76a6
+    :commit: 234aeb8645dc3c3ecdd20b3cc04b7c7f9150fb28
     :git: https://github.com/facebook/pop.git
   SwiftyJSON:
     :commit: 2a5b70f06001316d4fb54501edc70b4084705da0

@@ -73,6 +73,6 @@ func secondsToHoursMinutesSeconds (seconds : Int) -> String {
 }
 
 func trDateFormat () -> String {
-    return "EEE, d MMM '-' hh:mm a"
+    return "EEE, MMM d '-' hh:mm a"
 }
 
