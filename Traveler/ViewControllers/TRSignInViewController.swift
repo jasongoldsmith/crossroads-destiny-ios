@@ -39,9 +39,6 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: self.view.window)
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

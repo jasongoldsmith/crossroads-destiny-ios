@@ -36,6 +36,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Clear Notifications
         application.applicationIconBadgeNumber = 0;
         
+        //Status Bar 
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+        
         return true
     }
 

@@ -80,11 +80,7 @@ class TRBaseViewController: UIViewController {
         
         appManager.log.debug("\(NSStringFromClass(self.dynamicType))")
     }
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
-    }
-    
+        
     func setStatusBarBackgroundColor(color: UIColor) {
         guard  let statusBar = UIApplication.sharedApplication().valueForKey("statusBarWindow")?.valueForKey("statusBar") as? UIView else {
             return
