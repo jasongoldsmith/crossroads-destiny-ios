@@ -29,40 +29,6 @@ class TRCreateEventViewController: TRBaseViewController {
         // This is going to be a temporary code, at present we have only couple of activity sub-types and we have UI designed only for that.
         // Will have to re-write this method when UI is updated to reflect number of activities
         
-        //self.navigationController?.delegate = self
-        
-        for (_, activity) in TRApplicationManager.sharedInstance.activityList.enumerate() {
-            switch activity.activityType! {
-            case K.ActivityType.RAIDS:
-                if activityRaidButton?.buttonActivityInfo == nil {
-                    activityRaidButton?.buttonActivityInfo = activity
-                }
-                break
-            case K.ActivityType.CRUCIBLE:
-                if activityCrucibleButton?.buttonActivityInfo == nil {
-                    activityCrucibleButton?.buttonActivityInfo = activity
-                }
-                break
-            case K.ActivityType.ARENA:
-                if activityArenaButton?.buttonActivityInfo == nil {
-                    activityArenaButton?.buttonActivityInfo = activity
-                }
-                break
-            case K.ActivityType.STRIKES:
-                if activityStrikeButton?.buttonActivityInfo == nil {
-                    activityStrikeButton?.buttonActivityInfo = activity
-                }
-                break
-            case K.ActivityType.PATROL:
-                if activityPatrolButton?.buttonActivityInfo == nil {
-                    activityPatrolButton?.buttonActivityInfo = activity
-                }
-                break
-                
-            default:
-                break
-            }
-        }
 
         //Navigation
         self.title = "CREATE EVENT"
@@ -71,6 +37,45 @@ class TRCreateEventViewController: TRBaseViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        _ = TRgetActivityList().getActivityList({ (value) -> () in
+            if (value == true) {
+                for (_, activity) in TRApplicationManager.sharedInstance.activityList.enumerate() {
+                    switch activity.activityType! {
+                    case K.ActivityType.RAIDS:
+                        if self.activityRaidButton?.buttonActivityInfo == nil {
+                            self.activityRaidButton?.buttonActivityInfo = activity
+                        }
+                        break
+                    case K.ActivityType.CRUCIBLE:
+                        if self.activityCrucibleButton?.buttonActivityInfo == nil {
+                            self.activityCrucibleButton?.buttonActivityInfo = activity
+                        }
+                        break
+                    case K.ActivityType.ARENA:
+                        if self.activityArenaButton?.buttonActivityInfo == nil {
+                            self.activityArenaButton?.buttonActivityInfo = activity
+                        }
+                        break
+                    case K.ActivityType.STRIKES:
+                        if self.activityStrikeButton?.buttonActivityInfo == nil {
+                            self.activityStrikeButton?.buttonActivityInfo = activity
+                        }
+                        break
+                    case K.ActivityType.PATROL:
+                        if self.activityPatrolButton?.buttonActivityInfo == nil {
+                            self.activityPatrolButton?.buttonActivityInfo = activity
+                        }
+                        break
+                        
+                    default:
+                        break
+                    }
+                }
+            } else {
+                self.appManager.log.debug("Activity List fetch failed")
+            }
+        })
     }
     
     override func navBackButtonPressed (sender: UIBarButtonItem?) {
