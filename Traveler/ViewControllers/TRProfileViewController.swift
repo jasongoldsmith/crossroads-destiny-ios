@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TRProfileViewController: TRBaseViewController {
+class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
     @IBOutlet weak var avatorImageView: UIImageView?
@@ -70,6 +70,7 @@ class TRProfileViewController: TRBaseViewController {
     }
     
     @IBAction func logOutUser () {
+
         let createRequest = TRAuthenticationRequest()
         createRequest.logoutTRUser() { (value ) in
             if value == true {
@@ -107,5 +108,52 @@ class TRProfileViewController: TRBaseViewController {
         
         let navigationController = UINavigationController(rootViewController: vc)
         self.presentViewController(navigationController, animated: true, completion: nil)
+    }
+    
+    //MARK:- Profile Image Picker Methods
+    func presentProileImagePickerView () {
+        let imageController = UIImagePickerController()
+        imageController.editing = false
+        imageController.delegate = self;
+        
+        let alert = UIAlertController(title: "Lets get a picture", message: "Just a message", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let libButton = UIAlertAction(title: "Select photo from library", style: UIAlertActionStyle.Default) { (alert) -> Void in
+            imageController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            self.presentViewController(imageController, animated: true, completion: nil)
+        }
+        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)){
+            //Camera available
+            let cameraButton = UIAlertAction(title: "Take a picture", style: UIAlertActionStyle.Default) { (alert) -> Void in
+                imageController.sourceType = UIImagePickerControllerSourceType.Camera
+                imageController.cameraDevice = UIImagePickerControllerCameraDevice.Front
+                self.presentViewController(imageController, animated: true, completion: nil)
+                
+            }
+            alert.addAction(cameraButton)
+        }
+        let cancelButton = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (alert) -> Void in
+            //Cancel Pressed
+        }
+        
+        alert.addAction(libButton)
+        alert.addAction(cancelButton)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            self.imagePickerClosed(picker)
+        }
+    }
+    
+    func imagePickerClosed(picker: UIImagePickerController) {
+        picker.dismissViewControllerAnimated(true, completion: ({
+        }))
+    }
+
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        self.imagePickerClosed(picker)
     }
 }

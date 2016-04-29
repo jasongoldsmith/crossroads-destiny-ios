@@ -40,6 +40,7 @@ struct K {
         static let TR_REGISTER_DEVICE    =   "/api/v1/a/installation/ios"
         static let TR_SEND_PUSH_MESSAGE  =   "/api/v1/a/messages/send"
         static let TR_SEND_REPORT        =   "/api/v1/a/report/create"
+        static let TR_UPDATE_USER        =   "/api/v1/a/user/update"
     }
     
     struct StoryBoard {
