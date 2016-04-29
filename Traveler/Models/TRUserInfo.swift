@@ -97,9 +97,9 @@ class TRUserInfo: NSObject {
     class func getUserClanID () -> String? {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         if (userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_USER_CLAN_ID) != nil) {
-            let userID = userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_USER_CLAN_ID) as! String
+            let userClanID = userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_USER_CLAN_ID) as! String
             
-            return userID
+            return userClanID
         }
         
         return nil
