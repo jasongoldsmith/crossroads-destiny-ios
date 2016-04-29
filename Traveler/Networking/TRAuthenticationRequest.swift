@@ -115,10 +115,10 @@ class TRAuthenticationRequest: TRRequest {
                             userData.userID         = swiftyJsonVar["value"]["_id"].string
                             userData.psnID          = swiftyJsonVar["value"]["psnID"].string
                             userData.userImageURL   = swiftyJsonVar["value"]["imageUrl"].string
-
+                            userData.userClanID     = swiftyJsonVar["value"]["clanId"].string
+                            
                             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                             appDelegate.addNotificationsPermission()
-
                             
                             TRUserInfo.saveUserData(userData)
                             completion(didSucceed: true )
@@ -159,6 +159,10 @@ class TRAuthenticationRequest: TRRequest {
                             let userData = TRUserInfo()
                             userData.userName = swiftyJsonVar["value"]["userName"].string
                             userData.password = swiftyJsonVar["value"]["passWord"].string
+                            userData.psnID          = swiftyJsonVar["value"]["psnID"].string
+                            userData.userImageURL   = swiftyJsonVar["value"]["imageUrl"].string
+                            userData.userClanID     = swiftyJsonVar["value"]["clanId"].string
+
                             TRUserInfo.saveUserData(userData)
                             completion(true )
                         }

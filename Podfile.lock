@@ -1,6 +1,7 @@
 PODS:
   - AFDateHelper (3.3.0)
   - Alamofire (3.3.1)
+  - Firebase (2.5.1)
   - pop (1.0.9)
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
@@ -12,6 +13,7 @@ PODS:
 DEPENDENCIES:
   - AFDateHelper
   - Alamofire (~> 3.3.1)
+  - Firebase (>= 2.5.1)
   - pop (from `https://github.com/facebook/pop.git`)
   - SDWebImage (~> 3.7)
   - SlideMenuControllerSwift
@@ -35,6 +37,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFDateHelper: 137b5b9d70fe13b810e1817fa2d8c116d7988f5c
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  Firebase: 3565ea88b830f28f2c77ecc524622bc71a20d085
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   SlideMenuControllerSwift: 82ada9b04e03538c84d034cf1c09e5849c0113f7

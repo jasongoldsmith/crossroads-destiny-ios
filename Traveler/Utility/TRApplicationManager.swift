@@ -13,6 +13,7 @@ import Alamofire
 import SlideMenuControllerSwift
 import SwiftyJSON
 
+
 class TRApplicationManager: NSObject {
     
     // MARK:- Instances
@@ -35,10 +36,8 @@ class TRApplicationManager: NSObject {
     //Activity List
     lazy var activityList: [TRActivityInfo] = []
     
-    
     // Activity Indicator
     var activityIndicator = TRActivityIndicatorView()
-    
     
     // Error Notification View 
     var errorNotificationView = TRErrorNotificationView()
@@ -52,6 +51,9 @@ class TRApplicationManager: NSObject {
     
     // SlideMenu Controller
     var slideMenuController = SlideMenuController()
+    
+    //FireBase Class Instance
+    var fireBaseObj = TRFireBaseListener()
     
     // MARK:- Initializer
     private override init() {
@@ -91,7 +93,7 @@ class TRApplicationManager: NSObject {
         self.slideMenuController = SlideMenuController(mainViewController:navigationController, rightMenuViewController: profileViewController)
         self.slideMenuController.automaticallyAdjustsScrollViewInsets = true
         self.slideMenuController.closeRight()
-        self.slideMenuController.addRightGestures()
+        self.slideMenuController.rightPanGesture?.enabled = false
         self.slideMenuController.changeRightViewWidth(340.0)
         
         parentViewController.presentViewController(self.slideMenuController, animated: true, completion: {

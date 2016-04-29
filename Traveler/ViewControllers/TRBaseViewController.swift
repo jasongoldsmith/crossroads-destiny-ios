@@ -98,6 +98,10 @@ class TRBaseViewController: UIViewController {
         
     }
     
+    func reloadEventTable () {
+        
+    }
+    
     func applicationDidEnterBackground() {
         
 //        self.applicationDidTerminate()

@@ -77,6 +77,8 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         
         // Hide Navigation Bar
         self.hideNavigationBar()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(reloadEventTable), name: "DO_SOME_THING", object: nil)
     }
 
     func updateUserAvatorImage () {
@@ -103,13 +105,22 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.reloadEventTable()
+        //self.reloadEventTable()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        //Add FireBase Observer
+        TRApplicationManager.sharedInstance.fireBaseObj.addObserversWithParentView(self)
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        //Remove FireBase Observer
+        TRApplicationManager.sharedInstance.fireBaseObj.removeObservers()
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -117,7 +128,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     
     
     override  func applicationWillEnterForeground() {
-        _ = TRGetEventsList().getEventsListWithClearActivityBackGround(false, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
+        _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: false, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
             if(didSucceed == true) {
                     self.reloadEventTable()
             } else {
@@ -300,7 +311,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     //MARK:- Table Refresh
     func handleRefresh(refreshControl: UIRefreshControl) {
 
-        _ = TRGetEventsList().getEventsListWithClearActivityBackGround(false, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
+        _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: false, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
             if(didSucceed == true) {
                 refreshControl.endRefreshing()
                 delay(0.5, closure: {
@@ -315,7 +326,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
     
     
-    func reloadEventTable () {
+    override func reloadEventTable () {
         
         //Reload Table
         self.eventsInfo       = TRApplicationManager.sharedInstance.getCurrentEvents()
@@ -353,6 +364,9 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     deinit {
         self.eventsInfo.removeAll()
         self.futureEventsInfo.removeAll()
+        
+        //Remove Observer
+        NSNotificationCenter.defaultCenter().removeObserver(self)
         
         self.appManager.log.debug("de-init")
     }

@@ -25,10 +25,13 @@ class TREventInfo: NSObject {
     var isFutureEvent           : Bool = false
     
     func parseCreateEventInfoObject (swiftyJason: JSON) -> TREventInfo {
-        
+        return self.createEventObjectFromFireBaseWithEventID(swiftyJason, fireBaseEventID: nil)
+    }
+    
+    func createEventObjectFromFireBaseWithEventID (swiftyJason: JSON, fireBaseEventID: String?) -> TREventInfo {
         if let futureLaunchDate = swiftyJason["launchDate"].string {
+
             let isFutureEvent = isTimeDifferenceMoreThenAnHour(futureLaunchDate)
-            
             if isFutureEvent {
                 // UPCOMING EVENT
                 self.isFutureEvent = true
@@ -36,7 +39,11 @@ class TREventInfo: NSObject {
         }
         
         // Creating Event Objects from Events List
-        self.eventID           = swiftyJason["_id"].string
+        if let _ = fireBaseEventID {
+            self.eventID           = fireBaseEventID
+        } else {
+            self.eventID           = swiftyJason["_id"].string
+        }
         self.eventStatus       = swiftyJason["status"].string
         self.eventUpdatedDate  = swiftyJason["updated"].string
         self.eventMaxPlayers   = swiftyJason["maxPlayers"].number

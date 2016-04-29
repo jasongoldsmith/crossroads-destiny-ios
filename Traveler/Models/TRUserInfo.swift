@@ -15,6 +15,7 @@ class TRUserInfo: NSObject {
     var psnID           :String?
     var userID          :String?
     var userImageURL    :String?
+    var userClanID      :String?
     
     class func saveUserData (userData:TRUserInfo?) -> Bool {
         
@@ -27,6 +28,7 @@ class TRUserInfo: NSObject {
         userDefaults.setValue(userData?.psnID, forKey: K.UserDefaultKey.UserAccountInfo.TR_PsnId)
         userDefaults.setValue(userData?.userID, forKeyPath: K.UserDefaultKey.UserAccountInfo.TR_UserID)
         userDefaults.setValue(userData?.userImageURL  , forKeyPath: K.UserDefaultKey.UserAccountInfo.TR_USER_IMAGE)
+        userDefaults.setValue(userData?.userClanID  , forKeyPath: K.UserDefaultKey.UserAccountInfo.TR_USER_CLAN_ID)
         
         userDefaults.synchronize()
         
@@ -90,6 +92,17 @@ class TRUserInfo: NSObject {
         }
         
         return currentUserImage
+    }
+
+    class func getUserClanID () -> String? {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        if (userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_USER_CLAN_ID) != nil) {
+            let userID = userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_USER_CLAN_ID) as! String
+            
+            return userID
+        }
+        
+        return nil
     }
 
     

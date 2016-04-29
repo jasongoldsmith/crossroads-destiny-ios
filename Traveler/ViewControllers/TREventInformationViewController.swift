@@ -104,6 +104,9 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         //Leave Event and Send Message To All button update
         self.leaveEventButton?.buttonEventInfo = self.eventInfo
         self.updateBottomButtons()
+        
+        // Add FireBase Observer
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(reloadEventTable), name: "DO_SOME_THING", object: nil)
     }
     
     func updateBottomButtons () {
@@ -162,8 +165,17 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        //Add FireBase Observer
+        TRApplicationManager.sharedInstance.fireBaseObj.addObserversWithParentView(self)
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        //Remove FireBase Observer
+        TRApplicationManager.sharedInstance.fireBaseObj.removeObservers()
+    }
     
     @IBAction func backButtonPressed (sender: AnyObject) {
         self.dismissViewController(true) { (didDismiss) in
@@ -235,8 +247,17 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         self.eventInfoTable?.deselectRowAtIndexPath(indexPath, animated: false)
     }
     
-    func reloadEventTable () {
+    override func reloadEventTable () {
         self.eventInfo = TRApplicationManager.sharedInstance.getEventById((self.eventInfo?.eventID)!)
+        
+        guard let _ = self.eventInfo else {
+            self.dismissViewController(true, dismissed: { (didDismiss) in
+                
+            })
+            
+            return
+        }
+        
         self.eventInfoTable?.reloadData()
         self.updateBottomButtons()
         self.updateEventStatusAndPlayerNameString()
@@ -320,5 +341,8 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         self.sendChatMessageView.pop_addAnimation(popAnimation, forKey: "alphasIn")
     }
 
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
 }
 

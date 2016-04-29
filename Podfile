@@ -9,6 +9,7 @@ target 'Traveler' do
     pod 'AFDateHelper'
     pod 'pop', :git => 'https://github.com/facebook/pop.git'
     pod 'SlideMenuControllerSwift'
+    pod 'Firebase', '>= 2.5.1'
 end
 
 target 'TravelerTests' do

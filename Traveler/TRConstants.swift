@@ -11,6 +11,7 @@ struct K {
             static let TR_PsnId         = "TR_PsnId"
             static let TR_UserID        = "TR_UserID"
             static let TR_USER_IMAGE    = "TR_USER_IMAGE"
+            static let TR_USER_CLAN_ID  = "TR_USER_CLAN_ID"
         }
     }
     
@@ -22,9 +23,10 @@ struct K {
         
         #if RELEASE
             static let TR_BaseUrl            =   "https://travelerbackendproduction.herokuapp.com"
+            static let TR_FIREBASE_DEFAULT   =   "https://traveler-production.firebaseio.com/"
         #else
-            static let TR_BaseUrl            =   "https://travelerbackendproduction.herokuapp.com"
-//            static let TR_BaseUrl            =   "https://travelerbackend.herokuapp.com"
+            static let TR_BaseUrl            =   "https://travelerbackend.herokuapp.com"
+            static let TR_FIREBASE_DEFAULT   =   "https://traveler-development.firebaseio.com/"
         #endif
         
         static let TR_RegisterUrl        =   "/api/v1/auth/register"
