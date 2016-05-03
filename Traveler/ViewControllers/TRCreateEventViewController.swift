@@ -11,7 +11,7 @@ import UIKit
 import SDWebImage
 
 
-class TRCreateEventViewController: TRBaseViewController {
+class TRCreateEventViewController: TRBaseViewController, UINavigationControllerDelegate {
  
     lazy var animator: TRCustomNavTransitionAnimator = TRCustomNavTransitionAnimator(transitioningController: self)
     
@@ -33,6 +33,9 @@ class TRCreateEventViewController: TRBaseViewController {
         //Navigation
         self.title = "CREATE EVENT"
         self.addNavigationBarButtons()
+        
+        // INTERACTIVE VC ANIMATION
+        //self.navigationController?.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -92,6 +95,9 @@ class TRCreateEventViewController: TRBaseViewController {
             let vc = TRApplicationManager.sharedInstance.stroryBoardManager.getViewControllerWithID(K.ViewControllerIdenifier.VIEW_CONTROLLER_CREATE_EVENT_SELECTION, storyBoardID: K.StoryBoard.StoryBoard_Main) as! TRCreateEventSelectionViewController
             vc.seletectedActivity = sender.buttonActivityInfo
             self.navigationController?.pushViewController(vc, animated: true)
+            
+            // INTERACTIVE VC ANIMATION
+            //animator.applyInterationTransitionHook(vc)
         }
     }
     
