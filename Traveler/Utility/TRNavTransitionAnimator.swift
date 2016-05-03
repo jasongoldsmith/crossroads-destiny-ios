@@ -1,5 +1,5 @@
 //
-//  TRCustomNavTransitionAnimator.swift
+//  TRNavTransitionAnimator.swift
 //  Traveler
 //
 //  Created by Ashutosh on 4/26/16.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TRCustomNavTransitionAnimator: UIPercentDrivenInteractiveTransition, UIViewControllerAnimatedTransitioning {
+class TRNavTransitionAnimator: UIPercentDrivenInteractiveTransition, UIViewControllerAnimatedTransitioning {
     
     private let ANIMATION_DURATION = 0.35
     unowned var transitioningController: UIViewController
@@ -20,7 +20,7 @@ class TRCustomNavTransitionAnimator: UIPercentDrivenInteractiveTransition, UIVie
     }
     
     func applyInterationTransitionHook(controller: UIViewController){
-        let panGesture = UIPanGestureRecognizer(target: self, action:#selector(TRCustomNavTransitionAnimator.didPan(_:)))
+        let panGesture = UIPanGestureRecognizer(target: self, action:#selector(TRNavTransitionAnimator.didPan(_:)))
         controller.view.addGestureRecognizer(panGesture)
     }
     
@@ -35,9 +35,11 @@ class TRCustomNavTransitionAnimator: UIPercentDrivenInteractiveTransition, UIVie
         transitionContext.containerView()!.addSubview(toViewController.view)
         
         // Step 2: Apply your animation.
-        toViewController.view.alpha = 0.0
+//        toViewController.view.alpha = 0.0
+        toViewController.view.frame = CGRectMake(0, toViewController.view.frame.size.height, toViewController.view.frame.size.width, toViewController.view.frame.size.height)
         UIView.animateWithDuration(0.35, animations: {
-            toViewController.view.alpha = 1.0
+            
+            toViewController.view.frame = CGRectMake(0, 0, toViewController.view.frame.size.width, toViewController.view.frame.size.height)
             }, completion: { (finished) in
                 // Step 3: Call completion handler
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled())

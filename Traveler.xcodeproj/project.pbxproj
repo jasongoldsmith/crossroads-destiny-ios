@@ -44,9 +44,9 @@
 		336BF5271CBEB214005CD3DE /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */; };
 		336BF5281CBEB214005CD3DE /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */; };
 		336BF5291CBEB214005CD3DE /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */; };
-		3372219D1CD06762001B1157 /* TRCustomNavTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372219C1CD06762001B1157 /* TRCustomNavTransitionAnimator.swift */; };
-		3372219E1CD06762001B1157 /* TRCustomNavTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372219C1CD06762001B1157 /* TRCustomNavTransitionAnimator.swift */; };
-		3372219F1CD06762001B1157 /* TRCustomNavTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372219C1CD06762001B1157 /* TRCustomNavTransitionAnimator.swift */; };
+		3372219D1CD06762001B1157 /* TRNavTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372219C1CD06762001B1157 /* TRNavTransitionAnimator.swift */; };
+		3372219E1CD06762001B1157 /* TRNavTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372219C1CD06762001B1157 /* TRNavTransitionAnimator.swift */; };
+		3372219F1CD06762001B1157 /* TRNavTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372219C1CD06762001B1157 /* TRNavTransitionAnimator.swift */; };
 		33742D801C7FBDF100C46742 /* TRConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33742D7F1C7FBDF100C46742 /* TRConstants.swift */; };
 		33742D811C7FC17700C46742 /* TRConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33742D7F1C7FBDF100C46742 /* TRConstants.swift */; };
 		33742D821C7FC17800C46742 /* TRConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33742D7F1C7FBDF100C46742 /* TRConstants.swift */; };
@@ -239,7 +239,7 @@
 		333E1CA31CC54A27000B843C /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		3369499B1CC5CFEB004979C0 /* NSBundleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSBundleExtension.swift; path = ../Networking/NSBundleExtension.swift; sourceTree = "<group>"; };
 		336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
-		3372219C1CD06762001B1157 /* TRCustomNavTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCustomNavTransitionAnimator.swift; sourceTree = "<group>"; };
+		3372219C1CD06762001B1157 /* TRNavTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRNavTransitionAnimator.swift; sourceTree = "<group>"; };
 		33742D7F1C7FBDF100C46742 /* TRConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRConstants.swift; sourceTree = "<group>"; };
 		33742D851C7FC46B00C46742 /* TRBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRBaseViewController.swift; sourceTree = "<group>"; };
 		33742D871C7FC4B400C46742 /* TRApplicationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRApplicationManager.swift; sourceTree = "<group>"; };
@@ -441,7 +441,7 @@
 				33742D891C7FC51700C46742 /* TRStoryBoardManager.swift */,
 				336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */,
 				333E1CA31CC54A27000B843C /* UIViewExtension.swift */,
-				3372219C1CD06762001B1157 /* TRCustomNavTransitionAnimator.swift */,
+				3372219C1CD06762001B1157 /* TRNavTransitionAnimator.swift */,
 				3307B2791CCF0333004F74F8 /* TRFireBaseListener.swift */,
 				3369499B1CC5CFEB004979C0 /* NSBundleExtension.swift */,
 			);
@@ -808,7 +808,7 @@
 				3380EF221CC94517000A9289 /* TRBaseEventTableCell.swift in Sources */,
 				33F427491C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */,
 				3374D74D1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift in Sources */,
-				3372219D1CD06762001B1157 /* TRCustomNavTransitionAnimator.swift in Sources */,
+				3372219D1CD06762001B1157 /* TRNavTransitionAnimator.swift in Sources */,
 				629497321C7C04E1005E4F91 /* ViewControllerExtension.swift in Sources */,
 				33FDB9BC1C863A550066237C /* TRgetActivityList.swift in Sources */,
 				33974F161CADD0740015C9D5 /* TRCreateAReportRequest.swift in Sources */,
@@ -833,7 +833,7 @@
 			files = (
 				33742DA61C81092D00C46742 /* TREventInfo.swift in Sources */,
 				3397E2841C93822F008CCCDB /* TRDeviceTokenRequest.swift in Sources */,
-				3372219E1CD06762001B1157 /* TRCustomNavTransitionAnimator.swift in Sources */,
+				3372219E1CD06762001B1157 /* TRNavTransitionAnimator.swift in Sources */,
 				33FDB9B91C86247C0066237C /* TRRootViewController.swift in Sources */,
 				33974F171CADD0740015C9D5 /* TRCreateAReportRequest.swift in Sources */,
 				3380EF2C1CC946F4000A9289 /* TREventCurrentNoCheckPointCell.swift in Sources */,
@@ -895,7 +895,7 @@
 			files = (
 				33742DA71C81092D00C46742 /* TREventInfo.swift in Sources */,
 				3397E2851C93822F008CCCDB /* TRDeviceTokenRequest.swift in Sources */,
-				3372219F1CD06762001B1157 /* TRCustomNavTransitionAnimator.swift in Sources */,
+				3372219F1CD06762001B1157 /* TRNavTransitionAnimator.swift in Sources */,
 				33FDB9BA1C86247C0066237C /* TRRootViewController.swift in Sources */,
 				33974F181CADD0740015C9D5 /* TRCreateAReportRequest.swift in Sources */,
 				3380EF2D1CC946F4000A9289 /* TREventCurrentNoCheckPointCell.swift in Sources */,

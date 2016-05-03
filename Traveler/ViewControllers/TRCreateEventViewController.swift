@@ -13,7 +13,7 @@ import SDWebImage
 
 class TRCreateEventViewController: TRBaseViewController, UINavigationControllerDelegate {
  
-    lazy var animator: TRCustomNavTransitionAnimator = TRCustomNavTransitionAnimator(transitioningController: self)
+    lazy var animator: TRNavTransitionAnimator = TRNavTransitionAnimator(transitioningController: self)
     
     @IBOutlet var activityIcon          : UIImageView?
     @IBOutlet var activityFeaturedButton     : EventButton?
