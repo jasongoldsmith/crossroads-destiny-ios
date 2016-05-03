@@ -864,6 +864,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HnB-tK-Gh9">
+                                <rect key="frame" x="10" y="149" width="580" height="402"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EventHeaderBg" translatesAutoresizingMaskIntoConstraints="NO" id="GC0-EZ-x8P">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="138"/>
                                 <constraints>
@@ -959,6 +962,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mLx-w0-FaU" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leading" id="51y-Xi-q6U"/>
+                            <constraint firstItem="HnB-tK-Gh9" firstAttribute="top" secondItem="VH7-Fj-a7t" secondAttribute="bottom" constant="11" id="90n-dx-hjF"/>
                             <constraint firstItem="c5f-7R-NrH" firstAttribute="top" secondItem="GC0-EZ-x8P" secondAttribute="top" constant="29" id="B9f-pn-BhQ"/>
                             <constraint firstItem="z2g-Bm-q4G" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leadingMargin" constant="2" id="Blp-dT-mR6"/>
                             <constraint firstItem="z2g-Bm-q4G" firstAttribute="top" secondItem="GC0-EZ-x8P" secondAttribute="bottom" constant="-3" id="E1h-r5-EBn"/>
@@ -968,9 +972,11 @@
                             <constraint firstItem="huA-O1-54n" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leading" constant="10" id="Oys-Nr-5Sh"/>
                             <constraint firstItem="GC0-EZ-x8P" firstAttribute="trailing" secondItem="Mwi-1s-bC4" secondAttribute="trailingMargin" constant="20" id="R0O-kc-qeI"/>
                             <constraint firstAttribute="trailing" secondItem="mLx-w0-FaU" secondAttribute="trailing" id="RIT-OC-ZkF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HnB-tK-Gh9" secondAttribute="trailing" constant="-10" id="RdR-zD-sxj"/>
                             <constraint firstItem="hh2-ts-4BA" firstAttribute="top" secondItem="mLx-w0-FaU" secondAttribute="bottom" id="Stb-OB-cOr"/>
                             <constraint firstItem="bhE-zA-4t7" firstAttribute="top" secondItem="Mwi-1s-bC4" secondAttribute="top" id="Uic-EJ-1aK"/>
                             <constraint firstAttribute="trailing" secondItem="huA-O1-54n" secondAttribute="trailing" constant="10" id="W19-0l-ccd"/>
+                            <constraint firstItem="hh2-ts-4BA" firstAttribute="top" secondItem="HnB-tK-Gh9" secondAttribute="bottom" constant="49" id="WJ6-2u-rVp"/>
                             <constraint firstItem="GC0-EZ-x8P" firstAttribute="top" secondItem="bhE-zA-4t7" secondAttribute="top" id="Zoi-Hy-wqa"/>
                             <constraint firstItem="huA-O1-54n" firstAttribute="top" secondItem="z2g-Bm-q4G" secondAttribute="bottom" constant="11" id="aYD-tk-7eb"/>
                             <constraint firstAttribute="trailing" secondItem="bhE-zA-4t7" secondAttribute="trailing" id="fdR-Sa-4Fn"/>
@@ -986,10 +992,12 @@
                             <constraint firstItem="mLx-w0-FaU" firstAttribute="top" secondItem="huA-O1-54n" secondAttribute="bottom" id="tnJ-7a-JCo"/>
                             <constraint firstItem="c5f-7R-NrH" firstAttribute="trailing" secondItem="Mwi-1s-bC4" secondAttribute="trailingMargin" id="uoM-VG-85L"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2xU-P6-pHh" secondAttribute="trailing" constant="-20" id="wGN-ek-WpO"/>
+                            <constraint firstItem="HnB-tK-Gh9" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leadingMargin" constant="-10" id="x2C-Gn-zKf"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="currentPlayerAvatorIcon" destination="c5f-7R-NrH" id="hkn-SI-1v4"/>
+                        <outlet property="emptyTableBackGround" destination="HnB-tK-Gh9" id="fNz-zZ-I4k"/>
                         <outlet property="eventsTableView" destination="huA-O1-54n" id="gEr-ib-MKo"/>
                         <outlet property="segmentControl" destination="ros-Bk-ZVy" id="i3U-uh-wdz"/>
                         <outlet property="segmentOneUnderLine" destination="z2g-Bm-q4G" id="TtB-fc-gBv"/>

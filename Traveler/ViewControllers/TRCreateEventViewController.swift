@@ -124,17 +124,9 @@ class TRCreateEventViewController: TRBaseViewController, UINavigationControllerD
     func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         
         if animationController.isKindOfClass(TRCustomNavTransitionAnimator) {
-            if animator.transitionInProgress {
-                return animator
-            } else {
-                return nil
-            }
+            return animator.transitionInProgress ? animator: nil
         } else {
-            if reverseAnimator.transitionInProgress {
-                return reverseAnimator
-            } else {
-                return nil
-            }
+            return reverseAnimator.transitionInProgress ? reverseAnimator : nil
         }
     }
 }

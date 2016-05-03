@@ -29,6 +29,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     @IBOutlet var segmentOneUnderLine: UIImageView?
     @IBOutlet var segmentTwoUnderLine: UIImageView?
     @IBOutlet var currentPlayerAvatorIcon: UIImageView?
+    @IBOutlet var emptyTableBackGround: UIImageView?
     
     //Events Information
     var eventsInfo: [TREventInfo] = []
@@ -78,12 +79,15 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         // Hide Navigation Bar
         self.hideNavigationBar()
         
+        // Show No Events View if Events Table is Empty
+        self.emptyTableBackGround?.hidden = self.eventsInfo.count > 0 ? true : false
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(reloadEventTable), name: "DO_SOME_THING", object: nil)
     }
 
     func updateUserAvatorImage () {
         
-        //Avator for Current Player
+        //Avator for Current PlayerJ
         if self.currentPlayerAvatorIcon?.image == nil {
             if let imageUrl = TRUserInfo.getUserImageString() {
                 let imageUrl = NSURL(string: imageUrl)
@@ -341,10 +345,14 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         case 0:
             self.segmentOneUnderLine?.hidden = false
             self.segmentTwoUnderLine?.hidden = true
+            self.emptyTableBackGround?.hidden = self.eventsInfo.count > 0 ? true : false
+            
             break;
         case 1:
             self.segmentOneUnderLine?.hidden = true
             self.segmentTwoUnderLine?.hidden = false
+            self.emptyTableBackGround?.hidden = self.futureEventsInfo.count > 0 ? true : false
+
             break;
         default:
             break;
