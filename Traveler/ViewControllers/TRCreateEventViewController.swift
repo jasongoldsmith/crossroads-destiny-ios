@@ -110,6 +110,11 @@ class TRCreateEventViewController: TRBaseViewController, UINavigationControllerD
     
     
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        if operation == .Push {
+            return animator
+        }
+        
         return animator
     }
     
