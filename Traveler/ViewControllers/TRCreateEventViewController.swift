@@ -13,7 +13,9 @@ import SDWebImage
 
 class TRCreateEventViewController: TRBaseViewController, UINavigationControllerDelegate {
  
-    lazy var animator: TRNavTransitionAnimator = TRNavTransitionAnimator(transitioningController: self)
+    lazy var animator: TRCustomNavTransitionAnimator = TRCustomNavTransitionAnimator(transitioningController: self)
+    lazy var reverseAnimator: TRReverseAnimation = TRReverseAnimation(transitioningController: self)
+    
     
     @IBOutlet var activityIcon          : UIImageView?
     @IBOutlet var activityFeaturedButton     : EventButton?
@@ -115,14 +117,24 @@ class TRCreateEventViewController: TRBaseViewController, UINavigationControllerD
             return animator
         }
         
-        return animator
+        return reverseAnimator
+        
     }
     
     func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        if animator.usingGesture {
-            return animator
+        
+        if animationController.isKindOfClass(TRCustomNavTransitionAnimator) {
+            if animator.transitionInProgress {
+                return animator
+            } else {
+                return nil
+            }
         } else {
-            return nil
+            if reverseAnimator.transitionInProgress {
+                return reverseAnimator
+            } else {
+                return nil
+            }
         }
     }
 }
