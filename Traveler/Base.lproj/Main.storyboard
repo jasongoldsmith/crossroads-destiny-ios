@@ -6,6 +6,7 @@
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="HelveticaNeue.ttc">
@@ -1021,11 +1022,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgChooseEventBG" translatesAutoresizingMaskIntoConstraints="NO" id="0ju-Zl-M2q">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bim-z1-0Mm" customClass="EventButton" customModule="Traveler" customModuleProvider="target">
-                                <rect key="frame" x="153" y="353" width="94" height="96"/>
+                                <rect key="frame" x="153" y="347" width="94" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="N1V-YT-g8O"/>
                                     <constraint firstAttribute="width" constant="94" id="Qmq-en-F2B"/>
@@ -1038,7 +1039,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edw-uz-yzl" customClass="EventButton" customModule="Traveler" customModuleProvider="target">
-                                <rect key="frame" x="253" y="353" width="94" height="96"/>
+                                <rect key="frame" x="253" y="347" width="94" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="L5Q-3Z-jpq"/>
                                     <constraint firstAttribute="width" constant="94" id="nFS-bB-NCr"/>
@@ -1051,7 +1052,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rqR-A6-np8" customClass="EventButton" customModule="Traveler" customModuleProvider="target">
-                                <rect key="frame" x="153" y="252" width="94" height="96"/>
+                                <rect key="frame" x="153" y="246" width="94" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="94" id="NbN-os-73Q"/>
                                     <constraint firstAttribute="height" constant="96" id="fWG-NR-bnO"/>
@@ -1064,7 +1065,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWj-rT-82b" customClass="EventButton" customModule="Traveler" customModuleProvider="target">
-                                <rect key="frame" x="353" y="252" width="94" height="96"/>
+                                <rect key="frame" x="353" y="246" width="94" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="94" id="Kqa-DB-X7o"/>
                                     <constraint firstAttribute="height" constant="96" id="wq7-sn-YhW"/>
@@ -1077,7 +1078,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zec-Re-cT2" customClass="EventButton" customModule="Traveler" customModuleProvider="target">
-                                <rect key="frame" x="253" y="252" width="94" height="96"/>
+                                <rect key="frame" x="253" y="246" width="94" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="P37-aR-9QB"/>
                                     <constraint firstAttribute="width" constant="94" id="fC6-li-Y4q"/>
@@ -1090,14 +1091,14 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgGlobeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="xX4-xG-ytT">
-                                <rect key="frame" x="275" y="147" width="50" height="50"/>
+                                <rect key="frame" x="275" y="141" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="WlJ-Z0-ArL"/>
                                     <constraint firstAttribute="width" constant="50" id="nxL-fp-UTC"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you want to do?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBH-9P-IF2">
-                                <rect key="frame" x="166" y="201" width="268" height="28"/>
+                                <rect key="frame" x="166" y="195" width="268" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="268" id="ZxI-ya-z1q"/>
                                 </constraints>
@@ -1106,7 +1107,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbn-l8-9hm" customClass="EventButton" customModule="Traveler" customModuleProvider="target">
-                                <rect key="frame" x="353" y="353" width="94" height="96"/>
+                                <rect key="frame" x="353" y="347" width="94" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="f20-Zw-YeK"/>
                                     <constraint firstAttribute="width" constant="94" id="xYF-vF-o1W"/>
@@ -1130,10 +1131,10 @@
                             <constraint firstItem="qBH-9P-IF2" firstAttribute="centerX" secondItem="xX4-xG-ytT" secondAttribute="centerX" id="PMQ-9B-Rmb"/>
                             <constraint firstItem="RWj-rT-82b" firstAttribute="centerY" secondItem="zec-Re-cT2" secondAttribute="centerY" id="XKG-mV-ozz"/>
                             <constraint firstItem="wbn-l8-9hm" firstAttribute="leading" secondItem="edw-uz-yzl" secondAttribute="trailing" constant="6" id="bsE-EW-L6b"/>
+                            <constraint firstItem="xX4-xG-ytT" firstAttribute="top" secondItem="ayi-je-Xfm" secondAttribute="bottom" multiplier="0.7" constant="127" id="cXw-Wy-hjH"/>
                             <constraint firstItem="i2g-3I-3sz" firstAttribute="top" secondItem="0ju-Zl-M2q" secondAttribute="bottom" id="eUr-mA-sDd"/>
                             <constraint firstItem="zec-Re-cT2" firstAttribute="top" secondItem="xX4-xG-ytT" secondAttribute="bottom" constant="55" id="hzd-sf-6RO"/>
                             <constraint firstItem="wbn-l8-9hm" firstAttribute="top" secondItem="RWj-rT-82b" secondAttribute="bottom" constant="5" id="jdS-bd-dMj"/>
-                            <constraint firstItem="zec-Re-cT2" firstAttribute="top" secondItem="ayi-je-Xfm" secondAttribute="bottom" constant="232" id="k9E-s5-I38"/>
                             <constraint firstItem="bim-z1-0Mm" firstAttribute="centerY" secondItem="edw-uz-yzl" secondAttribute="centerY" id="kBl-HI-Hnv"/>
                             <constraint firstItem="edw-uz-yzl" firstAttribute="centerY" secondItem="wbn-l8-9hm" secondAttribute="centerY" id="lCU-WX-iFg"/>
                             <constraint firstItem="qBH-9P-IF2" firstAttribute="top" secondItem="xX4-xG-ytT" secondAttribute="bottom" constant="4" id="sAf-xG-bBC"/>
@@ -1141,7 +1142,7 @@
                             <constraint firstItem="zec-Re-cT2" firstAttribute="leading" secondItem="rqR-A6-np8" secondAttribute="trailing" constant="6" id="tZY-vP-sQA"/>
                             <constraint firstItem="xX4-xG-ytT" firstAttribute="centerX" secondItem="zec-Re-cT2" secondAttribute="centerX" id="wVW-hw-9dv"/>
                             <constraint firstItem="zec-Re-cT2" firstAttribute="centerX" secondItem="VHb-Gc-Kgz" secondAttribute="centerX" id="wy1-OK-MMu"/>
-                            <constraint firstItem="0ju-Zl-M2q" firstAttribute="top" secondItem="ayi-je-Xfm" secondAttribute="bottom" id="zB2-2X-zjD"/>
+                            <constraint firstItem="0ju-Zl-M2q" firstAttribute="top" secondItem="ayi-je-Xfm" secondAttribute="bottom" constant="-20" id="zB2-2X-zjD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="CREATE EVENT" id="CYd-EP-I8v"/>
