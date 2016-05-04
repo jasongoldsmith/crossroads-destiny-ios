@@ -40,6 +40,8 @@ class TRReverseAnimation:  UIPercentDrivenInteractiveTransition, UIViewControlle
         UIView.animateWithDuration(ANIMATION_DURATION, animations: {
             fromViewController.view.frame = CGRectMake(0, fromViewController.view.frame.size.height, fromViewController.view.frame.size.width, fromViewController.view.frame.size.height)
             }, completion: { (finished) in
+                
+                fromViewController.view.removeFromSuperview()
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
         })
     }

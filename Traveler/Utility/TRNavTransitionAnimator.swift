@@ -29,17 +29,17 @@ class TRCustomNavTransitionAnimator: UIPercentDrivenInteractiveTransition, UIVie
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        _ = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
+        let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
         let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
-        // Step 1: Add the view to the container view
+        
         transitionContext.containerView()!.addSubview(toViewController.view)
         
-        // Step 2: Apply your animation.
         toViewController.view.alpha = 0.0
         UIView.animateWithDuration(ANIMATION_DURATION, animations: {
             toViewController.view.alpha = 1.0
             }, completion: { (finished) in
-                // Step 3: Call completion handler
+                
+                fromViewController?.view.removeFromSuperview()
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
         })
     }

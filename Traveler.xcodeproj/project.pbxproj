@@ -445,9 +445,9 @@
 				33742D891C7FC51700C46742 /* TRStoryBoardManager.swift */,
 				336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */,
 				333E1CA31CC54A27000B843C /* UIViewExtension.swift */,
-				3372219C1CD06762001B1157 /* TRNavTransitionAnimator.swift */,
 				3307B2791CCF0333004F74F8 /* TRFireBaseListener.swift */,
 				3369499B1CC5CFEB004979C0 /* NSBundleExtension.swift */,
+				3372219C1CD06762001B1157 /* TRNavTransitionAnimator.swift */,
 				339CEA041CD9395900436CD4 /* TRReverseAnimation.swift */,
 			);
 			path = Utility;
