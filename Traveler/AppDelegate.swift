@@ -91,7 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         
-//        // Clear Notofications
+        // Clear Notofications
         if ( application.applicationState == UIApplicationState.Inactive || application.applicationState == UIApplicationState.Background) {
             application.applicationIconBadgeNumber = 0;
         }
