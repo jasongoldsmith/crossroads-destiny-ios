@@ -1019,7 +1019,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgChooseEventBG" translatesAutoresizingMaskIntoConstraints="NO" id="0ju-Zl-M2q">
+                            <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgChooseEventBG" translatesAutoresizingMaskIntoConstraints="NO" id="0ju-Zl-M2q">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
@@ -1143,6 +1143,7 @@
                             <constraint firstItem="0ju-Zl-M2q" firstAttribute="top" secondItem="ayi-je-Xfm" secondAttribute="bottom" constant="-20" id="zB2-2X-zjD"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="CREATE EVENT" id="CYd-EP-I8v"/>
                     <connections>
                         <outlet property="activityArenaButton" destination="RWj-rT-82b" id="08Z-LI-zpk"/>
@@ -1169,7 +1170,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chooseActivityBG" translatesAutoresizingMaskIntoConstraints="NO" id="p5R-qB-cd6">
+                            <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chooseActivityBG" translatesAutoresizingMaskIntoConstraints="NO" id="p5R-qB-cd6">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
@@ -1276,12 +1277,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="createEventBG" translatesAutoresizingMaskIntoConstraints="NO" id="0kb-Z5-oMd">
+                            <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="createEventBG" translatesAutoresizingMaskIntoConstraints="NO" id="0kb-Z5-oMd">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hoF-7R-3Kp">
-                                <rect key="frame" x="233" y="207" width="135" height="21"/>
+                                <rect key="frame" x="233" y="196" width="135" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="135" id="Zgu-SS-CqW"/>
                                     <constraint firstAttribute="height" constant="21" id="fGK-in-bDY"/>
@@ -1306,14 +1307,14 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gzx-q8-nbG">
-                                <rect key="frame" x="275" y="151" width="50" height="50"/>
+                                <rect key="frame" x="275" y="140" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="6bT-yQ-hlc"/>
                                     <constraint firstAttribute="width" constant="50" id="8s1-C8-yyv"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HaO-B3-0i5">
-                                <rect key="frame" x="50" y="312" width="500" height="49"/>
+                                <rect key="frame" x="50" y="301" width="500" height="49"/>
                                 <color key="backgroundColor" red="0.08235294118" green="0.52941176469999995" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="A0m-G0-ZxT"/>
@@ -1327,7 +1328,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g60-hL-efX">
-                                <rect key="frame" x="50" y="252" width="500" height="49"/>
+                                <rect key="frame" x="50" y="241" width="500" height="49"/>
                                 <color key="backgroundColor" red="0.08235294118" green="0.52941176469999995" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="1C1-Ur-L8e"/>
@@ -1347,7 +1348,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ue-JR-J0g">
-                                <rect key="frame" x="50" y="372" width="500" height="49"/>
+                                <rect key="frame" x="50" y="361" width="500" height="49"/>
                                 <color key="backgroundColor" red="0.08235294118" green="0.52941176469999995" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="Vpr-U7-0QP"/>
@@ -1367,14 +1368,14 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconArrowRight" translatesAutoresizingMaskIntoConstraints="NO" id="Yif-gd-HbE">
-                                <rect key="frame" x="531" y="332" width="5" height="10"/>
+                                <rect key="frame" x="531" y="321" width="5" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="10" id="XH1-JO-mGr"/>
                                     <constraint firstAttribute="width" constant="5" id="tXD-QZ-SkC"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconArrowRight" translatesAutoresizingMaskIntoConstraints="NO" id="6l7-vH-SU8">
-                                <rect key="frame" x="531" y="392" width="5" height="10"/>
+                                <rect key="frame" x="531" y="381" width="5" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="5" id="Had-cq-KJW"/>
                                     <constraint firstAttribute="height" constant="10" id="cKy-gK-Med"/>
@@ -1385,7 +1386,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <datePicker alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="Iyq-Vd-eiI">
-                                <rect key="frame" x="30" y="212" width="540" height="214"/>
+                                <rect key="frame" x="30" y="201" width="540" height="225"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="421" id="4Mg-S1-u9g"/>
@@ -1420,7 +1421,7 @@
                             <constraint firstItem="g60-hL-efX" firstAttribute="centerX" secondItem="gc7-xU-0jx" secondAttribute="centerX" id="Gsd-R4-nhx"/>
                             <constraint firstItem="d1E-Mo-4IL" firstAttribute="top" secondItem="RyD-cs-rbu" secondAttribute="bottom" id="IMU-zf-XoC"/>
                             <constraint firstAttribute="trailing" secondItem="9ue-JR-J0g" secondAttribute="trailing" constant="50" id="Nbb-Mx-pDQ"/>
-                            <constraint firstItem="gzx-q8-nbG" firstAttribute="top" secondItem="cxU-Tn-P8q" secondAttribute="bottom" constant="131" id="NcK-Fa-SBl"/>
+                            <constraint firstItem="gzx-q8-nbG" firstAttribute="top" secondItem="cxU-Tn-P8q" secondAttribute="bottom" constant="120" id="NcK-Fa-SBl"/>
                             <constraint firstItem="gzx-q8-nbG" firstAttribute="centerX" secondItem="gc7-xU-0jx" secondAttribute="centerX" id="Tvn-Cc-RLM"/>
                             <constraint firstItem="RyD-cs-rbu" firstAttribute="leading" secondItem="gc7-xU-0jx" secondAttribute="leadingMargin" constant="-20" id="UlZ-iY-OP2"/>
                             <constraint firstAttribute="trailing" secondItem="g60-hL-efX" secondAttribute="trailing" constant="50" id="Ve7-gJ-0m5"/>
@@ -1742,8 +1743,8 @@
         <image name="TrLoginOptionBackground" width="375" height="667"/>
         <image name="btnLogout" width="250" height="44"/>
         <image name="btnResetPassword" width="250" height="44"/>
-        <image name="chooseActivityBG" width="375" height="597"/>
-        <image name="createEventBG" width="375" height="597"/>
+        <image name="chooseActivityBG" width="375" height="667"/>
+        <image name="createEventBG" width="375" height="667"/>
         <image name="eventDetailHeaderBG" width="375" height="129"/>
         <image name="eventsViewBG" width="375" height="667"/>
         <image name="iconArrowRight" width="5" height="10"/>
