@@ -39,6 +39,13 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        if UIScreen.mainScreen().sizeType == .iPhone4 || UIScreen.mainScreen().sizeType == .iPhone5 {
+            eventTitle?.font = UIFont(name:"HelveticaNeue", size: 17)
+            eventLightCount?.font = UIFont(name:"HelveticaNeue", size: 17)
+        }
+
+        
         // Send Chat View
         self.sendChatMessageView = NSBundle.mainBundle().loadNibNamed("TRSendChatMessageView", owner: self, options: nil)[0] as! TRSendChatMessageView
         self.sendChatMessageView.frame = self.view.bounds
