@@ -138,18 +138,15 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
 
     
     func addCosmeticsToButtons (sender: UIButton) {
-        sender.layer.cornerRadius = 3
-        sender.layer.masksToBounds = true
         
+        sender.layer.rasterizationScale = UIScreen.mainScreen().scale
+        sender.layer.shouldRasterize = true
+        
+        sender.layer.cornerRadius = 3
         sender.layer.shadowOffset = CGSizeMake(0, 1)
-        sender.layer.shadowColor = UIColor.blackColor().CGColor
+        sender.layer.shadowColor = UIColor.darkGrayColor().CGColor
         sender.layer.shadowRadius = 3.0
         sender.layer.shadowOpacity = 0.7
-        sender.clipsToBounds = false
-        
-        let shadowFrame: CGRect = (sender.layer.bounds)
-        let shadowPath: CGPathRef = UIBezierPath(rect: shadowFrame).CGPath
-        sender.layer.shadowPath = shadowPath
     }
     
     //MARK:- UI-ACTIONS
