@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -433,7 +433,6 @@
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sn8-Yu-hPO">
                                         <rect key="frame" x="76" y="13" width="433" height="23"/>
-                                        <color key="backgroundColor" red="1" green="0.77647058820000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="23" id="HNb-yx-sfa"/>
                                             <constraint firstAttribute="width" constant="394" id="lB7-QM-FVU"/>
@@ -468,7 +467,6 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5io-jw-Yt7">
                                         <rect key="frame" x="517" y="13" width="60" height="24"/>
-                                        <color key="backgroundColor" red="0.36862745099999999" green="0.72941176470000002" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="Nqh-qi-nos"/>
                                         </constraints>
@@ -523,16 +521,6 @@
                                     <constraint firstItem="sn8-Yu-hPO" firstAttribute="top" secondItem="a6w-if-ciG" secondAttribute="top" constant="13" id="yFH-CE-5NA"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="50" sectionHeaderHeight="30" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Aqr-oc-sZI">
-                                <rect key="frame" x="0.0" y="215" width="600" height="385"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="nhR-P4-WsZ" id="1iL-Gr-Dyv"/>
-                                    <outlet property="delegate" destination="nhR-P4-WsZ" id="Mha-UT-mWP"/>
-                                </connections>
-                            </tableView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8LA-QM-6f9">
                                 <rect key="frame" x="0.0" y="550" width="600" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.52549019610000003" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -565,7 +553,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="is0-W8-hbX" firstAttribute="top" secondItem="Aqr-oc-sZI" secondAttribute="bottom" id="4lH-ee-HDR"/>
                             <constraint firstItem="uC7-JN-GI4" firstAttribute="top" secondItem="9SH-CB-Ydz" secondAttribute="topMargin" constant="22" id="5DM-Gx-FW3"/>
                             <constraint firstItem="ukI-FG-5gA" firstAttribute="leading" secondItem="9SH-CB-Ydz" secondAttribute="leadingMargin" constant="-20" id="J7c-LL-16V"/>
                             <constraint firstItem="8LA-QM-6f9" firstAttribute="leading" secondItem="9SH-CB-Ydz" secondAttribute="leadingMargin" constant="-20" id="Kl5-Rf-xuC"/>
@@ -577,11 +564,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="X2L-fH-rpD" secondAttribute="trailing" constant="-20" id="bAi-Lp-QWc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8LA-QM-6f9" secondAttribute="trailing" constant="-20" id="dgQ-RP-ZpD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ukI-FG-5gA" secondAttribute="trailing" constant="-20" id="eJt-6e-E0d"/>
-                            <constraint firstItem="Aqr-oc-sZI" firstAttribute="top" secondItem="a6w-if-ciG" secondAttribute="bottom" constant="3" id="iwO-Kj-gdw"/>
                             <constraint firstItem="8LA-QM-6f9" firstAttribute="bottom" secondItem="is0-W8-hbX" secondAttribute="top" id="khy-bj-DLl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cUg-3p-3Ty" secondAttribute="trailing" constant="-20" id="lLc-rf-G2b"/>
                             <constraint firstItem="is0-W8-hbX" firstAttribute="top" secondItem="cUg-3p-3Ty" secondAttribute="bottom" id="lXk-hZ-r3b"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Aqr-oc-sZI" secondAttribute="trailing" constant="-20" id="lrp-DE-M6O"/>
                             <constraint firstItem="a6w-if-ciG" firstAttribute="leading" secondItem="9SH-CB-Ydz" secondAttribute="leadingMargin" constant="-20" id="mNs-9y-6VJ"/>
                             <constraint firstItem="X2L-fH-rpD" firstAttribute="top" secondItem="9SH-CB-Ydz" secondAttribute="topMargin" id="qzA-Pr-5eT"/>
                             <constraint firstItem="9pG-2I-H5x" firstAttribute="top" secondItem="lms-Zo-2cQ" secondAttribute="bottom" constant="74" id="sRN-Ad-Ouu"/>
@@ -591,7 +576,6 @@
                             <constraint firstItem="cUg-3p-3Ty" firstAttribute="leading" secondItem="9SH-CB-Ydz" secondAttribute="leadingMargin" constant="-20" id="xBh-Io-6I2"/>
                             <constraint firstItem="a6w-if-ciG" firstAttribute="top" secondItem="yHM-Lz-gby" secondAttribute="bottom" constant="2" id="xWx-aB-NsD"/>
                             <constraint firstItem="yHM-Lz-gby" firstAttribute="top" secondItem="uC7-JN-GI4" secondAttribute="bottom" constant="6" id="z6i-kh-iri"/>
-                            <constraint firstItem="Aqr-oc-sZI" firstAttribute="leading" secondItem="9SH-CB-Ydz" secondAttribute="leadingMargin" constant="-20" id="zaH-Zi-fxJ"/>
                         </constraints>
                     </view>
                     <connections>
@@ -600,7 +584,6 @@
                         <outlet property="eventActivityCheckPointTopConstraint" destination="74g-Ie-nuZ" id="cDs-Dn-PZt"/>
                         <outlet property="eventDescription" destination="52j-jL-sAH" id="44S-2s-ePv"/>
                         <outlet property="eventIcon" destination="okI-yi-tkL" id="QK1-rD-Xmg"/>
-                        <outlet property="eventInfoTable" destination="Aqr-oc-sZI" id="srG-Uv-1Wx"/>
                         <outlet property="eventLightCount" destination="5io-jw-Yt7" id="gMy-rr-SCQ"/>
                         <outlet property="eventTimeLabel" destination="fp9-Y7-aCP" id="ABp-nq-ZxC"/>
                         <outlet property="eventTitle" destination="sn8-Yu-hPO" id="Y2X-0B-qCj"/>
