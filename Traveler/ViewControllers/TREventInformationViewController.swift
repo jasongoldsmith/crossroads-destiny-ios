@@ -40,10 +40,10 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         super.viewDidLoad()
         
         
-        if UIScreen.mainScreen().sizeType == .iPhone4 || UIScreen.mainScreen().sizeType == .iPhone5 {
-            eventTitle?.font = UIFont(name:"HelveticaNeue", size: 17)
-            eventLightCount?.font = UIFont(name:"HelveticaNeue", size: 17)
-        }
+//        if UIScreen.mainScreen().sizeType == .iPhone4 || UIScreen.mainScreen().sizeType == .iPhone5 {
+//            eventTitle?.font = UIFont(name:"HelveticaNeue", size: 17)
+//            eventLightCount?.font = UIFont(name:"HelveticaNeue", size: 17)
+//        }
 
         
         // Send Chat View
