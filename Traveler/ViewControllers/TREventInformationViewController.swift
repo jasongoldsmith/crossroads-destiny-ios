@@ -39,13 +39,11 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-//        if UIScreen.mainScreen().sizeType == .iPhone4 || UIScreen.mainScreen().sizeType == .iPhone5 {
-//            eventTitle?.font = UIFont(name:"HelveticaNeue", size: 17)
-//            eventLightCount?.font = UIFont(name:"HelveticaNeue", size: 17)
-//        }
+        if DeviceType.IS_IPHONE_4_OR_LESS || DeviceType.IS_IPHONE_5 {
+            eventTitle?.font = UIFont(name:"HelveticaNeue", size: 17)
+            eventLightCount?.font = UIFont(name:"HelveticaNeue", size: 17)
+        }
 
-        
         // Send Chat View
         self.sendChatMessageView = NSBundle.mainBundle().loadNibNamed("TRSendChatMessageView", owner: self, options: nil)[0] as! TRSendChatMessageView
         self.sendChatMessageView.frame = self.view.bounds
@@ -88,7 +86,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
             self.eventActivityCheckPoint?.text = eventCheckPoint
         } else {
             self.eventActivityCheckPointHeightConstraint.constant = 0
-            self.eventActivityCheckPointTopConstraint.constant = -3
+            self.eventActivityCheckPointTopConstraint.constant = -1
             self.updateViewConstraints()
         }
         

@@ -40,13 +40,12 @@ class TRBaseEventTableCell: UITableViewCell {
     @IBOutlet weak var eventTimeLabel       :UILabel?
     
     func updateCellViewWithEvent (eventInfo: TREventInfo) {
-        
-        
-//        if UIScreen.mainScreen().sizeType == .iPhone4 || UIScreen.mainScreen().sizeType == .iPhone5 {
-//            eventTitle?.font = UIFont(name:"HelveticaNeue", size: 17)
-//            activityLight?.font = UIFont(name:"HelveticaNeue", size: 17)
-//        }
-        
+
+        if DeviceType.IS_IPHONE_4_OR_LESS || DeviceType.IS_IPHONE_5 {
+            eventTitle?.font = UIFont(name:"HelveticaNeue", size: 17)
+            activityLight?.font = UIFont(name:"HelveticaNeue", size: 17)
+        }
+
         //Adding Radius to
         self.addRadiusToPlayerIconsForPlayersArray(eventInfo)
         
