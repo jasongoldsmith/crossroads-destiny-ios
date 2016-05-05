@@ -220,6 +220,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
             break
         }
         
+        self.eventInfoTable?.tableHeaderView = headerView
         return headerView
     }
     
