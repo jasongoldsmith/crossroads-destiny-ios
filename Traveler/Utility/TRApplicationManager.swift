@@ -124,7 +124,6 @@ class TRApplicationManager: NSObject {
                 let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
                 let vc : TRCreateEventViewController = storyboard.instantiateViewControllerWithIdentifier(K.ViewControllerIdenifier.VIEWCONTROLLER_CREATE_EVENT) as! TRCreateEventViewController
                 let navigationController = UINavigationController(rootViewController: vc)
-                navigationController.navigationBar.barStyle = .Black
                 eventListViewController.presentViewController(navigationController, animated: false, completion: {
                 self.slideMenuController.view.alpha = 1
                 })
