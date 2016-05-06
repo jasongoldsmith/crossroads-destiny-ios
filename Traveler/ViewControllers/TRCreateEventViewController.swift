@@ -13,10 +13,9 @@ import SDWebImage
 
 class TRCreateEventViewController: TRBaseViewController, UINavigationControllerDelegate {
  
-    lazy var animator: TRCustomNavTransitionAnimator = TRCustomNavTransitionAnimator(transitioningController: self)
-    lazy var reverseAnimator: TRReverseAnimation = TRReverseAnimation(transitioningController: self)
-    
-    
+    lazy var customNavigationAnimation: TRCustomNavTransitionAnimator = TRCustomNavTransitionAnimator()
+    lazy var customInteractionAnimation: TRNavInteractionAnimator = TRNavInteractionAnimator()
+
     @IBOutlet var activityIcon          : UIImageView?
     @IBOutlet var activityFeaturedButton     : EventButton?
     @IBOutlet var activityRaidButton        : EventButton?
@@ -97,9 +96,6 @@ class TRCreateEventViewController: TRBaseViewController, UINavigationControllerD
             let vc = TRApplicationManager.sharedInstance.stroryBoardManager.getViewControllerWithID(K.ViewControllerIdenifier.VIEW_CONTROLLER_CREATE_EVENT_SELECTION, storyBoardID: K.StoryBoard.StoryBoard_Main) as! TRCreateEventSelectionViewController
             vc.seletectedActivity = sender.buttonActivityInfo
             self.navigationController?.pushViewController(vc, animated: true)
-            
-            // INTERACTIVE VC ANIMATION
-            //animator.applyInterationTransitionHook(vc)
         }
     }
     
@@ -110,24 +106,16 @@ class TRCreateEventViewController: TRBaseViewController, UINavigationControllerD
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
         if operation == .Push {
-            return animator
+            customInteractionAnimation.attachToViewController(toVC)
         }
-        
-        return reverseAnimator
-        
+        customNavigationAnimation.reverse = operation == .Pop
+        return customNavigationAnimation
     }
     
     func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        
-        if animationController.isKindOfClass(TRCustomNavTransitionAnimator) {
-            return animator.transitionInProgress ? animator: nil
-        } else {
-            return reverseAnimator.transitionInProgress ? reverseAnimator : nil
-        }
+        return customInteractionAnimation.transitionInProgress ? customInteractionAnimation : nil
     }
 }
 

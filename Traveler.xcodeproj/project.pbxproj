@@ -44,6 +44,9 @@
 		336BF5271CBEB214005CD3DE /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */; };
 		336BF5281CBEB214005CD3DE /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */; };
 		336BF5291CBEB214005CD3DE /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */; };
+		336DD77F1CDC289200CCCB04 /* TRNavInteractionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336DD77E1CDC289200CCCB04 /* TRNavInteractionAnimator.swift */; };
+		336DD7801CDC310A00CCCB04 /* TRNavInteractionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336DD77E1CDC289200CCCB04 /* TRNavInteractionAnimator.swift */; };
+		336DD7811CDC310A00CCCB04 /* TRNavInteractionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336DD77E1CDC289200CCCB04 /* TRNavInteractionAnimator.swift */; };
 		3372219D1CD06762001B1157 /* TRNavTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372219C1CD06762001B1157 /* TRNavTransitionAnimator.swift */; };
 		3372219E1CD06762001B1157 /* TRNavTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372219C1CD06762001B1157 /* TRNavTransitionAnimator.swift */; };
 		3372219F1CD06762001B1157 /* TRNavTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372219C1CD06762001B1157 /* TRNavTransitionAnimator.swift */; };
@@ -139,9 +142,6 @@
 		3398E1B61CAB7F14001F022B /* TREventInfoPlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3398E1B51CAB7F14001F022B /* TREventInfoPlayerCell.xib */; };
 		3398E1B71CAB7F14001F022B /* TREventInfoPlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3398E1B51CAB7F14001F022B /* TREventInfoPlayerCell.xib */; };
 		3398E1B81CAB7F14001F022B /* TREventInfoPlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3398E1B51CAB7F14001F022B /* TREventInfoPlayerCell.xib */; };
-		339CEA051CD9395900436CD4 /* TRReverseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339CEA041CD9395900436CD4 /* TRReverseAnimation.swift */; };
-		339CEA061CD9395900436CD4 /* TRReverseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339CEA041CD9395900436CD4 /* TRReverseAnimation.swift */; };
-		339CEA071CD9395900436CD4 /* TRReverseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339CEA041CD9395900436CD4 /* TRReverseAnimation.swift */; };
 		339D8F241C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D8F231C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift */; };
 		339D8F251C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D8F231C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift */; };
 		339D8F261C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D8F231C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift */; };
@@ -242,6 +242,7 @@
 		333E1CA31CC54A27000B843C /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		3369499B1CC5CFEB004979C0 /* NSBundleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSBundleExtension.swift; path = ../Networking/NSBundleExtension.swift; sourceTree = "<group>"; };
 		336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
+		336DD77E1CDC289200CCCB04 /* TRNavInteractionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRNavInteractionAnimator.swift; sourceTree = "<group>"; };
 		3372219C1CD06762001B1157 /* TRNavTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRNavTransitionAnimator.swift; sourceTree = "<group>"; };
 		33742D7F1C7FBDF100C46742 /* TRConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRConstants.swift; sourceTree = "<group>"; };
 		33742D851C7FC46B00C46742 /* TRBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRBaseViewController.swift; sourceTree = "<group>"; };
@@ -274,7 +275,6 @@
 		3398E1AC1CAB3D3D001F022B /* TRProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRProfileViewController.swift; sourceTree = "<group>"; };
 		3398E1B11CAB7EE0001F022B /* TREventInfoPlayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREventInfoPlayerCell.swift; sourceTree = "<group>"; };
 		3398E1B51CAB7F14001F022B /* TREventInfoPlayerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TREventInfoPlayerCell.xib; sourceTree = "<group>"; };
-		339CEA041CD9395900436CD4 /* TRReverseAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRReverseAnimation.swift; sourceTree = "<group>"; };
 		339D8F231C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCreateEventSelectionViewController.swift; sourceTree = "<group>"; };
 		339D8F271C90F77E00A2620F /* TRActivitySelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRActivitySelectionCell.swift; sourceTree = "<group>"; };
 		339D8F2B1C90F79800A2620F /* TRActivitySelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRActivitySelectionCell.xib; sourceTree = "<group>"; };
@@ -448,7 +448,7 @@
 				3307B2791CCF0333004F74F8 /* TRFireBaseListener.swift */,
 				3369499B1CC5CFEB004979C0 /* NSBundleExtension.swift */,
 				3372219C1CD06762001B1157 /* TRNavTransitionAnimator.swift */,
-				339CEA041CD9395900436CD4 /* TRReverseAnimation.swift */,
+				336DD77E1CDC289200CCCB04 /* TRNavInteractionAnimator.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -798,6 +798,7 @@
 				6238D2E21C7ADE8E0085C8AA /* TRUserInfo.swift in Sources */,
 				33742D991C800A3300C46742 /* UISegmentedControlExtension.swift in Sources */,
 				33FDB9B61C861AB10066237C /* TRCreateEventRequest.swift in Sources */,
+				336DD77F1CDC289200CCCB04 /* TRNavInteractionAnimator.swift in Sources */,
 				3380EF271CC946CA000A9289 /* TREventCurrentWithCheckPointCell.swift in Sources */,
 				338AECFE1C9D03AE008B064F /* Utility.swift in Sources */,
 				338404C81CC5830E00AB543C /* TRRootViewController.swift in Sources */,
@@ -824,7 +825,6 @@
 				33742DA51C81092D00C46742 /* TREventInfo.swift in Sources */,
 				33D067671CD40AF600E05EF1 /* TRUpdateUser.swift in Sources */,
 				33FDB9AE1C850AFC0066237C /* EventButton.swift in Sources */,
-				339CEA051CD9395900436CD4 /* TRReverseAnimation.swift in Sources */,
 				33FDB9D11C8778150066237C /* TRJoinEventRequest.swift in Sources */,
 				3307B27A1CCF0333004F74F8 /* TRFireBaseListener.swift in Sources */,
 				339D8F301C911FB900A2620F /* TRCreateEventConfirmationViewController.swift in Sources */,
@@ -860,6 +860,7 @@
 				334E05BF1C939D7B00973068 /* AppDelegate.swift in Sources */,
 				33FDB9B71C8621150066237C /* TRCreateEventRequest.swift in Sources */,
 				3398E1AE1CAB3D3D001F022B /* TRProfileViewController.swift in Sources */,
+				336DD7801CDC310A00CCCB04 /* TRNavInteractionAnimator.swift in Sources */,
 				33974F131CADA0E40015C9D5 /* ExSlideMenuController.swift in Sources */,
 				3398E1B31CAB7EE0001F022B /* TREventInfoPlayerCell.swift in Sources */,
 				3380EF281CC946CA000A9289 /* TREventCurrentWithCheckPointCell.swift in Sources */,
@@ -874,7 +875,6 @@
 				33F4274A1C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */,
 				3374D74E1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift in Sources */,
 				62C1FF641C77D7F000A78798 /* TRCreateAccountViewController.swift in Sources */,
-				339CEA061CD9395900436CD4 /* TRReverseAnimation.swift in Sources */,
 				33742D811C7FC17700C46742 /* TRConstants.swift in Sources */,
 				5C2671741CBB2DD800C47615 /* TRSendChatMessageView.swift in Sources */,
 				33FDB9BD1C863AF30066237C /* TRgetActivityList.swift in Sources */,
@@ -923,6 +923,7 @@
 				334E05C01C939D7C00973068 /* AppDelegate.swift in Sources */,
 				33FDB9B81C8621160066237C /* TRCreateEventRequest.swift in Sources */,
 				3398E1AF1CAB3D3D001F022B /* TRProfileViewController.swift in Sources */,
+				336DD7811CDC310A00CCCB04 /* TRNavInteractionAnimator.swift in Sources */,
 				33974F121CADA0E40015C9D5 /* ExSlideMenuController.swift in Sources */,
 				3398E1B41CAB7EE0001F022B /* TREventInfoPlayerCell.swift in Sources */,
 				3380EF291CC946CA000A9289 /* TREventCurrentWithCheckPointCell.swift in Sources */,
@@ -937,7 +938,6 @@
 				33F4274B1C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */,
 				3374D74F1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift in Sources */,
 				62C1FF651C77D7F000A78798 /* TRCreateAccountViewController.swift in Sources */,
-				339CEA071CD9395900436CD4 /* TRReverseAnimation.swift in Sources */,
 				33742D821C7FC17800C46742 /* TRConstants.swift in Sources */,
 				5C2671751CBB2DD900C47615 /* TRSendChatMessageView.swift in Sources */,
 				33FDB9BE1C863AF40066237C /* TRgetActivityList.swift in Sources */,

@@ -88,17 +88,25 @@ class TRApplicationManager: NSObject {
         let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
         let profileViewController = storyboard.instantiateViewControllerWithIdentifier(K.ViewControllerIdenifier.VIEW_CONTROLLER_PROFILE) as! TRProfileViewController
         let eventListViewController = storyboard.instantiateViewControllerWithIdentifier(K.ViewControllerIdenifier.VIEWCONTROLLER_EVENT_LIST) as! TREventListViewController
-        let navigationController = UINavigationController(rootViewController: eventListViewController)
-
-        self.slideMenuController = SlideMenuController(mainViewController:navigationController, rightMenuViewController: profileViewController)
+        
+        self.slideMenuController = SlideMenuController(mainViewController:eventListViewController, rightMenuViewController: profileViewController)
         self.slideMenuController.automaticallyAdjustsScrollViewInsets = true
         self.slideMenuController.closeRight()
         self.slideMenuController.rightPanGesture?.enabled = false
         self.slideMenuController.changeRightViewWidth(340.0)
         
-        parentViewController.presentViewController(self.slideMenuController, animated: true, completion: {
+        var animated = false
+        if let _ = pushData {
+            if let _ = pushData!.objectForKey("payload") as? NSDictionary {
+                animated = true
+            }
+        }
+        
+        self.slideMenuController.view.alpha = 0
+        parentViewController.presentViewController(self.slideMenuController, animated: animated, completion: {
             
             if let _ = pushData {
+                self.slideMenuController.view.alpha = 1
                 if let payload = pushData!.objectForKey("payload") as? NSDictionary{
                     if let eventDict = payload.objectForKey("event") {
                         let swiftyJson = JSON(eventDict)
@@ -112,6 +120,14 @@ class TRApplicationManager: NSObject {
                         }
                     }
                 }
+            } else {
+                let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+                let vc : TRCreateEventViewController = storyboard.instantiateViewControllerWithIdentifier(K.ViewControllerIdenifier.VIEWCONTROLLER_CREATE_EVENT) as! TRCreateEventViewController
+                let navigationController = UINavigationController(rootViewController: vc)
+                navigationController.navigationBar.barStyle = .Black
+                eventListViewController.presentViewController(navigationController, animated: false, completion: {
+                self.slideMenuController.view.alpha = 1
+                })
             }
         })
     }
