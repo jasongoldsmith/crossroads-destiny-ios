@@ -14,7 +14,7 @@ class TRPushNotificationView: UIView {
     private let TIMER_INTERVAL: Double = 5
     
     @IBOutlet weak var eventStatusLabel: UILabel!
-    @IBOutlet weak var eventStatusDescription: UILabel!
+    @IBOutlet weak var eventStatusDescription: TRAlignableUILabel!
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -42,7 +42,7 @@ class TRPushNotificationView: UIView {
             if let payload = userInfo.objectForKey("payload") as? NSDictionary {
                 if let eType = payload.objectForKey("eType") as? NSDictionary {
                     if let eventType = eType.objectForKey("aType") as? String {
-                        self.eventStatusDescription.text = eventType
+                        self.eventStatusLabel.text = eventType
                     }
                 }
                 if let _ = payload.objectForKey("playerMessage"){
@@ -53,7 +53,7 @@ class TRPushNotificationView: UIView {
                     }
                 } else {
                     if let apsData = userInfo.objectForKey("aps") as? NSDictionary {
-                        self.eventStatusLabel.text =  apsData.objectForKey("alert") as? String
+                        self.eventStatusDescription.text =  apsData.objectForKey("alert") as? String
                     }
                 }
             }

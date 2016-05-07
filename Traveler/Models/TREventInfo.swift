@@ -29,14 +29,6 @@ class TREventInfo: NSObject {
     }
     
     func createEventObjectFromFireBaseWithEventID (swiftyJason: JSON, fireBaseEventID: String?) -> TREventInfo {
-        if let futureLaunchDate = swiftyJason["launchDate"].string {
-
-            let isFutureEvent = isTimeDifferenceMoreThenAnHour(futureLaunchDate)
-            if isFutureEvent {
-                // UPCOMING EVENT
-                self.isFutureEvent = true
-            }
-        }
         
         // Creating Event Objects from Events List
         if let _ = fireBaseEventID {
@@ -51,6 +43,9 @@ class TREventInfo: NSObject {
         self.eventCreatedDate  = swiftyJason["created"].string
         self.eventLaunchDate   = swiftyJason["launchDate"].string
         
+        if (swiftyJason["launchStatus"].string == EVENT_TIME_STATUS.UP_COMING.rawValue) {
+            self.isFutureEvent = true
+        }
         
         // Dictionary of Activities in an Event
         let activityDictionary = swiftyJason["eType"].dictionary

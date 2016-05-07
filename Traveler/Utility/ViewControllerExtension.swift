@@ -51,17 +51,17 @@ extension UIViewController {
         let leftBarButton = UIBarButtonItem()
         leftBarButton.customView = leftButtonContainer
         
-        // Avator Image View
-        if let imageString = TRUserInfo.getUserImageString() {
-            let imageUrl = NSURL(string: imageString)
-            let avatorImageView = UIImageView()
-            avatorImageView.sd_setImageWithURL(imageUrl)
-            let avatorImageFrame = CGRectMake((self.navigationController?.navigationBar.frame.width)! - avatorImageView.frame.size.width - 50, (self.navigationController?.navigationBar.frame.height)! - avatorImageView.frame.size.height - 40, 30, 30)
-            avatorImageView.frame = avatorImageFrame
-            avatorImageView.roundRectView()
-            
-            self.navigationController?.navigationBar.addSubview(avatorImageView)
-        }
+//        // Avator Image View
+//        if let imageString = TRUserInfo.getUserImageString() {
+//            let imageUrl = NSURL(string: imageString)
+//            let avatorImageView = UIImageView()
+//            avatorImageView.sd_setImageWithURL(imageUrl)
+//            let avatorImageFrame = CGRectMake((self.navigationController?.navigationBar.frame.width)! - avatorImageView.frame.size.width - 50, (self.navigationController?.navigationBar.frame.height)! - avatorImageView.frame.size.height - 40, 30, 30)
+//            avatorImageView.frame = avatorImageFrame
+//            avatorImageView.roundRectView()
+//            
+//            self.navigationController?.navigationBar.addSubview(avatorImageView)
+//        }
         
         self.navigationItem.leftBarButtonItem = leftBarButton
     }

@@ -82,7 +82,13 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         // Show No Events View if Events Table is Empty
         self.emptyTableBackGround?.hidden = self.eventsInfo.count > 0 ? true : false
         
+        //TODO: CHANGE THIS NAME!!!!!!
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(reloadEventTable), name: "DO_SOME_THING", object: nil)
+        
+        
+        //TODO: Change this
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.addNotificationsPermission()
     }
 
     func updateUserAvatorImage () {
@@ -109,7 +115,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        //self.reloadEventTable()
+        self.reloadEventTable()
     }
     
     override func viewDidAppear(animated: Bool) {
