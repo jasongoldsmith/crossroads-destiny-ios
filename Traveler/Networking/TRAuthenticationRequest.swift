@@ -13,12 +13,15 @@ import SwiftyJSON
 
 class TRAuthenticationRequest: TRRequest {
     
+    
+    //MARK:- CREATE ACCOUNT
     func registerTRUserWith(userData: TRUserInfo?,completion:TRValueCallBack)  {
         
         let registerUserUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_RegisterUrl
         
         if (userData == nil) {
             completion(didSucceed: false)
+           
             return
         }
         
@@ -33,49 +36,27 @@ class TRAuthenticationRequest: TRRequest {
             params["psnId"] = userData?.psnID
         }
 
-        
-        TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(false, activityTopConstraintValue: nil)
-        
-        request(self.URLMethod!, registerUserUrl, parameters:params)
-            .responseJSON { response in
-                
-                //Stop Indicator
-                TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
+        let request = TRRequest()
+        request.params = params
+        request.requestURL = registerUserUrl
+        request.sendRequestWithCompletion { (error, responseObject) in
+            
+            if let _ = error {
+                completion(didSucceed: false)
+            }
+            
+            let userData = TRUserInfo()
+            userData.userName       = responseObject["value"]["userName"].string
+            userData.userID         = responseObject["value"]["_id"].string
+            userData.psnID          = responseObject["value"]["psnID"].string
+            userData.userImageURL   = responseObject["value"]["imageUrl"].string
 
-                if response.result.isSuccess {
-                    
-                    if let _ = response.result.value {
-                        let swiftyJsonVar = JSON(response.result.value!)
-                        if swiftyJsonVar.isEmpty {
-                            completion(didSucceed: false )
-                        }
-                            
-                        else if swiftyJsonVar["responseType"].string == "ERR" {
-                            completion(didSucceed: false )
-                            
-                        } else
-                        {
-                            let userData = TRUserInfo()
-                            userData.userName       = swiftyJsonVar["value"]["userName"].string
-                            userData.userID         = swiftyJsonVar["value"]["_id"].string
-                            userData.psnID          = swiftyJsonVar["value"]["psnID"].string
-                            userData.userImageURL   = swiftyJsonVar["value"]["imageUrl"].string
-
-                            TRUserInfo.saveUserData(userData)
-                            completion(didSucceed: true )
-                        }
-                    } else {
-                        completion(didSucceed: false )
-                    }
-                }
-                else
-                {
-                    completion(didSucceed: false )
-                }
+            TRUserInfo.saveUserData(userData)
+            completion(didSucceed: true )
         }
     }
     
-    
+    //MARK:- LOGIN USER
     func loginTRUserWith(userData: TRUserInfo?,completion:TRValueCallBack)  {
         
         if (userData == nil) {
@@ -83,7 +64,7 @@ class TRAuthenticationRequest: TRRequest {
             return
         }
         
-        let registerUserUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_LoginUrl
+        let loginUserUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_LoginUrl
         var params = [String: AnyObject]()
         if userData?.userName?.characters.isEmpty == false {
             params["userName"] = userData?.userName
@@ -91,84 +72,55 @@ class TRAuthenticationRequest: TRRequest {
         if userData?.password?.characters.isEmpty == false {
             params["passWord"] = userData?.password
         }
-        
-        TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(false, activityTopConstraintValue: nil)
-        
-        request(.POST, registerUserUrl,parameters:params)
-            .responseJSON { response in
-                
-                //Stop Indicator
-                TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
 
-                if response.result.isSuccess {
-                    
-                    if let _ = response.result.value {
-                        let swiftyJsonVar = JSON(response.result.value!)
-                        if swiftyJsonVar.isEmpty {
-                            completion(didSucceed: false)
-                        } else if swiftyJsonVar["responseType"].string == "ERR" {
-                            completion(didSucceed: false )
-                        }
-                        else {
-                            let userData = TRUserInfo()
-                            userData.userName       = swiftyJsonVar["value"]["userName"].string
-                            userData.userID         = swiftyJsonVar["value"]["_id"].string
-                            userData.psnID          = swiftyJsonVar["value"]["psnID"].string
-                            userData.userImageURL   = swiftyJsonVar["value"]["imageUrl"].string
-                            userData.userClanID     = swiftyJsonVar["value"]["clanId"].string
-                            
-                            TRUserInfo.saveUserData(userData)
-                            completion(didSucceed: true )
-                        }
-                    } else {
-                        completion(didSucceed: false )
-                    }
-                } else {
-                    completion(didSucceed: false )
-                }
+        let request = TRRequest()
+        request.params = params
+        request.requestURL = loginUserUrl
+        request.sendRequestWithCompletion { (error, responseObject) in
+            
+            if let _ = error {
+                completion(didSucceed: false)
+            }
+            
+            let userData = TRUserInfo()
+            userData.userName       = responseObject["value"]["userName"].string
+            userData.userID         = responseObject["value"]["_id"].string
+            userData.psnID          = responseObject["value"]["psnID"].string
+            userData.userImageURL   = responseObject["value"]["imageUrl"].string
+            userData.userClanID     = responseObject["value"]["clanId"].string
+
+            TRUserInfo.saveUserData(userData)
+            completion(didSucceed: true )
         }
     }
     
+    
+    //MARK:- LOGOUT USER
     func logoutTRUser(completion:(Bool?) -> ())  {
         
         if (TRUserInfo.isUserLoggedIn() == false) {
             completion(false )
         }
         
-        let registerUserUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_LogoutUrl
-        TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(false, activityTopConstraintValue: nil)
-
-        request(.POST, registerUserUrl,parameters:["userName":TRUserInfo.getUserName()!])
-            .responseJSON { response in
-                
-                //Stop Indicator
-                TRApplicationManager.sharedInstance.activityIndicator.stopActivityIndicator()
-                
-                if response.result.isSuccess {
-                    
-                    if let _ = response.result.value {
-                        let swiftyJsonVar = JSON(response.result.value!)
-                        if swiftyJsonVar.isEmpty {
-                            completion(false )
-                        } else if swiftyJsonVar["responseType"].string == "ERR" {
-                            completion(false )
-                        } else {
-                            let userData = TRUserInfo()
-                            userData.userName = swiftyJsonVar["value"]["userName"].string
-                            userData.password = swiftyJsonVar["value"]["passWord"].string
-                            userData.psnID          = swiftyJsonVar["value"]["psnID"].string
-                            userData.userImageURL   = swiftyJsonVar["value"]["imageUrl"].string
-                            userData.userClanID     = swiftyJsonVar["value"]["clanId"].string
-
-                            TRUserInfo.saveUserData(userData)
-                            completion(true )
-                        }
-                    } else {
-                        completion( false )
-                    }
-                } else {
-                    completion( false )
-                }
+        let logoutUserUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_LogoutUrl
+        let request = TRRequest()
+        request.params = params
+        request.requestURL = logoutUserUrl
+        request.sendRequestWithCompletion { (error, responseObject) in
+            
+            if let _ = error {
+                completion(false)
             }
+            
+            let userData = TRUserInfo()
+            userData.userName       = responseObject["value"]["userName"].string
+            userData.password       = responseObject["value"]["passWord"].string
+            userData.psnID          = responseObject["value"]["psnID"].string
+            userData.userImageURL   = responseObject["value"]["imageUrl"].string
+            userData.userClanID     = responseObject["value"]["clanId"].string
+            
+            TRUserInfo.saveUserData(userData)
+            completion(true )
+        }
     }
 }
