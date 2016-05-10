@@ -123,6 +123,9 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
             if self.eventInfo?.eventPlayersArray.count > 1 {
                 self.sendMessageToAllButton?.hidden = false
                 self.leaveEventButton?.hidden = true
+            } else {
+                // Only 1 user and he is the creator, he cant send message to himself
+                self.sendMessageToAllButton?.hidden = true
             }
         } else {
             self.sendMessageToAllButton?.hidden = true
