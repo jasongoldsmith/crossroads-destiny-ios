@@ -42,7 +42,7 @@ class TRBaseViewController: UIViewController {
             object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: #selector(TRBaseViewController.didReceiveRemoteNotification(_:)),
+            selector: #selector(TRBaseViewController.didReceiveRemoteNotificationInBackGroundSession(_:)),
             name: K.NOTIFICATION_TYPE.APPLICATION_DID_RECEIVE_REMOTE_NOTIFICATION,
             object: nil)
 
@@ -142,7 +142,7 @@ class TRBaseViewController: UIViewController {
         TRApplicationManager.sharedInstance.addNotificationViewWithMessages(sender)
     }
 
-    func didReceiveRemoteNotification (sender: NSNotification) {
+    func didReceiveRemoteNotificationInBackGroundSession (sender: NSNotification) {
     }
     
     func dismissViewController (isAnimated:Bool, dismissed: viewControllerDismissed) {

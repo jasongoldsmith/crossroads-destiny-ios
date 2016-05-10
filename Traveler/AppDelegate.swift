@@ -100,10 +100,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.cancelAllLocalNotifications()
     
         if application.applicationState == UIApplicationState.Active {
-            NSNotificationCenter.defaultCenter().postNotificationName("RemoteNotificationWithActiveSesion", object: self, userInfo: userInfo)
+            NSNotificationCenter.defaultCenter().postNotificationName(K.NOTIFICATION_TYPE.REMOTE_NOTIFICATION_WITH_ACTIVE_SESSION, object: self, userInfo: userInfo)
         }
         if application.applicationState != UIApplicationState.Active {
-            NSNotificationCenter.defaultCenter().postNotificationName("UIApplicationDidReceiveRemoteNotification", object: self, userInfo: userInfo)
+            NSNotificationCenter.defaultCenter().postNotificationName(K.NOTIFICATION_TYPE.APPLICATION_DID_RECEIVE_REMOTE_NOTIFICATION, object: self, userInfo: userInfo)
         }
     }
     
@@ -128,15 +128,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-
-    
-    func didReceiveRemoteNotificationInActiveSesion(sender: NSNotification)
-    {
-        if let userInfo = sender.userInfo as NSDictionary? {
-            print("UserInfo: \(userInfo)")
-        }
     }
 
 }
