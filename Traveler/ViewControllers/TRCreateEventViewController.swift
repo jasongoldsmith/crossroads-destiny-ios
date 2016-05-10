@@ -11,7 +11,7 @@ import UIKit
 import SDWebImage
 
 
-class TRCreateEventViewController: TRBaseViewController, UINavigationControllerDelegate {
+class TRCreateEventViewController: TRBaseViewController, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
  
     lazy var customNavigationAnimation: TRCustomNavTransitionAnimator = TRCustomNavTransitionAnimator()
     lazy var customInteractionAnimation: TRNavInteractionAnimator = TRNavInteractionAnimator()
@@ -34,6 +34,9 @@ class TRCreateEventViewController: TRBaseViewController, UINavigationControllerD
         //Navigation
         self.title = "CREATE EVENT"
         self.addNavigationBarButtons()
+        
+//        self.navigationController?.interactivePopGestureRecognizer?.enabled = true
+//        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         
         // INTERACTIVE VC ANIMATION
         //self.navigationController?.delegate = self
