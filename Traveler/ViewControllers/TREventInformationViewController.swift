@@ -111,7 +111,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         self.updateBottomButtons()
         
         // Add FireBase Observer
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(reloadEventTable), name: "DO_SOME_THING", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(reloadEventTable), name: K.NOTIFICATION_TYPE.FIREBASE_RELOAD_VIEW, object: nil)
     }
     
     func updateBottomButtons () {

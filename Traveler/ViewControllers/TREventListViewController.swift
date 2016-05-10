@@ -83,7 +83,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         self.emptyTableBackGround?.hidden = self.eventsInfo.count > 0 ? true : false
         
         //TODO: CHANGE THIS NAME!!!!!!
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(reloadEventTable), name: "DO_SOME_THING", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(reloadEventTable), name: K.NOTIFICATION_TYPE.FIREBASE_RELOAD_VIEW, object: nil)
         
         
         //TODO: Change this
