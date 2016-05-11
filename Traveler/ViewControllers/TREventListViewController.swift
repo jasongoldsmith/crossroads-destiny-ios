@@ -81,8 +81,8 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         
         // Show No Events View if Events Table is Empty
         self.emptyTableBackGround?.hidden = self.eventsInfo.count > 0 ? true : false
-        
-        //TODO: CHANGE THIS NAME!!!!!!
+
+        //FireBase Observer
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(reloadEventTable), name: K.NOTIFICATION_TYPE.FIREBASE_RELOAD_VIEW, object: nil)
         
         
@@ -241,7 +241,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     func showEventInfoViewController(eventInfo: TREventInfo?) {
         
         let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
-        let vc : TREventInformationViewController = storyboard.instantiateViewControllerWithIdentifier(K.ViewControllerIdenifier.VIEW_CONTROLLER_EVENT_INFORMATION) as! TREventInformationViewController
+        let vc : TREventInformationViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_EVENT_INFORMATION) as! TREventInformationViewController
         vc.eventInfo = eventInfo
         
         self.presentViewController(vc, animated: true, completion: nil)
@@ -312,7 +312,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     @IBAction func createAnEvent () {
 
         let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
-        let vc : TRCreateEventViewController = storyboard.instantiateViewControllerWithIdentifier(K.ViewControllerIdenifier.VIEWCONTROLLER_CREATE_EVENT) as! TRCreateEventViewController
+        let vc : TRCreateEventViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEWCONTROLLER_CREATE_EVENT) as! TRCreateEventViewController
         let navigationController = UINavigationController(rootViewController: vc)
         navigationController.navigationBar.barStyle = .Black
         self.presentViewController(navigationController, animated: true, completion: nil)

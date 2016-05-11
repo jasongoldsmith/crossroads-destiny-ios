@@ -7,16 +7,19 @@
 //
 
 import UIKit
+import TTTAttributedLabel
 
-class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
+class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestureRecognizerDelegate {
     
     
     private let xAxis: CGFloat = 0.0
     private let yAxisWithOpenKeyBoard: CGFloat = 235.0
     private let yAxisWithClosedKeyBoard: CGFloat = 20.0
+    private var leftTapGesture: UITapGestureRecognizer?
     
     @IBOutlet weak var userNameTxtField: UITextField!
     @IBOutlet weak var userPwdTxtField: UITextField!
+    @IBOutlet weak var forgotPassword: UILabel!
     
     var errorView: TRErrorNotificationView?
 
@@ -24,11 +27,18 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if self.leftTapGesture == nil {
+            self.leftTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.forgotPasswordTapped))
+            self.leftTapGesture!.delegate = self
+        }
+
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRSignInViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRSignInViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
 
         self.userNameTxtField.attributedPlaceholder = NSAttributedString(string:"Enter username", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         self.userPwdTxtField.attributedPlaceholder = NSAttributedString(string:"Enter password", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+        self.forgotPassword.addGestureRecognizer(self.leftTapGesture!)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -129,6 +139,15 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
         }
     }
     
+    
+    func forgotPasswordTapped (sender: UITapGestureRecognizer) {
+        let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+        let vc : TRForgotPasswordViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_FORGOT_PASSWORD) as! TRForgotPasswordViewController
+        
+        self.presentViewController(vc, animated: true) { 
+            
+        }
+    }
 
     @IBAction func dismissKeyboard(recognizer : UITapGestureRecognizer) {
         
@@ -165,8 +184,7 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate {
         if self.view.frame.origin.y == self.view.frame.origin.y - keyboardSize.height {
         self.view.frame.origin.y += keyboardSize.height
         }
-        else
-        {
+        else {
             self.view.frame.origin.y = 0
         }
     }

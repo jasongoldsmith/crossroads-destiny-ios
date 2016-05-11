@@ -86,8 +86,8 @@ class TRApplicationManager: NSObject {
     func addSlideMenuController(parentViewController: TRBaseViewController, pushData: NSDictionary?) {
 
         let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
-        let profileViewController = storyboard.instantiateViewControllerWithIdentifier(K.ViewControllerIdenifier.VIEW_CONTROLLER_PROFILE) as! TRProfileViewController
-        let eventListViewController = storyboard.instantiateViewControllerWithIdentifier(K.ViewControllerIdenifier.VIEWCONTROLLER_EVENT_LIST) as! TREventListViewController
+        let profileViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_PROFILE) as! TRProfileViewController
+        let eventListViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEWCONTROLLER_EVENT_LIST) as! TREventListViewController
         
         self.slideMenuController = SlideMenuController(mainViewController:eventListViewController, rightMenuViewController: profileViewController)
         self.slideMenuController.automaticallyAdjustsScrollViewInsets = true
@@ -122,7 +122,7 @@ class TRApplicationManager: NSObject {
                 }
             } else {
                 let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
-                let vc : TRCreateEventViewController = storyboard.instantiateViewControllerWithIdentifier(K.ViewControllerIdenifier.VIEWCONTROLLER_CREATE_EVENT) as! TRCreateEventViewController
+                let vc : TRCreateEventViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEWCONTROLLER_CREATE_EVENT) as! TRCreateEventViewController
                 let navigationController = UINavigationController(rootViewController: vc)
                 eventListViewController.presentViewController(navigationController, animated: false, completion: {
                 self.slideMenuController.view.alpha = 1

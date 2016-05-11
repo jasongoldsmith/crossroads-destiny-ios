@@ -115,7 +115,7 @@ class TRCreateEventSelectionViewController: TRBaseViewController {
         
         self.activitySelectionTable?.deselectRowAtIndexPath(indexPath, animated: false)
         
-        let vc = TRApplicationManager.sharedInstance.stroryBoardManager.getViewControllerWithID(K.ViewControllerIdenifier.VIEW_CONTROLLER_CREATE_EVENT_CONFIRM, storyBoardID: K.StoryBoard.StoryBoard_Main) as! TRCreateEventConfirmationViewController
+        let vc = TRApplicationManager.sharedInstance.stroryBoardManager.getViewControllerWithID(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_CREATE_EVENT_CONFIRM, storyBoardID: K.StoryBoard.StoryBoard_Main) as! TRCreateEventConfirmationViewController
         vc.selectedActivity = self.filteredActivitiesOfSubTypeAndDifficulty[indexPath.section]
         
         self.navigationController?.pushViewController(vc, animated: true)

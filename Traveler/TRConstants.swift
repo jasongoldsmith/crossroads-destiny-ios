@@ -48,7 +48,7 @@ struct K {
         static let StoryBoard_Main       = "Main"
     }
     
-    struct ViewControllerIdenifier {
+    struct VIEWCONTROLLER_IDENTIFIERS {
         static let VIEWCONTROLLER_LOGIN                    = "login"
         static let VIEWCONTROLLER_SIGNUP                   = "signup"
         static let VIEWCONTROLLER_EVENT_LIST               = "eventListVC"
@@ -59,6 +59,7 @@ struct K {
         static let VIEW_CONTROLLER_EVENT_INFORMATION       = "eventInfoVC"
         static let VIEW_CONTROLLER_PROFILE                 = "profileVC"
         static let VIEW_CONTROLLER_SEND_REPORT             = "sendReportVC"
+        static let VIEW_CONTROLLER_FORGOT_PASSWORD         = "forgotPassword"
     }
     
     struct ActivityType {

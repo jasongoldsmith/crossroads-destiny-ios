@@ -10,6 +10,7 @@ target 'Traveler' do
     pod 'pop', :git => 'https://github.com/facebook/pop.git'
     pod 'SlideMenuControllerSwift'
     pod 'Firebase', '>= 2.5.1'
+    pod 'TTTAttributedLabel'
 end
 
 target 'TravelerTests' do
