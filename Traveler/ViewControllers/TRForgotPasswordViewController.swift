@@ -12,15 +12,15 @@ class TRForgotPasswordViewController: TRBaseViewController {
 
     @IBOutlet weak var psnIDTextField: UITextField!
     @IBOutlet weak var resetPasswordButton: UIButton!
+    @IBOutlet weak var resetButtonBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRForgotPasswordViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRForgotPasswordViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRForgotPasswordViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRForgotPasswordViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
 
         self.psnIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter PSN ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
-        self.psnIDTextField.becomeFirstResponder()
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -72,34 +72,11 @@ class TRForgotPasswordViewController: TRBaseViewController {
     }
     
     func keyboardWillShow(sender: NSNotification) {
-        
-        let userInfo: [NSObject : AnyObject] = sender.userInfo!
-        let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
-        let offset: CGSize = userInfo[UIKeyboardFrameEndUserInfoKey]!.CGRectValue.size
-        
-        if keyboardSize.height == offset.height {
-            if self.view.frame.origin.y == 0 {
-                UIView.animateWithDuration(2.0, animations: { () -> Void in
-                    self.view.frame.origin.y -= keyboardSize.height
-                })
-            }
-        } else {
-            UIView.animateWithDuration(0.2, animations: { () -> Void in
-                self.view.frame.origin.y += keyboardSize.height - offset.height
-            })
-        }
+        self.resetButtonBottomConstraint!.constant = 215
     }
     
     func keyboardWillHide(sender: NSNotification) {
-        let userInfo: [NSObject : AnyObject] = sender.userInfo!
-        let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
-        
-        if self.view.frame.origin.y == self.view.frame.origin.y - keyboardSize.height {
-            self.view.frame.origin.y += keyboardSize.height
-        }
-        else {
-            self.view.frame.origin.y = 0
-        }
+        self.resetButtonBottomConstraint!.constant = 0
     }
     
     //MARK:- NETWORK CALL
@@ -107,7 +84,7 @@ class TRForgotPasswordViewController: TRBaseViewController {
         _ = TRForgotPasswordRequest().resetUserPassword(psnId, completion: { (didSucceed) in
             if (didSucceed == true) {
                 self.dismissViewController(true, dismissed: { (didDismiss) in
-                    
+                    self.psnIDTextField!.resignFirstResponder()
                 })
             } else {
             }
