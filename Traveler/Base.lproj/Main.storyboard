@@ -496,13 +496,23 @@
                             <constraint firstItem="sid-xD-sch" firstAttribute="top" secondItem="kqI-IE-jbj" secondAttribute="bottom" constant="71" id="VoY-6f-G7s"/>
                             <constraint firstItem="sid-xD-sch" firstAttribute="leading" secondItem="qQx-cy-iBt" secondAttribute="leading" constant="42" id="azR-O2-5Gh"/>
                             <constraint firstItem="t94-VO-gcV" firstAttribute="top" secondItem="7Cn-fI-BQD" secondAttribute="bottom" id="bIQ-VX-Sgs"/>
+                            <constraint firstItem="7jH-aU-pLd" firstAttribute="top" secondItem="hQU-I6-siB" secondAttribute="bottom" id="bf1-TE-lyf"/>
                             <constraint firstItem="kqI-IE-jbj" firstAttribute="centerY" secondItem="7jH-aU-pLd" secondAttribute="centerY" id="fmh-bH-GyF"/>
                             <constraint firstItem="7w2-Rd-0OK" firstAttribute="top" secondItem="qQx-cy-iBt" secondAttribute="topMargin" id="kU2-ry-DQ2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7w2-Rd-0OK" secondAttribute="trailing" constant="-20" id="o18-fQ-Q4o"/>
                             <constraint firstItem="7jH-aU-pLd" firstAttribute="top" secondItem="hQU-I6-siB" secondAttribute="bottom" id="s2S-Tf-e96"/>
                             <constraint firstAttribute="trailing" secondItem="61I-3M-JJz" secondAttribute="trailing" constant="10" id="sNM-LQ-57x"/>
                             <constraint firstAttribute="trailing" secondItem="sid-xD-sch" secondAttribute="trailing" constant="42" id="tqu-zO-ea0"/>
+                            <constraint firstItem="kqI-IE-jbj" firstAttribute="top" secondItem="hQU-I6-siB" secondAttribute="bottom" constant="13" id="wfa-3R-8Yy"/>
+                            <constraint firstItem="7jH-aU-pLd" firstAttribute="leading" secondItem="qQx-cy-iBt" secondAttribute="leading" constant="10" id="zIb-Zs-kmp"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="BRz-2G-VZN"/>
+                                <exclude reference="s2S-Tf-e96"/>
+                                <exclude reference="fmh-bH-GyF"/>
+                            </mask>
+                        </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
@@ -1815,7 +1825,7 @@
                                     <action selector="createAccountBtnTapped:" destination="8fv-qL-jQi" eventType="touchUpInside" id="6dt-EF-hCE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIM-Bo-Bpg">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIM-Bo-Bpg">
                                 <rect key="frame" x="10" y="28" width="44" height="44"/>
                                 <state key="normal" image="iconBackArrow"/>
                                 <connections>
@@ -1841,8 +1851,10 @@
                             <constraint firstItem="2KA-DT-gDl" firstAttribute="top" secondItem="EfW-Rr-lwB" secondAttribute="bottom" constant="31" id="N1X-Mi-zk0"/>
                             <constraint firstItem="iyy-mu-wYL" firstAttribute="top" secondItem="cIs-IX-Wfr" secondAttribute="bottom" constant="10" id="QfI-eP-SxH"/>
                             <constraint firstItem="8zj-GS-nmN" firstAttribute="leading" secondItem="Q9w-zl-5ST" secondAttribute="leadingMargin" constant="-20" id="d8F-eK-RfR"/>
+                            <constraint firstItem="AIM-Bo-Bpg" firstAttribute="leading" secondItem="Q9w-zl-5ST" secondAttribute="leading" constant="10" id="k1Y-ig-zWE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cIs-IX-Wfr" secondAttribute="trailing" constant="-10" id="mkN-d7-kaA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8zj-GS-nmN" secondAttribute="trailing" constant="-20" id="t35-w1-7g9"/>
+                            <constraint firstItem="AIM-Bo-Bpg" firstAttribute="top" secondItem="N37-3G-2Ts" secondAttribute="bottom" constant="8" id="wdJ-fI-3jg"/>
                             <constraint firstItem="iyy-mu-wYL" firstAttribute="centerX" secondItem="Q9w-zl-5ST" secondAttribute="centerX" id="woX-mE-fMe"/>
                         </constraints>
                         <connections>

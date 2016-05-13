@@ -59,7 +59,7 @@ class TRForgotPasswordViewController: TRBaseViewController {
             self.psnIDTextField.resignFirstResponder()
         }
         
-        delay(0.5) {
+        delay(0.3) {
             self.dismissViewController(true) { (didDismiss) in
                 
             }
