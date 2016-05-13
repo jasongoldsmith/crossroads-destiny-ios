@@ -165,6 +165,9 @@
 		33D067671CD40AF600E05EF1 /* TRUpdateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D067661CD40AF600E05EF1 /* TRUpdateUser.swift */; };
 		33D067681CD40AF600E05EF1 /* TRUpdateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D067661CD40AF600E05EF1 /* TRUpdateUser.swift */; };
 		33D067691CD40AF600E05EF1 /* TRUpdateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D067661CD40AF600E05EF1 /* TRUpdateUser.swift */; };
+		33E6CA811CE65CAA003408CB /* TRForgotPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E6CA801CE65CAA003408CB /* TRForgotPasswordRequest.swift */; };
+		33E6CA821CE65CAA003408CB /* TRForgotPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E6CA801CE65CAA003408CB /* TRForgotPasswordRequest.swift */; };
+		33E6CA831CE65CAA003408CB /* TRForgotPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E6CA801CE65CAA003408CB /* TRForgotPasswordRequest.swift */; };
 		33F427491C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F427481C8A0DBD00560BD3 /* TRCreateEventViewController.swift */; };
 		33F4274A1C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F427481C8A0DBD00560BD3 /* TRCreateEventViewController.swift */; };
 		33F4274B1C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F427481C8A0DBD00560BD3 /* TRCreateEventViewController.swift */; };
@@ -288,6 +291,7 @@
 		339D8F2F1C911FB900A2620F /* TRCreateEventConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCreateEventConfirmationViewController.swift; sourceTree = "<group>"; };
 		33A029AF1CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		33D067661CD40AF600E05EF1 /* TRUpdateUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRUpdateUser.swift; sourceTree = "<group>"; };
+		33E6CA801CE65CAA003408CB /* TRForgotPasswordRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRForgotPasswordRequest.swift; sourceTree = "<group>"; };
 		33F427481C8A0DBD00560BD3 /* TRCreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCreateEventViewController.swift; sourceTree = "<group>"; };
 		33FDB9A71C84F7C50066237C /* TRCreatorInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCreatorInfo.swift; sourceTree = "<group>"; };
 		33FDB9AD1C850AFC0066237C /* EventButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventButton.swift; sourceTree = "<group>"; };
@@ -438,6 +442,7 @@
 				3398E1A81CAB2994001F022B /* TRSendPushMessage.swift */,
 				33974F151CADD0740015C9D5 /* TRCreateAReportRequest.swift */,
 				33D067661CD40AF600E05EF1 /* TRUpdateUser.swift */,
+				33E6CA801CE65CAA003408CB /* TRForgotPasswordRequest.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -834,6 +839,7 @@
 				62C1FF301C77C15C00A78798 /* AppDelegate.swift in Sources */,
 				3398E1A91CAB2994001F022B /* TRSendPushMessage.swift in Sources */,
 				33742DAD1C810AE300C46742 /* TRActivityInfo.swift in Sources */,
+				33E6CA811CE65CAA003408CB /* TRForgotPasswordRequest.swift in Sources */,
 				33742DA51C81092D00C46742 /* TREventInfo.swift in Sources */,
 				33D067671CD40AF600E05EF1 /* TRUpdateUser.swift in Sources */,
 				33FDB9AE1C850AFC0066237C /* EventButton.swift in Sources */,
@@ -884,6 +890,7 @@
 				33104C001C97B1F40024D601 /* TRActivityIndicatorView.swift in Sources */,
 				335AF5E81CA49DF500EBB6EF /* Utility.swift in Sources */,
 				339D8F291C90F77E00A2620F /* TRActivitySelectionCell.swift in Sources */,
+				33E6CA821CE65CAA003408CB /* TRForgotPasswordRequest.swift in Sources */,
 				3329B5951C9B7A8500CC1F9B /* TRPushNotificationView.swift in Sources */,
 				33742D8B1C7FC66500C46742 /* TRBaseViewController.swift in Sources */,
 				33F4274A1C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */,
@@ -949,6 +956,7 @@
 				33104C011C97B1F40024D601 /* TRActivityIndicatorView.swift in Sources */,
 				335AF5E91CA49DF500EBB6EF /* Utility.swift in Sources */,
 				339D8F2A1C90F77E00A2620F /* TRActivitySelectionCell.swift in Sources */,
+				33E6CA831CE65CAA003408CB /* TRForgotPasswordRequest.swift in Sources */,
 				3329B5961C9B7A8500CC1F9B /* TRPushNotificationView.swift in Sources */,
 				33742D8C1C7FC66600C46742 /* TRBaseViewController.swift in Sources */,
 				33F4274B1C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */,

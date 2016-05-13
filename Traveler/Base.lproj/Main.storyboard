@@ -330,7 +330,7 @@
                                     <segue destination="XJ1-EK-ne3" kind="unwind" unwindAction="trUnwindAction:" id="V2d-0K-NAe"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zky-dc-1HO">
+                            <label opaque="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zky-dc-1HO">
                                 <rect key="frame" x="243.5" y="434" width="114.5" height="17"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -390,7 +390,6 @@
         <!--Forgot Password View Controller-->
         <scene sceneID="rGs-SO-CTj">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xs5-2R-nNJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="forgotPassword" id="xrT-dz-8g5" customClass="TRForgotPasswordViewController" customModule="Traveler" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hQU-I6-siB"/>
@@ -517,6 +516,7 @@
                         <outlet property="resetPasswordButton" destination="7Cn-fI-BQD" id="K1Q-ip-a9P"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xs5-2R-nNJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2311" y="417"/>
         </scene>

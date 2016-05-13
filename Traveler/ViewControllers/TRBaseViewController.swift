@@ -103,27 +103,8 @@ class TRBaseViewController: UIViewController {
     }
     
     func applicationDidEnterBackground() {
-        
-//        self.applicationDidTerminate()
-        
-        // PURGE EXISTING DATA HERE
-//        //TRApplicationManager.sharedInstance.purgeSavedData()
-//        
-//        if let topController = UIApplication.topViewController() {
-//            
-//            if topController.isKindOfClass(SlideMenuController) {
-//                
-//                let slideVC = topController as! SlideMenuController
-//                if slideVC.isRightOpen() {
-//                    slideVC.closeRight()
-//                } else {
-//                    // If main is open, don't do anything. EventListVc will send request to fetch the eventList 
-//                    // in it's overwritten "applicationWillEnterForeground" method
-//                }
-//            } else {
-//                self.applicationDidTerminate()
-//            }
-//        }
+
+        TRApplicationManager.sharedInstance.fireBaseObj.removeObservers()
     }
     
     

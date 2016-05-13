@@ -41,6 +41,7 @@ struct K {
         static let TR_SEND_PUSH_MESSAGE  =   "/api/v1/a/messages/send"
         static let TR_SEND_REPORT        =   "/api/v1/a/report/create"
         static let TR_UPDATE_USER        =   "/api/v1/a/user/update"
+        static let TR_FORGOT_PASSWORD    =   "/api/v1/auth/request/resetPassword"
     }
     
     struct StoryBoard {

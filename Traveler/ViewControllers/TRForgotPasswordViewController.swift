@@ -104,7 +104,14 @@ class TRForgotPasswordViewController: TRBaseViewController {
     
     //MARK:- NETWORK CALL
     func forgotPasswordForPsnID (psnId: String) {
-        
+        _ = TRForgotPasswordRequest().resetUserPassword(psnId, completion: { (didSucceed) in
+            if (didSucceed == true) {
+                self.dismissViewController(true, dismissed: { (didDismiss) in
+                    
+                })
+            } else {
+            }
+        })
     }
     
     deinit {
