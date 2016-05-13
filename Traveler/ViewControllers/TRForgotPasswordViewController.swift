@@ -21,6 +21,7 @@ class TRForgotPasswordViewController: TRBaseViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRForgotPasswordViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
 
         self.psnIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter PSN ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+        self.psnIDTextField?.becomeFirstResponder()
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -58,8 +59,10 @@ class TRForgotPasswordViewController: TRBaseViewController {
             self.psnIDTextField.resignFirstResponder()
         }
         
-        self.dismissViewController(true) { (didDismiss) in
-            
+        delay(0.5) {
+            self.dismissViewController(true) { (didDismiss) in
+                
+            }
         }
     }
 

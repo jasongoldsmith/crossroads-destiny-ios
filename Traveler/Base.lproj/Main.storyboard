@@ -407,7 +407,7 @@
                                 <rect key="frame" x="10" y="20" width="44" height="44"/>
                                 <state key="normal" image="iconBackArrow"/>
                                 <connections>
-                                    <segue destination="kVg-eH-8xS" kind="unwind" unwindAction="trUnwindToSingInAction:" id="G7W-fa-TK2"/>
+                                    <action selector="backButtonPressed:" destination="xrT-dz-8g5" eventType="touchUpInside" id="mem-nf-8Wk"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FORGOT PASSWORD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqI-IE-jbj">
@@ -512,7 +512,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xs5-2R-nNJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="kVg-eH-8xS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2311" y="417"/>
         </scene>

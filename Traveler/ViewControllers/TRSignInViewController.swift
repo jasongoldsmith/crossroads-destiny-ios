@@ -189,10 +189,6 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
         }
     }
     
-    @IBAction func trUnwindToSingInAction(segue: UIStoryboardSegue) {
-        
-    }
-    
     func resignKeyBoardResponders () {
         if userNameTxtField.isFirstResponder() {
             userNameTxtField.resignFirstResponder()
