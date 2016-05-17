@@ -40,18 +40,15 @@ class TRPushNotificationView: UIView {
         
         if let userInfo = sender.userInfo as NSDictionary? {
             if let payload = userInfo.objectForKey("payload") as? NSDictionary {
-                if let eType = payload.objectForKey("eType") as? NSDictionary {
-                    if let eventType = eType.objectForKey("aType") as? String {
-                        self.eventStatusLabel.text = eventType
-                    }
-                }
-                if let _ = payload.objectForKey("playerMessage"){
+                if let notificationType = payload.objectForKey("notificationName") as? String where notificationType == NOTIFICATION_NAME.NOTI_MESSAGE_PLAYER.rawValue {
                     if let apsData = userInfo.objectForKey("aps") as? NSDictionary {
-                        self.eventStatusDescription.text =  apsData.objectForKey("alert") as? String
                         self.eventStatusLabel.text =  "Fireteam Message"
-                        
+                        self.eventStatusDescription.text =  apsData.objectForKey("alert") as? String
                     }
                 } else {
+                    if let eventType = payload.objectForKey("eventName") as? String {
+                        self.eventStatusLabel.text = eventType
+                    }
                     if let apsData = userInfo.objectForKey("aps") as? NSDictionary {
                         self.eventStatusDescription.text =  apsData.objectForKey("alert") as? String
                     }

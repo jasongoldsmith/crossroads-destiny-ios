@@ -42,6 +42,7 @@ struct K {
         static let TR_SEND_REPORT        =   "/api/v1/a/report/create"
         static let TR_UPDATE_USER        =   "/api/v1/a/user/update"
         static let TR_FORGOT_PASSWORD    =   "/api/v1/auth/request/resetPassword"
+        static let TR_FETCH_EVENT        =   "/api/v1/a/event/listById"
     }
     
     struct StoryBoard {
@@ -99,6 +100,20 @@ enum UIUserInterfaceIdiom : Int
     case Unspecified
     case Phone
     case Pad
+}
+
+enum NOTIFICATION_NAME: String {
+    case NOTI_LEAVE = "Leave"
+    case NOTI_JOIN  = "Join"
+    case NOTI_FULL_FOR_CREATOR = "FullForCreator"
+    case NOTI_FULL_FOR_EVENT_MEMEBERS = "FullForEventMembers"
+    case NOTI_EVENT_FULL = "EventNotFullNotification"
+    case NOTI_MESSAGE_PLAYER = "messageFromPlayer"
+    
+}
+
+enum NOTIFICATION_TRACKABLE: Int {
+    case TRACKABLE
 }
 
 struct ScreenSize

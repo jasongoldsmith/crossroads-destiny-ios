@@ -28,6 +28,14 @@ class TRForgotPasswordRequest: TRRequest {
                 return
             }
             
+            if let _ = swiftyJsonVar["_id"].string {
+                let existingEvent = TRApplicationManager.sharedInstance.getEventById(swiftyJsonVar["_id"].string!)
+                
+                if let _ = existingEvent {
+                    existingEvent?.parseCreateEventInfoObject(swiftyJsonVar)
+                }
+            }
+            
             completion(didSucceed: true )
         }
     }

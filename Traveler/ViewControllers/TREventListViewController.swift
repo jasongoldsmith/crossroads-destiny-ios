@@ -266,17 +266,11 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         
         
         if let payload = sender.userInfo!["payload"] as? NSDictionary {
-            if let eventDict = payload.objectForKey("event") as? NSDictionary {
-                let swiftyJson = JSON(eventDict)
-                let eventInfo = TREventInfo().parseCreateEventInfoObject(swiftyJson)
-                self.showEventInfoViewController(eventInfo)
-            } else {
-                let swiftyJson = JSON(payload)
-                let eventInfo = TREventInfo().parseCreateEventInfoObject(swiftyJson)
-                if eventInfo.eventID != nil {
-                    self.showEventInfoViewController(eventInfo)
+            let _ = TRPushNotification().fetchEventFromPushNotification(payload, complete: { (event) in
+                if let _ = event {
+                    self.showEventInfoViewController(event)
                 }
-            }
+            })
         }
     }
     

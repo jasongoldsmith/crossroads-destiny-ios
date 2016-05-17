@@ -108,17 +108,11 @@ class TRApplicationManager: NSObject {
             if let _ = pushData {
                 self.slideMenuController.view.alpha = 1
                 if let payload = pushData!.objectForKey("payload") as? NSDictionary{
-                    if let eventDict = payload.objectForKey("event") {
-                        let swiftyJson = JSON(eventDict)
-                        let eventInfo = TREventInfo().parseCreateEventInfoObject(swiftyJson)
-                        eventListViewController.showEventInfoViewController(eventInfo)
-                    } else {
-                        let swiftyJson = JSON(payload)
-                        let eventInfo = TREventInfo().parseCreateEventInfoObject(swiftyJson)
-                        if eventInfo.eventID != nil {
-                            eventListViewController.showEventInfoViewController(eventInfo)
+                    let _ = TRPushNotification().fetchEventFromPushNotification(payload, complete: { (event) in
+                        if let _ = event {
+                            eventListViewController.showEventInfoViewController(event)
                         }
-                    }
+                    })
                 }
             } else {
                 let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)

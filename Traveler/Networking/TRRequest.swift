@@ -13,6 +13,7 @@ import SwiftyJSON
 typealias TRRequestClosure = (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void
 typealias TRValueCallBack = (didSucceed: Bool?) -> ()
 typealias TRResponseCallBack = (error: String?, responseObject: JSON) -> ()
+typealias TREventObjCallBack = (event: TREventInfo?) -> ()
 
 enum ServerResponseError {
     case NoValidData
