@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -10,6 +10,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
@@ -1919,23 +1920,70 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please verify your account!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIA-Ey-5Yl">
-                                <rect key="frame" x="196.5" y="289" width="207" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBadge" translatesAutoresizingMaskIntoConstraints="NO" id="ggX-cr-WPZ">
+                                <rect key="frame" x="209" y="55" width="182" height="137"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="137" id="jbw-yS-1rw"/>
+                                    <constraint firstAttribute="width" constant="182" id="kQK-Yc-qIQ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VERIFY ACCOUNT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ws7-ac-Igq">
+                                <rect key="frame" x="244" y="233" width="112" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="112" id="a8v-Qe-C8P"/>
+                                    <constraint firstAttribute="height" constant="21" id="nDQ-iY-9iQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="djW-xX-je1">
+                                <rect key="frame" x="20" y="269" width="560" height="141"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v1b-j6-iNI">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="141"/>
+                                        <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehx-S3-Tqm" customClass="TTTAttributedLabel">
+                                        <rect key="frame" x="15" y="0.0" width="530" height="141"/>
+                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="ehx-S3-Tqm" secondAttribute="bottom" id="EFz-vI-QVB"/>
+                                    <constraint firstAttribute="trailing" secondItem="ehx-S3-Tqm" secondAttribute="trailing" constant="14.5" id="Jbu-zl-0Zk"/>
+                                    <constraint firstItem="v1b-j6-iNI" firstAttribute="leading" secondItem="djW-xX-je1" secondAttribute="leading" id="Slm-x2-Ueb"/>
+                                    <constraint firstItem="v1b-j6-iNI" firstAttribute="top" secondItem="djW-xX-je1" secondAttribute="top" id="TxO-Xr-464"/>
+                                    <constraint firstAttribute="trailing" secondItem="v1b-j6-iNI" secondAttribute="trailing" id="gMP-YS-3dE"/>
+                                    <constraint firstAttribute="bottom" secondItem="v1b-j6-iNI" secondAttribute="bottom" id="gd3-UK-Zza"/>
+                                    <constraint firstItem="ehx-S3-Tqm" firstAttribute="leading" secondItem="djW-xX-je1" secondAttribute="leading" constant="15.5" id="pYn-0W-gWG"/>
+                                    <constraint firstItem="ehx-S3-Tqm" firstAttribute="top" secondItem="djW-xX-je1" secondAttribute="top" id="tMA-P5-fOT"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="njn-tx-sYA" firstAttribute="top" relation="lessThanOrEqual" secondItem="djW-xX-je1" secondAttribute="bottom" constant="190" id="2xn-IF-TMk"/>
                             <constraint firstItem="dWQ-DV-3Eq" firstAttribute="top" secondItem="cCq-Mw-RJq" secondAttribute="top" id="7Ce-im-FVR"/>
-                            <constraint firstItem="oIA-Ey-5Yl" firstAttribute="centerX" secondItem="cCq-Mw-RJq" secondAttribute="centerX" id="Ced-aX-PYP"/>
+                            <constraint firstItem="djW-xX-je1" firstAttribute="leading" secondItem="cCq-Mw-RJq" secondAttribute="leadingMargin" id="9bv-eY-twW"/>
+                            <constraint firstItem="ggX-cr-WPZ" firstAttribute="top" secondItem="QOd-qg-fx3" secondAttribute="bottom" constant="35" id="MsJ-0G-o5H"/>
                             <constraint firstItem="dWQ-DV-3Eq" firstAttribute="leading" secondItem="cCq-Mw-RJq" secondAttribute="leading" id="NaH-1r-LTM"/>
-                            <constraint firstItem="oIA-Ey-5Yl" firstAttribute="centerY" secondItem="cCq-Mw-RJq" secondAttribute="centerY" id="VGe-yC-oxN"/>
+                            <constraint firstItem="ggX-cr-WPZ" firstAttribute="centerX" secondItem="cCq-Mw-RJq" secondAttribute="centerX" id="PZF-FQ-uCR"/>
+                            <constraint firstItem="Ws7-ac-Igq" firstAttribute="centerX" secondItem="ggX-cr-WPZ" secondAttribute="centerX" id="Rv0-Hm-yYU"/>
+                            <constraint firstItem="djW-xX-je1" firstAttribute="centerX" secondItem="ggX-cr-WPZ" secondAttribute="centerX" id="UdS-mw-GrH"/>
+                            <constraint firstItem="djW-xX-je1" firstAttribute="top" secondItem="Ws7-ac-Igq" secondAttribute="bottom" constant="15" id="Xao-P9-OOA"/>
                             <constraint firstItem="njn-tx-sYA" firstAttribute="top" secondItem="dWQ-DV-3Eq" secondAttribute="bottom" id="giJ-Df-66c"/>
                             <constraint firstAttribute="trailing" secondItem="dWQ-DV-3Eq" secondAttribute="trailing" id="ma2-rB-OAs"/>
+                            <constraint firstItem="djW-xX-je1" firstAttribute="trailing" secondItem="cCq-Mw-RJq" secondAttribute="trailingMargin" id="pKf-Wr-TcC"/>
+                            <constraint firstItem="Ws7-ac-Igq" firstAttribute="top" secondItem="ggX-cr-WPZ" secondAttribute="bottom" constant="41" id="wTX-Bu-ZZS"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="messageLable" destination="ehx-S3-Tqm" id="mid-X1-GPl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TA0-UN-euH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

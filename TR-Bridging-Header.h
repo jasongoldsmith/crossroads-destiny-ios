@@ -12,6 +12,6 @@
 
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "SDWebImage/UIImageView+WebCache.h"
-
+#import "TTTAttributedLabel/TTTAttributedLabel.h"
 
 #endif
