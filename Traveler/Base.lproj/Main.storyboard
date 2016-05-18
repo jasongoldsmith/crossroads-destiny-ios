@@ -1884,6 +1884,44 @@
             </objects>
             <point key="canvasLocation" x="1486" y="-320"/>
         </scene>
+        <!--Sign Up Verificatio View Controller-->
+        <scene sceneID="OJF-Sb-wzb">
+            <objects>
+                <viewController storyboardIdentifier="verifyAccount" id="bMr-vX-UhF" customClass="TRSignUpVerificatioViewController" customModule="Traveler" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QOd-qg-fx3"/>
+                        <viewControllerLayoutGuide type="bottom" id="njn-tx-sYA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cCq-Mw-RJq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrLoadingimgBackgroundMap" translatesAutoresizingMaskIntoConstraints="NO" id="dWQ-DV-3Eq">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please verify your account!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIA-Ey-5Yl">
+                                <rect key="frame" x="196.5" y="289" width="207" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dWQ-DV-3Eq" firstAttribute="top" secondItem="cCq-Mw-RJq" secondAttribute="top" id="7Ce-im-FVR"/>
+                            <constraint firstItem="oIA-Ey-5Yl" firstAttribute="centerX" secondItem="cCq-Mw-RJq" secondAttribute="centerX" id="Ced-aX-PYP"/>
+                            <constraint firstItem="dWQ-DV-3Eq" firstAttribute="leading" secondItem="cCq-Mw-RJq" secondAttribute="leading" id="NaH-1r-LTM"/>
+                            <constraint firstItem="oIA-Ey-5Yl" firstAttribute="centerY" secondItem="cCq-Mw-RJq" secondAttribute="centerY" id="VGe-yC-oxN"/>
+                            <constraint firstItem="njn-tx-sYA" firstAttribute="top" secondItem="dWQ-DV-3Eq" secondAttribute="bottom" id="giJ-Df-66c"/>
+                            <constraint firstAttribute="trailing" secondItem="dWQ-DV-3Eq" secondAttribute="trailing" id="ma2-rB-OAs"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TA0-UN-euH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2096" y="-327"/>
+        </scene>
     </scenes>
     <resources>
         <image name="EventHeaderBg" width="375" height="129"/>

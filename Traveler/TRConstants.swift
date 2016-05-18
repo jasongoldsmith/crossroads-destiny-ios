@@ -12,6 +12,8 @@ struct K {
             static let TR_UserID        = "TR_UserID"
             static let TR_USER_IMAGE    = "TR_USER_IMAGE"
             static let TR_USER_CLAN_ID  = "TR_USER_CLAN_ID"
+            static let TR_USER_PSN_VERIFIED  = "TR_USER_PSN_VERIFIED"
+            static let TR_USER_XBOX_VERIFIED  = "TR_USER_XBOX_VERIFIED"
         }
     }
     
@@ -43,6 +45,7 @@ struct K {
         static let TR_UPDATE_USER        =   "/api/v1/a/user/update"
         static let TR_FORGOT_PASSWORD    =   "/api/v1/auth/request/resetPassword"
         static let TR_FETCH_EVENT        =   "/api/v1/a/event/listById"
+        static let TR_APP_TRACKING        =  "/api/v1/a/mixpanel/track"
     }
     
     struct StoryBoard {
@@ -62,6 +65,7 @@ struct K {
         static let VIEW_CONTROLLER_PROFILE                 = "profileVC"
         static let VIEW_CONTROLLER_SEND_REPORT             = "sendReportVC"
         static let VIEW_CONTROLLER_FORGOT_PASSWORD         = "forgotPassword"
+        static let VIEW_CONTROLLER_VERIFY_ACCOUNT          = "verifyAccount"
     }
     
     struct ActivityType {
@@ -114,6 +118,11 @@ enum NOTIFICATION_NAME: String {
 
 enum NOTIFICATION_TRACKABLE: Int {
     case TRACKABLE
+}
+
+enum APP_TRACKING_DATA_TYPE: String {
+    case TRACKING_EVENT = "event"
+    case TRACKING_PUSH_NOTIFICATION = "pushNotification"
 }
 
 struct ScreenSize

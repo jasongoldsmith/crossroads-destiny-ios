@@ -6,10 +6,6 @@
 //  Copyright © 2016 Forcecatalyst. All rights reserved.
 //
 
-import Foundation
-import Alamofire
-import SwiftyJSON
-
 
 class TRLeaveEventRequest: TRRequest {
     

@@ -6,7 +6,6 @@
 //  Copyright © 2016 Forcecatalyst. All rights reserved.
 //
 
-import UIKit
 
 class TRForgotPasswordRequest: TRRequest {
 

@@ -30,14 +30,25 @@ class TRRootViewController: TRBaseViewController {
         super.viewDidAppear(animated)
         
         if (TRUserInfo.isUserLoggedIn()) {
-            _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: true, indicatorTopConstraint: ACTIVITY_INDICATOR_TOP_CONSTRAINT, completion: { (didSucceed) -> () in
-                if(didSucceed == true) {
-                    TRApplicationManager.sharedInstance.addSlideMenuController(self, pushData: self.pushNotificationData)
-                    self.pushNotificationData = nil
-                } else {
-                    self.appManager.log.debug("Failed")
-                }
-            })
+            if (TRUserInfo.isUserVerified()) {
+                _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: true, indicatorTopConstraint: ACTIVITY_INDICATOR_TOP_CONSTRAINT, completion: { (didSucceed) -> () in
+                    if(didSucceed == true) {
+                        TRApplicationManager.sharedInstance.addSlideMenuController(self, pushData: self.pushNotificationData)
+                        self.pushNotificationData = nil
+                    } else {
+                        self.appManager.log.debug("Failed")
+                    }
+                })
+            } else {
+                
+                let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+                let verifyAccountViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_VERIFY_ACCOUNT) as! TRSignUpVerificatioViewController
+                self.presentViewController(verifyAccountViewController, animated: true, completion: { 
+                    
+                })
+                
+                //Show User that he needs to verify
+            }
         } else {
             self.performSegueWithIdentifier("TRLoginOptionView", sender: self)
         }

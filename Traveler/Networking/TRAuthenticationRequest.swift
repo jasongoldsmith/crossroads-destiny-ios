@@ -6,10 +6,6 @@
 //  Copyright © 2016 Forcecatalyst. All rights reserved.
 //
 
-import Foundation
-import Alamofire
-import SwiftyJSON
-
 
 class TRAuthenticationRequest: TRRequest {
     
@@ -50,7 +46,10 @@ class TRAuthenticationRequest: TRRequest {
             userData.userID         = responseObject["value"]["_id"].string
             userData.psnID          = responseObject["value"]["psnID"].string
             userData.userImageURL   = responseObject["value"]["imageUrl"].string
-
+            userData.userClanID   = responseObject["value"]["clanId"].string
+            userData.psnVerified   = responseObject["value"]["psnVerified"].string
+            userData.xboxVerified   = responseObject["value"]["xboxVerified"].string
+            
             TRUserInfo.saveUserData(userData)
             completion(didSucceed: true )
         }
@@ -88,6 +87,8 @@ class TRAuthenticationRequest: TRRequest {
             userData.psnID          = responseObject["value"]["psnID"].string
             userData.userImageURL   = responseObject["value"]["imageUrl"].string
             userData.userClanID     = responseObject["value"]["clanId"].string
+            userData.psnVerified   = responseObject["value"]["psnVerified"].string
+            userData.xboxVerified   = responseObject["value"]["xboxVerified"].string
 
             TRUserInfo.saveUserData(userData)
             completion(didSucceed: true )

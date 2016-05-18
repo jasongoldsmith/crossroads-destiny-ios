@@ -16,6 +16,10 @@ class TRUserInfo: NSObject {
     var userID          :String?
     var userImageURL    :String?
     var userClanID      :String?
+    var psnVerified     :String?
+    var xboxVerified    :String?
+    
+    static let User_Verified = "VERIFIED"
     
     class func saveUserData (userData:TRUserInfo?) -> Bool {
         
@@ -29,8 +33,12 @@ class TRUserInfo: NSObject {
         userDefaults.setValue(userData?.userID, forKeyPath: K.UserDefaultKey.UserAccountInfo.TR_UserID)
         userDefaults.setValue(userData?.userImageURL  , forKeyPath: K.UserDefaultKey.UserAccountInfo.TR_USER_IMAGE)
         userDefaults.setValue(userData?.userClanID  , forKeyPath: K.UserDefaultKey.UserAccountInfo.TR_USER_CLAN_ID)
+        userDefaults.setValue(userData?.psnVerified  , forKeyPath: K.UserDefaultKey.UserAccountInfo.TR_USER_PSN_VERIFIED)
+        userDefaults.setValue(userData?.xboxVerified  , forKeyPath: K.UserDefaultKey.UserAccountInfo.TR_USER_XBOX_VERIFIED)
         
         userDefaults.synchronize()
+        
+        self.isUserVerified()
         
         return false
     }
@@ -53,6 +61,21 @@ class TRUserInfo: NSObject {
             return true
         }
         
+        return false
+    }
+    
+    class func isUserVerified () -> Bool {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        if ((userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_USER_PSN_VERIFIED) != nil) &&
+            (userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_USER_PSN_VERIFIED) as? String == User_Verified)
+            ||
+            (userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_USER_XBOX_VERIFIED) != nil) &&
+            (userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_USER_XBOX_VERIFIED) as? String == User_Verified))  {
+            
+            return true
+        }
+
         return false
     }
     

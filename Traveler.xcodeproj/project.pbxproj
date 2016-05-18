@@ -34,6 +34,12 @@
 		332BC16D1CEB88F800012B45 /* TRGetEventByEventID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332BC16C1CEB88F800012B45 /* TRGetEventByEventID.swift */; };
 		332BC16E1CEB88F800012B45 /* TRGetEventByEventID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332BC16C1CEB88F800012B45 /* TRGetEventByEventID.swift */; };
 		332BC16F1CEB88F800012B45 /* TRGetEventByEventID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332BC16C1CEB88F800012B45 /* TRGetEventByEventID.swift */; };
+		332BC1751CEBD80C00012B45 /* TRSignUpVerificatioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332BC1741CEBD80C00012B45 /* TRSignUpVerificatioViewController.swift */; };
+		332BC1761CEBD80C00012B45 /* TRSignUpVerificatioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332BC1741CEBD80C00012B45 /* TRSignUpVerificatioViewController.swift */; };
+		332BC1771CEBD80C00012B45 /* TRSignUpVerificatioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332BC1741CEBD80C00012B45 /* TRSignUpVerificatioViewController.swift */; };
+		332BC1791CEBECDB00012B45 /* TRAppTrackingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332BC1781CEBECDB00012B45 /* TRAppTrackingRequest.swift */; };
+		332BC17A1CEBECDB00012B45 /* TRAppTrackingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332BC1781CEBECDB00012B45 /* TRAppTrackingRequest.swift */; };
+		332BC17B1CEBECDB00012B45 /* TRAppTrackingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332BC1781CEBECDB00012B45 /* TRAppTrackingRequest.swift */; };
 		332C9CE41C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
 		332C9CE51C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
 		332C9CE61C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
@@ -255,6 +261,8 @@
 		3329B5931C9B7A8500CC1F9B /* TRPushNotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRPushNotificationView.swift; sourceTree = "<group>"; };
 		3329B5971C9B7A9000CC1F9B /* TRPushNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRPushNotificationView.xib; sourceTree = "<group>"; };
 		332BC16C1CEB88F800012B45 /* TRGetEventByEventID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRGetEventByEventID.swift; sourceTree = "<group>"; };
+		332BC1741CEBD80C00012B45 /* TRSignUpVerificatioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRSignUpVerificatioViewController.swift; sourceTree = "<group>"; };
+		332BC1781CEBECDB00012B45 /* TRAppTrackingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRAppTrackingRequest.swift; sourceTree = "<group>"; };
 		332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLeaveEventRequest.swift; sourceTree = "<group>"; };
 		333E1CA31CC54A27000B843C /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		3369499B1CC5CFEB004979C0 /* NSBundleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSBundleExtension.swift; path = ../Networking/NSBundleExtension.swift; sourceTree = "<group>"; };
@@ -452,6 +460,7 @@
 				33D067661CD40AF600E05EF1 /* TRUpdateUser.swift */,
 				33E6CA801CE65CAA003408CB /* TRForgotPasswordRequest.swift */,
 				332BC16C1CEB88F800012B45 /* TRGetEventByEventID.swift */,
+				332BC1781CEBECDB00012B45 /* TRAppTrackingRequest.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -552,6 +561,7 @@
 				3398E1AC1CAB3D3D001F022B /* TRProfileViewController.swift */,
 				33974F191CADD9CD0015C9D5 /* TRSendReportViewController.swift */,
 				33A029AF1CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift */,
+				332BC1741CEBD80C00012B45 /* TRSignUpVerificatioViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -821,6 +831,7 @@
 				33104BFF1C97B1F40024D601 /* TRActivityIndicatorView.swift in Sources */,
 				62C5DF791C79769C0039A88E /* TREventListViewController.swift in Sources */,
 				33742D9D1C80FFAE00C46742 /* TRGetEventsList.swift in Sources */,
+				332BC1751CEBD80C00012B45 /* TRSignUpVerificatioViewController.swift in Sources */,
 				6294972D1C7BB5F3005E4F91 /* TRAuthenticationRequest.swift in Sources */,
 				33A029B01CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift in Sources */,
 				6238D2E21C7ADE8E0085C8AA /* TRUserInfo.swift in Sources */,
@@ -831,6 +842,7 @@
 				338AECFE1C9D03AE008B064F /* Utility.swift in Sources */,
 				338404C81CC5830E00AB543C /* TRRootViewController.swift in Sources */,
 				3380EF331CC94745000A9289 /* TREventUpcomingNoCheckPointCell.swift in Sources */,
+				332BC1791CEBECDB00012B45 /* TRAppTrackingRequest.swift in Sources */,
 				3398E1A51CAB18C7001F022B /* TREventInformationViewController.swift in Sources */,
 				339D8F281C90F77E00A2620F /* TRActivitySelectionCell.swift in Sources */,
 				3380EF2F1CC94725000A9289 /* TREventUpcomingWithCheckPointCell.swift in Sources */,
@@ -883,6 +895,7 @@
 				62C1FF681C77D83800A78798 /* TRSignInViewController.swift in Sources */,
 				33742D8D1C7FC66A00C46742 /* TRApplicationManager.swift in Sources */,
 				3380EF301CC94725000A9289 /* TREventUpcomingWithCheckPointCell.swift in Sources */,
+				332BC17A1CEBECDB00012B45 /* TRAppTrackingRequest.swift in Sources */,
 				629497331C7C04E1005E4F91 /* ViewControllerExtension.swift in Sources */,
 				62C1FF451C77C15C00A78798 /* TravelerTests.swift in Sources */,
 				33A029B11CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift in Sources */,
@@ -891,6 +904,7 @@
 				33FDB9AF1C850B960066237C /* EventButton.swift in Sources */,
 				334E05BF1C939D7B00973068 /* AppDelegate.swift in Sources */,
 				33FDB9B71C8621150066237C /* TRCreateEventRequest.swift in Sources */,
+				332BC1761CEBD80C00012B45 /* TRSignUpVerificatioViewController.swift in Sources */,
 				3398E1AE1CAB3D3D001F022B /* TRProfileViewController.swift in Sources */,
 				336DD7801CDC310A00CCCB04 /* TRNavInteractionAnimator.swift in Sources */,
 				33974F131CADA0E40015C9D5 /* ExSlideMenuController.swift in Sources */,
@@ -951,6 +965,7 @@
 				62C1FF691C77D83800A78798 /* TRSignInViewController.swift in Sources */,
 				33742D8E1C7FC66B00C46742 /* TRApplicationManager.swift in Sources */,
 				3380EF311CC94725000A9289 /* TREventUpcomingWithCheckPointCell.swift in Sources */,
+				332BC17B1CEBECDB00012B45 /* TRAppTrackingRequest.swift in Sources */,
 				629497341C7C04E1005E4F91 /* ViewControllerExtension.swift in Sources */,
 				62C1FF501C77C15C00A78798 /* TravelerUITests.swift in Sources */,
 				33A029B21CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift in Sources */,
@@ -959,6 +974,7 @@
 				33FDB9B01C850B970066237C /* EventButton.swift in Sources */,
 				334E05C01C939D7C00973068 /* AppDelegate.swift in Sources */,
 				33FDB9B81C8621160066237C /* TRCreateEventRequest.swift in Sources */,
+				332BC1771CEBD80C00012B45 /* TRSignUpVerificatioViewController.swift in Sources */,
 				3398E1AF1CAB3D3D001F022B /* TRProfileViewController.swift in Sources */,
 				336DD7811CDC310A00CCCB04 /* TRNavInteractionAnimator.swift in Sources */,
 				33974F121CADA0E40015C9D5 /* ExSlideMenuController.swift in Sources */,
