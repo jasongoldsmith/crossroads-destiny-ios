@@ -106,6 +106,7 @@ enum UIUserInterfaceIdiom : Int
     case Pad
 }
 
+// Used to check what kind of Notification it is.
 enum NOTIFICATION_NAME: String {
     case NOTI_LEAVE = "Leave"
     case NOTI_JOIN  = "Join"
