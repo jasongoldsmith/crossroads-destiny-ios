@@ -40,6 +40,12 @@
 		332BC1791CEBECDB00012B45 /* TRAppTrackingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332BC1781CEBECDB00012B45 /* TRAppTrackingRequest.swift */; };
 		332BC17A1CEBECDB00012B45 /* TRAppTrackingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332BC1781CEBECDB00012B45 /* TRAppTrackingRequest.swift */; };
 		332BC17B1CEBECDB00012B45 /* TRAppTrackingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332BC1781CEBECDB00012B45 /* TRAppTrackingRequest.swift */; };
+		332BC17D1CED03AD00012B45 /* TRGetAllDestinyGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332BC17C1CED03AD00012B45 /* TRGetAllDestinyGroups.swift */; };
+		332BC17E1CED03AD00012B45 /* TRGetAllDestinyGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332BC17C1CED03AD00012B45 /* TRGetAllDestinyGroups.swift */; };
+		332BC17F1CED03AD00012B45 /* TRGetAllDestinyGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332BC17C1CED03AD00012B45 /* TRGetAllDestinyGroups.swift */; };
+		332BC1811CED143D00012B45 /* TRSelectGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332BC1801CED143D00012B45 /* TRSelectGroupsViewController.swift */; };
+		332BC1821CED143D00012B45 /* TRSelectGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332BC1801CED143D00012B45 /* TRSelectGroupsViewController.swift */; };
+		332BC1831CED143D00012B45 /* TRSelectGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332BC1801CED143D00012B45 /* TRSelectGroupsViewController.swift */; };
 		332C9CE41C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
 		332C9CE51C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
 		332C9CE61C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
@@ -263,6 +269,8 @@
 		332BC16C1CEB88F800012B45 /* TRGetEventByEventID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRGetEventByEventID.swift; sourceTree = "<group>"; };
 		332BC1741CEBD80C00012B45 /* TRSignUpVerificatioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRSignUpVerificatioViewController.swift; sourceTree = "<group>"; };
 		332BC1781CEBECDB00012B45 /* TRAppTrackingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRAppTrackingRequest.swift; sourceTree = "<group>"; };
+		332BC17C1CED03AD00012B45 /* TRGetAllDestinyGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRGetAllDestinyGroups.swift; sourceTree = "<group>"; };
+		332BC1801CED143D00012B45 /* TRSelectGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRSelectGroupsViewController.swift; sourceTree = "<group>"; };
 		332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLeaveEventRequest.swift; sourceTree = "<group>"; };
 		333E1CA31CC54A27000B843C /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		3369499B1CC5CFEB004979C0 /* NSBundleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSBundleExtension.swift; path = ../Networking/NSBundleExtension.swift; sourceTree = "<group>"; };
@@ -461,6 +469,7 @@
 				33E6CA801CE65CAA003408CB /* TRForgotPasswordRequest.swift */,
 				332BC16C1CEB88F800012B45 /* TRGetEventByEventID.swift */,
 				332BC1781CEBECDB00012B45 /* TRAppTrackingRequest.swift */,
+				332BC17C1CED03AD00012B45 /* TRGetAllDestinyGroups.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -562,6 +571,7 @@
 				33974F191CADD9CD0015C9D5 /* TRSendReportViewController.swift */,
 				33A029AF1CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift */,
 				332BC1741CEBD80C00012B45 /* TRSignUpVerificatioViewController.swift */,
+				332BC1801CED143D00012B45 /* TRSelectGroupsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -820,6 +830,7 @@
 				33095FDF1CDD271A0094DF49 /* TRAlignableUILabel.swift in Sources */,
 				62C1FF671C77D83800A78798 /* TRSignInViewController.swift in Sources */,
 				33974F1A1CADD9CD0015C9D5 /* TRSendReportViewController.swift in Sources */,
+				332BC1811CED143D00012B45 /* TRSelectGroupsViewController.swift in Sources */,
 				33742D801C7FBDF100C46742 /* TRConstants.swift in Sources */,
 				332C9CE41C8B89370092989E /* TRLeaveEventRequest.swift in Sources */,
 				33742D881C7FC4B400C46742 /* TRApplicationManager.swift in Sources */,
@@ -851,6 +862,7 @@
 				33974F141CADA0E50015C9D5 /* ExSlideMenuController.swift in Sources */,
 				33742D8A1C7FC51700C46742 /* TRStoryBoardManager.swift in Sources */,
 				3329B58C1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */,
+				332BC17D1CED03AD00012B45 /* TRGetAllDestinyGroups.swift in Sources */,
 				3398E1AD1CAB3D3D001F022B /* TRProfileViewController.swift in Sources */,
 				3380EF221CC94517000A9289 /* TRBaseEventTableCell.swift in Sources */,
 				33F427491C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */,
@@ -889,6 +901,7 @@
 				33974F1B1CADD9CD0015C9D5 /* TRSendReportViewController.swift in Sources */,
 				3307B27B1CCF0333004F74F8 /* TRFireBaseListener.swift in Sources */,
 				333E1CA51CC54A27000B843C /* UIViewExtension.swift in Sources */,
+				332BC1821CED143D00012B45 /* TRSelectGroupsViewController.swift in Sources */,
 				6238D2E31C7ADE8E0085C8AA /* TRUserInfo.swift in Sources */,
 				33095FE01CDD27400094DF49 /* TRAlignableUILabel.swift in Sources */,
 				332C9CE51C8B89370092989E /* TRLeaveEventRequest.swift in Sources */,
@@ -932,6 +945,7 @@
 				3380EF231CC94517000A9289 /* TRBaseEventTableCell.swift in Sources */,
 				33FDB9A91C84F82F0066237C /* TRCreatorInfo.swift in Sources */,
 				33742D9E1C80FFAE00C46742 /* TRGetEventsList.swift in Sources */,
+				332BC17E1CED03AD00012B45 /* TRGetAllDestinyGroups.swift in Sources */,
 				33742D9A1C800A5D00C46742 /* UISegmentedControlExtension.swift in Sources */,
 				33FDB9D21C8778150066237C /* TRJoinEventRequest.swift in Sources */,
 				3380EF341CC94745000A9289 /* TREventUpcomingNoCheckPointCell.swift in Sources */,
@@ -959,6 +973,7 @@
 				33974F1C1CADD9CD0015C9D5 /* TRSendReportViewController.swift in Sources */,
 				3307B27C1CCF0333004F74F8 /* TRFireBaseListener.swift in Sources */,
 				333E1CA61CC54A27000B843C /* UIViewExtension.swift in Sources */,
+				332BC1831CED143D00012B45 /* TRSelectGroupsViewController.swift in Sources */,
 				6238D2E41C7ADE8E0085C8AA /* TRUserInfo.swift in Sources */,
 				33095FE11CDD27410094DF49 /* TRAlignableUILabel.swift in Sources */,
 				332C9CE61C8B89370092989E /* TRLeaveEventRequest.swift in Sources */,
@@ -1002,6 +1017,7 @@
 				3380EF241CC94517000A9289 /* TRBaseEventTableCell.swift in Sources */,
 				33FDB9AA1C84F8300066237C /* TRCreatorInfo.swift in Sources */,
 				33742D9F1C80FFAE00C46742 /* TRGetEventsList.swift in Sources */,
+				332BC17F1CED03AD00012B45 /* TRGetAllDestinyGroups.swift in Sources */,
 				33742D9B1C800A5E00C46742 /* UISegmentedControlExtension.swift in Sources */,
 				33FDB9D31C8778150066237C /* TRJoinEventRequest.swift in Sources */,
 				3380EF351CC94745000A9289 /* TREventUpcomingNoCheckPointCell.swift in Sources */,

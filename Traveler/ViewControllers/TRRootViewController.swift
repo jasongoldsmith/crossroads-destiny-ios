@@ -31,9 +31,20 @@ class TRRootViewController: TRBaseViewController {
         
         if (TRUserInfo.isUserLoggedIn()) {
             if (TRUserInfo.isUserVerified()) {
+                
+                //If user is verified, check if he has Group, If no group then ask him to choose Group
+                if let userClan = TRUserInfo.getUserClanID()  where userClan == "clan_id_not_set" {
+                    //self.performSegueWithIdentifier("TRGroupsListView", sender: self)
+                }
+                
                 _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: true, indicatorTopConstraint: ACTIVITY_INDICATOR_TOP_CONSTRAINT, completion: { (didSucceed) -> () in
+                    
+                    var showEventListLandingPage = false
                     if(didSucceed == true) {
-                        TRApplicationManager.sharedInstance.addSlideMenuController(self, pushData: self.pushNotificationData)
+                        if (TRApplicationManager.sharedInstance.eventsList.count > 0) {
+                            showEventListLandingPage = true
+                        }
+                        TRApplicationManager.sharedInstance.addSlideMenuController(self, pushData: self.pushNotificationData, showLandingPage: showEventListLandingPage)
                         self.pushNotificationData = nil
                     } else {
                         self.appManager.log.debug("Failed")
