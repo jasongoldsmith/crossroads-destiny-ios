@@ -7,15 +7,16 @@
 //
 
 import Foundation
+import TTTAttributedLabel
 import UIKit
 
-class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, TTTAttributedLabelDelegate {
     
     
     @IBOutlet weak var avatorImageView: UIImageView?
     @IBOutlet weak var avatorUserName: UILabel?
     @IBOutlet weak var backGroundImageView: UIImageView?
-    @IBOutlet weak var buildNumberLabel: UILabel!
+    @IBOutlet weak var buildNumberLabel: TTTAttributedLabel!
     
     var currentUser: TRPlayerInfo?
     
@@ -23,9 +24,27 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         super.viewDidLoad()
         
         //Update build number
-        self.buildNumberLabel.text = "Version: \(NSBundle.mainBundle().releaseVersionNumber!) - Build: \(NSBundle.mainBundle().buildVersionNumber!)"
+        self.addVersionAndLegalAttributedLabel()
     }
     
+    func addVersionAndLegalAttributedLabel () {
+        
+        let messageString = "Version: \(NSBundle.mainBundle().releaseVersionNumber!) - Build: \(NSBundle.mainBundle().buildVersionNumber!)  |  Legal"
+        let legalString = "Legal"
+        self.buildNumberLabel.text = messageString
+        
+        // Add HyperLink to Bungie
+        let nsString = messageString as NSString
+        let range = nsString.rangeOfString(legalString)
+        let url = NSURL(string: "https://www.bungie.net/")!
+        let subscriptionNoticeLinkAttributes = [
+            NSUnderlineStyleAttributeName: NSNumber(bool:false),
+            ]
+        
+        self.buildNumberLabel?.linkAttributes = subscriptionNoticeLinkAttributes
+        self.buildNumberLabel?.addLinkToURL(url, withRange: range)
+        self.buildNumberLabel?.delegate = self
+    }
 
     func updateView () {
         self.currentUser = TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()
@@ -110,7 +129,12 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         self.presentViewController(navigationController, animated: true, completion: nil)
     }
     
+    func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
+        UIApplication.sharedApplication().openURL(url)
+    }
+
     //MARK:- Profile Image Picker Methods
+    /*
     func presentProileImagePickerView () {
         let imageController = UIImagePickerController()
         imageController.editing = false
@@ -156,4 +180,5 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         self.imagePickerClosed(picker)
     }
+ */
 }
