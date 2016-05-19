@@ -13,6 +13,8 @@ class TRForgotPasswordViewController: TRBaseViewController {
     @IBOutlet weak var psnIDTextField: UITextField!
     @IBOutlet weak var resetPasswordButton: UIButton!
     @IBOutlet weak var resetButtonBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var resetTextBoxParentView: UIView!
+    @IBOutlet weak var titleMessageLable: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,9 +88,19 @@ class TRForgotPasswordViewController: TRBaseViewController {
     func forgotPasswordForPsnID (psnId: String) {
         _ = TRForgotPasswordRequest().resetUserPassword(psnId, completion: { (didSucceed) in
             if (didSucceed == true) {
-                self.dismissViewController(true, dismissed: { (didDismiss) in
-                    self.psnIDTextField!.resignFirstResponder()
-                })
+                self.resetTextBoxParentView.hidden = true
+                
+                let stringUnderLineAttr = [NSUnderlineStyleAttributeName: NSNumber(bool:true)]
+                let firstString = NSAttributedString(string: "A reset password message has been sent to your ")
+                let middleString = NSAttributedString(string: "bungie.net", attributes: stringUnderLineAttr)
+                let lastString = NSAttributedString(string: " account!")
+                
+                let finalString = NSMutableAttributedString()
+                finalString.appendAttributedString(firstString)
+                finalString.appendAttributedString(middleString)
+                finalString.appendAttributedString(lastString)
+                self.titleMessageLable.attributedText = finalString
+                
             } else {
             }
         })

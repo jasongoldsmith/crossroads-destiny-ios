@@ -539,6 +539,8 @@
                         <outlet property="psnIDTextField" destination="Tk8-zZ-Sx3" id="S84-84-X0J"/>
                         <outlet property="resetButtonBottomConstraint" destination="bIQ-VX-Sgs" id="fne-cP-nBd"/>
                         <outlet property="resetPasswordButton" destination="7Cn-fI-BQD" id="K1Q-ip-a9P"/>
+                        <outlet property="resetTextBoxParentView" destination="61I-3M-JJz" id="m4G-rm-ly5"/>
+                        <outlet property="titleMessageLable" destination="sid-xD-sch" id="rZi-EQ-6jO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xs5-2R-nNJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
