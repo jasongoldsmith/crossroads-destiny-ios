@@ -99,7 +99,7 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
     }
     
     @IBAction func resetPassWordPressed (sender: AnyObject) {
-        TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("We're sorry! That feature is coming soon")
+        self.performSegueWithIdentifier("showChangePwView", sender: self)
     }
     
     @IBAction func sendReport () {

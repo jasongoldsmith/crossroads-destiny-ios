@@ -55,6 +55,16 @@ class TRForgotPasswordViewController: TRBaseViewController {
         return true
     }
     
+    @IBAction func textFieldDidDidUpdate (textField: UITextField) {
+        if textField.text?.characters.count >= 4 {
+            self.resetPasswordButton.enabled = true
+            self.resetPasswordButton.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
+        } else {
+            self.resetPasswordButton.enabled = false
+            self.resetPasswordButton.backgroundColor = UIColor(red: 54/255, green: 93/255, blue: 101/255, alpha: 1)
+        }
+    }
+    
     @IBAction func backButtonPressed(sender: UIButton) {
         
         if self.psnIDTextField.isFirstResponder() {
@@ -77,7 +87,11 @@ class TRForgotPasswordViewController: TRBaseViewController {
     }
     
     func keyboardWillShow(sender: NSNotification) {
-        self.resetButtonBottomConstraint!.constant = 215
+        
+        let userInfo: [NSObject : AnyObject] = sender.userInfo!
+        let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
+
+        self.resetButtonBottomConstraint!.constant = keyboardSize.height
     }
     
     func keyboardWillHide(sender: NSNotification) {
@@ -101,6 +115,12 @@ class TRForgotPasswordViewController: TRBaseViewController {
                 finalString.appendAttributedString(lastString)
                 self.titleMessageLable.attributedText = finalString
                 
+                self.resetPasswordButton.enabled = false
+                self.resetPasswordButton.backgroundColor = UIColor(red: 54/255, green: 93/255, blue: 101/255, alpha: 1)
+                
+                if self.psnIDTextField?.isFirstResponder() == true {
+                    self.psnIDTextField?.resignFirstResponder()
+                }
             } else {
             }
         })

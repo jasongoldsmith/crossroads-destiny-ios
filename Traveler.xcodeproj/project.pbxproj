@@ -49,6 +49,9 @@
 		332C9CE41C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
 		332C9CE51C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
 		332C9CE61C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
+		3333BDB71CED6E3C001C9E1A /* TRChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3333BDB61CED6E3C001C9E1A /* TRChangePasswordViewController.swift */; };
+		3333BDB81CED6E3C001C9E1A /* TRChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3333BDB61CED6E3C001C9E1A /* TRChangePasswordViewController.swift */; };
+		3333BDB91CED6E3C001C9E1A /* TRChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3333BDB61CED6E3C001C9E1A /* TRChangePasswordViewController.swift */; };
 		333E1CA41CC54A27000B843C /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333E1CA31CC54A27000B843C /* UIViewExtension.swift */; };
 		333E1CA51CC54A27000B843C /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333E1CA31CC54A27000B843C /* UIViewExtension.swift */; };
 		333E1CA61CC54A27000B843C /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333E1CA31CC54A27000B843C /* UIViewExtension.swift */; };
@@ -272,6 +275,7 @@
 		332BC17C1CED03AD00012B45 /* TRGetAllDestinyGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRGetAllDestinyGroups.swift; sourceTree = "<group>"; };
 		332BC1801CED143D00012B45 /* TRSelectGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRSelectGroupsViewController.swift; sourceTree = "<group>"; };
 		332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLeaveEventRequest.swift; sourceTree = "<group>"; };
+		3333BDB61CED6E3C001C9E1A /* TRChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRChangePasswordViewController.swift; sourceTree = "<group>"; };
 		333E1CA31CC54A27000B843C /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		3369499B1CC5CFEB004979C0 /* NSBundleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSBundleExtension.swift; path = ../Networking/NSBundleExtension.swift; sourceTree = "<group>"; };
 		336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
@@ -572,6 +576,7 @@
 				33A029AF1CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift */,
 				332BC1741CEBD80C00012B45 /* TRSignUpVerificatioViewController.swift */,
 				332BC1801CED143D00012B45 /* TRSelectGroupsViewController.swift */,
+				3333BDB61CED6E3C001C9E1A /* TRChangePasswordViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -858,6 +863,7 @@
 				339D8F281C90F77E00A2620F /* TRActivitySelectionCell.swift in Sources */,
 				3380EF2F1CC94725000A9289 /* TREventUpcomingWithCheckPointCell.swift in Sources */,
 				3380EF2B1CC946F4000A9289 /* TREventCurrentNoCheckPointCell.swift in Sources */,
+				3333BDB71CED6E3C001C9E1A /* TRChangePasswordViewController.swift in Sources */,
 				33E6CA851CEA49AC003408CB /* TRPushNotification.swift in Sources */,
 				33974F141CADA0E50015C9D5 /* ExSlideMenuController.swift in Sources */,
 				33742D8A1C7FC51700C46742 /* TRStoryBoardManager.swift in Sources */,
@@ -920,6 +926,7 @@
 				332BC1761CEBD80C00012B45 /* TRSignUpVerificatioViewController.swift in Sources */,
 				3398E1AE1CAB3D3D001F022B /* TRProfileViewController.swift in Sources */,
 				336DD7801CDC310A00CCCB04 /* TRNavInteractionAnimator.swift in Sources */,
+				3333BDB81CED6E3C001C9E1A /* TRChangePasswordViewController.swift in Sources */,
 				33974F131CADA0E40015C9D5 /* ExSlideMenuController.swift in Sources */,
 				3398E1B31CAB7EE0001F022B /* TREventInfoPlayerCell.swift in Sources */,
 				3380EF281CC946CA000A9289 /* TREventCurrentWithCheckPointCell.swift in Sources */,
@@ -992,6 +999,7 @@
 				332BC1771CEBD80C00012B45 /* TRSignUpVerificatioViewController.swift in Sources */,
 				3398E1AF1CAB3D3D001F022B /* TRProfileViewController.swift in Sources */,
 				336DD7811CDC310A00CCCB04 /* TRNavInteractionAnimator.swift in Sources */,
+				3333BDB91CED6E3C001C9E1A /* TRChangePasswordViewController.swift in Sources */,
 				33974F121CADA0E40015C9D5 /* ExSlideMenuController.swift in Sources */,
 				3398E1B41CAB7EE0001F022B /* TREventInfoPlayerCell.swift in Sources */,
 				3380EF291CC946CA000A9289 /* TREventCurrentWithCheckPointCell.swift in Sources */,
