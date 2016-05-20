@@ -48,6 +48,7 @@ struct K {
         static let TR_APP_TRACKING       =   "/api/v1/a/mixpanel/track"
         static let TR_GET_GROUPS         =   "/api/v1/a/account/group/list"
         static let TR_UPDATE_GROUPS      =   "/api/v1/a/user/updateGroup"
+        static let TR_GET_GROUP_BY_ID    =   "/api/v1/a/account/group/search/"
     }
     
     struct StoryBoard {

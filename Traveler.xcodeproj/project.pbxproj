@@ -150,6 +150,9 @@
 		338437161CEF815100AB27F3 /* TRLegalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338437151CEF815100AB27F3 /* TRLegalViewController.swift */; };
 		338437171CEF815100AB27F3 /* TRLegalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338437151CEF815100AB27F3 /* TRLegalViewController.swift */; };
 		338437181CEF815100AB27F3 /* TRLegalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338437151CEF815100AB27F3 /* TRLegalViewController.swift */; };
+		3384371A1CEFB34700AB27F3 /* TRGetGroupByIDRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338437191CEFB34700AB27F3 /* TRGetGroupByIDRequest.swift */; };
+		3384371B1CEFB34700AB27F3 /* TRGetGroupByIDRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338437191CEFB34700AB27F3 /* TRGetGroupByIDRequest.swift */; };
+		3384371C1CEFB34700AB27F3 /* TRGetGroupByIDRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338437191CEFB34700AB27F3 /* TRGetGroupByIDRequest.swift */; };
 		338AECFE1C9D03AE008B064F /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338AECFD1C9D03AE008B064F /* Utility.swift */; };
 		338BB1FB1CEE98E200A14060 /* TRUpdateGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338BB1FA1CEE98E200A14060 /* TRUpdateGroupRequest.swift */; };
 		338BB1FC1CEE98E200A14060 /* TRUpdateGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338BB1FA1CEE98E200A14060 /* TRUpdateGroupRequest.swift */; };
@@ -331,6 +334,7 @@
 		3380EF421CC979C1000A9289 /* TREventUpcomingWithCheckPointCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TREventUpcomingWithCheckPointCell.xib; sourceTree = "<group>"; };
 		3380EF461CC979E2000A9289 /* TREventUpcomingNoCheckPointCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TREventUpcomingNoCheckPointCell.xib; sourceTree = "<group>"; };
 		338437151CEF815100AB27F3 /* TRLegalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLegalViewController.swift; sourceTree = "<group>"; };
+		338437191CEFB34700AB27F3 /* TRGetGroupByIDRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRGetGroupByIDRequest.swift; sourceTree = "<group>"; };
 		338AECFD1C9D03AE008B064F /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		338BB1FA1CEE98E200A14060 /* TRUpdateGroupRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRUpdateGroupRequest.swift; sourceTree = "<group>"; };
 		338BB1FE1CEEB96200A14060 /* TRWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRWebView.swift; sourceTree = "<group>"; };
@@ -512,6 +516,7 @@
 				332BC1781CEBECDB00012B45 /* TRAppTrackingRequest.swift */,
 				332BC17C1CED03AD00012B45 /* TRGetAllDestinyGroups.swift */,
 				338BB1FA1CEE98E200A14060 /* TRUpdateGroupRequest.swift */,
+				338437191CEFB34700AB27F3 /* TRGetGroupByIDRequest.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -905,6 +910,7 @@
 				336DD77F1CDC289200CCCB04 /* TRNavInteractionAnimator.swift in Sources */,
 				3380EF271CC946CA000A9289 /* TREventCurrentWithCheckPointCell.swift in Sources */,
 				338AECFE1C9D03AE008B064F /* Utility.swift in Sources */,
+				3384371A1CEFB34700AB27F3 /* TRGetGroupByIDRequest.swift in Sources */,
 				338404C81CC5830E00AB543C /* TRRootViewController.swift in Sources */,
 				3380EF331CC94745000A9289 /* TREventUpcomingNoCheckPointCell.swift in Sources */,
 				332BC1791CEBECDB00012B45 /* TRAppTrackingRequest.swift in Sources */,
@@ -1015,6 +1021,7 @@
 				33FDB9D21C8778150066237C /* TRJoinEventRequest.swift in Sources */,
 				3380EF341CC94745000A9289 /* TREventUpcomingNoCheckPointCell.swift in Sources */,
 				3369499D1CC5CFEB004979C0 /* NSBundleExtension.swift in Sources */,
+				3384371B1CEFB34700AB27F3 /* TRGetGroupByIDRequest.swift in Sources */,
 				3329B58D1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */,
 				332BC16E1CEB88F800012B45 /* TRGetEventByEventID.swift in Sources */,
 				3398E1AA1CAB2994001F022B /* TRSendPushMessage.swift in Sources */,
@@ -1094,6 +1101,7 @@
 				33FDB9D31C8778150066237C /* TRJoinEventRequest.swift in Sources */,
 				3380EF351CC94745000A9289 /* TREventUpcomingNoCheckPointCell.swift in Sources */,
 				3369499E1CC5CFEB004979C0 /* NSBundleExtension.swift in Sources */,
+				3384371C1CEFB34700AB27F3 /* TRGetGroupByIDRequest.swift in Sources */,
 				3329B58E1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */,
 				332BC16F1CEB88F800012B45 /* TRGetEventByEventID.swift in Sources */,
 				3398E1AB1CAB2994001F022B /* TRSendPushMessage.swift in Sources */,

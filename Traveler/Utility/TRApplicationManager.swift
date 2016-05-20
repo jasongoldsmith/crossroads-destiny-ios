@@ -58,6 +58,9 @@ class TRApplicationManager: NSObject {
     //Bungie Groups
     lazy var bungieGroups: [TRBungieGroupInfo] = []
     
+    //Current Bungie Group
+    var currentBungieGroup: TRBungieGroupInfo?
+    
     
     // MARK:- Initializer
     private override init() {
@@ -163,7 +166,6 @@ class TRApplicationManager: NSObject {
         
         return false
     }
-    
     
     func getEventById (eventId: String) -> TREventInfo? {
 

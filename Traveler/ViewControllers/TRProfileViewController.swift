@@ -18,6 +18,12 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
     @IBOutlet weak var backGroundImageView: UIImageView?
     @IBOutlet weak var buildNumberLabel: TTTAttributedLabel!
     
+    @IBOutlet weak var groupImageView: UIImageView!
+    @IBOutlet weak var groupNameLabel: UILabel!
+    @IBOutlet weak var groupmemberCountLabel: UILabel!
+    @IBOutlet weak var groupEnabledLabel: UILabel!
+    
+    
     var currentUser: TRPlayerInfo?
     
     override func viewDidLoad() {
@@ -25,6 +31,44 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         
         //Update build number
         self.addVersionAndLegalAttributedLabel()
+        self.addUserGroupInfoAndUpdateUI()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.updateView()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
+    func addUserGroupInfoAndUpdateUI () {
+        
+        let currentGroupID = TRUserInfo.getUserClanID()
+        if let _ = currentGroupID {
+            _ = TRGetGroupByIDRequest().getGroupByID(currentGroupID!, completion: { (didSucceed) in
+                let currentGroup = TRApplicationManager.sharedInstance.currentBungieGroup
+                
+                if let imageString = currentGroup!.avatarPath {
+                    let imageURL = NSURL(string: imageString)
+                    self.groupImageView.sd_setImageWithURL(imageURL)
+                }
+                
+                if currentGroup!.clanEnabled == true {
+                    self.groupEnabledLabel.text = "Clan Enabled"
+                } else {
+                    self.groupEnabledLabel.text = "Clan Disabled"
+                }
+                
+                self.groupNameLabel.text = currentGroup!.groupName
+                self.groupmemberCountLabel.text = currentGroup!.memberCount?.description
+            })
+        }
     }
     
     func addVersionAndLegalAttributedLabel () {
@@ -72,21 +116,6 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.updateView()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-//        self.backGroundImageView?.bounds = self.view.frame
-//        self.backGroundImageView?.clipsToBounds = true
-    }
-    
-    override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
     
     @IBAction func logOutUser () {
 
@@ -132,53 +161,5 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
     func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
         self.performSegueWithIdentifier("TRShowLegalView", sender: self)
     }
-
-    //MARK:- Profile Image Picker Methods
-    /*
-    func presentProileImagePickerView () {
-        let imageController = UIImagePickerController()
-        imageController.editing = false
-        imageController.delegate = self;
-        
-        let alert = UIAlertController(title: "Lets get a picture", message: "Just a message", preferredStyle: UIAlertControllerStyle.ActionSheet)
-        let libButton = UIAlertAction(title: "Select photo from library", style: UIAlertActionStyle.Default) { (alert) -> Void in
-            imageController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-            self.presentViewController(imageController, animated: true, completion: nil)
-        }
-        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)){
-            //Camera available
-            let cameraButton = UIAlertAction(title: "Take a picture", style: UIAlertActionStyle.Default) { (alert) -> Void in
-                imageController.sourceType = UIImagePickerControllerSourceType.Camera
-                imageController.cameraDevice = UIImagePickerControllerCameraDevice.Front
-                self.presentViewController(imageController, animated: true, completion: nil)
-                
-            }
-            alert.addAction(cameraButton)
-        }
-        let cancelButton = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (alert) -> Void in
-            //Cancel Pressed
-        }
-        
-        alert.addAction(libButton)
-        alert.addAction(cancelButton)
-        
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
-    
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            self.imagePickerClosed(picker)
-        }
-    }
-    
-    func imagePickerClosed(picker: UIImagePickerController) {
-        picker.dismissViewControllerAnimated(true, completion: ({
-        }))
-    }
-
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        self.imagePickerClosed(picker)
-    }
- */
 }
+
