@@ -6,8 +6,32 @@
 //  Copyright © 2016 Forcecatalyst. All rights reserved.
 //
 
-import Cocoa
+import Foundation
+import UIKit
 
 class TRWebView: UIView {
-
+    
+    @IBOutlet weak var webView: UIWebView!
+    
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+    
+    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+     
+        return true
+    }
+    
+    func webViewDidStartLoad(webView: UIWebView) {
+        
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        
+    }
+    
+    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
+        
+    }
 }
