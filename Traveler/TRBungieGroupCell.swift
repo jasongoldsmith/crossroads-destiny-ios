@@ -26,6 +26,8 @@ class TRBungieGroupCell: UITableViewCell {
         
         if groupInfo.clanEnabled?.boolValue == true {
             self.clanEnabled.text = "Clan Enabled"
+        } else {
+            self.clanEnabled.text = "Clan Disabled"
         }
     }
 }
