@@ -55,6 +55,10 @@ class TRApplicationManager: NSObject {
     //FireBase Class Instance
     var fireBaseObj = TRFireBaseListener()
     
+    //Bungie Groups
+    lazy var bungieGroups: [TRBungieGroupInfo] = []
+    
+    
     // MARK:- Initializer
     private override init() {
         super.init()

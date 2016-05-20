@@ -46,8 +46,8 @@ class TRAuthenticationRequest: TRRequest {
             userData.userID         = responseObject["value"]["_id"].string
             userData.psnID          = responseObject["value"]["psnID"].string
             userData.userImageURL   = responseObject["value"]["imageUrl"].string
-            userData.userClanID   = responseObject["value"]["clanId"].string
-            userData.psnVerified   = responseObject["value"]["psnVerified"].string
+            userData.userClanID     = responseObject["value"]["clanId"].string
+            userData.psnVerified    = responseObject["value"]["psnVerified"].string
             userData.xboxVerified   = responseObject["value"]["xboxVerified"].string
             
             TRUserInfo.saveUserData(userData)
@@ -84,10 +84,10 @@ class TRAuthenticationRequest: TRRequest {
             let userData = TRUserInfo()
             userData.userName       = responseObject["value"]["userName"].string
             userData.userID         = responseObject["value"]["_id"].string
-            userData.psnID          = responseObject["value"]["psnID"].string
+            userData.psnID          = responseObject["value"]["psnId"].string
             userData.userImageURL   = responseObject["value"]["imageUrl"].string
             userData.userClanID     = responseObject["value"]["clanId"].string
-            userData.psnVerified   = responseObject["value"]["psnVerified"].string
+            userData.psnVerified    = responseObject["value"]["psnVerified"].string
             userData.xboxVerified   = responseObject["value"]["xboxVerified"].string
 
             TRUserInfo.saveUserData(userData)

@@ -11,7 +11,7 @@ import Alamofire
 
 class TRGetAllDestinyGroups: TRRequest {
 
-    func getAllGroups (completion: TRResponseCallBack) {
+    func getAllGroups (completion: TRValueCallBack) {
         let appGetGroups = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_GET_GROUPS
         
         let request = TRRequest()
@@ -21,10 +21,22 @@ class TRGetAllDestinyGroups: TRRequest {
         request.sendRequestWithCompletion { (error, swiftyJsonVar) -> () in
             
             if let _ = error {
-                return
+                completion(didSucceed: false)
             }
             
-            completion(error: nil, responseObject: swiftyJsonVar)
+            for group in swiftyJsonVar.arrayValue {
+                
+                let bungieGroup = TRBungieGroupInfo()
+                bungieGroup.groupId = group["groupId"].string
+                bungieGroup.avatarPath = group["avatarPath"].string
+                bungieGroup.groupName = group["groupName"].string
+                bungieGroup.memberCount = group["memberCount"].int32
+                bungieGroup.clanEnabled = group["clanEnabled"].boolValue
+                
+                TRApplicationManager.sharedInstance.bungieGroups.append(bungieGroup)
+            }
+            
+            completion(didSucceed: true)
         }
     }
 }

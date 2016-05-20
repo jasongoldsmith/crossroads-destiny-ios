@@ -43,6 +43,7 @@ class TRUserInfo: NSObject {
         return false
     }
     
+    
     class func isCurrentUserEventCreator (event: TREventInfo) -> Bool {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         if (userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_UserID)?.string == event.eventCreator?.playerID)  {
