@@ -14,6 +14,7 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
 
     private let bungieGroups = TRApplicationManager.sharedInstance.bungieGroups
     private var selectedGroup: TRBungieGroupInfo?
+    private var highlightedCell: TRBungieGroupCell?
     
     @IBOutlet weak var userAvatarImageView: UIImageView!
     @IBOutlet weak var groupsTableView: UITableView!
@@ -63,6 +64,14 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
         self.selectedGroup = self.bungieGroups[indexPath.section]
         self.saveButton.enabled = true
         self.saveButton.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
+
+        if let _ = self.highlightedCell {
+            self.highlightedCell?.radioButton?.highlighted = false
+        }
+
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as? TRBungieGroupCell
+        self.highlightedCell = cell
+        cell?.radioButton?.highlighted = true
     }
     
     @IBAction func saveButtonPressed (sender: UIButton) {
