@@ -16,6 +16,14 @@ class TRBungieGroupCell: UITableViewCell {
     @IBOutlet weak var clanEnabled: UILabel!
     @IBOutlet weak var radioButton: UIButton!
 
+    
+    override func prepareForReuse() {
+        self.groupAvator.image = nil
+        self.groupName.text = nil
+        self.memberCount?.text = nil
+        self.clanEnabled?.text = nil
+    }
+    
     func updateCellViewWithGroup (groupInfo: TRBungieGroupInfo) {
         if let hasImage = groupInfo.avatarPath {
             let imageUrl = NSURL(string: hasImage)
