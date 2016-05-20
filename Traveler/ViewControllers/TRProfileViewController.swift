@@ -130,7 +130,7 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
     }
     
     func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
-        UIApplication.sharedApplication().openURL(url)
+        self.performSegueWithIdentifier("TRShowLegalView", sender: self)
     }
 
     //MARK:- Profile Image Picker Methods

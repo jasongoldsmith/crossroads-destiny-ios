@@ -147,6 +147,9 @@
 		3380EF481CC979E2000A9289 /* TREventUpcomingNoCheckPointCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3380EF461CC979E2000A9289 /* TREventUpcomingNoCheckPointCell.xib */; };
 		3380EF491CC979E2000A9289 /* TREventUpcomingNoCheckPointCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3380EF461CC979E2000A9289 /* TREventUpcomingNoCheckPointCell.xib */; };
 		338404C81CC5830E00AB543C /* TRRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C1FF311C77C15C00A78798 /* TRRootViewController.swift */; };
+		338437161CEF815100AB27F3 /* TRLegalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338437151CEF815100AB27F3 /* TRLegalViewController.swift */; };
+		338437171CEF815100AB27F3 /* TRLegalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338437151CEF815100AB27F3 /* TRLegalViewController.swift */; };
+		338437181CEF815100AB27F3 /* TRLegalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338437151CEF815100AB27F3 /* TRLegalViewController.swift */; };
 		338AECFE1C9D03AE008B064F /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338AECFD1C9D03AE008B064F /* Utility.swift */; };
 		338BB1FB1CEE98E200A14060 /* TRUpdateGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338BB1FA1CEE98E200A14060 /* TRUpdateGroupRequest.swift */; };
 		338BB1FC1CEE98E200A14060 /* TRUpdateGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338BB1FA1CEE98E200A14060 /* TRUpdateGroupRequest.swift */; };
@@ -327,6 +330,7 @@
 		3380EF3A1CC95C28000A9289 /* TREventCurrentNoCheckPointCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TREventCurrentNoCheckPointCell.xib; sourceTree = "<group>"; };
 		3380EF421CC979C1000A9289 /* TREventUpcomingWithCheckPointCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TREventUpcomingWithCheckPointCell.xib; sourceTree = "<group>"; };
 		3380EF461CC979E2000A9289 /* TREventUpcomingNoCheckPointCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TREventUpcomingNoCheckPointCell.xib; sourceTree = "<group>"; };
+		338437151CEF815100AB27F3 /* TRLegalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLegalViewController.swift; sourceTree = "<group>"; };
 		338AECFD1C9D03AE008B064F /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		338BB1FA1CEE98E200A14060 /* TRUpdateGroupRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRUpdateGroupRequest.swift; sourceTree = "<group>"; };
 		338BB1FE1CEEB96200A14060 /* TRWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRWebView.swift; sourceTree = "<group>"; };
@@ -612,6 +616,7 @@
 				332BC1801CED143D00012B45 /* TRSelectGroupsViewController.swift */,
 				3333BDB61CED6E3C001C9E1A /* TRChangePasswordViewController.swift */,
 				3333BDBA1CEE4221001C9E1A /* TRChooseGroupViewController.swift */,
+				338437151CEF815100AB27F3 /* TRLegalViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -895,6 +900,7 @@
 				33A029B01CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift in Sources */,
 				6238D2E21C7ADE8E0085C8AA /* TRUserInfo.swift in Sources */,
 				33742D991C800A3300C46742 /* UISegmentedControlExtension.swift in Sources */,
+				338437161CEF815100AB27F3 /* TRLegalViewController.swift in Sources */,
 				33FDB9B61C861AB10066237C /* TRCreateEventRequest.swift in Sources */,
 				336DD77F1CDC289200CCCB04 /* TRNavInteractionAnimator.swift in Sources */,
 				3380EF271CC946CA000A9289 /* TREventCurrentWithCheckPointCell.swift in Sources */,
@@ -975,6 +981,7 @@
 				336DD7801CDC310A00CCCB04 /* TRNavInteractionAnimator.swift in Sources */,
 				3333BDB81CED6E3C001C9E1A /* TRChangePasswordViewController.swift in Sources */,
 				33974F131CADA0E40015C9D5 /* ExSlideMenuController.swift in Sources */,
+				338437171CEF815100AB27F3 /* TRLegalViewController.swift in Sources */,
 				3398E1B31CAB7EE0001F022B /* TREventInfoPlayerCell.swift in Sources */,
 				3380EF281CC946CA000A9289 /* TREventCurrentWithCheckPointCell.swift in Sources */,
 				33742DAA1C810A6100C46742 /* TRPlayerInfo.swift in Sources */,
@@ -1053,6 +1060,7 @@
 				336DD7811CDC310A00CCCB04 /* TRNavInteractionAnimator.swift in Sources */,
 				3333BDB91CED6E3C001C9E1A /* TRChangePasswordViewController.swift in Sources */,
 				33974F121CADA0E40015C9D5 /* ExSlideMenuController.swift in Sources */,
+				338437181CEF815100AB27F3 /* TRLegalViewController.swift in Sources */,
 				3398E1B41CAB7EE0001F022B /* TREventInfoPlayerCell.swift in Sources */,
 				3380EF291CC946CA000A9289 /* TREventCurrentWithCheckPointCell.swift in Sources */,
 				33742DAB1C810A6100C46742 /* TRPlayerInfo.swift in Sources */,
