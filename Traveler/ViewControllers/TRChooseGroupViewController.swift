@@ -16,18 +16,11 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     private var selectedGroup: TRBungieGroupInfo?
     private var highlightedCell: TRBungieGroupCell?
     
-    @IBOutlet weak var userAvatarImageView: UIImageView!
     @IBOutlet weak var groupsTableView: UITableView!
     @IBOutlet weak var saveButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let imageUrl = TRUserInfo.getUserImageString() {
-            let imageUrl = NSURL(string: imageUrl)
-            self.userAvatarImageView.sd_setImageWithURL(imageUrl)
-            self.userAvatarImageView.roundRectView()
-        }
         
         self.groupsTableView?.registerNib(UINib(nibName: "TRBungieGroupCell", bundle: nil), forCellReuseIdentifier: GROUP_CELLS_IDENTIFIER)
     }
