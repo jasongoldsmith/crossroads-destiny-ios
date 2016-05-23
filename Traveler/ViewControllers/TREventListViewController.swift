@@ -107,7 +107,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
     
     func addLogOutEventToAvatorImageView () {
-        let logOutGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(TREventListViewController.logoutBtnTapped(_:)))
+        let logOutGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(TREventListViewController.avatorBtnTapped(_:)))
         self.currentPlayerAvatorIcon?.userInteractionEnabled = true
         self.currentPlayerAvatorIcon?.addGestureRecognizer(logOutGestureRecognizer)
     }
@@ -365,10 +365,14 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
     
     
-    func logoutBtnTapped(sender: AnyObject) {
+    func avatorBtnTapped(sender: AnyObject) {
+        TRApplicationManager.sharedInstance.slideMenuController.openLeft()
+    }
+    
+    @IBAction func showChangeGroupsVc (sender: AnyObject) {
         TRApplicationManager.sharedInstance.slideMenuController.openRight()
     }
-
+    
     deinit {
         self.eventsInfo.removeAll()
         self.futureEventsInfo.removeAll()
