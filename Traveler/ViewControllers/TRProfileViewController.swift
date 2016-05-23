@@ -31,7 +31,6 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         
         //Update build number
         self.addVersionAndLegalAttributedLabel()
-        self.addUserGroupInfoAndUpdateUI()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -45,30 +44,6 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
     
     override func prefersStatusBarHidden() -> Bool {
         return true
-    }
-    
-    func addUserGroupInfoAndUpdateUI () {
-        
-        let currentGroupID = TRUserInfo.getUserClanID()
-        if let _ = currentGroupID {
-            _ = TRGetGroupByIDRequest().getGroupByID(currentGroupID!, completion: { (didSucceed) in
-                let currentGroup = TRApplicationManager.sharedInstance.currentBungieGroup
-                
-                if let imageString = currentGroup!.avatarPath {
-                    let imageURL = NSURL(string: imageString)
-                    self.groupImageView.sd_setImageWithURL(imageURL)
-                }
-                
-                if currentGroup!.clanEnabled == true {
-                    self.groupEnabledLabel.text = "Clan Enabled"
-                } else {
-                    self.groupEnabledLabel.text = "Clan Disabled"
-                }
-                
-                self.groupNameLabel.text = currentGroup!.groupName
-                self.groupmemberCountLabel.text = currentGroup!.memberCount?.description
-            })
-        }
     }
     
     func addVersionAndLegalAttributedLabel () {

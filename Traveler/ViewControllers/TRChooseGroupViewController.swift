@@ -54,10 +54,12 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        //self.saveButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         self.selectedGroup = self.bungieGroups[indexPath.section]
         self.saveButton.enabled = true
         self.saveButton.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
-
+        
+        
         if let _ = self.highlightedCell {
             self.highlightedCell?.radioButton?.highlighted = false
         }
@@ -70,9 +72,7 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     @IBAction func saveButtonPressed (sender: UIButton) {
         if let group = self.selectedGroup {
             _ = TRUpdateGroupRequest().updateUserGroup(group.groupId!, completion: { (didSucceed) in
-                self.dismissViewController(true, dismissed: { (didDismiss) in
-                    
-                })
+                    TRApplicationManager.sharedInstance.slideMenuController.closeRight()
             })
         }
     }

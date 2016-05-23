@@ -12,12 +12,12 @@ import SlideMenuControllerSwift
 class ExSlideMenuController : SlideMenuController {
 
     override func isTagetViewController() -> Bool {
-//        if let vc = self.topViewController() {
-//            if vc is TREventListViewController ||
-//            vc is TRProfileViewController  {
-//                return true
-//            }
-//        }
+        if let vc = self.topViewController() {
+            if vc is TRProfileViewController ||
+            vc is TRChooseGroupViewController  {
+                return true
+            }
+        }
         return false
     }
     

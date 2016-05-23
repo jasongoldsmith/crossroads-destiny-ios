@@ -32,30 +32,23 @@ class TRRootViewController: TRBaseViewController {
         if (TRUserInfo.isUserLoggedIn()) {
             if (TRUserInfo.isUserVerified() == true)
             {
-                
-//                //If user is verified, check if he has Group, If no group then ask him to choose Group
-//                if let userClan = TRUserInfo.getUserClanID() where userClan == "clan_id_not_set" {
-//                    _ = TRGetAllDestinyGroups().getAllGroups({ (didSucceed) in
-//                        if didSucceed == true {
-//                            self.performSegueWithIdentifier("TRChooseGroupView", sender: self)
-//                        }
-//                    })
-//                } else
-                
-                    _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: true, indicatorTopConstraint: ACTIVITY_INDICATOR_TOP_CONSTRAINT, completion: { (didSucceed) -> () in
-                        
-                        var showEventListLandingPage = false
-                        if(didSucceed == true) {
-                            if (TRApplicationManager.sharedInstance.eventsList.count > 0) {
-                                showEventListLandingPage = true
+                _ = TRGetAllDestinyGroups().getAllGroups({ (didSucceed) in
+                    if didSucceed == true {
+                        _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: true, indicatorTopConstraint: self.ACTIVITY_INDICATOR_TOP_CONSTRAINT, completion: { (didSucceed) -> () in
+                            
+                            var showEventListLandingPage = false
+                            if(didSucceed == true) {
+                                if (TRApplicationManager.sharedInstance.eventsList.count > 0) {
+                                    showEventListLandingPage = true
+                                }
+                                TRApplicationManager.sharedInstance.addSlideMenuController(self, pushData: self.pushNotificationData, showLandingPage: showEventListLandingPage)
+                                self.pushNotificationData = nil
+                            } else {
+                                self.appManager.log.debug("Failed")
                             }
-                            TRApplicationManager.sharedInstance.addSlideMenuController(self, pushData: self.pushNotificationData, showLandingPage: showEventListLandingPage)
-                            self.pushNotificationData = nil
-                        } else {
-                            self.appManager.log.debug("Failed")
-                        }
-                    })
-                
+                        })
+                    }
+                })
             } else {
                 
                 let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)

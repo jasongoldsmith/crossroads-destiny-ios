@@ -97,13 +97,12 @@ class TRApplicationManager: NSObject {
         let eventListViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEWCONTROLLER_EVENT_LIST) as! TREventListViewController
         let getGroupsViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_CHOOSE_GROUP) as! TRChooseGroupViewController
 
-
-        self.slideMenuController = ExSlideMenuController(mainViewController:eventListViewController, leftMenuViewController: profileViewController, rightMenuViewController: getGroupsViewController)
+        self.slideMenuController = SlideMenuController(mainViewController:eventListViewController, leftMenuViewController: profileViewController, rightMenuViewController: getGroupsViewController)
         self.slideMenuController.automaticallyAdjustsScrollViewInsets = true
         self.slideMenuController.closeRight()
         self.slideMenuController.closeLeft()
-        self.slideMenuController.rightPanGesture?.enabled = false
-        self.slideMenuController.leftPanGesture?.enabled = false
+        self.slideMenuController.rightPanGesture?.enabled = true
+        self.slideMenuController.leftPanGesture?.enabled = true
     
         
         var animated = false
