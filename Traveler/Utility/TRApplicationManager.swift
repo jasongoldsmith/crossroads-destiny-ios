@@ -95,12 +95,14 @@ class TRApplicationManager: NSObject {
         let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
         let profileViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_PROFILE) as! TRProfileViewController
         let eventListViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEWCONTROLLER_EVENT_LIST) as! TREventListViewController
-        
-        self.slideMenuController = SlideMenuController(mainViewController:eventListViewController, rightMenuViewController: profileViewController)
+        let getGroupsViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_CHOOSE_GROUP) as! TRChooseGroupViewController
+
+        self.slideMenuController = ExSlideMenuController(mainViewController:eventListViewController, leftMenuViewController: profileViewController, rightMenuViewController: getGroupsViewController)
         self.slideMenuController.automaticallyAdjustsScrollViewInsets = true
         self.slideMenuController.closeRight()
+        self.slideMenuController.closeLeft()
         self.slideMenuController.rightPanGesture?.enabled = false
-        self.slideMenuController.changeRightViewWidth(340.0)
+        self.slideMenuController.leftPanGesture?.enabled = false
         
         var animated = false
         if let _ = pushData {
