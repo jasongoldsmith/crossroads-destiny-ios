@@ -28,12 +28,7 @@ class TRGetGroupByIDRequest: TRRequest {
             }
             
             let bungieGroup = TRBungieGroupInfo()
-            bungieGroup.groupId = swiftyJsonVar["groupId"].string
-            bungieGroup.avatarPath = swiftyJsonVar["avatarPath"].string
-            bungieGroup.groupName = swiftyJsonVar["groupName"].string
-            bungieGroup.memberCount = swiftyJsonVar["memberCount"].int32
-            bungieGroup.clanEnabled = swiftyJsonVar["clanEnabled"].boolValue
-            
+            bungieGroup.parseAndCreateObj(swiftyJsonVar)
             TRApplicationManager.sharedInstance.currentBungieGroup = bungieGroup
             
             completion(didSucceed: true )

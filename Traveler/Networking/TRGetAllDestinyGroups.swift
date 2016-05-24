@@ -25,14 +25,8 @@ class TRGetAllDestinyGroups: TRRequest {
             }
             
             for group in swiftyJsonVar.arrayValue {
-                
                 let bungieGroup = TRBungieGroupInfo()
-                bungieGroup.groupId = group["groupId"].string
-                bungieGroup.avatarPath = group["avatarPath"].string
-                bungieGroup.groupName = group["groupName"].string
-                bungieGroup.memberCount = group["memberCount"].int32
-                bungieGroup.clanEnabled = group["clanEnabled"].boolValue
-                
+                bungieGroup.parseAndCreateObj(group)
                 TRApplicationManager.sharedInstance.bungieGroups.append(bungieGroup)
             }
             

@@ -538,8 +538,8 @@
 				332BC16C1CEB88F800012B45 /* TRGetEventByEventID.swift */,
 				332BC1781CEBECDB00012B45 /* TRAppTrackingRequest.swift */,
 				332BC17C1CED03AD00012B45 /* TRGetAllDestinyGroups.swift */,
-				338BB1FA1CEE98E200A14060 /* TRUpdateGroupRequest.swift */,
 				338437191CEFB34700AB27F3 /* TRGetGroupByIDRequest.swift */,
+				338BB1FA1CEE98E200A14060 /* TRUpdateGroupRequest.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";

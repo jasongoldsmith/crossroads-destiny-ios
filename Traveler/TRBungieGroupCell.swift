@@ -31,7 +31,7 @@ class TRBungieGroupCell: UITableViewCell {
         }
         
         self.groupName.text = groupInfo.groupName
-        self.memberCount.text = groupInfo.memberCount?.description
+        self.memberCount.text =  (groupInfo.memberCount?.description)! + " Members"
         
         if groupInfo.clanEnabled?.boolValue == true {
             self.clanEnabled.text = "Clan Enabled"
