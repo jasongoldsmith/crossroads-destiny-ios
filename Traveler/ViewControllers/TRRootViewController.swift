@@ -19,6 +19,8 @@ class TRRootViewController: TRBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        TRApplicationManager.sharedInstance.fireBaseObj.removeObservers()
     }
     
     override func didReceiveMemoryWarning() {

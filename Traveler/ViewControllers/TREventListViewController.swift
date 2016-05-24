@@ -122,7 +122,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         super.viewDidAppear(animated)
         
         //Add FireBase Observer
-        TRApplicationManager.sharedInstance.fireBaseObj.addObserversWithParentView(self)
+        TRApplicationManager.sharedInstance.fireBaseObj.addEventsObserversWithParentView(self)
     }
     
     override func viewWillDisappear(animated: Bool) {
