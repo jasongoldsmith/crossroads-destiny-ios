@@ -15,6 +15,7 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     private let bungieGroups = TRApplicationManager.sharedInstance.bungieGroups
     private var selectedGroup: TRBungieGroupInfo?
     private var highlightedCell: TRBungieGroupCell?
+    var delegate: AnyObject?
     
     @IBOutlet weak var groupsTableView: UITableView!
     @IBOutlet weak var saveButton: UIButton!
@@ -72,7 +73,15 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     @IBAction func saveButtonPressed (sender: UIButton) {
         if let group = self.selectedGroup {
             _ = TRUpdateGroupRequest().updateUserGroup(group.groupId!, completion: { (didSucceed) in
-                    TRApplicationManager.sharedInstance.slideMenuController.closeRight()
+                _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: false, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
+                    if(didSucceed == true) {
+                        if let del = self.delegate as? TREventListViewController {
+                            del.reloadEventTable()
+                        }
+                        
+                        TRApplicationManager.sharedInstance.slideMenuController.closeRight()
+                    }
+                })
             })
         }
     }
