@@ -19,8 +19,6 @@ class TRRootViewController: TRBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        TRApplicationManager.sharedInstance.fireBaseObj.removeObservers()
     }
     
     override func didReceiveMemoryWarning() {
@@ -30,10 +28,14 @@ class TRRootViewController: TRBaseViewController {
     override func viewDidAppear(animated: Bool) {
         
         super.viewDidAppear(animated)
+        TRApplicationManager.sharedInstance.fireBaseObj.addUserObserver()
         
         if (TRUserInfo.isUserLoggedIn()) {
-            if (TRUserInfo.isUserVerified() == true)
-            {
+            if (TRUserInfo.isUserVerified() == true) {
+
+                // Remove Observer
+                TRApplicationManager.sharedInstance.fireBaseObj.removeObservers()
+
                 _ = TRGetAllDestinyGroups().getAllGroups({ (didSucceed) in
                     if didSucceed == true {
                         _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: true, indicatorTopConstraint: self.ACTIVITY_INDICATOR_TOP_CONSTRAINT, completion: { (didSucceed) -> () in
@@ -52,6 +54,9 @@ class TRRootViewController: TRBaseViewController {
                     }
                 })
             } else {
+                
+                // Add Observer to observe changes to UserObject
+                TRApplicationManager.sharedInstance.fireBaseObj.addUserObserver()
                 
                 let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
                 let verifyAccountViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_VERIFY_ACCOUNT) as! TRSignUpVerificatioViewController

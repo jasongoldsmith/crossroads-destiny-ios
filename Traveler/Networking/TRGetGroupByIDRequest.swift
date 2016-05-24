@@ -29,7 +29,6 @@ class TRGetGroupByIDRequest: TRRequest {
             
             let bungieGroup = TRBungieGroupInfo()
             bungieGroup.parseAndCreateObj(swiftyJsonVar)
-            TRApplicationManager.sharedInstance.currentBungieGroup = bungieGroup
             
             completion(didSucceed: true )
         }

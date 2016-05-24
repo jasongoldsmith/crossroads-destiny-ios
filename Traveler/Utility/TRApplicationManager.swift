@@ -58,10 +58,6 @@ class TRApplicationManager: NSObject {
     //Bungie Groups
     lazy var bungieGroups: [TRBungieGroupInfo] = []
     
-    //Current Bungie Group
-    var currentBungieGroup: TRBungieGroupInfo?
-    
-    
     // MARK:- Initializer
     private override init() {
         super.init()
@@ -239,6 +235,7 @@ class TRApplicationManager: NSObject {
     func purgeSavedData () {
         self.activityList.removeAll()
         self.eventsList.removeAll()
+        self.bungieGroups.removeAll()
     }
 }
 

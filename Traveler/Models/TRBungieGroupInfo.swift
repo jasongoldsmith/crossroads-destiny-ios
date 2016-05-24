@@ -16,6 +16,7 @@ class TRBungieGroupInfo {
     var groupName       : String?
     var memberCount     : integer_t?
     var clanEnabled     : Bool?
+    var eventCount      : integer_t?
 
     
     func parseAndCreateObj (swiftyJson: JSON) {
@@ -24,6 +25,7 @@ class TRBungieGroupInfo {
         self.groupName = swiftyJson["groupName"].string
         self.memberCount = swiftyJson["memberCount"].int32
         self.clanEnabled = swiftyJson["clanEnabled"].boolValue
+        self.eventCount = swiftyJson["eventCount"].int32
     }
 }
 

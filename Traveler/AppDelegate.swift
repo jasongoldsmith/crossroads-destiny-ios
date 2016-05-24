@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Initializing Manager
         TRApplicationManager.sharedInstance
-        TRApplicationManager.sharedInstance.fireBaseObj.addUserObserver()
         
         if let remoteNotification = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? NSDictionary? {
             let rootViewController = self.window!.rootViewController as! TRRootViewController

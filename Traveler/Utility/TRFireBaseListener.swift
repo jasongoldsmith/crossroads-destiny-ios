@@ -16,13 +16,9 @@ class TRFireBaseListener {
     
     
     func addUserObserver () {
-        guard let userClan = TRUserInfo.getUserClanID() else {
-            return
-        }
-        
         if let userID = TRUserInfo.getUserID() {
             
-            let fireBaseUrl = K.TRUrls.TR_FIREBASE_DEFAULT + "user" + "/" + userClan + "/" + userID
+            let fireBaseUrl = K.TRUrls.TR_FIREBASE_DEFAULT + "users"  + "/" + userID
             self.firebaseChatData = Firebase(url:(fireBaseUrl))
             self.firebaseChatData?.observeEventType(.Value, withBlock: { snap in
                 
@@ -59,6 +55,6 @@ class TRFireBaseListener {
     }
     
     func removeObservers () {
-        self.firebaseChatData?.removeAllObservers()
+        //self.firebaseChatData?.removeAllObservers()
     }
 }

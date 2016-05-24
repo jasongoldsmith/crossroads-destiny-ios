@@ -24,15 +24,16 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     @IBOutlet weak var lableOne: UILabel!
     @IBOutlet weak var lableTwo: UILabel!
     @IBOutlet weak var lableThree: TTTAttributedLabel!
-    
     @IBOutlet weak var groupsTableView: UITableView!
     @IBOutlet weak var saveButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.groupsTableView?.registerNib(UINib(nibName: "TRBungieGroupCell", bundle: nil), forCellReuseIdentifier: GROUP_CELLS_IDENTIFIER)
-        
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
         if TRApplicationManager.sharedInstance.bungieGroups.count <= 0 {
             self.saveButton.hidden = true
@@ -58,10 +59,10 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
             self.lableThree?.linkAttributes = subscriptionNoticeLinkAttributes
             self.lableThree?.addLinkToURL(url, withRange: range)
             self.lableThree?.delegate = self
-
+            
+            return
         }
     }
-
     
     func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
         UIApplication.sharedApplication().openURL(url)
@@ -89,6 +90,14 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
         let groupInfo = self.bungieGroups[indexPath.section]
         cell.selectionStyle = .None
         cell.updateCellViewWithGroup(groupInfo)
+        
+        
+        if let hasCurrentGroup = TRUserInfo.getUserClanID() {
+            if hasCurrentGroup == groupInfo.groupId {
+                self.highlightedCell = cell
+                cell.radioButton?.highlighted = true
+            }
+        }
         
         return cell
     }

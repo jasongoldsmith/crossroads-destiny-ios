@@ -31,13 +31,21 @@ class TRBungieGroupCell: UITableViewCell {
         }
         
         self.groupName.text = groupInfo.groupName
-        self.memberCount.text =  (groupInfo.memberCount?.description)! + " Members"
-        
-        if groupInfo.clanEnabled?.boolValue == true {
-            self.clanEnabled.text = "Clan Enabled"
-        } else {
-            self.clanEnabled.text = "Clan Disabled"
+        if let hasMembers = groupInfo.memberCount {
+            self.memberCount.text =  hasMembers.description + " Members"
         }
+        
+        if let eventCount = groupInfo.eventCount where eventCount > 0 {
+            
+            if eventCount > 1 {
+                self.clanEnabled.text = eventCount.description + " Events"
+            } else {
+                self.clanEnabled.text = eventCount.description + " Event"
+            }
+        } else {
+            self.clanEnabled.text = "0 Events"
+        }
+        
     }
 }
 
