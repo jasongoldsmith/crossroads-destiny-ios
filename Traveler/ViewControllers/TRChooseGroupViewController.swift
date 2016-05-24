@@ -7,15 +7,23 @@
 //
 
 import UIKit
+import TTTAttributedLabel
 
 private let GROUP_CELLS_IDENTIFIER = "groupCells"
 
-class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, UITableViewDelegate {
+class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, UITableViewDelegate, TTTAttributedLabelDelegate {
 
     private let bungieGroups = TRApplicationManager.sharedInstance.bungieGroups
     private var selectedGroup: TRBungieGroupInfo?
     private var highlightedCell: TRBungieGroupCell?
+    
     var delegate: AnyObject?
+    
+    //To be hidden if there are no groups
+    @IBOutlet weak var appIcon: UIImageView!
+    @IBOutlet weak var lableOne: UILabel!
+    @IBOutlet weak var lableTwo: UILabel!
+    @IBOutlet weak var lableThree: TTTAttributedLabel!
     
     @IBOutlet weak var groupsTableView: UITableView!
     @IBOutlet weak var saveButton: UIButton!
@@ -24,6 +32,39 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
         super.viewDidLoad()
         
         self.groupsTableView?.registerNib(UINib(nibName: "TRBungieGroupCell", bundle: nil), forCellReuseIdentifier: GROUP_CELLS_IDENTIFIER)
+        
+        
+        if TRApplicationManager.sharedInstance.bungieGroups.count <= 0 {
+            self.saveButton.hidden = true
+            self.groupsTableView.hidden = true
+            self.lableOne.hidden = true
+            self.lableTwo.hidden = true
+            
+            self.appIcon.image = UIImage(named: "imgNogroups")
+            self.lableThree.hidden = false
+            
+            let messageString = "Traveler for Destiny matched you with people from your existing Bungie.net groups. \n \nIt looks like you're not a member of any groups. Please join a group in order to fully experience the app."
+            let bungieLinkName = "Bungie.net"
+            self.lableThree?.text = messageString
+            
+            // Add HyperLink to Bungie
+            let nsString = messageString as NSString
+            let range = nsString.rangeOfString(bungieLinkName)
+            let url = NSURL(string: "https://www.bungie.net/")!
+            let subscriptionNoticeLinkAttributes = [
+                NSForegroundColorAttributeName: UIColor(red: 0/255, green: 182/255, blue: 231/255, alpha: 1),
+                NSUnderlineStyleAttributeName: NSNumber(bool:false),
+                ]
+            self.lableThree?.linkAttributes = subscriptionNoticeLinkAttributes
+            self.lableThree?.addLinkToURL(url, withRange: range)
+            self.lableThree?.delegate = self
+
+        }
+    }
+
+    
+    func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
+        UIApplication.sharedApplication().openURL(url)
     }
 
     

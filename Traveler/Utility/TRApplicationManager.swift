@@ -130,7 +130,7 @@ class TRApplicationManager: NSObject {
                 let vc : TRCreateEventViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEWCONTROLLER_CREATE_EVENT) as! TRCreateEventViewController
                 let navigationController = UINavigationController(rootViewController: vc)
                 eventListViewController.presentViewController(navigationController, animated: false, completion: {
-                self.slideMenuController.view.alpha = 1
+                    self.slideMenuController.view.alpha = 1
                 })
             } else {
                 self.slideMenuController.view.alpha = 1

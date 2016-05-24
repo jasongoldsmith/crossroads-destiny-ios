@@ -118,6 +118,12 @@
                                 <color key="textColor" red="0.0" green="0.71372549019999998" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWz-lA-epg" customClass="TTTAttributedLabel">
+                                <rect key="frame" x="30" y="162" width="540" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="66" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="WhP-cr-BTL">
                                 <rect key="frame" x="32" y="203" width="536" height="347"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -134,25 +140,26 @@
                             <constraint firstAttribute="trailingMargin" secondItem="WhP-cr-BTL" secondAttribute="trailing" constant="12" id="7OK-gj-76T"/>
                             <constraint firstItem="WhP-cr-BTL" firstAttribute="top" secondItem="FmQ-ui-gbl" secondAttribute="bottom" constant="15" id="8pP-JL-gwR"/>
                             <constraint firstAttribute="trailing" secondItem="21G-5K-sdg" secondAttribute="trailing" id="DUH-gL-dQe"/>
+                            <constraint firstItem="CWz-lA-epg" firstAttribute="leading" secondItem="a4f-Bs-Ivf" secondAttribute="leading" constant="30" id="Ido-dV-EC7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4Hh-ej-dOf" secondAttribute="trailing" constant="60" id="Ivg-Kw-yuR"/>
                             <constraint firstItem="21G-5K-sdg" firstAttribute="leading" secondItem="a4f-Bs-Ivf" secondAttribute="leading" id="QBS-GX-YV8"/>
+                            <constraint firstItem="CWz-lA-epg" firstAttribute="top" secondItem="4Hh-ej-dOf" secondAttribute="bottom" constant="0.5" id="Qfj-ed-zgz"/>
                             <constraint firstItem="WhP-cr-BTL" firstAttribute="leading" secondItem="a4f-Bs-Ivf" secondAttribute="leadingMargin" constant="12" id="WVg-3v-bsQ"/>
                             <constraint firstItem="T7g-l3-C1j" firstAttribute="top" secondItem="k1z-ct-gNP" secondAttribute="bottom" constant="30" id="aeX-wE-wg5"/>
                             <constraint firstItem="4Hh-ej-dOf" firstAttribute="top" secondItem="T7g-l3-C1j" secondAttribute="bottom" constant="15" id="g6R-VK-9tO"/>
                             <constraint firstItem="2WA-Rs-ejf" firstAttribute="top" secondItem="21G-5K-sdg" secondAttribute="bottom" id="o37-Bg-DVN"/>
-                            <constraint firstItem="4Hh-ej-dOf" firstAttribute="centerX" secondItem="a4f-Bs-Ivf" secondAttribute="centerX" id="sHn-yx-VLq"/>
+                            <constraint firstAttribute="trailing" secondItem="CWz-lA-epg" secondAttribute="trailing" constant="30" id="pmo-r9-aJu"/>
                             <constraint firstItem="2WA-Rs-ejf" firstAttribute="top" secondItem="WhP-cr-BTL" secondAttribute="bottom" constant="50" id="wKa-Bt-2gb"/>
                             <constraint firstItem="FmQ-ui-gbl" firstAttribute="centerX" secondItem="a4f-Bs-Ivf" secondAttribute="centerX" id="zf2-8R-h09"/>
                             <constraint firstItem="T7g-l3-C1j" firstAttribute="centerX" secondItem="a4f-Bs-Ivf" secondAttribute="centerX" id="zv2-pD-CGk"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="sHn-yx-VLq"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
+                        <outlet property="appIcon" destination="T7g-l3-C1j" id="5S5-Eu-vQk"/>
                         <outlet property="groupsTableView" destination="WhP-cr-BTL" id="9gr-ao-trw"/>
+                        <outlet property="lableOne" destination="4Hh-ej-dOf" id="g1N-JI-B5F"/>
+                        <outlet property="lableThree" destination="CWz-lA-epg" id="6cs-sm-8kn"/>
+                        <outlet property="lableTwo" destination="FmQ-ui-gbl" id="9wU-fh-7Zd"/>
                         <outlet property="saveButton" destination="21G-5K-sdg" id="xrH-W5-xH7"/>
                     </connections>
                 </viewController>
@@ -893,7 +900,7 @@
                                     <constraint firstAttribute="width" constant="30" id="BPW-Av-wmv"/>
                                     <constraint firstAttribute="height" constant="30" id="kVf-zE-gLY"/>
                                 </constraints>
-                                <state key="normal" image="90B62FC9-1F66-4DF1-8BBF-224D5EDCE8A9"/>
+                                <state key="normal" image="086AA06B-C4C7-43A3-BA9C-E135B214A684"/>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="RJW-k0-l6u" eventType="touchUpInside" id="bH8-fb-Djk"/>
                                 </connections>
@@ -2318,7 +2325,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="90B62FC9-1F66-4DF1-8BBF-224D5EDCE8A9" width="30" height="30">
+        <image name="086AA06B-C4C7-43A3-BA9C-E135B214A684" width="30" height="30">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
