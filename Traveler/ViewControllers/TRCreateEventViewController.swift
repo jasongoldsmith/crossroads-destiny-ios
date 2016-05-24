@@ -27,19 +27,15 @@ class TRCreateEventViewController: TRBaseViewController, UINavigationControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // This is going to be a temporary code, at present we have only couple of activity sub-types and we have UI designed only for that.
-        // Will have to re-write this method when UI is updated to reflect number of activities
-        
-
         //Navigation
         self.title = "CREATE EVENT"
         self.addNavigationBarButtons()
         
-//        self.navigationController?.interactivePopGestureRecognizer?.enabled = true
-//        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+        self.navigationController?.interactivePopGestureRecognizer?.enabled = true
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         
         // INTERACTIVE VC ANIMATION
-        //self.navigationController?.delegate = self
+        self.navigationController?.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -109,16 +105,25 @@ class TRCreateEventViewController: TRBaseViewController, UINavigationControllerD
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if operation == .Push {
-            customInteractionAnimation.attachToViewController(toVC)
+    
+    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if self.navigationController?.viewControllers.count > 1 {
+            return true
         }
-        customNavigationAnimation.reverse = operation == .Pop
-        return customNavigationAnimation
+        
+        return false
     }
     
-    func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return customInteractionAnimation.transitionInProgress ? customInteractionAnimation : nil
-    }
+//    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        if operation == .Push {
+//            customInteractionAnimation.attachToViewController(toVC)
+//        }
+//        customNavigationAnimation.reverse = operation == .Pop
+//        return customNavigationAnimation
+//    }
+//    
+//    func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+//        return customInteractionAnimation.transitionInProgress ? customInteractionAnimation : nil
+//    }
 }
 
