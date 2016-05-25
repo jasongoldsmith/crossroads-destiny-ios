@@ -18,12 +18,6 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
     @IBOutlet weak var backGroundImageView: UIImageView?
     @IBOutlet weak var buildNumberLabel: TTTAttributedLabel!
     
-    @IBOutlet weak var groupImageView: UIImageView!
-    @IBOutlet weak var groupNameLabel: UILabel!
-    @IBOutlet weak var groupmemberCountLabel: UILabel!
-    @IBOutlet weak var groupEnabledLabel: UILabel!
-    
-    
     var currentUser: TRPlayerInfo?
     
     override func viewDidLoad() {
@@ -35,7 +29,9 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
         self.updateView()
+        self.backGroundImageView?.clipsToBounds = true
     }
     
     override func viewDidAppear(animated: Bool) {
