@@ -232,6 +232,11 @@ class TRApplicationManager: NSObject {
         return activityArray
     }
     
+    func getCurrentGroup (groupID: String) -> TRBungieGroupInfo? {
+        let currentGroupArray = self.bungieGroups.filter {$0.groupId == groupID}
+        return currentGroupArray.first
+    }
+    
     func purgeSavedData () {
         self.activityList.removeAll()
         self.eventsList.removeAll()

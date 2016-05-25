@@ -30,6 +30,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     @IBOutlet var segmentTwoUnderLine: UIImageView?
     @IBOutlet var currentPlayerAvatorIcon: UIImageView?
     @IBOutlet var emptyTableBackGround: UIImageView?
+    @IBOutlet var playerGroupsIcon: UIImageView?
     
     //Events Information
     var eventsInfo: [TREventInfo] = []
@@ -74,7 +75,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         self.reloadEventTable()
         
         //Add User Avator Image
-        self.updateUserAvatorImage()
+        self.updateUserAvatorImageAndGroupIcon()
         
         // Hide Navigation Bar
         self.hideNavigationBar()
@@ -91,7 +92,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         appDelegate.addNotificationsPermission()
     }
 
-    func updateUserAvatorImage () {
+    func updateUserAvatorImageAndGroupIcon () {
         
         //Avator for Current PlayerJ
         if self.currentPlayerAvatorIcon?.image == nil {
@@ -99,17 +100,33 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
                 let imageUrl = NSURL(string: imageUrl)
                 self.currentPlayerAvatorIcon?.sd_setImageWithURL(imageUrl)
                 self.currentPlayerAvatorIcon?.roundRectView()
-                
-                // Add LogOut event action to Avator Image
-                self.addLogOutEventToAvatorImageView()
             }
         }
+
+        if self.playerGroupsIcon?.image == nil {
+            if let currentGroupID = TRUserInfo.getUserClanID() {
+                if let hasCurrentGroup = TRApplicationManager.sharedInstance.getCurrentGroup(currentGroupID) {
+                    if let imageUrl = hasCurrentGroup.avatarPath {
+                        let imageUrl = NSURL(string: imageUrl)
+                        self.playerGroupsIcon?.sd_setImageWithURL(imageUrl)
+                        self.playerGroupsIcon?.roundRectView()
+                    }
+                }
+            }
+        }
+
+        // Add LogOut event action to Avator Image
+        self.addLogOutEventToAvatorImageView()
     }
     
     func addLogOutEventToAvatorImageView () {
-        let logOutGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(TREventListViewController.avatorBtnTapped(_:)))
+        let openLeftGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(TREventListViewController.avatorBtnTapped(_:)))
         self.currentPlayerAvatorIcon?.userInteractionEnabled = true
-        self.currentPlayerAvatorIcon?.addGestureRecognizer(logOutGestureRecognizer)
+        self.currentPlayerAvatorIcon?.addGestureRecognizer(openLeftGestureRecognizer)
+        
+        let openRightGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(TREventListViewController.showChangeGroupsVc(_:)))
+        self.playerGroupsIcon?.userInteractionEnabled = true
+        self.playerGroupsIcon?.addGestureRecognizer(openRightGestureRecognizer)
     }
     
     override func viewWillAppear(animated: Bool) {

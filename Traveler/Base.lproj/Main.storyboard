@@ -900,7 +900,7 @@
                                     <constraint firstAttribute="width" constant="30" id="BPW-Av-wmv"/>
                                     <constraint firstAttribute="height" constant="30" id="kVf-zE-gLY"/>
                                 </constraints>
-                                <state key="normal" image="9A6356DC-2ED5-4790-91CD-50197FCF2F62"/>
+                                <state key="normal" image="7F35F4F2-0DBB-47C1-A490-FC195C49875F"/>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="RJW-k0-l6u" eventType="touchUpInside" id="bH8-fb-Djk"/>
                                 </connections>
@@ -1445,26 +1445,25 @@
                                     <constraint firstAttribute="width" constant="30" id="vGZ-ec-Bxm"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S5F-rs-Ghf">
-                                <rect key="frame" x="546" y="15" width="44" height="44"/>
-                                <state key="normal" image="iconGroups"/>
-                                <connections>
-                                    <action selector="showChangeGroupsVc:" destination="Ni1-Nm-5hW" eventType="touchUpInside" id="DCl-h4-aFL"/>
-                                </connections>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mXp-dP-eCo">
+                                <rect key="frame" x="555" y="28" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="nVP-N3-Mhl"/>
+                                    <constraint firstAttribute="height" constant="30" id="p9u-GD-f1K"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mLx-w0-FaU" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leading" id="51y-Xi-q6U"/>
+                            <constraint firstItem="GC0-EZ-x8P" firstAttribute="top" secondItem="mXp-dP-eCo" secondAttribute="bottom" constant="-58" id="5M9-fM-dTF"/>
                             <constraint firstItem="HnB-tK-Gh9" firstAttribute="top" secondItem="VH7-Fj-a7t" secondAttribute="bottom" constant="11" id="90n-dx-hjF"/>
-                            <constraint firstItem="S5F-rs-Ghf" firstAttribute="top" secondItem="Mwi-1s-bC4" secondAttribute="top" constant="15" id="9CW-T8-hQ6"/>
                             <constraint firstItem="c5f-7R-NrH" firstAttribute="top" secondItem="GC0-EZ-x8P" secondAttribute="top" constant="29" id="B9f-pn-BhQ"/>
                             <constraint firstItem="z2g-Bm-q4G" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leadingMargin" constant="2" id="Blp-dT-mR6"/>
                             <constraint firstItem="z2g-Bm-q4G" firstAttribute="top" secondItem="GC0-EZ-x8P" secondAttribute="bottom" constant="-3" id="E1h-r5-EBn"/>
                             <constraint firstItem="ros-Bk-ZVy" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leadingMargin" constant="-20" id="EDe-fv-290"/>
                             <constraint firstItem="bhE-zA-4t7" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leading" id="FXr-aW-zBg"/>
                             <constraint firstItem="huA-O1-54n" firstAttribute="top" secondItem="ros-Bk-ZVy" secondAttribute="bottom" constant="15" id="Fjb-Qk-Hxt"/>
-                            <constraint firstAttribute="trailing" secondItem="S5F-rs-Ghf" secondAttribute="trailing" constant="10" id="HWH-XZ-wRF"/>
                             <constraint firstItem="huA-O1-54n" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leading" constant="10" id="Oys-Nr-5Sh"/>
                             <constraint firstItem="GC0-EZ-x8P" firstAttribute="trailing" secondItem="Mwi-1s-bC4" secondAttribute="trailingMargin" constant="20" id="R0O-kc-qeI"/>
                             <constraint firstAttribute="trailing" secondItem="mLx-w0-FaU" secondAttribute="trailing" id="RIT-OC-ZkF"/>
@@ -1475,6 +1474,7 @@
                             <constraint firstItem="hh2-ts-4BA" firstAttribute="top" secondItem="HnB-tK-Gh9" secondAttribute="bottom" constant="49" id="WJ6-2u-rVp"/>
                             <constraint firstItem="GC0-EZ-x8P" firstAttribute="top" secondItem="bhE-zA-4t7" secondAttribute="top" id="Zoi-Hy-wqa"/>
                             <constraint firstItem="huA-O1-54n" firstAttribute="top" secondItem="z2g-Bm-q4G" secondAttribute="bottom" constant="11" id="aYD-tk-7eb"/>
+                            <constraint firstAttribute="trailing" secondItem="mXp-dP-eCo" secondAttribute="trailing" constant="15" id="etQ-SZ-13I"/>
                             <constraint firstAttribute="trailing" secondItem="bhE-zA-4t7" secondAttribute="trailing" id="fdR-Sa-4Fn"/>
                             <constraint firstItem="hh2-ts-4BA" firstAttribute="top" secondItem="bhE-zA-4t7" secondAttribute="bottom" id="fgZ-1S-f2s"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VH7-Fj-a7t" secondAttribute="trailing" id="lZO-TY-WEQ"/>
@@ -1493,6 +1493,7 @@
                         <outlet property="currentPlayerAvatorIcon" destination="c5f-7R-NrH" id="hkn-SI-1v4"/>
                         <outlet property="emptyTableBackGround" destination="HnB-tK-Gh9" id="fNz-zZ-I4k"/>
                         <outlet property="eventsTableView" destination="huA-O1-54n" id="gEr-ib-MKo"/>
+                        <outlet property="playerGroupsIcon" destination="mXp-dP-eCo" id="q0X-jp-QHo"/>
                         <outlet property="segmentControl" destination="ros-Bk-ZVy" id="i3U-uh-wdz"/>
                         <outlet property="segmentOneUnderLine" destination="z2g-Bm-q4G" id="TtB-fc-gBv"/>
                         <outlet property="segmentTwoUnderLine" destination="VH7-Fj-a7t" id="6vE-Bv-iqq"/>
@@ -2334,7 +2335,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="9A6356DC-2ED5-4790-91CD-50197FCF2F62" width="30" height="30">
+        <image name="7F35F4F2-0DBB-47C1-A490-FC195C49875F" width="30" height="30">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -2478,7 +2479,6 @@ AAAAAAActw
         <image name="eventsViewBG" width="375" height="667"/>
         <image name="iconArrowRight" width="5" height="10"/>
         <image name="iconBackArrow" width="44" height="44"/>
-        <image name="iconGroups" width="44" height="44"/>
         <image name="imgArena" width="98" height="100"/>
         <image name="imgArenaOnTap" width="98" height="100"/>
         <image name="imgChooseEventBG" width="375" height="667"/>
