@@ -46,7 +46,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>iOSCrossroadsApp</string>
+				<string>CrossroadsApp</string>
 			</array>
 			<key>CFBundleURLName</key>
 			<string>com.crossroads.open</string>
