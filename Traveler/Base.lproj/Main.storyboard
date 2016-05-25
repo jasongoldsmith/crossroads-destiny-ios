@@ -891,13 +891,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileBgImage" translatesAutoresizingMaskIntoConstraints="NO" id="APu-zA-Kyk">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEc-XV-f48">
                                 <rect key="frame" x="545" y="40" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="BPW-Av-wmv"/>
                                     <constraint firstAttribute="height" constant="30" id="kVf-zE-gLY"/>
                                 </constraints>
-                                <state key="normal" image="C5454270-F762-403A-BDDE-C7B209F76866"/>
+                                <state key="normal" image="034E5B1B-C928-4957-B036-4ED33478C8C6"/>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="RJW-k0-l6u" eventType="touchUpInside" id="bH8-fb-Djk"/>
                                 </connections>
@@ -992,9 +995,6 @@
                                 <color key="textColor" red="0.0" green="0.71372549019607845" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileBgImage" translatesAutoresizingMaskIntoConstraints="NO" id="APu-zA-Kyk">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.36470588240000001" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -2333,7 +2333,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="C5454270-F762-403A-BDDE-C7B209F76866" width="30" height="30">
+        <image name="034E5B1B-C928-4957-B036-4ED33478C8C6" width="30" height="30">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
