@@ -10,18 +10,17 @@ import UIKit
 
 class TRUpdateUser: TRRequest {
     
-    func updateUserObject(newPassword: String?, userImage: UIImage?, completion: TRValueCallBack) {
+    func updateUserPassword(newPassword: String?, oldPassword: String?, completion: TRValueCallBack) {
         
-        let updateUserUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_UPDATE_USER
+        let updateUserUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_UPDATE_PASSWORD
         var params = [String: AnyObject]()
         params["id"] = TRUserInfo.getUserID()
         
         if let _ = newPassword {
-            params["passWord"] = newPassword
+            params["newPassWord"] = newPassword
         }
-        
-        if let _ = userImage {
-            
+        if let _ = oldPassword {
+            params["oldPassWord"] = oldPassword
         }
         
         let request = TRRequest()

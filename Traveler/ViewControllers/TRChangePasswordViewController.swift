@@ -90,7 +90,7 @@ class TRChangePasswordViewController: TRBaseViewController {
             return
         }
     
-        let _ = TRUpdateUser().updateUserObject(self.newPassword?.text, userImage: nil) { (didSucceed) in
+        let _ = TRUpdateUser().updateUserPassword(self.newPassword?.text, oldPassword: self.oldPassword?.text) { (didSucceed) in
             
             if didSucceed == true {
                 self.oldPasswordView?.hidden = true
