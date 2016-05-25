@@ -52,9 +52,6 @@
 		332BC17D1CED03AD00012B45 /* TRGetAllDestinyGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332BC17C1CED03AD00012B45 /* TRGetAllDestinyGroups.swift */; };
 		332BC17E1CED03AD00012B45 /* TRGetAllDestinyGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332BC17C1CED03AD00012B45 /* TRGetAllDestinyGroups.swift */; };
 		332BC17F1CED03AD00012B45 /* TRGetAllDestinyGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332BC17C1CED03AD00012B45 /* TRGetAllDestinyGroups.swift */; };
-		332BC1811CED143D00012B45 /* TRSelectGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332BC1801CED143D00012B45 /* TRSelectGroupsViewController.swift */; };
-		332BC1821CED143D00012B45 /* TRSelectGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332BC1801CED143D00012B45 /* TRSelectGroupsViewController.swift */; };
-		332BC1831CED143D00012B45 /* TRSelectGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332BC1801CED143D00012B45 /* TRSelectGroupsViewController.swift */; };
 		332C9CE41C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
 		332C9CE51C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
 		332C9CE61C8B89370092989E /* TRLeaveEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */; };
@@ -315,7 +312,6 @@
 		332BC1741CEBD80C00012B45 /* TRSignUpVerificatioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRSignUpVerificatioViewController.swift; sourceTree = "<group>"; };
 		332BC1781CEBECDB00012B45 /* TRAppTrackingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRAppTrackingRequest.swift; sourceTree = "<group>"; };
 		332BC17C1CED03AD00012B45 /* TRGetAllDestinyGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRGetAllDestinyGroups.swift; sourceTree = "<group>"; };
-		332BC1801CED143D00012B45 /* TRSelectGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRSelectGroupsViewController.swift; sourceTree = "<group>"; };
 		332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLeaveEventRequest.swift; sourceTree = "<group>"; };
 		3333BDB61CED6E3C001C9E1A /* TRChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRChangePasswordViewController.swift; sourceTree = "<group>"; };
 		3333BDBA1CEE4221001C9E1A /* TRChooseGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRChooseGroupViewController.swift; sourceTree = "<group>"; };
@@ -386,7 +382,7 @@
 		6238D2E11C7ADE8E0085C8AA /* TRUserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRUserInfo.swift; sourceTree = "<group>"; };
 		6294972C1C7BB5F3005E4F91 /* TRAuthenticationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRAuthenticationRequest.swift; sourceTree = "<group>"; };
 		629497311C7C04E1005E4F91 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
-		62C1FF2C1C77C15C00A78798 /* Traveler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Traveler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		62C1FF2C1C77C15C00A78798 /* Crossroads.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crossroads.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62C1FF2F1C77C15C00A78798 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62C1FF311C77C15C00A78798 /* TRRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRRootViewController.swift; sourceTree = "<group>"; };
 		62C1FF341C77C15C00A78798 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -582,7 +578,7 @@
 		62C1FF2D1C77C15C00A78798 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				62C1FF2C1C77C15C00A78798 /* Traveler.app */,
+				62C1FF2C1C77C15C00A78798 /* Crossroads.app */,
 				62C1FF401C77C15C00A78798 /* TravelerTests.xctest */,
 				62C1FF4B1C77C15C00A78798 /* TravelerUITests.xctest */,
 			);
@@ -643,7 +639,6 @@
 				33974F191CADD9CD0015C9D5 /* TRSendReportViewController.swift */,
 				33A029AF1CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift */,
 				332BC1741CEBD80C00012B45 /* TRSignUpVerificatioViewController.swift */,
-				332BC1801CED143D00012B45 /* TRSelectGroupsViewController.swift */,
 				3333BDB61CED6E3C001C9E1A /* TRChangePasswordViewController.swift */,
 				3333BDBA1CEE4221001C9E1A /* TRChooseGroupViewController.swift */,
 				338437151CEF815100AB27F3 /* TRLegalViewController.swift */,
@@ -696,7 +691,7 @@
 			);
 			name = Traveler;
 			productName = Traveler;
-			productReference = 62C1FF2C1C77C15C00A78798 /* Traveler.app */;
+			productReference = 62C1FF2C1C77C15C00A78798 /* Crossroads.app */;
 			productType = "com.apple.product-type.application";
 		};
 		62C1FF3F1C77C15C00A78798 /* TravelerTests */ = {
@@ -1010,7 +1005,6 @@
 				33974F1A1CADD9CD0015C9D5 /* TRSendReportViewController.swift in Sources */,
 				338BB1FB1CEE98E200A14060 /* TRUpdateGroupRequest.swift in Sources */,
 				3305AD091CF26FD100572495 /* YTGameViewController.swift in Sources */,
-				332BC1811CED143D00012B45 /* TRSelectGroupsViewController.swift in Sources */,
 				3333BDBB1CEE4221001C9E1A /* TRChooseGroupViewController.swift in Sources */,
 				33742D801C7FBDF100C46742 /* TRConstants.swift in Sources */,
 				332C9CE41C8B89370092989E /* TRLeaveEventRequest.swift in Sources */,
@@ -1089,7 +1083,6 @@
 				33974F1B1CADD9CD0015C9D5 /* TRSendReportViewController.swift in Sources */,
 				3307B27B1CCF0333004F74F8 /* TRFireBaseListener.swift in Sources */,
 				333E1CA51CC54A27000B843C /* UIViewExtension.swift in Sources */,
-				332BC1821CED143D00012B45 /* TRSelectGroupsViewController.swift in Sources */,
 				6238D2E31C7ADE8E0085C8AA /* TRUserInfo.swift in Sources */,
 				33095FE01CDD27400094DF49 /* TRAlignableUILabel.swift in Sources */,
 				3305AD031CF26B2C00572495 /* YTGameScene.swift in Sources */,
@@ -1171,7 +1164,6 @@
 				33974F1C1CADD9CD0015C9D5 /* TRSendReportViewController.swift in Sources */,
 				3307B27C1CCF0333004F74F8 /* TRFireBaseListener.swift in Sources */,
 				333E1CA61CC54A27000B843C /* UIViewExtension.swift in Sources */,
-				332BC1831CED143D00012B45 /* TRSelectGroupsViewController.swift in Sources */,
 				6238D2E41C7ADE8E0085C8AA /* TRUserInfo.swift in Sources */,
 				33095FE11CDD27410094DF49 /* TRAlignableUILabel.swift in Sources */,
 				3305AD041CF26B2C00572495 /* YTGameScene.swift in Sources */,
@@ -1372,7 +1364,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.verizon.feighty.Traveler;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Crossroads;
 				PROVISIONING_PROFILE = "5469a359-4f81-49a6-b5a6-ca352efec429";
 				SWIFT_OBJC_BRIDGING_HEADER = "TR-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1393,7 +1385,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.verizon.feighty.Traveler;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Crossroads;
 				PROVISIONING_PROFILE = "7dc957e8-97b1-470c-a754-077097a81227";
 				SWIFT_OBJC_BRIDGING_HEADER = "TR-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
