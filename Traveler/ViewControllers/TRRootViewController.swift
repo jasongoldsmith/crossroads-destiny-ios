@@ -28,13 +28,9 @@ class TRRootViewController: TRBaseViewController {
     override func viewDidAppear(animated: Bool) {
         
         super.viewDidAppear(animated)
-        TRApplicationManager.sharedInstance.fireBaseObj.addUserObserver()
         
         if (TRUserInfo.isUserLoggedIn()) {
             if (TRUserInfo.isUserVerified() == true) {
-
-                // Remove Observer
-                TRApplicationManager.sharedInstance.fireBaseObj.removeObservers()
 
                 _ = TRGetAllDestinyGroups().getAllGroups({ (didSucceed) in
                     if didSucceed == true {
@@ -43,8 +39,15 @@ class TRRootViewController: TRBaseViewController {
                             var showEventListLandingPage = false
                             if(didSucceed == true) {
                                 if (TRApplicationManager.sharedInstance.eventsList.count > 0) {
+                                    
+                                    // If has events, show event list view else show create Activity View
+                                    showEventListLandingPage = true
+                                } else if (TRApplicationManager.sharedInstance.eventsList.count == 0 && TRUserInfo.getUserClanID() == "clan_id_not_set") {
+                                    
+                                    // Only for the first time, if user has no clan, take him to event list to choose clan
                                     showEventListLandingPage = true
                                 }
+                                
                                 TRApplicationManager.sharedInstance.addSlideMenuController(self, pushData: self.pushNotificationData, showLandingPage: showEventListLandingPage)
                                 self.pushNotificationData = nil
                             } else {
@@ -54,10 +57,6 @@ class TRRootViewController: TRBaseViewController {
                     }
                 })
             } else {
-                
-                // Add Observer to observe changes to UserObject
-                TRApplicationManager.sharedInstance.fireBaseObj.addUserObserver()
-                
                 let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
                 let verifyAccountViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_VERIFY_ACCOUNT) as! TRSignUpVerificatioViewController
                 self.presentViewController(verifyAccountViewController, animated: true, completion: { 

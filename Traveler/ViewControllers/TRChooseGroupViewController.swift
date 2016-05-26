@@ -37,14 +37,12 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
         
         if TRApplicationManager.sharedInstance.bungieGroups.count <= 0 {
             self.saveButton.hidden = true
-            self.groupsTableView.hidden = true
             self.lableOne.hidden = true
             self.lableTwo.hidden = true
             
-            self.appIcon.image = UIImage(named: "imgNogroups")
             self.lableThree.hidden = false
             
-            let messageString = "Traveler for Destiny matched you with people from your existing Bungie.net groups. \n \nIt looks like you're not a member of any groups. Please join a group in order to fully experience the app."
+            let messageString = "It looks like you are not a member of aby group. Feel free to Freelance with us or head to Bungie.net to join a group and fully experience the Crossroad for Destiny app."
             let bungieLinkName = "Bungie.net"
             self.lableThree?.text = messageString
             

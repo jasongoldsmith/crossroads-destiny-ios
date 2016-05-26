@@ -12,6 +12,7 @@ import TTTAttributedLabel
 class TRSignUpVerificatioViewController: TRBaseViewController, TTTAttributedLabelDelegate {
 
     @IBOutlet weak var messageLable: TTTAttributedLabel?
+    @IBOutlet weak var accountVerifyLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +39,36 @@ class TRSignUpVerificatioViewController: TRBaseViewController, TTTAttributedLabe
         self.messageLable?.linkAttributes = subscriptionNoticeLinkAttributes
         self.messageLable?.addLinkToURL(url, withRange: range)
         self.messageLable?.delegate = self
+        
+        //Add FireBase
+        self.addFireBaseObserverAndCheckVerification()
     }
 
+    func addFireBaseObserverAndCheckVerification () {
+        TRApplicationManager.sharedInstance.fireBaseObj.addUserObserverWithCompletion { (didCompelete) in
+            if didCompelete == true {
+                if TRUserInfo.isUserVerified() {
+                    
+                    var messageString = ""
+                    if let userName = TRUserInfo.getUserName() {
+                        messageString = "Welcome \(userName) \n \nThanks for singning up for Traveler, the Destiny FireTeam Finder mobile app!"
+                    } else {
+                        messageString = "Welcome \n \nThanks for singning up for Traveler, the Destiny FireTeam Finder mobile app!"
+                    }
+
+                    self.messageLable?.text = messageString
+                    self.accountVerifyLabel.text = "Account Verified!"
+                    
+                    delay(2.0, closure: {
+                        self.dismissViewController(true, dismissed: { (didDismiss) in
+                            TRApplicationManager.sharedInstance.fireBaseObj.removeObservers()
+                        })
+                    })
+                }
+            }
+        }
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
     }

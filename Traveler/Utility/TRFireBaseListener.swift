@@ -10,12 +10,14 @@ import Foundation
 import Firebase
 import SwiftyJSON
 
+typealias TRFireBaseSuccessCallBack = (didCompelete: Bool?) -> ()
+
 class TRFireBaseListener {
     
     var firebaseChatData: Firebase?
     
     
-    func addUserObserver () {
+    func addUserObserverWithCompletion (complete: TRFireBaseSuccessCallBack) {
         if let userID = TRUserInfo.getUserID() {
             
             let fireBaseUrl = K.TRUrls.TR_FIREBASE_DEFAULT + "users"  + "/" + userID
@@ -24,6 +26,21 @@ class TRFireBaseListener {
                 
                 if snap.value is NSNull {
                     //something is wrong, not even empty array
+                }
+                
+                if let snapShot = snap.value as? NSDictionary {
+                    let userData = TRUserInfo()
+                    userData.userName       = snapShot["userName"] as? String
+                    userData.userID         = snapShot["_id"] as? String
+                    userData.psnID          = snapShot["psnId"] as? String
+                    userData.userImageURL   = snapShot["imageUrl"] as? String
+                    userData.userClanID     = snapShot["clanId"] as? String
+                    userData.psnVerified    = snapShot["psnVerified"] as? String
+                    userData.xboxVerified   = snapShot["xboxVerified"] as? String
+                    
+                    TRUserInfo.saveUserData(userData)
+                    
+                    complete(didCompelete: true)
                 }
             })
         }
