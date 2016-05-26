@@ -13,7 +13,7 @@ private let GROUP_CELLS_IDENTIFIER = "groupCells"
 
 class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, UITableViewDelegate, TTTAttributedLabelDelegate {
 
-    private let bungieGroups = TRApplicationManager.sharedInstance.bungieGroups
+    private var bungieGroups = TRApplicationManager.sharedInstance.bungieGroups
     private var selectedGroup: TRBungieGroupInfo?
     private var highlightedCell: TRBungieGroupCell?
     
@@ -40,6 +40,20 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
         } else {
             self.lableThree.hidden = true
         }
+        
+        
+        if let userGroup = TRUserInfo.getUserClanID() where userGroup != "clan_id_not_set" {
+            let selectedGroup = self.bungieGroups.filter{$0.groupId! == userGroup}
+            self.selectedGroup = selectedGroup.first
+            let groupIndex = self.bungieGroups.indexOf({$0.groupId == self.selectedGroup?.groupId})
+            if let _ = groupIndex {
+                self.bungieGroups.removeAtIndex(groupIndex!)
+                self.bungieGroups.insert(self.selectedGroup!, atIndex: 0)
+            }
+        }
+
+        
+        self.groupsTableView.reloadData()
     }
     
     func addNoneGroupCountUI () {
@@ -104,6 +118,7 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
             if let hasCurrentGroup = TRUserInfo.getUserClanID() {
                 if hasCurrentGroup == groupInfo.groupId {
                     self.highlightedCell = cell
+                    cell.bottomBorderImageView.hidden = false
                     cell.radioButton?.highlighted = true
                 }
             }
@@ -118,12 +133,13 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        self.selectedGroup = self.bungieGroups[indexPath.section]
-        
+
         if let _ = self.highlightedCell {
             self.highlightedCell?.radioButton?.highlighted = false
         }
 
+        self.selectedGroup = self.bungieGroups[indexPath.section]
+        
         let cell = tableView.cellForRowAtIndexPath(indexPath) as? TRBungieGroupCell
         self.highlightedCell = cell
         cell?.radioButton?.highlighted = true
