@@ -36,30 +36,30 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
         super.viewWillAppear(animated)
         
         if TRApplicationManager.sharedInstance.bungieGroups.count <= 0 {
-            self.lableThree.hidden = false
-            
-            let messageString = "It looks like you are not a member of any group. Feel free to Freelance with us or head to Bungie.net to join a group and fully experience the Crossroad for Destiny app."
-            let bungieLinkName = "Bungie.net"
-            self.lableThree?.text = messageString
-            
-            // Add HyperLink to Bungie
-            let nsString = messageString as NSString
-            let range = nsString.rangeOfString(bungieLinkName)
-            let url = NSURL(string: "https://www.bungie.net/")!
-            let subscriptionNoticeLinkAttributes = [
-                NSForegroundColorAttributeName: UIColor(red: 0/255, green: 182/255, blue: 231/255, alpha: 1),
-                NSUnderlineStyleAttributeName: NSNumber(bool:false),
-                ]
-            self.lableThree?.linkAttributes = subscriptionNoticeLinkAttributes
-            self.lableThree?.addLinkToURL(url, withRange: range)
-            self.lableThree?.delegate = self
+            self.addNoneGroupCountUI()
         }
     }
     
-    func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
-        UIApplication.sharedApplication().openURL(url)
-    }
+    func addNoneGroupCountUI () {
+        self.lableThree.hidden = false
+        
+        let messageString = "It looks like you are not a member of any group. Feel free to Freelance with us or head to Bungie.net to join a group and fully experience the Crossroad for Destiny app."
+        let bungieLinkName = "Bungie.net"
+        self.lableThree?.text = messageString
+        
+        // Add HyperLink to Bungie
+        let nsString = messageString as NSString
+        let range = nsString.rangeOfString(bungieLinkName)
+        let url = NSURL(string: "https://www.bungie.net/")!
+        let subscriptionNoticeLinkAttributes = [
+            NSForegroundColorAttributeName: UIColor(red: 0/255, green: 182/255, blue: 231/255, alpha: 1),
+            NSUnderlineStyleAttributeName: NSNumber(bool:false),
+            ]
+        self.lableThree?.linkAttributes = subscriptionNoticeLinkAttributes
+        self.lableThree?.addLinkToURL(url, withRange: range)
+        self.lableThree?.delegate = self
 
+    }
     
     //MARK:- Table Delegate Methods
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -82,7 +82,6 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
         let groupInfo = self.bungieGroups[indexPath.section]
         cell.selectionStyle = .None
         cell.updateCellViewWithGroup(groupInfo)
-        
         
         if let hasCurrentGroup = TRUserInfo.getUserClanID() {
             if hasCurrentGroup == groupInfo.groupId {
@@ -122,14 +121,22 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
         }
     }
     
+    
+    func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
+        UIApplication.sharedApplication().openURL(url)
+    }
+
+    
     @IBAction func goToBungieWebSite (sender: UIButton) {
         let url = NSURL(string: "https://www.bungie.net/")!
         UIApplication.sharedApplication().openURL(url)
     }
     
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
     
     deinit {
         
