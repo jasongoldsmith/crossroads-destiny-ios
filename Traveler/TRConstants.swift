@@ -24,7 +24,7 @@ struct K {
     struct TRUrls {
         
         #if RELEASE
-            static let TR_BaseUrl            =   "https://travelerbackendproduction.herokuapp.com"
+            static let TR_BaseUrl            =   "https://live.crossroadsapp.co"
             static let TR_FIREBASE_DEFAULT   =   "https://traveler-production.firebaseio.com/"
         #else
             static let TR_BaseUrl            =   "https://travelerbackend.herokuapp.com"
