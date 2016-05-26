@@ -59,7 +59,7 @@ class TRSignUpVerificatioViewController: TRBaseViewController, TTTAttributedLabe
                     self.messageLable?.text = messageString
                     self.accountVerifyLabel.text = "Account Verified!"
                     
-                    delay(2.0, closure: {
+                    delay(3.0, closure: {
                         self.dismissViewController(true, dismissed: { (didDismiss) in
                             TRApplicationManager.sharedInstance.fireBaseObj.removeObservers()
                         })
