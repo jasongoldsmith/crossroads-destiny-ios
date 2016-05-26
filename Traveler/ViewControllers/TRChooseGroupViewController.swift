@@ -36,13 +36,9 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
         super.viewWillAppear(animated)
         
         if TRApplicationManager.sharedInstance.bungieGroups.count <= 0 {
-            self.saveButton.hidden = true
-            self.lableOne.hidden = true
-            self.lableTwo.hidden = true
-            
             self.lableThree.hidden = false
             
-            let messageString = "It looks like you are not a member of aby group. Feel free to Freelance with us or head to Bungie.net to join a group and fully experience the Crossroad for Destiny app."
+            let messageString = "It looks like you are not a member of any group. Feel free to Freelance with us or head to Bungie.net to join a group and fully experience the Crossroad for Destiny app."
             let bungieLinkName = "Bungie.net"
             self.lableThree?.text = messageString
             
@@ -57,8 +53,6 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
             self.lableThree?.linkAttributes = subscriptionNoticeLinkAttributes
             self.lableThree?.addLinkToURL(url, withRange: range)
             self.lableThree?.delegate = self
-            
-            return
         }
     }
     
@@ -103,11 +97,7 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        //self.saveButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         self.selectedGroup = self.bungieGroups[indexPath.section]
-        self.saveButton.enabled = true
-        self.saveButton.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
-        
         
         if let _ = self.highlightedCell {
             self.highlightedCell?.radioButton?.highlighted = false
@@ -116,9 +106,7 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
         let cell = tableView.cellForRowAtIndexPath(indexPath) as? TRBungieGroupCell
         self.highlightedCell = cell
         cell?.radioButton?.highlighted = true
-    }
-    
-    @IBAction func saveButtonPressed (sender: UIButton) {
+        
         if let group = self.selectedGroup {
             _ = TRUpdateGroupRequest().updateUserGroup(group.groupId!, completion: { (didSucceed) in
                 _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: false, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
@@ -132,6 +120,11 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
                 })
             })
         }
+    }
+    
+    @IBAction func goToBungieWebSite (sender: UIButton) {
+        let url = NSURL(string: "https://www.bungie.net/")!
+        UIApplication.sharedApplication().openURL(url)
     }
     
     override func didReceiveMemoryWarning() {

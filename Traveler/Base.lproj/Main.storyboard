@@ -100,28 +100,22 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="21G-5K-sdg">
                                 <rect key="frame" x="0.0" y="550" width="600" height="50"/>
-                                <color key="backgroundColor" red="0.20784313730000001" green="0.34901960780000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.08235294118" green="0.52941176469999995" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="j0g-po-80f"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
-                                <state key="normal" title="SAVE GROUP">
+                                <state key="normal" title="GO TO BUNGIE.NET">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="saveButtonPressed:" destination="Hk0-IT-ZlF" eventType="touchUpInside" id="XVI-lg-UvY"/>
+                                    <action selector="goToBungieWebSite:" destination="Hk0-IT-ZlF" eventType="touchUpInside" id="U93-qC-WDt"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR PS4 BUNGIE GROUPS: (SELECT ONE)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FmQ-ui-gbl">
                                 <rect key="frame" x="176" y="174" width="248" height="14"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.71372549019999998" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWz-lA-epg" customClass="TTTAttributedLabel">
-                                <rect key="frame" x="30" y="162" width="540" height="24"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="66" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="WhP-cr-BTL">
@@ -132,24 +126,34 @@
                                     <outlet property="delegate" destination="Hk0-IT-ZlF" id="wxL-EB-R1c"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWz-lA-epg" customClass="TTTAttributedLabel">
+                                <rect key="frame" x="32" y="504" width="536" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.16862745098039217" green="0.25882352941176467" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="FmQ-ui-gbl" firstAttribute="top" secondItem="4Hh-ej-dOf" secondAttribute="bottom" constant="12" id="0xT-Az-Ohq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CWz-lA-epg" secondAttribute="trailing" constant="12" id="3BZ-ui-MWo"/>
                             <constraint firstItem="4Hh-ej-dOf" firstAttribute="leading" secondItem="a4f-Bs-Ivf" secondAttribute="leadingMargin" constant="60" id="4k1-07-SUa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WhP-cr-BTL" secondAttribute="trailing" constant="12" id="7OK-gj-76T"/>
                             <constraint firstItem="WhP-cr-BTL" firstAttribute="top" secondItem="FmQ-ui-gbl" secondAttribute="bottom" constant="15" id="8pP-JL-gwR"/>
                             <constraint firstAttribute="trailing" secondItem="21G-5K-sdg" secondAttribute="trailing" id="DUH-gL-dQe"/>
-                            <constraint firstItem="CWz-lA-epg" firstAttribute="leading" secondItem="a4f-Bs-Ivf" secondAttribute="leading" constant="30" id="Ido-dV-EC7"/>
+                            <constraint firstItem="21G-5K-sdg" firstAttribute="top" secondItem="CWz-lA-epg" secondAttribute="bottom" constant="25" id="IPI-ky-reu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4Hh-ej-dOf" secondAttribute="trailing" constant="60" id="Ivg-Kw-yuR"/>
                             <constraint firstItem="21G-5K-sdg" firstAttribute="leading" secondItem="a4f-Bs-Ivf" secondAttribute="leading" id="QBS-GX-YV8"/>
-                            <constraint firstItem="CWz-lA-epg" firstAttribute="top" secondItem="4Hh-ej-dOf" secondAttribute="bottom" constant="0.5" id="Qfj-ed-zgz"/>
                             <constraint firstItem="WhP-cr-BTL" firstAttribute="leading" secondItem="a4f-Bs-Ivf" secondAttribute="leadingMargin" constant="12" id="WVg-3v-bsQ"/>
                             <constraint firstItem="T7g-l3-C1j" firstAttribute="top" secondItem="k1z-ct-gNP" secondAttribute="bottom" constant="30" id="aeX-wE-wg5"/>
+                            <constraint firstItem="FmQ-ui-gbl" firstAttribute="centerX" secondItem="a4f-Bs-Ivf" secondAttribute="centerX" id="cZE-3h-n8F"/>
+                            <constraint firstItem="CWz-lA-epg" firstAttribute="leading" secondItem="a4f-Bs-Ivf" secondAttribute="leadingMargin" constant="12" id="cm2-9Z-xSL"/>
                             <constraint firstItem="4Hh-ej-dOf" firstAttribute="top" secondItem="T7g-l3-C1j" secondAttribute="bottom" constant="15" id="g6R-VK-9tO"/>
+                            <constraint firstItem="4Hh-ej-dOf" firstAttribute="centerX" secondItem="a4f-Bs-Ivf" secondAttribute="centerX" id="lQ3-5W-HJY"/>
                             <constraint firstItem="2WA-Rs-ejf" firstAttribute="top" secondItem="21G-5K-sdg" secondAttribute="bottom" id="o37-Bg-DVN"/>
-                            <constraint firstAttribute="trailing" secondItem="CWz-lA-epg" secondAttribute="trailing" constant="30" id="pmo-r9-aJu"/>
                             <constraint firstItem="2WA-Rs-ejf" firstAttribute="top" secondItem="WhP-cr-BTL" secondAttribute="bottom" constant="50" id="wKa-Bt-2gb"/>
+                            <constraint firstItem="WhP-cr-BTL" firstAttribute="centerX" secondItem="a4f-Bs-Ivf" secondAttribute="centerX" id="wvI-om-71U"/>
+                            <constraint firstItem="CWz-lA-epg" firstAttribute="centerX" secondItem="a4f-Bs-Ivf" secondAttribute="centerX" id="xtD-CC-fZU"/>
                             <constraint firstItem="FmQ-ui-gbl" firstAttribute="centerX" secondItem="a4f-Bs-Ivf" secondAttribute="centerX" id="zf2-8R-h09"/>
                             <constraint firstItem="T7g-l3-C1j" firstAttribute="centerX" secondItem="a4f-Bs-Ivf" secondAttribute="centerX" id="zv2-pD-CGk"/>
                         </constraints>
