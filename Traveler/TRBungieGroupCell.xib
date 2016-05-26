@@ -47,19 +47,27 @@
                         <state key="normal" image="imgSelectorOff"/>
                         <state key="highlighted" image="imgSelectorOn"/>
                     </button>
+                    <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0w1-DK-cWE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="66.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" red="0.074509803921568626" green="0.12156862745098039" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="lWx-L0-fBM" firstAttribute="centerY" secondItem="3PG-Qy-x9r" secondAttribute="centerY" id="1gZ-0z-dqn"/>
                     <constraint firstItem="936-fD-RK1" firstAttribute="leading" secondItem="3PG-Qy-x9r" secondAttribute="trailing" constant="10" id="1jO-vN-YDw"/>
                     <constraint firstAttribute="trailingMargin" secondItem="lWx-L0-fBM" secondAttribute="trailing" id="3wX-KY-VgR"/>
+                    <constraint firstAttribute="trailing" secondItem="0w1-DK-cWE" secondAttribute="trailing" id="6Mt-ym-waB"/>
                     <constraint firstItem="SI5-WP-UXi" firstAttribute="top" secondItem="936-fD-RK1" secondAttribute="bottom" constant="2.5" id="7QO-6Z-XfK"/>
+                    <constraint firstItem="0w1-DK-cWE" firstAttribute="top" secondItem="VrK-Vk-kzO" secondAttribute="top" id="7Zd-Gf-fg0"/>
                     <constraint firstItem="IZP-bU-bfg" firstAttribute="top" secondItem="SI5-WP-UXi" secondAttribute="bottom" constant="2" id="M6Q-Va-T2f"/>
+                    <constraint firstItem="0w1-DK-cWE" firstAttribute="leading" secondItem="VrK-Vk-kzO" secondAttribute="leading" id="MO2-Ux-WFQ"/>
                     <constraint firstAttribute="bottomMargin" secondItem="3PG-Qy-x9r" secondAttribute="bottom" constant="-7.5" id="RuM-Ps-80V"/>
                     <constraint firstItem="936-fD-RK1" firstAttribute="top" secondItem="VrK-Vk-kzO" secondAttribute="topMargin" id="Zgi-uJ-0Wg"/>
                     <constraint firstItem="lWx-L0-fBM" firstAttribute="top" secondItem="VrK-Vk-kzO" secondAttribute="topMargin" constant="9" id="aWw-fz-j5c"/>
                     <constraint firstItem="3PG-Qy-x9r" firstAttribute="top" secondItem="VrK-Vk-kzO" secondAttribute="topMargin" constant="-8" id="cY4-LU-qV8"/>
                     <constraint firstItem="3PG-Qy-x9r" firstAttribute="leading" secondItem="VrK-Vk-kzO" secondAttribute="leadingMargin" constant="-8" id="d8K-37-gsu"/>
+                    <constraint firstAttribute="bottom" secondItem="0w1-DK-cWE" secondAttribute="bottom" id="gtd-Sc-iUt"/>
                     <constraint firstItem="IZP-bU-bfg" firstAttribute="leading" secondItem="3PG-Qy-x9r" secondAttribute="trailing" constant="10" id="onx-B1-ZgZ"/>
                     <constraint firstItem="SI5-WP-UXi" firstAttribute="leading" secondItem="3PG-Qy-x9r" secondAttribute="trailing" constant="10" id="vKB-p8-vbE"/>
                 </constraints>
@@ -69,9 +77,10 @@
                 <outlet property="groupAvator" destination="3PG-Qy-x9r" id="1WF-sy-S89"/>
                 <outlet property="groupName" destination="936-fD-RK1" id="G0X-9V-By9"/>
                 <outlet property="memberCount" destination="SI5-WP-UXi" id="AnR-42-M4i"/>
+                <outlet property="overlayImageView" destination="0w1-DK-cWE" id="65L-Zz-czo"/>
                 <outlet property="radioButton" destination="lWx-L0-fBM" id="B8Y-91-2FD"/>
             </connections>
-            <point key="canvasLocation" x="-325" y="320.5"/>
+            <point key="canvasLocation" x="-490" y="320.5"/>
         </tableViewCell>
     </objects>
     <resources>

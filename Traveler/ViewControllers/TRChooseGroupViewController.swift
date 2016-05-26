@@ -35,8 +35,10 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        if TRApplicationManager.sharedInstance.bungieGroups.count <= 0 {
+        if TRApplicationManager.sharedInstance.bungieGroups.count <= 1 {
             self.addNoneGroupCountUI()
+        } else {
+            self.lableThree.hidden = true
         }
     }
     
@@ -63,8 +65,14 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     
     //MARK:- Table Delegate Methods
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        if TRApplicationManager.sharedInstance.bungieGroups.count <= 1 {
+            return 2
+        }
+        
         return bungieGroups.count
     }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -76,18 +84,32 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
         return headerView
     }
     
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        if section == 1 {
+            return 15
+        }
+        
+        return 6
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(GROUP_CELLS_IDENTIFIER) as! TRBungieGroupCell
-        let groupInfo = self.bungieGroups[indexPath.section]
-        cell.selectionStyle = .None
-        cell.updateCellViewWithGroup(groupInfo)
-        
-        if let hasCurrentGroup = TRUserInfo.getUserClanID() {
-            if hasCurrentGroup == groupInfo.groupId {
-                self.highlightedCell = cell
-                cell.radioButton?.highlighted = true
+        if indexPath.section < self.bungieGroups.count {
+            let groupInfo = self.bungieGroups[indexPath.section]
+            cell.selectionStyle = .None
+            cell.updateCellViewWithGroup(groupInfo)
+            
+            if let hasCurrentGroup = TRUserInfo.getUserClanID() {
+                if hasCurrentGroup == groupInfo.groupId {
+                    self.highlightedCell = cell
+                    cell.radioButton?.highlighted = true
+                }
             }
+        } else {
+            cell.userInteractionEnabled = false
+            cell.overlayImageView.hidden = false
         }
         
         return cell

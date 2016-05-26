@@ -38,13 +38,9 @@ class TRRootViewController: TRBaseViewController {
                             
                             var showEventListLandingPage = false
                             if(didSucceed == true) {
-                                if (TRApplicationManager.sharedInstance.eventsList.count > 0) {
+                                if (TRUserInfo.getUserClanID() == "clan_id_not_set" || TRApplicationManager.sharedInstance.eventsList.count > 0) {
                                     
                                     // If has events, show event list view else show create Activity View
-                                    showEventListLandingPage = true
-                                } else if (TRApplicationManager.sharedInstance.eventsList.count == 0 && TRUserInfo.getUserClanID() == "clan_id_not_set") {
-                                    
-                                    // Only for the first time, if user has no clan, take him to event list to choose clan
                                     showEventListLandingPage = true
                                 }
                                 

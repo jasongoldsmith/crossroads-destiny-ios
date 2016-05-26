@@ -15,13 +15,16 @@ class TRBungieGroupCell: UITableViewCell {
     @IBOutlet weak var memberCount: UILabel!
     @IBOutlet weak var clanEnabled: UILabel!
     @IBOutlet weak var radioButton: UIButton!
-
+    @IBOutlet weak var overlayImageView: UIImageView!
     
     override func prepareForReuse() {
         self.groupAvator.image = nil
         self.groupName.text = nil
         self.memberCount?.text = nil
         self.clanEnabled?.text = nil
+        self.contentView.alpha = 1
+        self.overlayImageView.hidden = true
+        self.contentView.userInteractionEnabled = true
     }
     
     func updateCellViewWithGroup (groupInfo: TRBungieGroupInfo) {
