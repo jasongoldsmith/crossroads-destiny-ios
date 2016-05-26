@@ -21,9 +21,9 @@ class TRSignUpVerificatioViewController: TRBaseViewController, TTTAttributedLabe
         let bungieLinkName = "bungie.net"
         
         if let userName = TRUserInfo.getUserName() {
-            messageString = "Welcome \(userName) \n \nThanks for singning up for Traveler, the Destiny FireTeam Finder mobile app! An account verification message has been sent to your \(bungieLinkName) account. Click the link in the message to verify your PSN ID."
+            messageString = "Welcome \(userName) \n \nThanks for singning up for Crossroads, the Destiny FireTeam Finder mobile app! An account verification message has been sent to your \(bungieLinkName) account. Click the link in the message to verify your PSN ID."
         } else {
-            messageString = "Welcome \n \nThanks for singning up for Traveler, the Destiny FireTeam Finder mobile app! An account verification message has been sent to your bungie.net account. Click the link in the message to verify your PSN ID."
+            messageString = "Welcome \n \nThanks for singning up for Crossroads, the Destiny FireTeam Finder mobile app! An account verification message has been sent to your bungie.net account. Click the link in the message to verify your PSN ID."
         }
         
         self.messageLable?.text = messageString
@@ -51,9 +51,9 @@ class TRSignUpVerificatioViewController: TRBaseViewController, TTTAttributedLabe
                     
                     var messageString = ""
                     if let userName = TRUserInfo.getUserName() {
-                        messageString = "Welcome \(userName) \n \nThanks for singning up for Traveler, the Destiny FireTeam Finder mobile app!"
+                        messageString = "Welcome \(userName) \n \nThanks for singning up for Crossroads, the Destiny FireTeam Finder mobile app!"
                     } else {
-                        messageString = "Welcome \n \nThanks for singning up for Traveler, the Destiny FireTeam Finder mobile app!"
+                        messageString = "Welcome \n \nThanks for singning up for Crossroads, the Destiny FireTeam Finder mobile app!"
                     }
 
                     self.messageLable?.text = messageString
