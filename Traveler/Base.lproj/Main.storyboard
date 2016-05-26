@@ -221,6 +221,12 @@
                                     <action selector="createAccountBtnTapped:" destination="GCe-sl-3u9" eventType="touchUpInside" id="4r9-ll-mwr"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© Catalyst Foundry 2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S27-A4-Euw">
+                                <rect key="frame" x="232.5" y="502" width="134.5" height="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="0.67843137254901964" green="0.7803921568627451" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -235,6 +241,8 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Q4O-b1-LyM" secondAttribute="trailing" constant="-20" id="e1k-IC-jlr"/>
                             <constraint firstItem="b67-XM-c3B" firstAttribute="top" secondItem="9L3-Es-dEz" secondAttribute="bottom" constant="127" id="iBO-uO-GaH"/>
                             <constraint firstItem="9OI-ue-1e9" firstAttribute="leading" secondItem="emr-nd-Vuk" secondAttribute="leadingMargin" constant="-20" id="jg5-Lz-Exq"/>
+                            <constraint firstItem="9OI-ue-1e9" firstAttribute="top" secondItem="S27-A4-Euw" secondAttribute="bottom" constant="20" id="piD-i8-w85"/>
+                            <constraint firstItem="S27-A4-Euw" firstAttribute="centerX" secondItem="emr-nd-Vuk" secondAttribute="centerX" id="v7K-0r-L0Y"/>
                             <constraint firstItem="b67-XM-c3B" firstAttribute="centerX" secondItem="emr-nd-Vuk" secondAttribute="centerX" id="xjV-Mh-v3u"/>
                         </constraints>
                     </view>
@@ -1993,6 +2001,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrLoadingimgBackgroundMap" translatesAutoresizingMaskIntoConstraints="NO" id="8zj-GS-nmN">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© Catalyst Foundry 2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBQ-dn-VdF">
+                                <rect key="frame" x="233" y="580" width="134.5" height="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="0.67843137249999996" green="0.78039215689999997" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBadge" translatesAutoresizingMaskIntoConstraints="NO" id="EfW-Rr-lwB">
                                 <rect key="frame" x="209" y="51" width="182" height="137"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -2210,13 +2224,21 @@
                             <constraint firstAttribute="trailingMargin" secondItem="2hL-lQ-Rf4" secondAttribute="trailing" constant="-10" id="Mhb-Ge-Tt3"/>
                             <constraint firstItem="2KA-DT-gDl" firstAttribute="top" secondItem="EfW-Rr-lwB" secondAttribute="bottom" constant="31" id="N1X-Mi-zk0"/>
                             <constraint firstItem="iyy-mu-wYL" firstAttribute="top" secondItem="cIs-IX-Wfr" secondAttribute="bottom" constant="10" id="QfI-eP-SxH"/>
+                            <constraint firstItem="nBQ-dn-VdF" firstAttribute="top" secondItem="cIs-IX-Wfr" secondAttribute="bottom" constant="20" id="Tek-1J-hHd"/>
+                            <constraint firstItem="45T-dp-vXs" firstAttribute="top" secondItem="nBQ-dn-VdF" secondAttribute="bottom" constant="6" id="aON-dt-Nfx"/>
                             <constraint firstItem="8zj-GS-nmN" firstAttribute="leading" secondItem="Q9w-zl-5ST" secondAttribute="leadingMargin" constant="-20" id="d8F-eK-RfR"/>
                             <constraint firstItem="AIM-Bo-Bpg" firstAttribute="leading" secondItem="Q9w-zl-5ST" secondAttribute="leading" constant="10" id="k1Y-ig-zWE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cIs-IX-Wfr" secondAttribute="trailing" constant="-10" id="mkN-d7-kaA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8zj-GS-nmN" secondAttribute="trailing" constant="-20" id="t35-w1-7g9"/>
                             <constraint firstItem="AIM-Bo-Bpg" firstAttribute="top" secondItem="N37-3G-2Ts" secondAttribute="bottom" constant="8" id="wdJ-fI-3jg"/>
                             <constraint firstItem="iyy-mu-wYL" firstAttribute="centerX" secondItem="Q9w-zl-5ST" secondAttribute="centerX" id="woX-mE-fMe"/>
+                            <constraint firstItem="nBQ-dn-VdF" firstAttribute="centerX" secondItem="Q9w-zl-5ST" secondAttribute="centerX" id="z6u-Ex-XXp"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Tek-1J-hHd"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="GpI-Tk-LQY" appends="YES" id="tRs-jd-ozM"/>
                             <outletCollection property="gestureRecognizers" destination="N6b-Fm-Y9o" appends="YES" id="Zze-t7-Loj"/>
@@ -2242,7 +2264,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1486" y="-320"/>
+            <point key="canvasLocation" x="1467" y="-337"/>
         </scene>
         <!--Sign Up Verificatio View Controller-->
         <scene sceneID="OJF-Sb-wzb">
