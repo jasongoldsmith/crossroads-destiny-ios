@@ -39,6 +39,7 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
             self.addNoneGroupCountUI()
         } else {
             self.lableThree.hidden = true
+            self.saveButton.hidden = true
         }
         
         
