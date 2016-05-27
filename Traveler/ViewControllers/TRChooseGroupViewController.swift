@@ -99,6 +99,10 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+      
+        if let userGroup = TRUserInfo.getUserClanID() where userGroup == "clan_id_not_set" {
+            return 6
+        }
         
         if section == 1 {
             return 15

@@ -37,14 +37,18 @@ class TRRootViewController: TRBaseViewController {
                         _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: true, indicatorTopConstraint: self.ACTIVITY_INDICATOR_TOP_CONSTRAINT, completion: { (didSucceed) -> () in
                             
                             var showEventListLandingPage = false
+                            var showGroups = false
+                            
                             if(didSucceed == true) {
-                                if (TRUserInfo.getUserClanID() == "clan_id_not_set" || TRApplicationManager.sharedInstance.eventsList.count > 0) {
-                                    
+                                if (TRUserInfo.getUserClanID() == "clan_id_not_set") {
                                     // If has events, show event list view else show create Activity View
+                                    showGroups = true
+                                } else if TRApplicationManager.sharedInstance.eventsList.count > 0 {
                                     showEventListLandingPage = true
                                 }
                                 
-                                TRApplicationManager.sharedInstance.addSlideMenuController(self, pushData: self.pushNotificationData, showLandingPage: showEventListLandingPage)
+                                TRApplicationManager.sharedInstance.addSlideMenuController(self, pushData: self.pushNotificationData, showLandingPage: showEventListLandingPage, showGroups: showGroups)
+                                
                                 self.pushNotificationData = nil
                             } else {
                                 self.appManager.log.debug("Failed")

@@ -86,7 +86,7 @@ class TRApplicationManager: NSObject {
         self.pushNotificationView = NSBundle.mainBundle().loadNibNamed("TRPushNotificationView", owner: self, options: nil)[0] as! TRPushNotificationView
     }
 
-    func addSlideMenuController(parentViewController: TRBaseViewController, pushData: NSDictionary?, showLandingPage: Bool) {
+    func addSlideMenuController(parentViewController: TRBaseViewController, pushData: NSDictionary?, showLandingPage: Bool, showGroups: Bool) {
 
         let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
         let profileViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_PROFILE) as! TRProfileViewController
@@ -121,6 +121,9 @@ class TRApplicationManager: NSObject {
                         }
                     })
                 }
+            } else if (showGroups){
+                self.slideMenuController.view.alpha = 1
+                self.slideMenuController.rightViewController!.openRight()
             } else if (!showLandingPage){
                 let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
                 let vc : TRCreateEventViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEWCONTROLLER_CREATE_EVENT) as! TRCreateEventViewController
@@ -128,7 +131,7 @@ class TRApplicationManager: NSObject {
                 eventListViewController.presentViewController(navigationController, animated: false, completion: {
                     self.slideMenuController.view.alpha = 1
                 })
-            } else {
+            }  else {
                 self.slideMenuController.view.alpha = 1
             }
         })
