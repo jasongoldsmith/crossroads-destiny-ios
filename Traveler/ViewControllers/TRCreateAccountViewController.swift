@@ -55,7 +55,12 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
     }
     
     func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
-        UIApplication.sharedApplication().openURL(url)
+        let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+        let legalViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_WEB_VIEW) as! TRLegalViewController
+        legalViewController.linkToOpen = url
+        self.presentViewController(legalViewController, animated: true, completion: {
+            
+        })
     }
 
     func addLegalStatmentText () {
@@ -71,8 +76,8 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
         
         let rangeCustomerAgreement = nsString.rangeOfString(customerAgreement)
         let rangePrivacyPolicy = nsString.rangeOfString(privacyPolicy)
-        let urlCustomerAgreement = NSURL(string: "http://crossroadsapp.co/terms")!
-        let urlPrivacyPolicy = NSURL(string: "http://crossroadsapp.co/privacy")!
+        let urlCustomerAgreement = NSURL(string: "https://www.crossroadsapp.co/terms")!
+        let urlPrivacyPolicy = NSURL(string: "https://www.crossroadsapp.co/privacy")!
         
         let subscriptionNoticeLinkAttributes = [
             NSForegroundColorAttributeName: UIColor(red: 0/255, green: 182/255, blue: 231/255, alpha: 1),

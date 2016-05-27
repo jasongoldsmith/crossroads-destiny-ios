@@ -876,7 +876,7 @@
         <!--Legal View Controller-->
         <scene sceneID="Ncw-Ae-IHM">
             <objects>
-                <viewController id="IOo-gx-K2M" customClass="TRLegalViewController" customModule="Crossroads" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="legalWebView" id="IOo-gx-K2M" customClass="TRLegalViewController" customModule="Crossroads" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sLK-01-FLj"/>
                         <viewControllerLayoutGuide type="bottom" id="lrB-st-kDK"/>

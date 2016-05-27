@@ -77,6 +77,7 @@ struct K {
         static let VIEW_CONTROLLER_FORGOT_PASSWORD         = "forgotPassword"
         static let VIEW_CONTROLLER_VERIFY_ACCOUNT          = "verifyAccount"
         static let VIEW_CONTROLLER_CHOOSE_GROUP            = "chooseGroup"
+        static let VIEW_CONTROLLER_WEB_VIEW                = "legalWebView"
     }
     
     struct ActivityType {

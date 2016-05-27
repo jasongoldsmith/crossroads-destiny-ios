@@ -51,7 +51,7 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         // Add HyperLink to Bungie
         let nsString = messageString as NSString
         let range = nsString.rangeOfString(legalString)
-        let url = NSURL(string: "https://www.bungie.net/")!
+        let url = NSURL(string: "https://www.crossroadsapp.co/legal")!
         let subscriptionNoticeLinkAttributes = [
             NSUnderlineStyleAttributeName: NSNumber(bool:false),
             ]
@@ -130,7 +130,12 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
     }
     
     func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
-        self.performSegueWithIdentifier("TRShowLegalView", sender: self)
+        let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+        let legalViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_WEB_VIEW) as! TRLegalViewController
+        legalViewController.linkToOpen = url
+        self.presentViewController(legalViewController, animated: true, completion: {
+            
+        })
     }
 }
 

@@ -11,22 +11,35 @@ import UIKit
 
 class TRLegalViewController: TRBaseViewController, TRWebViewProtocol {
     
+    var linkToOpen: NSURL?
+    var webLegalWebView: TRWebView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let webLegalWebView = NSBundle.mainBundle().loadNibNamed("TRWebView", owner: self, options: nil)[0] as! TRWebView
-        webLegalWebView.frame = self.view.frame
-        self.view.addSubview(webLegalWebView)
+        self.webLegalWebView = NSBundle.mainBundle().loadNibNamed("TRWebView", owner: self, options: nil)[0] as? TRWebView
+        self.webLegalWebView!.frame = self.view.frame
+        self.view.addSubview(self.webLegalWebView!)
 
         //Set Delegate
-        webLegalWebView.delegate = self
+        self.webLegalWebView!.delegate = self
+        
+        guard let _ = self.linkToOpen else {
+            self.dismissViewController(true, dismissed: { (didDismiss) in
+                
+            })
+            
+            return
+        }
         
         //Add link to open
-        let urlString = NSURL(string: "http://stackoverflow.com/questions/12787914/ios-webview-loading-a-url")
-        webLegalWebView.loadUrl(urlString!)
+        self.webLegalWebView!.loadUrl(self.linkToOpen!)
     }
+
     
     func backButtonPressed(sender: UIButton) {
+        
+        self.webLegalWebView!.delegate = nil
         self.dismissViewController(true) { (didDismiss) in
         }
     }
@@ -36,5 +49,6 @@ class TRLegalViewController: TRBaseViewController, TRWebViewProtocol {
     }
     
     deinit {
+        
     }
 }
