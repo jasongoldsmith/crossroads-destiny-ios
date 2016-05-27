@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import TTTAttributedLabel
 
-class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
+class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, TTTAttributedLabelDelegate {
     
     private let xAxis: CGFloat = 0.0
     private let yAxisWithOpenKeyBoard: CGFloat = 235.0
@@ -17,6 +18,8 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
     @IBOutlet weak var userNameTxtField: UITextField!
     @IBOutlet weak var userPwdTxtField: UITextField!
     @IBOutlet weak var userPSNIDTxtField: UITextField!
+    @IBOutlet weak var legalStatementText: TTTAttributedLabel!
+    
     
     var errorView: TRErrorNotificationView?
     
@@ -32,6 +35,11 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
         self.userPSNIDTxtField.attributedPlaceholder = NSAttributedString(string:"Enter PSN ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         
         self.userPSNIDTxtField.delegate = self
+        
+        //Add legal Stings
+        self.addLegalStatmentText()
+        
+        self
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -44,6 +52,36 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
+        UIApplication.sharedApplication().openURL(url)
+    }
+
+    func addLegalStatmentText () {
+        let legalString = "By clicking the button below, I have read and agree to the Crossroads Customer Agreement and Privacy Policy"
+        
+        let customerAgreement = "Customer Agreement"
+        let privacyPolicy = "Privacy Policy"
+            
+        self.legalStatementText?.text = legalString
+        
+        // Add HyperLink to Bungie
+        let nsString = legalString as NSString
+        
+        let rangeCustomerAgreement = nsString.rangeOfString(customerAgreement)
+        let rangePrivacyPolicy = nsString.rangeOfString(privacyPolicy)
+        let urlCustomerAgreement = NSURL(string: "http://crossroadsapp.co/terms")!
+        let urlPrivacyPolicy = NSURL(string: "http://crossroadsapp.co/privacy")!
+        
+        let subscriptionNoticeLinkAttributes = [
+            NSForegroundColorAttributeName: UIColor(red: 0/255, green: 182/255, blue: 231/255, alpha: 1),
+            NSUnderlineStyleAttributeName: NSNumber(bool:false),
+            ]
+        self.legalStatementText?.linkAttributes = subscriptionNoticeLinkAttributes
+        self.legalStatementText?.addLinkToURL(urlCustomerAgreement, withRange: rangeCustomerAgreement)
+        self.legalStatementText?.addLinkToURL(urlPrivacyPolicy, withRange: rangePrivacyPolicy)
+        self.legalStatementText?.delegate = self
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
