@@ -96,8 +96,7 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
         } else if (textField == self.userPwdTxtField) {
             self.userPSNIDTxtField.becomeFirstResponder()
         } else {
-            self.resignFirstResponder()
-            self.createAccountBtnTapped(textField)
+            self.userPSNIDTxtField.resignFirstResponder()
         }
         
         return true
