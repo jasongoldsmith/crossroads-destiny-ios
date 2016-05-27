@@ -2207,8 +2207,8 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KLS-ng-y2Z" customClass="TTTAttributedLabel">
-                                <rect key="frame" x="40" y="454" width="520" height="16"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <rect key="frame" x="30" y="454" width="540" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -2231,12 +2231,12 @@
                             <constraint firstAttribute="trailingMargin" secondItem="2hL-lQ-Rf4" secondAttribute="trailing" constant="-10" id="Mhb-Ge-Tt3"/>
                             <constraint firstItem="qQW-9x-jI3" firstAttribute="top" secondItem="EfW-Rr-lwB" secondAttribute="bottom" constant="25" id="OmF-QR-dXg"/>
                             <constraint firstItem="nBQ-dn-VdF" firstAttribute="top" secondItem="cIs-IX-Wfr" secondAttribute="bottom" constant="20" id="Tek-1J-hHd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="KLS-ng-y2Z" secondAttribute="trailing" constant="20" id="YGW-qD-XCA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KLS-ng-y2Z" secondAttribute="trailing" constant="10" id="YGW-qD-XCA"/>
                             <constraint firstItem="45T-dp-vXs" firstAttribute="top" secondItem="nBQ-dn-VdF" secondAttribute="bottom" constant="11" id="aON-dt-Nfx"/>
                             <constraint firstItem="8zj-GS-nmN" firstAttribute="leading" secondItem="Q9w-zl-5ST" secondAttribute="leadingMargin" constant="-20" id="d8F-eK-RfR"/>
                             <constraint firstItem="R1W-EG-Uyv" firstAttribute="top" secondItem="Q9w-zl-5ST" secondAttribute="topMargin" constant="30" id="fGV-gr-uqQ"/>
                             <constraint firstItem="AIM-Bo-Bpg" firstAttribute="leading" secondItem="Q9w-zl-5ST" secondAttribute="leading" constant="10" id="k1Y-ig-zWE"/>
-                            <constraint firstItem="KLS-ng-y2Z" firstAttribute="leading" secondItem="Q9w-zl-5ST" secondAttribute="leadingMargin" constant="20" id="kjx-c3-TG4"/>
+                            <constraint firstItem="KLS-ng-y2Z" firstAttribute="leading" secondItem="Q9w-zl-5ST" secondAttribute="leadingMargin" constant="10" id="kjx-c3-TG4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cIs-IX-Wfr" secondAttribute="trailing" constant="-10" id="mkN-d7-kaA"/>
                             <constraint firstItem="EfW-Rr-lwB" firstAttribute="top" secondItem="R1W-EG-Uyv" secondAttribute="bottom" constant="28" id="nDI-CY-SMF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8zj-GS-nmN" secondAttribute="trailing" constant="-20" id="t35-w1-7g9"/>

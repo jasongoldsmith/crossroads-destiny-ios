@@ -13,7 +13,7 @@ private let GROUP_CELLS_IDENTIFIER = "groupCells"
 
 class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, UITableViewDelegate, TTTAttributedLabelDelegate {
 
-    private var bungieGroups = TRApplicationManager.sharedInstance.bungieGroups
+    private var bungieGroups: [TRBungieGroupInfo] = []
     private var selectedGroup: TRBungieGroupInfo?
     private var highlightedCell: TRBungieGroupCell?
     
@@ -36,6 +36,7 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
         super.viewWillAppear(animated)
         
         //Fetch Groups
+        self.bungieGroups.removeAll()
         self.bungieGroups = TRApplicationManager.sharedInstance.bungieGroups
         
         if TRApplicationManager.sharedInstance.bungieGroups.count <= 1 {
@@ -122,6 +123,7 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
             let groupInfo = self.bungieGroups[indexPath.section]
             cell.selectionStyle = .None
             cell.updateCellViewWithGroup(groupInfo)
+            cell.userInteractionEnabled = true
             
             if let hasCurrentGroup = TRUserInfo.getUserClanID() {
                 if hasCurrentGroup == groupInfo.groupId {
@@ -141,7 +143,6 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-
         if let _ = self.highlightedCell {
             self.highlightedCell?.radioButton?.highlighted = false
         }

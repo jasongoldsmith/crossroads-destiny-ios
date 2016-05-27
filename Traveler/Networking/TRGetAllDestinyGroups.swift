@@ -24,6 +24,9 @@ class TRGetAllDestinyGroups: TRRequest {
                 completion(didSucceed: false)
             }
             
+            //Remove all pre-saved groups
+            TRApplicationManager.sharedInstance.bungieGroups.removeAll()
+            
             for group in swiftyJsonVar.arrayValue {
                 let bungieGroup = TRBungieGroupInfo()
                 bungieGroup.parseAndCreateObj(group)
