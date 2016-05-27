@@ -35,6 +35,9 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        //Fetch Groups
+        self.bungieGroups = TRApplicationManager.sharedInstance.bungieGroups
+        
         if TRApplicationManager.sharedInstance.bungieGroups.count <= 1 {
             self.addNoneGroupCountUI()
         } else {

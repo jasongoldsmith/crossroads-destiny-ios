@@ -398,7 +398,12 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
     
     @IBAction func showChangeGroupsVc (sender: AnyObject) {
-        TRApplicationManager.sharedInstance.slideMenuController.openRight()
+        
+        _ = TRGetAllDestinyGroups().getAllGroups({ (didSucceed) in
+            if didSucceed == true {
+                TRApplicationManager.sharedInstance.slideMenuController.openRight()
+            }
+        })
     }
     
     deinit {
