@@ -940,7 +940,6 @@
                                 </variation>
                                 <connections>
                                     <action selector="logOutUser" destination="RJW-k0-l6u" eventType="touchUpInside" id="fEx-AS-okz"/>
-                                    <segue destination="waR-kb-Ldy" kind="show" identifier="showChangePwView" id="Vyj-ub-2ee"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yga-kS-xxF">
@@ -983,7 +982,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="resetPassWordPressed:" destination="RJW-k0-l6u" eventType="touchUpInside" id="JGE-wR-G7b"/>
+                                    <segue destination="waR-kb-Ldy" kind="show" id="MFp-6p-i9g"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9P-C3-JX9" customClass="TTTAttributedLabel">
@@ -1353,7 +1352,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1517" y="2472"/>
+            <point key="canvasLocation" x="-2193" y="990"/>
         </scene>
         <!--Event List View Controller-->
         <scene sceneID="ovf-Ol-GMU">

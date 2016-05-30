@@ -117,9 +117,6 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         TRApplicationManager.sharedInstance.slideMenuController.closeRight()
     }
     
-    @IBAction func resetPassWordPressed (sender: AnyObject) {
-        self.performSegueWithIdentifier("showChangePwView", sender: self)
-    }
     
     @IBAction func sendReport () {
         let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
