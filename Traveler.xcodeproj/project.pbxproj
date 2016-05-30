@@ -509,6 +509,16 @@
 			name = Upcoming_Events;
 			sourceTree = "<group>";
 		};
+		33D0B3F71CFCFD41008ABA04 /* LaunchImage */ = {
+			isa = PBXGroup;
+			children = (
+				33D0B3F11CFCFC2C008ABA04 /* TrLaunchImgBadge.png */,
+				33D0B3F31CFCFC5C008ABA04 /* TrLaunchImgBadge@2x.png */,
+				33D0B3F41CFCFC5C008ABA04 /* TrLaunchImgBadge@3x.png */,
+			);
+			name = LaunchImage;
+			sourceTree = "<group>";
+		};
 		6238D2DB1C7ADDD50085C8AA /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -594,9 +604,7 @@
 		62C1FF2E1C77C15C00A78798 /* Traveler */ = {
 			isa = PBXGroup;
 			children = (
-				33D0B3F11CFCFC2C008ABA04 /* TrLaunchImgBadge.png */,
-				33D0B3F31CFCFC5C008ABA04 /* TrLaunchImgBadge@2x.png */,
-				33D0B3F41CFCFC5C008ABA04 /* TrLaunchImgBadge@3x.png */,
+				33D0B3F71CFCFD41008ABA04 /* LaunchImage */,
 				3305ACF51CF2643800572495 /* Yatri */,
 				629497301C7C047F005E4F91 /* Utility */,
 				6238D2DC1C7ADDF70085C8AA /* Networking */,
