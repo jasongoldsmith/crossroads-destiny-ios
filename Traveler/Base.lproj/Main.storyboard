@@ -931,7 +931,7 @@
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="44" id="v9J-Zf-mPw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Reset Password"/>
+                                <state key="normal" title="Log Out"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="bmj-bm-Bqb"/>
@@ -939,7 +939,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="resetPassWordPressed:" destination="RJW-k0-l6u" eventType="touchUpInside" id="trV-nH-htU"/>
+                                    <action selector="logOutUser" destination="RJW-k0-l6u" eventType="touchUpInside" id="fEx-AS-okz"/>
                                     <segue destination="waR-kb-Ldy" kind="show" identifier="showChangePwView" id="Vyj-ub-2ee"/>
                                 </connections>
                             </button>
@@ -952,7 +952,7 @@
                                     <constraint firstAttribute="width" constant="250" id="xkf-aj-fT9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                <state key="normal" title="Log Out"/>
+                                <state key="normal" title="Contact Us"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="L8Y-eH-Zq0"/>
@@ -960,7 +960,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="logOutUser" destination="RJW-k0-l6u" eventType="touchUpInside" id="DLO-fp-LsJ"/>
+                                    <action selector="sendReport" destination="RJW-k0-l6u" eventType="touchUpInside" id="Lod-PR-hRe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gnx-Nj-sRV">
@@ -973,7 +973,7 @@
                                     <constraint firstAttribute="width" constant="250" id="x1T-pu-Dlr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Contact Us">
+                                <state key="normal" title="Change Password">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -983,7 +983,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="sendReport" destination="RJW-k0-l6u" eventType="touchUpInside" id="Jvn-Ld-nXP"/>
+                                    <action selector="resetPassWordPressed:" destination="RJW-k0-l6u" eventType="touchUpInside" id="JGE-wR-G7b"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9P-C3-JX9" customClass="TTTAttributedLabel">
@@ -1450,7 +1450,7 @@
                                     <constraint firstAttribute="width" constant="30" id="vGZ-ec-Bxm"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mXp-dP-eCo">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mXp-dP-eCo">
                                 <rect key="frame" x="555" y="29" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="nVP-N3-Mhl"/>

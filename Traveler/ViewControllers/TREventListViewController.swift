@@ -117,7 +117,6 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
                 if let imageUrl = hasCurrentGroup.avatarPath {
                     let imageUrl = NSURL(string: imageUrl)
                     self.playerGroupsIcon?.sd_setImageWithURL(imageUrl, placeholderImage: UIImage(named: "iconGroups"))
-                    self.playerGroupsIcon?.roundRectView()
                 }
             }
         }
@@ -398,12 +397,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
     
     @IBAction func showChangeGroupsVc (sender: AnyObject) {
-        
-        _ = TRGetAllDestinyGroups().getAllGroups({ (didSucceed) in
-            if didSucceed == true {
-                TRApplicationManager.sharedInstance.slideMenuController.openRight()
-            }
-        })
+        TRApplicationManager.sharedInstance.slideMenuController.openRight()
     }
     
     deinit {
