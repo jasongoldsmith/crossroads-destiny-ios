@@ -217,6 +217,9 @@
 		33D067671CD40AF600E05EF1 /* TRUpdateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D067661CD40AF600E05EF1 /* TRUpdateUser.swift */; };
 		33D067681CD40AF600E05EF1 /* TRUpdateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D067661CD40AF600E05EF1 /* TRUpdateUser.swift */; };
 		33D067691CD40AF600E05EF1 /* TRUpdateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D067661CD40AF600E05EF1 /* TRUpdateUser.swift */; };
+		33D0B3F21CFCFC2C008ABA04 /* TrLaunchImgBadge.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D0B3F11CFCFC2C008ABA04 /* TrLaunchImgBadge.png */; };
+		33D0B3F51CFCFC5C008ABA04 /* TrLaunchImgBadge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D0B3F31CFCFC5C008ABA04 /* TrLaunchImgBadge@2x.png */; };
+		33D0B3F61CFCFC5C008ABA04 /* TrLaunchImgBadge@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D0B3F41CFCFC5C008ABA04 /* TrLaunchImgBadge@3x.png */; };
 		33E6CA811CE65CAA003408CB /* TRForgotPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E6CA801CE65CAA003408CB /* TRForgotPasswordRequest.swift */; };
 		33E6CA821CE65CAA003408CB /* TRForgotPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E6CA801CE65CAA003408CB /* TRForgotPasswordRequest.swift */; };
 		33E6CA831CE65CAA003408CB /* TRForgotPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E6CA801CE65CAA003408CB /* TRForgotPasswordRequest.swift */; };
@@ -366,6 +369,9 @@
 		339D8F2F1C911FB900A2620F /* TRCreateEventConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCreateEventConfirmationViewController.swift; sourceTree = "<group>"; };
 		33A029AF1CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		33D067661CD40AF600E05EF1 /* TRUpdateUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRUpdateUser.swift; sourceTree = "<group>"; };
+		33D0B3F11CFCFC2C008ABA04 /* TrLaunchImgBadge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrLaunchImgBadge.png; sourceTree = "<group>"; };
+		33D0B3F31CFCFC5C008ABA04 /* TrLaunchImgBadge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TrLaunchImgBadge@2x.png"; sourceTree = "<group>"; };
+		33D0B3F41CFCFC5C008ABA04 /* TrLaunchImgBadge@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TrLaunchImgBadge@3x.png"; sourceTree = "<group>"; };
 		33E6CA801CE65CAA003408CB /* TRForgotPasswordRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRForgotPasswordRequest.swift; sourceTree = "<group>"; };
 		33E6CA841CEA49AC003408CB /* TRPushNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRPushNotification.swift; sourceTree = "<group>"; };
 		33F427481C8A0DBD00560BD3 /* TRCreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCreateEventViewController.swift; sourceTree = "<group>"; };
@@ -588,6 +594,9 @@
 		62C1FF2E1C77C15C00A78798 /* Traveler */ = {
 			isa = PBXGroup;
 			children = (
+				33D0B3F11CFCFC2C008ABA04 /* TrLaunchImgBadge.png */,
+				33D0B3F31CFCFC5C008ABA04 /* TrLaunchImgBadge@2x.png */,
+				33D0B3F41CFCFC5C008ABA04 /* TrLaunchImgBadge@3x.png */,
 				3305ACF51CF2643800572495 /* Yatri */,
 				629497301C7C047F005E4F91 /* Utility */,
 				6238D2DC1C7ADDF70085C8AA /* Networking */,
@@ -803,8 +812,11 @@
 				62C1FF3A1C77C15C00A78798 /* LaunchScreen.storyboard in Resources */,
 				33488B2C1CF3B71B0070919A /* GoogleService-Info.plist in Resources */,
 				3329B5901C9B528F00CC1F9B /* TRErrorNotificationView.xib in Resources */,
+				33D0B3F61CFCFC5C008ABA04 /* TrLaunchImgBadge@3x.png in Resources */,
+				33D0B3F51CFCFC5C008ABA04 /* TrLaunchImgBadge@2x.png in Resources */,
 				338BB2031CEEB99F00A14060 /* TRWebView.xib in Resources */,
 				62C1FF351C77C15C00A78798 /* Main.storyboard in Resources */,
+				33D0B3F21CFCFC2C008ABA04 /* TrLaunchImgBadge.png in Resources */,
 				3380EF431CC979C1000A9289 /* TREventUpcomingWithCheckPointCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

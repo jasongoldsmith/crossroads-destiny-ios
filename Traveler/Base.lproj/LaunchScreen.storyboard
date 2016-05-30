@@ -21,7 +21,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrLoadingimgBackgroundMap" translatesAutoresizingMaskIntoConstraints="NO" id="Wy4-m5-Wg3">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBadge" translatesAutoresizingMaskIntoConstraints="NO" id="01j-As-rd6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrLaunchImgBadge" translatesAutoresizingMaskIntoConstraints="NO" id="01j-As-rd6">
                                 <rect key="frame" x="209" y="105" width="182" height="137"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="182" id="Vep-ND-Ds6"/>
@@ -46,7 +46,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="TrImgBadge" width="198" height="137"/>
+        <image name="TrLaunchImgBadge" width="198" height="137"/>
         <image name="TrLoadingimgBackgroundMap" width="375" height="667"/>
     </resources>
 </document>

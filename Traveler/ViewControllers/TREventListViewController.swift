@@ -112,17 +112,17 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     
     func updateGroupImage () {
         
-        if let currentGroupID = TRUserInfo.getUserClanID() {
+        if let currentGroupID = TRUserInfo.getUserClanID() where TRUserInfo.getUserClanID() != "clan_id_not_set" {
             if let hasCurrentGroup = TRApplicationManager.sharedInstance.getCurrentGroup(currentGroupID) {
                 if let imageUrl = hasCurrentGroup.avatarPath {
                     let imageUrl = NSURL(string: imageUrl)
-                    self.playerGroupsIcon?.sd_setImageWithURL(imageUrl, placeholderImage: UIImage(named: "iconGroups"))
+                    self.playerGroupsIcon?.sd_setImageWithURL(imageUrl)
                 }
             }
         }
         
         if self.playerGroupsIcon?.image == nil {
-            self.playerGroupsIcon?.image = UIImage(named: "iconGroups")
+            self.playerGroupsIcon?.image = UIImage(named: "imgLogoBadge")
         }
     }
     
