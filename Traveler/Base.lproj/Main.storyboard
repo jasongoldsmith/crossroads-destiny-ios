@@ -2292,7 +2292,7 @@
                         <action selector="handleSwipeRight:" destination="8fv-qL-jQi" id="BXt-dO-xl6"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <tapGestureRecognizer cancelsTouchesInView="NO" id="N6b-Fm-Y9o">
+                <tapGestureRecognizer id="N6b-Fm-Y9o">
                     <connections>
                         <action selector="dismissKeyboard:" destination="8fv-qL-jQi" id="hlv-YL-vkP"/>
                     </connections>
