@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import TTTAttributedLabel
 
-class TRForgotPasswordViewController: TRBaseViewController {
+class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDelegate {
 
     @IBOutlet weak var psnIDTextField: UITextField!
     @IBOutlet weak var resetPasswordButton: UIButton!
     @IBOutlet weak var resetButtonBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var resetTextBoxParentView: UIView!
-    @IBOutlet weak var titleMessageLable: UILabel!
+    @IBOutlet weak var titleMessageLable: TTTAttributedLabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,21 +103,25 @@ class TRForgotPasswordViewController: TRBaseViewController {
     func forgotPasswordForPsnID (psnId: String) {
         _ = TRForgotPasswordRequest().resetUserPassword(psnId, completion: { (didSucceed) in
             if (didSucceed == true) {
+                
                 self.resetTextBoxParentView.hidden = true
+                self.resetPasswordButton.hidden = true
                 
-                let stringUnderLineAttr = [NSUnderlineStyleAttributeName: NSNumber(bool:true)]
-                let firstString = NSAttributedString(string: "A reset password message has been sent to your ")
-                let middleString = NSAttributedString(string: "bungie.net", attributes: stringUnderLineAttr)
-                let lastString = NSAttributedString(string: " account!")
+                let messageString = "A reset password message has been sent to your bungie.net account!"
+                let bungieString = "bungie.net"
+                self.titleMessageLable.text = messageString
                 
-                let finalString = NSMutableAttributedString()
-                finalString.appendAttributedString(firstString)
-                finalString.appendAttributedString(middleString)
-                finalString.appendAttributedString(lastString)
-                self.titleMessageLable.attributedText = finalString
+                // Add HyperLink to Bungie
+                let nsString = messageString as NSString
+                let rangeBungieString = nsString.rangeOfString(bungieString)
+                let urlBungieString = NSURL(string: "https://www.crossroadsapp.co/terms")!
+                let linkAttributes = [
+                    NSUnderlineStyleAttributeName: NSNumber(bool:true),
+                ]
                 
-                self.resetPasswordButton.enabled = false
-                self.resetPasswordButton.backgroundColor = UIColor(red: 54/255, green: 93/255, blue: 101/255, alpha: 1)
+                self.titleMessageLable?.linkAttributes = linkAttributes
+                self.titleMessageLable?.addLinkToURL(urlBungieString, withRange: rangeBungieString)
+                self.titleMessageLable?.delegate = self
                 
                 if self.psnIDTextField?.isFirstResponder() == true {
                     self.psnIDTextField?.resignFirstResponder()
@@ -124,6 +129,10 @@ class TRForgotPasswordViewController: TRBaseViewController {
             } else {
             }
         })
+    }
+    
+    func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
+        UIApplication.sharedApplication().openURL(url)
     }
     
     deinit {
