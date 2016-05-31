@@ -899,6 +899,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Forcecatalyst;
 				TargetAttributes = {
+					33D0B3F81CFD0165008ABA04 = {
+						DevelopmentTeam = 7MUH8L24FY;
+					};
 					62C1FF2B1C77C15C00A78798 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 7MUH8L24FY;
@@ -1595,7 +1598,7 @@
 			baseConfigurationReference = F113091A1153777DD1430772 /* Pods-Traveler.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jason Goldsmith (SCPHHM7K6R)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jason Goldsmith (SCPHHM7K6R)";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "Traveler copy-Info.plist";
@@ -1616,7 +1619,7 @@
 			baseConfigurationReference = DCD9BEEC468299E0E9961996 /* Pods-Traveler.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jason Goldsmith (7MUH8L24FY)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jason Goldsmith (7MUH8L24FY)";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "Traveler copy-Info.plist";

@@ -17,6 +17,7 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
     @IBOutlet weak var avatorUserName: UILabel?
     @IBOutlet weak var backGroundImageView: UIImageView?
     @IBOutlet weak var buildNumberLabel: TTTAttributedLabel!
+    @IBOutlet weak var legalLabel: TTTAttributedLabel!
     
     var currentUser: TRPlayerInfo?
     
@@ -43,22 +44,41 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
     }
     
     func addVersionAndLegalAttributedLabel () {
-        
-        let messageString = "Version: \(NSBundle.mainBundle().releaseVersionNumber!) - Build: \(NSBundle.mainBundle().buildVersionNumber!)  |  Legal"
-        let legalString = "Legal"
+
+        let messageString = "Version: \(NSBundle.mainBundle().releaseVersionNumber!) - Build: \(NSBundle.mainBundle().buildVersionNumber!)"
         self.buildNumberLabel.text = messageString
+
         
-        // Add HyperLink to Bungie
-        let nsString = messageString as NSString
-        let range = nsString.rangeOfString(legalString)
-        let url = NSURL(string: "https://www.crossroadsapp.co/legal")!
+        let legalMessageString = "Terms of Service | Private Policy | Licenses"
+        self.legalLabel.text = legalMessageString
+        
+        let tos = "Terms of Service"
+        let privatePolicy = "Private Policy"
+        let licenses = "Licenses"
+        
+        let nsString = legalMessageString as NSString
+        let tosRange = nsString.rangeOfString(tos)
+        let privateRange = nsString.rangeOfString(privatePolicy)
+        let licenseRange = nsString.rangeOfString(licenses)
+        
+        let tosUrl = NSURL(string: "https://www.crossroadsapp.co/terms")!
+        let privatePolicyUrl = NSURL(string: "https://www.crossroadsapp.co/privacy")!
+        let licensesUrl = NSURL(string: "https://www.crossroadsapp.co/legal")!
+        
         let subscriptionNoticeLinkAttributes = [
             NSUnderlineStyleAttributeName: NSNumber(bool:false),
             ]
         
-        self.buildNumberLabel?.linkAttributes = subscriptionNoticeLinkAttributes
-        self.buildNumberLabel?.addLinkToURL(url, withRange: range)
-        self.buildNumberLabel?.delegate = self
+        self.legalLabel?.linkAttributes = subscriptionNoticeLinkAttributes
+        self.legalLabel?.addLinkToURL(tosUrl, withRange: tosRange)
+        self.legalLabel?.addLinkToURL(privatePolicyUrl, withRange: privateRange)
+        self.legalLabel?.addLinkToURL(licensesUrl, withRange: licenseRange)
+        self.legalLabel?.delegate = self
+        
+        
+        #if RELEASE
+            self.buildNumberLabel.hidden = true
+        #endif
     }
 
     func updateView () {

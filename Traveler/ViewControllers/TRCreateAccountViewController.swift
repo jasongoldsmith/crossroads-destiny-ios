@@ -64,9 +64,9 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
     }
 
     func addLegalStatmentText () {
-        let legalString = "By clicking the button below, I have read and agree to the Crossroads Customer Agreement and Privacy Policy"
+        let legalString = "By clicking the button below, I have read and agree to the Crossroads Terms of Service and Privacy Policy"
         
-        let customerAgreement = "Customer Agreement"
+        let customerAgreement = "Terms of Service"
         let privacyPolicy = "Privacy Policy"
             
         self.legalStatementText?.text = legalString
@@ -81,7 +81,7 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
         
         let subscriptionNoticeLinkAttributes = [
             NSForegroundColorAttributeName: UIColor(red: 0/255, green: 182/255, blue: 231/255, alpha: 1),
-            NSUnderlineStyleAttributeName: NSNumber(bool:false),
+            NSUnderlineStyleAttributeName: NSNumber(bool:true),
             ]
         self.legalStatementText?.linkAttributes = subscriptionNoticeLinkAttributes
         self.legalStatementText?.addLinkToURL(urlCustomerAgreement, withRange: rangeCustomerAgreement)
