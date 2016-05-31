@@ -21,9 +21,9 @@ class TRSignUpVerificatioViewController: TRBaseViewController, TTTAttributedLabe
         let bungieLinkName = "bungie.net"
         
         if let userName = TRUserInfo.getUserName() {
-            messageString = "Welcome \(userName) \n \nThanks for signing up for Crossroads, the Destiny Fireteam Finder mobile app! An account verification message has been sent to your \(bungieLinkName) account. Click the link in the message to verify your PSN ID."
+            messageString = "Welcome \(userName) \n \nThanks for signing up for Crossroads, the Destiny Fireteam Finder! An account verification message has been sent to your \(bungieLinkName) account. Click the link in the message to verify your PSN ID."
         } else {
-            messageString = "Welcome \n \nThanks for signing up for Crossroads, the Destiny Fireteam Finder mobile app! An account verification message has been sent to your bungie.net account. Click the link in the message to verify your PSN ID."
+            messageString = "Welcome \n \nThanks for signing up for Crossroads, the Destiny Fireteam Finder! An account verification message has been sent to your bungie.net account. Click the link in the message to verify your PSN ID."
         }
         
         self.messageLable?.text = messageString
@@ -51,9 +51,9 @@ class TRSignUpVerificatioViewController: TRBaseViewController, TTTAttributedLabe
                     
                     var messageString = ""
                     if let userName = TRUserInfo.getUserName() {
-                        messageString = "Welcome \(userName) \n \nThanks for signing up for Crossroads, the Destiny Fireteam Finder mobile app!"
+                        messageString = "Welcome \(userName) \n \nThanks for signing up for Crossroads, the Destiny Fireteam Finder!"
                     } else {
-                        messageString = "Welcome \n \nThanks for signing up for Crossroads, the Destiny Fireteam Finder mobile app!"
+                        messageString = "Welcome \n \nThanks for signing up for Crossroads, the Destiny Fireteam Finder!"
                     }
 
                     self.messageLable?.text = messageString
