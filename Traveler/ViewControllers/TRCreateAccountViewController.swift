@@ -138,6 +138,12 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
                 return
             }
         }
+     
+        if userPSNIDTxtField.text?.isEmpty == true {
+            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Please enter a PSN ID.")
+            
+            return
+        }
         
         let userInfo = TRUserInfo()
         userInfo.userName = userNameTxtField.text
