@@ -2295,6 +2295,7 @@
                 <tapGestureRecognizer id="N6b-Fm-Y9o">
                     <connections>
                         <action selector="dismissKeyboard:" destination="8fv-qL-jQi" id="hlv-YL-vkP"/>
+                        <outlet property="delegate" destination="8fv-qL-jQi" id="4Wt-Ga-lcy"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

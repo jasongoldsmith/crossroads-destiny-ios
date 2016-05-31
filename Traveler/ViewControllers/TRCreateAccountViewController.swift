@@ -9,7 +9,7 @@
 import UIKit
 import TTTAttributedLabel
 
-class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, TTTAttributedLabelDelegate {
+class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, TTTAttributedLabelDelegate, UIGestureRecognizerDelegate {
     
     private let xAxis: CGFloat = 0.0
     private let yAxisWithOpenKeyBoard: CGFloat = 235.0
@@ -38,8 +38,6 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
         
         //Add legal Stings
         self.addLegalStatmentText()
-        
-        self
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -52,6 +50,16 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+        if touch.view == self.legalStatementText  {
+            return false
+        }
+        
+        return true
     }
     
     func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
