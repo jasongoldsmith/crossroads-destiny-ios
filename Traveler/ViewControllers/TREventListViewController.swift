@@ -112,6 +112,11 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     
     func updateGroupImage () {
         
+        self.playerGroupsIcon?.layer.borderColor = UIColor.whiteColor().CGColor
+        self.playerGroupsIcon?.layer.borderWidth     = 1.0
+        self.playerGroupsIcon?.layer.borderColor     = UIColor.whiteColor().CGColor
+        self.playerGroupsIcon?.layer.masksToBounds   = true
+
         if let currentGroupID = TRUserInfo.getUserClanID() where TRUserInfo.getUserClanID() != "clan_id_not_set" {
             if let hasCurrentGroup = TRApplicationManager.sharedInstance.getCurrentGroup(currentGroupID) {
                 if let imageUrl = hasCurrentGroup.avatarPath {

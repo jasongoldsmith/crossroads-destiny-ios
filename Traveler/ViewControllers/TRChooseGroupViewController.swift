@@ -54,15 +54,16 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
                 }
                 
                 
-                if let userGroup = TRUserInfo.getUserClanID() where userGroup != "clan_id_not_set" {
-                    let selectedGroup = self.bungieGroups.filter{$0.groupId! == userGroup}
-                    self.selectedGroup = selectedGroup.first
-                    let groupIndex = self.bungieGroups.indexOf({$0.groupId == self.selectedGroup?.groupId})
-                    if let _ = groupIndex {
-                        self.bungieGroups.removeAtIndex(groupIndex!)
-                        self.bungieGroups.insert(self.selectedGroup!, atIndex: 0)
-                    }
-                }
+                //Sorting
+//                if let userGroup = TRUserInfo.getUserClanID() where userGroup != "clan_id_not_set" {
+//                    let selectedGroup = self.bungieGroups.filter{$0.groupId! == userGroup}
+//                    self.selectedGroup = selectedGroup.first
+//                    let groupIndex = self.bungieGroups.indexOf({$0.groupId == self.selectedGroup?.groupId})
+//                    if let _ = groupIndex {
+//                        self.bungieGroups.removeAtIndex(groupIndex!)
+//                        self.bungieGroups.insert(self.selectedGroup!, atIndex: 0)
+//                    }
+//                }
                 
                 // Reload Data
                 dispatch_async(dispatch_get_main_queue()) { () -> Void in
