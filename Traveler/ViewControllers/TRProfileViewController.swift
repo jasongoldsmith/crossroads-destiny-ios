@@ -109,28 +109,7 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
     
     
     @IBAction func logOutUser () {
-
-        let createRequest = TRAuthenticationRequest()
-        createRequest.logoutTRUser() { (value ) in
-            if value == true {
-                
-                self.dismissViewControllerAnimated(false, completion:{
-                    self.didMoveToParentViewController(nil)
-                    self.removeFromParentViewController()
-                })
-                
-                self.presentingViewController?.dismissViewControllerAnimated(false, completion: {
-                    TRUserInfo.removeUserData()
-                    TRApplicationManager.sharedInstance.purgeSavedData()
-
-                    self.didMoveToParentViewController(nil)
-                    self.removeFromParentViewController()
-                })
-            } else {
-                self.displayAlertWithTitle("Logout Failed", complete: { (complete) -> () in
-                })
-            }
-        }
+        self.addLogOutAlert()
     }
     
     @IBAction func backButtonPressed (sender: AnyObject) {
@@ -153,6 +132,42 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         self.presentViewController(legalViewController, animated: true, completion: {
             
         })
+    }
+    
+    
+    //MOVE THIS TO ANOTHER CLASS LATER
+    func addLogOutAlert () {
+        let refreshAlert = UIAlertController(title: "", message: "Are you sure you want to log out?", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+            let createRequest = TRAuthenticationRequest()
+            createRequest.logoutTRUser() { (value ) in
+                if value == true {
+                    
+                    self.dismissViewControllerAnimated(false, completion:{
+                        self.didMoveToParentViewController(nil)
+                        self.removeFromParentViewController()
+                    })
+                    
+                    self.presentingViewController?.dismissViewControllerAnimated(false, completion: {
+                        TRUserInfo.removeUserData()
+                        TRApplicationManager.sharedInstance.purgeSavedData()
+                        
+                        self.didMoveToParentViewController(nil)
+                        self.removeFromParentViewController()
+                    })
+                } else {
+                    self.displayAlertWithTitle("Logout Failed", complete: { (complete) -> () in
+                    })
+                }
+            }
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action: UIAlertAction!) in
+            print("Handle Cancel Logic here")
+        }))
+        
+        presentViewController(refreshAlert, animated: true, completion: nil)
     }
 }
 
