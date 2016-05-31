@@ -45,7 +45,7 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
     
     func addVersionAndLegalAttributedLabel () {
 
-        let messageString = "Version: \(NSBundle.mainBundle().releaseVersionNumber!) - Build: \(NSBundle.mainBundle().buildVersionNumber!)"
+        let messageString = "\(NSBundle.mainBundle().releaseVersionNumber!) (\(NSBundle.mainBundle().buildVersionNumber!))"
         self.buildNumberLabel.text = messageString
 
         
@@ -53,7 +53,7 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         self.legalLabel.text = legalMessageString
         
         let tos = "Terms of Service"
-        let privatePolicy = "Private Policy"
+        let privatePolicy = "Privacy Policy"
         let licenses = "Licenses"
         
         let nsString = legalMessageString as NSString
@@ -74,11 +74,6 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         self.legalLabel?.addLinkToURL(privatePolicyUrl, withRange: privateRange)
         self.legalLabel?.addLinkToURL(licensesUrl, withRange: licenseRange)
         self.legalLabel?.delegate = self
-        
-        
-        #if RELEASE
-            self.buildNumberLabel.hidden = true
-        #endif
     }
 
     func updateView () {
