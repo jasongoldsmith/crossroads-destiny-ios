@@ -124,10 +124,8 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
                     self.playerGroupsIcon?.sd_setImageWithURL(imageUrl)
                 }
             }
-        }
-        
-        if self.playerGroupsIcon?.image == nil {
-            self.playerGroupsIcon?.image = UIImage(named: "imgLogoBadge")
+        } else {
+            self.playerGroupsIcon?.image = UIImage(named: "iconGroupCrossroadsFreelance")
         }
     }
     

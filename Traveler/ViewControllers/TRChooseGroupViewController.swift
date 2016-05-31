@@ -54,7 +54,6 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
                 }
                 
                 
-                //Sorting
 //                if let userGroup = TRUserInfo.getUserClanID() where userGroup != "clan_id_not_set" {
 //                    let selectedGroup = self.bungieGroups.filter{$0.groupId! == userGroup}
 //                    self.selectedGroup = selectedGroup.first

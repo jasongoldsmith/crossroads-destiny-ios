@@ -49,7 +49,7 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         self.buildNumberLabel.text = messageString
 
         
-        let legalMessageString = "Terms of Service | Private Policy | Licenses"
+        let legalMessageString = "Terms of Service | Privacy Policy | Licenses"
         self.legalLabel.text = legalMessageString
         
         let tos = "Terms of Service"
