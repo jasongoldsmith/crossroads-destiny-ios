@@ -72,6 +72,7 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
                         animations:
                         { () -> Void in
                             self.groupsTableView.reloadData()
+                            self.groupsTableView.setContentOffset(CGPointZero, animated:true)
                         },
                         completion: nil);
                 }
