@@ -18,7 +18,7 @@ extension UIView {
     func roundRectView (borderWidth: CGFloat) {
         self.layer.borderWidth     = borderWidth
         self.layer.cornerRadius    = self.frame.size.width/2
-        self.layer.borderColor     = UIColor.lightGrayColor().CGColor
+        self.layer.borderColor     = UIColor.whiteColor().CGColor
         self.layer.masksToBounds   = true
     }
     
