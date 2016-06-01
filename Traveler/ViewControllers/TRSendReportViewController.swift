@@ -17,7 +17,7 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
     override func viewDidLoad() {
          super.viewDidLoad()
 
-        self.title = "SEND REPORT"
+        self.title = "CONTACT US"
         self.addNavigationBarButtons()
 
         // Key-Board Notifications
