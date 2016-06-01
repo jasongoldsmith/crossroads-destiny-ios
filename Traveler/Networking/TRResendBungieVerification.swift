@@ -16,6 +16,7 @@ class TRResendBungieVerification: TRRequest {
         let request = TRRequest()
         request.params = params
         request.requestURL = resendVerification
+        request.URLMethod = .GET
         request.sendRequestWithCompletion { (error, swiftyJsonVar) -> () in
             
             if let _ = error {
