@@ -60,7 +60,7 @@ class TRSignUpVerificatioViewController: TRBaseViewController, TTTAttributedLabe
         
         //No message Text
         self.messageFailErrorLable?.textColor = UIColor.whiteColor()
-        let messageFailOutText = "If you have not received a message within 10 minutes, send the message again. If the problem persists, contact us as support@crossroadsapp.co"
+        let messageFailOutText = "If you have not received a message within 10 minutes, send the message again. If the problem persists, contact us at support@crossroadsapp.co"
         let messageFailRangeString = "send the message again"
         let messageEmailRangeString = "support@crossroadsapp.co"
         
