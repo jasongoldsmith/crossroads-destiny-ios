@@ -20,7 +20,7 @@ class TRSignUpVerificatioViewController: TRBaseViewController, TTTAttributedLabe
         super.viewDidLoad()
         
         var messageString = ""
-        let bungieLinkName = "bungie.net"
+        let bungieLinkName = "Bungie.net"
         
         if let userName = TRUserInfo.getUserName() {
             messageString = "Welcome \(userName) \n \nThanks for signing up for Crossroads, the Destiny Fireteam Finder! An account verification message has been sent to your \(bungieLinkName) account. Click the link in the message to verify your PSN ID."
@@ -36,7 +36,7 @@ class TRSignUpVerificatioViewController: TRBaseViewController, TTTAttributedLabe
         let url = NSURL(string: "https://www.bungie.net/")!
         let subscriptionNoticeLinkAttributes = [
             NSForegroundColorAttributeName: UIColor(red: 0/255, green: 182/255, blue: 231/255, alpha: 1),
-            NSUnderlineStyleAttributeName: NSNumber(bool:false),
+            NSUnderlineStyleAttributeName: NSNumber(bool:true),
             ]
         self.messageLable?.linkAttributes = subscriptionNoticeLinkAttributes
         self.messageLable?.addLinkToURL(url, withRange: range)
