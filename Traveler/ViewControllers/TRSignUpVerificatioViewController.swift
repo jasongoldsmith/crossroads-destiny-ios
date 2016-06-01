@@ -14,6 +14,7 @@ class TRSignUpVerificatioViewController: TRBaseViewController, TTTAttributedLabe
     @IBOutlet weak var messageLable: TTTAttributedLabel?
     @IBOutlet weak var accountVerifyLabel: UILabel!
     @IBOutlet weak var signOutLabel: TTTAttributedLabel!
+    @IBOutlet weak var messageFailErrorLable: TTTAttributedLabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,10 +49,37 @@ class TRSignUpVerificatioViewController: TRBaseViewController, TTTAttributedLabe
         let signOutString = signOutText as NSString
         let signOutRange = signOutString.rangeOfString(signOutText)
         let signOutUrl = NSURL(string: "logout")!
-        self.signOutLabel?.linkAttributes = subscriptionNoticeLinkAttributes
+        let signoutLinkAttributes = [
+            NSForegroundColorAttributeName: UIColor.lightGrayColor(),
+            NSUnderlineStyleAttributeName: NSNumber(bool:false),
+        ]
+        self.signOutLabel?.linkAttributes = signoutLinkAttributes
         self.signOutLabel?.addLinkToURL(signOutUrl, withRange: signOutRange)
         self.signOutLabel?.delegate = self
         
+        
+        //No message Text
+        self.messageFailErrorLable?.textColor = UIColor.whiteColor()
+        let messageFailOutText = "If you have not received a message within 10 minutes, send the message again. If the problem persists, contact us as support@crossroadsapp.co"
+        let messageFailRangeString = "send the message again"
+        let messageEmailRangeString = "support@crossroadsapp.co"
+        
+        self.messageFailErrorLable?.text = messageFailOutText
+        let messageFailString = messageFailOutText as NSString
+        let messageFailRange = messageFailString.rangeOfString(messageFailRangeString)
+        let messageEmailFailRange = messageFailString.rangeOfString(messageEmailRangeString)
+        
+        let messageFailUrl = NSURL(string: "sendMessageAgain")!
+        let messageFailLinkAttributes = [
+            NSForegroundColorAttributeName: UIColor(red: 0/255, green: 182/255, blue: 231/255, alpha: 1),
+            NSUnderlineStyleAttributeName: NSNumber(bool:true),
+        ]
+        
+        self.messageFailErrorLable?.linkAttributes = messageFailLinkAttributes
+        self.messageFailErrorLable?.addLinkToURL(messageFailUrl, withRange: messageFailRange)
+        self.messageFailErrorLable?.addLinkToURL(NSURL(string: ""), withRange: messageEmailFailRange)
+        self.messageFailErrorLable?.delegate = self
+
         
         //Add FireBase
         self.addFireBaseObserverAndCheckVerification()
@@ -92,11 +120,17 @@ class TRSignUpVerificatioViewController: TRBaseViewController, TTTAttributedLabe
         if url.absoluteString == "logout" {
             self.addLogOutAlert()
             return
+        } else if url.absoluteString == "sendMessageAgain" {
+            self.resentMessageToBungie()
+            return
         }
         
         UIApplication.sharedApplication().openURL(url)
     }
     
+    func resentMessageToBungie () {
+        
+    }
     
     func addLogOutAlert () {
         let refreshAlert = UIAlertController(title: "", message: "Are you sure you want to log out?", preferredStyle: UIAlertControllerStyle.Alert)

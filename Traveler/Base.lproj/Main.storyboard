@@ -31,6 +31,7 @@
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue-Bold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -2331,33 +2332,59 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPZ-o0-NLT" customClass="TTTAttributedLabel">
-                                <rect key="frame" x="281.5" y="425" width="37" height="18"/>
+                                <rect key="frame" x="282" y="425" width="37" height="18"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdo-Ao-C24" customClass="TTTAttributedLabel">
+                                <rect key="frame" x="50" y="479" width="500" height="18"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ahk-rN-oWd">
+                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <color key="backgroundColor" red="0.08235294118" green="0.52941176469999995" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="cbA-jn-jsE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="GO TO BUNGIE.NET">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Ahk-rN-oWd" firstAttribute="trailing" secondItem="dWQ-DV-3Eq" secondAttribute="trailing" id="1Ou-Ni-HHJ"/>
                             <constraint firstItem="njn-tx-sYA" firstAttribute="top" relation="lessThanOrEqual" secondItem="djW-xX-je1" secondAttribute="bottom" constant="190" id="2xn-IF-TMk"/>
                             <constraint firstItem="LPZ-o0-NLT" firstAttribute="centerX" secondItem="cCq-Mw-RJq" secondAttribute="centerX" id="4tj-ee-vjn"/>
                             <constraint firstItem="LPZ-o0-NLT" firstAttribute="top" secondItem="djW-xX-je1" secondAttribute="bottom" constant="15" id="6LV-sv-VRA"/>
                             <constraint firstItem="dWQ-DV-3Eq" firstAttribute="top" secondItem="cCq-Mw-RJq" secondAttribute="top" id="7Ce-im-FVR"/>
+                            <constraint firstItem="Ahk-rN-oWd" firstAttribute="leading" secondItem="dWQ-DV-3Eq" secondAttribute="leading" id="8Os-HB-2eR"/>
                             <constraint firstItem="djW-xX-je1" firstAttribute="leading" secondItem="cCq-Mw-RJq" secondAttribute="leadingMargin" id="9bv-eY-twW"/>
                             <constraint firstItem="ggX-cr-WPZ" firstAttribute="top" secondItem="QOd-qg-fx3" secondAttribute="bottom" constant="35" id="MsJ-0G-o5H"/>
                             <constraint firstItem="dWQ-DV-3Eq" firstAttribute="leading" secondItem="cCq-Mw-RJq" secondAttribute="leading" id="NaH-1r-LTM"/>
                             <constraint firstItem="ggX-cr-WPZ" firstAttribute="centerX" secondItem="cCq-Mw-RJq" secondAttribute="centerX" id="PZF-FQ-uCR"/>
+                            <constraint firstItem="vdo-Ao-C24" firstAttribute="top" secondItem="LPZ-o0-NLT" secondAttribute="bottom" constant="36" id="QWa-63-Su2"/>
                             <constraint firstItem="Ws7-ac-Igq" firstAttribute="centerX" secondItem="ggX-cr-WPZ" secondAttribute="centerX" id="Rv0-Hm-yYU"/>
                             <constraint firstItem="djW-xX-je1" firstAttribute="centerX" secondItem="ggX-cr-WPZ" secondAttribute="centerX" id="UdS-mw-GrH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vdo-Ao-C24" secondAttribute="trailing" constant="30" id="VZH-Tz-ShN"/>
                             <constraint firstItem="djW-xX-je1" firstAttribute="top" secondItem="Ws7-ac-Igq" secondAttribute="bottom" constant="15" id="Xao-P9-OOA"/>
+                            <constraint firstItem="Ahk-rN-oWd" firstAttribute="bottom" secondItem="njn-tx-sYA" secondAttribute="top" id="gd9-ko-2Fh"/>
                             <constraint firstItem="njn-tx-sYA" firstAttribute="top" secondItem="dWQ-DV-3Eq" secondAttribute="bottom" id="giJ-Df-66c"/>
+                            <constraint firstItem="vdo-Ao-C24" firstAttribute="centerX" secondItem="cCq-Mw-RJq" secondAttribute="centerX" id="mX4-aa-8q5"/>
                             <constraint firstAttribute="trailing" secondItem="dWQ-DV-3Eq" secondAttribute="trailing" id="ma2-rB-OAs"/>
+                            <constraint firstItem="vdo-Ao-C24" firstAttribute="leading" secondItem="cCq-Mw-RJq" secondAttribute="leadingMargin" constant="30" id="pJY-9V-BLR"/>
                             <constraint firstItem="djW-xX-je1" firstAttribute="trailing" secondItem="cCq-Mw-RJq" secondAttribute="trailingMargin" id="pKf-Wr-TcC"/>
                             <constraint firstItem="Ws7-ac-Igq" firstAttribute="top" secondItem="ggX-cr-WPZ" secondAttribute="bottom" constant="41" id="wTX-Bu-ZZS"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="accountVerifyLabel" destination="Ws7-ac-Igq" id="i4p-KI-21l"/>
+                        <outlet property="messageFailErrorLable" destination="vdo-Ao-C24" id="aOq-9C-jJo"/>
                         <outlet property="messageLable" destination="ehx-S3-Tqm" id="mid-X1-GPl"/>
                         <outlet property="signOutLabel" destination="LPZ-o0-NLT" id="sHH-t9-TPZ"/>
                     </connections>
