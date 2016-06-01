@@ -2330,10 +2330,18 @@
                                     <constraint firstItem="ehx-S3-Tqm" firstAttribute="top" secondItem="djW-xX-je1" secondAttribute="top" id="tMA-P5-fOT"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPZ-o0-NLT" customClass="TTTAttributedLabel">
+                                <rect key="frame" x="281.5" y="425" width="37" height="18"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="njn-tx-sYA" firstAttribute="top" relation="lessThanOrEqual" secondItem="djW-xX-je1" secondAttribute="bottom" constant="190" id="2xn-IF-TMk"/>
+                            <constraint firstItem="LPZ-o0-NLT" firstAttribute="centerX" secondItem="cCq-Mw-RJq" secondAttribute="centerX" id="4tj-ee-vjn"/>
+                            <constraint firstItem="LPZ-o0-NLT" firstAttribute="top" secondItem="djW-xX-je1" secondAttribute="bottom" constant="15" id="6LV-sv-VRA"/>
                             <constraint firstItem="dWQ-DV-3Eq" firstAttribute="top" secondItem="cCq-Mw-RJq" secondAttribute="top" id="7Ce-im-FVR"/>
                             <constraint firstItem="djW-xX-je1" firstAttribute="leading" secondItem="cCq-Mw-RJq" secondAttribute="leadingMargin" id="9bv-eY-twW"/>
                             <constraint firstItem="ggX-cr-WPZ" firstAttribute="top" secondItem="QOd-qg-fx3" secondAttribute="bottom" constant="35" id="MsJ-0G-o5H"/>
@@ -2351,6 +2359,7 @@
                     <connections>
                         <outlet property="accountVerifyLabel" destination="Ws7-ac-Igq" id="i4p-KI-21l"/>
                         <outlet property="messageLable" destination="ehx-S3-Tqm" id="mid-X1-GPl"/>
+                        <outlet property="signOutLabel" destination="LPZ-o0-NLT" id="sHH-t9-TPZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TA0-UN-euH" userLabel="First Responder" sceneMemberID="firstResponder"/>
