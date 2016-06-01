@@ -3,7 +3,6 @@
 //  OnCueSwift
 //
 //  Created by Goldsmith, Jason on 6/25/15.
-//  Copyright (c) 2015 Verizon. All rights reserved.
 //
 
 import Foundation
