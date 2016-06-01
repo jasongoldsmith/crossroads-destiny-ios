@@ -117,14 +117,16 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         self.playerGroupsIcon?.layer.borderColor     = UIColor.whiteColor().CGColor
         self.playerGroupsIcon?.layer.masksToBounds   = true
 
-        if let currentGroupID = TRUserInfo.getUserClanID() where TRUserInfo.getUserClanID() != "clan_id_not_set" {
+        if let currentGroupID = TRUserInfo.getUserClanID() {
             if let hasCurrentGroup = TRApplicationManager.sharedInstance.getCurrentGroup(currentGroupID) {
                 if let imageUrl = hasCurrentGroup.avatarPath {
                     let imageUrl = NSURL(string: imageUrl)
                     self.playerGroupsIcon?.sd_setImageWithURL(imageUrl)
                 }
             }
-        } else {
+        }
+        
+        if self.playerGroupsIcon?.image == nil {
             self.playerGroupsIcon?.image = UIImage(named: "iconGroupCrossroadsFreelance")
         }
     }
