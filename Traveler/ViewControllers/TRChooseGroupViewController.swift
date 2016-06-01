@@ -104,7 +104,7 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
         let url = NSURL(string: "https://www.bungie.net/")!
         let subscriptionNoticeLinkAttributes = [
             NSForegroundColorAttributeName: UIColor(red: 0/255, green: 182/255, blue: 231/255, alpha: 1),
-            NSUnderlineStyleAttributeName: NSNumber(bool:false),
+            NSUnderlineStyleAttributeName: NSNumber(bool:true),
             ]
         self.lableThree?.linkAttributes = subscriptionNoticeLinkAttributes
         self.lableThree?.addLinkToURL(url, withRange: range)
