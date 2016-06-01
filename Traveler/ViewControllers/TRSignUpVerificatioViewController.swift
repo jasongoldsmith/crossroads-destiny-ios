@@ -129,7 +129,17 @@ class TRSignUpVerificatioViewController: TRBaseViewController, TTTAttributedLabe
     }
     
     func resentMessageToBungie () {
-        
+        _ = TRResendBungieVerification().resendVerificationRequest("", completion: { (didSucceed) in
+            if didSucceed == true {
+
+                let refreshAlert = UIAlertController(title: "", message: "Message Sent", preferredStyle: UIAlertControllerStyle.Alert)
+                refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                    
+                }))
+                
+                self.presentViewController(refreshAlert, animated: true, completion: nil)
+            }
+        })
     }
     
     func addLogOutAlert () {

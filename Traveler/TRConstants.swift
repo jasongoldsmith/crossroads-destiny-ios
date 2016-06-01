@@ -53,6 +53,7 @@ struct K {
         static let TR_UPDATE_GROUPS      =   "/api/v1/a/user/updateGroup"
         static let TR_GET_GROUP_BY_ID    =   "/api/v1/a/account/group/search/"
         static let TR_UPDATE_PASSWORD    =   "/api/v1/a/user/updatePassword"
+        static let TR_RESEND_VERIFICATION =   "/api/v1/a/account/group/resendBungieMessage"
     }
     
     struct StoryBoard {
