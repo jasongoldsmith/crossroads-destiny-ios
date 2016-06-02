@@ -27,6 +27,10 @@ class TRGetEventByEventID: TRRequest {
                 // Creating Event Objects from Events List
                 let eventInfo = TREventInfo().parseCreateEventInfoObject(responseObject)
                 
+                guard let _ = eventInfo.eventID  else {
+                    return
+                }
+                
                 if let eventToUpdate = TRApplicationManager.sharedInstance.getEventById(eventInfo.eventID!) {
                     let eventIndex = TRApplicationManager.sharedInstance.eventsList.indexOf(eventToUpdate)
                     TRApplicationManager.sharedInstance.eventsList.removeAtIndex(eventIndex!)

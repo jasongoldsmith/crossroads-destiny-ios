@@ -1733,8 +1733,8 @@
 			baseConfigurationReference = AF20CB55E36D5C9D4084E3CA /* Pods-Crossroads.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ashutosh Thakur (2692F6967Z)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ashutosh Thakur (2692F6967Z)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = Traveler/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1754,8 +1754,8 @@
 			baseConfigurationReference = 15055A9B48C33842D573D67F /* Pods-Crossroads.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Catalyst Foundry LLC (V289XNH63H)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Catalyst Foundry LLC (V289XNH63H)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = Traveler/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
