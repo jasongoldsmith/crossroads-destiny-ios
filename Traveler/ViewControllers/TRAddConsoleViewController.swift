@@ -27,7 +27,7 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var consolePicker: UIPickerView!
     @IBOutlet weak var consolePickerView: UIView!
-    
+    @IBOutlet weak var consoleTypeLabel: UILabel!
     
     var consoleNameArray: NSArray = ["PlayStation 4","PlayStation 3", "Xbox 360", "Xbox One"]
     var selectedIndex: Int = 0
@@ -76,6 +76,7 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
         self.legalLabel?.linkAttributes = subscriptionNoticeLinkAttributes
         self.legalLabel?.addLinkToURL(urlCustomerAgreement, withRange: rangeCustomerAgreement)
         self.legalLabel?.addLinkToURL(urlPrivacyPolicy, withRange: rangePrivacyPolicy)
+        self.legalLabel?.delegate = self
     }
     
     func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
@@ -163,6 +164,11 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.selectedIndex = row
+        
+        if let consoleType = self.consoleNameArray.objectAtIndex(row) as? String {
+            self.chooseConsoleButton?.titleLabel?.text = consoleType
+            self.consoleTypeLabel.text = "Enter your \(consoleType) gamer tag"
+        }
     }
 
     deinit {

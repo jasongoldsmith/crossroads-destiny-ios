@@ -1991,11 +1991,11 @@
                                             <constraint firstAttribute="height" constant="25" id="t9g-Kp-ePw"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BUNGIE.NET USERNAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1d9-oV-rS2">
-                                        <rect key="frame" x="67" y="17" width="122" height="11"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your PS4 gamer tag" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1d9-oV-rS2">
+                                        <rect key="frame" x="67" y="17" width="210" height="11"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="11" id="BXN-pD-zil"/>
-                                            <constraint firstAttribute="width" constant="122" id="lhm-qX-dgu"/>
+                                            <constraint firstAttribute="width" constant="210" id="lhm-qX-dgu"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2152,6 +2152,7 @@
                         <outlet property="chooseConsoleButton" destination="PK0-Le-SMR" id="ZC6-Hp-gBh"/>
                         <outlet property="consolePicker" destination="Jmq-Wr-K5x" id="l48-YH-l6y"/>
                         <outlet property="consolePickerView" destination="n3y-gf-vY6" id="qfi-Gi-Q09"/>
+                        <outlet property="consoleTypeLabel" destination="1d9-oV-rS2" id="1wf-sG-1c1"/>
                         <outlet property="legalLabel" destination="cSX-zS-eiN" id="VRu-Gw-7he"/>
                         <outlet property="nextButton" destination="Nax-av-Wvi" id="ilg-O1-kh0"/>
                     </connections>
