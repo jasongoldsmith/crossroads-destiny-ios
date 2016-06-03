@@ -14,6 +14,7 @@ struct K {
             static let TR_USER_CLAN_ID  = "TR_USER_CLAN_ID"
             static let TR_USER_PSN_VERIFIED  = "TR_USER_PSN_VERIFIED"
             static let TR_USER_XBOX_VERIFIED  = "TR_USER_XBOX_VERIFIED"
+            static let TR_USER_BUNGIE_VERIFIED  = "TR_USER_BUNGIE_ACCOUNT"
         }
     }
     

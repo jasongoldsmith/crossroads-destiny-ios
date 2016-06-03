@@ -130,6 +130,17 @@ class TRUserInfo: NSObject {
     }
 
     
+    class func saveBungieAccount(bungieAccount: String) {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.setValue(bungieAccount , forKeyPath: K.UserDefaultKey.UserAccountInfo.TR_USER_BUNGIE_VERIFIED)
+        userDefaults.synchronize()
+    }
+    
+    class func bungieAccount() -> String? {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        return userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_USER_BUNGIE_VERIFIED) as? String
+    }
+    
     class func removeUserData () {
         NSUserDefaults.standardUserDefaults().removePersistentDomainForName(NSBundle.mainBundle().bundleIdentifier!)
     }

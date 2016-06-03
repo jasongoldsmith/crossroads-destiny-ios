@@ -22,9 +22,12 @@ class TRLoginOptionViewController: TRBaseViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
-    }
 
+        if let _ = TRUserInfo.bungieAccount() where TRUserInfo.isUserVerified() == false {
+            self.performSegueWithIdentifier("TRCreateAccountView", sender: self)
+        }
+    }
+    
     @IBAction func createAccountBtnTapped(sender: AnyObject) {
         self.performSegueWithIdentifier("TRAddConsoleView", sender: self)
     }

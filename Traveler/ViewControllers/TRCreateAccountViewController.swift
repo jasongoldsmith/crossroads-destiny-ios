@@ -154,6 +154,16 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
     }
     
     
+    @IBAction func backButtonPressed(sender: UIButton) {
+        
+        //Clear saved Bungie ID
+        TRUserInfo.removeUserData()
+        
+        self.dismissViewControllerAnimated(true) { 
+            
+        }
+    }
+    
     func keyboardWillShow(sender: NSNotification) {
         
         let userInfo: [NSObject : AnyObject] = sender.userInfo!

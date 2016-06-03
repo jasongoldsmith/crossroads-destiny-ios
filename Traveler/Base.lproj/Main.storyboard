@@ -2402,7 +2402,7 @@
                                 <rect key="frame" x="10" y="20" width="44" height="44"/>
                                 <state key="normal" image="iconBackArrow"/>
                                 <connections>
-                                    <segue destination="pLH-ez-YJx" kind="unwind" unwindAction="trUnwindAction:" id="3KC-gq-SHp"/>
+                                    <action selector="backButtonPressed:" destination="8fv-qL-jQi" eventType="touchUpInside" id="SlK-Gf-Xfa"/>
                                 </connections>
                             </button>
                         </subviews>

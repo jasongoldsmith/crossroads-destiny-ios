@@ -127,6 +127,10 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
         
         _ = TRBungieUserAuthRequest().verifyBungieUserName((self.bungieIDTextField?.text!)!, consoleType: selectedConsole, completion: { (didSucceed) in
             if didSucceed == true {
+                TRUserInfo.saveBungieAccount(self.bungieIDTextField.text!)
+                self.dismissViewControllerAnimated(true, completion: { 
+                    
+                })
             }
         })
     }
