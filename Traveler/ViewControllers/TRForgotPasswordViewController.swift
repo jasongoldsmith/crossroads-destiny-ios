@@ -11,7 +11,7 @@ import TTTAttributedLabel
 
 class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDelegate {
 
-    @IBOutlet weak var psnIDTextField: UITextField!
+    @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var resetPasswordButton: UIButton!
     @IBOutlet weak var resetButtonBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var resetTextBoxParentView: UIView!
@@ -23,8 +23,8 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRForgotPasswordViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRForgotPasswordViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
 
-        self.psnIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter PSN ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
-        self.psnIDTextField?.becomeFirstResponder()
+        self.userNameTextField.attributedPlaceholder = NSAttributedString(string:"Enter User Name", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+        self.userNameTextField?.becomeFirstResponder()
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -46,12 +46,12 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
-        if self.psnIDTextField.text!.isEmpty {
+        if self.userNameTextField.text!.isEmpty {
             TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Please enter PSN ID!")
             return false
         }
         
-        self.forgotPasswordForPsnID(self.psnIDTextField!.text!)
+        self.forgotPasswordForPsnID(self.userNameTextField!.text!)
         
         return true
     }
@@ -68,8 +68,8 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
     
     @IBAction func backButtonPressed(sender: UIButton) {
         
-        if self.psnIDTextField.isFirstResponder() {
-            self.psnIDTextField.resignFirstResponder()
+        if self.userNameTextField.isFirstResponder() {
+            self.userNameTextField.resignFirstResponder()
         }
         
         delay(0.3) {
@@ -80,11 +80,11 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
     }
 
     @IBAction func resetButtonPressed (sender: UIButton) {
-        if self.psnIDTextField.text!.isEmpty {
+        if self.userNameTextField.text!.isEmpty {
             TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Please enter PSN ID!")
         }
         
-        self.forgotPasswordForPsnID(self.psnIDTextField!.text!)
+        self.forgotPasswordForPsnID(self.userNameTextField!.text!)
     }
     
     func keyboardWillShow(sender: NSNotification) {
@@ -123,8 +123,8 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
                 self.titleMessageLable?.addLinkToURL(urlBungieString, withRange: rangeBungieString)
                 self.titleMessageLable?.delegate = self
                 
-                if self.psnIDTextField?.isFirstResponder() == true {
-                    self.psnIDTextField?.resignFirstResponder()
+                if self.userNameTextField?.isFirstResponder() == true {
+                    self.userNameTextField?.resignFirstResponder()
                 }
             } else {
             }

@@ -558,13 +558,13 @@
                                             <constraint firstAttribute="width" constant="25" id="LXU-Jn-iME"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PSN ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ns5-Vu-hdd">
-                                        <rect key="frame" x="67" y="16" width="33" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USER NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ns5-Vu-hdd">
+                                        <rect key="frame" x="67" y="16" width="58" height="12"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter PSN ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tk8-zZ-Sx3">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter USER NAME" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tk8-zZ-Sx3">
                                         <rect key="frame" x="67" y="38" width="505" height="17"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -639,11 +639,11 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
-                        <outlet property="psnIDTextField" destination="Tk8-zZ-Sx3" id="S84-84-X0J"/>
                         <outlet property="resetButtonBottomConstraint" destination="bIQ-VX-Sgs" id="fne-cP-nBd"/>
                         <outlet property="resetPasswordButton" destination="7Cn-fI-BQD" id="K1Q-ip-a9P"/>
                         <outlet property="resetTextBoxParentView" destination="61I-3M-JJz" id="m4G-rm-ly5"/>
                         <outlet property="titleMessageLable" destination="sid-xD-sch" id="rZi-EQ-6jO"/>
+                        <outlet property="userNameTextField" destination="Tk8-zZ-Sx3" id="wpR-Cb-8bX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xs5-2R-nNJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2148,8 +2148,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bungieIDTextField" destination="UFf-VE-a39" id="aKl-2n-6zc"/>
                         <outlet property="chooseConsoleButton" destination="PK0-Le-SMR" id="ZC6-Hp-gBh"/>
+                        <outlet property="consoleIDTextField" destination="UFf-VE-a39" id="zO5-kp-VCP"/>
                         <outlet property="consolePicker" destination="Jmq-Wr-K5x" id="l48-YH-l6y"/>
                         <outlet property="consolePickerView" destination="n3y-gf-vY6" id="qfi-Gi-Q09"/>
                         <outlet property="consoleTypeLabel" destination="1d9-oV-rS2" id="1wf-sG-1c1"/>
