@@ -141,6 +141,16 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
         UIView.animateWithDuration(0.4) { () -> Void in
             self.consolePickerView?.alpha = 0
         }
+        
+        if let consoleType = self.consoleNameArray.objectAtIndex(self.selectedIndex) as? String {
+            self.chooseConsoleButton?.titleLabel?.text = consoleType
+            
+            if self.selectedIndex < 2 {
+                self.consoleTypeLabel.text = "Enter Your PlayStation ID"
+            } else {
+                self.consoleTypeLabel.text = "Enter Your Xbox Gamertag"
+            }
+        }
     }
     
     @IBAction func openPickerView (sender: UIButton) {
@@ -164,11 +174,6 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.selectedIndex = row
-        
-        if let consoleType = self.consoleNameArray.objectAtIndex(row) as? String {
-            self.chooseConsoleButton?.titleLabel?.text = consoleType
-            self.consoleTypeLabel.text = "Enter your \(consoleType) gamer tag"
-        }
     }
 
     deinit {
