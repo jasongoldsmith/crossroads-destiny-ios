@@ -26,11 +26,14 @@ class TRLoginOptionViewController: TRBaseViewController {
     }
 
     @IBAction func createAccountBtnTapped(sender: AnyObject) {
-        self.performSegueWithIdentifier("TRCreateAccountView", sender: self)
+        self.performSegueWithIdentifier("TRAddConsoleView", sender: self)
     }
     
     @IBAction func signIntBtnTapped(sender: AnyObject) {
         self.performSegueWithIdentifier("TRSignInView", sender: self)
     }
     
+    @IBAction func trUnwindActionToLoginOption(segue: UIStoryboardSegue) {
+        
+    }
 }

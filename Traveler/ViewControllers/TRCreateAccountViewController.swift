@@ -18,7 +18,6 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
     @IBOutlet weak var userNameTxtField: UITextField!
     @IBOutlet weak var userPwdTxtField: UITextField!
     @IBOutlet weak var userPSNIDTxtField: UITextField!
-    @IBOutlet weak var legalStatementText: TTTAttributedLabel!
     
     
     var errorView: TRErrorNotificationView?
@@ -35,9 +34,6 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
         self.userPSNIDTxtField.attributedPlaceholder = NSAttributedString(string:"Enter PSN ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         
         self.userPSNIDTxtField.delegate = self
-        
-        //Add legal Stings
-        self.addLegalStatmentText()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -53,15 +49,6 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
     }
     
     
-    
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
-        if touch.view == self.legalStatementText  {
-            return false
-        }
-        
-        return true
-    }
-    
     func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
         let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
         let legalViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_WEB_VIEW) as! TRLegalViewController
@@ -71,31 +58,6 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
         })
     }
 
-    func addLegalStatmentText () {
-        let legalString = "By clicking the button below, I have read and agree to the Crossroads Terms of Service and Privacy Policy"
-        
-        let customerAgreement = "Terms of Service"
-        let privacyPolicy = "Privacy Policy"
-            
-        self.legalStatementText?.text = legalString
-        
-        // Add HyperLink to Bungie
-        let nsString = legalString as NSString
-        
-        let rangeCustomerAgreement = nsString.rangeOfString(customerAgreement)
-        let rangePrivacyPolicy = nsString.rangeOfString(privacyPolicy)
-        let urlCustomerAgreement = NSURL(string: "https://www.crossroadsapp.co/terms")!
-        let urlPrivacyPolicy = NSURL(string: "https://www.crossroadsapp.co/privacy")!
-        
-        let subscriptionNoticeLinkAttributes = [
-            NSForegroundColorAttributeName: UIColor(red: 0/255, green: 182/255, blue: 231/255, alpha: 1),
-            NSUnderlineStyleAttributeName: NSNumber(bool:true),
-            ]
-        self.legalStatementText?.linkAttributes = subscriptionNoticeLinkAttributes
-        self.legalStatementText?.addLinkToURL(urlCustomerAgreement, withRange: rangeCustomerAgreement)
-        self.legalStatementText?.addLinkToURL(urlPrivacyPolicy, withRange: rangePrivacyPolicy)
-        self.legalStatementText?.delegate = self
-    }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
