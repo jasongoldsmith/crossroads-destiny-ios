@@ -136,7 +136,7 @@ class TRUserInfo: NSObject {
         userDefaults.synchronize()
     }
     
-    class func bungieAccount() -> String? {
+    class func getbungieAccount() -> String? {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         return userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_USER_BUNGIE_VERIFIED) as? String
     }
