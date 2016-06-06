@@ -100,8 +100,8 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
     }
     
     //MARK:- NETWORK CALL
-    func forgotPasswordForPsnID (psnId: String) {
-        _ = TRForgotPasswordRequest().resetUserPassword(psnId, completion: { (didSucceed) in
+    func forgotPasswordForPsnID (userName: String) {
+        _ = TRForgotPasswordRequest().resetUserPassword(userName, completion: { (didSucceed) in
             if (didSucceed == true) {
                 
                 self.resetTextBoxParentView.hidden = true

@@ -29,6 +29,7 @@ class TRBungieGroupCell: UITableViewCell {
         self.contentView.userInteractionEnabled = true
         self.radioButton?.highlighted = false
         self.bottomBorderImageView.hidden = true
+        self.memberCount.hidden = true
     }
     
     func updateCellViewWithGroup (groupInfo: TRBungieGroupInfo) {
@@ -39,7 +40,10 @@ class TRBungieGroupCell: UITableViewCell {
         
         self.groupName.text = groupInfo.groupName
         if let hasMembers = groupInfo.memberCount {
+            self.memberCount.hidden = false
             self.memberCount.text =  hasMembers.description + " Members"
+        } else {
+            self.memberCount.hidden = true
         }
         
         if let eventCount = groupInfo.eventCount where eventCount > 0 {

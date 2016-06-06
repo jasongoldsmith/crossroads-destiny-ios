@@ -30,13 +30,8 @@ class TRFireBaseListener {
                 
                 if let snapShot = snap.value as? NSDictionary {
                     let userData = TRUserInfo()
-                    userData.userName       = snapShot["userName"] as? String
-                    userData.userID         = snapShot["_id"] as? String
-                    userData.psnID          = snapShot["psnId"] as? String
-                    userData.userImageURL   = snapShot["imageUrl"] as? String
-                    userData.userClanID     = snapShot["clanId"] as? String
-                    userData.psnVerified    = snapShot["psnVerified"] as? String
-                    userData.xboxVerified   = snapShot["xboxVerified"] as? String
+                    let snapShotJson = JSON(snapShot)
+                    userData.parseUserResponse(snapShotJson)
                     
                     TRUserInfo.saveUserData(userData)
                     

@@ -88,7 +88,7 @@ class TRSignUpVerificatioViewController: TRBaseViewController, TTTAttributedLabe
     func addFireBaseObserverAndCheckVerification () {
         TRApplicationManager.sharedInstance.fireBaseObj.addUserObserverWithCompletion { (didCompelete) in
             if didCompelete == true {
-                if TRUserInfo.isUserVerified() {
+                if TRUserInfo.isUserVerified() == ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue {
                     
                     var messageString = ""
                     if let userName = TRUserInfo.getUserName() {

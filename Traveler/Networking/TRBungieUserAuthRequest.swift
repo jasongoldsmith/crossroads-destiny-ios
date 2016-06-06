@@ -14,11 +14,11 @@ class TRBungieUserAuthRequest: TRRequest {
         let bungieVerification = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_BUNGIE_USER_AUTH
         
         let request = TRRequest()
-        
         var params = [String: AnyObject]()
+        
         params["consoleId"] = consoleId
         params["consoleType"] = consoleType
-        self.params = params
+        request.params = params
         request.requestURL = bungieVerification
         request.sendRequestWithCompletion { (error, swiftyJsonVar) -> () in
             
@@ -28,6 +28,19 @@ class TRBungieUserAuthRequest: TRRequest {
                 
                 return
             }
+            
+            if let memberShipID = swiftyJsonVar["bungieMemberShipId"].string {
+                TRUserInfo.saveBungieMemberShipId(memberShipID)
+            }
+            
+            if let consoleType = swiftyJsonVar["consoleType"].string {
+                TRUserInfo.saveConsoleType(consoleType)
+            }
+            
+            if let consoleID = swiftyJsonVar["consoleId"].string {
+                TRUserInfo.saveConsoleID(consoleID)
+            }
+            
             
             completion(didSucceed: true )
         }

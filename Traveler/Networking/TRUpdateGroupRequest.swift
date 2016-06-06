@@ -34,8 +34,6 @@ class TRUpdateGroupRequest: TRRequest {
             userData.psnID          = swiftyJsonVar["psnID"].string
             userData.userImageURL   = swiftyJsonVar["imageUrl"].string
             userData.userClanID     = swiftyJsonVar["clanId"].string
-            userData.psnVerified    = swiftyJsonVar["psnVerified"].string
-            userData.xboxVerified   = swiftyJsonVar["xboxVerified"].string
             
             TRUserInfo.saveUserData(userData)
 

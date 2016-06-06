@@ -34,7 +34,7 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
         self.userPSNIDTxtField.attributedPlaceholder = NSAttributedString(string:"Enter PSN ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         
         self.userPSNIDTxtField.delegate = self
-        self.userPSNIDTxtField.text = TRUserInfo.getbungieAccount()
+        self.userPSNIDTxtField.text = TRUserInfo.getConsoleID()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -79,7 +79,7 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
     }
     
     @IBAction func createAccountBtnTapped(sender: AnyObject) {
-        
+       
         //Close KeyBoard
         self.resignKeyBoardResponders()
         
@@ -143,8 +143,9 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
     }
     
     func createAccountSuccess() {
-        
-        performSegueWithIdentifier("TRAccountCreationUnwindAction", sender: nil)
+        self.navigationController?.dismissViewControllerAnimated(true, completion: {
+            
+        })
     }
     
     

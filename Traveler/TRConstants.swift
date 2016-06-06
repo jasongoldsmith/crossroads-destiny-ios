@@ -12,9 +12,12 @@ struct K {
             static let TR_UserID        = "TR_UserID"
             static let TR_USER_IMAGE    = "TR_USER_IMAGE"
             static let TR_USER_CLAN_ID  = "TR_USER_CLAN_ID"
-            static let TR_USER_PSN_VERIFIED  = "TR_USER_PSN_VERIFIED"
-            static let TR_USER_XBOX_VERIFIED  = "TR_USER_XBOX_VERIFIED"
-            static let TR_USER_BUNGIE_VERIFIED  = "TR_USER_BUNGIE_ACCOUNT"
+            
+            
+            static let TR_USER_CONSOLE_ID  = "TR_USER_CONSOLE_ID"
+            static let TR_USER_BUNGIE_MEMBERSHIP_ID  = "TR_USER_BUNGIE_MEMBERSHIP_ID"
+            static let TR_USER_CONSOLE_TYPE  = "TR_USER_CONSOLE_TYPE"
+            static let TR_CONSOLE_VERIFIED  = "TR_CONSOLE_VERIFIED"
         }
     }
     
@@ -69,6 +72,7 @@ struct K {
         
         static let VIEWCONTROLLER_LOGIN                    = "login"
         static let VIEWCONTROLLER_SIGNUP                   = "signup"
+        static let VIEWCONTROLLER_LOGIN_OPTIONS            = "loginOptions"
         static let VIEWCONTROLLER_EVENT_LIST               = "eventListVC"
         static let VIEWCONTROLLER_CREATE_EVENT             = "createeventvc"
         static let VIEW_CONTROLLER_CREATE_EVENT_ACTIVITY   = "createEventsActivityVC"
@@ -140,6 +144,12 @@ enum NOTIFICATION_TRACKABLE: Int {
 enum APP_TRACKING_DATA_TYPE: String {
     case TRACKING_EVENT = "event"
     case TRACKING_PUSH_NOTIFICATION = "pushNotification"
+}
+
+enum ACCOUNT_VERIFICATION: String {
+    case USER_VERIFIED = "VERIFIED"
+    case USER_VER_INITIATED = "INITIATED"
+    case USER_NOT_VERIFIED = "clan_id_not_set"
 }
 
 struct ScreenSize

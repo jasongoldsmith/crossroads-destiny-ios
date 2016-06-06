@@ -9,11 +9,11 @@
 
 class TRForgotPasswordRequest: TRRequest {
 
-    func resetUserPassword(userPsnID: String, completion: TRValueCallBack) {
+    func resetUserPassword(userName: String, completion: TRValueCallBack) {
         
         let resetPassword = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_FORGOT_PASSWORD
         var params = [String: AnyObject]()
-        params["psnId"] = userPsnID
+        params["userName"] = userName
         
         let request = TRRequest()
         request.params = params

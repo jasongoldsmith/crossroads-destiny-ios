@@ -28,10 +28,22 @@ class TRAuthenticationRequest: TRRequest {
         if userData?.password?.characters.isEmpty == false {
             params["passWord"] = userData?.password
         }
-        if userData?.psnID?.characters.isEmpty == false {
-            params["psnId"] = userData?.psnID
+        if let bungieMembership = TRUserInfo.getBungieMembershipID() {
+            params["bungieMemberShipId"] = bungieMembership
         }
+        
+        if let hasConsoleType = TRUserInfo.getConsoleType() where TRUserInfo.getConsoleID() != nil {
 
+            var myConsoleDictArray: [[String:AnyObject]] = []
+            var consoleInfo = [String: AnyObject]()
+            consoleInfo["consoleType"] = hasConsoleType
+            consoleInfo["consoleId"] = TRUserInfo.getConsoleID()
+            
+            myConsoleDictArray.append(consoleInfo)
+            params["consoles"] = myConsoleDictArray
+        }
+        
+        
         let request = TRRequest()
         request.params = params
         request.requestURL = registerUserUrl
@@ -42,14 +54,8 @@ class TRAuthenticationRequest: TRRequest {
             }
             
             let userData = TRUserInfo()
-            userData.userName       = responseObject["value"]["userName"].string
-            userData.userID         = responseObject["value"]["_id"].string
-            userData.psnID          = responseObject["value"]["psnID"].string
-            userData.userImageURL   = responseObject["value"]["imageUrl"].string
-            userData.userClanID     = responseObject["value"]["clanId"].string
-            userData.psnVerified    = responseObject["value"]["psnVerified"].string
-            userData.xboxVerified   = responseObject["value"]["xboxVerified"].string
-            
+            userData.parseUserResponse(responseObject)
+
             TRUserInfo.saveUserData(userData)
             completion(didSucceed: true )
         }
@@ -82,14 +88,8 @@ class TRAuthenticationRequest: TRRequest {
             }
             
             let userData = TRUserInfo()
-            userData.userName       = responseObject["value"]["userName"].string
-            userData.userID         = responseObject["value"]["_id"].string
-            userData.psnID          = responseObject["value"]["psnId"].string
-            userData.userImageURL   = responseObject["value"]["imageUrl"].string
-            userData.userClanID     = responseObject["value"]["clanId"].string
-            userData.psnVerified    = responseObject["value"]["psnVerified"].string
-            userData.xboxVerified   = responseObject["value"]["xboxVerified"].string
-
+            userData.parseUserResponse(responseObject)
+            
             TRUserInfo.saveUserData(userData)
             completion(didSucceed: true )
         }
@@ -114,11 +114,6 @@ class TRAuthenticationRequest: TRRequest {
             }
             
             let userData = TRUserInfo()
-            userData.userName       = responseObject["value"]["userName"].string
-            userData.password       = responseObject["value"]["passWord"].string
-            userData.psnID          = responseObject["value"]["psnID"].string
-            userData.userImageURL   = responseObject["value"]["imageUrl"].string
-            userData.userClanID     = responseObject["value"]["clanId"].string
             
             TRUserInfo.saveUserData(userData)
             completion(true )

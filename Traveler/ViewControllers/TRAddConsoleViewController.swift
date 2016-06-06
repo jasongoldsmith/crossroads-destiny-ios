@@ -23,7 +23,7 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
 
     @IBOutlet weak var chooseConsoleButton: UIButton!
     @IBOutlet weak var legalLabel: TTTAttributedLabel!
-    @IBOutlet weak var bungieIDTextField: UITextField!
+    @IBOutlet weak var consoleIDTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var consolePicker: UIPickerView!
     @IBOutlet weak var consolePickerView: UIView!
@@ -39,7 +39,7 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
         self.chooseConsoleButton?.layer.cornerRadius = 3.0
         
         // Placeholder text color
-        self.bungieIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter your gamer tag", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+        self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter your gamer tag", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         
         //Update Legal Text
         self.addLegalStatmentText()
@@ -89,12 +89,12 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.bungieIDTextField?.resignFirstResponder()
+        self.consoleIDTextField?.resignFirstResponder()
         return true
     }
     
     @IBAction func textFieldDidDidUpdate (textField: UITextField) {
-        if self.bungieIDTextField?.text?.characters.count > 4 {
+        if self.consoleIDTextField?.text?.characters.count > 4 {
             self.nextButton?.enabled = true
             self.nextButton.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
         } else {
@@ -104,13 +104,13 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
     }
     
     @IBAction func doneButtonPressed (sender: UIButton) {
-        if self.bungieIDTextField?.text?.isEmpty == true {
+        if self.consoleIDTextField?.text?.isEmpty == true {
             TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Please enter Bungie.net game tag")
             return
         }
         
         var selectedConsole = ""
-        switch self.selectedIndex {
+        switch self.selectedIndex + 1 {
         case 1:
             selectedConsole = ConsoleTypes.PS4
             break
@@ -126,12 +126,11 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
             break
         }
         
-        _ = TRBungieUserAuthRequest().verifyBungieUserName((self.bungieIDTextField?.text!)!, consoleType: selectedConsole, completion: { (didSucceed) in
+        _ = TRBungieUserAuthRequest().verifyBungieUserName((self.consoleIDTextField?.text!)!, consoleType: selectedConsole, completion: { (didSucceed) in
             if didSucceed == true {
-                TRUserInfo.saveBungieAccount(self.bungieIDTextField.text!)
-                self.dismissViewControllerAnimated(true, completion: { 
-                    
-                })
+                let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+                let verifyAccountViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEWCONTROLLER_SIGNUP) as! TRCreateAccountViewController
+                self.navigationController?.pushViewController(verifyAccountViewController, animated: true)
             }
         })
     }

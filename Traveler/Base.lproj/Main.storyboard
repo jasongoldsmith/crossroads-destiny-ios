@@ -41,7 +41,7 @@
         <!--Root View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TRRootViewController" customModule="Crossroads" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="rootVC" id="BYZ-38-t0r" customClass="TRRootViewController" customModule="Crossroads" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -181,12 +181,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D98-Bi-edU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="539" y="365"/>
+            <point key="canvasLocation" x="-861" y="193"/>
         </scene>
         <!--Login Option View Controller-->
         <scene sceneID="Yuj-uc-7aP">
             <objects>
-                <viewController id="GCe-sl-3u9" customClass="TRLoginOptionViewController" customModule="Crossroads" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginOptions" id="GCe-sl-3u9" customClass="TRLoginOptionViewController" customModule="Crossroads" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9L3-Es-dEz"/>
                         <viewControllerLayoutGuide type="bottom" id="VFK-zq-jCs"/>
@@ -266,7 +266,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TpW-XW-Lia" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="547" y="-714"/>
+            <point key="canvasLocation" x="547" y="-271"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="Dtp-Cm-JAQ">
@@ -505,7 +505,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1406" y="521"/>
+            <point key="canvasLocation" x="547" y="629"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="rGs-SO-CTj">
@@ -620,7 +620,6 @@
                             <constraint firstItem="sid-xD-sch" firstAttribute="leading" secondItem="qQx-cy-iBt" secondAttribute="leading" constant="42" id="azR-O2-5Gh"/>
                             <constraint firstItem="t94-VO-gcV" firstAttribute="top" secondItem="7Cn-fI-BQD" secondAttribute="bottom" id="bIQ-VX-Sgs"/>
                             <constraint firstItem="7jH-aU-pLd" firstAttribute="top" secondItem="hQU-I6-siB" secondAttribute="bottom" id="bf1-TE-lyf"/>
-                            <constraint firstItem="kqI-IE-jbj" firstAttribute="centerY" secondItem="7jH-aU-pLd" secondAttribute="centerY" id="fmh-bH-GyF"/>
                             <constraint firstItem="7w2-Rd-0OK" firstAttribute="top" secondItem="qQx-cy-iBt" secondAttribute="topMargin" id="kU2-ry-DQ2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7w2-Rd-0OK" secondAttribute="trailing" constant="-20" id="o18-fQ-Q4o"/>
                             <constraint firstItem="7jH-aU-pLd" firstAttribute="top" secondItem="hQU-I6-siB" secondAttribute="bottom" id="s2S-Tf-e96"/>
@@ -633,7 +632,6 @@
                             <mask key="constraints">
                                 <exclude reference="BRz-2G-VZN"/>
                                 <exclude reference="s2S-Tf-e96"/>
-                                <exclude reference="fmh-bH-GyF"/>
                             </mask>
                         </variation>
                     </view>
@@ -2166,7 +2164,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1347" y="-1240"/>
+            <point key="canvasLocation" x="1423" y="-1018"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="0X3-J5-MxH">
@@ -2465,7 +2463,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1393" y="-451"/>
+            <point key="canvasLocation" x="1423" y="-271"/>
         </scene>
         <!--Sign Up Verificatio View Controller-->
         <scene sceneID="OJF-Sb-wzb">
