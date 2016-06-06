@@ -17,8 +17,8 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
     
     @IBOutlet weak var userNameTxtField: UITextField!
     @IBOutlet weak var userPwdTxtField: UITextField!
-    @IBOutlet weak var userPSNIDTxtField: UITextField!
-    
+    @IBOutlet weak var userConsoleIDTxtField: UITextField!
+    @IBOutlet weak var enterConsoleTypeText: UILabel!
     
     var errorView: TRErrorNotificationView?
     
@@ -29,12 +29,27 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRCreateAccountViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRCreateAccountViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
 
+        
+        if  let currentConsoleType = TRUserInfo.getConsoleType() {
+            switch currentConsoleType {
+            case ConsoleTypes.XBOX360:
+                self.enterConsoleTypeText.text = "XBOX GAMERTAG"
+                break
+            case ConsoleTypes.XBOXONE:
+                self.enterConsoleTypeText.text = "XBOX GAMERTAG"
+                break
+            default:
+                self.enterConsoleTypeText.text = "PLAYSTATION ID"
+                break
+            }
+        }
+        
+        
         self.userNameTxtField.attributedPlaceholder = NSAttributedString(string:"Enter username", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         self.userPwdTxtField.attributedPlaceholder = NSAttributedString(string:"Enter password", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
-        self.userPSNIDTxtField.attributedPlaceholder = NSAttributedString(string:"Enter PSN ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         
-        self.userPSNIDTxtField.delegate = self
-        self.userPSNIDTxtField.text = TRUserInfo.getConsoleID()
+        self.userConsoleIDTxtField.delegate = self
+        self.userConsoleIDTxtField.text = TRUserInfo.getConsoleID()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -65,9 +80,9 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
         if (textField == self.userNameTxtField) {
             self.userPwdTxtField.becomeFirstResponder()
         } else if (textField == self.userPwdTxtField) {
-            self.userPSNIDTxtField.becomeFirstResponder()
+            self.userConsoleIDTxtField.becomeFirstResponder()
         } else {
-            self.userPSNIDTxtField.resignFirstResponder()
+            self.userConsoleIDTxtField.resignFirstResponder()
         }
         
         return true
@@ -110,7 +125,7 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
             }
         }
      
-        if userPSNIDTxtField.text?.isEmpty == true {
+        if userConsoleIDTxtField.text?.isEmpty == true {
             TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Please enter a PSN ID.")
             
             return
@@ -119,7 +134,7 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
         let userInfo = TRUserInfo()
         userInfo.userName = userNameTxtField.text
         userInfo.password = userPwdTxtField.text
-        userInfo.psnID = userPSNIDTxtField.text
+        userInfo.psnID = userConsoleIDTxtField.text
         
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setValue(userPwdTxtField.text, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
@@ -206,8 +221,8 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
         if userPwdTxtField.isFirstResponder() {
             userPwdTxtField.resignFirstResponder()
         }
-        if userPSNIDTxtField.isFirstResponder() {
-            userPSNIDTxtField.resignFirstResponder()
+        if userConsoleIDTxtField.isFirstResponder() {
+            userConsoleIDTxtField.resignFirstResponder()
         }
     }
 }
