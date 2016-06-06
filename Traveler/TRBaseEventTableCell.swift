@@ -100,7 +100,7 @@ class TRBaseEventTableCell: UITableViewCell {
         // Set Event Icon Image
         if let imageURLString = eventInfo.eventActivity?.activityIconImage {
             let url = NSURL(string: imageURLString)
-            self.eventIcon!.sd_setImageWithURL(url)
+            self.eventIcon!.sd_setImageWithURL(url, placeholderImage: UIImage(named: "iconGhostDefault"))
         }
         
         // Set Event Button Status
