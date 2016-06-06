@@ -175,7 +175,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         super.viewDidAppear(animated)
         
         //Add FireBase Observer
-        TRApplicationManager.sharedInstance.fireBaseObj.addEventsObserversWithParentView(self)
+        TRApplicationManager.sharedInstance.fireBaseObj.addEventsObserversWithParentViewForDetailView(self,withEvent: self.eventInfo!)
     }
     
     override func viewWillDisappear(animated: Bool) {

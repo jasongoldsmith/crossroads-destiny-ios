@@ -23,6 +23,7 @@ class TREventInfo: NSObject {
     var eventCreator            : TRCreatorInfo?
     var eventPlayersArray       : [TRPlayerInfo] = []
     var isFutureEvent           : Bool = false
+    var eventClanID             : String?
     
     func parseCreateEventInfoObject (swiftyJason: JSON) -> TREventInfo {
         return self.createEventObjectFromFireBaseWithEventID(swiftyJason, fireBaseEventID: nil)
@@ -42,6 +43,7 @@ class TREventInfo: NSObject {
         self.eventMinPlayer    = swiftyJason["minPlayers"].number
         self.eventCreatedDate  = swiftyJason["created"].string
         self.eventLaunchDate   = swiftyJason["launchDate"].string
+        self.eventClanID       = swiftyJason["clanId"].string
         
         if (swiftyJason["launchStatus"].string == EVENT_TIME_STATUS.UP_COMING.rawValue) {
             self.isFutureEvent = true
@@ -94,9 +96,20 @@ class TREventInfo: NSObject {
             playerInfo.playerID         = playerInfoObject["_id"].stringValue
             playerInfo.playerUserName   = playerInfoObject["userName"].stringValue
             playerInfo.playerDate       = playerInfoObject["date"].stringValue
-            playerInfo.playerPsnID      = playerInfoObject["psnId"].stringValue
             playerInfo.playerUdate      = playerInfoObject["uDate"].stringValue
             playerInfo.playerImageUrl   = playerInfoObject["imageUrl"].stringValue
+            
+            for consoles in playerInfoObject["consoles"].arrayValue {
+                let playerConsole = TRConsoles()
+                playerConsole.consoleId = consoles[""].stringValue
+                playerConsole.consoleType = consoles[""].stringValue
+                playerConsole.verifyStatus = consoles[""].stringValue
+                
+                playerInfo.playerConsoles.append(playerConsole)
+            }
+            
+            //TODO: REMOVE FIRST OBJECT
+            playerInfo.playerPsnID = playerInfo.playerConsoles.first?.consoleId
             
             // Players of an Event Added
             self.eventPlayersArray.append(playerInfo)

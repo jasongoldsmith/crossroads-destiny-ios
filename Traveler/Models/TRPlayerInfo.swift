@@ -18,4 +18,5 @@ class TRPlayerInfo: NSObject {
     var playerPsnID         : String?
     var playerUdate         : String?
     var playerImageUrl      : String?
+    var playerConsoles      : [TRConsoles] = []
 }

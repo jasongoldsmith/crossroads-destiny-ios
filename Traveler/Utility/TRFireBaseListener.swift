@@ -66,7 +66,32 @@ class TRFireBaseListener {
         })
     }
     
+    func addEventsObserversWithParentViewForDetailView (parentViewController: TRBaseViewController, withEvent: TREventInfo) {
+        
+        guard let hasEventClan = withEvent.eventClanID else {
+            return
+        }
+        
+        let fireBaseUrl = K.TRUrls.TR_FIREBASE_DEFAULT + "events/" + hasEventClan
+        self.firebaseChatData = Firebase(url:(fireBaseUrl))
+        self.firebaseChatData?.observeEventType(.Value, withBlock: { snap in
+            
+            if snap.value is NSNull {
+                //something is wrong, not even empty array
+            }
+            else {
+                _ = TRGetEventsList().getEventsListWithClearActivityBackGround (false, clearBG: true, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
+                    if(didSucceed == true) {
+                        parentViewController.reloadEventTable()
+                    } else {
+                        
+                    }
+                })
+            }
+        })
+    }
+    
     func removeObservers () {
-        //self.firebaseChatData?.removeAllObservers()
+        self.firebaseChatData?.removeAllObservers()
     }
 }
