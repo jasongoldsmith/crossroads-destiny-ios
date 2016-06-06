@@ -79,9 +79,21 @@ class TREventInfo: NSObject {
             creatorInfo.playerID        = creator["_id"]?.stringValue
             creatorInfo.playerUserName  = creator["userName"]?.stringValue
             creatorInfo.playerDate      = creator["date"]?.stringValue
-            creatorInfo.playerPsnID     = creator["psnId"]?.stringValue
+            //creatorInfo.playerPsnID     = creator["psnId"]?.stringValue
             creatorInfo.playerUdate     = creator["uDate"]?.stringValue
             
+            for consoles in creator["consoles"]!.arrayValue {
+                let creatorConsole = TRConsoles()
+                creatorConsole.consoleId = consoles["consoleId"].stringValue
+                creatorConsole.consoleType = consoles["consoleType"].stringValue
+                creatorConsole.verifyStatus = consoles["verifyStatus"].stringValue
+                
+                creatorInfo.playerConsoles.append(creatorConsole)
+            }
+            
+            //TODO: REMOVE FIRST OBJECT
+            creatorInfo.playerPsnID = creatorInfo.playerConsoles.first?.consoleId
+
             // Event Creator Added
             self.eventCreator = creatorInfo
         }
@@ -101,9 +113,9 @@ class TREventInfo: NSObject {
             
             for consoles in playerInfoObject["consoles"].arrayValue {
                 let playerConsole = TRConsoles()
-                playerConsole.consoleId = consoles[""].stringValue
-                playerConsole.consoleType = consoles[""].stringValue
-                playerConsole.verifyStatus = consoles[""].stringValue
+                playerConsole.consoleId = consoles["consoleId"].stringValue
+                playerConsole.consoleType = consoles["consoleType"].stringValue
+                playerConsole.verifyStatus = consoles["verifyStatus"].stringValue
                 
                 playerInfo.playerConsoles.append(playerConsole)
             }
