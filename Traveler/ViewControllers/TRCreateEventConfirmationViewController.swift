@@ -83,7 +83,7 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         self.addButtons()
         
         //Navigation
-        self.title = "CREATE EVENT"
+        self.title = "CREATE ACTIVITY"
         self.addNavigationBarButtons()
     }
     

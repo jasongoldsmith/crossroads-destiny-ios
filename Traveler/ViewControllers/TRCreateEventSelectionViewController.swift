@@ -65,7 +65,7 @@ class TRCreateEventSelectionViewController: TRBaseViewController {
         self.activitySelectionTable.separatorColor = UIColor.clearColor()
         
         //Navigation
-        self.title = "CREATE EVENT"
+        self.title = "CREATE ACTIVITY"
         self.addNavigationBarButtons()
     }
     
