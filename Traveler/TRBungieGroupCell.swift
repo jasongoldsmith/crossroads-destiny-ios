@@ -64,7 +64,7 @@ class TRBungieGroupCell: UITableViewCell {
         self.layer.shadowOffset = CGSizeMake(0, 1)
         self.layer.shadowColor = UIColor.blackColor().CGColor
         self.layer.shadowRadius = 3.0
-        self.layer.shadowOpacity = 0.8
+        self.layer.shadowOpacity = 0.2
         self.clipsToBounds = false
         let shadowFrame: CGRect = (self.bounds)
         let shadowPath: CGPathRef = UIBezierPath(rect: shadowFrame).CGPath
