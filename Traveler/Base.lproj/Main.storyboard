@@ -918,14 +918,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tHf-b5-jNh">
-                                <rect key="frame" x="252" y="81" width="96" height="96"/>
+                                <rect key="frame" x="252" y="101" width="96" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="B2D-Vd-eCx"/>
                                     <constraint firstAttribute="width" constant="96" id="gfD-X2-nP1"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ax-E1-ccC">
-                                <rect key="frame" x="275" y="197" width="49" height="23"/>
+                                <rect key="frame" x="275" y="217" width="49" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="TIK-sg-xcH"/>
                                 </constraints>
@@ -934,7 +934,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lly-Ep-C9p">
-                                <rect key="frame" x="175" y="378" width="250" height="44"/>
+                                <rect key="frame" x="175" y="384" width="250" height="44"/>
                                 <color key="backgroundColor" red="0.1215686275" green="0.1960784314" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="YW7-o7-ArM"/>
@@ -954,7 +954,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yga-kS-xxF">
-                                <rect key="frame" x="175" y="318" width="250" height="44"/>
+                                <rect key="frame" x="175" y="330" width="250" height="44"/>
                                 <color key="backgroundColor" red="0.1215686275" green="0.1960784314" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="44" id="L8Y-eH-Zq0"/>
@@ -974,7 +974,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gnx-Nj-sRV">
-                                <rect key="frame" x="175" y="256" width="250" height="44"/>
+                                <rect key="frame" x="175" y="276" width="250" height="44"/>
                                 <color key="backgroundColor" red="0.12156862745098039" green="0.19607843137254902" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="0sK-1c-PGo"/>
@@ -1013,7 +1013,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsB-j0-IhM" customClass="TTTAttributedLabel">
-                                <rect key="frame" x="285.5" y="581" width="29.5" height="14"/>
+                                <rect key="frame" x="285.5" y="581" width="30" height="14"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1029,16 +1029,16 @@
                             <constraint firstAttribute="trailing" secondItem="APu-zA-Kyk" secondAttribute="trailing" id="KEb-y9-KTh"/>
                             <constraint firstItem="Gnx-Nj-sRV" firstAttribute="leading" secondItem="yga-kS-xxF" secondAttribute="leading" id="Mtz-LK-dSn"/>
                             <constraint firstItem="Gnx-Nj-sRV" firstAttribute="top" secondItem="2Ax-E1-ccC" secondAttribute="bottom" constant="36" id="STd-8A-xMR"/>
-                            <constraint firstItem="lly-Ep-C9p" firstAttribute="top" secondItem="yga-kS-xxF" secondAttribute="bottom" constant="16" id="SoA-WI-koC"/>
+                            <constraint firstItem="lly-Ep-C9p" firstAttribute="top" secondItem="yga-kS-xxF" secondAttribute="bottom" constant="10" id="SoA-WI-koC"/>
                             <constraint firstItem="Z9P-C3-JX9" firstAttribute="centerX" secondItem="NgN-Kf-uF4" secondAttribute="centerX" id="U42-xN-4K6"/>
                             <constraint firstItem="xsB-j0-IhM" firstAttribute="centerX" secondItem="NgN-Kf-uF4" secondAttribute="centerX" id="WNz-sU-1Xq"/>
                             <constraint firstItem="2Ax-E1-ccC" firstAttribute="top" secondItem="tHf-b5-jNh" secondAttribute="bottom" constant="20" id="aOx-1l-ZZY"/>
-                            <constraint firstItem="yga-kS-xxF" firstAttribute="top" secondItem="Gnx-Nj-sRV" secondAttribute="bottom" constant="18" id="dJ8-yH-zNb"/>
+                            <constraint firstItem="yga-kS-xxF" firstAttribute="top" secondItem="Gnx-Nj-sRV" secondAttribute="bottom" constant="10" id="dJ8-yH-zNb"/>
                             <constraint firstItem="ftz-Fk-rbT" firstAttribute="top" secondItem="Z9P-C3-JX9" secondAttribute="bottom" constant="19" id="eYc-yS-vBx"/>
                             <constraint firstItem="tHf-b5-jNh" firstAttribute="centerX" secondItem="NgN-Kf-uF4" secondAttribute="centerX" id="k5R-5t-PSN"/>
                             <constraint firstItem="APu-zA-Kyk" firstAttribute="top" secondItem="NgN-Kf-uF4" secondAttribute="top" id="ors-v8-jEh"/>
                             <constraint firstItem="yga-kS-xxF" firstAttribute="leading" secondItem="lly-Ep-C9p" secondAttribute="leading" id="svd-AO-Zkl"/>
-                            <constraint firstItem="tHf-b5-jNh" firstAttribute="top" secondItem="5T3-1W-a1y" secondAttribute="bottom" constant="61" id="uJ2-8D-C2T"/>
+                            <constraint firstItem="tHf-b5-jNh" firstAttribute="top" secondItem="5T3-1W-a1y" secondAttribute="bottom" constant="81" id="uJ2-8D-C2T"/>
                             <constraint firstItem="APu-zA-Kyk" firstAttribute="leading" secondItem="NgN-Kf-uF4" secondAttribute="leading" id="y1n-Rl-YXN"/>
                             <constraint firstItem="Z9P-C3-JX9" firstAttribute="top" secondItem="xsB-j0-IhM" secondAttribute="bottom" constant="-28" id="yiX-Xe-17R"/>
                         </constraints>

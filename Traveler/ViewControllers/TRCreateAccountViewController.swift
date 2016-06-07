@@ -90,6 +90,9 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
     
     @IBAction func handleSwipeRight(sender: AnyObject) {
         
+        //Clear saved Bungie ID
+        TRUserInfo.removeUserData()
+
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

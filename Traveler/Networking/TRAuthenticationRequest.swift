@@ -113,9 +113,9 @@ class TRAuthenticationRequest: TRRequest {
                 completion(false)
             }
             
-            let userData = TRUserInfo()
+            //Remove saved user data
+            TRUserInfo.removeUserData()
             
-            TRUserInfo.saveUserData(userData)
             completion(true )
         }
     }
