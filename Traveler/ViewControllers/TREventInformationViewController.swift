@@ -59,7 +59,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         
         if let imageURLString = self.eventInfo?.eventActivity?.activityIconImage {
             let url = NSURL(string: imageURLString)
-            self.eventIcon!.sd_setImageWithURL(url)
+            self.eventIcon!.sd_setImageWithURL(url, placeholderImage: UIImage(named: "iconGhostDefault"))
         }
 
         self.eventTitle?.text = self.eventInfo?.eventActivity?.activitySubType
