@@ -38,7 +38,7 @@ class TRRootViewController: TRBaseViewController {
                     var showGroups = false
                     
                     if(didSucceed == true) {
-                        if (TRUserInfo.getUserClanID() == "clan_id_not_set") {
+                        if (TRUserInfo.getUserClanID() == ACCOUNT_VERIFICATION.USER_NOT_VERIFIED.rawValue) {
                             // If has events, show event list view else show create Activity View
                             showGroups = true
                         } else if TRApplicationManager.sharedInstance.eventsList.count > 0 {
