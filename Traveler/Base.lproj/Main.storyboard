@@ -2058,8 +2058,8 @@
                                     <action selector="openPickerView:" destination="KOc-md-Vga" eventType="touchUpInside" id="p4W-g5-HRo"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconArrowRight" translatesAutoresizingMaskIntoConstraints="NO" id="F3K-DZ-kKQ">
-                                <rect key="frame" x="530" y="286" width="5" height="10"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconArrowDown" translatesAutoresizingMaskIntoConstraints="NO" id="F3K-DZ-kKQ">
+                                <rect key="frame" x="525" y="288.5" width="10" height="5"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nax-av-Wvi">
                                 <rect key="frame" x="0.0" y="550" width="600" height="50"/>
@@ -2601,6 +2601,7 @@
         <image name="createEventBG" width="375" height="667"/>
         <image name="eventDetailHeaderBG" width="375" height="129"/>
         <image name="eventsViewBG" width="375" height="667"/>
+        <image name="iconArrowDown" width="10" height="5"/>
         <image name="iconArrowRight" width="5" height="10"/>
         <image name="iconBackArrow" width="44" height="44"/>
         <image name="imgArena" width="98" height="100"/>
