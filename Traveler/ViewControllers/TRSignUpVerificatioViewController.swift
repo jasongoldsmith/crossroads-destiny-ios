@@ -21,11 +21,26 @@ class TRSignUpVerificatioViewController: TRBaseViewController, TTTAttributedLabe
         
         var messageString = ""
         let bungieLinkName = "Bungie.net"
+        var platformType = "PSN ID"
+        
+        if  let currentConsoleType = TRUserInfo.getConsoleType() {
+            switch currentConsoleType {
+            case ConsoleTypes.XBOX360:
+                platformType = "Xbox GamerTag"
+                break
+            case ConsoleTypes.XBOXONE:
+                platformType = "Xbox GamerTag"
+                break
+            default:
+                platformType = "PSN ID"
+                break
+            }
+        }
         
         if let userName = TRUserInfo.getUserName() {
-            messageString = "Welcome \(userName) \n \nThanks for signing up for Crossroads, the Destiny Fireteam Finder! An account verification message has been sent to your \(bungieLinkName) account. Click the link in the message to verify your PSN ID."
+            messageString = "Welcome \(userName) \n \nThanks for signing up for Crossroads, the Destiny Fireteam Finder! An account verification message has been sent to your \(bungieLinkName) account. Click the link in the message to verify your \(platformType)."
         } else {
-            messageString = "Welcome \n \nThanks for signing up for Crossroads, the Destiny Fireteam Finder! An account verification message has been sent to your bungie.net account. Click the link in the message to verify your PSN ID."
+            messageString = "Welcome \n \nThanks for signing up for Crossroads, the Destiny Fireteam Finder! An account verification message has been sent to your bungie.net account. Click the link in the message to verify your \(platformType)."
         }
         
         self.messageLable?.text = messageString
