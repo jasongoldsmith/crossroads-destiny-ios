@@ -29,11 +29,7 @@ class TRUpdateGroupRequest: TRRequest {
             }
             
             let userData = TRUserInfo()
-            userData.userName       = swiftyJsonVar["userName"].string
-            userData.userID         = swiftyJsonVar["_id"].string
-            userData.psnID          = swiftyJsonVar["psnID"].string
-            userData.userImageURL   = swiftyJsonVar["imageUrl"].string
-            userData.userClanID     = swiftyJsonVar["clanId"].string
+            userData.parseUserResponse(swiftyJsonVar)
             
             TRUserInfo.saveUserData(userData)
 
