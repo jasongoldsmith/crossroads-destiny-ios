@@ -31,6 +31,13 @@ class TRSignUpVerificatioViewController: TRBaseViewController, TTTAttributedLabe
             case ConsoleTypes.XBOXONE:
                 platformType = "Xbox GamerTag"
                 break
+            case ConsoleTypes.PS4:
+                platformType = "PSN ID"
+                break
+            case ConsoleTypes.PS3:
+                platformType = "PSN ID"
+                break
+
             default:
                 platformType = "ID"
                 break
