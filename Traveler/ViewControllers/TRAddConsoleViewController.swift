@@ -39,7 +39,7 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
         self.chooseConsoleButton?.layer.cornerRadius = 3.0
         
         // Placeholder text color
-        self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter your gamer tag", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+        self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         
         //Update Legal Text
         self.addLegalStatmentText()
@@ -145,9 +145,12 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
             self.chooseConsoleButton?.titleLabel?.text = consoleType
             
             if self.selectedIndex < 2 {
-                self.consoleTypeLabel.text = "Enter Your PlayStation ID"
+                self.consoleTypeLabel.text = "PLAYSTATION ID"
+                self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+
             } else {
-                self.consoleTypeLabel.text = "Enter Your Xbox Gamertag"
+                self.consoleTypeLabel.text = "XBOX GAMERTAG"
+                self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter Xbox Gamertag", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
             }
         }
     }
