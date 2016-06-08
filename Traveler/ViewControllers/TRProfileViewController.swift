@@ -63,7 +63,7 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         
         let tosUrl = NSURL(string: "https://www.crossroadsapp.co/terms")!
         let privatePolicyUrl = NSURL(string: "https://www.crossroadsapp.co/privacy")!
-        let licensesUrl = NSURL(string: "https://www.crossroadsapp.co/legal")!
+        let licensesUrl = NSURL(string: "https://www.crossroadsapp.co/license")!
         
         let subscriptionNoticeLinkAttributes = [
             NSForegroundColorAttributeName: UIColor.whiteColor(), 
