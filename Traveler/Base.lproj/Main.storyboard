@@ -673,7 +673,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="segmentControlBG" translatesAutoresizingMaskIntoConstraints="NO" id="yHM-Lz-gby">
                                 <rect key="frame" x="0.0" y="72" width="600" height="55"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EVENT DETAILS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pG-2I-H5x">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ACTIVITY DETAILS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pG-2I-H5x">
                                 <rect key="frame" x="216" y="94" width="168" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="168" id="CnD-vc-4h1"/>
