@@ -74,7 +74,7 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         }
         
         // Add Event Title
-        self.eventTitleLabel?.text = self.selectedActivity?.activityType
+        self.eventTitleLabel?.text = self.selectedActivity?.activityType?.uppercaseString
         
         //Init selected Date as nil
         self.selectedDate = nil
