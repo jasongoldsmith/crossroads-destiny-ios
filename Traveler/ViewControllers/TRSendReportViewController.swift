@@ -133,7 +133,7 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
                     self.reportTextView.resignFirstResponder()
                 }
 
-                self.displayAlertWithTitle("Report Sent", complete: { (complete) in
+                self.displayAlertWithTitle("Message Sent", complete: { (complete) in
                     self.dismissViewController(true, dismissed: { (didDismiss) in
                         self.didMoveToParentViewController(nil)
                         self.removeFromParentViewController()
