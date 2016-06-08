@@ -20,13 +20,16 @@ class TRChangePasswordViewController: TRBaseViewController {
     @IBOutlet weak var saveButtonBottomConstraint: NSLayoutConstraint!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.oldPassword.becomeFirstResponder()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRChangePasswordViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRChangePasswordViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
+
+        // Placeholder Strings
+        self.oldPassword.attributedPlaceholder = NSAttributedString(string:"Enter old password", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+        self.newPassword.attributedPlaceholder = NSAttributedString(string:"Enter new password", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
     }
 
     override func didReceiveMemoryWarning() {
