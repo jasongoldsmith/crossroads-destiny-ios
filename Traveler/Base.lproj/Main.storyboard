@@ -1976,7 +1976,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJh-Oy-PJq" userLabel="psn View">
-                                <rect key="frame" x="10" y="321" width="580" height="66"/>
+                                <rect key="frame" x="10" y="332.5" width="580" height="66"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9qO-Xf-QcJ">
                                         <rect key="frame" x="0.0" y="0.0" width="580" height="66"/>
@@ -2045,7 +2045,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PK0-Le-SMR">
-                                <rect key="frame" x="50" y="271" width="500" height="40"/>
+                                <rect key="frame" x="50" y="282.5" width="500" height="40"/>
                                 <color key="backgroundColor" red="0.08235294118" green="0.52941176469999995" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="PFr-oT-Pp4"/>
@@ -2059,7 +2059,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconArrowDown" translatesAutoresizingMaskIntoConstraints="NO" id="F3K-DZ-kKQ">
-                                <rect key="frame" x="525" y="288.5" width="10" height="5"/>
+                                <rect key="frame" x="525" y="300" width="10" height="5"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nax-av-Wvi">
                                 <rect key="frame" x="0.0" y="550" width="600" height="50"/>
@@ -2138,7 +2138,7 @@
                             <constraint firstItem="F3K-DZ-kKQ" firstAttribute="centerY" secondItem="PK0-Le-SMR" secondAttribute="centerY" id="olQ-Rz-ISR"/>
                             <constraint firstItem="Nax-av-Wvi" firstAttribute="top" secondItem="cSX-zS-eiN" secondAttribute="bottom" constant="10" id="riw-S5-rK7"/>
                             <constraint firstItem="cSX-zS-eiN" firstAttribute="centerX" secondItem="pDa-OZ-Smy" secondAttribute="centerX" id="sWV-Ll-fBJ"/>
-                            <constraint firstItem="PK0-Le-SMR" firstAttribute="top" secondItem="uWa-nd-jij" secondAttribute="bottom" constant="4" id="swv-a1-6r4"/>
+                            <constraint firstItem="PK0-Le-SMR" firstAttribute="top" secondItem="uWa-nd-jij" secondAttribute="bottom" constant="15" id="swv-a1-6r4"/>
                             <constraint firstItem="Nax-av-Wvi" firstAttribute="leading" secondItem="pDa-OZ-Smy" secondAttribute="leading" id="vdl-1d-LZS"/>
                             <constraint firstItem="n3y-gf-vY6" firstAttribute="top" secondItem="pDa-OZ-Smy" secondAttribute="top" id="xXj-OO-iYQ"/>
                             <constraint firstItem="yJh-Oy-PJq" firstAttribute="top" secondItem="PK0-Le-SMR" secondAttribute="bottom" constant="10" id="yJg-yT-XXK"/>
