@@ -114,7 +114,7 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
                 // Add HyperLink to Bungie
                 let nsString = messageString as NSString
                 let rangeBungieString = nsString.rangeOfString(bungieString)
-                let urlBungieString = NSURL(string: "https://www.crossroadsapp.co/terms")!
+                let urlBungieString = NSURL(string: "https://www.bungie.net/")!
                 let linkAttributes = [
                     NSUnderlineStyleAttributeName: NSNumber(bool:true),
                 ]
