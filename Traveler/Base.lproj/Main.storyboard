@@ -2495,10 +2495,10 @@
                                     <constraint firstAttribute="width" constant="182" id="kQK-Yc-qIQ"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VERIFY ACCOUNT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ws7-ac-Igq">
-                                <rect key="frame" x="244" y="233" width="112" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VERIFY YOUR ACCOUNT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ws7-ac-Igq">
+                                <rect key="frame" x="227" y="233" width="147" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="112" id="a8v-Qe-C8P"/>
+                                    <constraint firstAttribute="width" constant="147" id="a8v-Qe-C8P"/>
                                     <constraint firstAttribute="height" constant="21" id="nDQ-iY-9iQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
