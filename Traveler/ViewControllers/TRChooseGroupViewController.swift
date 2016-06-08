@@ -37,47 +37,49 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        _ = TRGetAllDestinyGroups().getAllGroups({ (didSucceed) in
-            if didSucceed == true {
-                //Fetch Groups
-                self.bungieGroups.removeAll()
-                self.bungieGroups = TRApplicationManager.sharedInstance.bungieGroups
-                
-                if TRApplicationManager.sharedInstance.bungieGroups.count < MIN_DEFAULT_GROUPS {
-                    TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Did not receive default group")
-                    self.addNoneGroupCountUI()
-                } else if TRApplicationManager.sharedInstance.bungieGroups.count ==  1 {
-                    self.addNoneGroupCountUI()
-                } else {
-                    self.lableThree.hidden = true
-                    self.saveButton.hidden = true
-                }
-                
-                
-                if let userGroup = TRUserInfo.getUserClanID() {
-                    let selectedGroup = self.bungieGroups.filter{$0.groupId! == userGroup}
-                    self.selectedGroup = selectedGroup.first
-                    let groupIndex = self.bungieGroups.indexOf({$0.groupId == self.selectedGroup?.groupId})
-                    if let _ = groupIndex {
-                        self.bungieGroups.removeAtIndex(groupIndex!)
-                        self.bungieGroups.insert(self.selectedGroup!, atIndex: 0)
+        if TRApplicationManager.sharedInstance.slideMenuController.isLeftOpen() == false {
+            _ = TRGetAllDestinyGroups().getAllGroups({ (didSucceed) in
+                if didSucceed == true {
+                    //Fetch Groups
+                    self.bungieGroups.removeAll()
+                    self.bungieGroups = TRApplicationManager.sharedInstance.bungieGroups
+                    
+                    if TRApplicationManager.sharedInstance.bungieGroups.count < MIN_DEFAULT_GROUPS {
+                        TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Did not receive default group")
+                        self.addNoneGroupCountUI()
+                    } else if TRApplicationManager.sharedInstance.bungieGroups.count ==  1 {
+                        self.addNoneGroupCountUI()
+                    } else {
+                        self.lableThree.hidden = true
+                        self.saveButton.hidden = true
+                    }
+                    
+                    
+                    if let userGroup = TRUserInfo.getUserClanID() {
+                        let selectedGroup = self.bungieGroups.filter{$0.groupId! == userGroup}
+                        self.selectedGroup = selectedGroup.first
+                        let groupIndex = self.bungieGroups.indexOf({$0.groupId == self.selectedGroup?.groupId})
+                        if let _ = groupIndex {
+                            self.bungieGroups.removeAtIndex(groupIndex!)
+                            self.bungieGroups.insert(self.selectedGroup!, atIndex: 0)
+                        }
+                    }
+                    
+                    // Reload Data
+                    dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                        UIView.transitionWithView(self.groupsTableView,
+                            duration: 0.5,
+                            options: .TransitionCrossDissolve,
+                            animations:
+                            { () -> Void in
+                                self.groupsTableView.reloadData()
+                                self.groupsTableView.setContentOffset(CGPointZero, animated:true)
+                            },
+                            completion: nil);
                     }
                 }
-                
-                // Reload Data
-                dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                    UIView.transitionWithView(self.groupsTableView,
-                        duration: 0.5,
-                        options: .TransitionCrossDissolve,
-                        animations:
-                        { () -> Void in
-                            self.groupsTableView.reloadData()
-                            self.groupsTableView.setContentOffset(CGPointZero, animated:true)
-                        },
-                        completion: nil);
-                }
-            }
-        })
+            })
+        }
     }
 
     //MARK- Scroll Methods
