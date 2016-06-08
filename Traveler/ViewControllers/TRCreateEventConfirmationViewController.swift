@@ -42,7 +42,7 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         
         // Add Icon Image
         let imageUrl = NSURL(string: (self.selectedActivity?.activityIconImage)!)
-        self.activityIconImage?.sd_setImageWithURL(imageUrl)
+        self.activityIconImage?.sd_setImageWithURL(imageUrl, placeholderImage: UIImage(named: "iconGhostDefault"))
         
         // DatePicker BackGround
         self.datePickerView?.backgroundColor = UIColor.whiteColor()
