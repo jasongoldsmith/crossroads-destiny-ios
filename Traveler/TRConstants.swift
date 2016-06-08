@@ -31,8 +31,12 @@ struct K {
             static let TR_BaseUrl            =   "https://live.crossroadsapp.co"
             static let TR_FIREBASE_DEFAULT   =   "https://crossroadsapp-live.firebaseio.com/"
         #else
-        static let TR_BaseUrl            =   "https://travelerbackend.herokuapp.com"
-        static let TR_FIREBASE_DEFAULT   =   "https://crossroadsapp-dev.firebaseio.com/"
+//        static let TR_BaseUrl            =   "https://travelerbackend.herokuapp.com"
+//        static let TR_FIREBASE_DEFAULT   =   "https://crossroadsapp-dev.firebaseio.com/"
+        
+        static let TR_BaseUrl            =   "https://live.crossroadsapp.co"
+        static let TR_FIREBASE_DEFAULT   =   "https://crossroadsapp-live.firebaseio.com/"
+
         #endif
         
         static let TR_RegisterUrl        =   "/api/v1/auth/register"

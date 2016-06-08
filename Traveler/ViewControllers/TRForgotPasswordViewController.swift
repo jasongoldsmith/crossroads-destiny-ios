@@ -107,8 +107,8 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
                 self.resetTextBoxParentView.hidden = true
                 self.resetPasswordButton.hidden = true
                 
-                let messageString = "A reset password message has been sent to your bungie.net account!"
-                let bungieString = "bungie.net"
+                let messageString = "Instructions for resetting your password have been sent to your Bungie.net account. Follow the instructions to choose a new password."
+                let bungieString = "Bungie.net"
                 self.titleMessageLable.text = messageString
                 
                 // Add HyperLink to Bungie
