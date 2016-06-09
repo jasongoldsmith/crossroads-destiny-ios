@@ -17,6 +17,7 @@ class TRSignUpVerificatioViewController: TRBaseViewController, TTTAttributedLabe
     @IBOutlet weak var messageFailErrorLable: TTTAttributedLabel?
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         var messageString = ""
@@ -79,12 +80,12 @@ class TRSignUpVerificatioViewController: TRBaseViewController, TTTAttributedLabe
         self.messageFailErrorLable?.addLinkToURL(messageFailUrl, withRange: messageFailRange)
         self.messageFailErrorLable?.addLinkToURL(NSURL(string: ""), withRange: messageEmailFailRange)
         self.messageFailErrorLable?.delegate = self
-
         
         //Add FireBase
         self.addFireBaseObserverAndCheckVerification()
     }
-
+    
+    
     func addFireBaseObserverAndCheckVerification () {
         TRApplicationManager.sharedInstance.fireBaseObj.addUserObserverWithCompletion { (didCompelete) in
             if didCompelete == true {
@@ -107,6 +108,13 @@ class TRSignUpVerificatioViewController: TRBaseViewController, TTTAttributedLabe
                     })
                 }
             }
+        }
+    }
+    
+    
+    override func applicationWillEnterForeground() {
+        if TRUserInfo.isUserVerified() != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue {
+            self.addFireBaseObserverAndCheckVerification()
         }
     }
     

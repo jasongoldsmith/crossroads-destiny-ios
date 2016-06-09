@@ -2283,21 +2283,21 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2hL-lQ-Rf4" userLabel="password View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hL-lQ-Rf4" userLabel="password View">
                                 <rect key="frame" x="10" y="364" width="580" height="66"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KFf-SL-jUu">
+                                    <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KFf-SL-jUu">
                                         <rect key="frame" x="0.0" y="0.0" width="580" height="66"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="TrImgIconPassword" translatesAutoresizingMaskIntoConstraints="NO" id="e7d-SP-T9T">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgIconPassword" translatesAutoresizingMaskIntoConstraints="NO" id="e7d-SP-T9T">
                                         <rect key="frame" x="17" y="17" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="LrK-9C-PJA"/>
                                             <constraint firstAttribute="width" constant="25" id="p11-xY-6xS"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="PASSWORD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Acm-pw-6j5">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Acm-pw-6j5">
                                         <rect key="frame" x="67" y="17" width="64" height="11"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="64" id="Hb0-AZ-0QB"/>
@@ -2307,7 +2307,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="inV-dA-HPN">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="inV-dA-HPN">
                                         <rect key="frame" x="67" y="30" width="503" height="28"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -2426,6 +2426,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="qQW-9x-jI3" secondAttribute="trailing" constant="-10" id="Idj-AJ-Coh"/>
                             <constraint firstItem="8zj-GS-nmN" firstAttribute="top" secondItem="Q9w-zl-5ST" secondAttribute="topMargin" id="MPq-oM-Gyf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2hL-lQ-Rf4" secondAttribute="trailing" constant="-10" id="Mhb-Ge-Tt3"/>
+                            <constraint firstItem="2hL-lQ-Rf4" firstAttribute="top" secondItem="qQW-9x-jI3" secondAttribute="bottom" constant="2" id="SUU-fv-1Hk"/>
                             <constraint firstItem="45T-dp-vXs" firstAttribute="top" secondItem="nBQ-dn-VdF" secondAttribute="bottom" constant="11" id="aON-dt-Nfx"/>
                             <constraint firstItem="8zj-GS-nmN" firstAttribute="leading" secondItem="Q9w-zl-5ST" secondAttribute="leadingMargin" constant="-20" id="d8F-eK-RfR"/>
                             <constraint firstItem="qQW-9x-jI3" firstAttribute="top" secondItem="2hL-lQ-Rf4" secondAttribute="bottom" constant="2" id="eJu-zd-eLW"/>

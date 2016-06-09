@@ -22,10 +22,6 @@ class TRLoginOptionViewController: TRBaseViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-
-//        if let _ = TRUserInfo.getConsoleID() where TRUserInfo.isUserVerified() == ACCOUNT_VERIFICATION.USER_VER_INITIATED.rawValue {
-//            self.performSegueWithIdentifier("TRCreateAccountView", sender: self)
-//        }
     }
     
     @IBAction func createAccountBtnTapped(sender: AnyObject) {
