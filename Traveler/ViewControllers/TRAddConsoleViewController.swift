@@ -47,6 +47,10 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
         //PickerView
         self.consolePicker?.layer.cornerRadius = 5.0
         self.consolePicker?.layer.masksToBounds = true
+
+        //KeyBoard Notifications
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRCreateAccountViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRCreateAccountViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -158,6 +162,40 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
     @IBAction func openPickerView (sender: UIButton) {
         UIView.animateWithDuration(0.4) { () -> Void in
             self.consolePickerView?.alpha = 1
+        }
+    }
+    
+    //#MARK:- KEYBOARD NOTIFICATIONS
+    func keyboardWillShow(sender: NSNotification) {
+        
+        let userInfo: [NSObject : AnyObject] = sender.userInfo!
+        let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
+        let offset: CGSize = userInfo[UIKeyboardFrameEndUserInfoKey]!.CGRectValue.size
+        
+        if keyboardSize.height == offset.height {
+            if self.view.frame.origin.y == 0 {
+                UIView.animateWithDuration(0.2, animations: { () -> Void in
+                    self.view.frame.origin.y -= keyboardSize.height
+                })
+            }
+        } else {
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                self.view.frame.origin.y += keyboardSize.height - offset.height
+            })
+        }
+        
+    }
+    
+    func keyboardWillHide(sender: NSNotification) {
+        let userInfo: [NSObject : AnyObject] = sender.userInfo!
+        let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
+        
+        if self.view.frame.origin.y == self.view.frame.origin.y - keyboardSize.height {
+            self.view.frame.origin.y += keyboardSize.height
+        }
+        else
+        {
+            self.view.frame.origin.y = 0
         }
     }
     
