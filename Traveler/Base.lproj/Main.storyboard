@@ -2224,7 +2224,7 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qQW-9x-jI3" userLabel="username View">
-                                <rect key="frame" x="10" y="364" width="580" height="66"/>
+                                <rect key="frame" x="10" y="296" width="580" height="66"/>
                                 <subviews>
                                     <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZFC-ve-BxR">
                                         <rect key="frame" x="0.0" y="0.0" width="580" height="66"/>
@@ -2284,7 +2284,7 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hL-lQ-Rf4" userLabel="password View">
-                                <rect key="frame" x="10" y="296" width="580" height="66"/>
+                                <rect key="frame" x="10" y="364" width="580" height="66"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KFf-SL-jUu">
                                         <rect key="frame" x="0.0" y="0.0" width="580" height="66"/>
@@ -2418,6 +2418,7 @@
                             <constraint firstItem="qQW-9x-jI3" firstAttribute="leading" secondItem="Q9w-zl-5ST" secondAttribute="leadingMargin" constant="-10" id="20f-We-2qr"/>
                             <constraint firstItem="R1W-EG-Uyv" firstAttribute="centerX" secondItem="EfW-Rr-lwB" secondAttribute="centerX" id="2QZ-5e-fzv"/>
                             <constraint firstItem="2hL-lQ-Rf4" firstAttribute="leading" secondItem="Q9w-zl-5ST" secondAttribute="leadingMargin" constant="-10" id="3yV-XJ-twO"/>
+                            <constraint firstItem="2hL-lQ-Rf4" firstAttribute="top" secondItem="qQW-9x-jI3" secondAttribute="bottom" constant="2" id="7AG-t2-50p"/>
                             <constraint firstItem="EfW-Rr-lwB" firstAttribute="top" secondItem="N37-3G-2Ts" secondAttribute="bottom" constant="20" id="8Sq-GV-1Ub"/>
                             <constraint firstAttribute="bottomMargin" secondItem="iyy-mu-wYL" secondAttribute="bottom" constant="25" id="A69-HJ-D3v"/>
                             <constraint firstItem="45T-dp-vXs" firstAttribute="top" secondItem="8zj-GS-nmN" secondAttribute="bottom" id="BUq-Xc-12m"/>
@@ -2433,6 +2434,7 @@
                             <constraint firstItem="R1W-EG-Uyv" firstAttribute="top" secondItem="EfW-Rr-lwB" secondAttribute="bottom" constant="29" id="kvA-T5-csD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cIs-IX-Wfr" secondAttribute="trailing" constant="-10" id="mkN-d7-kaA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8zj-GS-nmN" secondAttribute="trailing" constant="-20" id="t35-w1-7g9"/>
+                            <constraint firstItem="qQW-9x-jI3" firstAttribute="top" secondItem="cIs-IX-Wfr" secondAttribute="bottom" constant="2" id="u7Q-Rv-ofw"/>
                             <constraint firstItem="AIM-Bo-Bpg" firstAttribute="top" secondItem="N37-3G-2Ts" secondAttribute="bottom" id="wdJ-fI-3jg"/>
                             <constraint firstItem="iyy-mu-wYL" firstAttribute="centerX" secondItem="Q9w-zl-5ST" secondAttribute="centerX" id="woX-mE-fMe"/>
                             <constraint firstItem="nBQ-dn-VdF" firstAttribute="centerX" secondItem="Q9w-zl-5ST" secondAttribute="centerX" id="z6u-Ex-XXp"/>
@@ -2441,6 +2443,8 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="eJu-zd-eLW"/>
+                                <exclude reference="F4g-SP-GBl"/>
+                                <exclude reference="zj8-rd-Aw2"/>
                             </mask>
                         </variation>
                         <connections>
