@@ -40,10 +40,6 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         
         super.viewDidLoad()
         
-        // Add Icon Image
-        let imageUrl = NSURL(string: (self.selectedActivity?.activityIconImage)!)
-        self.activityIconImage?.sd_setImageWithURL(imageUrl, placeholderImage: UIImage(named: "iconGhostDefault"))
-        
         // DatePicker BackGround
         self.datePickerView?.backgroundColor = UIColor.whiteColor()
         self.datePickerView?.layer.cornerRadius = 5
@@ -85,17 +81,47 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         //Navigation
         self.title = "ADD ACTIVITY"
         self.addNavigationBarButtons()
+        
+        //Add Activity Icon
+        self.addActivityImage()
     }
     
+    func addActivityImage () {
+        
+        if let activityType = self.selectedActivity?.activityType {
+            switch activityType {
+            case K.ActivityType.RAIDS:
+                self.activityIconImage?.image = UIImage(named: "")
+                break
+            case K.ActivityType.CRUCIBLE:
+                self.activityIconImage?.image = UIImage(named: "")
+                break
+            case K.ActivityType.ARENA:
+                self.activityIconImage?.image = UIImage(named: "")
+                break
+            case K.ActivityType.STRIKES:
+                self.activityIconImage?.image = UIImage(named: "")
+                break
+            case K.ActivityType.PATROL:
+                self.activityIconImage?.image = UIImage(named: "")
+                break
+                
+            default:
+                self.activityIconImage?.image = UIImage(named: "iconGhostDefault")
+                break
+            }
+        }
+    }
+
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
     }
-    
-    
+
+
     @IBAction func goBack () {
         self.navigationController?.popViewControllerAnimated(true)
     }
-    
+
     func addCheckpointPickerView () {
         
         self.checkpointPickerView = NSBundle.mainBundle().loadNibNamed("TRActivityCheckPointPicker", owner: self, options: nil)[0] as! TRActivityCheckPointPicker
