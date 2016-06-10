@@ -12,7 +12,7 @@ import pop
 
 class TRSendChatMessageView: UIView, UITextViewDelegate {
     
-    private let MAX_MESSAGE_CHARACTER_COUNT = 140
+    private let MAX_MESSAGE_CHARACTER_COUNT = 80
     
     @IBOutlet weak var sendToLabel: UILabel!
     @IBOutlet weak var chatBubbleTextView: UITextView!
