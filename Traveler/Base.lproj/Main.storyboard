@@ -1705,7 +1705,7 @@
                                 <rect key="frame" x="0.0" y="161" width="600" height="399"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="49" sectionHeaderHeight="8" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Wo9-gi-7Gq">
-                                        <rect key="frame" x="50" y="50" width="500" height="290"/>
+                                        <rect key="frame" x="50" y="0.0" width="500" height="390"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="dataSource" destination="ZzQ-z0-tdJ" id="c1n-wY-ewD"/>
@@ -1717,7 +1717,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Wo9-gi-7Gq" secondAttribute="trailing" constant="50" id="EUR-6w-fKi"/>
                                     <constraint firstItem="Wo9-gi-7Gq" firstAttribute="centerY" secondItem="rJU-Lv-bP2" secondAttribute="centerY" constant="-4.5" id="KVQ-j7-wie"/>
-                                    <constraint firstItem="Wo9-gi-7Gq" firstAttribute="top" secondItem="rJU-Lv-bP2" secondAttribute="top" constant="50" id="RQQ-it-2Xk"/>
+                                    <constraint firstItem="Wo9-gi-7Gq" firstAttribute="top" secondItem="rJU-Lv-bP2" secondAttribute="top" id="RQQ-it-2Xk"/>
                                     <constraint firstItem="Wo9-gi-7Gq" firstAttribute="centerX" secondItem="rJU-Lv-bP2" secondAttribute="centerX" id="Wsc-bV-hzf"/>
                                     <constraint firstItem="Wo9-gi-7Gq" firstAttribute="leading" secondItem="rJU-Lv-bP2" secondAttribute="leading" constant="50" id="bi4-Is-wqj"/>
                                     <constraint firstAttribute="height" constant="399" id="rep-QN-XmR"/>
