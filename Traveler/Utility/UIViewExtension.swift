@@ -12,13 +12,13 @@ import UIKit
 extension UIView {
  
     func roundRectView () {
-        self.roundRectView(0.5)
+        self.roundRectView(0.5, borderColor: UIColor.whiteColor())
     }
     
-    func roundRectView (borderWidth: CGFloat) {
+    func roundRectView (borderWidth: CGFloat, borderColor: UIColor) {
         self.layer.borderWidth     = borderWidth
         self.layer.cornerRadius    = self.frame.size.width/2
-        self.layer.borderColor     = UIColor.whiteColor().CGColor
+        self.layer.borderColor     = borderColor.CGColor
         self.layer.masksToBounds   = true
     }
     

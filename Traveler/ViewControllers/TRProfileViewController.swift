@@ -98,7 +98,7 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
             if let imageUrl = TRUserInfo.getUserImageString() {
                 let imageUrl = NSURL(string: imageUrl)
                 self.avatorImageView?.sd_setImageWithURL(imageUrl)
-                self.avatorImageView?.roundRectView()
+                self.avatorImageView?.roundRectView(3.0, borderColor: UIColor(red: 55/255, green: 100/255, blue: 109/255, alpha: 1))
             }
         }
     }
