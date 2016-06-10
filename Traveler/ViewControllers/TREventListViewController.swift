@@ -92,8 +92,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         //FireBase Observer
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(reloadEventTable), name: K.NOTIFICATION_TYPE.FIREBASE_RELOAD_VIEW, object: nil)
         
-        
-        //TODO: Change this
+        //Add Notification Permission
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.addNotificationsPermission()
     }
@@ -105,7 +104,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             if let imageUrl = TRUserInfo.getUserImageString() {
                 let imageUrl = NSURL(string: imageUrl)
                 self.currentPlayerAvatorIcon?.sd_setImageWithURL(imageUrl)
-                self.currentPlayerAvatorIcon?.roundRectView()
+                self.currentPlayerAvatorIcon?.roundRectView(1, borderColor: UIColor(red: 151/255, green: 151/255, blue: 151/255, alpha: 1))
             }
         }
     }

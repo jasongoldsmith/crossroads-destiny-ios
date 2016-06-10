@@ -133,7 +133,7 @@ class TRBaseEventTableCell: UITableViewCell {
                 if let imageURLString = player.playerImageUrl {
                     let url = NSURL(string: imageURLString)
                     self.playerImageOne!.sd_setImageWithURL(url)
-                    self.playerImageOne?.roundRectView()
+                    self.playerImageOne?.roundRectView(1, borderColor: UIColor(red: 151/255, green: 151/255, blue: 151/255, alpha: 1))
                 }
                 
                 break;
@@ -144,7 +144,7 @@ class TRBaseEventTableCell: UITableViewCell {
                 if let imageURLString = player.playerImageUrl {
                     let url = NSURL(string: imageURLString)
                     self.playerImageTwo!.sd_setImageWithURL(url)
-                    self.playerImageTwo?.roundRectView()
+                    self.playerImageTwo?.roundRectView(1, borderColor: UIColor(red: 151/255, green: 151/255, blue: 151/255, alpha: 1))
                 }
                 
                 break;
@@ -156,7 +156,7 @@ class TRBaseEventTableCell: UITableViewCell {
                     self.playerCountImage.image = nil
                     self.playerCountLabel.hidden = false
                     self.playerCountLabel?.text = "+" + String((playerArray.count - 2))
-                    self.playerCountImage?.roundRectView()
+                    self.playerCountImage?.roundRectView(1, borderColor: UIColor(red: 151/255, green: 151/255, blue: 151/255, alpha: 1))
                     
                 } else {
                     self.playerCountLabel.hidden = true
@@ -164,7 +164,7 @@ class TRBaseEventTableCell: UITableViewCell {
                     if let imageURLString = player.playerImageUrl {
                         let url = NSURL(string: imageURLString)
                         self.playerCountImage!.sd_setImageWithURL(url)
-                        self.playerCountImage?.roundRectView()
+                        self.playerCountImage?.roundRectView(1, borderColor: UIColor(red: 151/255, green: 151/255, blue: 151/255, alpha: 1))
                     }
                 }
                 
