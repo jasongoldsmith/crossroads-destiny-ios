@@ -51,10 +51,11 @@ class TRCreateEventRequest: TRRequest {
             
             // Creating Event Objects from Events List
             let eventInfo = TREventInfo().parseCreateEventInfoObject(swiftyJsonVar)
-            
-            if let eventToUpdate = TRApplicationManager.sharedInstance.getEventById(eventInfo.eventID!) {
-                let eventIndex = TRApplicationManager.sharedInstance.eventsList.indexOf(eventToUpdate)
-                TRApplicationManager.sharedInstance.eventsList.removeAtIndex(eventIndex!)
+            if let hasEventID = eventInfo.eventID {
+                if let eventToUpdate = TRApplicationManager.sharedInstance.getEventById(hasEventID) {
+                    let eventIndex = TRApplicationManager.sharedInstance.eventsList.indexOf(eventToUpdate)
+                    TRApplicationManager.sharedInstance.eventsList.removeAtIndex(eventIndex!)
+                }
             }
             
             TRApplicationManager.sharedInstance.eventsList.insert(eventInfo, atIndex: 0)

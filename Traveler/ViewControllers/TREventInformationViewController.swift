@@ -126,6 +126,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
             } else {
                 // Only 1 user and he is the creator, he cant send message to himself
                 self.sendMessageToAllButton?.hidden = true
+                self.leaveEventButton?.hidden = false
             }
         } else {
             self.sendMessageToAllButton?.hidden = true
