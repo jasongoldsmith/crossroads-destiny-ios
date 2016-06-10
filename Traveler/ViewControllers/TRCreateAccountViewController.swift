@@ -201,7 +201,6 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
                 self.view.frame.origin.y += keyboardSize.height - offset.height
             })
         }
-        
     }
     
     func keyboardWillHide(sender: NSNotification) {

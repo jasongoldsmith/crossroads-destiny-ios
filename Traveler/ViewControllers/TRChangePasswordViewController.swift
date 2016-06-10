@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TRChangePasswordViewController: TRBaseViewController {
+class TRChangePasswordViewController: TRBaseViewController, UIGestureRecognizerDelegate {
 
     
     @IBOutlet weak var saveButton: UIButton!
@@ -17,12 +17,10 @@ class TRChangePasswordViewController: TRBaseViewController {
     @IBOutlet weak var oldPasswordView: UIView!
     @IBOutlet weak var newPasswordView: UIView!
     @IBOutlet weak var passwordUpdatedLabel: UILabel!
-    @IBOutlet weak var saveButtonBottomConstraint: NSLayoutConstraint!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.oldPassword.becomeFirstResponder()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRChangePasswordViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRChangePasswordViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
@@ -30,6 +28,10 @@ class TRChangePasswordViewController: TRBaseViewController {
         // Placeholder Strings
         self.oldPassword.attributedPlaceholder = NSAttributedString(string:"Enter old password", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         self.newPassword.attributedPlaceholder = NSAttributedString(string:"Enter new password", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,15 +73,34 @@ class TRChangePasswordViewController: TRBaseViewController {
 
     
     func keyboardWillShow(sender: NSNotification) {
-        
         let userInfo: [NSObject : AnyObject] = sender.userInfo!
         let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
+        let offset: CGSize = userInfo[UIKeyboardFrameEndUserInfoKey]!.CGRectValue.size
         
-        self.saveButtonBottomConstraint?.constant = keyboardSize.height
+        if keyboardSize.height == offset.height {
+            if self.view.frame.origin.y == 0 {
+                UIView.animateWithDuration(0.2, animations: { () -> Void in
+                    self.view.frame.origin.y -= keyboardSize.height
+                })
+            }
+        } else {
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                self.view.frame.origin.y += keyboardSize.height - offset.height
+            })
+        }
     }
     
     func keyboardWillHide(sender: NSNotification) {
-        self.saveButtonBottomConstraint?.constant = 0
+        let userInfo: [NSObject : AnyObject] = sender.userInfo!
+        let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
+        
+        if self.view.frame.origin.y == self.view.frame.origin.y - keyboardSize.height {
+            self.view.frame.origin.y += keyboardSize.height
+        }
+        else
+        {
+            self.view.frame.origin.y = 0
+        }
     }
     
     @IBAction func saveButtonPressed () {
@@ -106,6 +127,14 @@ class TRChangePasswordViewController: TRBaseViewController {
                     self.newPassword?.resignFirstResponder()
                 }
             }
+        }
+    }
+    
+    @IBAction func dismissKeyboard(recognizer : UITapGestureRecognizer) {
+        if self.newPassword?.isFirstResponder() == true {
+            self.newPassword?.resignFirstResponder()
+        } else {
+            self.oldPassword?.resignFirstResponder()
         }
     }
     

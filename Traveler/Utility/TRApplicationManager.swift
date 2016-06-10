@@ -102,8 +102,8 @@ class TRApplicationManager: NSObject {
         self.slideMenuController.leftPanGesture?.enabled = true
     
         if DeviceType.IS_IPHONE_4_OR_LESS || DeviceType.IS_IPHONE_5 {
-            self.slideMenuController.changeLeftViewWidth(300)
-            self.slideMenuController.changeRightViewWidth(300)
+            self.slideMenuController.changeLeftViewWidth(290)
+            self.slideMenuController.changeRightViewWidth(290)
         }
         
         var animated = false
