@@ -11,8 +11,6 @@ import UIKit
 
 class TRPushNotificationView: UIView {
     
-    private let TIMER_INTERVAL: Double = 5
-    
     @IBOutlet weak var eventStatusLabel: UILabel!
     @IBOutlet weak var eventStatusDescription: TRAlignableUILabel!
     
