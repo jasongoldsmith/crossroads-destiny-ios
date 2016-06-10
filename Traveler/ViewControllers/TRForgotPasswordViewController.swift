@@ -23,7 +23,7 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRForgotPasswordViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRForgotPasswordViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
 
-        self.userNameTextField.attributedPlaceholder = NSAttributedString(string:"Enter User Name", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+        self.userNameTextField.attributedPlaceholder = NSAttributedString(string:"Enter username", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         self.userNameTextField?.becomeFirstResponder()
     }
 
