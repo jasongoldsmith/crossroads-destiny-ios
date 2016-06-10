@@ -42,7 +42,12 @@ class TRPushNotificationView: UIView {
                     if let apsData = userInfo.objectForKey("aps") as? NSDictionary {
                         self.eventStatusLabel.text =  "FIRETEAM MESSAGE"
                         if let alertString = apsData.objectForKey("alert") as? String {
-                            self.eventStatusDescription.text =  alertString
+                            if let eventType = payload.objectForKey("eventName") as? String {
+                                let messageString = eventType.uppercaseString + "\n" + alertString
+                                self.eventStatusDescription.text = messageString
+                            } else {
+                                self.eventStatusDescription.text =  alertString
+                            }
                         }
                     }
                 } else {
