@@ -58,9 +58,5 @@ class TRPushNotificationView: UIView {
         
         // Add view to the window
         window?.addSubview(self)
-
-        delay(10) {
-            self.removeFromSuperview()
-        }
     }
 }
