@@ -80,7 +80,7 @@
                 <outlet property="eventStatusDescription" destination="Td9-S9-3v0" id="E0Q-Gp-s47"/>
                 <outlet property="eventStatusLabel" destination="xw6-54-Ep7" id="6tT-yc-g3a"/>
             </connections>
-            <point key="canvasLocation" x="-329" y="145"/>
+            <point key="canvasLocation" x="-430" y="294"/>
         </view>
     </objects>
     <resources>

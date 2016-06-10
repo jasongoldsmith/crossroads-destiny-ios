@@ -104,7 +104,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             if let imageUrl = TRUserInfo.getUserImageString() {
                 let imageUrl = NSURL(string: imageUrl)
                 self.currentPlayerAvatorIcon?.sd_setImageWithURL(imageUrl)
-                self.currentPlayerAvatorIcon?.roundRectView(1, borderColor: UIColor(red: 151/255, green: 151/255, blue: 151/255, alpha: 1))
+                self.currentPlayerAvatorIcon?.roundRectView(1, borderColor: UIColor.whiteColor())
             }
         }
     }
