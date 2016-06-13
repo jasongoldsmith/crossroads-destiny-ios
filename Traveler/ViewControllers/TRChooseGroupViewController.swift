@@ -96,7 +96,7 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     func addNoneGroupCountUI () {
         self.lableThree.hidden = false
         
-        let messageString = "It looks like you are not a member of any group. Feel free to Freelance with us or head to Bungie.net to join a group and fully experience the Crossroad for Destiny app."
+        let messageString = "It looks like you are not a member of any group. Feel free to Freelance with us or head to Bungie.net to join a group and fully experience the Crossroads for Destiny app."
         let bungieLinkName = "Bungie.net"
         self.lableThree?.text = messageString
         
