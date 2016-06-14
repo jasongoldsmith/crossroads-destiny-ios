@@ -11,7 +11,7 @@ import TTTAttributedLabel
 import SlideMenuControllerSwift
 
 private let GROUP_CELLS_IDENTIFIER = "groupCells"
-private let MIN_DEFAULT_GROUPS = 1
+private let MIN_DEFAULT_GROUPS = 0
 
 class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, UITableViewDelegate, TTTAttributedLabelDelegate {
 
@@ -28,6 +28,13 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     @IBOutlet weak var lableThree: TTTAttributedLabel!
     @IBOutlet weak var groupsTableView: UITableView!
     @IBOutlet weak var saveButton: UIButton!
+
+    //Selected Group View
+    @IBOutlet weak var selectedGroupViewGroupImage: UIImageView!
+    @IBOutlet weak var selectedGroupViewGroupName: UILabel!
+    @IBOutlet weak var selectedGroupViewMemberCount: UILabel!
+    @IBOutlet weak var selectedGroupViewEventCount: UILabel!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,10 +51,7 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
                     self.bungieGroups.removeAll()
                     self.bungieGroups = TRApplicationManager.sharedInstance.bungieGroups
                     
-                    if TRApplicationManager.sharedInstance.bungieGroups.count < MIN_DEFAULT_GROUPS {
-                        TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Did not receive default group")
-                        self.addNoneGroupCountUI()
-                    } else if TRApplicationManager.sharedInstance.bungieGroups.count ==  1 {
+                    if TRApplicationManager.sharedInstance.bungieGroups.count <=  1 {
                         self.addNoneGroupCountUI()
                     } else {
                         self.lableThree.hidden = true
@@ -61,8 +65,11 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
                         let groupIndex = self.bungieGroups.indexOf({$0.groupId == self.selectedGroup?.groupId})
                         if let _ = groupIndex {
                             self.bungieGroups.removeAtIndex(groupIndex!)
-                            self.bungieGroups.insert(self.selectedGroup!, atIndex: 0)
+                            //self.bungieGroups.insert(self.selectedGroup!, atIndex: 0)
                         }
+                        
+                        //Add selected Group UI
+                        self.addSelectedGroupUI()
                     }
                     
                     // Reload Data
@@ -82,6 +89,28 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
         }
     }
 
+    func addSelectedGroupUI () {
+        if let hasImage = self.selectedGroup?.avatarPath {
+            let imageUrl = NSURL(string: hasImage)
+            self.selectedGroupViewGroupImage?.sd_setImageWithURL(imageUrl)
+        }
+        self.selectedGroupViewGroupName.text = self.selectedGroup?.groupName
+        self.selectedGroupViewMemberCount.text = (self.selectedGroup?.memberCount?.description)! + " Members"
+        
+        if let eventCount = self.selectedGroup?.eventCount {
+            self.selectedGroupViewEventCount.text = eventCount.description + " Events"
+        } else {
+            self.selectedGroupViewEventCount.hidden = true
+        }
+        
+        if let eventMembers = self.selectedGroup?.memberCount {
+            self.selectedGroupViewMemberCount.text = eventMembers.description + " Members"
+        } else {
+            self.selectedGroupViewMemberCount.hidden = true
+        }
+    }
+    
+    
     //MARK- Scroll Methods
     // Help to disable/ enable scroll in down-right direction. Disabling helps to let table view scroll and to let swipe gesture be disabled
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
@@ -115,13 +144,6 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     
     //MARK:- Table Delegate Methods
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
-        if TRApplicationManager.sharedInstance.bungieGroups.count == MIN_DEFAULT_GROUPS {
-            return 1
-        } else if TRApplicationManager.sharedInstance.bungieGroups.count < MIN_DEFAULT_GROUPS {
-            return 0
-        }
-        
         return bungieGroups.count
     }
     
@@ -137,11 +159,6 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-      
-        if section == 1 {
-            return 15
-        }
-        
         return 6
     }
     
