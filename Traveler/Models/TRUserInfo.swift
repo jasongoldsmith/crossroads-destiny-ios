@@ -23,18 +23,18 @@ class TRUserInfo: NSObject {
     
     
     func parseUserResponse (responseObject: JSON) {
-        self.userName       = responseObject["value"]["userName"].string
-        self.userID         = responseObject["value"]["_id"].string
-        self.userImageURL   = responseObject["value"]["imageUrl"].string
-        self.userClanID     = responseObject["value"]["clanId"].string
-        self.bungieMemberShipID = responseObject["value"]["bungieMemberShipId"].string
+        self.userName       = responseObject["value"]["userName"].stringValue
+        self.userID         = responseObject["value"]["_id"].stringValue
+        self.userImageURL   = responseObject["value"]["imageUrl"].stringValue
+        self.userClanID     = responseObject["value"]["clanId"].stringValue
+        self.bungieMemberShipID = responseObject["value"]["bungieMemberShipId"].stringValue
         
-        let consoles = responseObject["value"]["consoles"].array
-        for consoleObj in consoles! {
+        let consoles = responseObject["value"]["consoles"].arrayValue
+        for consoleObj in consoles {
             let console = TRConsoles()
-            console.consoleId = consoleObj["consoleId"].string
-            console.consoleType = consoleObj["consoleType"].string
-            console.verifyStatus = consoleObj["verifyStatus"].string
+            console.consoleId = consoleObj["consoleId"].stringValue
+            console.consoleType = consoleObj["consoleType"].stringValue
+            console.verifyStatus = consoleObj["verifyStatus"].stringValue
             
             TRUserInfo.saveConsolesObject(console)
         }

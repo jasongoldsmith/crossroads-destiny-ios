@@ -35,15 +35,15 @@ class TREventInfo: NSObject {
         if let _ = fireBaseEventID {
             self.eventID           = fireBaseEventID
         } else {
-            self.eventID           = swiftyJason["_id"].string
+            self.eventID           = swiftyJason["_id"].stringValue
         }
-        self.eventStatus       = swiftyJason["status"].string
-        self.eventUpdatedDate  = swiftyJason["updated"].string
-        self.eventMaxPlayers   = swiftyJason["maxPlayers"].number
-        self.eventMinPlayer    = swiftyJason["minPlayers"].number
-        self.eventCreatedDate  = swiftyJason["created"].string
-        self.eventLaunchDate   = swiftyJason["launchDate"].string
-        self.eventClanID       = swiftyJason["clanId"].string
+        self.eventStatus       = swiftyJason["status"].stringValue
+        self.eventUpdatedDate  = swiftyJason["updated"].stringValue
+        self.eventMaxPlayers   = swiftyJason["maxPlayers"].numberValue
+        self.eventMinPlayer    = swiftyJason["minPlayers"].numberValue
+        self.eventCreatedDate  = swiftyJason["created"].stringValue
+        self.eventLaunchDate   = swiftyJason["launchDate"].stringValue
+        self.eventClanID       = swiftyJason["clanId"].stringValue
         
         if (swiftyJason["launchStatus"].string == EVENT_TIME_STATUS.UP_COMING.rawValue) {
             self.isFutureEvent = true
@@ -59,9 +59,9 @@ class TREventInfo: NSObject {
             activityInfo.activityCheckPoint = activity["aCheckpoint"]?.stringValue
             activityInfo.activityType       = activity["aType"]?.stringValue
             activityInfo.activityDificulty  = activity["aDifficulty"]?.stringValue
-            activityInfo.activityLight      = activity["aLight"]?.number
-            activityInfo.activityMaxPlayers = activity["maxPlayers"]?.number
-            activityInfo.activityMinPlayers = activity["minPlayers"]?.number
+            activityInfo.activityLight      = activity["aLight"]?.numberValue
+            activityInfo.activityMaxPlayers = activity["maxPlayers"]?.numberValue
+            activityInfo.activityMinPlayers = activity["minPlayers"]?.numberValue
             activityInfo.activityIconImage  = activity["aIconUrl"]?.stringValue
             activityInfo.activityIsFeatured = activity["isFeatured"]?.boolValue
             activityInfo.activitylocation   = activity["location"]?.stringValue

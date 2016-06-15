@@ -32,9 +32,9 @@ class TRActivityInfo: NSObject {
         self.activityCheckPoint = swiftyJson["aCheckpoint"].stringValue
         self.activityType       = swiftyJson["aType"].stringValue
         self.activityDificulty  = swiftyJson["aDifficulty"].stringValue
-        self.activityLight      = swiftyJson["aLight"].number
-        self.activityMaxPlayers = swiftyJson["maxPlayers"].number
-        self.activityMinPlayers = swiftyJson["minPlayers"].number
+        self.activityLight      = swiftyJson["aLight"].numberValue
+        self.activityMaxPlayers = swiftyJson["maxPlayers"].numberValue
+        self.activityMinPlayers = swiftyJson["minPlayers"].numberValue
         self.activityIconImage  = swiftyJson["aIconUrl"].stringValue
         self.activityIsFeatured = swiftyJson["isFeatured"].boolValue
         self.activitylocation   = swiftyJson["location"].stringValue

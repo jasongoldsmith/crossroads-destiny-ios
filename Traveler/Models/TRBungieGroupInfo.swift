@@ -20,12 +20,12 @@ class TRBungieGroupInfo {
 
     
     func parseAndCreateObj (swiftyJson: JSON) {
-        self.groupId = swiftyJson["groupId"].string
-        self.avatarPath = swiftyJson["avatarPath"].string
-        self.groupName = swiftyJson["groupName"].string
-        self.memberCount = swiftyJson["memberCount"].int32
+        self.groupId = swiftyJson["groupId"].stringValue
+        self.avatarPath = swiftyJson["avatarPath"].stringValue
+        self.groupName = swiftyJson["groupName"].stringValue
+        self.memberCount = swiftyJson["memberCount"].int32Value
         self.clanEnabled = swiftyJson["clanEnabled"].boolValue
-        self.eventCount = swiftyJson["eventCount"].int32
+        self.eventCount = swiftyJson["eventCount"].int32Value
     }
 }
 
