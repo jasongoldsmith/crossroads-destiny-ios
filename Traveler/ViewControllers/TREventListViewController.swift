@@ -32,6 +32,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     @IBOutlet var emptyTableBackGround: UIImageView?
     @IBOutlet var playerGroupsIcon: UIImageView?
     
+    
     //Events Information
     var eventsInfo: [TREventInfo] = []
     
@@ -97,6 +98,20 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         appDelegate.addNotificationsPermission()
     }
 
+    
+    //MARK:- Swipe Gestures Begins
+    @IBAction func userSwipedRight (sender: UISwipeGestureRecognizer) {
+        self.segmentControl?.selectedSegmentIndex = 0
+        self.segmentControlSelection(self.segmentControl!)
+    }
+
+    @IBAction func userSwipedLeft (sender: UISwipeGestureRecognizer) {
+        self.segmentControl?.selectedSegmentIndex = 1
+        self.segmentControlSelection(self.segmentControl!)
+    }
+    
+    //MARK:- Swipe Gestures Ends
+    
     func updateUserAvatorImage () {
         
         //Avator for Current PlayerJ

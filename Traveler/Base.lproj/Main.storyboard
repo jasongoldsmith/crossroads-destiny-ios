@@ -1526,6 +1526,7 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="mLx-w0-FaU" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leading" id="51y-Xi-q6U"/>
                             <constraint firstItem="GC0-EZ-x8P" firstAttribute="top" secondItem="mXp-dP-eCo" secondAttribute="bottom" constant="-64" id="5M9-fM-dTF"/>
@@ -1560,6 +1561,10 @@
                             <constraint firstAttribute="trailingMargin" secondItem="2xU-P6-pHh" secondAttribute="trailing" constant="-20" id="wGN-ek-WpO"/>
                             <constraint firstItem="HnB-tK-Gh9" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leadingMargin" constant="-10" id="x2C-Gn-zKf"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="4Yj-fb-Jef" appends="YES" id="cg7-BD-gMH"/>
+                            <outletCollection property="gestureRecognizers" destination="ehC-SO-XDe" appends="YES" id="Tgi-fN-Uu4"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="currentPlayerAvatorIcon" destination="c5f-7R-NrH" id="hkn-SI-1v4"/>
@@ -1572,6 +1577,18 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eCs-7v-KHy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer delaysTouchesEnded="NO" direction="left" id="ehC-SO-XDe">
+                    <connections>
+                        <action selector="userSwipedLeft:" destination="Ni1-Nm-5hW" id="r7J-en-K4C"/>
+                        <outlet property="delegate" destination="Ni1-Nm-5hW" id="EdE-Ol-ovN"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer delaysTouchesEnded="NO" direction="right" id="4Yj-fb-Jef">
+                    <connections>
+                        <action selector="userSwipedRight:" destination="Ni1-Nm-5hW" id="uJz-vL-NEQ"/>
+                        <outlet property="delegate" destination="Ni1-Nm-5hW" id="dmM-ET-ySv"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-211" y="990"/>
         </scene>
