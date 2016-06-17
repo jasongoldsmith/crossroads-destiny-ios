@@ -100,7 +100,9 @@ class TRApplicationManager: NSObject {
         self.slideMenuController.closeLeft()
         self.slideMenuController.rightPanGesture?.enabled = true
         self.slideMenuController.leftPanGesture?.enabled = true
-    
+        SlideMenuOptions.leftBezelWidth = 0.0
+        SlideMenuOptions.rightBezelWidth = 0.0
+        
         if DeviceType.IS_IPHONE_4_OR_LESS || DeviceType.IS_IPHONE_5 {
             self.slideMenuController.changeLeftViewWidth(290)
             self.slideMenuController.changeRightViewWidth(290)
