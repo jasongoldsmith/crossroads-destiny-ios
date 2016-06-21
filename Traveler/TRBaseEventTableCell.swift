@@ -152,7 +152,7 @@ class TRBaseEventTableCell: UITableViewCell {
             case 2:
                 
                 self.playerCountImage.hidden = false
-                if(eventInfo.eventMaxPlayers?.integerValue > 3) {
+                if(eventInfo.eventMaxPlayers?.integerValue > 3 && eventInfo.eventPlayersArray.count > 3) {
                     self.playerCountImage.image = nil
                     self.playerCountLabel.hidden = false
                     self.playerCountLabel?.text = "+" + String((playerArray.count - 2))
