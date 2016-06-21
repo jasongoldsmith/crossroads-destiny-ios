@@ -24,17 +24,18 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     //To be hidden if there are no groups
     @IBOutlet weak var appIcon: UIImageView!
     @IBOutlet weak var lableOne: UILabel!
-    @IBOutlet weak var lableTwo: UILabel!
     @IBOutlet weak var lableThree: TTTAttributedLabel!
     @IBOutlet weak var groupsTableView: UITableView!
     @IBOutlet weak var saveButton: UIButton!
 
     //Selected Group View
+    @IBOutlet weak var selectedGroupView: UIView!
     @IBOutlet weak var selectedGroupViewGroupImage: UIImageView!
     @IBOutlet weak var selectedGroupViewGroupName: UILabel!
     @IBOutlet weak var selectedGroupViewMemberCount: UILabel!
     @IBOutlet weak var selectedGroupViewEventCount: UILabel!
-
+    @IBOutlet weak var selectedGroupViewNotificationButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +56,9 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
                         self.addNoneGroupCountUI()
                     } else {
                         self.lableThree.hidden = true
-                        self.saveButton.hidden = true
+                        
+                        //Add bottom border to GroupList Table
+                        self.changeSaveButtonVisuals()
                     }
                     
                     
@@ -65,7 +68,6 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
                         let groupIndex = self.bungieGroups.indexOf({$0.groupId == self.selectedGroup?.groupId})
                         if let _ = groupIndex {
                             self.bungieGroups.removeAtIndex(groupIndex!)
-                            //self.bungieGroups.insert(self.selectedGroup!, atIndex: 0)
                         }
                         
                         //Add selected Group UI
@@ -89,24 +91,48 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
         }
     }
 
+    func changeSaveButtonVisuals () {
+        self.saveButton?.enabled = false
+        self.saveButton?.titleLabel?.text = nil
+        self.saveButton?.backgroundColor = UIColor(red: 35/255, green: 58/255, blue: 62/255, alpha: 1)
+        
+        self.saveButton.layer.shadowColor = UIColor.blackColor().CGColor;
+        self.saveButton.layer.shadowOffset = CGSizeMake(3, 3);
+        self.saveButton.layer.shadowRadius = 5;
+        self.saveButton.layer.shadowOpacity = 1;
+    }
+    
     func addSelectedGroupUI () {
+        
         if let hasImage = self.selectedGroup?.avatarPath {
             let imageUrl = NSURL(string: hasImage)
             self.selectedGroupViewGroupImage?.sd_setImageWithURL(imageUrl)
         }
         self.selectedGroupViewGroupName.text = self.selectedGroup?.groupName
-        self.selectedGroupViewMemberCount.text = (self.selectedGroup?.memberCount?.description)! + " Members"
+        self.selectedGroupViewMemberCount.text = (self.selectedGroup?.memberCount?.description)! + " in Orbit"
         
         if let eventCount = self.selectedGroup?.eventCount {
+            if eventCount <= 0 {
+                self.selectedGroupViewEventCount.textColor = UIColor.lightGrayColor()
+            } else {
+                self.selectedGroupViewEventCount.textColor = UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)
+            }
+            
             self.selectedGroupViewEventCount.text = eventCount.description + " Events"
         } else {
             self.selectedGroupViewEventCount.hidden = true
         }
         
         if let eventMembers = self.selectedGroup?.memberCount {
-            self.selectedGroupViewMemberCount.text = eventMembers.description + " Members"
+            self.selectedGroupViewMemberCount.text = eventMembers.description + " in Orbit"
         } else {
             self.selectedGroupViewMemberCount.hidden = true
+        }
+        
+        if self.selectedGroup?.groupId == "clan_id_not_set" {
+            self.selectedGroupView.backgroundColor = UIColor(red: 3/255, green: 81/255, blue: 102/255, alpha: 1)
+        } else {
+            self.selectedGroupView.backgroundColor = UIColor(red: 19/255, green: 31/255, blue: 35/255, alpha: 1)
         }
     }
     
@@ -170,14 +196,6 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
             cell.selectionStyle = .None
             cell.updateCellViewWithGroup(groupInfo)
             cell.userInteractionEnabled = true
-            
-            if let hasCurrentGroup = TRUserInfo.getUserClanID() {
-                if hasCurrentGroup == groupInfo.groupId {
-                    self.highlightedCell = cell
-                    cell.bottomBorderImageView.hidden = false
-                    cell.radioButton?.highlighted = true
-                }
-            }
         } else {
             cell.userInteractionEnabled = false
             cell.overlayImageView.hidden = false
@@ -189,16 +207,11 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if let _ = self.highlightedCell {
-            self.highlightedCell?.radioButton?.highlighted = false
-        }
-
         self.selectedGroup = self.bungieGroups[indexPath.section]
         
         let cell = tableView.cellForRowAtIndexPath(indexPath) as? TRBungieGroupCell
         self.highlightedCell = cell
-        cell?.radioButton?.highlighted = true
-        
+       
         if let group = self.selectedGroup {
             _ = TRUpdateGroupRequest().updateUserGroup(group.groupId!, completion: { (didSucceed) in
                 _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: false, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in

@@ -14,9 +14,8 @@ class TRBungieGroupCell: UITableViewCell {
     @IBOutlet weak var groupName: UILabel!
     @IBOutlet weak var memberCount: UILabel!
     @IBOutlet weak var clanEnabled: UILabel!
-    @IBOutlet weak var radioButton: UIButton!
+    @IBOutlet weak var notificationButton: UIButton!
     @IBOutlet weak var overlayImageView: UIImageView!
-    @IBOutlet weak var bottomBorderImageView: UIImageView!
     
     
     override func prepareForReuse() {
@@ -27,9 +26,9 @@ class TRBungieGroupCell: UITableViewCell {
         self.contentView.alpha = 1
         self.overlayImageView.hidden = true
         self.contentView.userInteractionEnabled = true
-        self.radioButton?.highlighted = false
-        self.bottomBorderImageView.hidden = true
+        self.notificationButton?.highlighted = false
         self.memberCount.hidden = true
+        self.contentView.backgroundColor = UIColor(red: 19/255, green: 31/255, blue: 35/255, alpha: 1)
     }
     
     func updateCellViewWithGroup (groupInfo: TRBungieGroupInfo) {
@@ -41,18 +40,20 @@ class TRBungieGroupCell: UITableViewCell {
         self.groupName.text = groupInfo.groupName
         if let hasMembers = groupInfo.memberCount {
             self.memberCount.hidden = false
-            self.memberCount.text =  hasMembers.description + " Members"
+            self.memberCount.text =  hasMembers.description + " in Orbit"
         } else {
             self.memberCount.hidden = true
         }
         
         if let eventCount = groupInfo.eventCount where eventCount > 0 {
+            self.clanEnabled.textColor = UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)
             if eventCount > 1 {
                 self.clanEnabled.text = eventCount.description + " Events"
             } else {
                 self.clanEnabled.text = eventCount.description + " Event"
             }
         } else {
+            self.clanEnabled.textColor = UIColor.lightGrayColor()
             self.clanEnabled.text = "0 Events"
         }
      
@@ -69,6 +70,10 @@ class TRBungieGroupCell: UITableViewCell {
         let shadowFrame: CGRect = (self.bounds)
         let shadowPath: CGPathRef = UIBezierPath(rect: shadowFrame).CGPath
         self.layer.shadowPath = shadowPath
+        
+        if groupInfo.groupId == "clan_id_not_set" {
+            self.contentView.backgroundColor = UIColor(red: 3/255, green: 81/255, blue: 102/255, alpha: 1)
+        }
     }
 }
 
