@@ -34,7 +34,7 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     @IBOutlet weak var selectedGroupViewGroupName: UILabel!
     @IBOutlet weak var selectedGroupViewMemberCount: UILabel!
     @IBOutlet weak var selectedGroupViewEventCount: UILabel!
-    @IBOutlet weak var selectedGroupViewNotificationButton: UIButton!
+    @IBOutlet weak var selectedGroupViewNotificationButton: EventButton!
     
     
     override func viewDidLoad() {
@@ -108,16 +108,15 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
             let imageUrl = NSURL(string: hasImage)
             self.selectedGroupViewGroupImage?.sd_setImageWithURL(imageUrl)
         }
+        
         self.selectedGroupViewGroupName.text = self.selectedGroup?.groupName
         self.selectedGroupViewMemberCount.text = (self.selectedGroup?.memberCount?.description)! + " in Orbit"
+        self.selectedGroupViewNotificationButton.selected = self.selectedGroup?.groupNotification?.boolValue == false ? true: false
+        self.selectedGroupViewNotificationButton.addTarget(self, action: #selector(updateNotificationPreference), forControlEvents: .TouchUpInside)
+        self.selectedGroupViewNotificationButton.buttonGroupInfo = self.selectedGroup
         
         if let eventCount = self.selectedGroup?.eventCount {
-            if eventCount <= 0 {
-                self.selectedGroupViewEventCount.textColor = UIColor.lightGrayColor()
-            } else {
-                self.selectedGroupViewEventCount.textColor = UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)
-            }
-            
+            self.selectedGroupViewEventCount.textColor = eventCount <= 0 ? UIColor.lightGrayColor() : UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)
             self.selectedGroupViewEventCount.text = eventCount.description + " Events"
         } else {
             self.selectedGroupViewEventCount.hidden = true
@@ -129,11 +128,8 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
             self.selectedGroupViewMemberCount.hidden = true
         }
         
-        if self.selectedGroup?.groupId == "clan_id_not_set" {
-            self.selectedGroupView.backgroundColor = UIColor(red: 3/255, green: 81/255, blue: 102/255, alpha: 1)
-        } else {
-            self.selectedGroupView.backgroundColor = UIColor(red: 19/255, green: 31/255, blue: 35/255, alpha: 1)
-        }
+        
+        self.selectedGroupView.backgroundColor = self.selectedGroup?.groupId == "clan_id_not_set" ? UIColor(red: 3/255, green: 81/255, blue: 102/255, alpha: 1) : UIColor(red: 19/255, green: 31/255, blue: 35/255, alpha: 1)
     }
     
     
@@ -198,6 +194,7 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
             cell.userInteractionEnabled = true
             cell.notificationButton.buttonGroupInfo = groupInfo
             cell.notificationButton.addTarget(self, action: #selector(updateNotificationPreference), forControlEvents: .TouchUpInside)
+            cell.notificationButton.selected = groupInfo.groupNotification?.boolValue == false ? true: false
         } else {
             cell.userInteractionEnabled = false
             cell.overlayImageView.hidden = false

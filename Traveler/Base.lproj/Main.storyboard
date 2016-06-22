@@ -151,9 +151,10 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2v-IK-CtW">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2v-IK-CtW" customClass="EventButton" customModule="Crossroads" customModuleProvider="target">
                                         <rect key="frame" x="483" y="13" width="44" height="44"/>
                                         <state key="normal" image="iconNotificationsOn"/>
+                                        <state key="selected" image="iconNotificationsOff"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="uRt-Ts-zs5">
                                         <rect key="frame" x="76" y="44" width="47" height="14"/>
@@ -2697,6 +2698,7 @@
         <image name="iconArrowDown" width="10" height="5"/>
         <image name="iconArrowRight" width="5" height="10"/>
         <image name="iconBackArrow" width="44" height="44"/>
+        <image name="iconNotificationsOff" width="44" height="44"/>
         <image name="iconNotificationsOn" width="44" height="44"/>
         <image name="imgArena" width="98" height="100"/>
         <image name="imgArenaOnTap" width="98" height="100"/>

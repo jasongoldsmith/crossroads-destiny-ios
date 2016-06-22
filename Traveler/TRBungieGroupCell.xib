@@ -45,7 +45,7 @@
                             <constraint firstAttribute="width" constant="32" id="cEm-T2-7cy"/>
                         </constraints>
                         <state key="normal" image="iconNotificationsOn"/>
-                        <state key="highlighted" image="iconNotificationsOff"/>
+                        <state key="selected" image="iconNotificationsOff"/>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="cEm-T2-7cy"/>
