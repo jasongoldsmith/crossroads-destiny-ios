@@ -196,6 +196,8 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
             cell.selectionStyle = .None
             cell.updateCellViewWithGroup(groupInfo)
             cell.userInteractionEnabled = true
+            cell.notificationButton.buttonGroupInfo = groupInfo
+            cell.notificationButton.addTarget(self, action: #selector(updateNotificationPreference), forControlEvents: .TouchUpInside)
         } else {
             cell.userInteractionEnabled = false
             cell.overlayImageView.hidden = false
@@ -203,7 +205,6 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
         
         return cell
     }
-    
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
@@ -226,8 +227,21 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
             })
         }
     }
-    
-    
+
+    //MARK:- UpdateNotification Request
+    func updateNotificationPreference(sender: EventButton) {
+        
+        if let hasGroupId = sender.buttonGroupInfo?.groupId {
+            _ = TRGroupNotificationUpdateRequest().updateUserGroupNotification(hasGroupId, completion: { (didSucceed) in
+                if didSucceed == true {
+                    dispatch_async(dispatch_get_main_queue(), { 
+                        self.groupsTableView.reloadData()
+                    })
+                }
+            })
+        }
+    }
+
     func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
         UIApplication.sharedApplication().openURL(url)
     }

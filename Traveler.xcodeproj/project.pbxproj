@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		2E98AEB4556056FC338535EE /* Pods_TravelerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B4CA35DF535E2D305E6F37D /* Pods_TravelerTests.framework */; };
 		306EF0D3DF3F80BAE3E07DE6 /* Pods_TravelerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797742E481ACA13DC46DAE82 /* Pods_TravelerUITests.framework */; };
+		3300FC121D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3300FC111D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift */; };
+		3300FC131D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3300FC111D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift */; };
+		3300FC141D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3300FC111D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift */; };
+		3300FC151D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3300FC111D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift */; };
 		3305ACFB1CF2660D00572495 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3305ACFA1CF2660D00572495 /* SpriteKit.framework */; };
 		3305AD021CF26B2C00572495 /* YTGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3305AD001CF26B2C00572495 /* YTGameScene.swift */; };
 		3305AD031CF26B2C00572495 /* YTGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3305AD001CF26B2C00572495 /* YTGameScene.swift */; };
@@ -412,6 +416,7 @@
 		15055A9B48C33842D573D67F /* Pods-Crossroads.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crossroads.release.xcconfig"; path = "Pods/Target Support Files/Pods-Crossroads/Pods-Crossroads.release.xcconfig"; sourceTree = "<group>"; };
 		25E7152E28FC6248E82F096C /* Pods_Traveler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Traveler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B8583D80A7610B0A4D42EAA /* Pods-TravelerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelerTests/Pods-TravelerTests.release.xcconfig"; sourceTree = "<group>"; };
+		3300FC111D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRGroupNotificationUpdateRequest.swift; sourceTree = "<group>"; };
 		3305ACFA1CF2660D00572495 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		3305AD001CF26B2C00572495 /* YTGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTGameScene.swift; sourceTree = "<group>"; };
 		3305AD081CF26FD100572495 /* YTGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTGameViewController.swift; sourceTree = "<group>"; };
@@ -706,6 +711,7 @@
 				338BB1FA1CEE98E200A14060 /* TRUpdateGroupRequest.swift */,
 				33EC0F281CFE96820034CE4B /* TRResendBungieVerification.swift */,
 				333FA8A81D0109C200A5EC1C /* TRBungieUserAuthRequest.swift */,
+				3300FC111D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -1285,6 +1291,7 @@
 				33D0B3FD1CFD0165008ABA04 /* NSBundleExtension.swift in Sources */,
 				33D0B3FE1CFD0165008ABA04 /* TRSendChatMessageView.swift in Sources */,
 				33EC0F291CFE96820034CE4B /* TRResendBungieVerification.swift in Sources */,
+				3300FC121D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift in Sources */,
 				33D0B3FF1CFD0165008ABA04 /* TRDeviceTokenRequest.swift in Sources */,
 				33D0B4001CFD0165008ABA04 /* UIViewExtension.swift in Sources */,
 				33D0B4011CFD0165008ABA04 /* TRGetEventByEventID.swift in Sources */,
@@ -1369,6 +1376,7 @@
 				3369499C1CC5CFEB004979C0 /* NSBundleExtension.swift in Sources */,
 				5CBD7BCE1CAC91C70078636D /* TRSendChatMessageView.swift in Sources */,
 				33EC0F2A1CFE96820034CE4B /* TRResendBungieVerification.swift in Sources */,
+				3300FC131D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift in Sources */,
 				3397E2831C93822F008CCCDB /* TRDeviceTokenRequest.swift in Sources */,
 				333E1CA41CC54A27000B843C /* UIViewExtension.swift in Sources */,
 				332BC16D1CEB88F800012B45 /* TRGetEventByEventID.swift in Sources */,
@@ -1511,6 +1519,7 @@
 				33FDB9A91C84F82F0066237C /* TRCreatorInfo.swift in Sources */,
 				3305AD0A1CF26FD100572495 /* YTGameViewController.swift in Sources */,
 				3333BDC01CEE6C7F001C9E1A /* TRBungieGroupCell.swift in Sources */,
+				3300FC141D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift in Sources */,
 				33742D9E1C80FFAE00C46742 /* TRGetEventsList.swift in Sources */,
 				332BC17E1CED03AD00012B45 /* TRGetAllDestinyGroups.swift in Sources */,
 				33742D9A1C800A5D00C46742 /* UISegmentedControlExtension.swift in Sources */,
@@ -1596,6 +1605,7 @@
 				33FDB9AA1C84F8300066237C /* TRCreatorInfo.swift in Sources */,
 				3305AD0B1CF26FD100572495 /* YTGameViewController.swift in Sources */,
 				3333BDC11CEE6C7F001C9E1A /* TRBungieGroupCell.swift in Sources */,
+				3300FC151D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift in Sources */,
 				33742D9F1C80FFAE00C46742 /* TRGetEventsList.swift in Sources */,
 				332BC17F1CED03AD00012B45 /* TRGetAllDestinyGroups.swift in Sources */,
 				33742D9B1C800A5E00C46742 /* UISegmentedControlExtension.swift in Sources */,

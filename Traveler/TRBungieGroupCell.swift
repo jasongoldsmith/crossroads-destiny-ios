@@ -14,7 +14,7 @@ class TRBungieGroupCell: UITableViewCell {
     @IBOutlet weak var groupName: UILabel!
     @IBOutlet weak var memberCount: UILabel!
     @IBOutlet weak var clanEnabled: UILabel!
-    @IBOutlet weak var notificationButton: UIButton!
+    @IBOutlet weak var notificationButton: EventButton!
     @IBOutlet weak var overlayImageView: UIImageView!
     
     
@@ -28,6 +28,8 @@ class TRBungieGroupCell: UITableViewCell {
         self.contentView.userInteractionEnabled = true
         self.notificationButton?.highlighted = false
         self.memberCount.hidden = true
+        self.notificationButton.buttonGroupInfo = nil
+        self.notificationButton.highlighted = false
         self.contentView.backgroundColor = UIColor(red: 19/255, green: 31/255, blue: 35/255, alpha: 1)
     }
     

@@ -13,6 +13,7 @@ class EventButton: UIButton {
     var buttonEventInfo     : TREventInfo?
     var buttonActivityInfo  : TRActivityInfo?
     var buttonPlayerInfo    : TRPlayerInfo?
+    var buttonGroupInfo     : TRBungieGroupInfo?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
