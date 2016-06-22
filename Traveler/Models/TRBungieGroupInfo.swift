@@ -26,7 +26,7 @@ class TRBungieGroupInfo {
         self.memberCount = swiftyJson["memberCount"].int32Value
         self.clanEnabled = swiftyJson["clanEnabled"].boolValue
         self.eventCount = swiftyJson["eventCount"].int32Value
-        self.groupNotification = swiftyJson["noti"].boolValue
+        self.groupNotification = swiftyJson["muteNotification"].boolValue
     }
 }
 
