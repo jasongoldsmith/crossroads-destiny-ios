@@ -20,14 +20,8 @@ class TRSignUpVerificatioViewController: TRBaseViewController, TTTAttributedLabe
         
         super.viewDidLoad()
         
-        var messageString = ""
         let bungieLinkName = "Bungie.net"
-        
-        if let userName = TRUserInfo.getUserName() {
-            messageString = "Welcome \(userName)! \n \nThanks for signing up for Crossroads, the Destiny Fireteam Finder! An account verification message has been sent to your \(bungieLinkName) account. Click the link in the message to verify your account."
-        } else {
-            messageString = "Welcome \n \nThanks for signing up for Crossroads, the Destiny Fireteam Finder! An account verification message has been sent to your bungie.net account. Click the link in the message to verify your account."
-        }
+        let messageString = "Welcome to Crossroads, Destiny Fireteam Finder! Check your Bungie.net inbox for a verification message. It will also appear in your Destiny companion app."
         
         self.messageLable?.text = messageString
         
