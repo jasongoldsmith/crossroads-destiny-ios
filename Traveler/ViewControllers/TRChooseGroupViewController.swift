@@ -232,13 +232,19 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     func updateNotificationPreference(sender: EventButton) {
         
         if let hasGroupId = sender.buttonGroupInfo?.groupId {
-            _ = TRGroupNotificationUpdateRequest().updateUserGroupNotification(hasGroupId, completion: { (didSucceed) in
-                if didSucceed == true {
-                    dispatch_async(dispatch_get_main_queue(), { 
-                        self.groupsTableView.reloadData()
-                    })
-                }
-            })
+            if let notificationValue = sender.buttonGroupInfo?.groupNotification {
+                _ = TRGroupNotificationUpdateRequest().updateUserGroupNotification(hasGroupId, muteNoti: !notificationValue, completion: { (didSucceed) in
+                    if didSucceed == true {
+                        dispatch_async(dispatch_get_main_queue(), {
+                            if hasGroupId == self.selectedGroup?.groupId {
+                                self.selectedGroupViewNotificationButton.selected = self.selectedGroup?.groupNotification?.boolValue == false ? true: false
+                            } else {
+                                self.groupsTableView.reloadData()
+                            }
+                        })
+                    }
+                })
+            }
         }
     }
 

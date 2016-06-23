@@ -28,5 +28,12 @@ class TRBungieGroupInfo {
         self.eventCount = swiftyJson["eventCount"].int32Value
         self.groupNotification = swiftyJson["muteNotification"].boolValue
     }
+    
+    func updateNotificationMuteValueForGroupWithID (groupID: String, notiValue: Bool) {
+        let exsitingGroup = TRApplicationManager.sharedInstance.bungieGroups.filter{$0.groupId == groupID}
+        if let groupToUpdate = exsitingGroup.first {
+            groupToUpdate.groupNotification = notiValue
+        }
+    }
 }
 

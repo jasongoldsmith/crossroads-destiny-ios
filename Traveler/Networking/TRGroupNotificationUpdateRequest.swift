@@ -11,10 +11,11 @@ import Foundation
 
 class TRGroupNotificationUpdateRequest: TRRequest {
     
-    func updateUserGroupNotification (groupID: String, completion: TRValueCallBack) {
+    func updateUserGroupNotification (groupID: String, muteNoti: Bool, completion: TRValueCallBack) {
         let updateGroupNoti = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_GROUP_NOTI_VALUE
         var params = [String: AnyObject]()
-        params["id"] = TRUserInfo.getUserID()
+        params["groupId"] = groupID
+        params["muteNotification"] = muteNoti
         
         let request = TRRequest()
         request.params = params
@@ -27,16 +28,13 @@ class TRGroupNotificationUpdateRequest: TRRequest {
                 
                 return
             }
+
+            //Update the Noti Value for the group whose ID matches with the existing Bungie Group List
+            let hasGroupID = swiftyJsonVar["groupId"].stringValue
+            let notiValue = swiftyJsonVar["muteNotification"].boolValue
+            let bungieGroup = TRBungieGroupInfo()
+            bungieGroup.updateNotificationMuteValueForGroupWithID(hasGroupID, notiValue: notiValue)
             
-            //Remove all pre-saved groups
-            TRApplicationManager.sharedInstance.bungieGroups.removeAll()
-            
-            //Add newly fetched groups
-            for group in swiftyJsonVar.arrayValue {
-                let bungieGroup = TRBungieGroupInfo()
-                bungieGroup.parseAndCreateObj(group)
-                TRApplicationManager.sharedInstance.bungieGroups.append(bungieGroup)
-            }
             
             completion(didSucceed: true )
         }
