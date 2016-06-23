@@ -116,7 +116,7 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
         
         self.selectedGroupViewGroupName.text = self.selectedGroup?.groupName
         self.selectedGroupViewMemberCount.text = (self.selectedGroup?.memberCount?.description)! + " in Orbit"
-        self.selectedGroupViewNotificationButton.selected = self.selectedGroup?.groupNotification?.boolValue == false ? true: false
+        self.selectedGroupViewNotificationButton.selected = self.selectedGroup?.groupNotification?.boolValue == true ? true: false
         self.selectedGroupViewNotificationButton.addTarget(self, action: #selector(updateNotificationPreference), forControlEvents: .TouchUpInside)
         self.selectedGroupViewNotificationButton.buttonGroupInfo = self.selectedGroup
         
@@ -199,7 +199,7 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
             cell.userInteractionEnabled = true
             cell.notificationButton.buttonGroupInfo = groupInfo
             cell.notificationButton.addTarget(self, action: #selector(updateNotificationPreference), forControlEvents: .TouchUpInside)
-            cell.notificationButton.selected = groupInfo.groupNotification?.boolValue == false ? true: false
+            cell.notificationButton.selected = groupInfo.groupNotification?.boolValue == true ? true: false
         } else {
             cell.userInteractionEnabled = false
             cell.overlayImageView.hidden = false
@@ -239,7 +239,7 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
                     if didSucceed == true {
                         dispatch_async(dispatch_get_main_queue(), {
                             if hasGroupId == self.selectedGroup?.groupId {
-                                self.selectedGroupViewNotificationButton.selected = self.selectedGroup?.groupNotification?.boolValue == false ? true: false
+                                self.selectedGroupViewNotificationButton.selected = self.selectedGroup?.groupNotification?.boolValue == true ? true: false
                             } else {
                                 self.groupsTableView.reloadData()
                             }
