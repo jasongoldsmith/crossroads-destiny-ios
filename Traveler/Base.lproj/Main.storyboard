@@ -104,7 +104,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which group would you like to play with?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Hh-ej-dOf">
-                                <rect key="frame" x="100" y="117" width="400" height="24"/>
+                                <rect key="frame" x="80" y="117" width="440" height="24"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -192,7 +192,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="66" sectionHeaderHeight="15" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="WhP-cr-BTL">
-                                <rect key="frame" x="32" y="246" width="536" height="304"/>
+                                <rect key="frame" x="32" y="241" width="536" height="309"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Hk0-IT-ZlF" id="Way-Ty-32N"/>
@@ -203,13 +203,13 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="CWz-lA-epg" secondAttribute="trailing" constant="12" id="3BZ-ui-MWo"/>
-                            <constraint firstItem="4Hh-ej-dOf" firstAttribute="leading" secondItem="a4f-Bs-Ivf" secondAttribute="leadingMargin" constant="80" id="4k1-07-SUa"/>
+                            <constraint firstItem="4Hh-ej-dOf" firstAttribute="leading" secondItem="a4f-Bs-Ivf" secondAttribute="leadingMargin" constant="60" id="4k1-07-SUa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WhP-cr-BTL" secondAttribute="trailing" constant="12" id="7OK-gj-76T"/>
                             <constraint firstItem="UcS-9m-9Pf" firstAttribute="top" secondItem="4Hh-ej-dOf" secondAttribute="bottom" constant="13" id="BoY-4l-Sqb"/>
                             <constraint firstAttribute="trailing" secondItem="21G-5K-sdg" secondAttribute="trailing" id="DUH-gL-dQe"/>
                             <constraint firstItem="UcS-9m-9Pf" firstAttribute="leading" secondItem="CWz-lA-epg" secondAttribute="leading" id="EYW-GJ-Qsh"/>
                             <constraint firstItem="21G-5K-sdg" firstAttribute="top" secondItem="CWz-lA-epg" secondAttribute="bottom" constant="25" id="IPI-ky-reu"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4Hh-ej-dOf" secondAttribute="trailing" constant="80" id="Ivg-Kw-yuR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4Hh-ej-dOf" secondAttribute="trailing" constant="60" id="Ivg-Kw-yuR"/>
                             <constraint firstItem="T5d-y2-feT" firstAttribute="leading" secondItem="a4f-Bs-Ivf" secondAttribute="leading" id="Pfo-YM-cp5"/>
                             <constraint firstItem="21G-5K-sdg" firstAttribute="leading" secondItem="a4f-Bs-Ivf" secondAttribute="leading" id="QBS-GX-YV8"/>
                             <constraint firstItem="T7g-l3-C1j" firstAttribute="top" secondItem="k1z-ct-gNP" secondAttribute="bottom" constant="10" id="RoF-pF-0Vn"/>
@@ -218,7 +218,7 @@
                             <constraint firstAttribute="trailing" secondItem="T5d-y2-feT" secondAttribute="trailing" id="cRu-gg-rg0"/>
                             <constraint firstItem="CWz-lA-epg" firstAttribute="leading" secondItem="a4f-Bs-Ivf" secondAttribute="leadingMargin" constant="12" id="cm2-9Z-xSL"/>
                             <constraint firstItem="4Hh-ej-dOf" firstAttribute="top" secondItem="T7g-l3-C1j" secondAttribute="bottom" constant="14" id="g6R-VK-9tO"/>
-                            <constraint firstItem="WhP-cr-BTL" firstAttribute="top" secondItem="UcS-9m-9Pf" secondAttribute="bottom" constant="26" id="h5W-27-OoV"/>
+                            <constraint firstItem="WhP-cr-BTL" firstAttribute="top" secondItem="UcS-9m-9Pf" secondAttribute="bottom" constant="21" id="h5W-27-OoV"/>
                             <constraint firstItem="2WA-Rs-ejf" firstAttribute="top" secondItem="T5d-y2-feT" secondAttribute="bottom" id="kns-Zn-dGH"/>
                             <constraint firstItem="4Hh-ej-dOf" firstAttribute="centerX" secondItem="a4f-Bs-Ivf" secondAttribute="centerX" id="lQ3-5W-HJY"/>
                             <constraint firstItem="2WA-Rs-ejf" firstAttribute="top" secondItem="21G-5K-sdg" secondAttribute="bottom" id="o37-Bg-DVN"/>
@@ -891,6 +891,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afw-vy-KWX">
                                 <rect key="frame" x="544" y="29" width="44" height="44"/>
                                 <state key="normal" image="iconShare"/>
+                                <connections>
+                                    <action selector="openShareSheet:" destination="nhR-P4-WsZ" eventType="touchUpInside" id="ODe-8y-snc"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="50" sectionHeaderHeight="30" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Aqr-oc-sZI">
                                 <rect key="frame" x="0.0" y="215" width="600" height="335"/>
