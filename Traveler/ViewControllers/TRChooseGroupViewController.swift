@@ -61,7 +61,6 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
                         self.changeSaveButtonVisuals()
                     }
                     
-                    
                     if let userGroup = TRUserInfo.getUserClanID() {
                         let selectedGroup = self.bungieGroups.filter{$0.groupId! == userGroup}
                         self.selectedGroup = selectedGroup.first
@@ -71,8 +70,11 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
                         }
                         
                         //Add selected Group UI
-                        self.addSelectedGroupUI()
+                        dispatch_async(dispatch_get_main_queue()) {
+                            self.addSelectedGroupUI()
+                        }
                     }
+
                     
                     // Reload Data
                     dispatch_async(dispatch_get_main_queue()) { () -> Void in

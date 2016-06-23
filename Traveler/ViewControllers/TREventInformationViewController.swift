@@ -355,7 +355,12 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     
     //MARK:- Share Sheet
     @IBAction func openShareSheet (sender: UIButton) {
-        
+
+        // Group to Share
+        let groupToShare = [self.eventInfo!] as [AnyObject]
+
+        let activityViewController = UIActivityViewController(activityItems: groupToShare , applicationActivities: nil)
+        presentViewController(activityViewController, animated: true, completion: {})
     }
     
     deinit {
