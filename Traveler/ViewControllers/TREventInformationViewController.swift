@@ -337,6 +337,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         })
     }
     
+    //MARK:- Send Message To All
     @IBAction func sendMessageToAll (sender: UIButton) {
         
         self.sendChatMessageView.sendToLabel.text = "To: All Players"
@@ -351,6 +352,12 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         self.sendChatMessageView.pop_addAnimation(popAnimation, forKey: "alphasIn")
     }
 
+    
+    //MARK:- Share Sheet
+    @IBAction func openShareSheet (sender: UIButton) {
+        
+    }
+    
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
