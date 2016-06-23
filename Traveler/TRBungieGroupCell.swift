@@ -34,6 +34,10 @@ class TRBungieGroupCell: UITableViewCell {
     }
     
     func updateCellViewWithGroup (groupInfo: TRBungieGroupInfo) {
+        
+        //Adding rounder corner for cell
+        self.round([.AllCorners], radius: 2)
+        
         if let hasImage = groupInfo.avatarPath {
             let imageUrl = NSURL(string: hasImage)
             self.groupAvator?.sd_setImageWithURL(imageUrl)

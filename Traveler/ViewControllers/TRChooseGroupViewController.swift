@@ -104,6 +104,9 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     
     func addSelectedGroupUI () {
         
+        //Add rounder corner radius to the view
+        self.selectedGroupView.round([.AllCorners], radius: 2.0)
+        
         if let hasImage = self.selectedGroup?.avatarPath {
             let imageUrl = NSURL(string: hasImage)
             self.selectedGroupViewGroupImage?.sd_setImageWithURL(imageUrl)
