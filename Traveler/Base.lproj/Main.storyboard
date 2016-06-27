@@ -888,7 +888,7 @@
                                     <action selector="leaveEvent:" destination="nhR-P4-WsZ" eventType="touchUpInside" id="hZz-KB-gv2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afw-vy-KWX">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afw-vy-KWX">
                                 <rect key="frame" x="544" y="29" width="44" height="44"/>
                                 <state key="normal" image="iconShare"/>
                                 <connections>
