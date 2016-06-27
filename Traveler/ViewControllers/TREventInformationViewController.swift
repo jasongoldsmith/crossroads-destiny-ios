@@ -241,7 +241,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
             cell.chatButton?.addTarget(self, action: #selector(TREventInformationViewController.sendChatMessage(_:)), forControlEvents: .TouchUpInside)
         } else {
             cell.playerAvatorImageView?.image = UIImage(named: "iconProfileBlank")
-            cell.playerNameLable?.text = "Searching ..."
+            cell.playerNameLable?.text = "searching..."
             cell.chatButton?.hidden = true
         }
         
