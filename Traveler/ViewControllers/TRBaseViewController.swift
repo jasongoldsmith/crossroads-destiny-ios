@@ -103,8 +103,6 @@ class TRBaseViewController: UIViewController {
     }
     
     func applicationDidEnterBackground() {
-
-        TRApplicationManager.sharedInstance.fireBaseObj.removeObservers()
     }
     
     
