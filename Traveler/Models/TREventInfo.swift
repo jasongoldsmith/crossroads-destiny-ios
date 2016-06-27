@@ -26,17 +26,9 @@ class TREventInfo: NSObject {
     var eventClanID             : String?
     
     func parseCreateEventInfoObject (swiftyJason: JSON) -> TREventInfo {
-        return self.createEventObjectFromFireBaseWithEventID(swiftyJason, fireBaseEventID: nil)
-    }
-    
-    func createEventObjectFromFireBaseWithEventID (swiftyJason: JSON, fireBaseEventID: String?) -> TREventInfo {
         
         // Creating Event Objects from Events List
-        if let _ = fireBaseEventID {
-            self.eventID           = fireBaseEventID
-        } else {
-            self.eventID           = swiftyJason["_id"].stringValue
-        }
+        self.eventID           = swiftyJason["_id"].stringValue
         self.eventStatus       = swiftyJason["status"].stringValue
         self.eventUpdatedDate  = swiftyJason["updated"].stringValue
         self.eventMaxPlayers   = swiftyJason["maxPlayers"].numberValue
@@ -93,7 +85,7 @@ class TREventInfo: NSObject {
             
             //TODO: REMOVE FIRST OBJECT
             creatorInfo.playerPsnID = creatorInfo.playerConsoles.first?.consoleId
-
+            
             // Event Creator Added
             self.eventCreator = creatorInfo
         }
@@ -129,6 +121,7 @@ class TREventInfo: NSObject {
         
         return self
     }
+    
 }
 
 

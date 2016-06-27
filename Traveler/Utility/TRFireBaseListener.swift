@@ -57,7 +57,9 @@ class TRFireBaseListener {
             else {
                 _ = TRGetEventsList().getEventsListWithClearActivityBackGround (false, clearBG: true, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
                     if(didSucceed == true) {
-                        parentViewController.reloadEventTable()
+                        dispatch_async(dispatch_get_main_queue(), {
+                            parentViewController.reloadEventTable()
+                        })
                     } else {
                         
                     }
@@ -66,13 +68,17 @@ class TRFireBaseListener {
         })
     }
     
-    func addEventsObserversWithParentViewForDetailView (parentViewController: TRBaseViewController, withEvent: TREventInfo) {
+    func addEventsObserversWithParentViewForDetailView (parentViewController: TREventInformationViewController, withEvent: TREventInfo) {
         
         guard let hasEventClan = withEvent.eventClanID else {
             return
         }
-        
-        let fireBaseUrl = K.TRUrls.TR_FIREBASE_DEFAULT + "events/" + hasEventClan
+
+        guard let hasEventID = withEvent.eventID else {
+            return
+        }
+
+        let fireBaseUrl = K.TRUrls.TR_FIREBASE_DEFAULT + "events/" + hasEventClan + "/" + hasEventID
         self.firebaseChatData = Firebase(url:(fireBaseUrl))
         self.firebaseChatData?.observeEventType(.Value, withBlock: { snap in
             
@@ -80,11 +86,14 @@ class TRFireBaseListener {
                 //something is wrong, not even empty array
             }
             else {
-                _ = TRGetEventsList().getEventsListWithClearActivityBackGround (false, clearBG: true, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
-                    if(didSucceed == true) {
-                        parentViewController.reloadEventTable()
-                    } else {
-                        
+                
+                // FETCH EVENT OBJECT
+                _ = TRGetEventRequest().getEventByID(hasEventID, completion: { (event) in
+                    if let hasEvent = event {
+                        parentViewController.eventInfo = hasEvent
+                        dispatch_async(dispatch_get_main_queue(), {
+                            parentViewController.reloadEventTable()
+                        })
                     }
                 })
             }

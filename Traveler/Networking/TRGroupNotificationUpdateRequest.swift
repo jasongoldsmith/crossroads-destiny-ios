@@ -15,7 +15,9 @@ class TRGroupNotificationUpdateRequest: TRRequest {
         let updateGroupNoti = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_GROUP_NOTI_VALUE
         var params = [String: AnyObject]()
         params["groupId"] = groupID
-        params["muteNotification"] = muteNoti
+        params["muteNotification"] = muteNoti == true ? "true" : "false"
+        
+        
         
         let request = TRRequest()
         request.params = params
@@ -34,7 +36,6 @@ class TRGroupNotificationUpdateRequest: TRRequest {
             let notiValue = swiftyJsonVar["muteNotification"].boolValue
             let bungieGroup = TRBungieGroupInfo()
             bungieGroup.updateNotificationMuteValueForGroupWithID(hasGroupID, notiValue: notiValue)
-            
             
             completion(didSucceed: true )
         }

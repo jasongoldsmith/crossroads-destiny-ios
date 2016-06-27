@@ -9,7 +9,7 @@
 
 class TRLeaveEventRequest: TRRequest {
     
-    func leaveAnEvent (eventInfo: TREventInfo, completion: TRValueCallBack) {
+    func leaveAnEvent (eventInfo: TREventInfo, completion: TREventObjCallBack) {
         
         let leaveEventtUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_LeaveEventUrl
         
@@ -26,7 +26,7 @@ class TRLeaveEventRequest: TRRequest {
             
             if let _ = error {
                 TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("response error")
-                completion(didSucceed: false)
+                completion(event: nil)
                 
                 return
             }
@@ -48,7 +48,7 @@ class TRLeaveEventRequest: TRRequest {
                 if existingEvent != nil {
                     TRApplicationManager.sharedInstance.eventsList.removeAtIndex(TRApplicationManager.sharedInstance.eventsList.indexOf(existingEvent!)!)
                 }
-                completion(didSucceed: true)
+                completion(event: existingEvent)
                 
                 return
             }
@@ -57,7 +57,7 @@ class TRLeaveEventRequest: TRRequest {
                 existingEvent?.parseCreateEventInfoObject(swiftyJsonVar)
             }
             
-            completion(didSucceed: true )
+            completion(event: existingEvent)
         }
     }
 }

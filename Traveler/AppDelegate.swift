@@ -23,11 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let remoteNotification = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? NSDictionary? {
             let rootViewController = self.window!.rootViewController as! TRRootViewController
             rootViewController.pushNotificationData = remoteNotification
-            
-            //Clear Notifications
-            application.applicationIconBadgeNumber = 1
-            application.applicationIconBadgeNumber = 0;
-            application.cancelAllLocalNotifications()
         }
 
         
@@ -92,12 +87,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        
-        // Clear Notofications
-        application.applicationIconBadgeNumber = 1
-        application.applicationIconBadgeNumber = 0;
-        application.cancelAllLocalNotifications()
-    
+
         if application.applicationState == UIApplicationState.Active {
             NSNotificationCenter.defaultCenter().postNotificationName(K.NOTIFICATION_TYPE.REMOTE_NOTIFICATION_WITH_ACTIVE_SESSION, object: self, userInfo: userInfo)
         }

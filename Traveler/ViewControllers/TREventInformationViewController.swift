@@ -109,9 +109,6 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
         //Leave Event and Send Message To All button update
         self.leaveEventButton?.buttonEventInfo = self.eventInfo
         self.updateBottomButtons()
-        
-        // Add FireBase Observer
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(reloadEventTable), name: K.NOTIFICATION_TYPE.FIREBASE_RELOAD_VIEW, object: nil)
     }
     
     func updateBottomButtons () {
@@ -174,8 +171,6 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
-        //Add FireBase Observer
         TRApplicationManager.sharedInstance.fireBaseObj.addEventsObserversWithParentViewForDetailView(self,withEvent: self.eventInfo!)
     }
     
@@ -258,8 +253,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     }
     
     override func reloadEventTable () {
-        self.eventInfo = TRApplicationManager.sharedInstance.getEventById((self.eventInfo?.eventID)!)
-        
+
         guard let _ = self.eventInfo else {
             self.dismissViewController(true, dismissed: { (didDismiss) in
                 
@@ -304,10 +298,11 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
             return
         }
         
-        _ = TRLeaveEventRequest().leaveAnEvent(buttonHasEvent, completion: { (didSucceed) in
-            if (didSucceed == true) {
+        _ = TRLeaveEventRequest().leaveAnEvent(buttonHasEvent, completion: { (event) in
+            if let _ = event {
+                self.eventInfo = event
                 dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                    if let _ = TRApplicationManager.sharedInstance.getEventById((self.eventInfo?.eventID)!) {
+                    if let _ = self.eventInfo {
                         self.reloadEventTable()
                     } else {
                         self.dismissViewController(true, dismissed: { (didDismiss) in
@@ -326,16 +321,16 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
             return
         }
         
-        _ = TRJoinEventRequest().joinEventWithUserForEvent(TRUserInfo.getUserID()!, eventInfo: buttonHasEvent, completion: { (value) -> () in
-            if (value == true) {
+        
+        _ = TRJoinEventRequest().joinEventWithUserForEvent(TRUserInfo.getUserID()!, eventInfo: buttonHasEvent, completion: { (event) in
+            if let _ = event {
+                self.eventInfo = event
                 dispatch_async(dispatch_get_main_queue()) { () -> Void in
                     self.reloadEventTable()
                 }
-            } else {
-                print("Failed")
             }
         })
-    }
+     }
     
     //MARK:- Send Message To All
     @IBAction func sendMessageToAll (sender: UIButton) {

@@ -90,9 +90,6 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         // Show No Events View if Events Table is Empty
         self.emptyTableBackGround?.hidden = self.eventsInfo.count > 0 ? true : false
 
-        //FireBase Observer
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(reloadEventTable), name: K.NOTIFICATION_TYPE.FIREBASE_RELOAD_VIEW, object: nil)
-        
         //Add Notification Permission
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.addNotificationsPermission()
@@ -278,14 +275,15 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         }
         
         // Show event detail view controller
-        self.showEventInfoViewController(eventInfo)
+        self.showEventInfoViewController(eventInfo, fromPushNoti: false)
     }
     
-    func showEventInfoViewController(eventInfo: TREventInfo?) {
+    func showEventInfoViewController(eventInfo: TREventInfo?, fromPushNoti: Bool?) {
         
         let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
         let vc : TREventInformationViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_EVENT_INFORMATION) as! TREventInformationViewController
         vc.eventInfo = eventInfo
+        
         
         self.presentViewController(vc, animated: true, completion: nil)
     }
@@ -311,7 +309,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         if let payload = sender.userInfo!["payload"] as? NSDictionary {
             let _ = TRPushNotification().fetchEventFromPushNotification(payload, complete: { (event) in
                 if let _ = event {
-                    self.showEventInfoViewController(event)
+                    self.showEventInfoViewController(event, fromPushNoti: true)
                 }
             })
         }
@@ -319,29 +317,19 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     
     //MARK:- Event Methods
     func joinAnEvent (sender: EventButton) {
-      
-        if let eventInfo = sender.buttonEventInfo {
-            _ = TRJoinEventRequest().joinEventWithUserForEvent(TRUserInfo.getUserID()!, eventInfo: eventInfo, completion: { (value) -> () in
-                if (value == true) {
-                    dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                        self.reloadEventTable()
-                    }
-                } else {
-                    print("Failed")
+      if let eventInfo = sender.buttonEventInfo {
+            _ = TRJoinEventRequest().joinEventWithUserForEvent(TRUserInfo.getUserID()!, eventInfo: eventInfo, completion: { (event) in
+                if let _ = event {
+                    //Was reloading table here but not anymore, table reload will happen on FireBase Interupt
                 }
             })
         }
     }
     
     func leaveAnEvent (sender: EventButton) {
-        
-        _  = TRLeaveEventRequest().leaveAnEvent(sender.buttonEventInfo!,completion: {value in
-            if (value == true) {
-                dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                    self.reloadEventTable()
-                }
-            } else {
-                
+        _  = TRLeaveEventRequest().leaveAnEvent(sender.buttonEventInfo!,completion: {(event) in
+            if let _ = event {
+                //Was reloading table here but not anymore, table reload will happen on FireBase Interupt
             }
         })
     }
@@ -416,7 +404,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
     
     @IBAction func showChangeGroupsVc (sender: AnyObject) {
-        TRApplicationManager.sharedInstance.slideMenuController.openRight()
+        TRApplicationManager.sharedInstance.openSlideMenuRight()
     }
     
     deinit {

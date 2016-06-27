@@ -123,13 +123,13 @@ class TRApplicationManager: NSObject {
                 if let payload = pushData!.objectForKey("payload") as? NSDictionary{
                     let _ = TRPushNotification().fetchEventFromPushNotification(payload, complete: { (event) in
                         if let _ = event {
-                            eventListViewController.showEventInfoViewController(event)
+                            eventListViewController.showEventInfoViewController(event, fromPushNoti: true)
                         }
                     })
                 }
             } else if (showGroups){
                 self.slideMenuController.view.alpha = 1
-                self.slideMenuController.rightViewController!.openRight()
+                self.openSlideMenuRight()
             } else if (!showLandingPage){
                 let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
                 let vc : TRCreateEventViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEWCONTROLLER_CREATE_EVENT) as! TRCreateEventViewController
@@ -139,6 +139,14 @@ class TRApplicationManager: NSObject {
                 })
             }  else {
                 self.slideMenuController.view.alpha = 1
+            }
+        })
+    }
+    
+    func openSlideMenuRight () {
+        _ = TRGetAllDestinyGroups().getAllGroups({ (didSucceed) in
+            if didSucceed == true {
+                self.slideMenuController.rightViewController!.openRight()
             }
         })
     }

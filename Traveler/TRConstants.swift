@@ -57,6 +57,7 @@ struct K {
         static let TR_RESEND_VERIFICATION =  "/api/v1/a/account/group/resendBungieMessage"
         static let TR_BUNGIE_USER_AUTH   =   "/api/v1/auth/checkBungieAccount"
         static let TR_GROUP_NOTI_VALUE   =   "/api/v1/a/account/group/mute"
+        static let TR_GET_EVENT          =   "/api/v1/a/event/listById"
     }
     
     struct StoryBoard {
@@ -100,7 +101,6 @@ struct K {
         static let APPLICATION_DID_RECEIVE_REMOTE_NOTIFICATION  = "UIApplicationDidReceiveRemoteNotification"
         static let APPLICATION_WILL_TERMINATE                   = "UIApplicationWillTerminateNotification"
         static let APPLICATION_WILL_RESIGN_ACTIVE               = "UIApplicationWillResignActiveNotification"
-        static let FIREBASE_RELOAD_VIEW                         = "fireBaseReloadView"
     }
 }
 

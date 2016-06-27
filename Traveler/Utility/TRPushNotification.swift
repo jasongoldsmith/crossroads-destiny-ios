@@ -52,10 +52,8 @@ class TRPushNotification {
     }
     
     func getEvent (eventID: String, completion: TREventObjCallBack) {
-        _ = TRGetEventByEventID().getEventByID(eventID, completion: { (event) in
-            if let _ = event {
-                completion(event: event)
-            }
+        _ = TRGetEventRequest().getEventByID(eventID, completion: { (event) in
+            completion(event: event)
         })
     }
 }

@@ -9,7 +9,7 @@
 
 class TRJoinEventRequest: TRRequest {
     
-    func joinEventWithUserForEvent (userId: String, eventInfo: TREventInfo, completion: TRValueCallBack) {
+    func joinEventWithUserForEvent (userId: String, eventInfo: TREventInfo, completion: TREventObjCallBack) {
         
         let joinEventUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_JoinEventUrl
         
@@ -24,7 +24,7 @@ class TRJoinEventRequest: TRRequest {
             
             if let _ = error {
                 TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("response error")
-                completion(didSucceed: false)
+                completion(event: nil)
                 
                 return
             }
@@ -37,7 +37,7 @@ class TRJoinEventRequest: TRRequest {
                     existingEvent?.parseCreateEventInfoObject(swiftyJsonVar)
                 }
                             
-                completion(didSucceed: true )
+                completion(event: existingEvent)
             }
         }
     }
