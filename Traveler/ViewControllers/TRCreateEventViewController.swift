@@ -29,7 +29,7 @@ class TRCreateEventViewController: TRBaseViewController, UINavigationControllerD
         
         //Navigation
         self.title = "ADD ACTIVITY"
-        self.addNavigationBarButtons()
+        self.addCancelNavigationBarButtons()
         
         self.navigationController?.interactivePopGestureRecognizer?.enabled = true
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self

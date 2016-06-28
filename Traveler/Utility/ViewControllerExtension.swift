@@ -34,10 +34,14 @@ extension UIViewController {
     
     func addNavigationBarButtons () {
         
+        //Navigation Bar Title Font
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "HelveticaNeue-Bold", size: 17)!]
+        self.navigationController?.navigationBar.setTitleVerticalPositionAdjustment(2.0, forBarMetrics: .Default)
+
         let nav = self.navigationController?.navigationBar
         nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         nav?.barTintColor = UIColor(red: 10/255, green: 31/255, blue: 39/255, alpha: 1)
-
+        
         //Adding Back Button to nav Bar
         let leftButton = UIButton(frame: CGRectMake(0,0,44,44))
         leftButton.setImage(UIImage(named: "iconBackArrow"), forState: .Normal)
@@ -51,19 +55,34 @@ extension UIViewController {
         let leftBarButton = UIBarButtonItem()
         leftBarButton.customView = leftButtonContainer
         
-//        // Avator Image View
-//        if let imageString = TRUserInfo.getUserImageString() {
-//            let imageUrl = NSURL(string: imageString)
-//            let avatorImageView = UIImageView()
-//            avatorImageView.sd_setImageWithURL(imageUrl)
-//            let avatorImageFrame = CGRectMake((self.navigationController?.navigationBar.frame.width)! - avatorImageView.frame.size.width - 50, (self.navigationController?.navigationBar.frame.height)! - avatorImageView.frame.size.height - 40, 30, 30)
-//            avatorImageView.frame = avatorImageFrame
-//            avatorImageView.roundRectView()
-//            
-//            self.navigationController?.navigationBar.addSubview(avatorImageView)
-//        }
-        
         self.navigationItem.leftBarButtonItem = leftBarButton
+    }
+    
+    func addCancelNavigationBarButtons () {
+        
+        //Navigation Bar Title Font
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "HelveticaNeue-Bold", size: 17)!]
+        self.navigationController?.navigationBar.setTitleVerticalPositionAdjustment(2.0, forBarMetrics: .Default)
+        
+        let nav = self.navigationController?.navigationBar
+        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        nav?.barTintColor = UIColor(red: 10/255, green: 31/255, blue: 39/255, alpha: 1)
+        
+        //Adding Back Button to nav Bar
+        let rightButton = UIButton(frame: CGRectMake(0,0,60,17))
+        rightButton.setTitle("Cancel", forState: .Normal)
+        rightButton.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 17)
+        rightButton.addTarget(self, action: #selector(TRCreateEventViewController.navBackButtonPressed(_:)), forControlEvents: .TouchUpInside)
+        rightButton.transform = CGAffineTransformMakeTranslation(3, 0)
+        
+        // Add the button to a container, otherwise the transform will be ignored
+        let rightButtonContainer = UIView(frame: rightButton.frame)
+        rightButtonContainer.addSubview(rightButton)
+        
+        let rightBarButton = UIBarButtonItem()
+        rightBarButton.customView = rightButtonContainer
+        
+        self.navigationItem.rightBarButtonItem = rightBarButton
     }
     
     func hideNavigationBar () {
