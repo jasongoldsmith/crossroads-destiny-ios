@@ -65,7 +65,7 @@ class TRCreateEventSelectionViewController: TRBaseViewController {
         
         //Navigation
         self.title = "ADD ACTIVITY"
-        self.addNavigationBarButtons()
+        self.addNavigationBarButtons(true, showCancel: true)
     }
     
     override func viewDidAppear(animated: Bool) {

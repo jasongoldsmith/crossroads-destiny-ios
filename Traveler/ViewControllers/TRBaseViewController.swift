@@ -143,6 +143,13 @@ class TRBaseViewController: UIViewController {
         self.navigationController?.popViewControllerAnimated(true)
     }
 
+    func navigationButtonClosePressed (sender: UIBarButtonItem?) {
+        self.dismissViewControllerAnimated(true) { () -> Void in
+            self.didMoveToParentViewController(nil)
+            self.removeFromParentViewController()
+        }
+    }
+    
     deinit {
         
         //Remove Observers

@@ -29,7 +29,7 @@ class TRCreateEventViewController: TRBaseViewController, UINavigationControllerD
         
         //Navigation
         self.title = "ADD ACTIVITY"
-        self.addCancelNavigationBarButtons()
+        self.addNavigationBarButtons(false, showCancel: true)
         
         self.navigationController?.interactivePopGestureRecognizer?.enabled = true
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
@@ -79,13 +79,6 @@ class TRCreateEventViewController: TRBaseViewController, UINavigationControllerD
                 self.appManager.log.debug("Activity List fetch failed")
             }
         })
-    }
-    
-    override func navBackButtonPressed (sender: UIBarButtonItem?) {
-        self.dismissViewControllerAnimated(true) { () -> Void in
-            self.didMoveToParentViewController(nil)
-            self.removeFromParentViewController()
-        }
     }
     
     @IBAction func activityButtonPressed (sender: EventButton) {

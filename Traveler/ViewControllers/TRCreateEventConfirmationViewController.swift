@@ -80,7 +80,7 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         
         //Navigation
         self.title = "ADD ACTIVITY"
-        self.addNavigationBarButtons()
+        self.addNavigationBarButtons(true, showCancel: true)
         
         //Add Activity Icon
         self.addActivityImage()
