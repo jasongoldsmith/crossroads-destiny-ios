@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 import SwiftyJSON
+import SlideMenuControllerSwift
 
 private let CURRENT_EVENT_WITH_CHECK_POINT_CELL     = "currentEventCellWithCheckPoint"
 private let CURRENT_EVENT_NO_CHECK_POINT_CELL       = "currentEventCellNoCheckPoint"
@@ -180,7 +181,10 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     override  func applicationWillEnterForeground() {
         
         //Add FireBase Observer
-        TRApplicationManager.sharedInstance.fireBaseObj.addEventsObserversWithParentView(self)
+        if self.currentViewController?.isKindOfClass(TREventListViewController) == true {
+            TRApplicationManager.sharedInstance.fireBaseObj.removeObservers()
+            TRApplicationManager.sharedInstance.fireBaseObj.addEventsObserversWithParentView(self)
+        }
 
         _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: false, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
             if(didSucceed == true) {
