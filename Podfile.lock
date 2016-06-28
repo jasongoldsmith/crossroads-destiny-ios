@@ -1,12 +1,12 @@
 PODS:
-  - AFDateHelper (3.4.0)
+  - AFDateHelper (3.4.2)
   - Alamofire (3.3.1)
   - Firebase (2.5.1)
   - pop (1.0.9)
-  - SDWebImage (3.7.6):
-    - SDWebImage/Core (= 3.7.6)
-  - SDWebImage/Core (3.7.6)
-  - SlideMenuControllerSwift (2.1.1)
+  - SDWebImage (3.8.1):
+    - SDWebImage/Core (= 3.8.1)
+  - SDWebImage/Core (3.8.1)
+  - SlideMenuControllerSwift (2.2.0)
   - SwiftyJSON (2.3.2)
   - TTTAttributedLabel (2.0.0)
   - XCGLogger (3.3)
@@ -33,16 +33,16 @@ CHECKOUT OPTIONS:
     :commit: b30efd828111e4dfd1651635c8586f859d1fd3c2
     :git: https://github.com/facebook/pop.git
   SwiftyJSON:
-    :commit: 2a5b70f06001316d4fb54501edc70b4084705da0
+    :commit: 73670b94292b8d8496c398a973f56ac67789ba9f
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  AFDateHelper: 1fd229b038d3e0286b848078cf073d9ee6a48ea8
+  AFDateHelper: aecee6bb264d6531795649f4ebac47783d2bab74
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
   Firebase: 3565ea88b830f28f2c77ecc524622bc71a20d085
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
-  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
-  SlideMenuControllerSwift: 82ada9b04e03538c84d034cf1c09e5849c0113f7
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+  SlideMenuControllerSwift: 16dac00b1aaad153e64fffb5d6969ab31ad88372
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   XCGLogger: d6e196e78940ff6daab17d6917107876f973fa31

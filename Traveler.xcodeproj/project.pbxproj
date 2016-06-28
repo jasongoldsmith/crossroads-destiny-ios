@@ -414,6 +414,7 @@
 
 /* Begin PBXFileReference section */
 		15055A9B48C33842D573D67F /* Pods-Crossroads.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crossroads.release.xcconfig"; path = "Pods/Target Support Files/Pods-Crossroads/Pods-Crossroads.release.xcconfig"; sourceTree = "<group>"; };
+		1B1BEC39629D2D3E657864C8 /* Pods-TravelerTests.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelerTests.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-TravelerTests/Pods-TravelerTests.adhoc.xcconfig"; sourceTree = "<group>"; };
 		25E7152E28FC6248E82F096C /* Pods_Traveler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Traveler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B8583D80A7610B0A4D42EAA /* Pods-TravelerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelerTests/Pods-TravelerTests.release.xcconfig"; sourceTree = "<group>"; };
 		3300FC111D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRGroupNotificationUpdateRequest.swift; sourceTree = "<group>"; };
@@ -532,8 +533,11 @@
 		797742E481ACA13DC46DAE82 /* Pods_TravelerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91ACF886DB3169067005955A /* Pods-TravelerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelerUITests/Pods-TravelerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AF20CB55E36D5C9D4084E3CA /* Pods-Crossroads.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crossroads.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Crossroads/Pods-Crossroads.debug.xcconfig"; sourceTree = "<group>"; };
+		B4D303D3CD4C26890B9FBF6E /* Pods-Traveler.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveler.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-Traveler/Pods-Traveler.adhoc.xcconfig"; sourceTree = "<group>"; };
 		BF1F23EA88B2E76243C71867 /* Pods_Crossroads.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Crossroads.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCD9BEEC468299E0E9961996 /* Pods-Traveler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveler.release.xcconfig"; path = "Pods/Target Support Files/Pods-Traveler/Pods-Traveler.release.xcconfig"; sourceTree = "<group>"; };
+		EBAEA0A0A3DEAAF535498FF0 /* Pods-Crossroads.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crossroads.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-Crossroads/Pods-Crossroads.adhoc.xcconfig"; sourceTree = "<group>"; };
+		EF0B0E592DA496AEFB92FD27 /* Pods-TravelerUITests.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelerUITests.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-TravelerUITests/Pods-TravelerUITests.adhoc.xcconfig"; sourceTree = "<group>"; };
 		F113091A1153777DD1430772 /* Pods-Traveler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Traveler/Pods-Traveler.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -831,6 +835,10 @@
 				DCD9BEEC468299E0E9961996 /* Pods-Traveler.release.xcconfig */,
 				AF20CB55E36D5C9D4084E3CA /* Pods-Crossroads.debug.xcconfig */,
 				15055A9B48C33842D573D67F /* Pods-Crossroads.release.xcconfig */,
+				EBAEA0A0A3DEAAF535498FF0 /* Pods-Crossroads.adhoc.xcconfig */,
+				B4D303D3CD4C26890B9FBF6E /* Pods-Traveler.adhoc.xcconfig */,
+				1B1BEC39629D2D3E657864C8 /* Pods-TravelerTests.adhoc.xcconfig */,
+				EF0B0E592DA496AEFB92FD27 /* Pods-TravelerUITests.adhoc.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1657,6 +1665,121 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		337D2D9F1D23109000F73D43 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_SWIFT_FLAGS = "-DADHOC";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Adhoc;
+		};
+		337D2DA01D23109000F73D43 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4D303D3CD4C26890B9FBF6E /* Pods-Traveler.adhoc.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"ADHOC=1",
+				);
+				INFOPLIST_FILE = "Traveler copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.crossroadsapp.destiny;
+				PRODUCT_NAME = "Dev CSRD";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "TR-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
+			};
+			name = Adhoc;
+		};
+		337D2DA11D23109000F73D43 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBAEA0A0A3DEAAF535498FF0 /* Pods-Crossroads.adhoc.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				INFOPLIST_FILE = Traveler/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = co.crossroadsapp.destiny;
+				PRODUCT_NAME = Crossroads;
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "TR-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
+			};
+			name = Adhoc;
+		};
+		337D2DA21D23109000F73D43 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B1BEC39629D2D3E657864C8 /* Pods-TravelerTests.adhoc.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TravelerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.verizon.feighty.TravelerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Traveler.app/Traveler";
+			};
+			name = Adhoc;
+		};
+		337D2DA31D23109000F73D43 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF0B0E592DA496AEFB92FD27 /* Pods-TravelerUITests.adhoc.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = TravelerUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.verizon.feighty.TravelerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Traveler;
+				USES_XCTRUNNER = YES;
+			};
+			name = Adhoc;
+		};
 		33D0B4601CFD0165008ABA04 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F113091A1153777DD1430772 /* Pods-Traveler.debug.xcconfig */;
@@ -1703,6 +1826,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1749,6 +1873,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1890,6 +2015,7 @@
 			buildConfigurations = (
 				33D0B4601CFD0165008ABA04 /* Debug */,
 				33D0B4611CFD0165008ABA04 /* Release */,
+				337D2DA01D23109000F73D43 /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1899,6 +2025,7 @@
 			buildConfigurations = (
 				62C1FF521C77C15C00A78798 /* Debug */,
 				62C1FF531C77C15C00A78798 /* Release */,
+				337D2D9F1D23109000F73D43 /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1908,6 +2035,7 @@
 			buildConfigurations = (
 				62C1FF551C77C15C00A78798 /* Debug */,
 				62C1FF561C77C15C00A78798 /* Release */,
+				337D2DA11D23109000F73D43 /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1917,6 +2045,7 @@
 			buildConfigurations = (
 				62C1FF581C77C15C00A78798 /* Debug */,
 				62C1FF591C77C15C00A78798 /* Release */,
+				337D2DA21D23109000F73D43 /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1926,6 +2055,7 @@
 			buildConfigurations = (
 				62C1FF5B1C77C15C00A78798 /* Debug */,
 				62C1FF5C1C77C15C00A78798 /* Release */,
+				337D2DA31D23109000F73D43 /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

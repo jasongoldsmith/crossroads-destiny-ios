@@ -100,14 +100,18 @@ class TRApplicationManager: NSObject {
         self.slideMenuController.closeLeft()
         self.slideMenuController.rightPanGesture?.enabled = true
         self.slideMenuController.leftPanGesture?.enabled = true
-        SlideMenuOptions.leftBezelWidth = 0.0
-        SlideMenuOptions.rightBezelWidth = 0.0
         
         if DeviceType.IS_IPHONE_4_OR_LESS || DeviceType.IS_IPHONE_5 {
             self.slideMenuController.changeLeftViewWidth(290)
             self.slideMenuController.changeRightViewWidth(290)
+        } else {
+            self.slideMenuController.changeLeftViewWidth(340)
+            self.slideMenuController.changeRightViewWidth(340)
         }
         
+        SlideMenuOptions.leftBezelWidth = 0.0
+        SlideMenuOptions.rightBezelWidth = 0.0
+
         var animated = false
         if let _ = pushData {
             if let _ = pushData!.objectForKey("payload") as? NSDictionary {
