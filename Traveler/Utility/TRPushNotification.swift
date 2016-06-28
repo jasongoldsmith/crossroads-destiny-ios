@@ -31,7 +31,7 @@ class TRPushNotification {
             }
         }
 
-        if let eventID = pushPayLoad.objectForKey("eventId") as? String {
+        if let eventID = pushPayLoad.objectForKey("eventId") as? String where eventID != "" {
             if let eventUpdateTime = pushPayLoad.objectForKey("eventUpdated") as? String {
                 if let existingEvent = TRApplicationManager.sharedInstance.getEventById(eventID) {
                     if eventUpdateTime == existingEvent.eventUpdatedDate {
@@ -48,6 +48,8 @@ class TRPushNotification {
                     })
                 }
             }
+        } else {
+            complete(event: nil)
         }
     }
     
