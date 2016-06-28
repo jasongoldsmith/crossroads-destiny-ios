@@ -178,6 +178,10 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     
     
     override  func applicationWillEnterForeground() {
+        
+        //Add FireBase Observer
+        TRApplicationManager.sharedInstance.fireBaseObj.addEventsObserversWithParentView(self)
+
         _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: false, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
             if(didSucceed == true) {
                     self.reloadEventTable()
