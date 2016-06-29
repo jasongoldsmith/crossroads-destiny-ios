@@ -218,18 +218,26 @@
                             <constraint firstItem="WhP-cr-BTL" firstAttribute="leading" secondItem="a4f-Bs-Ivf" secondAttribute="leadingMargin" constant="12" id="WVg-3v-bsQ"/>
                             <constraint firstItem="UcS-9m-9Pf" firstAttribute="leading" secondItem="WhP-cr-BTL" secondAttribute="leading" id="c62-Et-sVQ"/>
                             <constraint firstAttribute="trailing" secondItem="T5d-y2-feT" secondAttribute="trailing" id="cRu-gg-rg0"/>
-                            <constraint firstItem="CWz-lA-epg" firstAttribute="leading" secondItem="a4f-Bs-Ivf" secondAttribute="leadingMargin" constant="12" id="cm2-9Z-xSL"/>
                             <constraint firstItem="4Hh-ej-dOf" firstAttribute="top" secondItem="T7g-l3-C1j" secondAttribute="bottom" constant="14" id="g6R-VK-9tO"/>
                             <constraint firstItem="WhP-cr-BTL" firstAttribute="top" secondItem="UcS-9m-9Pf" secondAttribute="bottom" constant="21" id="h5W-27-OoV"/>
                             <constraint firstItem="2WA-Rs-ejf" firstAttribute="top" secondItem="T5d-y2-feT" secondAttribute="bottom" id="kns-Zn-dGH"/>
                             <constraint firstItem="4Hh-ej-dOf" firstAttribute="centerX" secondItem="a4f-Bs-Ivf" secondAttribute="centerX" id="lQ3-5W-HJY"/>
                             <constraint firstItem="2WA-Rs-ejf" firstAttribute="top" secondItem="21G-5K-sdg" secondAttribute="bottom" id="o37-Bg-DVN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CWz-lA-epg" secondAttribute="trailing" constant="12" id="pBw-VO-Wmd"/>
                             <constraint firstItem="UcS-9m-9Pf" firstAttribute="trailing" secondItem="CWz-lA-epg" secondAttribute="trailing" id="rs3-Xq-aWK"/>
+                            <constraint firstItem="CWz-lA-epg" firstAttribute="leading" secondItem="a4f-Bs-Ivf" secondAttribute="leadingMargin" constant="12" id="vFO-2z-UWP"/>
                             <constraint firstItem="2WA-Rs-ejf" firstAttribute="top" secondItem="WhP-cr-BTL" secondAttribute="bottom" constant="50" id="wKa-Bt-2gb"/>
                             <constraint firstItem="WhP-cr-BTL" firstAttribute="centerX" secondItem="a4f-Bs-Ivf" secondAttribute="centerX" id="wvI-om-71U"/>
                             <constraint firstItem="CWz-lA-epg" firstAttribute="centerX" secondItem="a4f-Bs-Ivf" secondAttribute="centerX" id="xtD-CC-fZU"/>
                             <constraint firstItem="T7g-l3-C1j" firstAttribute="centerX" secondItem="a4f-Bs-Ivf" secondAttribute="centerX" id="zv2-pD-CGk"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="EYW-GJ-Qsh"/>
+                                <exclude reference="rs3-Xq-aWK"/>
+                                <exclude reference="3BZ-ui-MWo"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="appIcon" destination="T7g-l3-C1j" id="5S5-Eu-vQk"/>

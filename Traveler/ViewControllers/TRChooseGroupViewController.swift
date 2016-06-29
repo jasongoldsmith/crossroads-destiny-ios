@@ -45,8 +45,6 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.selectedGroupView.clipsToBounds = true
-        
         //Fetch Groups
         self.bungieGroups.removeAll()
         self.bungieGroups = TRApplicationManager.sharedInstance.bungieGroups
