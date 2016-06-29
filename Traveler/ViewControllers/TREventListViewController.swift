@@ -412,7 +412,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
     
     @IBAction func showChangeGroupsVc (sender: AnyObject) {
-        TRApplicationManager.sharedInstance.openSlideMenuRight()
+        TRApplicationManager.sharedInstance.fetchBungieGroups(true)
     }
     
     deinit {

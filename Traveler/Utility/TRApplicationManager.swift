@@ -119,6 +119,7 @@ class TRApplicationManager: NSObject {
             }
         }
         
+        
         self.slideMenuController.view.alpha = 0
         parentViewController.presentViewController(self.slideMenuController, animated: animated, completion: {
             
@@ -133,7 +134,7 @@ class TRApplicationManager: NSObject {
                 }
             } else if (showGroups){
                 self.slideMenuController.view.alpha = 1
-                self.openSlideMenuRight()
+                self.fetchBungieGroups(true)
             } else if (!showLandingPage){
                 let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
                 let vc : TRCreateEventViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEWCONTROLLER_CREATE_EVENT) as! TRCreateEventViewController
@@ -141,16 +142,20 @@ class TRApplicationManager: NSObject {
                 eventListViewController.presentViewController(navigationController, animated: false, completion: {
                     self.slideMenuController.view.alpha = 1
                 })
+                
+                //Fetch Events
+                self.fetchBungieGroups(false)
             }  else {
                 self.slideMenuController.view.alpha = 1
             }
         })
     }
-    
-    func openSlideMenuRight () {
+    func fetchBungieGroups (openSliderMenu: Bool) {
         _ = TRGetAllDestinyGroups().getAllGroups({ (didSucceed) in
             if didSucceed == true {
-                self.slideMenuController.rightViewController!.openRight()
+                if openSliderMenu == true {
+                    self.slideMenuController.rightViewController!.openRight()
+                }
             }
         })
     }
