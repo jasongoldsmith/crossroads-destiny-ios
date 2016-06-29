@@ -19,8 +19,8 @@ class TRBungieGroupCell: UITableViewCell {
     
     
     override func prepareForReuse() {
-        self.groupAvator.image = nil
         self.groupName.text = nil
+        self.groupAvator?.image = nil
         self.memberCount?.text = nil
         self.clanEnabled?.text = nil
         self.contentView.alpha = 1
@@ -31,6 +31,20 @@ class TRBungieGroupCell: UITableViewCell {
         self.notificationButton.buttonGroupInfo = nil
         self.notificationButton.highlighted = false
         self.contentView.backgroundColor = UIColor(red: 19/255, green: 31/255, blue: 35/255, alpha: 1)
+    }
+    
+    func addNoGroupCellUI () {
+        
+        //Adding rounder corner for cell
+        self.round([.AllCorners], radius: 2)
+        
+        self.groupAvator?.image = UIImage(named: "imgNogroups")
+        self.overlayImageView.hidden = false
+        self.notificationButton.selected = true
+        self.groupName.text = "Your Bungie Group Here"
+        self.memberCount.text = "87 in Orbit"
+        self.memberCount.hidden = false
+        self.clanEnabled.text = "7 Activities"
     }
     
     func updateCellViewWithGroup (groupInfo: TRBungieGroupInfo) {

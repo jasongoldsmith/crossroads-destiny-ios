@@ -168,6 +168,11 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     
     //MARK:- Table Delegate Methods
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        if bungieGroups.count <= 0 {
+            return 1
+        }
+        
         return bungieGroups.count
     }
     
@@ -199,7 +204,7 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
             cell.notificationButton.selected = groupInfo.groupNotification?.boolValue == true ? true: false
         } else {
             cell.userInteractionEnabled = false
-            cell.overlayImageView.hidden = false
+            cell.addNoGroupCellUI()
         }
         
         return cell
