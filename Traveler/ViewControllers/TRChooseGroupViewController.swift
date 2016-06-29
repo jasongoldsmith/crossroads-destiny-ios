@@ -54,42 +54,42 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
         if TRApplicationManager.sharedInstance.bungieGroups.count <=  1 {
             self.addNoneGroupCountUI()
         } else {
-            
             self.saveButton.setTitle(nil, forState: .Normal)
             self.lableThree.hidden = true
-            
             //Add bottom border to GroupList Table
+
             self.changeSaveButtonVisuals()
-            
-            if let userGroup = TRUserInfo.getUserClanID() {
-                let selectedGroup = self.bungieGroups.filter{$0.groupId! == userGroup}
-                self.selectedGroup = selectedGroup.first
-                let groupIndex = self.bungieGroups.indexOf({$0.groupId == self.selectedGroup?.groupId})
-                if let _ = groupIndex {
-                    self.bungieGroups.removeAtIndex(groupIndex!)
-                }
-                
-                //Add selected Group UI
-                dispatch_async(dispatch_get_main_queue()) {
-                    if let _ = self.selectedGroup {
-                        self.addSelectedGroupUI()
-                    }
-                }
+        }
+        
+        if let userGroup = TRUserInfo.getUserClanID() {
+            let selectedGroup = self.bungieGroups.filter{$0.groupId! == userGroup}
+            self.selectedGroup = selectedGroup.first
+            let groupIndex = self.bungieGroups.indexOf({$0.groupId == self.selectedGroup?.groupId})
+            if let _ = groupIndex {
+                self.bungieGroups.removeAtIndex(groupIndex!)
             }
             
-            // Reload Data
-            dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                UIView.transitionWithView(self.groupsTableView,
-                                          duration: 0.5,
-                                          options: .TransitionCrossDissolve,
-                                          animations:
-                    { () -> Void in
-                        self.groupsTableView.reloadData()
-                        self.groupsTableView.setContentOffset(CGPointZero, animated:true)
-                    },
-                completion: nil);
+            //Add selected Group UI
+            dispatch_async(dispatch_get_main_queue()) {
+                if let _ = self.selectedGroup {
+                    self.addSelectedGroupUI()
+                }
             }
         }
+        
+        // Reload Data
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            UIView.transitionWithView(self.groupsTableView,
+                                      duration: 0.5,
+                                      options: .TransitionCrossDissolve,
+                                      animations:
+                { () -> Void in
+                    self.groupsTableView.reloadData()
+                    self.groupsTableView.setContentOffset(CGPointZero, animated:true)
+                },
+            completion: nil);
+        }
+        
     }
 
     func changeSaveButtonVisuals () {
