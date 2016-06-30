@@ -128,6 +128,7 @@ class TRApplicationManager: NSObject {
                 self.slideMenuController.view.alpha = 0.7
                 self.fetchBungieGroups(false, completion: { (didSucceed) in
                     self.slideMenuController.view.alpha = 1
+                    eventListViewController.updateGroupImage()
                 })
 
                 if let payload = pushData!.objectForKey("payload") as? NSDictionary{
@@ -140,6 +141,7 @@ class TRApplicationManager: NSObject {
             } else if (showGroups){
                 self.fetchBungieGroups(true, completion: { (didSucceed) in
                     self.slideMenuController.view.alpha = 1
+                    eventListViewController.updateGroupImage()
                 })
             } else if (!showLandingPage){
                 let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
@@ -151,6 +153,7 @@ class TRApplicationManager: NSObject {
                 
                 //Fetch Events
                 self.fetchBungieGroups(false, completion: { (didSucceed) in
+                    eventListViewController.updateGroupImage()
                 })
             }  else {
                 //Fetch Events
@@ -158,6 +161,7 @@ class TRApplicationManager: NSObject {
                 self.slideMenuController.view.alpha = 0.6
                 self.fetchBungieGroups(false, completion: { (didSucceed) in
                     self.slideMenuController.view.alpha = 1
+                    eventListViewController.updateGroupImage()
                 })
             }
         })
