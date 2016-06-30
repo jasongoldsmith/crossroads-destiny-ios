@@ -45,6 +45,7 @@ class TRBungieGroupCell: UITableViewCell {
         self.memberCount.text = "87 in Orbit"
         self.memberCount.hidden = false
         self.clanEnabled.text = "7 Activities"
+        self.contentView.backgroundColor = UIColor(red: 35/255, green: 58/255, blue: 62/255, alpha: 1)
     }
     
     func updateCellViewWithGroup (groupInfo: TRBungieGroupInfo) {
