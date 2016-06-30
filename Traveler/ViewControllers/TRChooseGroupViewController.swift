@@ -53,6 +53,7 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
         
         if TRApplicationManager.sharedInstance.bungieGroups.count <=  1 {
             self.addNoneGroupCountUI()
+            self.lableThree.hidden = false
         } else {
             self.saveButton.setTitle(nil, forState: .Normal)
             self.lableThree.hidden = true
