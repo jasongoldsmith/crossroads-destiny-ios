@@ -328,7 +328,9 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
       if let eventInfo = sender.buttonEventInfo {
             _ = TRJoinEventRequest().joinEventWithUserForEvent(TRUserInfo.getUserID()!, eventInfo: eventInfo, completion: { (event) in
                 if let _ = event {
-                    //Was reloading table here but not anymore, table reload will happen on FireBase Interupt
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.reloadEventTable()
+                    })
                 }
             })
         }
@@ -337,7 +339,9 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     func leaveAnEvent (sender: EventButton) {
         _  = TRLeaveEventRequest().leaveAnEvent(sender.buttonEventInfo!,completion: {(event) in
             if let _ = event {
-                //Was reloading table here but not anymore, table reload will happen on FireBase Interupt
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.reloadEventTable()
+                })
             }
         })
     }

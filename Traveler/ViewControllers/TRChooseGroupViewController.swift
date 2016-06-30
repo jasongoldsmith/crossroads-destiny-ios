@@ -40,6 +40,8 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.groupsTableView?.registerNib(UINib(nibName: "TRBungieGroupCell", bundle: nil), forCellReuseIdentifier: GROUP_CELLS_IDENTIFIER)
+        
+        self.lableOne?.text = "Which group would you\nlike to play with?"
     }
 
     override func viewWillAppear(animated: Bool) {
