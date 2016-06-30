@@ -77,6 +77,14 @@ class TRFireBaseListener {
         self.firebaseChatData = Firebase(url:(fireBaseUrl))
         self.firebaseChatData?.observeEventType(.Value, withBlock: { snap in
 
+            if snap.value is NSNull {
+                //something is wrong, not even empty array
+                parentViewController.dismissViewController(true, dismissed: { (didDismiss) in
+                    
+                })
+                return
+            }
+
             // FETCH EVENT OBJECT
             _ = TRGetEventRequest().getEventByID(hasEventID, completion: { (event) in
                 if let hasEvent = event {
