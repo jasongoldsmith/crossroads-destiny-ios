@@ -124,7 +124,12 @@ class TRApplicationManager: NSObject {
         parentViewController.presentViewController(self.slideMenuController, animated: animated, completion: {
             
             if let _ = pushData {
-                self.slideMenuController.view.alpha = 1
+                
+                self.slideMenuController.view.alpha = 0.7
+                self.fetchBungieGroups(false, completion: { (didSucceed) in
+                    self.slideMenuController.view.alpha = 1
+                })
+
                 if let payload = pushData!.objectForKey("payload") as? NSDictionary{
                     let _ = TRPushNotification().fetchEventFromPushNotification(payload, complete: { (event) in
                         if let _ = event {
@@ -133,8 +138,9 @@ class TRApplicationManager: NSObject {
                     })
                 }
             } else if (showGroups){
-                self.slideMenuController.view.alpha = 1
-                self.fetchBungieGroups(true)
+                self.fetchBungieGroups(true, completion: { (didSucceed) in
+                    self.slideMenuController.view.alpha = 1
+                })
             } else if (!showLandingPage){
                 let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
                 let vc : TRCreateEventViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEWCONTROLLER_CREATE_EVENT) as! TRCreateEventViewController
@@ -144,18 +150,26 @@ class TRApplicationManager: NSObject {
                 })
                 
                 //Fetch Events
-                self.fetchBungieGroups(false)
+                self.fetchBungieGroups(false, completion: { (didSucceed) in
+                })
             }  else {
-                self.slideMenuController.view.alpha = 1
+                //Fetch Events
+                
+                self.slideMenuController.view.alpha = 0.6
+                self.fetchBungieGroups(false, completion: { (didSucceed) in
+                    self.slideMenuController.view.alpha = 1
+                })
             }
         })
     }
-    func fetchBungieGroups (openSliderMenu: Bool) {
+    func fetchBungieGroups (openSliderMenu: Bool, completion: TRValueCallBack) {
         _ = TRGetAllDestinyGroups().getAllGroups({ (didSucceed) in
             if didSucceed == true {
                 if openSliderMenu == true {
                     self.slideMenuController.rightViewController!.openRight()
                 }
+                
+                completion(didSucceed: true)
             }
         })
     }

@@ -412,7 +412,8 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
     
     @IBAction func showChangeGroupsVc (sender: AnyObject) {
-        TRApplicationManager.sharedInstance.fetchBungieGroups(true)
+        TRApplicationManager.sharedInstance.fetchBungieGroups(true, completion: { (didSucceed) in
+        })
     }
     
     deinit {
