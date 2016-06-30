@@ -121,7 +121,7 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
         
         if let eventCount = self.selectedGroup?.eventCount {
             self.selectedGroupViewEventCount.textColor = eventCount <= 0 ? UIColor.lightGrayColor() : UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)
-            self.selectedGroupViewEventCount.text = eventCount.description + " Activities"
+            self.selectedGroupViewEventCount.text = eventCount > 1 ? eventCount.description + " Activities" : eventCount.description + " Activity"
         } else {
             self.selectedGroupViewEventCount.hidden = true
         }
