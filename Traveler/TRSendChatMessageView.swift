@@ -64,24 +64,28 @@ class TRSendChatMessageView: UIView, UITextViewDelegate {
 // Mark: UITextFieldDelegate methods
     func textViewDidChange(textView: UITextView) {
        
+        let newLength = MAX_MESSAGE_CHARACTER_COUNT - (textView.text?.characters.count)!
+        self.characterCount.text = "\(newLength)"
+        
+        if (newLength <= 0) {
+            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Message limit reached.")
+        }
+        
         let contentSizeHeight = textView.contentSize.height
         self.textViewHeightConstraint.constant = contentSizeHeight
         self.updateConstraints()
     }
-    
+   
+   
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
         
-        
         let newLength = MAX_MESSAGE_CHARACTER_COUNT - (textView.text?.characters.count)!
-        self.characterCount.text = "\(newLength)"
-        
         if text == "" {
             return true
         }
 
         if (newLength <= 0) {
             TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Message limit reached.")
-            
             return false
         }
         
