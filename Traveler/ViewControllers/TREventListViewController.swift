@@ -141,6 +141,10 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         if self.playerGroupsIcon?.image == nil {
             self.playerGroupsIcon?.image = UIImage(named: "iconGroupCrossroadsFreelance")
         }
+        
+        //Remove Observer running on previous clan and add it again on current clan
+        TRApplicationManager.sharedInstance.fireBaseObj.removeObservers()
+        TRApplicationManager.sharedInstance.fireBaseObj.addEventsObserversWithParentView(self)
     }
     
     func addLogOutEventToAvatorImageView () {
@@ -329,7 +333,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             _ = TRJoinEventRequest().joinEventWithUserForEvent(TRUserInfo.getUserID()!, eventInfo: eventInfo, completion: { (event) in
                 if let _ = event {
                     dispatch_async(dispatch_get_main_queue(), {
-                        self.reloadEventTable()
+                        //self.reloadEventTable()
                     })
                 }
             })
@@ -340,7 +344,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         _  = TRLeaveEventRequest().leaveAnEvent(sender.buttonEventInfo!,completion: {(event) in
             if let _ = event {
                 dispatch_async(dispatch_get_main_queue(), {
-                    self.reloadEventTable()
+                    //self.reloadEventTable()
                 })
             }
         })
@@ -373,10 +377,8 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
     
     
+    
     override func reloadEventTable () {
-        
-        //Update Group Image Icon
-        self.updateGroupImage()
         
         //Reload Table
         self.eventsInfo       = TRApplicationManager.sharedInstance.getCurrentEvents()

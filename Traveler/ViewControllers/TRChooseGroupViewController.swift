@@ -225,6 +225,7 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
                     if(didSucceed == true) {
                         if let del = self.delegate as? TREventListViewController {
                             del.reloadEventTable()
+                            del.updateGroupImage ()
                         }
                         
                         TRApplicationManager.sharedInstance.slideMenuController.closeRight()
