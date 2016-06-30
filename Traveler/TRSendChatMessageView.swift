@@ -33,6 +33,7 @@ class TRSendChatMessageView: UIView, UITextViewDelegate {
         self.chatBubbleTextView.layer.cornerRadius = 15
         self.sendButton?.addTarget(self, action: #selector(TRSendChatMessageView.sendChatMessage(_:)), forControlEvents: .TouchUpInside)
         self.chatBubbleTextView.becomeFirstResponder()
+        self.characterCount.text = MAX_MESSAGE_CHARACTER_COUNT.description
         
         // Close View on Clicking BackGround Image View
         self.addCloseToBackGroundImageView()
