@@ -262,9 +262,11 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
             return
         }
         
-        self.eventInfoTable?.reloadData()
-        self.updateBottomButtons()
-        self.updateEventStatusAndPlayerNameString()
+        dispatch_async(dispatch_get_main_queue()) { 
+            self.eventInfoTable?.reloadData()
+            self.updateBottomButtons()
+            self.updateEventStatusAndPlayerNameString()
+        }
     }
     
     
