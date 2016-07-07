@@ -86,7 +86,6 @@
 		333FA8AA1D0109C200A5EC1C /* TRBungieUserAuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333FA8A81D0109C200A5EC1C /* TRBungieUserAuthRequest.swift */; };
 		333FA8AB1D0109C200A5EC1C /* TRBungieUserAuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333FA8A81D0109C200A5EC1C /* TRBungieUserAuthRequest.swift */; };
 		333FA8AC1D0109C200A5EC1C /* TRBungieUserAuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333FA8A81D0109C200A5EC1C /* TRBungieUserAuthRequest.swift */; };
-		33488B2C1CF3B71B0070919A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33488B2B1CF3B71B0070919A /* GoogleService-Info.plist */; };
 		334E05BF1C939D7B00973068 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C1FF2F1C77C15C00A78798 /* AppDelegate.swift */; };
 		334E05C01C939D7C00973068 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C1FF2F1C77C15C00A78798 /* AppDelegate.swift */; };
 		335AF5E81CA49DF500EBB6EF /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338AECFD1C9D03AE008B064F /* Utility.swift */; };
@@ -323,7 +322,6 @@
 		33D0B4511CFD0165008ABA04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C1FF361C77C15C00A78798 /* Assets.xcassets */; };
 		33D0B4521CFD0165008ABA04 /* TRBungieGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3333BDC21CEE6C8C001C9E1A /* TRBungieGroupCell.xib */; };
 		33D0B4531CFD0165008ABA04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62C1FF381C77C15C00A78798 /* LaunchScreen.storyboard */; };
-		33D0B4541CFD0165008ABA04 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33488B2B1CF3B71B0070919A /* GoogleService-Info.plist */; };
 		33D0B4551CFD0165008ABA04 /* TRErrorNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3329B58F1C9B528F00CC1F9B /* TRErrorNotificationView.xib */; };
 		33D0B4561CFD0165008ABA04 /* TrLaunchImgBadge@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D0B3F41CFCFC5C008ABA04 /* TrLaunchImgBadge@3x.png */; };
 		33D0B4571CFD0165008ABA04 /* TrLaunchImgBadge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D0B3F31CFCFC5C008ABA04 /* TrLaunchImgBadge@2x.png */; };
@@ -442,7 +440,6 @@
 		333E1CA31CC54A27000B843C /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		333FA8A11D00D9EE00A5EC1C /* TRAddConsoleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRAddConsoleViewController.swift; sourceTree = "<group>"; };
 		333FA8A81D0109C200A5EC1C /* TRBungieUserAuthRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRBungieUserAuthRequest.swift; sourceTree = "<group>"; };
-		33488B2B1CF3B71B0070919A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3369499B1CC5CFEB004979C0 /* NSBundleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSBundleExtension.swift; path = ../Networking/NSBundleExtension.swift; sourceTree = "<group>"; };
 		336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		336DD77E1CDC289200CCCB04 /* TRNavInteractionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRNavInteractionAnimator.swift; sourceTree = "<group>"; };
@@ -744,7 +741,6 @@
 		62C1FF231C77C15C00A78798 = {
 			isa = PBXGroup;
 			children = (
-				33488B2B1CF3B71B0070919A /* GoogleService-Info.plist */,
 				33FDB9B41C8512E60066237C /* TR-Bridging-Header.h */,
 				62C1FF2E1C77C15C00A78798 /* Traveler */,
 				62C1FF431C77C15C00A78798 /* TravelerTests */,
@@ -1016,7 +1012,6 @@
 				33D0B4511CFD0165008ABA04 /* Assets.xcassets in Resources */,
 				33D0B4521CFD0165008ABA04 /* TRBungieGroupCell.xib in Resources */,
 				33D0B4531CFD0165008ABA04 /* LaunchScreen.storyboard in Resources */,
-				33D0B4541CFD0165008ABA04 /* GoogleService-Info.plist in Resources */,
 				33D0B4551CFD0165008ABA04 /* TRErrorNotificationView.xib in Resources */,
 				33D0B4561CFD0165008ABA04 /* TrLaunchImgBadge@3x.png in Resources */,
 				33D0B4571CFD0165008ABA04 /* TrLaunchImgBadge@2x.png in Resources */,
@@ -1043,7 +1038,6 @@
 				62F279BF1C7D1318008D67DC /* Assets.xcassets in Resources */,
 				3333BDC31CEE6C8C001C9E1A /* TRBungieGroupCell.xib in Resources */,
 				62C1FF3A1C77C15C00A78798 /* LaunchScreen.storyboard in Resources */,
-				33488B2C1CF3B71B0070919A /* GoogleService-Info.plist in Resources */,
 				3329B5901C9B528F00CC1F9B /* TRErrorNotificationView.xib in Resources */,
 				33D0B3F61CFCFC5C008ABA04 /* TrLaunchImgBadge@3x.png in Resources */,
 				33D0B3F51CFCFC5C008ABA04 /* TrLaunchImgBadge@2x.png in Resources */,
