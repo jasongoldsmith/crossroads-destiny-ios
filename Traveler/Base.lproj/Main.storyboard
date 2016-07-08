@@ -988,12 +988,15 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileBgImage" translatesAutoresizingMaskIntoConstraints="NO" id="APu-zA-Kyk">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tHf-b5-jNh">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tHf-b5-jNh">
                                 <rect key="frame" x="252" y="101" width="96" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="B2D-Vd-eCx"/>
                                     <constraint firstAttribute="width" constant="96" id="gfD-X2-nP1"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Qnp-06-mdc" appends="YES" id="YcK-CC-xFq"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ax-E1-ccC">
                                 <rect key="frame" x="275" y="217" width="49" height="23"/>
@@ -1124,6 +1127,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DGE-Oe-lRZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Qnp-06-mdc">
+                    <connections>
+                        <action selector="avatorImageViewTapped:" destination="RJW-k0-l6u" id="sWM-en-Skw"/>
+                        <outlet property="delegate" destination="RJW-k0-l6u" id="8fb-du-8rG"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1517" y="990"/>
         </scene>

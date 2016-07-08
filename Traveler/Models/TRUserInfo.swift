@@ -120,6 +120,12 @@ class TRUserInfo: NSObject {
         return currentUserImage
     }
 
+    class func setUserImageString (imageURL: String) {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.setValue(imageURL  , forKeyPath: K.UserDefaultKey.UserAccountInfo.TR_USER_IMAGE)
+        userDefaults.synchronize()
+    }
+    
     class func getUserClanID () -> String? {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         if (userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_USER_CLAN_ID) != nil) {

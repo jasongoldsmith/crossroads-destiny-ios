@@ -52,11 +52,12 @@ class TRApplicationManager: NSObject {
     // SlideMenu Controller
     var slideMenuController = SlideMenuController()
     
-    //FireBase Class Instance
-    var fireBaseObj = TRFireBaseListener()
-    
     //Bungie Groups
     lazy var bungieGroups: [TRBungieGroupInfo] = []
+    
+    // FireBase Manager
+    var fireBaseManager: TRFireBaseManager?
+    
     
     // MARK:- Initializer
     private override init() {
@@ -84,6 +85,9 @@ class TRApplicationManager: NSObject {
         
         // Init Push Notification View with nib
         self.pushNotificationView = NSBundle.mainBundle().loadNibNamed("TRPushNotificationView", owner: self, options: nil)[0] as! TRPushNotificationView
+        
+        //Init FireBase Manager
+        self.fireBaseManager = TRFireBaseManager()
     }
 
     func addSlideMenuController(parentViewController: TRBaseViewController, pushData: NSDictionary?, showLandingPage: Bool, showGroups: Bool) {

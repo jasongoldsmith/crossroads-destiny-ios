@@ -20,9 +20,6 @@
 		3305AD091CF26FD100572495 /* YTGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3305AD081CF26FD100572495 /* YTGameViewController.swift */; };
 		3305AD0A1CF26FD100572495 /* YTGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3305AD081CF26FD100572495 /* YTGameViewController.swift */; };
 		3305AD0B1CF26FD100572495 /* YTGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3305AD081CF26FD100572495 /* YTGameViewController.swift */; };
-		3307B27A1CCF0333004F74F8 /* TRFireBaseListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3307B2791CCF0333004F74F8 /* TRFireBaseListener.swift */; };
-		3307B27B1CCF0333004F74F8 /* TRFireBaseListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3307B2791CCF0333004F74F8 /* TRFireBaseListener.swift */; };
-		3307B27C1CCF0333004F74F8 /* TRFireBaseListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3307B2791CCF0333004F74F8 /* TRFireBaseListener.swift */; };
 		33095FDF1CDD271A0094DF49 /* TRAlignableUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33095FDE1CDD271A0094DF49 /* TRAlignableUILabel.swift */; };
 		33095FE01CDD27400094DF49 /* TRAlignableUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33095FDE1CDD271A0094DF49 /* TRAlignableUILabel.swift */; };
 		33095FE11CDD27410094DF49 /* TRAlignableUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33095FDE1CDD271A0094DF49 /* TRAlignableUILabel.swift */; };
@@ -230,6 +227,15 @@
 		33A029B21CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A029AF1CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift */; };
 		33B5BC701C9A2F0B000D94DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C1FF361C77C15C00A78798 /* Assets.xcassets */; };
 		33B5BC711C9A2F0C000D94DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C1FF361C77C15C00A78798 /* Assets.xcassets */; };
+		33B73BFF1D2F171200BEA7E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33B73BFE1D2F171200BEA7E5 /* GoogleService-Info.plist */; };
+		33B73C011D2F188800BEA7E5 /* TRFireBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B73C001D2F188800BEA7E5 /* TRFireBaseManager.swift */; };
+		33B73C021D2F188800BEA7E5 /* TRFireBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B73C001D2F188800BEA7E5 /* TRFireBaseManager.swift */; };
+		33B73C031D2F188800BEA7E5 /* TRFireBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B73C001D2F188800BEA7E5 /* TRFireBaseManager.swift */; };
+		33B73C041D2F188800BEA7E5 /* TRFireBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B73C001D2F188800BEA7E5 /* TRFireBaseManager.swift */; };
+		33B73C061D303F5200BEA7E5 /* TRHelmetUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B73C051D303F5200BEA7E5 /* TRHelmetUpdateRequest.swift */; };
+		33B73C071D303F5200BEA7E5 /* TRHelmetUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B73C051D303F5200BEA7E5 /* TRHelmetUpdateRequest.swift */; };
+		33B73C081D303F5200BEA7E5 /* TRHelmetUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B73C051D303F5200BEA7E5 /* TRHelmetUpdateRequest.swift */; };
+		33B73C091D303F5200BEA7E5 /* TRHelmetUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B73C051D303F5200BEA7E5 /* TRHelmetUpdateRequest.swift */; };
 		33D067671CD40AF600E05EF1 /* TRUpdateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D067661CD40AF600E05EF1 /* TRUpdateUser.swift */; };
 		33D067681CD40AF600E05EF1 /* TRUpdateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D067661CD40AF600E05EF1 /* TRUpdateUser.swift */; };
 		33D067691CD40AF600E05EF1 /* TRUpdateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D067661CD40AF600E05EF1 /* TRUpdateUser.swift */; };
@@ -303,7 +309,6 @@
 		33D0B43C1CFD0165008ABA04 /* TRUpdateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D067661CD40AF600E05EF1 /* TRUpdateUser.swift */; };
 		33D0B43D1CFD0165008ABA04 /* EventButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB9AD1C850AFC0066237C /* EventButton.swift */; };
 		33D0B43E1CFD0165008ABA04 /* TRJoinEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB9D01C8778150066237C /* TRJoinEventRequest.swift */; };
-		33D0B43F1CFD0165008ABA04 /* TRFireBaseListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3307B2791CCF0333004F74F8 /* TRFireBaseListener.swift */; };
 		33D0B4401CFD0165008ABA04 /* TRCreateEventConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D8F2F1C911FB900A2620F /* TRCreateEventConfirmationViewController.swift */; };
 		33D0B4411CFD0165008ABA04 /* TRBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33742D851C7FC46B00C46742 /* TRBaseViewController.swift */; };
 		33D0B4421CFD0165008ABA04 /* TRCreateEventSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D8F231C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift */; };
@@ -419,7 +424,6 @@
 		3305ACFA1CF2660D00572495 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		3305AD001CF26B2C00572495 /* YTGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTGameScene.swift; sourceTree = "<group>"; };
 		3305AD081CF26FD100572495 /* YTGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTGameViewController.swift; sourceTree = "<group>"; };
-		3307B2791CCF0333004F74F8 /* TRFireBaseListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRFireBaseListener.swift; sourceTree = "<group>"; };
 		33095FDE1CDD271A0094DF49 /* TRAlignableUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TRAlignableUILabel.swift; path = Traveler/TRAlignableUILabel.swift; sourceTree = SOURCE_ROOT; };
 		33104BFA1C97B1E70024D601 /* TRActivityIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRActivityIndicatorView.xib; sourceTree = "<group>"; };
 		33104BFE1C97B1F40024D601 /* TRActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRActivityIndicatorView.swift; sourceTree = "<group>"; };
@@ -486,6 +490,9 @@
 		339D8F2B1C90F79800A2620F /* TRActivitySelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRActivitySelectionCell.xib; sourceTree = "<group>"; };
 		339D8F2F1C911FB900A2620F /* TRCreateEventConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCreateEventConfirmationViewController.swift; sourceTree = "<group>"; };
 		33A029AF1CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		33B73BFE1D2F171200BEA7E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		33B73C001D2F188800BEA7E5 /* TRFireBaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRFireBaseManager.swift; sourceTree = "<group>"; };
+		33B73C051D303F5200BEA7E5 /* TRHelmetUpdateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRHelmetUpdateRequest.swift; sourceTree = "<group>"; };
 		33D067661CD40AF600E05EF1 /* TRUpdateUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRUpdateUser.swift; sourceTree = "<group>"; };
 		33D0B3F11CFCFC2C008ABA04 /* TrLaunchImgBadge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrLaunchImgBadge.png; sourceTree = "<group>"; };
 		33D0B3F31CFCFC5C008ABA04 /* TrLaunchImgBadge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TrLaunchImgBadge@2x.png"; sourceTree = "<group>"; };
@@ -713,6 +720,7 @@
 				333FA8A81D0109C200A5EC1C /* TRBungieUserAuthRequest.swift */,
 				3300FC111D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift */,
 				33916CF61D1DD422006AE37B /* TRGetEventRequest.swift */,
+				33B73C051D303F5200BEA7E5 /* TRHelmetUpdateRequest.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -729,7 +737,7 @@
 				33742D891C7FC51700C46742 /* TRStoryBoardManager.swift */,
 				336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */,
 				333E1CA31CC54A27000B843C /* UIViewExtension.swift */,
-				3307B2791CCF0333004F74F8 /* TRFireBaseListener.swift */,
+				33B73C001D2F188800BEA7E5 /* TRFireBaseManager.swift */,
 				3369499B1CC5CFEB004979C0 /* NSBundleExtension.swift */,
 				3372219C1CD06762001B1157 /* TRNavTransitionAnimator.swift */,
 				336DD77E1CDC289200CCCB04 /* TRNavInteractionAnimator.swift */,
@@ -741,6 +749,7 @@
 		62C1FF231C77C15C00A78798 = {
 			isa = PBXGroup;
 			children = (
+				33B73BFE1D2F171200BEA7E5 /* GoogleService-Info.plist */,
 				33FDB9B41C8512E60066237C /* TR-Bridging-Header.h */,
 				62C1FF2E1C77C15C00A78798 /* Traveler */,
 				62C1FF431C77C15C00A78798 /* TravelerTests */,
@@ -1017,6 +1026,7 @@
 				33D0B4571CFD0165008ABA04 /* TrLaunchImgBadge@2x.png in Resources */,
 				33D0B4581CFD0165008ABA04 /* TRWebView.xib in Resources */,
 				33D0B4591CFD0165008ABA04 /* Main.storyboard in Resources */,
+				33B73BFF1D2F171200BEA7E5 /* GoogleService-Info.plist in Resources */,
 				33D0B45A1CFD0165008ABA04 /* TrLaunchImgBadge.png in Resources */,
 				33D0B45B1CFD0165008ABA04 /* TREventUpcomingWithCheckPointCell.xib in Resources */,
 			);
@@ -1337,6 +1347,7 @@
 				33D0B4211CFD0165008ABA04 /* TREventInformationViewController.swift in Sources */,
 				33D0B4221CFD0165008ABA04 /* TRActivitySelectionCell.swift in Sources */,
 				33D0B4231CFD0165008ABA04 /* YTGameScene.swift in Sources */,
+				33B73C061D303F5200BEA7E5 /* TRHelmetUpdateRequest.swift in Sources */,
 				33D0B4241CFD0165008ABA04 /* TREventUpcomingWithCheckPointCell.swift in Sources */,
 				33D0B4251CFD0165008ABA04 /* TREventCurrentNoCheckPointCell.swift in Sources */,
 				33D0B4261CFD0165008ABA04 /* TRChangePasswordViewController.swift in Sources */,
@@ -1346,6 +1357,7 @@
 				33D0B42A1CFD0165008ABA04 /* TRBungieGroupCell.swift in Sources */,
 				33D0B42B1CFD0165008ABA04 /* TRErrorNotificationView.swift in Sources */,
 				33D0B42C1CFD0165008ABA04 /* TRGetAllDestinyGroups.swift in Sources */,
+				33B73C011D2F188800BEA7E5 /* TRFireBaseManager.swift in Sources */,
 				33D0B42D1CFD0165008ABA04 /* TRProfileViewController.swift in Sources */,
 				33D0B42E1CFD0165008ABA04 /* TRBaseEventTableCell.swift in Sources */,
 				33D0B42F1CFD0165008ABA04 /* TRCreateEventViewController.swift in Sources */,
@@ -1364,7 +1376,6 @@
 				33D0B43C1CFD0165008ABA04 /* TRUpdateUser.swift in Sources */,
 				33D0B43D1CFD0165008ABA04 /* EventButton.swift in Sources */,
 				33D0B43E1CFD0165008ABA04 /* TRJoinEventRequest.swift in Sources */,
-				33D0B43F1CFD0165008ABA04 /* TRFireBaseListener.swift in Sources */,
 				33D0B4401CFD0165008ABA04 /* TRCreateEventConfirmationViewController.swift in Sources */,
 				33D0B4411CFD0165008ABA04 /* TRBaseViewController.swift in Sources */,
 				33D0B4421CFD0165008ABA04 /* TRCreateEventSelectionViewController.swift in Sources */,
@@ -1422,6 +1433,7 @@
 				3398E1A51CAB18C7001F022B /* TREventInformationViewController.swift in Sources */,
 				339D8F281C90F77E00A2620F /* TRActivitySelectionCell.swift in Sources */,
 				3305AD021CF26B2C00572495 /* YTGameScene.swift in Sources */,
+				33B73C071D303F5200BEA7E5 /* TRHelmetUpdateRequest.swift in Sources */,
 				3380EF2F1CC94725000A9289 /* TREventUpcomingWithCheckPointCell.swift in Sources */,
 				3380EF2B1CC946F4000A9289 /* TREventCurrentNoCheckPointCell.swift in Sources */,
 				3333BDB71CED6E3C001C9E1A /* TRChangePasswordViewController.swift in Sources */,
@@ -1431,6 +1443,7 @@
 				3333BDBF1CEE6C7F001C9E1A /* TRBungieGroupCell.swift in Sources */,
 				3329B58C1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */,
 				332BC17D1CED03AD00012B45 /* TRGetAllDestinyGroups.swift in Sources */,
+				33B73C021D2F188800BEA7E5 /* TRFireBaseManager.swift in Sources */,
 				3398E1AD1CAB3D3D001F022B /* TRProfileViewController.swift in Sources */,
 				3380EF221CC94517000A9289 /* TRBaseEventTableCell.swift in Sources */,
 				33F427491C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */,
@@ -1449,7 +1462,6 @@
 				33D067671CD40AF600E05EF1 /* TRUpdateUser.swift in Sources */,
 				33FDB9AE1C850AFC0066237C /* EventButton.swift in Sources */,
 				33FDB9D11C8778150066237C /* TRJoinEventRequest.swift in Sources */,
-				3307B27A1CCF0333004F74F8 /* TRFireBaseListener.swift in Sources */,
 				339D8F301C911FB900A2620F /* TRCreateEventConfirmationViewController.swift in Sources */,
 				33742D861C7FC46B00C46742 /* TRBaseViewController.swift in Sources */,
 				339D8F241C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift in Sources */,
@@ -1468,9 +1480,9 @@
 				333FA8A41D00D9EE00A5EC1C /* TRAddConsoleViewController.swift in Sources */,
 				33974F171CADD0740015C9D5 /* TRCreateAReportRequest.swift in Sources */,
 				3380EF2C1CC946F4000A9289 /* TREventCurrentNoCheckPointCell.swift in Sources */,
+				33B73C081D303F5200BEA7E5 /* TRHelmetUpdateRequest.swift in Sources */,
 				336BF5281CBEB214005CD3DE /* UIApplicationExtension.swift in Sources */,
 				33974F1B1CADD9CD0015C9D5 /* TRSendReportViewController.swift in Sources */,
-				3307B27B1CCF0333004F74F8 /* TRFireBaseListener.swift in Sources */,
 				333E1CA51CC54A27000B843C /* UIViewExtension.swift in Sources */,
 				6238D2E31C7ADE8E0085C8AA /* TRUserInfo.swift in Sources */,
 				33095FE01CDD27400094DF49 /* TRAlignableUILabel.swift in Sources */,
@@ -1481,6 +1493,7 @@
 				338BB2001CEEB96200A14060 /* TRWebView.swift in Sources */,
 				3380EF301CC94725000A9289 /* TREventUpcomingWithCheckPointCell.swift in Sources */,
 				332BC17A1CEBECDB00012B45 /* TRAppTrackingRequest.swift in Sources */,
+				33B73C031D2F188800BEA7E5 /* TRFireBaseManager.swift in Sources */,
 				629497331C7C04E1005E4F91 /* ViewControllerExtension.swift in Sources */,
 				62C1FF451C77C15C00A78798 /* TravelerTests.swift in Sources */,
 				33A029B11CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift in Sources */,
@@ -1554,9 +1567,9 @@
 				333FA8A51D00D9EE00A5EC1C /* TRAddConsoleViewController.swift in Sources */,
 				33974F181CADD0740015C9D5 /* TRCreateAReportRequest.swift in Sources */,
 				3380EF2D1CC946F4000A9289 /* TREventCurrentNoCheckPointCell.swift in Sources */,
+				33B73C091D303F5200BEA7E5 /* TRHelmetUpdateRequest.swift in Sources */,
 				336BF5291CBEB214005CD3DE /* UIApplicationExtension.swift in Sources */,
 				33974F1C1CADD9CD0015C9D5 /* TRSendReportViewController.swift in Sources */,
-				3307B27C1CCF0333004F74F8 /* TRFireBaseListener.swift in Sources */,
 				333E1CA61CC54A27000B843C /* UIViewExtension.swift in Sources */,
 				6238D2E41C7ADE8E0085C8AA /* TRUserInfo.swift in Sources */,
 				33095FE11CDD27410094DF49 /* TRAlignableUILabel.swift in Sources */,
@@ -1567,6 +1580,7 @@
 				338BB2011CEEB96200A14060 /* TRWebView.swift in Sources */,
 				3380EF311CC94725000A9289 /* TREventUpcomingWithCheckPointCell.swift in Sources */,
 				332BC17B1CEBECDB00012B45 /* TRAppTrackingRequest.swift in Sources */,
+				33B73C041D2F188800BEA7E5 /* TRFireBaseManager.swift in Sources */,
 				629497341C7C04E1005E4F91 /* ViewControllerExtension.swift in Sources */,
 				62C1FF501C77C15C00A78798 /* TravelerUITests.swift in Sources */,
 				33A029B21CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift in Sources */,

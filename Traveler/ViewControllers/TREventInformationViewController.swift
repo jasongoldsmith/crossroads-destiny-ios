@@ -171,14 +171,14 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        TRApplicationManager.sharedInstance.fireBaseObj.addEventsObserversWithParentViewForDetailView(self,withEvent: self.eventInfo!)
+        TRApplicationManager.sharedInstance.fireBaseManager?.addEventsObserversWithParentViewForDetailView(self,withEvent: self.eventInfo!)
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
         //Remove FireBase Observer
-        TRApplicationManager.sharedInstance.fireBaseObj.removeObservers()
+        TRApplicationManager.sharedInstance.fireBaseManager?.removeObservers()
     }
     
     @IBAction func backButtonPressed (sender: AnyObject) {

@@ -10,8 +10,10 @@ def project_pods
     pod 'AFDateHelper'
     pod 'pop', :git => 'https://github.com/facebook/pop.git'
     pod 'SlideMenuControllerSwift'
-    pod 'Firebase', '= 2.5.1'
     pod 'TTTAttributedLabel'
+    pod 'Firebase/Database'
+    pod 'Firebase/DynamicLinks'
+    pod 'Firebase/Core'
 end
 
 target 'Traveler' do

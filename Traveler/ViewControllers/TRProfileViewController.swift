@@ -103,6 +103,25 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         }
     }
     
+    @IBAction func avatorImageViewTapped (sender: UITapGestureRecognizer) {
+        _ = TRHelmetUpdateRequest().updateHelmetForUser({ (imageStringUrl) in
+            if let _ = imageStringUrl {
+                let imageURL = NSURL(string: imageStringUrl!)
+                self.avatorImageView?.sd_setImageWithURL(imageURL)
+                
+                _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: false, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
+                    if(didSucceed == true) {
+                       
+                        //Refresh Event List View to reflect the new UserImage
+                        if let eventListViewController = TRApplicationManager.sharedInstance.slideMenuController.mainViewController as? TREventListViewController {
+                            eventListViewController.reloadEventTable()
+                            eventListViewController.currentPlayerAvatorIcon?.sd_setImageWithURL(imageURL)
+                        }
+                    }
+                })
+            }
+        })
+    }
     
     @IBAction func logOutUser () {
         self.addLogOutAlert()
