@@ -306,13 +306,12 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
                 dispatch_async(dispatch_get_main_queue()) { () -> Void in
                     if let _ = self.eventInfo {
                         self.reloadEventTable()
-                    } else {
-                        self.dismissViewController(true, dismissed: { (didDismiss) in
-                            
-                        })
                     }
                 }
             } else {
+                self.dismissViewController(true, dismissed: { (didDismiss) in
+                    
+                })
             }
         })
     }
