@@ -143,8 +143,8 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         }
         
         //Remove Observer running on previous clan and add it again on current clan
-        TRApplicationManager.sharedInstance.fireBaseManager?.removeObservers()
-        TRApplicationManager.sharedInstance.fireBaseManager?.addEventsObserversWithParentView(self)
+        TRApplicationManager.sharedInstance.fireBaseObj.removeObservers()
+        TRApplicationManager.sharedInstance.fireBaseObj.addEventsObserversWithParentView(self)
     }
     
     func addLogOutEventToAvatorImageView () {
@@ -167,14 +167,14 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         super.viewDidAppear(animated)
         
         //Add FireBase Observer
-        TRApplicationManager.sharedInstance.fireBaseManager?.addEventsObserversWithParentView(self)
+        TRApplicationManager.sharedInstance.fireBaseObj.addEventsObserversWithParentView(self)
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
         //Remove FireBase Observer
-        TRApplicationManager.sharedInstance.fireBaseManager?.removeObservers()
+        TRApplicationManager.sharedInstance.fireBaseObj.removeObservers()
     }
     
     override func didReceiveMemoryWarning() {
@@ -186,8 +186,8 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         
         //Add FireBase Observer
         if self.currentViewController?.isKindOfClass(TREventListViewController) == true {
-            TRApplicationManager.sharedInstance.fireBaseManager?.removeObservers()
-            TRApplicationManager.sharedInstance.fireBaseManager?.addEventsObserversWithParentView(self)
+            TRApplicationManager.sharedInstance.fireBaseObj.removeObservers()
+            TRApplicationManager.sharedInstance.fireBaseObj.addEventsObserversWithParentView(self)
         }
 
         _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: false, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in

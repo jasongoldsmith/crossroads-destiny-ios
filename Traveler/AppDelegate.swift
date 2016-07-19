@@ -21,10 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Initializing Manager
         TRApplicationManager.sharedInstance
         
-        //Initialize FireBase Configuration
-        TRApplicationManager.sharedInstance.fireBaseManager?.initFireBaseConfig()
-        
-        
         if let remoteNotification = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? NSDictionary? {
             let rootViewController = self.window!.rootViewController as! TRRootViewController
             rootViewController.pushNotificationData = remoteNotification

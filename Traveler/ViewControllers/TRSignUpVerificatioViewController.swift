@@ -81,7 +81,7 @@ class TRSignUpVerificatioViewController: TRBaseViewController, TTTAttributedLabe
     
     
     func addFireBaseObserverAndCheckVerification () {
-        TRApplicationManager.sharedInstance.fireBaseManager?.addUserObserverWithCompletion { (didCompelete) in
+        TRApplicationManager.sharedInstance.fireBaseObj.addUserObserverWithCompletion { (didCompelete) in
             if didCompelete == true {
                 if TRUserInfo.isUserVerified() == ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue {
                     
@@ -97,7 +97,7 @@ class TRSignUpVerificatioViewController: TRBaseViewController, TTTAttributedLabe
                     
                     delay(3.0, closure: {
                         self.dismissViewController(true, dismissed: { (didDismiss) in
-                            TRApplicationManager.sharedInstance.fireBaseManager?.removeObservers()
+                            TRApplicationManager.sharedInstance.fireBaseObj.removeObservers()
                         })
                     })
                 }
