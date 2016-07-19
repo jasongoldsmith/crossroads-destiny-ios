@@ -127,7 +127,11 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
     
     //MARK:- NETWORK CALL
     func forgotPasswordForPsnID (userName: String) {
-        _ = TRForgotPasswordRequest().resetUserPassword(userName, completion: { (didSucceed) in
+        
+        let consoleType = self.consoleNameArray.objectAtIndex(self.selectedIndex) as! String
+        let consoleTag = userName
+            
+        _ = TRForgotPasswordRequest().resetUserPassword(userName, consoleType: consoleType, completion: { (didSucceed) in
             if (didSucceed == true) {
                 
                 self.resetTextBoxParentView.hidden = true
@@ -176,6 +180,7 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.userNameTextField.text = nil
         self.selectedIndex = row
     }
     
