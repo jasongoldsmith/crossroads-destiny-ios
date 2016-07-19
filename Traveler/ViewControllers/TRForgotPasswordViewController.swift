@@ -9,13 +9,23 @@
 import UIKit
 import TTTAttributedLabel
 
-class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDelegate {
+private let PICKER_COMPONET_COUNT = 1
+
+class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var resetPasswordButton: UIButton!
     @IBOutlet weak var resetButtonBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var resetTextBoxParentView: UIView!
     @IBOutlet weak var titleMessageLable: TTTAttributedLabel!
+    @IBOutlet weak var consoleTypeLabel: UILabel!
+    @IBOutlet weak var changeConsoleButton: UIButton!
+    @IBOutlet weak var consoleImage: UIImageView!
+    @IBOutlet weak var consolePicketContainerView: UIView!
+    @IBOutlet weak var consolePicketView: UIPickerView!
+    
+    var consoleNameArray: NSArray = ["PlayStation4","PlayStation3", "Xbox 360", "Xbox One"]
+    var selectedIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +33,15 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRForgotPasswordViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRForgotPasswordViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
 
-        self.userNameTextField.attributedPlaceholder = NSAttributedString(string:"Enter username", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+        self.userNameTextField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         self.userNameTextField?.becomeFirstResponder()
+        
+        // layer Radius
+        self.consolePicketView.layer.cornerRadius = 5.0
+        self.consolePicketView.layer.masksToBounds = true
+        
+        self.changeConsoleButton.layer.cornerRadius = 3.0
+        self.changeConsoleButton.layer.masksToBounds = true
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -43,6 +60,15 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
         super.didReceiveMemoryWarning()
     }
     
+    
+    @IBAction func changeConsoleButtonPressed (sender: UIButton) {
+        self.consolePicketContainerView.hidden = false
+
+        //Close KeyBoard
+        if self.userNameTextField?.isFirstResponder() == true {
+            self.userNameTextField?.resignFirstResponder()
+        }
+    }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
@@ -133,6 +159,42 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
     
     func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
         UIApplication.sharedApplication().openURL(url)
+    }
+    
+    
+    //#MARK:- PICKER_VIEW
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return PICKER_COMPONET_COUNT
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.consoleNameArray.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return self.consoleNameArray.objectAtIndex(row) as? String
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.selectedIndex = row
+    }
+    
+    @IBAction func closePickerView(recognizer : UITapGestureRecognizer) {
+        
+        self.consolePicketContainerView.hidden = true
+        
+        if let consoleType = self.consoleNameArray.objectAtIndex(self.selectedIndex) as? String {
+            self.changeConsoleButton?.titleLabel?.text = consoleType
+            
+            if self.selectedIndex < 2 {
+                self.consoleTypeLabel.text = "PLAYSTATION ID"
+                self.userNameTextField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+                
+            } else {
+                self.consoleTypeLabel.text = "XBOX GAMERTAG"
+                self.userNameTextField.attributedPlaceholder = NSAttributedString(string:"Enter Xbox Gamertag", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+            }
+        }
     }
     
     deinit {
