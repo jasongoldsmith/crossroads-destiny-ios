@@ -95,6 +95,6 @@ class TRFireBaseManager {
     }
     
     func removeObservers () {
-        //self.ref?.removeAllObservers()
+        self.ref?.removeAllObservers()
     }
 }
