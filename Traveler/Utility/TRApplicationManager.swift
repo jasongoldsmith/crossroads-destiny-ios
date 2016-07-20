@@ -42,21 +42,23 @@ class TRApplicationManager: NSObject {
     // Error Notification View 
     var errorNotificationView = TRErrorNotificationView()
     
-    
-    // Push Notification View
-    var pushNotificationView = TRPushNotificationView()
-
     //AlamoreFire Manager
     var alamoFireManager : Alamofire.Manager?
     
     // SlideMenu Controller
     var slideMenuController = SlideMenuController()
     
-    //FireBase Class Instance
-    var fireBaseObj = TRFireBaseListener()
-    
     //Bungie Groups
     lazy var bungieGroups: [TRBungieGroupInfo] = []
+    
+    // FireBase Manager
+    var fireBaseManager: TRFireBaseManager?
+    
+    //Push Notification View
+    var pushNotificationView = TRPushNotificationView()
+    //Push Notification View Array
+    var pushNotificationViewArray: [TRPushNotificationView] = []
+ 
     
     // MARK:- Initializer
     private override init() {
@@ -84,6 +86,9 @@ class TRApplicationManager: NSObject {
         
         // Init Push Notification View with nib
         self.pushNotificationView = NSBundle.mainBundle().loadNibNamed("TRPushNotificationView", owner: self, options: nil)[0] as! TRPushNotificationView
+        
+        //Init FireBase Manager
+        self.fireBaseManager = TRFireBaseManager()
     }
 
     func addSlideMenuController(parentViewController: TRBaseViewController, pushData: NSDictionary?, showLandingPage: Bool, showGroups: Bool) {
@@ -180,7 +185,8 @@ class TRApplicationManager: NSObject {
     
     func addNotificationViewWithMessages (sender: NSNotification) {
         
-        return self.pushNotificationView.addNotificationViewWithMessages(sender)
+        let notificationView = self.pushNotificationView.addNotificationViewWithMessages(sender)
+        self.pushNotificationViewArray.append(notificationView)
     }
     
     

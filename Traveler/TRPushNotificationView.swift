@@ -23,45 +23,46 @@ class TRPushNotificationView: UIView {
     }
 
     
-    func addNotificationViewWithMessages (sender: NSNotification) {
+    func addNotificationViewWithMessages (sender: NSNotification) -> TRPushNotificationView {
 
-        if self.superview != nil {
-            self.removeFromSuperview()
-        }
-
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let window = appDelegate.window
-
-        let xAxiDistance:CGFloat  = 0
-        let yAxisDistance:CGFloat = 130
-        self.frame = CGRectMake(xAxiDistance, yAxisDistance, window!.frame.width, self.frame.height)
+        let pushInfo = TRActiveStatePushInfo().parsePushNotificationPayLoad(sender)
         
-        if let userInfo = sender.userInfo as NSDictionary? {
-            if let payload = userInfo.objectForKey("payload") as? NSDictionary {
-                if let notificationType = payload.objectForKey("notificationName") as? String where notificationType == NOTIFICATION_NAME.NOTI_MESSAGE_PLAYER.rawValue {
-                    if let apsData = userInfo.objectForKey("aps") as? NSDictionary {
-                        self.eventStatusLabel.text =  "FIRETEAM MESSAGE"
-                        if let alertString = apsData.objectForKey("alert") as? String {
-                            if let eventType = payload.objectForKey("eventName") as? String {
-                                let messageString = eventType.uppercaseString + "\n" + alertString
-                                self.eventStatusDescription.text = messageString
-                            } else {
-                                self.eventStatusDescription.text =  alertString
-                            }
-                        }
-                    }
-                } else {
-                    if let eventType = payload.objectForKey("eventName") as? String {
-                        self.eventStatusLabel.text = eventType.uppercaseString
-                    }
-                    if let apsData = userInfo.objectForKey("aps") as? NSDictionary {
-                        self.eventStatusDescription.text =  apsData.objectForKey("alert") as? String
-                    }
-                }
-            }
-        }
+//        if self.superview != nil {
+//            self.removeFromSuperview()
+//        }
+//
+//        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//        let window = appDelegate.window
+//
+//        let xAxiDistance:CGFloat  = 0
+//        let yAxisDistance:CGFloat = 130
+//        self.frame = CGRectMake(xAxiDistance, yAxisDistance, window!.frame.width, self.frame.height)
+//        
+//        if let userInfo = sender.userInfo as NSDictionary? {
+//            if let payload = userInfo.objectForKey("payload") as? NSDictionary {
+//                if let notificationType = payload.objectForKey("notificationName") as? String where notificationType == NOTIFICATION_NAME.NOTI_MESSAGE_PLAYER.rawValue {
+//                    if let apsData = userInfo.objectForKey("aps") as? NSDictionary {
+//                        self.eventStatusLabel.text =  "FIRETEAM MESSAGE"
+//                        if let alertString = apsData.objectForKey("alert") as? String {
+//                            if let eventType = payload.objectForKey("eventName") as? String {
+//                                let messageString = eventType.uppercaseString + "\n" + alertString
+//                                self.eventStatusDescription.text = messageString
+//                            } else {
+//                                self.eventStatusDescription.text =  alertString
+//                            }
+//                        }
+//                    }
+//                } else {
+//                    if let eventType = payload.objectForKey("eventName") as? String {
+//                        self.eventStatusLabel.text = eventType.uppercaseString
+//                    }
+//                    if let apsData = userInfo.objectForKey("aps") as? NSDictionary {
+//                        self.eventStatusDescription.text =  apsData.objectForKey("alert") as? String
+//                    }
+//                }
+//            }
+//        }
         
-        // Add view to the window
-        window?.addSubview(self)
+        return self
     }
 }
