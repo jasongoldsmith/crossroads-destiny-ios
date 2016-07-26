@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -13,20 +13,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TRPushNotificationView" customModule="Crossroads" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="51"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qve-rJ-8tI">
-                    <rect key="frame" x="577" y="9" width="14" height="22"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="14" id="E0q-T6-vwC"/>
-                        <constraint firstAttribute="height" constant="22" id="fpm-UQ-hzQ"/>
-                    </constraints>
-                    <state key="normal" image="iconCloseSm"/>
-                    <connections>
-                        <action selector="closeErrorView:" destination="iN0-l3-epB" eventType="touchUpInside" id="5N8-i1-geH"/>
-                    </connections>
-                </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconAlert" translatesAutoresizingMaskIntoConstraints="NO" id="uNN-WY-Dly">
                     <rect key="frame" x="25" y="10" width="30" height="30"/>
                     <constraints>
@@ -44,47 +33,60 @@
                     <color key="textColor" red="1" green="0.77647058823529413" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Td9-S9-3v0" customClass="TRAlignableUILabel" customModule="Crossroads" customModuleProvider="target">
-                    <rect key="frame" x="67" y="34" width="513" height="38"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Td9-S9-3v0">
+                    <rect key="frame" x="67" y="34" width="513" height="17"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="21" id="9wS-wB-9ai"/>
-                        <constraint firstAttribute="width" constant="600" id="Lm9-jZ-fxU"/>
+                        <constraint firstAttribute="width" constant="513" id="ZOa-lr-BOj"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="9wS-wB-9ai"/>
-                            <exclude reference="Lm9-jZ-fxU"/>
-                        </mask>
-                    </variation>
                 </label>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.52549019607843139" blue="0.81568627450980391" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="xw6-54-Ep7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="1bB-Hl-EdZ"/>
                 <constraint firstItem="Td9-S9-3v0" firstAttribute="top" secondItem="xw6-54-Ep7" secondAttribute="bottom" constant="3" id="9we-sX-B8t"/>
-                <constraint firstAttribute="trailing" secondItem="qve-rJ-8tI" secondAttribute="trailing" constant="9" id="Bp0-Xs-281"/>
                 <constraint firstItem="uNN-WY-Dly" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="25" id="Ej3-kd-GXO"/>
                 <constraint firstAttribute="trailing" secondItem="Td9-S9-3v0" secondAttribute="trailing" constant="20" id="Hez-Nd-olp"/>
                 <constraint firstAttribute="bottom" secondItem="Td9-S9-3v0" secondAttribute="bottom" constant="8" id="LIz-kL-wxp"/>
                 <constraint firstItem="Td9-S9-3v0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="67" id="Mxb-lR-r5x"/>
-                <constraint firstItem="qve-rJ-8tI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="9" id="poK-Yk-C1b"/>
+                <constraint firstAttribute="bottom" secondItem="Td9-S9-3v0" secondAttribute="bottom" id="PUa-aJ-Y6C"/>
                 <constraint firstItem="uNN-WY-Dly" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="rYO-8N-XCb"/>
                 <constraint firstItem="xw6-54-Ep7" firstAttribute="leading" secondItem="uNN-WY-Dly" secondAttribute="trailing" constant="12" id="uon-cf-He6"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="LIz-kL-wxp"/>
+                    <exclude reference="PUa-aJ-Y6C"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="eventStatusDescription" destination="Td9-S9-3v0" id="E0Q-Gp-s47"/>
                 <outlet property="eventStatusLabel" destination="xw6-54-Ep7" id="6tT-yc-g3a"/>
+                <outlet property="panGesture" destination="Ze4-HB-59Q" id="J0S-OX-0S1"/>
+                <outletCollection property="gestureRecognizers" destination="Ze4-HB-59Q" appends="YES" id="xj9-Ta-VRF"/>
+                <outletCollection property="gestureRecognizers" destination="L5W-nI-WYG" appends="YES" id="cD1-vU-gzL"/>
             </connections>
-            <point key="canvasLocation" x="-430" y="294"/>
+            <point key="canvasLocation" x="-588" y="146.5"/>
         </view>
+        <panGestureRecognizer minimumNumberOfTouches="1" id="Ze4-HB-59Q">
+            <connections>
+                <action selector="beginDragging:" destination="iN0-l3-epB" id="eX6-s4-zWT"/>
+                <outlet property="delegate" destination="iN0-l3-epB" id="tjT-yV-7rj"/>
+            </connections>
+        </panGestureRecognizer>
+        <tapGestureRecognizer id="L5W-nI-WYG">
+            <connections>
+                <action selector="openEventDetailViewController" destination="iN0-l3-epB" id="vsg-j6-M8f"/>
+                <outlet property="delegate" destination="iN0-l3-epB" id="ylp-fj-zTD"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="iconAlert" width="24" height="30"/>
-        <image name="iconCloseSm" width="14" height="14"/>
     </resources>
 </document>

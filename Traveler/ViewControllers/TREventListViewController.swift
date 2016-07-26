@@ -32,7 +32,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     @IBOutlet var currentPlayerAvatorIcon: UIImageView?
     @IBOutlet var emptyTableBackGround: UIImageView?
     @IBOutlet var playerGroupsIcon: UIImageView?
-    
+    @IBOutlet var eventTableTopConstraint: NSLayoutConstraint?
     
     //Events Information
     var eventsInfo: [TREventInfo] = []
@@ -168,6 +168,13 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         
         //Add FireBase Observer
         TRApplicationManager.sharedInstance.fireBaseManager?.addEventsObserversWithParentView(self)
+        
+        if TRApplicationManager.sharedInstance.pushNotificationViewArray.count == 0 {
+            UIView.animateWithDuration(0.3) {
+                self.eventTableTopConstraint?.constant = 11.0
+                self.view.layoutIfNeeded()
+            }
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -286,7 +293,6 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             eventInfo = self.futureEventsInfo[indexPath.section]
         }
         
-        // Show event detail view controller
         self.showEventInfoViewController(eventInfo, fromPushNoti: false)
     }
     
@@ -296,8 +302,8 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         let vc : TREventInformationViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_EVENT_INFORMATION) as! TREventInformationViewController
         vc.eventInfo = eventInfo
         
-        
-        self.presentViewController(vc, animated: true, completion: nil)
+        self.presentViewController(vc, animated: true, completion: {
+        })
     }
     
     
@@ -448,5 +454,33 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             }
             
         })
+    }
+    
+    
+    //MARK:- NOTIFICATION VIEW PROTOCOL
+    func notificationShowMoveTableDown (yOffSet: CGFloat) {
+        
+        UIView.animateWithDuration(0.3) {
+            self.eventTableTopConstraint?.constant = yOffSet
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    override func activeNotificationViewClosed () {
+        
+        if TRApplicationManager.sharedInstance.pushNotificationViewArray.count == 0 {
+            UIView.animateWithDuration(0.3) {
+                self.eventTableTopConstraint?.constant = 11.0
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    override func showEventDetailView (eventID: String) {
+        
+        let eventInfo = TRApplicationManager.sharedInstance.getEventById(eventID)
+        if let _ = eventInfo {
+            self.showEventInfoViewController(eventInfo, fromPushNoti: false)
+        }
     }
 }

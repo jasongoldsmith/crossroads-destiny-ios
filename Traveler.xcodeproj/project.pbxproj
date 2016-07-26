@@ -39,6 +39,10 @@
 		3312B91D1D024251005AF67D /* TRConsoles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3312B9191D024251005AF67D /* TRConsoles.swift */; };
 		331E0F051C9B852200A80D32 /* TRPushNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3329B5931C9B7A8500CC1F9B /* TRPushNotificationView.swift */; };
 		331E0F061C9B852F00A80D32 /* TRPushNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3329B5971C9B7A9000CC1F9B /* TRPushNotificationView.xib */; };
+		331F8F371D469AB1006CCE80 /* TRPushNotiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F8F361D469AB1006CCE80 /* TRPushNotiController.swift */; };
+		331F8F381D469AB1006CCE80 /* TRPushNotiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F8F361D469AB1006CCE80 /* TRPushNotiController.swift */; };
+		331F8F391D469AB1006CCE80 /* TRPushNotiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F8F361D469AB1006CCE80 /* TRPushNotiController.swift */; };
+		331F8F3A1D469AB1006CCE80 /* TRPushNotiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F8F361D469AB1006CCE80 /* TRPushNotiController.swift */; };
 		3329B58C1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3329B58B1C9B524D00CC1F9B /* TRErrorNotificationView.swift */; };
 		3329B58D1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3329B58B1C9B524D00CC1F9B /* TRErrorNotificationView.swift */; };
 		3329B58E1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3329B58B1C9B524D00CC1F9B /* TRErrorNotificationView.swift */; };
@@ -434,6 +438,7 @@
 		33104BFA1C97B1E70024D601 /* TRActivityIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRActivityIndicatorView.xib; sourceTree = "<group>"; };
 		33104BFE1C97B1F40024D601 /* TRActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRActivityIndicatorView.swift; sourceTree = "<group>"; };
 		3312B9191D024251005AF67D /* TRConsoles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRConsoles.swift; sourceTree = "<group>"; };
+		331F8F361D469AB1006CCE80 /* TRPushNotiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRPushNotiController.swift; sourceTree = "<group>"; };
 		3329B58B1C9B524D00CC1F9B /* TRErrorNotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRErrorNotificationView.swift; sourceTree = "<group>"; };
 		3329B58F1C9B528F00CC1F9B /* TRErrorNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRErrorNotificationView.xib; sourceTree = "<group>"; };
 		3329B5931C9B7A8500CC1F9B /* TRPushNotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRPushNotificationView.swift; sourceTree = "<group>"; };
@@ -749,6 +754,7 @@
 				3372219C1CD06762001B1157 /* TRNavTransitionAnimator.swift */,
 				336DD77E1CDC289200CCCB04 /* TRNavInteractionAnimator.swift */,
 				33E6CA841CEA49AC003408CB /* TRPushNotification.swift */,
+				331F8F361D469AB1006CCE80 /* TRPushNotiController.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -1354,6 +1360,7 @@
 				33D0B41F1CFD0165008ABA04 /* TREventUpcomingNoCheckPointCell.swift in Sources */,
 				33D0B4201CFD0165008ABA04 /* TRAppTrackingRequest.swift in Sources */,
 				33D0B4211CFD0165008ABA04 /* TREventInformationViewController.swift in Sources */,
+				331F8F371D469AB1006CCE80 /* TRPushNotiController.swift in Sources */,
 				33D0B4221CFD0165008ABA04 /* TRActivitySelectionCell.swift in Sources */,
 				33D0B4231CFD0165008ABA04 /* YTGameScene.swift in Sources */,
 				33B73C061D303F5200BEA7E5 /* TRHelmetUpdateRequest.swift in Sources */,
@@ -1441,6 +1448,7 @@
 				3380EF331CC94745000A9289 /* TREventUpcomingNoCheckPointCell.swift in Sources */,
 				332BC1791CEBECDB00012B45 /* TRAppTrackingRequest.swift in Sources */,
 				3398E1A51CAB18C7001F022B /* TREventInformationViewController.swift in Sources */,
+				331F8F381D469AB1006CCE80 /* TRPushNotiController.swift in Sources */,
 				339D8F281C90F77E00A2620F /* TRActivitySelectionCell.swift in Sources */,
 				3305AD021CF26B2C00572495 /* YTGameScene.swift in Sources */,
 				33B73C071D303F5200BEA7E5 /* TRHelmetUpdateRequest.swift in Sources */,
@@ -1545,6 +1553,7 @@
 				33FDB9BD1C863AF30066237C /* TRgetActivityList.swift in Sources */,
 				33E6CA861CEA49AC003408CB /* TRPushNotification.swift in Sources */,
 				62C5DF7A1C79769C0039A88E /* TREventListViewController.swift in Sources */,
+				331F8F391D469AB1006CCE80 /* TRPushNotiController.swift in Sources */,
 				3398E1A61CAB18C7001F022B /* TREventInformationViewController.swift in Sources */,
 				33742D941C7FC9B900C46742 /* TRRequest.swift in Sources */,
 				3380EF231CC94517000A9289 /* TRBaseEventTableCell.swift in Sources */,
@@ -1633,6 +1642,7 @@
 				33FDB9BE1C863AF40066237C /* TRgetActivityList.swift in Sources */,
 				33E6CA871CEA49AC003408CB /* TRPushNotification.swift in Sources */,
 				62C5DF7B1C79769C0039A88E /* TREventListViewController.swift in Sources */,
+				331F8F3A1D469AB1006CCE80 /* TRPushNotiController.swift in Sources */,
 				3398E1A71CAB18C7001F022B /* TREventInformationViewController.swift in Sources */,
 				33742D951C7FC9BA00C46742 /* TRRequest.swift in Sources */,
 				3380EF241CC94517000A9289 /* TRBaseEventTableCell.swift in Sources */,

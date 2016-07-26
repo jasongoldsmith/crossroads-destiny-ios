@@ -9,60 +9,219 @@
 import Foundation
 import UIKit
 
+
+protocol NotificationViewProtocol {
+    func activeNotificationViewClosed ()
+}
+
 class TRPushNotificationView: UIView {
     
+    let ACTION_MARGIN = CGFloat(120) //%%% distance from center where the action applies. Higher = swipe further in order for the action to be called
+    let SCALE_STRENGTH = CGFloat(4) //%%% how quickly the card shrinks. Higher = slower shrinking
+    let SCALE_MAX = CGFloat(0.93) //%%% upper bar for how much the card shrinks. Higher = shrinks less
+    let ROTATION_MAX = CGFloat(1) //%%% the maximum rotation allowed in radians.  Higher = card can keep rotating longer
+    let ROTATION_STRENGTH = CGFloat(320) //%%% strength of rotation. Higher = weaker rotation
+    let ROTATION_ANGLE = CGFloat(M_PI/8) //%%% Higher = stronger rotation angle
+    var originalPoint: CGPoint?
+    var xFromCenter = CGFloat()
+    var yFromCenter = CGFloat()
+
+    
     @IBOutlet weak var eventStatusLabel: UILabel!
-    @IBOutlet weak var eventStatusDescription: TRAlignableUILabel!
+    @IBOutlet weak var eventStatusDescription: UILabel!
+    @IBOutlet weak var panGesture: UIPanGestureRecognizer!
+    
+    // Parents View Controller
+    var delegate: NotificationViewProtocol?
+    var pushInfo: TRActiveStatePushInfo?
+    var parentView: TRBaseViewController?
+    var eventDescriptionFrame: CGRect?
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        let shadowPath = UIBezierPath(rect: bounds)
+        layer.masksToBounds = false
+        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowOffset = CGSizeMake(0.0, 5.0)
+        layer.shadowOpacity = 0.5
+        layer.shadowPath = shadowPath.CGPath
     }
     
-    @IBAction func closeErrorView (sender: AnyObject) {
+    
+    @IBAction func openEventDetailViewController () {
+        if let eventID = pushInfo?.eventID {
+            self.parentView!.showEventDetailView(eventID)
+        }
+    }
+    
+    func closeErrorView () {
+        
+        if let _ = TRApplicationManager.sharedInstance.pushNotificationViewArray.last {
+            TRApplicationManager.sharedInstance.pushNotificationViewArray.removeLast()
+        }
+
+        self.parentView?.activeNotificationViewClosed()
+        self.delegate?.activeNotificationViewClosed()
+
+        self.delegate = nil
+        self.pushInfo = nil
+        self.parentView = nil
+        self.eventDescriptionFrame = nil
+        
         self.removeFromSuperview()
     }
 
-    
-    func addNotificationViewWithMessages (sender: NSNotification) -> TRPushNotificationView {
-
-        let pushInfo = TRActiveStatePushInfo().parsePushNotificationPayLoad(sender)
+    func closeErrorViewInBackground () {
         
-//        if self.superview != nil {
-//            self.removeFromSuperview()
-//        }
-//
-//        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//        let window = appDelegate.window
-//
-//        let xAxiDistance:CGFloat  = 0
-//        let yAxisDistance:CGFloat = 130
-//        self.frame = CGRectMake(xAxiDistance, yAxisDistance, window!.frame.width, self.frame.height)
-//        
-//        if let userInfo = sender.userInfo as NSDictionary? {
-//            if let payload = userInfo.objectForKey("payload") as? NSDictionary {
-//                if let notificationType = payload.objectForKey("notificationName") as? String where notificationType == NOTIFICATION_NAME.NOTI_MESSAGE_PLAYER.rawValue {
-//                    if let apsData = userInfo.objectForKey("aps") as? NSDictionary {
-//                        self.eventStatusLabel.text =  "FIRETEAM MESSAGE"
-//                        if let alertString = apsData.objectForKey("alert") as? String {
-//                            if let eventType = payload.objectForKey("eventName") as? String {
-//                                let messageString = eventType.uppercaseString + "\n" + alertString
-//                                self.eventStatusDescription.text = messageString
-//                            } else {
-//                                self.eventStatusDescription.text =  alertString
-//                            }
-//                        }
-//                    }
-//                } else {
-//                    if let eventType = payload.objectForKey("eventName") as? String {
-//                        self.eventStatusLabel.text = eventType.uppercaseString
-//                    }
-//                    if let apsData = userInfo.objectForKey("aps") as? NSDictionary {
-//                        self.eventStatusDescription.text =  apsData.objectForKey("alert") as? String
-//                    }
-//                }
-//            }
-//        }
+        self.parentView?.activeNotificationViewClosed()
+        self.delegate = nil
+        self.pushInfo = nil
+        self.parentView = nil
+        self.eventDescriptionFrame = nil
+        
+        self.removeFromSuperview()
+    }
+    
+    func addNotificationViewWithMessages (pushInfo: TRActiveStatePushInfo, parentView: TRBaseViewController) -> TRPushNotificationView {
+
+        self.pushInfo = pushInfo
+        self.parentView = parentView
+        
+        if pushInfo.isMessageNotification == true {
+            self.eventStatusLabel.text =  "FIRETEAM MESSAGE"
+            
+            if let eventName = pushInfo.eventName where pushInfo.alertString != nil{
+                let messageString = eventName.uppercaseString + "\n" + pushInfo.alertString!
+                self.eventStatusDescription.text = messageString
+                let font = UIFont(name: "Helvetica", size: 14.0)
+                let height = self.heightWithConstrainedWidth((parentView.view.frame.width - 87), font: font!)
+                self.updateFrameWithHeight(height + 10)
+            } else {
+                if let alertString = pushInfo.alertString {
+                    self.eventStatusDescription.text =  alertString
+                    let font = UIFont(name: "Helvetica", size: 14.0)
+                    let height = self.heightWithConstrainedWidth((parentView.view.frame.width - 87), font: font!)
+                    self.updateFrameWithHeight(height + 10)
+                }
+            }
+        } else {
+            if let eventName = pushInfo.eventName {
+                self.eventStatusLabel.text = eventName
+            }
+            if let alertString = pushInfo.alertString {
+                self.eventStatusDescription.text =  alertString
+                let font = UIFont(name: "Helvetica", size: 14.0)
+                let height = self.heightWithConstrainedWidth((parentView.view.frame.width - 87), font: font!)
+                self.updateFrameWithHeight(height + 10)
+            }
+        }
+    
+        self.eventDescriptionFrame = self.eventStatusDescription.frame
         
         return self
     }
+    
+    
+    func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: CGFloat.max)
+        
+        let boundingBox = self.eventStatusDescription.text!.boundingRectWithSize(constraintRect, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        
+        return boundingBox.height
+    }
+    
+    func updateFrameWithHeight (height: CGFloat) {
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.eventStatusDescription.frame.origin.y + height)
+    }
+    
+    //MARK:- Pan Gesture
+    @IBAction func beginDragging (gestureRecognizer: UIPanGestureRecognizer) {
+        
+        self.xFromCenter = gestureRecognizer.translationInView(self).x
+        self.yFromCenter = gestureRecognizer.translationInView(self).y
+        
+        switch gestureRecognizer.state {
+        case .Began:
+            self.originalPoint = self.center
+            break
+        case .Changed:
+            //%%% dictates rotation (see ROTATION_MAX and ROTATION_STRENGTH for details)
+            let rotationStrength = min(xFromCenter / ROTATION_STRENGTH, ROTATION_MAX)
+            
+            //%%% degree change in radians
+            let rotationAngel: CGFloat = 0.0
+            
+            //%%% amount the height changes when you move the card up to a certain point
+            let scale = max(1 - fabs(rotationStrength) / SCALE_STRENGTH, SCALE_MAX)
+            
+            //%%% move the object's center by center + gesture coordinate
+            self.center = CGPointMake(self.originalPoint!.x + xFromCenter, self.originalPoint!.y + yFromCenter)
+            
+            //%%% rotate by certain amount
+            let transform = CGAffineTransformMakeRotation(rotationAngel)
+            
+            //%%% scale by certain amount
+            let scaleTransform = CGAffineTransformScale(transform, scale, scale)
+            
+            //%%% apply transformations
+            self.transform = scaleTransform
+            
+            break
+        case .Ended:
+            self.afterSwipeAction()
+            break
+        default:
+            break
+        }
+    }
+
+    func afterSwipeAction() {
+        if (xFromCenter > ACTION_MARGIN) {
+            rightAction();
+        } else if (xFromCenter < -ACTION_MARGIN){
+            animateCardBack()
+        } else {
+            animateCardBack()
+            
+        }
+    }
+    
+    func rightAction() {
+        animateCardToTheRight()
+    }
+    
+    func animateCardToTheRight() {
+        let rightEdge = CGFloat(500)
+        animateCardOutTo(rightEdge)
+    }
+    
+    func leftAction() {
+        animateCardToTheLeft()
+    }
+    
+    func animateCardToTheLeft() {
+        let leftEdge = CGFloat(-500)
+        animateCardOutTo(leftEdge)
+    }
+    
+    func animateCardOutTo(edge: CGFloat) {
+        let finishPoint = CGPointMake(edge, 2*yFromCenter + self.originalPoint!.y)
+        UIView.animateWithDuration(0.3, animations: {
+            self.center = finishPoint;
+            }, completion: {
+                (value: Bool) in
+                self.closeErrorView()
+        })
+    }
+    
+    func animateCardBack() {
+        UIView.animateWithDuration(0.3, animations: {
+            self.center = self.originalPoint!;
+            self.transform = CGAffineTransformMakeRotation(0);
+            }
+        )
+    }
 }
+
+

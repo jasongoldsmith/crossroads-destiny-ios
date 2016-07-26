@@ -12,6 +12,7 @@ import XCGLogger
 import Alamofire
 import SlideMenuControllerSwift
 import SwiftyJSON
+import pop
 
 
 class TRApplicationManager: NSObject {
@@ -54,11 +55,17 @@ class TRApplicationManager: NSObject {
     // FireBase Manager
     var fireBaseManager: TRFireBaseManager?
     
-    //Push Notification View
-    var pushNotificationView = TRPushNotificationView()
+
     //Push Notification View Array
     var pushNotificationViewArray: [TRPushNotificationView] = []
- 
+    //var pushNotificationArray: [TRActiveStatePushInfo] = []
+    
+    //Current View Controller
+    var currentViewController: TRBaseViewController?
+    
+    //Push Notification Controller (Active State)
+    var pushNotiController: TRPushNotiController?
+    
     
     // MARK:- Initializer
     private override init() {
@@ -84,13 +91,37 @@ class TRApplicationManager: NSObject {
         // Init Error Notification View with nib
         self.errorNotificationView = NSBundle.mainBundle().loadNibNamed("TRErrorNotificationView", owner: self, options: nil)[0] as! TRErrorNotificationView
         
-        // Init Push Notification View with nib
-        self.pushNotificationView = NSBundle.mainBundle().loadNibNamed("TRPushNotificationView", owner: self, options: nil)[0] as! TRPushNotificationView
-        
         //Init FireBase Manager
         self.fireBaseManager = TRFireBaseManager()
+        
+        //Init Push Notification Controller (Active State)
+        self.pushNotiController = TRPushNotiController()
+        
+        // Notification Observer
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(TRApplicationManager.didReceiveRemoteNotificationInActiveSesion(_:)),
+                                                         name: K.NOTIFICATION_TYPE.REMOTE_NOTIFICATION_WITH_ACTIVE_SESSION,
+                                                         object: nil)
     }
 
+    func didReceiveRemoteNotificationInActiveSesion(sender: NSNotification) {
+        
+        let pushInfo = TRActiveStatePushInfo()
+        pushInfo.parsePushNotificationPayLoad(sender)
+//        if (TRApplicationManager.sharedInstance.pushNotificationArray.count == 0) {
+//            TRApplicationManager.sharedInstance.pushNotificationArray.append(pushInfo)
+//        } else {
+//            if TRApplicationManager.sharedInstance.pushNotificationArray.last?.updateTime == pushInfo.updateTime {
+//                return
+//            }
+//            
+//            TRApplicationManager.sharedInstance.pushNotificationArray.append(pushInfo)
+//        }
+        
+        self.pushNotiController!.showActiveNotificationView(pushInfo, isExistingPushView: false)
+    }
+
+    
     func addSlideMenuController(parentViewController: TRBaseViewController, pushData: NSDictionary?, showLandingPage: Bool, showGroups: Bool) {
 
         let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
@@ -182,13 +213,7 @@ class TRApplicationManager: NSObject {
             }
         })
     }
-    
-    func addNotificationViewWithMessages (sender: NSNotification) {
-        
-        let notificationView = self.pushNotificationView.addNotificationViewWithMessages(sender)
-        self.pushNotificationViewArray.append(notificationView)
-    }
-    
+
     
     func addErrorSubViewWithMessage(errorString: String) {
         self.errorNotificationView.errorSting = errorString

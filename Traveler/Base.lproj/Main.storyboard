@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -600,13 +600,13 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Forgot your login? We will send instructions to your Bungie account with how to reset it." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="sid-xD-sch" customClass="TTTAttributedLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot your login? We will send instructions to your Bungie account with how to reset it." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="sid-xD-sch" customClass="TTTAttributedLabel">
                                 <rect key="frame" x="42" y="121" width="516" height="48"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="61I-3M-JJz">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="61I-3M-JJz">
                                 <rect key="frame" x="10" y="285" width="580" height="66"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgIconID" translatesAutoresizingMaskIntoConstraints="NO" id="QYp-vI-iFR">
@@ -669,13 +669,13 @@
                                     <action selector="resetButtonPressed:" destination="xrT-dz-8g5" eventType="touchUpInside" id="Ioq-th-aF6"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="CHOOSE YOUR CONSOLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4XC-MJ-jA1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHOOSE YOUR CONSOLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4XC-MJ-jA1">
                                 <rect key="frame" x="224" y="200" width="153" height="15"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lhf-tY-FuN">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lhf-tY-FuN">
                                 <rect key="frame" x="10" y="222" width="580" height="50"/>
                                 <color key="backgroundColor" red="0.011764705882352941" green="0.31764705882352939" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -695,14 +695,14 @@
                                     <action selector="changeConsoleButtonPressed:" destination="xrT-dz-8g5" eventType="touchUpInside" id="1mI-df-uJv"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="iconArrowDown" translatesAutoresizingMaskIntoConstraints="NO" id="PMP-b6-8og">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconArrowDown" translatesAutoresizingMaskIntoConstraints="NO" id="PMP-b6-8og">
                                 <rect key="frame" x="558" y="235" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="Vck-go-bii"/>
                                     <constraint firstAttribute="height" constant="24" id="X7Z-eh-oS1"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="iconPsnConsole" translatesAutoresizingMaskIntoConstraints="NO" id="hIX-my-tb9">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPsnConsole" translatesAutoresizingMaskIntoConstraints="NO" id="hIX-my-tb9">
                                 <rect key="frame" x="10" y="222" width="47" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="47" id="UTa-6i-imV"/>
@@ -1035,6 +1035,7 @@
                         <outlet property="eventDescription" destination="52j-jL-sAH" id="44S-2s-ePv"/>
                         <outlet property="eventIcon" destination="okI-yi-tkL" id="QK1-rD-Xmg"/>
                         <outlet property="eventInfoTable" destination="Aqr-oc-sZI" id="srG-Uv-1Wx"/>
+                        <outlet property="eventInfoTableTopConstraint" destination="iwO-Kj-gdw" id="hdE-Kh-qUi"/>
                         <outlet property="eventLightCount" destination="5io-jw-Yt7" id="gMy-rr-SCQ"/>
                         <outlet property="eventTimeLabel" destination="fp9-Y7-aCP" id="ABp-nq-ZxC"/>
                         <outlet property="eventTitle" destination="sn8-Yu-hPO" id="Y2X-0B-qCj"/>
@@ -1623,7 +1624,9 @@
                             <constraint firstItem="GC0-EZ-x8P" firstAttribute="top" secondItem="mXp-dP-eCo" secondAttribute="bottom" constant="-64" id="5M9-fM-dTF"/>
                             <constraint firstItem="HnB-tK-Gh9" firstAttribute="top" secondItem="VH7-Fj-a7t" secondAttribute="bottom" constant="11" id="90n-dx-hjF"/>
                             <constraint firstItem="c5f-7R-NrH" firstAttribute="top" secondItem="GC0-EZ-x8P" secondAttribute="top" constant="29" id="B9f-pn-BhQ"/>
+                            <constraint firstItem="z2g-Bm-q4G" firstAttribute="bottom" secondItem="2xU-P6-pHh" secondAttribute="bottom" id="Bhd-tR-qQ6"/>
                             <constraint firstItem="z2g-Bm-q4G" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leadingMargin" constant="2" id="Blp-dT-mR6"/>
+                            <constraint firstItem="VH7-Fj-a7t" firstAttribute="bottom" secondItem="2xU-P6-pHh" secondAttribute="bottom" id="BvK-5e-KXY"/>
                             <constraint firstItem="z2g-Bm-q4G" firstAttribute="top" secondItem="GC0-EZ-x8P" secondAttribute="bottom" constant="-3" id="E1h-r5-EBn"/>
                             <constraint firstItem="ros-Bk-ZVy" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leadingMargin" constant="-20" id="EDe-fv-290"/>
                             <constraint firstItem="bhE-zA-4t7" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leading" id="FXr-aW-zBg"/>
@@ -1645,6 +1648,7 @@
                             <constraint firstItem="c5f-7R-NrH" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leading" constant="16" id="naC-jX-HXe"/>
                             <constraint firstItem="huA-O1-54n" firstAttribute="top" secondItem="2xU-P6-pHh" secondAttribute="bottom" constant="11" id="o54-D6-a8c"/>
                             <constraint firstItem="huA-O1-54n" firstAttribute="top" secondItem="VH7-Fj-a7t" secondAttribute="bottom" constant="11" id="ocw-r0-k8V"/>
+                            <constraint firstItem="ros-Bk-ZVy" firstAttribute="bottom" secondItem="2xU-P6-pHh" secondAttribute="bottom" constant="-4" id="qFW-AM-VBz"/>
                             <constraint firstItem="GC0-EZ-x8P" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leading" id="sCu-TU-OCv"/>
                             <constraint firstItem="2xU-P6-pHh" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leadingMargin" constant="-20" id="t8F-Fh-BgJ"/>
                             <constraint firstItem="ros-Bk-ZVy" firstAttribute="trailing" secondItem="Mwi-1s-bC4" secondAttribute="trailingMargin" constant="20" id="tE9-iy-gsM"/>
@@ -1652,6 +1656,13 @@
                             <constraint firstAttribute="trailingMargin" secondItem="2xU-P6-pHh" secondAttribute="trailing" constant="-20" id="wGN-ek-WpO"/>
                             <constraint firstItem="HnB-tK-Gh9" firstAttribute="leading" secondItem="Mwi-1s-bC4" secondAttribute="leadingMargin" constant="-10" id="x2C-Gn-zKf"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Fjb-Qk-Hxt"/>
+                                <exclude reference="aYD-tk-7eb"/>
+                                <exclude reference="ocw-r0-k8V"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="4Yj-fb-Jef" appends="YES" id="cg7-BD-gMH"/>
                             <outletCollection property="gestureRecognizers" destination="ehC-SO-XDe" appends="YES" id="Tgi-fN-Uu4"/>
@@ -1660,6 +1671,7 @@
                     <connections>
                         <outlet property="currentPlayerAvatorIcon" destination="c5f-7R-NrH" id="hkn-SI-1v4"/>
                         <outlet property="emptyTableBackGround" destination="HnB-tK-Gh9" id="fNz-zZ-I4k"/>
+                        <outlet property="eventTableTopConstraint" destination="o54-D6-a8c" id="MrD-nk-ZZj"/>
                         <outlet property="eventsTableView" destination="huA-O1-54n" id="gEr-ib-MKo"/>
                         <outlet property="playerGroupsIcon" destination="mXp-dP-eCo" id="q0X-jp-QHo"/>
                         <outlet property="segmentControl" destination="ros-Bk-ZVy" id="i3U-uh-wdz"/>

@@ -29,6 +29,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     @IBOutlet weak var eventActivityCheckPoint: UILabel?
     @IBOutlet weak var eventActivityCheckPointHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var eventActivityCheckPointTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var eventInfoTableTopConstraint: NSLayoutConstraint?
     
     var sendChatMessageView : TRSendChatMessageView!
     
@@ -171,6 +172,9 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+
+        TRApplicationManager.sharedInstance.pushNotiController?.showAllNotificationsWithEventID(eventInfo!.eventID!, parentView: self)
+
         TRApplicationManager.sharedInstance.fireBaseManager?.addEventsObserversWithParentViewForDetailView(self,withEvent: self.eventInfo!)
     }
     
@@ -182,7 +186,10 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     }
     
     @IBAction func backButtonPressed (sender: AnyObject) {
+
         self.dismissViewController(true) { (didDismiss) in
+            // Show event detail view controller
+            TRApplicationManager.sharedInstance.pushNotiController?.deleteAllNotificationsWithEventID(self.eventInfo!.eventID!)
         }
     }
     
@@ -357,6 +364,28 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
 
         let activityViewController = UIActivityViewController(activityItems: groupToShare , applicationActivities: nil)
         presentViewController(activityViewController, animated: true, completion: {})
+    }
+    
+    //MARK:- NOTIFICATION VIEW PROTOCOL
+    func notificationShowMoveTableDown (yOffSet: CGFloat) {
+        UIView.animateWithDuration(0.3) {
+            self.eventInfoTableTopConstraint?.constant = yOffSet
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    override func activeNotificationViewClosed () {
+        
+        for obj in TRApplicationManager.sharedInstance.pushNotificationViewArray {
+            if obj.pushInfo?.eventID == self.eventInfo?.eventID && obj.pushInfo?.isMessageNotification ==   true {
+                return
+            }
+        }
+        
+        UIView.animateWithDuration(0.3) {
+            self.eventInfoTableTopConstraint?.constant = 11.0
+            self.view.layoutIfNeeded()
+        }
     }
     
     deinit {

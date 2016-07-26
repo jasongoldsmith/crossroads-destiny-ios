@@ -35,11 +35,6 @@ class TRBaseViewController: UIViewController {
             name: UIApplicationDidEnterBackgroundNotification,
             object: nil)
         
-        // Notification Observer
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: #selector(TRBaseViewController.didReceiveRemoteNotificationInActiveSesion(_:)),
-            name: K.NOTIFICATION_TYPE.REMOTE_NOTIFICATION_WITH_ACTIVE_SESSION,
-            object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self,
             selector: #selector(TRBaseViewController.didReceiveRemoteNotificationInBackGroundSession(_:)),
@@ -117,10 +112,12 @@ class TRBaseViewController: UIViewController {
         })
     }
     
-    func didReceiveRemoteNotificationInActiveSesion(sender: NSNotification) {
-        TRApplicationManager.sharedInstance.addNotificationViewWithMessages(sender)
+    func showEventDetailView (eventID: String) {
     }
-
+    
+    func activeNotificationViewClosed() {
+    }
+    
     func didReceiveRemoteNotificationInBackGroundSession (sender: NSNotification) {
     }
     
