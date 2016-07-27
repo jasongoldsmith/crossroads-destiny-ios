@@ -20,6 +20,10 @@ class TREventActivityCardCell: UITableViewCell {
     
     override func prepareForReuse() {
         self.cellBackgroundImageView.image = nil
+        self.cellActivityIconImageView.image = nil
+        self.cellActivityNameLabel.text = nil
+        self.cellActivityCheckPointLabel.text = nil
+        self.cellActivityAddButton?.buttonActivityInfo = nil
     }
     
     func loadCellView () {

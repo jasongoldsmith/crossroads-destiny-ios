@@ -310,6 +310,11 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
                 self.showEventInfoViewController(eventInfo, fromPushNoti: false)
             } else {
                 
+                let cell = self.eventsTableView?.cellForRowAtIndexPath(indexPath) as! TREventActivityCardCell
+                
+                if let _ = cell.cellActivityAddButton.buttonActivityInfo {
+                        self.createActivityWithActivity(cell.cellActivityAddButton)
+                }
             }
         } else {
             eventInfo = self.futureEventsInfo[indexPath.section]
