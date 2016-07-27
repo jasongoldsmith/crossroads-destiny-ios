@@ -34,11 +34,23 @@ class TRGetEventsList: TRRequest {
 
             //Clear the array before fetting
             TRApplicationManager.sharedInstance.eventsList.removeAll()
+            TRApplicationManager.sharedInstance.eventsListActivity.removeAll()
             
-            for events in swiftyJsonVar.arrayValue {
+            for events in swiftyJsonVar["currentEvents"].arrayValue {
                 let eventInfo = TREventInfo().parseCreateEventInfoObject(events)
                 TRApplicationManager.sharedInstance.eventsList.append(eventInfo)
             }
+
+            for events in swiftyJsonVar["futureEvents"].arrayValue {
+                let eventInfo = TREventInfo().parseCreateEventInfoObject(events)
+                TRApplicationManager.sharedInstance.eventsList.append(eventInfo)
+            }
+
+            for events in swiftyJsonVar["adActivities"].arrayValue {
+                let activityInfo = TRActivityInfo().parseAndCreateActivityObject(events)
+                TRApplicationManager.sharedInstance.eventsListActivity.append(activityInfo)
+            }
+
             
             completion(didSucceed: true)
         }

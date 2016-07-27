@@ -24,6 +24,8 @@ class TRActivityInfo: NSObject {
     var activityIsFeatured    : Bool?
     var activitylocation      : String?
     var activityLevel         : String?
+    var activityAdCard        : TRAdCardInfo?
+    
     
     func parseAndCreateActivityObject (swiftyJson: JSON) -> TRActivityInfo {
         
@@ -39,6 +41,13 @@ class TRActivityInfo: NSObject {
         self.activityIsFeatured = swiftyJson["isFeatured"].boolValue
         self.activitylocation   = swiftyJson["location"].stringValue
         self.activityLevel      = swiftyJson["aLevel"].stringValue
+        
+        if let card = swiftyJson["adCard"].dictionary {
+            let acitivityCard = TRAdCardInfo()
+            acitivityCard.parseAndCreateActivityObject(JSON(card))
+            
+            self.activityAdCard = acitivityCard
+        }
         
         return self
     }

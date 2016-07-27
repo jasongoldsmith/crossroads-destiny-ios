@@ -15,6 +15,7 @@ private let CURRENT_EVENT_WITH_CHECK_POINT_CELL     = "currentEventCellWithCheck
 private let CURRENT_EVENT_NO_CHECK_POINT_CELL       = "currentEventCellNoCheckPoint"
 private let UPCOMING_EVENT_WITH_CHECK_POINT_CELL    = "upcomingEventCellWithCheckPoint"
 private let UPCOMING_EVENT_NO_CHECK_POINT_CELL      = "upcomingEventCellNoCheckPoint"
+private let EVENT_ACTIVITY_CARD_CELL                = "eventActivityCard"
 
 private let EVENT_TABLE_HEADER_HEIGHT:CGFloat = 10.0
 
@@ -22,6 +23,7 @@ private let EVENT_CURRENT_WITH_CHECK_POINT_CELL_HEIGHT: CGFloat  = 137.0
 private let EVENT_CURRENT_NO_CHECK_POINT_CELL_HEIGHT:CGFloat     = 119.0
 private let EVENT_UPCOMING_WITH_CHECK_POINT_CELL_HEIGHT:CGFloat  = 150.0
 private let EVENT_UPCOMING_NO_CHECK_POINT_CELL_HEIGHT:CGFloat    = 137.0
+private let EVENT_ACTIVITY_CELL_HEIGHT:CGFloat                   = 156.0
 
 class TREventListViewController: TRBaseViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -36,6 +38,9 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     
     //Events Information
     var eventsInfo: [TREventInfo] = []
+    
+    //Activity Cards
+    var activityCardsInfo: [TRActivityInfo] = []
     
     // Future Events Information
     var futureEventsInfo: [TREventInfo] = [] 
@@ -66,6 +71,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         self.eventsTableView?.registerNib(UINib(nibName: "TREventCurrentNoCheckPointCell", bundle: nil), forCellReuseIdentifier: CURRENT_EVENT_NO_CHECK_POINT_CELL)
         self.eventsTableView?.registerNib(UINib(nibName: "TREventUpcomingWithCheckPointCell", bundle: nil), forCellReuseIdentifier: UPCOMING_EVENT_WITH_CHECK_POINT_CELL)
         self.eventsTableView?.registerNib(UINib(nibName: "TREventUpcomingNoCheckPointCell", bundle: nil), forCellReuseIdentifier: UPCOMING_EVENT_NO_CHECK_POINT_CELL)
+        self.eventsTableView?.registerNib(UINib(nibName: "TREventActivityCardCell", bundle: nil), forCellReuseIdentifier: EVENT_ACTIVITY_CARD_CELL)
 
         self.eventsTableView?.tableFooterView = UIView(frame: CGRectZero)
         self.eventsTableView?.addSubview(self.refreshControl)
@@ -231,13 +237,9 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
-        guard self.eventsInfo.count > 0 || self.futureEventsInfo.count > 0 else {
-            return 0
-        }
-        
+
         if self.segmentControl?.selectedSegmentIndex == 0 {
-            return self.eventsInfo.count
+            return self.eventsInfo.count + self.activityCardsInfo.count
         }
         
         return self.futureEventsInfo.count
@@ -246,22 +248,37 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         var cell: TRBaseEventTableCell?
-        
         if segmentControl?.selectedSegmentIndex == 0 {
-            if self.eventsInfo[indexPath.section].eventActivity?.activityCheckPoint != "" && self.eventsInfo[indexPath.section].eventActivity?.activityCheckPoint != nil{
-                cell = tableView.dequeueReusableCellWithIdentifier(CURRENT_EVENT_WITH_CHECK_POINT_CELL) as! TREventCurrentWithCheckPointCell
-                self.eventsTableView?.rowHeight = EVENT_CURRENT_WITH_CHECK_POINT_CELL_HEIGHT
-            } else {
-                cell = tableView.dequeueReusableCellWithIdentifier(CURRENT_EVENT_NO_CHECK_POINT_CELL) as! TREventCurrentNoCheckPointCell
-                self.eventsTableView?.rowHeight = EVENT_CURRENT_NO_CHECK_POINT_CELL_HEIGHT
-            }
             
-            cell?.updateCellViewWithEvent(self.eventsInfo[indexPath.section])
-            cell?.joinEventButton?.buttonEventInfo = eventsInfo[indexPath.section]
-            cell?.leaveEventButton.buttonEventInfo = eventsInfo[indexPath.section]
-            cell?.eventTimeLabel?.hidden = true
+            if indexPath.section < self.eventsInfo.count {
+                
+                if self.eventsInfo[indexPath.section].eventActivity?.activityCheckPoint != "" && self.eventsInfo[indexPath.section].eventActivity?.activityCheckPoint != nil{
+                    cell = tableView.dequeueReusableCellWithIdentifier(CURRENT_EVENT_WITH_CHECK_POINT_CELL) as! TREventCurrentWithCheckPointCell
+                    self.eventsTableView?.rowHeight = EVENT_CURRENT_WITH_CHECK_POINT_CELL_HEIGHT
+                } else {
+                    cell = tableView.dequeueReusableCellWithIdentifier(CURRENT_EVENT_NO_CHECK_POINT_CELL) as! TREventCurrentNoCheckPointCell
+                    self.eventsTableView?.rowHeight = EVENT_CURRENT_NO_CHECK_POINT_CELL_HEIGHT
+                }
+                
+                cell?.updateCellViewWithEvent(self.eventsInfo[indexPath.section])
+                cell?.joinEventButton?.buttonEventInfo = eventsInfo[indexPath.section]
+                cell?.leaveEventButton.buttonEventInfo = eventsInfo[indexPath.section]
+                cell?.eventTimeLabel?.hidden = true
+            } else {
+                
+                let index = indexPath.section - self.eventsInfo.count
+                let cell = tableView.dequeueReusableCellWithIdentifier(EVENT_ACTIVITY_CARD_CELL) as! TREventActivityCardCell
+                cell.activityInfo = self.activityCardsInfo[index]
+                cell.cellActivityAddButton?.buttonActivityInfo = self.activityCardsInfo[index]
+                cell.cellActivityAddButton?.addTarget(self, action: #selector(TREventListViewController.createActivityWithActivity(_:)), forControlEvents: .TouchUpInside)
+                self.eventsTableView?.rowHeight = EVENT_ACTIVITY_CELL_HEIGHT
+                cell.loadCellView()
+                
+                return cell
+            }
 
         } else {
+            
             if self.futureEventsInfo[indexPath.section].eventActivity?.activityCheckPoint != "" && self.futureEventsInfo[indexPath.section].eventActivity?.activityCheckPoint != nil{
                 cell = tableView.dequeueReusableCellWithIdentifier(UPCOMING_EVENT_WITH_CHECK_POINT_CELL) as! TREventUpcomingWithCheckPointCell
                 self.eventsTableView?.rowHeight = EVENT_UPCOMING_WITH_CHECK_POINT_CELL_HEIGHT
@@ -288,12 +305,16 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         
         let eventInfo: TREventInfo!
         if self.segmentControl?.selectedSegmentIndex == 0 {
-            eventInfo = self.eventsInfo[indexPath.section]
+            if indexPath.section < self.eventsInfo.count {
+                eventInfo = self.eventsInfo[indexPath.section]
+                self.showEventInfoViewController(eventInfo, fromPushNoti: false)
+            } else {
+                
+            }
         } else {
             eventInfo = self.futureEventsInfo[indexPath.section]
+            self.showEventInfoViewController(eventInfo, fromPushNoti: false)
         }
-        
-        self.showEventInfoViewController(eventInfo, fromPushNoti: false)
     }
     
     func showEventInfoViewController(eventInfo: TREventInfo?, fromPushNoti: Bool?) {
@@ -389,7 +410,8 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         //Reload Table
         self.eventsInfo       = TRApplicationManager.sharedInstance.getCurrentEvents()
         self.futureEventsInfo = TRApplicationManager.sharedInstance.getFutureEvents()
-        
+        self.activityCardsInfo = TRApplicationManager.sharedInstance.eventsListActivity
+            
         self.eventsTableView?.reloadData()
     }
     
@@ -419,6 +441,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
     
     
+    //MARK:- OTHER VIEW-CONTROLLERS
     func avatorBtnTapped(sender: AnyObject) {
         TRApplicationManager.sharedInstance.slideMenuController.openLeft()
     }
@@ -428,9 +451,24 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         })
     }
     
+    func createActivityWithActivity (sender: EventButton) {
+        
+        _ = TRgetActivityList().getActivityList({ (value) -> () in
+            if (value == true) {
+                let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+                let vc : TRCreateEventConfirmationViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_CREATE_EVENT_CONFIRM) as! TRCreateEventConfirmationViewController
+                let navigationController = UINavigationController(rootViewController: vc)
+                vc.selectedActivity = sender.buttonActivityInfo
+                
+                self.presentViewController(navigationController, animated: true, completion: nil)
+            }
+        })
+    }
+    
     deinit {
         self.eventsInfo.removeAll()
         self.futureEventsInfo.removeAll()
+        self.activityCardsInfo.removeAll()
         
         //Remove Observer
         NSNotificationCenter.defaultCenter().removeObserver(self)

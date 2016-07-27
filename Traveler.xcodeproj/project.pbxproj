@@ -343,6 +343,18 @@
 		33D0B4591CFD0165008ABA04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62C1FF331C77C15C00A78798 /* Main.storyboard */; };
 		33D0B45A1CFD0165008ABA04 /* TrLaunchImgBadge.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D0B3F11CFCFC2C008ABA04 /* TrLaunchImgBadge.png */; };
 		33D0B45B1CFD0165008ABA04 /* TREventUpcomingWithCheckPointCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3380EF421CC979C1000A9289 /* TREventUpcomingWithCheckPointCell.xib */; };
+		33D9D9751D48476000A6289D /* TREventActivityCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D9D9741D48476000A6289D /* TREventActivityCardCell.swift */; };
+		33D9D9761D48476000A6289D /* TREventActivityCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D9D9741D48476000A6289D /* TREventActivityCardCell.swift */; };
+		33D9D9771D48476000A6289D /* TREventActivityCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D9D9741D48476000A6289D /* TREventActivityCardCell.swift */; };
+		33D9D9781D48476000A6289D /* TREventActivityCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D9D9741D48476000A6289D /* TREventActivityCardCell.swift */; };
+		33D9D97A1D48477400A6289D /* TREventActivityCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33D9D9791D48477400A6289D /* TREventActivityCardCell.xib */; };
+		33D9D97B1D48477400A6289D /* TREventActivityCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33D9D9791D48477400A6289D /* TREventActivityCardCell.xib */; };
+		33D9D97C1D48477400A6289D /* TREventActivityCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33D9D9791D48477400A6289D /* TREventActivityCardCell.xib */; };
+		33D9D97D1D48477400A6289D /* TREventActivityCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33D9D9791D48477400A6289D /* TREventActivityCardCell.xib */; };
+		33D9D97F1D48574F00A6289D /* TRAdCardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D9D97E1D48574F00A6289D /* TRAdCardInfo.swift */; };
+		33D9D9801D48574F00A6289D /* TRAdCardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D9D97E1D48574F00A6289D /* TRAdCardInfo.swift */; };
+		33D9D9811D48574F00A6289D /* TRAdCardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D9D97E1D48574F00A6289D /* TRAdCardInfo.swift */; };
+		33D9D9821D48574F00A6289D /* TRAdCardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D9D97E1D48574F00A6289D /* TRAdCardInfo.swift */; };
 		33E6CA811CE65CAA003408CB /* TRForgotPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E6CA801CE65CAA003408CB /* TRForgotPasswordRequest.swift */; };
 		33E6CA821CE65CAA003408CB /* TRForgotPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E6CA801CE65CAA003408CB /* TRForgotPasswordRequest.swift */; };
 		33E6CA831CE65CAA003408CB /* TRForgotPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E6CA801CE65CAA003408CB /* TRForgotPasswordRequest.swift */; };
@@ -510,6 +522,9 @@
 		33D0B3F41CFCFC5C008ABA04 /* TrLaunchImgBadge@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TrLaunchImgBadge@3x.png"; sourceTree = "<group>"; };
 		33D0B4621CFD0165008ABA04 /* Dev CSRD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dev CSRD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33D0B4631CFD0166008ABA04 /* Traveler copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Traveler copy-Info.plist"; path = "/Users/thakuas/Desktop/projects/Traveler/Traveler copy-Info.plist"; sourceTree = "<absolute>"; };
+		33D9D9741D48476000A6289D /* TREventActivityCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREventActivityCardCell.swift; sourceTree = "<group>"; };
+		33D9D9791D48477400A6289D /* TREventActivityCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TREventActivityCardCell.xib; sourceTree = "<group>"; };
+		33D9D97E1D48574F00A6289D /* TRAdCardInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRAdCardInfo.swift; sourceTree = "<group>"; };
 		33E6CA801CE65CAA003408CB /* TRForgotPasswordRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRForgotPasswordRequest.swift; sourceTree = "<group>"; };
 		33E6CA841CEA49AC003408CB /* TRPushNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRPushNotification.swift; sourceTree = "<group>"; };
 		33EC0F281CFE96820034CE4B /* TRResendBungieVerification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRResendBungieVerification.swift; sourceTree = "<group>"; };
@@ -656,6 +671,7 @@
 			isa = PBXGroup;
 			children = (
 				3380EF211CC94517000A9289 /* TRBaseEventTableCell.swift */,
+				33D9D9831D487B2600A6289D /* EventAdCardCell */,
 				3380EF4A1CC97A77000A9289 /* Current_Events */,
 				3380EF4B1CC97A85000A9289 /* Upcoming_Events */,
 			);
@@ -694,6 +710,15 @@
 			name = LaunchImage;
 			sourceTree = "<group>";
 		};
+		33D9D9831D487B2600A6289D /* EventAdCardCell */ = {
+			isa = PBXGroup;
+			children = (
+				33D9D9741D48476000A6289D /* TREventActivityCardCell.swift */,
+				33D9D9791D48477400A6289D /* TREventActivityCardCell.xib */,
+			);
+			name = EventAdCardCell;
+			sourceTree = "<group>";
+		};
 		6238D2DB1C7ADDD50085C8AA /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -705,6 +730,7 @@
 				33FDB9A71C84F7C50066237C /* TRCreatorInfo.swift */,
 				3333BDC61CEE80EA001C9E1A /* TRBungieGroupInfo.swift */,
 				3312B9191D024251005AF67D /* TRConsoles.swift */,
+				33D9D97E1D48574F00A6289D /* TRAdCardInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1039,6 +1065,7 @@
 				33D0B4571CFD0165008ABA04 /* TrLaunchImgBadge@2x.png in Resources */,
 				33D0B4581CFD0165008ABA04 /* TRWebView.xib in Resources */,
 				33D0B4591CFD0165008ABA04 /* Main.storyboard in Resources */,
+				33D9D97A1D48477400A6289D /* TREventActivityCardCell.xib in Resources */,
 				33B73BFF1D2F171200BEA7E5 /* GoogleService-Info.plist in Resources */,
 				33D0B45A1CFD0165008ABA04 /* TrLaunchImgBadge.png in Resources */,
 				33D0B45B1CFD0165008ABA04 /* TREventUpcomingWithCheckPointCell.xib in Resources */,
@@ -1066,6 +1093,7 @@
 				33D0B3F51CFCFC5C008ABA04 /* TrLaunchImgBadge@2x.png in Resources */,
 				338BB2031CEEB99F00A14060 /* TRWebView.xib in Resources */,
 				62C1FF351C77C15C00A78798 /* Main.storyboard in Resources */,
+				33D9D97B1D48477400A6289D /* TREventActivityCardCell.xib in Resources */,
 				33AA2C961D3E9D2200E5BF0D /* GoogleService-Info.plist in Resources */,
 				33D0B3F21CFCFC2C008ABA04 /* TrLaunchImgBadge.png in Resources */,
 				3380EF431CC979C1000A9289 /* TREventUpcomingWithCheckPointCell.xib in Resources */,
@@ -1079,6 +1107,7 @@
 				3380EF441CC979C1000A9289 /* TREventUpcomingWithCheckPointCell.xib in Resources */,
 				3329B5991C9B7A9000CC1F9B /* TRPushNotificationView.xib in Resources */,
 				3380EF3C1CC95C28000A9289 /* TREventCurrentNoCheckPointCell.xib in Resources */,
+				33D9D97C1D48477400A6289D /* TREventActivityCardCell.xib in Resources */,
 				339D8F2D1C90F79800A2620F /* TRActivitySelectionCell.xib in Resources */,
 				3398E1B71CAB7F14001F022B /* TREventInfoPlayerCell.xib in Resources */,
 				3329B5911C9B528F00CC1F9B /* TRErrorNotificationView.xib in Resources */,
@@ -1099,6 +1128,7 @@
 				3380EF451CC979C1000A9289 /* TREventUpcomingWithCheckPointCell.xib in Resources */,
 				3329B59A1C9B7A9000CC1F9B /* TRPushNotificationView.xib in Resources */,
 				3380EF3D1CC95C28000A9289 /* TREventCurrentNoCheckPointCell.xib in Resources */,
+				33D9D97D1D48477400A6289D /* TREventActivityCardCell.xib in Resources */,
 				339D8F2E1C90F79800A2620F /* TRActivitySelectionCell.xib in Resources */,
 				3398E1B81CAB7F14001F022B /* TREventInfoPlayerCell.xib in Resources */,
 				3329B5921C9B528F00CC1F9B /* TRErrorNotificationView.xib in Resources */,
@@ -1317,6 +1347,7 @@
 			files = (
 				3312B91A1D024251005AF67D /* TRConsoles.swift in Sources */,
 				33D0B3FB1CFD0165008ABA04 /* TRPushNotificationView.swift in Sources */,
+				33D9D97F1D48574F00A6289D /* TRAdCardInfo.swift in Sources */,
 				33D0B3FC1CFD0165008ABA04 /* UIApplicationExtension.swift in Sources */,
 				333FA8A91D0109C200A5EC1C /* TRBungieUserAuthRequest.swift in Sources */,
 				33D0B3FD1CFD0165008ABA04 /* NSBundleExtension.swift in Sources */,
@@ -1372,6 +1403,7 @@
 				33D0B4291CFD0165008ABA04 /* TRStoryBoardManager.swift in Sources */,
 				33D0B42A1CFD0165008ABA04 /* TRBungieGroupCell.swift in Sources */,
 				33D0B42B1CFD0165008ABA04 /* TRErrorNotificationView.swift in Sources */,
+				33D9D9751D48476000A6289D /* TREventActivityCardCell.swift in Sources */,
 				33D0B42C1CFD0165008ABA04 /* TRGetAllDestinyGroups.swift in Sources */,
 				33B73C011D2F188800BEA7E5 /* TRFireBaseManager.swift in Sources */,
 				33D0B42D1CFD0165008ABA04 /* TRProfileViewController.swift in Sources */,
@@ -1405,6 +1437,7 @@
 			files = (
 				3312B91B1D024251005AF67D /* TRConsoles.swift in Sources */,
 				331E0F051C9B852200A80D32 /* TRPushNotificationView.swift in Sources */,
+				33D9D9801D48574F00A6289D /* TRAdCardInfo.swift in Sources */,
 				336BF5271CBEB214005CD3DE /* UIApplicationExtension.swift in Sources */,
 				333FA8AA1D0109C200A5EC1C /* TRBungieUserAuthRequest.swift in Sources */,
 				3369499C1CC5CFEB004979C0 /* NSBundleExtension.swift in Sources */,
@@ -1460,6 +1493,7 @@
 				33742D8A1C7FC51700C46742 /* TRStoryBoardManager.swift in Sources */,
 				3333BDBF1CEE6C7F001C9E1A /* TRBungieGroupCell.swift in Sources */,
 				3329B58C1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */,
+				33D9D9761D48476000A6289D /* TREventActivityCardCell.swift in Sources */,
 				332BC17D1CED03AD00012B45 /* TRGetAllDestinyGroups.swift in Sources */,
 				33B73C021D2F188800BEA7E5 /* TRFireBaseManager.swift in Sources */,
 				3398E1AD1CAB3D3D001F022B /* TRProfileViewController.swift in Sources */,
@@ -1558,6 +1592,7 @@
 				33742D941C7FC9B900C46742 /* TRRequest.swift in Sources */,
 				3380EF231CC94517000A9289 /* TRBaseEventTableCell.swift in Sources */,
 				33FDB9A91C84F82F0066237C /* TRCreatorInfo.swift in Sources */,
+				33D9D9771D48476000A6289D /* TREventActivityCardCell.swift in Sources */,
 				3305AD0A1CF26FD100572495 /* YTGameViewController.swift in Sources */,
 				3333BDC01CEE6C7F001C9E1A /* TRBungieGroupCell.swift in Sources */,
 				3300FC141D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift in Sources */,
@@ -1572,6 +1607,7 @@
 				3398E1AA1CAB2994001F022B /* TRSendPushMessage.swift in Sources */,
 				339D8F311C911FB900A2620F /* TRCreateEventConfirmationViewController.swift in Sources */,
 				6294972E1C7BB5F3005E4F91 /* TRAuthenticationRequest.swift in Sources */,
+				33D9D9811D48574F00A6289D /* TRAdCardInfo.swift in Sources */,
 				339D8F251C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1647,6 +1683,7 @@
 				33742D951C7FC9BA00C46742 /* TRRequest.swift in Sources */,
 				3380EF241CC94517000A9289 /* TRBaseEventTableCell.swift in Sources */,
 				33FDB9AA1C84F8300066237C /* TRCreatorInfo.swift in Sources */,
+				33D9D9781D48476000A6289D /* TREventActivityCardCell.swift in Sources */,
 				3305AD0B1CF26FD100572495 /* YTGameViewController.swift in Sources */,
 				3333BDC11CEE6C7F001C9E1A /* TRBungieGroupCell.swift in Sources */,
 				3300FC151D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift in Sources */,
@@ -1661,6 +1698,7 @@
 				3398E1AB1CAB2994001F022B /* TRSendPushMessage.swift in Sources */,
 				339D8F321C911FB900A2620F /* TRCreateEventConfirmationViewController.swift in Sources */,
 				6294972F1C7BB5F3005E4F91 /* TRAuthenticationRequest.swift in Sources */,
+				33D9D9821D48574F00A6289D /* TRAdCardInfo.swift in Sources */,
 				339D8F261C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -33,7 +33,10 @@ class TRApplicationManager: NSObject {
     
     //Event Info Objet
     lazy var eventsList: [TREventInfo] = []
-    
+
+    //Event Info Objet
+    lazy var eventsListActivity: [TRActivityInfo] = []
+
     //Activity List
     lazy var activityList: [TRActivityInfo] = []
     
@@ -316,6 +319,8 @@ class TRApplicationManager: NSObject {
         self.activityList.removeAll()
         self.eventsList.removeAll()
         self.bungieGroups.removeAll()
+        self.eventsListActivity.removeAll()
+        self.pushNotificationViewArray.removeAll()
     }
 }
 

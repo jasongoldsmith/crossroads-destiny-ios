@@ -41,7 +41,7 @@ struct K {
         static let TR_RegisterUrl        =   "/api/v1/auth/register"
         static let TR_LoginUrl           =   "/api/v1/auth/login"
         static let TR_LogoutUrl          =   "/api/v1/auth/logout"
-        static let TR_EventListUrl       =   "/api/v1/a/event/list"
+        static let TR_EventListUrl       =   "/api/v1/a/feed/get"
         static let TR_EventCreationUrl   =   "/api/v1/a/event/create"
         static let TR_ActivityListUrl    =   "/api/v1/activity/list"
         static let TR_JoinEventUrl       =   "/api/v1/a/event/join"
