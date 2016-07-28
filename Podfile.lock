@@ -1,6 +1,11 @@
 PODS:
   - AFDateHelper (3.4.2)
   - Alamofire (3.3.1)
+  - Branch (0.12.4):
+    - Branch/Core (= 0.12.4)
+    - Branch/without-IDFA (= 0.12.4)
+  - Branch/Core (0.12.4)
+  - Branch/without-IDFA (0.12.4)
   - Firebase/Analytics (3.3.0):
     - FirebaseAnalytics (= 3.2.1)
   - Firebase/Core (3.3.0):
@@ -38,6 +43,7 @@ PODS:
 DEPENDENCIES:
   - AFDateHelper
   - Alamofire (~> 3.3.1)
+  - Branch
   - Firebase/Core
   - Firebase/Database
   - Firebase/DynamicLinks
@@ -65,6 +71,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFDateHelper: aecee6bb264d6531795649f4ebac47783d2bab74
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  Branch: f5a2eada319b7ac0c7e492c195c6c23f3cf345e3
   Firebase: 6250071f0e2440a5c4c67b8cb6b868f868237ac3
   FirebaseAnalytics: 0fd6532cb2c3d03cd5cf26ad295ccb091efd3104
   FirebaseDatabase: 59bea2e7dfd81b3b8b2f8e396caf1a52c2ced6f7
@@ -80,6 +87,6 @@ SPEC CHECKSUMS:
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   XCGLogger: d6e196e78940ff6daab17d6917107876f973fa31
 
-PODFILE CHECKSUM: f13974b2ac5fb46e0e80f83ae58c72b163c3ae16
+PODFILE CHECKSUM: d692ecd51128b3e486ef46ea61e35361d7f0584b
 
 COCOAPODS: 1.0.0

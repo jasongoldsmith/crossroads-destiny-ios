@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Branch
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -40,12 +40,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Status Bar 
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
         
+        
+        
+        let branch: Branch = Branch.getInstance()
+        branch.initSessionWithLaunchOptions(launchOptions, andRegisterDeepLinkHandler: { params, error in
+            // route the user based on what's in params
+            print("Param: \(params)")
+            
+            if let isBranchLink = params["+clicked_branch_link"]?.boolValue where  isBranchLink == true {
+                
+                let deepLinkType = params["deepLinkType"] as? String
+                let eventID = params["eventID"] as? String
+                
+                guard let _ = deepLinkType else {
+                    return
+                }
+                guard let _ = eventID else {
+                    return
+                }
+
+                TRApplicationManager.sharedInstance.addPostActionbranchDeepLink(eventID!, branchActionType: deepLinkType!, params: params)
+            }
+        })
+        
         return true
     }
 
-    // MARK:-
-    // MARK:- Push Notifications related methods
-    // MARK:-
+    // MARK:- Branch Deep Linking related methods
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        if (!Branch.getInstance().handleDeepLink(url)) {
+            // do other deep link routing for the Facebook SDK, Pinterest SDK, etc
+        }
+        
+        return true
+    }
+    
+    func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
+        // pass the url to the handle deep link call
+        Branch.getInstance().continueUserActivity(userActivity);
+        
+        return true
+    }
+    
+    
+//    func application(application: UIApplication, didReceiveRemoteNotification launchOptions: [NSObject: AnyObject]) -> Void {
+//        Branch.getInstance().handlePushNotification(launchOptions)
+//    }
     
     // MARK:- Notifications
     

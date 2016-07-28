@@ -120,6 +120,10 @@ enum EVENT_TIME_STATUS: String {
     case CURRENT    = "now"
 }
 
+enum BRANCH_DEEP_LINKING: String {
+    case EVENT_DETAIL = "eventDetail"
+    case EVENT_CREATE = "eventCreate"
+}
 
 enum UIUserInterfaceIdiom : Int
 {

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import pop
-
+import Branch
 
 class TREventInformationViewController: TRBaseViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -358,12 +358,19 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     
     //MARK:- Share Sheet
     @IBAction func openShareSheet (sender: UIButton) {
-
-        // Group to Share
-        let groupToShare = [self.eventInfo!] as [AnyObject]
-
-        let activityViewController = UIActivityViewController(activityItems: groupToShare , applicationActivities: nil)
-        presentViewController(activityViewController, animated: true, completion: {})
+        
+        TRApplicationManager.sharedInstance.branchManager?.createLinkWithBranch(self.eventInfo!, deepLinkType: BRANCH_DEEP_LINKING.EVENT_DETAIL.rawValue, callback: {(url, error) in
+            if (error == nil) {
+                print(url)
+                // Group to Share
+                let groupToShare = [url!] as [AnyObject]
+                
+                let activityViewController = UIActivityViewController(activityItems: groupToShare , applicationActivities: nil)
+                self.presentViewController(activityViewController, animated: true, completion: {})
+            } else {
+                print(String(format: "Branch TestBed: %@", error))
+            }
+        })
     }
     
     //MARK:- NOTIFICATION VIEW PROTOCOL

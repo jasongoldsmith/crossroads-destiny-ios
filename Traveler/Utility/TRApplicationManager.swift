@@ -69,6 +69,9 @@ class TRApplicationManager: NSObject {
     //Push Notification Controller (Active State)
     var pushNotiController: TRPushNotiController?
     
+    //Branch Manager
+    var branchManager: TRBranchManager?
+    
     
     // MARK:- Initializer
     private override init() {
@@ -94,9 +97,6 @@ class TRApplicationManager: NSObject {
         // Init Error Notification View with nib
         self.errorNotificationView = NSBundle.mainBundle().loadNibNamed("TRErrorNotificationView", owner: self, options: nil)[0] as! TRErrorNotificationView
         
-        //Init FireBase Manager
-        self.fireBaseManager = TRFireBaseManager()
-        
         //Init Push Notification Controller (Active State)
         self.pushNotiController = TRPushNotiController()
         
@@ -105,27 +105,23 @@ class TRApplicationManager: NSObject {
                                                          selector: #selector(TRApplicationManager.didReceiveRemoteNotificationInActiveSesion(_:)),
                                                          name: K.NOTIFICATION_TYPE.REMOTE_NOTIFICATION_WITH_ACTIVE_SESSION,
                                                          object: nil)
+        
+        //Init FireBase Manager
+        self.fireBaseManager = TRFireBaseManager()
+        
+        //Init Branch Manager
+        self.branchManager = TRBranchManager()
     }
 
     func didReceiveRemoteNotificationInActiveSesion(sender: NSNotification) {
         
         let pushInfo = TRActiveStatePushInfo()
         pushInfo.parsePushNotificationPayLoad(sender)
-//        if (TRApplicationManager.sharedInstance.pushNotificationArray.count == 0) {
-//            TRApplicationManager.sharedInstance.pushNotificationArray.append(pushInfo)
-//        } else {
-//            if TRApplicationManager.sharedInstance.pushNotificationArray.last?.updateTime == pushInfo.updateTime {
-//                return
-//            }
-//            
-//            TRApplicationManager.sharedInstance.pushNotificationArray.append(pushInfo)
-//        }
-        
         self.pushNotiController!.showActiveNotificationView(pushInfo, isExistingPushView: false)
     }
 
     
-    func addSlideMenuController(parentViewController: TRBaseViewController, pushData: NSDictionary?, showLandingPage: Bool, showGroups: Bool) {
+    func addSlideMenuController(parentViewController: TRBaseViewController, pushData: NSDictionary?, branchData:NSDictionary?, showLandingPage: Bool, showGroups: Bool) {
 
         let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
         let profileViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_PROFILE) as! TRProfileViewController
@@ -177,6 +173,17 @@ class TRApplicationManager: NSObject {
                         }
                     })
                 }
+            } else if ((branchData) != nil) {
+                self.slideMenuController.view.alpha = 0.7
+                self.fetchBungieGroups(false, completion: { (didSucceed) in
+                    self.slideMenuController.view.alpha = 1
+                    eventListViewController.updateGroupImage()
+                })
+                
+                let deepLinkType = branchData!["deepLinkType"] as? String
+                let eventID = branchData!["eventID"] as? String
+
+                eventListViewController.showEventDetailView(eventID!)
             } else if (showGroups){
                 self.fetchBungieGroups(true, completion: { (didSucceed) in
                     self.slideMenuController.view.alpha = 1
@@ -205,6 +212,42 @@ class TRApplicationManager: NSObject {
             }
         })
     }
+    
+    func addPostActionbranchDeepLink (eventID: String, branchActionType: String, params: NSDictionary) {
+       
+        if var currentView = UIApplication.topViewController() {
+            
+            if currentView.isKindOfClass(TRRootViewController) == true {
+                let rootViewController = UIApplication.sharedApplication().delegate?.window!!.rootViewController as! TRRootViewController
+                rootViewController.branchLinkData = params
+            } else if currentView.isKindOfClass(SlideMenuController) {
+                
+                currentView = currentView as! SlideMenuController
+                let slideVewController = currentView as! SlideMenuController
+                let eventListView = slideVewController.mainViewController! as? TREventListViewController
+                
+                if TRApplicationManager.sharedInstance.slideMenuController.isLeftOpen() {
+                    let leftView = TRApplicationManager.sharedInstance.slideMenuController.leftViewController as! TRProfileViewController
+                    leftView.dismissViewController(false, dismissed: { (didDismiss) in
+                        eventListView!.showEventDetailView(eventID)
+                    })
+                } else if (TRApplicationManager.sharedInstance.slideMenuController.isRightOpen()) {
+                    let rightView = TRApplicationManager.sharedInstance.slideMenuController.leftViewController as! TRChooseGroupViewController
+                    rightView.dismissViewController(false, dismissed: { (didDismiss) in
+                        eventListView!.showEventDetailView(eventID)
+                    })
+                } else {
+                    eventListView!.showEventDetailView(eventID)
+                }
+            } else {
+                currentView.dismissViewControllerAnimated(false, completion: {
+                    let eventListView = self.slideMenuController.mainViewController as! TREventListViewController
+                    eventListView.showEventDetailView(eventID)
+                })
+            }
+        }
+    }
+    
     func fetchBungieGroups (openSliderMenu: Bool, completion: TRValueCallBack) {
         _ = TRGetAllDestinyGroups().getAllGroups({ (didSucceed) in
             if didSucceed == true {
@@ -227,23 +270,6 @@ class TRApplicationManager: NSObject {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    // MARK:- Data Helper Methods
-    func isTimeDifferenceMoreThenAnHour(dateString: String) -> Bool {
-        
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        
-        if let eventDate = formatter.dateFromString(dateString) {
-            eventDate.dateBySubtractingHours(UPCOMING_EVENT_TIME_THREASHOLD)
-            
-            if eventDate.isInFuture() {
-                return true
-            }
-        }
-        
-        return false
-    }
     
     func getEventById (eventId: String) -> TREventInfo? {
 

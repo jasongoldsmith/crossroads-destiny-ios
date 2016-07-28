@@ -14,6 +14,7 @@ def project_pods
     pod 'Firebase/Database'
     pod 'Firebase/DynamicLinks'
     pod 'Firebase/Core'
+    pod 'Branch'
 end
 
 target 'Traveler' do

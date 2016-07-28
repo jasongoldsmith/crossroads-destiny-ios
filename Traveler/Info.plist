@@ -28,6 +28,14 @@
 				<string>CrossroadsApp</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string></string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>dlcsrd</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
@@ -56,5 +64,7 @@
 	<false/>
 	<key>FIREBASE_ANALYTICS_COLLECTION_DEACTIVATED</key>
 	<string>NO</string>
+	<key>branch_key</key>
+	<string>key_live_ilh33QPvqAgDqnVVRh8iXcnnBBaLIp97</string>
 </dict>
 </plist>

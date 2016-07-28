@@ -14,6 +14,7 @@ class TRRootViewController: TRBaseViewController {
     
     // Push Data
     var pushNotificationData: NSDictionary? = nil
+    var branchLinkData: NSDictionary? = nil
     
     private let ACTIVITY_INDICATOR_TOP_CONSTRAINT: CGFloat = 365.0
     
@@ -45,7 +46,7 @@ class TRRootViewController: TRBaseViewController {
                             showEventListLandingPage = true
                         }
                         
-                        TRApplicationManager.sharedInstance.addSlideMenuController(self, pushData: self.pushNotificationData, showLandingPage: showEventListLandingPage, showGroups: showGroups)
+                        TRApplicationManager.sharedInstance.addSlideMenuController(self, pushData: self.pushNotificationData, branchData: self.branchLinkData, showLandingPage: showEventListLandingPage, showGroups: showGroups)
                         
                         self.pushNotificationData = nil
                     } else {
