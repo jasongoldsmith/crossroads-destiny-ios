@@ -58,9 +58,13 @@ class TRBranchManager {
         branchUniversalObject.title = "Join My Fireteam"
         branchUniversalObject.contentDescription = messageString
         
-        if let hasActivityCard = eventInfo.eventActivity?.activityAdCard {
-            branchUniversalObject.imageUrl  = hasActivityCard.adCardBaseUrl! + hasActivityCard.adCardImageURL!
+        if let hasActivityCard = eventInfo.eventActivity?.activityID {
+            let imageString = "http://w3.crossroadsapp.co/bungie/share/branch/v1/\(hasActivityCard)"
+            branchUniversalObject.imageUrl  = imageString
+        } else {
+            branchUniversalObject.imageUrl  = "http://w3.crossroadsapp.co/bungie/share/branch/v1/default.png"
         }
+        
         branchUniversalObject.addMetadataKey("eventID", value: eventID)
         branchUniversalObject.addMetadataKey("deepLinkType", value: deepLinkType)
         
