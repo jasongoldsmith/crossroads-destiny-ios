@@ -232,7 +232,7 @@ class TRApplicationManager: NSObject {
                         eventListView!.showEventDetailView(eventID)
                     })
                 } else if (TRApplicationManager.sharedInstance.slideMenuController.isRightOpen()) {
-                    let rightView = TRApplicationManager.sharedInstance.slideMenuController.leftViewController as! TRChooseGroupViewController
+                    let rightView = TRApplicationManager.sharedInstance.slideMenuController.rightViewController as! TRChooseGroupViewController
                     rightView.dismissViewController(false, dismissed: { (didDismiss) in
                         eventListView!.showEventDetailView(eventID)
                     })
