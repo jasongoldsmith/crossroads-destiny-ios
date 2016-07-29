@@ -183,7 +183,7 @@ class TRApplicationManager: NSObject {
                 let deepLinkType = branchData!["deepLinkType"] as? String
                 let eventID = branchData!["eventID"] as? String
 
-                eventListViewController.showEventDetailView(eventID!)
+                eventListViewController.fetchEventDetailForDeepLink(eventID!)
             } else if (showGroups){
                 self.fetchBungieGroups(true, completion: { (didSucceed) in
                     self.slideMenuController.view.alpha = 1
@@ -229,20 +229,20 @@ class TRApplicationManager: NSObject {
                 if TRApplicationManager.sharedInstance.slideMenuController.isLeftOpen() {
                     let leftView = TRApplicationManager.sharedInstance.slideMenuController.leftViewController as! TRProfileViewController
                     leftView.dismissViewController(false, dismissed: { (didDismiss) in
-                        eventListView!.showEventDetailView(eventID)
+                        eventListView!.fetchEventDetailForDeepLink(eventID)
                     })
                 } else if (TRApplicationManager.sharedInstance.slideMenuController.isRightOpen()) {
                     let rightView = TRApplicationManager.sharedInstance.slideMenuController.rightViewController as! TRChooseGroupViewController
                     rightView.dismissViewController(false, dismissed: { (didDismiss) in
-                        eventListView!.showEventDetailView(eventID)
+                        eventListView!.fetchEventDetailForDeepLink(eventID)
                     })
                 } else {
-                    eventListView!.showEventDetailView(eventID)
+                    eventListView!.fetchEventDetailForDeepLink(eventID)
                 }
             } else {
                 currentView.dismissViewControllerAnimated(false, completion: {
                     let eventListView = self.slideMenuController.mainViewController as! TREventListViewController
-                    eventListView.showEventDetailView(eventID)
+                    eventListView.fetchEventDetailForDeepLink(eventID)
                 })
             }
         }

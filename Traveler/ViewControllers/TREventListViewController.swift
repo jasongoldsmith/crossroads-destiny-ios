@@ -332,6 +332,19 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         })
     }
     
+    func fetchEventDetailForDeepLink (eventID: String) {
+        let eventInfo = TRApplicationManager.sharedInstance.getEventById(eventID)
+        if let _ = eventInfo {
+            self.showEventInfoViewController(eventInfo, fromPushNoti: false)
+        } else {
+            _ = TRGetEventRequest().getEventByID(eventID, completion: { (event) in
+                if let _ = event {
+                    self.showEventInfoViewController(event, fromPushNoti: false)
+                }
+            })
+        }
+    }
+    
     
     //Called when app is in background state
     override func didReceiveRemoteNotificationInBackGroundSession(sender: NSNotification) {
