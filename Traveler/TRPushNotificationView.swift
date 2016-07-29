@@ -95,24 +95,27 @@ class TRPushNotificationView: UIView {
                 let messageString = eventName.uppercaseString + "\n" + pushInfo.alertString!
                 self.eventStatusDescription.text = messageString
                 let font = UIFont(name: "Helvetica", size: 14.0)
-                let height = self.heightWithConstrainedWidth((parentView.view.frame.width - 87), font: font!)
+                let height = self.heightWithConstrainedWidth((parentView.view.frame.width - 107), font: font!)
                 self.updateFrameWithHeight(height + 10)
             } else {
                 if let alertString = pushInfo.alertString {
                     self.eventStatusDescription.text =  alertString
                     let font = UIFont(name: "Helvetica", size: 14.0)
-                    let height = self.heightWithConstrainedWidth((parentView.view.frame.width - 87), font: font!)
+                    let height = self.heightWithConstrainedWidth((parentView.view.frame.width - 107), font: font!)
                     self.updateFrameWithHeight(height + 10)
                 }
             }
         } else {
             if let eventName = pushInfo.eventName {
                 self.eventStatusLabel.text = eventName
+                let font = UIFont(name: "Helvetica", size: 14.0)
+                let height = self.heightWithConstrainedWidth((parentView.view.frame.width - 107), font: font!)
+                self.updateFrameWithHeight(height + 10)
             }
             if let alertString = pushInfo.alertString {
                 self.eventStatusDescription.text =  alertString
                 let font = UIFont(name: "Helvetica", size: 14.0)
-                let height = self.heightWithConstrainedWidth((parentView.view.frame.width - 87), font: font!)
+                let height = self.heightWithConstrainedWidth((parentView.view.frame.width - 107), font: font!)
                 self.updateFrameWithHeight(height + 10)
             }
         }
@@ -132,7 +135,7 @@ class TRPushNotificationView: UIView {
     }
     
     func updateFrameWithHeight (height: CGFloat) {
-        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.eventStatusDescription.frame.origin.y + height)
+        self.frame = CGRectMake(self.frame.origin.x + 9, self.frame.origin.y, self.frame.size.width - 18, self.eventStatusDescription.frame.origin.y + height)
     }
     
     //MARK:- Pan Gesture

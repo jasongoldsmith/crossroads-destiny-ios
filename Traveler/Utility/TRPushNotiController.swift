@@ -72,7 +72,7 @@ class TRPushNotiController: NSObject, NotificationViewProtocol {
         if isExistingPushView == false {
             let popAnimation:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPLayerPositionX)
             popAnimation.fromValue = -notificationview.frame.width/2
-            popAnimation.toValue = notificationview.frame.width/2
+            popAnimation.toValue = notificationview.frame.width/2 + notificationview.frame.origin.x
             popAnimation.duration = 0.4
             notificationview.pop_addAnimation(popAnimation, forKey: "slideIn")
         }
@@ -92,12 +92,12 @@ class TRPushNotiController: NSObject, NotificationViewProtocol {
         
         if TRApplicationManager.sharedInstance.pushNotificationViewArray.count < 1 {
             let notificationview = self.createNotificationViewWithMessages(pushInfo, parentViewController: parentViewController, isExistingPushView: isExistingPushView)
-            notificationview.frame = CGRectMake(0, yOffSet, (UIApplication.topViewController()?.view.frame.size.width)!, notificationview.frame.size.height)
+            notificationview.frame = CGRectMake(9, yOffSet, ((UIApplication.topViewController()?.view.frame.size.width)! - 18), notificationview.frame.size.height)
             
             return notificationview
         } else {
             let newNotificationview = self.createNotificationViewWithMessages(pushInfo, parentViewController: parentViewController, isExistingPushView: isExistingPushView)
-            newNotificationview.frame = CGRectMake(0, yOffSet, (UIApplication.topViewController()!.view.frame.size.width), newNotificationview.frame.size.height)
+            newNotificationview.frame = CGRectMake(9, yOffSet, (UIApplication.topViewController()!.view.frame.size.width) - 18, newNotificationview.frame.size.height)
             
             if TRApplicationManager.sharedInstance.pushNotificationViewArray.count == 1 {
                 newNotificationview.eventStatusLabel.text = newNotificationview.pushInfo?.alertString
