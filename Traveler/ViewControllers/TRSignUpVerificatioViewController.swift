@@ -87,7 +87,7 @@ class TRSignUpVerificatioViewController: TRBaseViewController, TTTAttributedLabe
                     
                     var messageString = ""
                     if let userName = TRUserInfo.getUserName() {
-                        messageString = "Welcome \(userName) \n \nThanks for signing up for Crossroads, the Destiny Fireteam Finder!"
+                        messageString = "Hi \(userName) \n \nThanks for signing up for Crossroads, the Destiny Fireteam Finder!"
                     } else {
                         messageString = "Welcome \n \nThanks for signing up for Crossroads, the Destiny Fireteam Finder!"
                     }
