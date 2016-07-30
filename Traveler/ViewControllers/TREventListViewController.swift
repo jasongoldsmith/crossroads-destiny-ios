@@ -56,6 +56,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         self.segmentControl?.removeBorders()
       
         let boldFont = UIFont(name: "Helvetica-Bold", size: 16.0)
@@ -337,9 +338,22 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         if let _ = eventInfo {
             self.showEventInfoViewController(eventInfo, fromPushNoti: false)
         } else {
-            _ = TRGetEventRequest().getEventByID(eventID, completion: { (event) in
+            _ = TRGetEventRequest().getEventByID(eventID, viewHandlesError: true, completion: { (error, event) in
                 if let _ = event {
                     self.showEventInfoViewController(event, fromPushNoti: false)
+                } else {
+                    if let hasError = error {
+                        TRApplicationManager.sharedInstance.branchManager?.showBranchLinkErrorOfType(hasError, completion: { (errorType) in
+                            if let _ = errorType {
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    let errorView = NSBundle.mainBundle().loadNibNamed("TRErrorView", owner: self, options: nil)[0] as! TRErrorView
+                                    errorView.frame = self.view.frame
+                                    errorView.errorType = errorType!
+                                    self.view.addSubview(errorView)
+                                })
+                            }
+                        })
+                    }
                 }
             })
         }

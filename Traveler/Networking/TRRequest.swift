@@ -13,6 +13,7 @@ typealias TRRequestClosure = (response: NSURLResponse!, data: NSData!, error: NS
 typealias TRValueCallBack = (didSucceed: Bool?) -> ()
 typealias TRResponseCallBack = (error: String?, responseObject: JSON) -> ()
 typealias TREventObjCallBack = (event: TREventInfo?) -> ()
+typealias TREventObjCallBackWithError = (error: String?, event: TREventInfo?) -> ()
 
 enum ServerResponseError {
     case NoValidData
@@ -28,6 +29,7 @@ class TRRequest {
     var encodingType: ParameterEncoding?
     var requestHandler: TRRequestClosure?
     var requestURL: String?
+    var viewHandlesError: Bool = false
     
     // Activity Indicator
     var showActivityIndicator: Bool = true
@@ -67,7 +69,13 @@ class TRRequest {
                         
                         if swiftyJsonVar["responseType"].string == "ERR" {
                             if let message = swiftyJsonVar["error"].string {
-                                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage(message)
+                                
+                                if self.viewHandlesError == false {
+                                    TRApplicationManager.sharedInstance.addErrorSubViewWithMessage(message)
+                                    completion(error: message, responseObject: nil)
+                                } else {
+                                    completion(error: message, responseObject: nil)
+                                }
                             } else {
                                 TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Undefined server error. Please wait a few seconds and refresh.")
                             }

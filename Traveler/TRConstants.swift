@@ -120,7 +120,7 @@ enum EVENT_TIME_STATUS: String {
     case CURRENT    = "now"
 }
 
-enum BRANCH_DEEP_LINKING: String {
+enum BRANCH_DEEP_LINKING_END_POINT: String {
     case EVENT_DETAIL = "eventDetail"
     case EVENT_CREATE = "eventCreate"
 }
@@ -174,3 +174,17 @@ struct DeviceType
     static let IS_IPHONE_6P         = UIDevice.currentDevice().userInterfaceIdiom == .Phone && ScreenSize.SCREEN_MAX_LENGTH == 736.0
     static let IS_IPAD              = UIDevice.currentDevice().userInterfaceIdiom == .Pad && ScreenSize.SCREEN_MAX_LENGTH == 1024.0
 }
+
+enum AwfulError: ErrorType {
+    case Bad
+    case Worse
+    case Terrible
+}
+
+enum Branch_Error: ErrorType {
+    case ACTIVITY_NOT_AVAILABLE
+    case MAXIMUM_PLAYERS_REACHED
+    case NEEDS_CONSOLE
+    case JOIN_BUNGIE_GROUP
+}
+

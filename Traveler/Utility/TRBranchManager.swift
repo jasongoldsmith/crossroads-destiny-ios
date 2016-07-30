@@ -9,6 +9,8 @@
 import Foundation
 import Branch
 
+typealias ErrorTypeCallBack = (errorType: Branch_Error?) -> ()
+
 class TRBranchManager {
     
     let canonicalIdentifier = "canonicalIdentifier"
@@ -80,6 +82,19 @@ class TRBranchManager {
                 print(String(format: "Branch TestBed: %@", error))
             }
         }
+    }
+    
+    func showBranchLinkErrorOfType (errorString: String, completion: ErrorTypeCallBack) {
+        
+        switch errorString {
+        case "Sorry, looks like that event is no longer available.":
+            completion(errorType: .ACTIVITY_NOT_AVAILABLE)
+            break
+        default:
+            break
+        }
+        
+        completion(errorType: nil)
     }
 }
 

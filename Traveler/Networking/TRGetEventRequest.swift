@@ -11,7 +11,11 @@ import Foundation
 
 class TRGetEventRequest: TRRequest {
 
-    func getEventByID (eventID: String, completion: TREventObjCallBack) {
+    func getEventByID (eventID: String, completion: TREventObjCallBackWithError) {
+        self.getEventByID(eventID, viewHandlesError: false, completion: completion)
+    }
+    
+    func getEventByID (eventID: String, viewHandlesError: Bool, completion: TREventObjCallBackWithError) {
         let eventInfoULR = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_GET_EVENT
         var params = [String: AnyObject]()
         params["id"] = eventID
@@ -20,18 +24,16 @@ class TRGetEventRequest: TRRequest {
         let request = TRRequest()
         request.params = params
         request.requestURL = eventInfoULR
+        request.viewHandlesError = viewHandlesError
         request.sendRequestWithCompletion { (error, swiftyJsonVar) -> () in
             
             if let _ = error {
-                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("response error")
-                completion(event: nil)
-                
+                completion(error: error!, event: nil)
                 return
             }
             
             let eventObj = TREventInfo().parseCreateEventInfoObject(swiftyJsonVar)
-            completion(event: eventObj)
+            completion(error: nil, event: eventObj)
         }
     }
-    
 }

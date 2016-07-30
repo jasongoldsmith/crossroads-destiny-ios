@@ -359,7 +359,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
     //MARK:- Share Sheet
     @IBAction func openShareSheet (sender: UIButton) {
         
-        TRApplicationManager.sharedInstance.branchManager?.createLinkWithBranch(self.eventInfo!, deepLinkType: BRANCH_DEEP_LINKING.EVENT_DETAIL.rawValue, callback: {(url, error) in
+        TRApplicationManager.sharedInstance.branchManager?.createLinkWithBranch(self.eventInfo!, deepLinkType: BRANCH_DEEP_LINKING_END_POINT.EVENT_DETAIL.rawValue, callback: {(url, error) in
             if (error == nil) {
                 print(url)
                 // Group to Share

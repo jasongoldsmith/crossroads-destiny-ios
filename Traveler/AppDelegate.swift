@@ -79,6 +79,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // pass the url to the handle deep link call
         Branch.getInstance().continueUserActivity(userActivity);
         
+        if userActivity.isEqual(NSUserActivityTypeBrowsingWeb) {
+            let url = userActivity.webpageURL
+            print("url: \(url)")
+        }
+        
         return true
     }
     
