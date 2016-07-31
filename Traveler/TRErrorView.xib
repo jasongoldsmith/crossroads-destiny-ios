@@ -63,12 +63,12 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fv-o1-6Ll">
                     <rect key="frame" x="217.5" y="331" width="164" height="37"/>
-                    <color key="backgroundColor" red="0.0" green="0.52549019607843139" blue="0.81568627450980391" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.0" green="0.52549019610000003" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                     <inset key="contentEdgeInsets" minX="15" minY="10" maxX="15" maxY="10"/>
                     <state key="normal" title="ADD THIS ACTIVITY"/>
                     <connections>
-                        <action selector="buttonOneYesPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="sev-Zb-mqH"/>
+                        <action selector="buttonOneYesPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="xPp-BS-JNp"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPA-2D-x4f">
@@ -111,8 +111,9 @@
             <connections>
                 <outlet property="buttonOneYes" destination="2fv-o1-6Ll" id="cye-rS-bp0"/>
                 <outlet property="buttonTwoCancel" destination="QPA-2D-x4f" id="P6E-H8-rvh"/>
+                <outlet property="errorDescription" destination="qf1-rl-UNj" id="sgh-a6-QJ4"/>
             </connections>
-            <point key="canvasLocation" x="571" y="662"/>
+            <point key="canvasLocation" x="362" y="637"/>
         </view>
     </objects>
     <resources>

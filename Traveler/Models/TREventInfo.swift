@@ -24,6 +24,7 @@ class TREventInfo: NSObject {
     var eventPlayersArray       : [TRPlayerInfo] = []
     var isFutureEvent           : Bool = false
     var eventClanID             : String?
+    var eventConsoleType        : String?
     
     func parseCreateEventInfoObject (swiftyJason: JSON) -> TREventInfo {
         
@@ -36,6 +37,7 @@ class TREventInfo: NSObject {
         self.eventCreatedDate  = swiftyJason["created"].stringValue
         self.eventLaunchDate   = swiftyJason["launchDate"].stringValue
         self.eventClanID       = swiftyJason["clanId"].stringValue
+        self.eventConsoleType  = swiftyJason["consoleType"].stringValue
         
         if (swiftyJason["launchStatus"].string == EVENT_TIME_STATUS.UP_COMING.rawValue) {
             self.isFutureEvent = true
@@ -121,7 +123,33 @@ class TREventInfo: NSObject {
         
         return self
     }
+ 
+    func isEventFull () throws -> Bool {
+        
+        if self.eventPlayersArray.count < self.eventMaxPlayers?.integerValue {
+            return false
+        }
+        
+        throw Branch_Error.MAXIMUM_PLAYERS_REACHED
+    }
     
+    func isEventGroupPartOfUsersGroups () throws -> Bool {
+        
+        if self.eventClanID == TRUserInfo.getUserClanID() {
+            return false
+        }
+        
+        throw Branch_Error.JOIN_BUNGIE_GROUP
+    }
+    
+    func isEventConsoleMatchesUserConsole() throws -> Bool {
+        
+        if self.eventConsoleType == TRUserInfo.getConsoleType() {
+            return false
+        }
+        
+        throw Branch_Error.NEEDS_CONSOLE
+    }
 }
 
 

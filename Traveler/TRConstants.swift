@@ -18,6 +18,7 @@ struct K {
             static let TR_USER_BUNGIE_MEMBERSHIP_ID  = "TR_USER_BUNGIE_MEMBERSHIP_ID"
             static let TR_USER_CONSOLE_TYPE  = "TR_USER_CONSOLE_TYPE"
             static let TR_CONSOLE_VERIFIED  = "TR_CONSOLE_VERIFIED"
+            static let TR_CONSOLE_IS_PRIMARY  = "TR_CONSOLE_IS_PRIMARY"
         }
     }
     

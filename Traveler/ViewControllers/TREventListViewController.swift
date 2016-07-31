@@ -25,7 +25,7 @@ private let EVENT_UPCOMING_WITH_CHECK_POINT_CELL_HEIGHT:CGFloat  = 150.0
 private let EVENT_UPCOMING_NO_CHECK_POINT_CELL_HEIGHT:CGFloat    = 137.0
 private let EVENT_ACTIVITY_CELL_HEIGHT:CGFloat                   = 156.0
 
-class TREventListViewController: TRBaseViewController, UITableViewDataSource, UITableViewDelegate {
+class TREventListViewController: TRBaseViewController, UITableViewDataSource, UITableViewDelegate,ErrorViewProtocol {
     
     @IBOutlet var segmentControl: UISegmentedControl?
     @IBOutlet var eventsTableView: UITableView?
@@ -336,29 +336,67 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     func fetchEventDetailForDeepLink (eventID: String) {
         let eventInfo = TRApplicationManager.sharedInstance.getEventById(eventID)
         if let _ = eventInfo {
+            do {
+                let _ = try self.getBranchError(eventInfo!)
+            } catch let errorType as Branch_Error {
+                self.showBranchErrorViewWithError(errorType, eventInfo: eventInfo)
+                return
+            } catch {
+            }
             self.showEventInfoViewController(eventInfo, fromPushNoti: false)
         } else {
             _ = TRGetEventRequest().getEventByID(eventID, viewHandlesError: true, completion: { (error, event) in
                 if let _ = event {
+                    do {
+                        let _ = try self.getBranchError(event!)
+                    } catch let errorType as Branch_Error {
+                        self.showBranchErrorViewWithError(errorType, eventInfo: eventInfo)
+                        return
+                    } catch {
+                    }
                     self.showEventInfoViewController(event, fromPushNoti: false)
                 } else {
-                    if let hasError = error {
-                        TRApplicationManager.sharedInstance.branchManager?.showBranchLinkErrorOfType(hasError, completion: { (errorType) in
-                            if let _ = errorType {
-                                dispatch_async(dispatch_get_main_queue(), {
-                                    let errorView = NSBundle.mainBundle().loadNibNamed("TRErrorView", owner: self, options: nil)[0] as! TRErrorView
-                                    errorView.frame = self.view.frame
-                                    errorView.errorType = errorType!
-                                    self.view.addSubview(errorView)
-                                })
-                            }
-                        })
+                    if let _ = error {
+                        self.showBranchErrorViewWithError(Branch_Error.ACTIVITY_NOT_AVAILABLE, eventInfo: nil)
                     }
                 }
             })
         }
     }
     
+    func getBranchError (eventInfo: TREventInfo) throws {
+        //TEST THESE CONDITIONS
+        do {
+            let _ = try eventInfo.isEventFull()
+        } catch _ {
+            throw Branch_Error.MAXIMUM_PLAYERS_REACHED
+        }
+        
+        do {
+            let _ = try eventInfo.isEventGroupPartOfUsersGroups()
+        } catch _ {
+            throw Branch_Error.JOIN_BUNGIE_GROUP
+        }
+        
+        do {
+            let _ = try eventInfo.isEventConsoleMatchesUserConsole()
+        } catch _ {
+            throw Branch_Error.NEEDS_CONSOLE
+        }
+    }
+    
+    func showBranchErrorViewWithError (errorType: Branch_Error, eventInfo: TREventInfo?) {
+        dispatch_async(dispatch_get_main_queue(), {
+            let errorView = NSBundle.mainBundle().loadNibNamed("TRErrorView", owner: self, options: nil)[0] as! TRErrorView
+            errorView.frame = self.view.frame
+            errorView.errorType = errorType
+            errorView.delegate = self
+            if let _ = eventInfo {
+                errorView.eventInfo = eventInfo!
+            }
+            self.view.addSubview(errorView)
+        })
+    }
     
     //Called when app is in background state
     override func didReceiveRemoteNotificationInBackGroundSession(sender: NSNotification) {
@@ -497,17 +535,6 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         })
     }
     
-    deinit {
-        self.eventsInfo.removeAll()
-        self.futureEventsInfo.removeAll()
-        self.activityCardsInfo.removeAll()
-        
-        //Remove Observer
-        NSNotificationCenter.defaultCenter().removeObserver(self)
-        
-        self.appManager.log.debug("de-init")
-    }
-    
     func tableViewScrollToBottom(animated: Bool) {
         
         let delay = 0.1 * Double(NSEC_PER_SEC)
@@ -553,4 +580,33 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             self.showEventInfoViewController(eventInfo, fromPushNoti: false)
         }
     }
+    
+    
+    
+    //MARK:- Error Message View Handling actions
+    func addActivity () {
+        self.createAnEvent()
+    }
+    
+    func addConsole () {
+        
+    }
+    
+    func goToBungie () {
+        let url = NSURL(string: "https://www.bungie.net/")
+        UIApplication.sharedApplication().openURL(url!)
+    }
+    
+    //MARK:- deinit
+    deinit {
+        self.eventsInfo.removeAll()
+        self.futureEventsInfo.removeAll()
+        self.activityCardsInfo.removeAll()
+        
+        //Remove Observer
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+        
+        self.appManager.log.debug("de-init")
+    }
 }
+
