@@ -35,10 +35,39 @@ class TRUserInfo: NSObject {
             console.consoleId = consoleObj["consoleId"].stringValue
             console.consoleType = consoleObj["consoleType"].stringValue
             console.verifyStatus = consoleObj["verifyStatus"].stringValue
+            console.isPrimary    = consoleObj["isPrimary"].bool
             
-            TRUserInfo.saveConsolesObject(console)
+            //Save user console in NSUserDefaults if this is the current console
+            if console.isPrimary == true && self.userID == TRUserInfo.getUserID() {
+                TRUserInfo.saveConsolesObject(console)
+            }
+            
+            self.consoles.append(console)
         }
     }
+    
+    func getDefaultConsole () -> TRConsoles? {
+        let currentConsole = self.consoles.filter{$0.isPrimary == true}
+        
+        if let _ = currentConsole.first {
+            return currentConsole.first!
+        }
+        
+        return nil
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // User Defaults
     
     class func saveConsolesObject (consoleObj: TRConsoles) {
         let userDefaults = NSUserDefaults.standardUserDefaults()
@@ -58,6 +87,8 @@ class TRUserInfo: NSObject {
         
         //userDefaults.setValue(userData?.psnID, forKey: K.UserDefaultKey.UserAccountInfo.TR_PsnId)
         userDefaults.synchronize()
+        
+        TRApplicationManager.sharedInstance.currentUser = userData
     }
     
     

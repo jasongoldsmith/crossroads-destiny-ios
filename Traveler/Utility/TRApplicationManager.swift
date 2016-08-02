@@ -72,6 +72,8 @@ class TRApplicationManager: NSObject {
     //Branch Manager
     var branchManager: TRBranchManager?
     
+    //Current User
+    var currentUser: TRUserInfo?
     
     // MARK:- Initializer
     private override init() {

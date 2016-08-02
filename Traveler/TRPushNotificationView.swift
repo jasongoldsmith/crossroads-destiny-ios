@@ -181,9 +181,9 @@ class TRPushNotificationView: UIView {
 
     func afterSwipeAction() {
         if (xFromCenter > ACTION_MARGIN) {
-            rightAction();
+            rightAction()
         } else if (xFromCenter < -ACTION_MARGIN){
-            animateCardBack()
+            leftAction()
         } else {
             animateCardBack()
             

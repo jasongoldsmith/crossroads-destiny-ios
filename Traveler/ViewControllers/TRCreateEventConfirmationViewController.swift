@@ -35,6 +35,7 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
     var similarActivitiesDifferentCheckPoints: [TRActivityInfo]?
     var checkpointPickerView: TRActivityCheckPointPicker! = nil
     var selectedDate: NSDate?
+    var showBackButton: Bool = true
     
     override func viewDidLoad() {
         
@@ -80,7 +81,7 @@ class TRCreateEventConfirmationViewController: TRBaseViewController, UIPickerVie
         
         //Navigation
         self.title = "ADD ACTIVITY"
-        self.addNavigationBarButtons(true, showCancel: true)
+        self.addNavigationBarButtons(self.showBackButton, showCancel: true)
         
         //Add Activity Icon
         self.addActivityImage()

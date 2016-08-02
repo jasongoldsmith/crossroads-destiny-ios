@@ -19,7 +19,15 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
     @IBOutlet weak var buildNumberLabel: TTTAttributedLabel!
     @IBOutlet weak var legalLabel: TTTAttributedLabel!
     
+    //Console Buttons/ Image
+    @IBOutlet weak var consoleButton: UIButton!
+    @IBOutlet weak var consoleButtonImageView: UIImageView!
+    var consoleTwoButton: UIButton?
+    var consoleAddButton: UIButton?
     var currentUser: TRPlayerInfo?
+    var isConsoleMenuOpen: Bool = false
+    var consoleAddButtonImageView: UIImageView?
+    var consoleTwoButtonImageView: UIImageView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +86,30 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
     }
 
     func updateView () {
+        
+        if let console = TRApplicationManager.sharedInstance.currentUser?.getDefaultConsole() {
+            switch console.consoleType! {
+            case ConsoleTypes.XBOX360:
+                self.consoleButton.setTitle("Xbox 360", forState: .Normal)
+                self.consoleButtonImageView.image = UIImage(named: "iconXboxoneConsole")
+                break
+            case ConsoleTypes.XBOXONE:
+                self.consoleButton.setTitle("Xbox One", forState: .Normal)
+                self.consoleButtonImageView.image = UIImage(named: "iconXboxoneConsole")
+                break
+            case ConsoleTypes.PS3:
+                self.consoleButton.setTitle("PlayStation 3", forState: .Normal)
+                self.consoleButtonImageView.image = UIImage(named: "iconPsnConsole")
+                break
+            case ConsoleTypes.PS4:
+                self.consoleButton.setTitle("PlayStation 4", forState: .Normal)
+                self.consoleButtonImageView.image = UIImage(named: "iconPsnConsole")
+                break
+            default:
+                break
+            }
+        }
+        
         self.currentUser = TRApplicationManager.sharedInstance.getPlayerObjectForCurrentUser()
         
         // User Image
@@ -187,6 +219,169 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         }))
         
         presentViewController(refreshAlert, animated: true, completion: nil)
+    }
+    
+    //MARK:- ADD CONSOLE VIEW
+    
+    
+    @IBAction func consoleButtonPressed (sender: UIButton) {
+        
+        if self.isConsoleMenuOpen == true {
+            
+            self.consoleAddButton?.removeFromSuperview()
+            self.consoleTwoButton?.removeFromSuperview()
+            self.consoleAddButtonImageView?.removeFromSuperview()
+            self.consoleTwoButtonImageView?.removeFromSuperview()
+        } else {
+            self.currentConsoleButtonPressed()
+        }
+        
+        self.isConsoleMenuOpen = !self.isConsoleMenuOpen
+    }
+    
+    func currentConsoleButtonPressed () {
+        
+        let consoleCount = TRApplicationManager.sharedInstance.currentUser?.consoles.count
+        
+        if consoleCount == 1 {
+            self.createAddConsoleButtonBelow(self.consoleButton)
+        } else {
+            for console in (TRApplicationManager.sharedInstance.currentUser?.consoles)! {
+                if console.isPrimary == false {
+                    self.addConsoleButtonFOrType(self.consoleButton, console: console)
+                } else {
+                    continue
+                }
+                
+                if console.consoleType == ConsoleTypes.PS3 || console.consoleType == ConsoleTypes.XBOX360 {
+                    self.createAddConsoleButtonBelow(self.consoleTwoButton!)
+                }
+            }
+        }
+    }
+    
+    func createAddConsoleButtonBelow (sender: UIButton) {
+        
+        self.consoleAddButton = UIButton(type: .Custom)
+        self.consoleAddButton?.backgroundColor = UIColor(red: 0/255, green: 56/255, blue: 71/255, alpha: 1)
+        self.consoleAddButton?.frame = CGRectMake(sender.frame.origin.x, sender.frame.origin.y + sender.frame.size.height, sender.frame.size.width, self.consoleButton.frame.size.height)
+        self.consoleAddButton?.setTitle("Add Console", forState: .Normal)
+        self.consoleAddButton?.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 14)
+        self.consoleAddButton?.addTarget(self, action: #selector(TRProfileViewController.addNewConsole), forControlEvents: .TouchUpInside)
+        self.consoleAddButton?.layer.borderColor = UIColor(red: 3/255, green: 81/255, blue: 102/255, alpha: 1).CGColor
+        self.consoleAddButton?.layer.borderWidth = 2.0
+        
+        self.consoleAddButtonImageView = UIImageView.init(image: UIImage(named: "iconAddConsole"))
+        self.consoleAddButtonImageView!.frame = CGRectMake((self.consoleAddButton?.frame.origin.x)! + 10, (self.consoleAddButton?.frame.origin.y)! + 10, self.consoleAddButtonImageView!.frame.size.width, self.consoleAddButtonImageView!.frame.size.height)
+        
+        
+        self.view.addSubview(self.consoleAddButton!)
+        self.view.addSubview(self.consoleAddButtonImageView!)
+    }
+    
+    func addConsoleButtonFOrType (sender: UIButton, console: TRConsoles) {
+        self.consoleTwoButton = UIButton(type: .Custom)
+        self.consoleTwoButton?.backgroundColor = UIColor(red: 0/255, green: 56/255, blue: 71/255, alpha: 1)
+        self.consoleTwoButton?.frame = CGRectMake(sender.frame.origin.x, sender.frame.origin.y + sender.frame.size.height, sender.frame.size.width, sender.frame.size.height)
+        self.consoleTwoButton?.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 14)
+        self.consoleTwoButton?.addTarget(self, action: #selector(TRProfileViewController.addNewConsole), forControlEvents: .TouchUpInside)
+        self.consoleTwoButton?.layer.borderColor = UIColor(red: 3/255, green: 81/255, blue: 102/255, alpha: 1).CGColor
+        self.consoleTwoButton?.layer.borderWidth = 2.0
+        
+        self.consoleTwoButtonImageView = UIImageView.init(image: UIImage(named: "iconAddConsole"))
+        self.consoleTwoButtonImageView!.frame = CGRectMake((self.consoleTwoButton?.frame.origin.x)! + 10, (self.consoleTwoButton?.frame.origin.y)! + 10, self.consoleTwoButtonImageView!.frame.size.width, self.consoleTwoButtonImageView!.frame.size.height)
+
+        switch console.consoleType! {
+        case ConsoleTypes.XBOX360:
+            self.consoleTwoButton?.setTitle("Xbox 360", forState: .Normal)
+            self.consoleTwoButtonImageView!.image = UIImage(named: "iconXboxoneConsole")
+            break
+        case ConsoleTypes.XBOXONE:
+            self.consoleTwoButton?.setTitle("Xbox One", forState: .Normal)
+            self.consoleTwoButtonImageView!.image = UIImage(named: "iconXboxoneConsole")
+            break
+        case ConsoleTypes.PS3:
+            self.consoleTwoButton?.setTitle("PlayStation 3", forState: .Normal)
+            self.consoleTwoButtonImageView!.image = UIImage(named: "iconPsnConsole")
+            break
+        case ConsoleTypes.PS4:
+            self.consoleTwoButton?.setTitle("PlayStation 4", forState: .Normal)
+            self.consoleTwoButtonImageView!.image = UIImage(named: "iconPsnConsole")
+            break
+        default:
+            break
+        }
+        
+        
+        self.view.addSubview(self.consoleTwoButton!)
+        self.view.addSubview(self.consoleTwoButtonImageView!)
+    }
+    
+    func addNewConsole () {
+        
+        var consoleOptions :[String] = []
+        let existingConsoles = TRApplicationManager.sharedInstance.currentUser?.consoles
+        for console in existingConsoles! {
+            
+            switch console.consoleType! {
+            case ConsoleTypes.PS4:
+                if existingConsoles?.count == 1 {
+                    consoleOptions.append("Xbox One")
+                    consoleOptions.append("Xbox 360")
+                }
+                break
+            case ConsoleTypes.PS3:
+                if existingConsoles?.count == 1 {
+                    consoleOptions.append("PlayStation 4")
+                    consoleOptions.append("Xbox One")
+                    consoleOptions.append("Xbox 360")
+                } else {
+                    consoleOptions.append("PlayStation 4")
+                    let console = TRApplicationManager.sharedInstance.currentUser?.consoles.filter{$0.consoleType == ConsoleTypes.XBOX360}
+                    if let hasEvent = console?.count where hasEvent > 0 {
+                        consoleOptions.append("Xbox One")
+                    }
+                }
+                break
+            case ConsoleTypes.XBOX360:
+                if existingConsoles?.count == 1 {
+                    consoleOptions.append("Xbox One")
+                    consoleOptions.append("PlayStation 4")
+                    consoleOptions.append("PlayStation 3")
+                } else {
+                    consoleOptions.append("Xbox One")
+                    let console = TRApplicationManager.sharedInstance.currentUser?.consoles.filter{$0.consoleType == ConsoleTypes.PS3}
+                    if let hasEvent = console?.count where hasEvent > 0 {
+                        consoleOptions.append("PlayStation 4")
+                    }
+                }
+                break
+            case ConsoleTypes.XBOXONE:
+                if existingConsoles?.count == 1 {
+                    consoleOptions.append("PlayStation 4")
+                    consoleOptions.append("PlayStation 3")
+                }
+                break
+            default:
+                break
+            }
+        }
+        
+        //Unique Elements in Array
+        consoleOptions = consoleOptions.unique
+        
+        let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+        let addConsoleViewCont = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_BUNGIE_VERIFICATION) as! TRAddConsoleViewController
+        addConsoleViewCont.openedFromProfile = true
+        addConsoleViewCont.consoleNameArray = consoleOptions
+        
+        self.presentViewController(addConsoleViewCont, animated: true) { 
+            
+        }
+    }
+    
+    deinit {
+        
     }
 }
 

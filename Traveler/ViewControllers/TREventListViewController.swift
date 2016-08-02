@@ -529,6 +529,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
                 let vc : TRCreateEventConfirmationViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_CREATE_EVENT_CONFIRM) as! TRCreateEventConfirmationViewController
                 let navigationController = UINavigationController(rootViewController: vc)
                 vc.selectedActivity = sender.buttonActivityInfo
+                vc.showBackButton = false
                 
                 self.presentViewController(navigationController, animated: true, completion: nil)
             }

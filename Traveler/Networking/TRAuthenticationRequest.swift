@@ -56,6 +56,12 @@ class TRAuthenticationRequest: TRRequest {
             let userData = TRUserInfo()
             userData.parseUserResponse(responseObject)
 
+            for console in userData.consoles {
+                if console.isPrimary == true {
+                    TRUserInfo.saveConsolesObject(console)
+                }
+            }
+            
             TRUserInfo.saveUserData(userData)
             completion(didSucceed: true )
         }
@@ -89,8 +95,14 @@ class TRAuthenticationRequest: TRRequest {
             
             let userData = TRUserInfo()
             userData.parseUserResponse(responseObject)
-            
             TRUserInfo.saveUserData(userData)
+            
+            for console in userData.consoles {
+                if console.isPrimary == true {
+                    TRUserInfo.saveConsolesObject(console)
+                }
+            }
+            
             completion(didSucceed: true )
         }
     }

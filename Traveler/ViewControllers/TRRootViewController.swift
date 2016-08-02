@@ -33,24 +33,30 @@ class TRRootViewController: TRBaseViewController {
         if (TRUserInfo.isUserLoggedIn()) {
             if (TRUserInfo.isUserVerified() == ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue) {
 
-                _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: true, indicatorTopConstraint: self.ACTIVITY_INDICATOR_TOP_CONSTRAINT, completion: { (didSucceed) -> () in
-                    
-                    var showEventListLandingPage = false
-                    var showGroups = false
-                    
-                    if(didSucceed == true) {
-                        if (TRUserInfo.getUserClanID() == ACCOUNT_VERIFICATION.USER_NOT_VERIFIED.rawValue) {
-                            // If has events, show event list view else show create Activity View
-                            showGroups = true
-                        } else if TRApplicationManager.sharedInstance.eventsList.count > 0 {
-                            showEventListLandingPage = true
-                        }
+                _ = TRGetUserRequest().getUserByID(TRUserInfo.getUserID()!, completion: { (userObject) in
+                    if let _ = userObject {
+                        TRApplicationManager.sharedInstance.currentUser = userObject
                         
-                        TRApplicationManager.sharedInstance.addSlideMenuController(self, pushData: self.pushNotificationData, branchData: self.branchLinkData, showLandingPage: showEventListLandingPage, showGroups: showGroups)
-                        
-                        self.pushNotificationData = nil
-                    } else {
-                        self.appManager.log.debug("Failed")
+                        _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: true, indicatorTopConstraint: self.ACTIVITY_INDICATOR_TOP_CONSTRAINT, completion: { (didSucceed) -> () in
+                            
+                            var showEventListLandingPage = false
+                            var showGroups = false
+                            
+                            if(didSucceed == true) {
+                                if (TRUserInfo.getUserClanID() == ACCOUNT_VERIFICATION.USER_NOT_VERIFIED.rawValue) {
+                                    // If has events, show event list view else show create Activity View
+                                    showGroups = true
+                                } else if TRApplicationManager.sharedInstance.eventsList.count > 0 {
+                                    showEventListLandingPage = true
+                                }
+                                
+                                TRApplicationManager.sharedInstance.addSlideMenuController(self, pushData: self.pushNotificationData, branchData: self.branchLinkData, showLandingPage: showEventListLandingPage, showGroups: showGroups)
+                                
+                                self.pushNotificationData = nil
+                            } else {
+                                self.appManager.log.debug("Failed")
+                            }
+                        })
                     }
                 })
             } else {

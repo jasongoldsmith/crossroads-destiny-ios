@@ -83,27 +83,5 @@ class TRBranchManager {
             }
         }
     }
-    
-//    func showBranchLinkErrorOfType (errorString: String, completion: ErrorTypeCallBack) {
-//        
-//        switch errorString {
-//        case "Sorry, looks like that event is no longer available.":
-//            completion(errorType: .ACTIVITY_NOT_AVAILABLE)
-//            break
-//        case "Sorry, looks like that event is no longer available.":
-//            completion(errorType: .MAXIMUM_PLAYERS_REACHED)
-//            break
-//        case "Sorry, looks like that event is no longer available.":
-//            completion(errorType: .NEEDS_CONSOLE)
-//            break
-//        case "Sorry, looks like that event is no longer available.":
-//            completion(errorType: .JOIN_BUNGIE_GROUP)
-//            break
-//        default:
-//            break
-//        }
-//        
-//        completion(errorType: nil)
-//    }
 }
 

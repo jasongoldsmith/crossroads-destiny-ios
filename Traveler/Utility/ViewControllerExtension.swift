@@ -31,6 +31,37 @@ extension UIViewController {
         presentViewController(alertView, animated: true, completion: nil)
     }
     
+    func displayAlertWithTitleAndMessage(title: String, message: String, complete: TRActivityIndicatorCompletion)
+    {
+        let alertView = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        alertView.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { action in
+            switch action.style{
+            case .Default:
+                complete(complete: true)
+                
+            case .Cancel:
+                print("cancel")
+                
+            case .Destructive:
+                print("destructive")
+            }
+        }))
+        
+        alertView.addAction(UIAlertAction(title: "Upgrade", style: .Default, handler: { action in
+            switch action.style{
+            case .Default:
+                complete(complete: true)
+                
+            case .Cancel:
+                print("cancel")
+                
+            case .Destructive:
+                print("destructive")
+            }
+        }))
+        
+        presentViewController(alertView, animated: true, completion: nil)
+    }
     
     func addNavigationBarButtons (showBack: Bool, showCancel: Bool) {
         

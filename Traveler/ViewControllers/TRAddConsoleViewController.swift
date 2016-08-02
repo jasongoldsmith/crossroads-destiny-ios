@@ -28,9 +28,17 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
     @IBOutlet weak var consolePicker: UIPickerView!
     @IBOutlet weak var consolePickerView: UIView!
     @IBOutlet weak var consoleTypeLabel: UILabel!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var addUpdateNewConsole: UIButton!
+    @IBOutlet weak var consoleTagView: UIView!
+    @IBOutlet weak var upgradeLabel: UILabel!
     
+    var openedFromProfile: Bool = false
     var consoleNameArray: NSArray = ["PlayStation 4","PlayStation 3", "Xbox 360", "Xbox One"]
     var selectedIndex: Int = 0
+    var preSelectedConsoleID: String?
+    var isUpgrade: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,9 +49,6 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
         // Placeholder text color
         self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         
-        //Update Legal Text
-        self.addLegalStatmentText()
-        
         //PickerView
         self.consolePicker?.layer.cornerRadius = 5.0
         self.consolePicker?.layer.masksToBounds = true
@@ -51,6 +56,25 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
         //KeyBoard Notifications
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRCreateAccountViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRCreateAccountViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
+    
+        if self.openedFromProfile == true {
+            self.chooseConsoleButton.setTitle(self.consoleNameArray.firstObject as? String, forState: .Normal)
+            self.backButton.hidden = true
+            self.closeButton.hidden = false
+            self.legalLabel.hidden = true
+            self.nextButton.hidden = true
+            self.addUpdateNewConsole.hidden = false
+        } else {
+            self.backButton.hidden = false
+            self.closeButton.hidden = true
+            self.nextButton.hidden = false
+            self.legalLabel.hidden = false
+            self.addUpdateNewConsole.hidden = true
+            self.addLegalStatmentText()
+        }
+        
+        //Add Console Place Holder Text
+        self.addConsolePlaceholderText()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -107,6 +131,46 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
         }
     }
     
+    
+    @IBAction func addUpdateConsole (sender: UIButton) {
+        
+        let playerConsoleID: String?
+        if let _ = self.preSelectedConsoleID {
+            playerConsoleID = self.preSelectedConsoleID
+        } else {
+            playerConsoleID = self.consoleIDTextField?.text
+        }
+        
+        if let _ = playerConsoleID {
+            if let conType  = self.consoleNameArray.objectAtIndex(self.selectedIndex) as? String {
+                
+                if self.isUpgrade {
+                    if conType == "PlayStation 4" || conType == "PlayStation 3" {
+                        self.displayAlertWithTitleAndMessage("Warning", message: "Are you sure you want to upgrade to Playstation 4? This change will be permanent and you will no longer be able to view activities on Playstation 3", complete: { (complete) in
+                            if complete == true {
+                                _ = TRAddConsole().addUpdateConsole(playerConsoleID!, consoleType: conType, completion: { (didSucceed) in
+                                    
+                                })
+                            }
+                        })
+                    } else {
+                        self.displayAlertWithTitleAndMessage("Warning", message: "Are you sure you want to upgrade to xBox One? This change will be permanent and you will no longer be able to view activities on xBox 360", complete: { (complete) in
+                            if complete == true {
+                                _ = TRAddConsole().addUpdateConsole(playerConsoleID!, consoleType: conType, completion: { (didSucceed) in
+                                    
+                                })
+                            }
+                        })
+                    }
+                } else {
+                    _ = TRAddConsole().addUpdateConsole(playerConsoleID!, consoleType: conType, completion: { (didSucceed) in
+                        
+                    })
+                }
+            }
+        }
+    }
+    
     @IBAction func doneButtonPressed (sender: UIButton) {
         if self.consoleIDTextField?.text?.isEmpty == true {
             TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Please enter Bungie.net game tag")
@@ -139,25 +203,87 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
         })
     }
 
+    @IBAction func closeAddConsoleView (sender: UIButton) {
+        self.dismissViewController(true) { (didDismiss) in
+            
+        }
+    }
     
     @IBAction func closePickerView(recognizer : UITapGestureRecognizer) {
         UIView.animateWithDuration(0.4) { () -> Void in
             self.consolePickerView?.alpha = 0
+            self.addConsolePlaceholderText()
         }
-        
+    }
+    
+    func addConsolePlaceholderText () {
         if let consoleType = self.consoleNameArray.objectAtIndex(self.selectedIndex) as? String {
             self.chooseConsoleButton?.titleLabel?.text = consoleType
             
-            if self.selectedIndex < 2 {
+            if consoleType == "PlayStation 4" || consoleType == "PlayStation 3" {
+                self.consoleIDTextField.enabled = true
                 self.consoleTypeLabel.text = "PLAYSTATION ID"
                 self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
 
+                if let consoles = TRApplicationManager.sharedInstance.currentUser?.consoles {
+                    for console in consoles {
+                        if console.consoleType == ConsoleTypes.PS3 || console.consoleType == ConsoleTypes.PS4 {
+                            if let consoleID = console.consoleId {
+                                self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:consoleID, attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+                                self.consoleIDTextField.enabled = false
+                                self.preSelectedConsoleID = consoleID
+                                self.consoleTagView.hidden = true
+                                self.addUpdateNewConsole.setTitle("UPGRADE", forState: .Normal)
+                                self.upgradeLabel.hidden = false
+                                self.upgradeLabel.text = "NOTE: Once you upgrade to Playstation 4 you will no longer be able to view activities from Playstation 3."
+                                self.isUpgrade = true
+
+                                break
+                            }
+                        } else {
+                            self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+                            self.preSelectedConsoleID = nil
+                            self.consoleTagView.hidden = false
+                            self.addUpdateNewConsole.setTitle("ADD", forState: .Normal)
+                            self.upgradeLabel.hidden = true
+                            self.isUpgrade = false
+                        }
+                    }
+                }
             } else {
                 self.consoleTypeLabel.text = "XBOX GAMERTAG"
+                self.consoleIDTextField.enabled = true
                 self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter Xbox Gamertag", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+                
+                if let consoles = TRApplicationManager.sharedInstance.currentUser?.consoles {
+                    for console in consoles {
+                        if console.consoleType == ConsoleTypes.XBOXONE || console.consoleType == ConsoleTypes.XBOX360 {
+                            if let consoleID = console.consoleId {
+                                self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:consoleID, attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+                                self.consoleIDTextField.enabled = false
+                                self.preSelectedConsoleID = consoleID
+                                self.consoleTagView.hidden = true
+                                self.addUpdateNewConsole.setTitle("UPGRADE", forState: .Normal)
+                                self.upgradeLabel.hidden = false
+                                self.upgradeLabel.text = "NOTE: Once you upgrade to xBox One you will no longer be able to view activities from xBox 360."
+                                self.isUpgrade = true
+                                
+                                break
+                            }
+                        } else {
+                            self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter Xbox Gamertag", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+                            self.preSelectedConsoleID = nil
+                            self.consoleTagView.hidden = false
+                            self.addUpdateNewConsole.setTitle("ADD", forState: .Normal)
+                            self.upgradeLabel.hidden = true
+                            self.isUpgrade = false
+                        }
+                    }
+                }
             }
         }
     }
+    
     
     @IBAction func openPickerView (sender: UIButton) {
         UIView.animateWithDuration(0.4) { () -> Void in

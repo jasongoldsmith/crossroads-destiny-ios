@@ -73,7 +73,6 @@ class TREventInfo: NSObject {
             creatorInfo.playerID        = creator["_id"]?.stringValue
             creatorInfo.playerUserName  = creator["userName"]?.stringValue
             creatorInfo.playerDate      = creator["date"]?.stringValue
-            //creatorInfo.playerPsnID     = creator["psnId"]?.stringValue
             creatorInfo.playerUdate     = creator["uDate"]?.stringValue
             
             for consoles in creator["consoles"]!.arrayValue {
@@ -81,12 +80,15 @@ class TREventInfo: NSObject {
                 creatorConsole.consoleId = consoles["consoleId"].stringValue
                 creatorConsole.consoleType = consoles["consoleType"].stringValue
                 creatorConsole.verifyStatus = consoles["verifyStatus"].stringValue
+                creatorConsole.isPrimary    = consoles["isPrimary"].bool
+                
+                if creatorConsole.isPrimary == true {
+                    creatorInfo.playerPsnID = creatorConsole.consoleId
+                }
                 
                 creatorInfo.playerConsoles.append(creatorConsole)
             }
             
-            //TODO: REMOVE FIRST OBJECT
-            creatorInfo.playerPsnID = creatorInfo.playerConsoles.first?.consoleId
             
             // Event Creator Added
             self.eventCreator = creatorInfo
@@ -110,12 +112,15 @@ class TREventInfo: NSObject {
                 playerConsole.consoleId = consoles["consoleId"].stringValue
                 playerConsole.consoleType = consoles["consoleType"].stringValue
                 playerConsole.verifyStatus = consoles["verifyStatus"].stringValue
+                playerConsole.isPrimary    = consoles["isPrimary"].bool
+                
+                if playerConsole.isPrimary == true {
+                    playerInfo.playerPsnID = playerConsole.consoleId
+                }
                 
                 playerInfo.playerConsoles.append(playerConsole)
             }
             
-            //TODO: REMOVE FIRST OBJECT
-            playerInfo.playerPsnID = playerInfo.playerConsoles.first?.consoleId
             
             // Players of an Event Added
             self.eventPlayersArray.append(playerInfo)
@@ -135,7 +140,7 @@ class TREventInfo: NSObject {
     
     func isEventGroupPartOfUsersGroups () throws -> Bool {
         
-        if self.eventClanID == TRUserInfo.getUserClanID() {
+        if self.eventClanID == TRApplicationManager.sharedInstance.currentUser?.userClanID {
             return false
         }
         
@@ -144,7 +149,7 @@ class TREventInfo: NSObject {
     
     func isEventConsoleMatchesUserConsole() throws -> Bool {
         
-        if self.eventConsoleType == TRUserInfo.getConsoleType() {
+        if self.eventConsoleType == TRApplicationManager.sharedInstance.currentUser?.getDefaultConsole()?.consoleType {
             return false
         }
         

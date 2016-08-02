@@ -12,6 +12,8 @@ class TRConsoles {
     var consoleId: String?
     var consoleType: String?
     var verifyStatus: String?
+    var isPrimary: Bool?
+    
     
     func saveConsolesObject (consoleObj: TRConsoles) {
         let userDefaults = NSUserDefaults.standardUserDefaults()
@@ -45,6 +47,23 @@ class TRConsoles {
         }
         
         return nil
+    }
+    
+    //Is Console Latest
+    func isPlayStationConsoleLatest () -> Bool {
+        if self.consoleType == ConsoleTypes.PS4 {
+            return true
+        }
+        
+        return false
+    }
+    
+    func isXBoxConsoleLatest () -> Bool {
+        if self.consoleType == ConsoleTypes.XBOXONE {
+            return true
+        }
+        
+        return false
     }
 }
 
