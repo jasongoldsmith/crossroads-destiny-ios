@@ -69,13 +69,13 @@ class TRPushNotiController: NSObject, NotificationViewProtocol {
     func addPushAnimationAndResetTableViewOffSet (notificationview: TRPushNotificationView, parentView: UIViewController, isExistingPushView: Bool) {
         //kPOPLayerOpacity
         
-        if isExistingPushView == false {
-            let popAnimation:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPLayerPositionX)
-            popAnimation.fromValue = -notificationview.frame.width/2
-            popAnimation.toValue = notificationview.frame.width/2 + notificationview.frame.origin.x
-            popAnimation.duration = 0.4
-            notificationview.pop_addAnimation(popAnimation, forKey: "slideIn")
-        }
+//        if isExistingPushView == false {
+//            let popAnimation:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPLayerPositionX)
+//            popAnimation.fromValue = -notificationview.frame.width/2
+//            popAnimation.toValue = notificationview.frame.width/2 + notificationview.frame.origin.x
+//            popAnimation.duration = 0.4
+//            notificationview.pop_addAnimation(popAnimation, forKey: "slideIn")
+//        }
         
         if parentView.isKindOfClass(TREventListViewController) {
             let eventView = parentView as! TREventListViewController
