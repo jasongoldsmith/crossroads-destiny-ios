@@ -37,7 +37,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XuV-Qq-gk8" customClass="EventButton" customModule="Crossroads" customModuleProvider="target">
-                        <rect key="frame" x="246" y="101" width="64" height="36"/>
+                        <rect key="frame" x="246" y="104" width="64" height="36"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="64" id="33x-nc-wfw"/>
@@ -58,7 +58,7 @@
                     <constraint firstItem="hwY-Ba-epx" firstAttribute="top" secondItem="X9Z-kB-KEc" secondAttribute="top" id="g3o-t2-yvG"/>
                     <constraint firstItem="2Fi-8c-gzq" firstAttribute="leading" secondItem="X9Z-kB-KEc" secondAttribute="leading" id="lMT-sZ-gzG"/>
                     <constraint firstAttribute="bottom" secondItem="610-rS-Cxr" secondAttribute="bottom" id="oH6-9N-W6k"/>
-                    <constraint firstItem="XuV-Qq-gk8" firstAttribute="top" secondItem="X9Z-kB-KEc" secondAttribute="top" id="od0-x5-xtm"/>
+                    <constraint firstItem="XuV-Qq-gk8" firstAttribute="top" secondItem="X9Z-kB-KEc" secondAttribute="top" constant="3" id="od0-x5-xtm"/>
                     <constraint firstItem="hwY-Ba-epx" firstAttribute="leading" secondItem="k7V-0a-X5J" secondAttribute="leading" constant="11" id="pbZ-sU-Wv1"/>
                     <constraint firstAttribute="trailing" secondItem="XuV-Qq-gk8" secondAttribute="trailing" constant="10" id="utD-JK-9ah"/>
                 </constraints>
