@@ -90,7 +90,7 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
             return
         } else {
             let textcount = userNameTxtField.text?.characters.count
-            if textcount < 4 || textcount > 50 {
+            if textcount < 3 || textcount > 50 {
                 TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Your username must have at least 5 characters.")
                 
                 return
