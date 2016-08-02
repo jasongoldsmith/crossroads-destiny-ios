@@ -698,17 +698,17 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconArrowDown" translatesAutoresizingMaskIntoConstraints="NO" id="PMP-b6-8og">
-                                <rect key="frame" x="558" y="235" width="24" height="24"/>
+                                <rect key="frame" x="558" y="244" width="10" height="5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="Vck-go-bii"/>
-                                    <constraint firstAttribute="height" constant="24" id="X7Z-eh-oS1"/>
+                                    <constraint firstAttribute="width" constant="10" id="Vck-go-bii"/>
+                                    <constraint firstAttribute="height" constant="5" id="X7Z-eh-oS1"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPsnConsole" translatesAutoresizingMaskIntoConstraints="NO" id="hIX-my-tb9">
-                                <rect key="frame" x="10" y="222" width="47" height="50"/>
+                                <rect key="frame" x="23" y="235" width="24" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="47" id="UTa-6i-imV"/>
-                                    <constraint firstAttribute="height" constant="50" id="hq4-5z-Dng"/>
+                                    <constraint firstAttribute="width" constant="24" id="UTa-6i-imV"/>
+                                    <constraint firstAttribute="height" constant="24" id="hq4-5z-Dng"/>
                                 </constraints>
                             </imageView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OZ9-41-Z2f">
@@ -755,7 +755,7 @@
                             <constraint firstAttribute="trailing" secondItem="7Cn-fI-BQD" secondAttribute="trailing" id="9ev-HL-2GI"/>
                             <constraint firstItem="4XC-MJ-jA1" firstAttribute="centerX" secondItem="sid-xD-sch" secondAttribute="centerX" id="G0p-3Q-NHz"/>
                             <constraint firstItem="7w2-Rd-0OK" firstAttribute="leading" secondItem="qQx-cy-iBt" secondAttribute="leadingMargin" constant="-20" id="Gnz-wp-Zy5"/>
-                            <constraint firstItem="Lhf-tY-FuN" firstAttribute="trailing" secondItem="PMP-b6-8og" secondAttribute="trailing" constant="8" id="HWA-pV-JP9"/>
+                            <constraint firstItem="Lhf-tY-FuN" firstAttribute="trailing" secondItem="PMP-b6-8og" secondAttribute="trailing" constant="22" id="HWA-pV-JP9"/>
                             <constraint firstItem="7Cn-fI-BQD" firstAttribute="leading" secondItem="qQx-cy-iBt" secondAttribute="leading" id="Jc6-mM-7En"/>
                             <constraint firstItem="OZ9-41-Z2f" firstAttribute="top" secondItem="qQx-cy-iBt" secondAttribute="topMargin" id="JfK-JM-65U"/>
                             <constraint firstItem="61I-3M-JJz" firstAttribute="top" secondItem="Lhf-tY-FuN" secondAttribute="bottom" constant="13" id="R92-l2-o53"/>
@@ -771,7 +771,7 @@
                             <constraint firstItem="7w2-Rd-0OK" firstAttribute="top" secondItem="qQx-cy-iBt" secondAttribute="topMargin" id="kU2-ry-DQ2"/>
                             <constraint firstItem="hIX-my-tb9" firstAttribute="centerY" secondItem="Lhf-tY-FuN" secondAttribute="centerY" id="krg-PK-fJi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7w2-Rd-0OK" secondAttribute="trailing" constant="-20" id="o18-fQ-Q4o"/>
-                            <constraint firstItem="hIX-my-tb9" firstAttribute="leading" secondItem="Lhf-tY-FuN" secondAttribute="leading" id="oCo-wW-teb"/>
+                            <constraint firstItem="hIX-my-tb9" firstAttribute="leading" secondItem="Lhf-tY-FuN" secondAttribute="leading" constant="13" id="oCo-wW-teb"/>
                             <constraint firstAttribute="trailing" secondItem="61I-3M-JJz" secondAttribute="trailing" constant="10" id="sNM-LQ-57x"/>
                             <constraint firstItem="PMP-b6-8og" firstAttribute="centerY" secondItem="Lhf-tY-FuN" secondAttribute="centerY" id="skr-Fd-hiC"/>
                             <constraint firstAttribute="trailing" secondItem="sid-xD-sch" secondAttribute="trailing" constant="42" id="tqu-zO-ea0"/>

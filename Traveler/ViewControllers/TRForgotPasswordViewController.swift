@@ -194,10 +194,11 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
             if self.selectedIndex < 2 {
                 self.consoleTypeLabel.text = "PLAYSTATION ID"
                 self.userNameTextField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
-                
+                self.consoleImage.image = UIImage(named: "iconPsnConsole")
             } else {
                 self.consoleTypeLabel.text = "XBOX GAMERTAG"
                 self.userNameTextField.attributedPlaceholder = NSAttributedString(string:"Enter Xbox Gamertag", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+                self.consoleImage.image = UIImage(named: "iconXboxoneConsole")
             }
         }
     }
