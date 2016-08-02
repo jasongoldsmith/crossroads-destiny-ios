@@ -108,7 +108,7 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
         } else {
             let textcount = userNameTxtField.text?.characters.count
             if textcount < 3 || textcount > 50 {
-                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Your username must have at least 5 characters.")
+                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Your username must have at least 3 characters.")
                 
                 return
             }
@@ -122,7 +122,7 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
             
             let textcount = userPwdTxtField.text?.characters.count
             if textcount < 4 || textcount > 50 {
-                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Your password must have at least 5 characters.")
+                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Your password must have at least 4 characters.")
                 
                 return
             }
