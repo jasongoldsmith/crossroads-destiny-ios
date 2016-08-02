@@ -12,8 +12,7 @@ extension UIViewController {
     
     typealias TRActivityIndicatorCompletion = (complete: Bool?) -> ()
     
-    func displayAlertWithTitle(title: String, complete: TRActivityIndicatorCompletion)
-    {
+    func displayAlertWithTitle(title: String, complete: TRActivityIndicatorCompletion) {
         let alertView = UIAlertController(title: title, message: " ", preferredStyle: .Alert)
         alertView.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
             switch action.style{
@@ -31,8 +30,25 @@ extension UIViewController {
         presentViewController(alertView, animated: true, completion: nil)
     }
     
-    func displayAlertWithTitleAndMessage(title: String, message: String, complete: TRActivityIndicatorCompletion)
-    {
+    func displayAlertWithTitleAndMessageAnOK(title: String, message: String, complete: TRActivityIndicatorCompletion) {
+        let alertView = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        alertView.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
+            switch action.style{
+            case .Default:
+                complete(complete: true)
+                
+            case .Cancel:
+                print("OK")
+                
+            case .Destructive:
+                print("destructive")
+            }
+        }))
+        
+        presentViewController(alertView, animated: true, completion: nil)
+    }
+    
+    func displayAlertWithTitleAndMessage(title: String, message: String, complete: TRActivityIndicatorCompletion) {
         let alertView = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         alertView.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { action in
             switch action.style{

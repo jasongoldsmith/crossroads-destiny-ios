@@ -151,7 +151,9 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
                         self.displayAlertWithTitleAndMessage("Warning", message: "Are you sure you want to upgrade to Playstation 4? This change will be permanent and you will no longer be able to view activities on Playstation 3", complete: { (complete) in
                             if complete == true {
                                 _ = TRAddConsole().addUpdateConsole(playerConsoleID!, consoleType: conType, completion: { (didSucceed) in
-                                    
+                                    if didSucceed == true {
+                                        self.showSuccessFor(conType, consoleID: playerConsoleID!)
+                                    }
                                 })
                             }
                         })
@@ -159,16 +161,32 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
                         self.displayAlertWithTitleAndMessage("Warning", message: "Are you sure you want to upgrade to xBox One? This change will be permanent and you will no longer be able to view activities on xBox 360", complete: { (complete) in
                             if complete == true {
                                 _ = TRAddConsole().addUpdateConsole(playerConsoleID!, consoleType: conType, completion: { (didSucceed) in
-                                    
+                                    if didSucceed == true {
+                                        self.showSuccessFor(conType, consoleID: playerConsoleID!)
+                                    }
                                 })
                             }
                         })
                     }
                 } else {
                     _ = TRAddConsole().addUpdateConsole(playerConsoleID!, consoleType: conType, completion: { (didSucceed) in
-                        
+                        if didSucceed == true {
+                            self.showSuccessFor(conType, consoleID: playerConsoleID!)
+                        }
                     })
                 }
+            }
+        }
+    }
+    
+    func showSuccessFor (consoleType: String, consoleID: String) {
+        
+        let messageString = "Your \(consoleType) \(consoleID) has been added to your account."
+        self.displayAlertWithTitleAndMessageAnOK("Success!", message: messageString) { (complete) in
+            if complete == true {
+                self.dismissViewController(true, dismissed: { (didDismiss) in
+                    
+                })
             }
         }
     }
