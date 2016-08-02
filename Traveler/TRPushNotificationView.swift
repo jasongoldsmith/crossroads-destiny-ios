@@ -46,6 +46,10 @@ class TRPushNotificationView: UIView {
         layer.shadowOffset = CGSizeMake(0.0, 5.0)
         layer.shadowOpacity = 0.5
         layer.shadowPath = shadowPath.CGPath
+        
+        //Add radius
+        self.layer.cornerRadius = 2.0
+        self.layer.masksToBounds = true
     }
     
     
