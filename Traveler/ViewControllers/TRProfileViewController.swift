@@ -43,6 +43,16 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         self.backGroundImageView?.clipsToBounds = true
     }
     
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        self.consoleAddButton?.removeFromSuperview()
+        self.consoleTwoButton?.removeFromSuperview()
+        self.consoleAddButtonImageView?.removeFromSuperview()
+        self.consoleTwoButtonImageView?.removeFromSuperview()
+        self.isConsoleMenuOpen = false
+    }
+
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
     }
@@ -284,7 +294,7 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         self.consoleTwoButton?.backgroundColor = UIColor(red: 0/255, green: 56/255, blue: 71/255, alpha: 1)
         self.consoleTwoButton?.frame = CGRectMake(sender.frame.origin.x, sender.frame.origin.y + sender.frame.size.height, sender.frame.size.width, sender.frame.size.height)
         self.consoleTwoButton?.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 14)
-        self.consoleTwoButton?.addTarget(self, action: #selector(TRProfileViewController.addNewConsole), forControlEvents: .TouchUpInside)
+        self.consoleTwoButton?.addTarget(self, action: #selector(TRProfileViewController.changePrimaryConsole), forControlEvents: .TouchUpInside)
         self.consoleTwoButton?.layer.borderColor = UIColor(red: 3/255, green: 81/255, blue: 102/255, alpha: 1).CGColor
         self.consoleTwoButton?.layer.borderWidth = 2.0
         
@@ -378,6 +388,18 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         self.presentViewController(addConsoleViewCont, animated: true) { 
             
         }
+    }
+    
+    
+    func changePrimaryConsole () {
+        
+        
+        
+        _ = TRChangeConsoleRequest().changeConsole("", completion: { (didSucceed) in
+            if didSucceed == true {
+                
+            }
+        })
     }
     
     deinit {

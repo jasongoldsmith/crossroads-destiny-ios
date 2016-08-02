@@ -265,6 +265,10 @@
 		33A029B01CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A029AF1CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift */; };
 		33A029B11CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A029AF1CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift */; };
 		33A029B21CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A029AF1CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift */; };
+		33A588FC1D511C2900D06127 /* TRChangeConsoleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A588FB1D511C2900D06127 /* TRChangeConsoleRequest.swift */; };
+		33A588FD1D511C2900D06127 /* TRChangeConsoleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A588FB1D511C2900D06127 /* TRChangeConsoleRequest.swift */; };
+		33A588FE1D511C2900D06127 /* TRChangeConsoleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A588FB1D511C2900D06127 /* TRChangeConsoleRequest.swift */; };
+		33A588FF1D511C2900D06127 /* TRChangeConsoleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A588FB1D511C2900D06127 /* TRChangeConsoleRequest.swift */; };
 		33AA2C961D3E9D2200E5BF0D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33B73BFE1D2F171200BEA7E5 /* GoogleService-Info.plist */; };
 		33B5BC701C9A2F0B000D94DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C1FF361C77C15C00A78798 /* Assets.xcassets */; };
 		33B5BC711C9A2F0C000D94DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C1FF361C77C15C00A78798 /* Assets.xcassets */; };
@@ -553,6 +557,7 @@
 		339D8F2B1C90F79800A2620F /* TRActivitySelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRActivitySelectionCell.xib; sourceTree = "<group>"; };
 		339D8F2F1C911FB900A2620F /* TRCreateEventConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCreateEventConfirmationViewController.swift; sourceTree = "<group>"; };
 		33A029AF1CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		33A588FB1D511C2900D06127 /* TRChangeConsoleRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRChangeConsoleRequest.swift; sourceTree = "<group>"; };
 		33B73BFE1D2F171200BEA7E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		33B73C001D2F188800BEA7E5 /* TRFireBaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRFireBaseManager.swift; sourceTree = "<group>"; };
 		33B73C051D303F5200BEA7E5 /* TRHelmetUpdateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRHelmetUpdateRequest.swift; sourceTree = "<group>"; };
@@ -803,6 +808,7 @@
 				33B73C051D303F5200BEA7E5 /* TRHelmetUpdateRequest.swift */,
 				337DA4D51D4F2661002A10BA /* TRGetUserRequest.swift */,
 				337DA4E41D5063FE002A10BA /* TRAddConsole.swift */,
+				33A588FB1D511C2900D06127 /* TRChangeConsoleRequest.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -1429,6 +1435,7 @@
 				33D0B4071CFD0165008ABA04 /* TRChooseGroupViewController.swift in Sources */,
 				33D0B4081CFD0165008ABA04 /* TRConstants.swift in Sources */,
 				33D0B4091CFD0165008ABA04 /* TRLeaveEventRequest.swift in Sources */,
+				33A588FC1D511C2900D06127 /* TRChangeConsoleRequest.swift in Sources */,
 				33D0B40A1CFD0165008ABA04 /* TRApplicationManager.swift in Sources */,
 				33D0B40B1CFD0165008ABA04 /* TREventInfoPlayerCell.swift in Sources */,
 				33D0B40C1CFD0165008ABA04 /* TRCreateAccountViewController.swift in Sources */,
@@ -1524,6 +1531,7 @@
 				3333BDBB1CEE4221001C9E1A /* TRChooseGroupViewController.swift in Sources */,
 				33742D801C7FBDF100C46742 /* TRConstants.swift in Sources */,
 				332C9CE41C8B89370092989E /* TRLeaveEventRequest.swift in Sources */,
+				33A588FD1D511C2900D06127 /* TRChangeConsoleRequest.swift in Sources */,
 				33742D881C7FC4B400C46742 /* TRApplicationManager.swift in Sources */,
 				3398E1B21CAB7EE0001F022B /* TREventInfoPlayerCell.swift in Sources */,
 				62C1FF631C77D7F000A78798 /* TRCreateAccountViewController.swift in Sources */,
@@ -1687,6 +1695,7 @@
 				6294972E1C7BB5F3005E4F91 /* TRAuthenticationRequest.swift in Sources */,
 				33D9D9811D48574F00A6289D /* TRAdCardInfo.swift in Sources */,
 				339D8F251C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift in Sources */,
+				33A588FE1D511C2900D06127 /* TRChangeConsoleRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1783,6 +1792,7 @@
 				6294972F1C7BB5F3005E4F91 /* TRAuthenticationRequest.swift in Sources */,
 				33D9D9821D48574F00A6289D /* TRAdCardInfo.swift in Sources */,
 				339D8F261C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift in Sources */,
+				33A588FF1D511C2900D06127 /* TRChangeConsoleRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

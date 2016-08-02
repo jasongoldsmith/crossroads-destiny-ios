@@ -65,6 +65,7 @@ struct K {
         static let TR_HELMET_UPDATE      =   "/api/v1/a/account/updateHelmet"
         static let TR_GET_USER           =   "/api/v1/a/user/listById"
         static let TR_ADD_CONSOLE        =   "/api/v1/a/user/addConsole"
+        static let TR_CHANGE_CONSOLE     =   "/api/v1/a/user/changePrimaryConsole"
     }
     
     struct StoryBoard {

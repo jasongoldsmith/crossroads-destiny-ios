@@ -61,15 +61,17 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
             self.chooseConsoleButton.setTitle(self.consoleNameArray.firstObject as? String, forState: .Normal)
             self.backButton.hidden = true
             self.closeButton.hidden = false
-            self.legalLabel.hidden = true
+            self.legalLabel?.hidden = true
             self.nextButton.hidden = true
             self.addUpdateNewConsole.hidden = false
+            self.upgradeLabel.hidden = false
         } else {
             self.backButton.hidden = false
             self.closeButton.hidden = true
             self.nextButton.hidden = false
-            self.legalLabel.hidden = false
+            self.legalLabel?.hidden = false
             self.addUpdateNewConsole.hidden = true
+            self.upgradeLabel.hidden = true
             self.addLegalStatmentText()
         }
         
@@ -204,6 +206,11 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
     }
 
     @IBAction func closeAddConsoleView (sender: UIButton) {
+        
+        if self.consoleIDTextField.isFirstResponder() {
+            self.consoleIDTextField.resignFirstResponder()
+        }
+        
         self.dismissViewController(true) { (didDismiss) in
             
         }
