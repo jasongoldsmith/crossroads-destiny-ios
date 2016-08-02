@@ -52,9 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let deepLinkType = params["deepLinkType"] as? String
                 let eventID = params["eventID"] as? String
                 
-                guard let _ = deepLinkType else {
-                    return
-                }
                 guard let _ = eventID else {
                     return
                 }
