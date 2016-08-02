@@ -20,7 +20,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </imageView>
                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dtk-b7-EX5">
-                        <rect key="frame" x="112" y="85" width="36" height="36"/>
+                        <rect key="frame" x="101" y="85" width="36" height="36"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="36" id="5wD-IS-XS1"/>
@@ -28,7 +28,7 @@
                         </constraints>
                     </imageView>
                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fec-iC-qHn">
-                        <rect key="frame" x="154" y="85" width="36" height="36"/>
+                        <rect key="frame" x="143" y="85" width="36" height="36"/>
                         <color key="backgroundColor" red="0.43529411764705883" green="0.53333333333333333" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="36" id="PvK-Jw-SUc"/>
@@ -81,7 +81,7 @@
                         <state key="normal" image="btnJOIN"/>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3rA-ji-cCh">
-                        <rect key="frame" x="70" y="85" width="36" height="36"/>
+                        <rect key="frame" x="59" y="85" width="36" height="36"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="36" id="chK-Wt-nWs"/>
@@ -97,7 +97,7 @@
                         <state key="normal" image="imgCancelX"/>
                     </button>
                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIc-sv-e0E">
-                        <rect key="frame" x="154" y="85" width="36" height="36"/>
+                        <rect key="frame" x="143" y="85" width="36" height="36"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="36" id="721-Qr-grS"/>
                             <constraint firstAttribute="height" constant="36" id="FWn-xl-jYp"/>
@@ -121,7 +121,7 @@
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="gFP-n8-kSW" secondAttribute="bottom" constant="43" id="1pm-OV-iFy"/>
                     <constraint firstItem="c5f-XM-Con" firstAttribute="top" secondItem="ytB-QV-e1A" secondAttribute="bottom" constant="18" id="3Oh-sZ-AYs"/>
-                    <constraint firstItem="3rA-ji-cCh" firstAttribute="leading" secondItem="ZDu-nM-3dI" secondAttribute="leadingMargin" constant="62" id="6ry-cv-zqs"/>
+                    <constraint firstItem="3rA-ji-cCh" firstAttribute="leading" secondItem="ZDu-nM-3dI" secondAttribute="leadingMargin" constant="51" id="6ry-cv-zqs"/>
                     <constraint firstItem="Fec-iC-qHn" firstAttribute="leading" secondItem="dtk-b7-EX5" secondAttribute="trailing" constant="6" id="Aja-MI-rMK"/>
                     <constraint firstAttribute="trailingMargin" secondItem="gFP-n8-kSW" secondAttribute="trailing" constant="2" id="BU4-Cb-w3I"/>
                     <constraint firstItem="81J-YA-le0" firstAttribute="leading" secondItem="ZDu-nM-3dI" secondAttribute="leadingMargin" constant="2" id="CK6-OM-41Z"/>
