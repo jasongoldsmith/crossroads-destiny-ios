@@ -33,6 +33,8 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
     @IBOutlet weak var addUpdateNewConsole: UIButton!
     @IBOutlet weak var consoleTagView: UIView!
     @IBOutlet weak var upgradeLabel: UILabel!
+    @IBOutlet weak var consoleImage: UIImageView!
+    
     
     var openedFromProfile: Bool = false
     var consoleNameArray: NSArray = ["PlayStation 4","PlayStation 3", "Xbox 360", "Xbox One"]
@@ -144,15 +146,16 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
         }
         
         if let _ = playerConsoleID {
-            if let conType  = self.consoleNameArray.objectAtIndex(self.selectedIndex) as? String {
+            if let consoleName  = self.consoleNameArray.objectAtIndex(self.selectedIndex) as? String {
+                let consoleType = self.getConsoleTypeFromString(consoleName)
                 
                 if self.isUpgrade {
-                    if conType == "PlayStation 4" || conType == "PlayStation 3" {
+                    if consoleType == ConsoleTypes.PS4 || consoleType == ConsoleTypes.PS3 {
                         self.displayAlertWithTitleAndMessage("Warning", message: "Are you sure you want to upgrade to Playstation 4? This change will be permanent and you will no longer be able to view activities on Playstation 3", complete: { (complete) in
                             if complete == true {
-                                _ = TRAddConsole().addUpdateConsole(playerConsoleID!, consoleType: conType, completion: { (didSucceed) in
+                                _ = TRAddConsole().addUpdateConsole(playerConsoleID!, consoleType: consoleType, completion: { (didSucceed) in
                                     if didSucceed == true {
-                                        self.showSuccessFor(conType, consoleID: playerConsoleID!)
+                                        self.showSuccessFor(consoleName, consoleID: playerConsoleID!)
                                     }
                                 })
                             }
@@ -160,18 +163,18 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
                     } else {
                         self.displayAlertWithTitleAndMessage("Warning", message: "Are you sure you want to upgrade to xBox One? This change will be permanent and you will no longer be able to view activities on xBox 360", complete: { (complete) in
                             if complete == true {
-                                _ = TRAddConsole().addUpdateConsole(playerConsoleID!, consoleType: conType, completion: { (didSucceed) in
+                                _ = TRAddConsole().addUpdateConsole(playerConsoleID!, consoleType: consoleType, completion: { (didSucceed) in
                                     if didSucceed == true {
-                                        self.showSuccessFor(conType, consoleID: playerConsoleID!)
+                                        self.showSuccessFor(consoleName, consoleID: playerConsoleID!)
                                     }
                                 })
                             }
                         })
                     }
                 } else {
-                    _ = TRAddConsole().addUpdateConsole(playerConsoleID!, consoleType: conType, completion: { (didSucceed) in
+                    _ = TRAddConsole().addUpdateConsole(playerConsoleID!, consoleType: consoleType, completion: { (didSucceed) in
                         if didSucceed == true {
-                            self.showSuccessFor(conType, consoleID: playerConsoleID!)
+                            self.showSuccessFor(consoleName, consoleID: playerConsoleID!)
                         }
                     })
                 }
@@ -249,7 +252,8 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
                 self.consoleIDTextField.enabled = true
                 self.consoleTypeLabel.text = "PLAYSTATION ID"
                 self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
-
+                self.consoleImage.image = UIImage(named: "iconPsnConsole")
+                
                 if let consoles = TRApplicationManager.sharedInstance.currentUser?.consoles {
                     for console in consoles {
                         if console.consoleType == ConsoleTypes.PS3 || console.consoleType == ConsoleTypes.PS4 {
@@ -279,6 +283,7 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
                 self.consoleTypeLabel.text = "XBOX GAMERTAG"
                 self.consoleIDTextField.enabled = true
                 self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter Xbox Gamertag", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+                self.consoleImage.image = UIImage(named: "iconXboxoneConsole")
                 
                 if let consoles = TRApplicationManager.sharedInstance.currentUser?.consoles {
                     for console in consoles {
@@ -367,6 +372,28 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
         self.selectedIndex = row
     }
 
+    func getConsoleTypeFromString (consoleName: String) -> String {
+        
+        var consoleType = ""
+        switch consoleName {
+        case "PlayStation 4":
+             consoleType = ConsoleTypes.PS4
+            break
+        case "PlayStation 3":
+            consoleType = ConsoleTypes.PS3
+            break
+        case "Xbox 360":
+            consoleType = ConsoleTypes.XBOX360
+            break
+            
+        default:
+            consoleType = ConsoleTypes.XBOXONE
+            break
+        }
+        
+        return consoleType
+    }
+    
     deinit {
         
     }

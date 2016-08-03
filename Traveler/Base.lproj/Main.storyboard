@@ -2346,6 +2346,12 @@ from &lt;Playstation 3&gt;. </string>
                                     <action selector="addUpdateConsole:" destination="KOc-md-Vga" eventType="touchUpInside" id="IwC-c1-vJc"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3zm-Da-zw2">
+                                <rect key="frame" x="25" y="288" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="LEN-Vo-SL6"/>
+                                </constraints>
+                            </imageView>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n3y-gf-vY6">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
@@ -2391,18 +2397,21 @@ from &lt;Playstation 3&gt;. </string>
                             <constraint firstAttribute="trailing" secondItem="n3y-gf-vY6" secondAttribute="trailing" id="KXg-uz-Bc9"/>
                             <constraint firstItem="rzn-bo-U2A" firstAttribute="top" secondItem="Nax-av-Wvi" secondAttribute="bottom" id="MF7-ZU-jp9"/>
                             <constraint firstAttribute="trailing" secondItem="cSX-zS-eiN" secondAttribute="trailing" constant="20" id="Mk7-0a-jU1"/>
+                            <constraint firstItem="yJh-Oy-PJq" firstAttribute="top" secondItem="3zm-Da-zw2" secondAttribute="bottom" constant="27" id="Ml6-zC-6Jj"/>
                             <constraint firstAttribute="trailing" secondItem="sHN-zm-iXF" secondAttribute="trailing" id="Obh-fE-rz0"/>
                             <constraint firstItem="uWa-nd-jij" firstAttribute="top" secondItem="unG-fm-H5R" secondAttribute="bottom" constant="40" id="PTh-g1-7ff"/>
                             <constraint firstItem="PK0-Le-SMR" firstAttribute="trailing" secondItem="F3K-DZ-kKQ" secondAttribute="trailing" constant="15" id="RaD-kJ-77q"/>
                             <constraint firstItem="unG-fm-H5R" firstAttribute="centerX" secondItem="pDa-OZ-Smy" secondAttribute="centerX" id="TT7-JS-h8m"/>
                             <constraint firstAttribute="trailing" secondItem="PK0-Le-SMR" secondAttribute="trailing" constant="10" id="Tzf-Gl-8dA"/>
                             <constraint firstItem="unG-fm-H5R" firstAttribute="top" secondItem="yju-HA-LIZ" secondAttribute="bottom" constant="55" id="UyR-AQ-sSo"/>
+                            <constraint firstItem="PK0-Le-SMR" firstAttribute="leading" secondItem="3zm-Da-zw2" secondAttribute="leading" constant="-15" id="V5u-tn-QFH"/>
                             <constraint firstItem="PK0-Le-SMR" firstAttribute="leading" secondItem="pDa-OZ-Smy" secondAttribute="leading" constant="10" id="YqR-Od-lMk"/>
                             <constraint firstItem="XCv-6A-HNo" firstAttribute="leading" secondItem="pDa-OZ-Smy" secondAttribute="leadingMargin" constant="30" id="d4T-bi-l5w"/>
                             <constraint firstItem="rzn-bo-U2A" firstAttribute="top" secondItem="Sjb-Lv-QeM" secondAttribute="bottom" id="dLt-pn-yzc"/>
                             <constraint firstItem="Xcc-0E-LNK" firstAttribute="top" secondItem="yju-HA-LIZ" secondAttribute="bottom" id="eRN-Fe-ifC"/>
                             <constraint firstItem="rzn-bo-U2A" firstAttribute="top" secondItem="sHN-zm-iXF" secondAttribute="bottom" id="fKV-N6-baO"/>
                             <constraint firstItem="cSX-zS-eiN" firstAttribute="leading" secondItem="pDa-OZ-Smy" secondAttribute="leading" constant="20" id="fMy-Do-SdU"/>
+                            <constraint firstItem="3zm-Da-zw2" firstAttribute="centerY" secondItem="PK0-Le-SMR" secondAttribute="centerY" constant="2" id="gSe-tL-gcf"/>
                             <constraint firstItem="Xcc-0E-LNK" firstAttribute="leading" secondItem="pDa-OZ-Smy" secondAttribute="leading" constant="10" id="hKA-pW-9i9"/>
                             <constraint firstItem="3JW-SK-YBk" firstAttribute="top" secondItem="yju-HA-LIZ" secondAttribute="bottom" id="ipB-fs-hwo"/>
                             <constraint firstItem="XCv-6A-HNo" firstAttribute="top" secondItem="PK0-Le-SMR" secondAttribute="bottom" constant="17" id="lVX-jt-TbL"/>
@@ -2424,6 +2433,7 @@ from &lt;Playstation 3&gt;. </string>
                         <outlet property="chooseConsoleButton" destination="PK0-Le-SMR" id="ZC6-Hp-gBh"/>
                         <outlet property="closeButton" destination="Xcc-0E-LNK" id="VFW-VS-2Io"/>
                         <outlet property="consoleIDTextField" destination="UFf-VE-a39" id="zO5-kp-VCP"/>
+                        <outlet property="consoleImage" destination="3zm-Da-zw2" id="e58-m8-A7t"/>
                         <outlet property="consolePicker" destination="Jmq-Wr-K5x" id="l48-YH-l6y"/>
                         <outlet property="consolePickerView" destination="n3y-gf-vY6" id="qfi-Gi-Q09"/>
                         <outlet property="consoleTagView" destination="yJh-Oy-PJq" id="MrY-oo-Uqf"/>
