@@ -179,11 +179,6 @@ struct DeviceType
     static let IS_IPAD              = UIDevice.currentDevice().userInterfaceIdiom == .Pad && ScreenSize.SCREEN_MAX_LENGTH == 1024.0
 }
 
-enum AwfulError: ErrorType {
-    case Bad
-    case Worse
-    case Terrible
-}
 
 enum Branch_Error: ErrorType {
     case ACTIVITY_NOT_AVAILABLE

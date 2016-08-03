@@ -46,10 +46,7 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         
-        self.consoleAddButton?.removeFromSuperview()
-        self.consoleTwoButton?.removeFromSuperview()
-        self.consoleAddButtonImageView?.removeFromSuperview()
-        self.consoleTwoButtonImageView?.removeFromSuperview()
+        self.removeConsoleDropDown()
         self.isConsoleMenuOpen = false
     }
 
@@ -237,16 +234,19 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
     @IBAction func consoleButtonPressed (sender: UIButton) {
         
         if self.isConsoleMenuOpen == true {
-            
-            self.consoleAddButton?.removeFromSuperview()
-            self.consoleTwoButton?.removeFromSuperview()
-            self.consoleAddButtonImageView?.removeFromSuperview()
-            self.consoleTwoButtonImageView?.removeFromSuperview()
+            self.removeConsoleDropDown()
         } else {
             self.currentConsoleButtonPressed()
         }
         
         self.isConsoleMenuOpen = !self.isConsoleMenuOpen
+    }
+    
+    func removeConsoleDropDown () {
+        self.consoleAddButton?.removeFromSuperview()
+        self.consoleTwoButton?.removeFromSuperview()
+        self.consoleAddButtonImageView?.removeFromSuperview()
+        self.consoleTwoButtonImageView?.removeFromSuperview()
     }
     
     func currentConsoleButtonPressed () {
@@ -393,11 +393,39 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
     
     func changePrimaryConsole () {
         
+        self.removeConsoleDropDown()
+        self.isConsoleMenuOpen = false
         
+        var consoleType = ""
+        let buttonText = self.consoleTwoButton?.titleLabel?.text
         
-        _ = TRChangeConsoleRequest().changeConsole("", completion: { (didSucceed) in
+        guard let _ = buttonText else {
+            return
+        }
+        
+        switch buttonText! as String {
+        case "PlayStation 4":
+            consoleType = ConsoleTypes.PS4
+            break
+        case "PlayStation 3":
+            consoleType = ConsoleTypes.PS3
+            break
+        case "Xbox One":
+            consoleType = ConsoleTypes.XBOXONE
+            break
+        case "Xbox 360":
+            consoleType = ConsoleTypes.XBOX360
+            break
+        default:
+            break
+        }
+        
+        _ = TRChangeConsoleRequest().changeConsole(consoleType, completion: { (didSucceed) in
             if didSucceed == true {
-                
+                _ = TRGetEventsList().getEventsListWithClearActivityBackGround(false, clearBG: false, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
+                    if didSucceed == true {
+                    }
+                })
             }
         })
     }

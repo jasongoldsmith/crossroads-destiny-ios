@@ -35,7 +35,6 @@ class TRRootViewController: TRBaseViewController {
 
                 _ = TRGetUserRequest().getUserByID(TRUserInfo.getUserID()!, completion: { (userObject) in
                     if let _ = userObject {
-                        TRApplicationManager.sharedInstance.currentUser = userObject
                         
                         _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: true, indicatorTopConstraint: self.ACTIVITY_INDICATOR_TOP_CONSTRAINT, completion: { (didSucceed) -> () in
                             

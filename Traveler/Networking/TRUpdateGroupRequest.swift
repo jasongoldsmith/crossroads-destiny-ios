@@ -31,6 +31,12 @@ class TRUpdateGroupRequest: TRRequest {
             let userData = TRUserInfo()
             userData.parseUserResponse(swiftyJsonVar)
             
+            for console in userData.consoles {
+                if console.isPrimary == true {
+                    TRUserInfo.saveConsolesObject(console)
+                }
+            }
+            
             TRUserInfo.saveUserData(userData)
 
             completion(didSucceed: true )

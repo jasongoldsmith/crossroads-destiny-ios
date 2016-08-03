@@ -32,6 +32,12 @@ class TRFireBaseManager {
                     let snapShotJson = JSON(snap)
                     userData.parseUserResponse(snapShotJson)
                     
+                    for console in userData.consoles {
+                        if console.isPrimary == true {
+                            TRUserInfo.saveConsolesObject(console)
+                        }
+                    }
+                    
                     TRUserInfo.saveUserData(userData)
                     
                     complete(didCompelete: true)

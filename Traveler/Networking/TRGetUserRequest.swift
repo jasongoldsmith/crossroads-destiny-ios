@@ -31,6 +31,14 @@ class TRGetUserRequest: TRRequest {
             
             let userObject = TRUserInfo()
             userObject.parseUserResponse(swiftyJsonVar)
+            
+            for console in userObject.consoles {
+                if console.isPrimary == true {
+                    TRUserInfo.saveConsolesObject(console)
+                }
+            }
+            
+            TRUserInfo.saveUserData(userObject)
             completion(userObject: userObject)
         }
     }
