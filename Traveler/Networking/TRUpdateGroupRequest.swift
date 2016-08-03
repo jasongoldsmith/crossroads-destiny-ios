@@ -10,11 +10,13 @@ import Foundation
 
 class TRUpdateGroupRequest: TRRequest {
     
-    func updateUserGroup (groupID: String, completion: TRValueCallBack) {
+    func updateUserGroup (groupID: String, groupName: String, completion: TRValueCallBack) {
         let updateGroupUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_UPDATE_GROUPS
         var params = [String: AnyObject]()
         params["id"] = TRUserInfo.getUserID()
         params["clanId"] = groupID
+        params["clanName"] = groupName
+        
         
         let request = TRRequest()
         request.params = params
