@@ -88,25 +88,11 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
             TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Please enter a username")
             
             return
-        } else {
-            if userNameTxtField.text?.isEmpty == true {
-                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Your username must have at least 3 characters.")
-                
-                return
-            }
-        }
-    
+        }     
         if userPwdTxtField.text?.isEmpty == true {
             TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Enter your password")
             
             return
-        } else {
-            let textcount = userPwdTxtField.text?.characters.count
-            if textcount < 4 || textcount > 50 {
-                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Your password must have at least 4 characters.")
-                
-                return
-            }
         }
 
         

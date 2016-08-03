@@ -121,8 +121,8 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
         } else {
             
             let textcount = userPwdTxtField.text?.characters.count
-            if textcount < 4 || textcount > 50 {
-                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Your password must have at least 4 characters.")
+            if textcount < 5 || textcount > 50 {
+                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Your password must have at least 5 characters.")
                 
                 return
             }
