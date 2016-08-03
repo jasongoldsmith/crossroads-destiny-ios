@@ -30,7 +30,7 @@ class TRUserInfo: NSObject {
         self.bungieMemberShipID = responseObject["value"]["bungieMemberShipId"].stringValue
         
         // Legal Info
-        if let legalDict = responseObject["value"]["bungieMemberShipId"].dictionary {
+        if let legalDict = responseObject["value"]["legal"].dictionary {
             let legalObject = TRLegalInfo()
             legalObject.parseLegalObjectDictionary(JSON(legalDict))
             self.legalInfo = legalObject

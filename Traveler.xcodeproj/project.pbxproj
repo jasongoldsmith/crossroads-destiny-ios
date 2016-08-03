@@ -97,6 +97,10 @@
 		335405C61D52A63A00B42BAC /* TRLegalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335405C41D52A63A00B42BAC /* TRLegalInfo.swift */; };
 		335405C71D52A63A00B42BAC /* TRLegalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335405C41D52A63A00B42BAC /* TRLegalInfo.swift */; };
 		335405C81D52A63A00B42BAC /* TRLegalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335405C41D52A63A00B42BAC /* TRLegalInfo.swift */; };
+		335405CA1D52AFA100B42BAC /* TRRequestUpdateLegalRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335405C91D52AFA100B42BAC /* TRRequestUpdateLegalRequest.swift */; };
+		335405CB1D52AFA100B42BAC /* TRRequestUpdateLegalRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335405C91D52AFA100B42BAC /* TRRequestUpdateLegalRequest.swift */; };
+		335405CC1D52AFA100B42BAC /* TRRequestUpdateLegalRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335405C91D52AFA100B42BAC /* TRRequestUpdateLegalRequest.swift */; };
+		335405CD1D52AFA100B42BAC /* TRRequestUpdateLegalRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335405C91D52AFA100B42BAC /* TRRequestUpdateLegalRequest.swift */; };
 		335AF5E81CA49DF500EBB6EF /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338AECFD1C9D03AE008B064F /* Utility.swift */; };
 		335AF5E91CA49DF500EBB6EF /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338AECFD1C9D03AE008B064F /* Utility.swift */; };
 		3369499C1CC5CFEB004979C0 /* NSBundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369499B1CC5CFEB004979C0 /* NSBundleExtension.swift */; };
@@ -508,6 +512,7 @@
 		333FA8A11D00D9EE00A5EC1C /* TRAddConsoleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRAddConsoleViewController.swift; sourceTree = "<group>"; };
 		333FA8A81D0109C200A5EC1C /* TRBungieUserAuthRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRBungieUserAuthRequest.swift; sourceTree = "<group>"; };
 		335405C41D52A63A00B42BAC /* TRLegalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLegalInfo.swift; sourceTree = "<group>"; };
+		335405C91D52AFA100B42BAC /* TRRequestUpdateLegalRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRequestUpdateLegalRequest.swift; sourceTree = "<group>"; };
 		3369499B1CC5CFEB004979C0 /* NSBundleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSBundleExtension.swift; path = ../Networking/NSBundleExtension.swift; sourceTree = "<group>"; };
 		336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		336DD77E1CDC289200CCCB04 /* TRNavInteractionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRNavInteractionAnimator.swift; sourceTree = "<group>"; };
@@ -815,6 +820,7 @@
 				337DA4D51D4F2661002A10BA /* TRGetUserRequest.swift */,
 				337DA4E41D5063FE002A10BA /* TRAddConsole.swift */,
 				33A588FB1D511C2900D06127 /* TRChangeConsoleRequest.swift */,
+				335405C91D52AFA100B42BAC /* TRRequestUpdateLegalRequest.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -1433,6 +1439,7 @@
 				3300FC121D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift in Sources */,
 				33D0B3FF1CFD0165008ABA04 /* TRDeviceTokenRequest.swift in Sources */,
 				33D0B4001CFD0165008ABA04 /* UIViewExtension.swift in Sources */,
+				335405CA1D52AFA100B42BAC /* TRRequestUpdateLegalRequest.swift in Sources */,
 				33D0B4021CFD0165008ABA04 /* TRAlignableUILabel.swift in Sources */,
 				333FA8A21D00D9EE00A5EC1C /* TRAddConsoleViewController.swift in Sources */,
 				33D0B4031CFD0165008ABA04 /* TRSignInViewController.swift in Sources */,
@@ -1530,6 +1537,7 @@
 				3300FC131D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift in Sources */,
 				3397E2831C93822F008CCCDB /* TRDeviceTokenRequest.swift in Sources */,
 				333E1CA41CC54A27000B843C /* UIViewExtension.swift in Sources */,
+				335405CB1D52AFA100B42BAC /* TRRequestUpdateLegalRequest.swift in Sources */,
 				33095FDF1CDD271A0094DF49 /* TRAlignableUILabel.swift in Sources */,
 				333FA8A31D00D9EE00A5EC1C /* TRAddConsoleViewController.swift in Sources */,
 				62C1FF671C77D83800A78798 /* TRSignInViewController.swift in Sources */,
@@ -1654,6 +1662,7 @@
 				3398E1B31CAB7EE0001F022B /* TREventInfoPlayerCell.swift in Sources */,
 				3380EF281CC946CA000A9289 /* TREventCurrentWithCheckPointCell.swift in Sources */,
 				33742DAA1C810A6100C46742 /* TRPlayerInfo.swift in Sources */,
+				335405CC1D52AFA100B42BAC /* TRRequestUpdateLegalRequest.swift in Sources */,
 				3333BDBC1CEE4221001C9E1A /* TRChooseGroupViewController.swift in Sources */,
 				3333BDC81CEE80EA001C9E1A /* TRBungieGroupInfo.swift in Sources */,
 				335405C71D52A63A00B42BAC /* TRLegalInfo.swift in Sources */,
@@ -1752,6 +1761,7 @@
 				3398E1B41CAB7EE0001F022B /* TREventInfoPlayerCell.swift in Sources */,
 				3380EF291CC946CA000A9289 /* TREventCurrentWithCheckPointCell.swift in Sources */,
 				33742DAB1C810A6100C46742 /* TRPlayerInfo.swift in Sources */,
+				335405CD1D52AFA100B42BAC /* TRRequestUpdateLegalRequest.swift in Sources */,
 				3333BDBD1CEE4221001C9E1A /* TRChooseGroupViewController.swift in Sources */,
 				3333BDC91CEE80EA001C9E1A /* TRBungieGroupInfo.swift in Sources */,
 				335405C81D52A63A00B42BAC /* TRLegalInfo.swift in Sources */,

@@ -67,6 +67,7 @@ struct K {
         static let TR_GET_USER           =   "/api/v1/a/user/listById"
         static let TR_ADD_CONSOLE        =   "/api/v1/a/user/addConsole"
         static let TR_CHANGE_CONSOLE     =   "/api/v1/a/user/changePrimaryConsole"
+        static let TR_LEGAL_ACCEPTED     =   "/api/v1/a/user/acceptLegal"
     }
     
     struct StoryBoard {

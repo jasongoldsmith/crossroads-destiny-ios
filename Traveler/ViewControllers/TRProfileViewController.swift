@@ -46,7 +46,6 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         self.contactUsButton.layer.cornerRadius = 2.0
         self.logOutButton.layer.cornerRadius = 2.0
         self.consoleButton.round([.TopLeft, .TopRight], radius: 2.0)
-        self.consoleAddButton?.round([.BottomLeft, .BottomRight], radius: 2.0)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -296,7 +295,7 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         
         self.consoleAddButtonImageView = UIImageView.init(image: UIImage(named: "iconAddConsole"))
         self.consoleAddButtonImageView!.frame = CGRectMake((self.consoleAddButton?.frame.origin.x)! + 10, (self.consoleAddButton?.frame.origin.y)! + 10, self.consoleAddButtonImageView!.frame.size.width, self.consoleAddButtonImageView!.frame.size.height)
-        
+        self.consoleAddButton?.round([.BottomLeft, .BottomRight], radius: 2.0)
         
         self.view.addSubview(self.consoleAddButton!)
         self.view.addSubview(self.consoleAddButtonImageView!)

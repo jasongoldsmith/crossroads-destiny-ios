@@ -103,14 +103,14 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         appDelegate.addNotificationsPermission()
         
         //Check if Legal statement has been updated
-//        if (TRApplicationManager.sharedInstance.currentUser?.bungieMemberShipID)! == false {
-//            self.displayAlertWithTitleAndMessageAnOK("Update", message: "Our Terms of Service and Privacy Policy have changed. \n\n By tapping the “OK” button, you agree to the updated Terms of Service and Privacy Policy", complete: { (complete) in
-//                if complete == true {
-//                    TRUserInfo.saveLegalAlertDefault()
-//                    self.loadAppInitialViewController()
-//                }
-//            })
-//        }
+        if TRApplicationManager.sharedInstance.currentUser?.legalInfo?.privacyNeedsUpdate == true || TRApplicationManager.sharedInstance.currentUser?.legalInfo?.termsNeedsUpdate == true {
+            self.displayAlertWithTitleAndMessageAnOK("Update", message: "Our Terms of Service and Privacy Policy have changed. \n\n By tapping the “OK” button, you agree to the updated Terms of Service and Privacy Policy", complete: { (complete) in
+                if complete == true {
+                    _ = TRRequestUpdateLegalRequest().updateLegalAcceptance({ (didSucceed) in
+                    })
+                }
+            })
+        }
     }
 
     
