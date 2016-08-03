@@ -9,6 +9,7 @@
 import Foundation
 import TTTAttributedLabel
 import UIKit
+import SlideMenuControllerSwift
 
 class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, TTTAttributedLabelDelegate {
     
@@ -424,6 +425,13 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
             if didSucceed == true {
                 _ = TRGetEventsList().getEventsListWithClearActivityBackGround(false, clearBG: false, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
                     if didSucceed == true {
+                        let sliderView = TRApplicationManager.sharedInstance.slideMenuController as SlideMenuController
+                        let eventView = sliderView.mainViewController! as? TREventListViewController
+                        
+                        if let _ = eventView {
+                            eventView!.reloadEventTable()
+                            self.updateView()
+                        }
                     }
                 })
             }
