@@ -19,6 +19,7 @@ struct K {
             static let TR_USER_CONSOLE_TYPE  = "TR_USER_CONSOLE_TYPE"
             static let TR_CONSOLE_VERIFIED  = "TR_CONSOLE_VERIFIED"
             static let TR_CONSOLE_IS_PRIMARY  = "TR_CONSOLE_IS_PRIMARY"
+            static let TR_SHOW_LEGAL = "TR_SHOW_LEGAL"
         }
     }
     

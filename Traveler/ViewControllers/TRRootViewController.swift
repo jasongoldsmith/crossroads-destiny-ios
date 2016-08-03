@@ -30,9 +30,23 @@ class TRRootViewController: TRBaseViewController {
         
         super.viewDidAppear(animated)
         
+        //Check if Legal statement has been updated
+        if TRUserInfo.isLegalAlertShown() == false {
+            self.displayAlertWithTitleAndMessageAnOK("Update", message: "Our Terms of Service and Privacy Policy have changed. \n\n By tapping the “OK” button, you agree to the updated Terms of Service and Privacy Policy", complete: { (complete) in
+                if complete == true {
+                    TRUserInfo.saveLegalAlertDefault()
+                    self.loadAppInitialViewController()
+                }
+            })
+        } else {
+            self.loadAppInitialViewController()
+        }
+    }
+
+    func loadAppInitialViewController () {
         if (TRUserInfo.isUserLoggedIn()) {
             if (TRUserInfo.isUserVerified() == ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue) {
-
+                
                 _ = TRGetUserRequest().getUserByID(TRUserInfo.getUserID()!, completion: { (userObject) in
                     if let _ = userObject {
                         
@@ -61,7 +75,7 @@ class TRRootViewController: TRBaseViewController {
             } else {
                 let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
                 let verifyAccountViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_VERIFY_ACCOUNT) as! TRSignUpVerificatioViewController
-                self.presentViewController(verifyAccountViewController, animated: true, completion: { 
+                self.presentViewController(verifyAccountViewController, animated: true, completion: {
                     
                 })
             }
@@ -71,12 +85,13 @@ class TRRootViewController: TRBaseViewController {
             let vc : TRLoginOptionViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEWCONTROLLER_LOGIN_OPTIONS) as! TRLoginOptionViewController
             let navigationController = UINavigationController(rootViewController: vc)
             navigationController.navigationBar.hidden = true
-            self.presentViewController(navigationController, animated: true, completion: { 
+            self.presentViewController(navigationController, animated: true, completion: {
                 
             })
         }
     }
-
+    
+    
     @IBAction func trUnwindAction(segue: UIStoryboardSegue) {
         
     }

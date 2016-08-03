@@ -240,6 +240,21 @@ class TRUserInfo: NSObject {
         return nil
     }
 
+    //MARK:- User Data
+    class func saveLegalAlertDefault () {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.setValue(true , forKeyPath: K.UserDefaultKey.UserAccountInfo.TR_SHOW_LEGAL)
+        userDefaults.synchronize()
+    }
+    
+    class func isLegalAlertShown () -> Bool {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        if (userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_SHOW_LEGAL) != nil) {
+            return userDefaults.boolForKey(K.UserDefaultKey.UserAccountInfo.TR_SHOW_LEGAL)
+        }
+        
+        return false
+    }
     
     class func removeUserData () {
         NSUserDefaults.standardUserDefaults().removePersistentDomainForName(NSBundle.mainBundle().bundleIdentifier!)
