@@ -101,6 +101,16 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         //Add Notification Permission
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.addNotificationsPermission()
+        
+        //Check if Legal statement has been updated
+//        if (TRApplicationManager.sharedInstance.currentUser?.bungieMemberShipID)! == false {
+//            self.displayAlertWithTitleAndMessageAnOK("Update", message: "Our Terms of Service and Privacy Policy have changed. \n\n By tapping the “OK” button, you agree to the updated Terms of Service and Privacy Policy", complete: { (complete) in
+//                if complete == true {
+//                    TRUserInfo.saveLegalAlertDefault()
+//                    self.loadAppInitialViewController()
+//                }
+//            })
+//        }
     }
 
     

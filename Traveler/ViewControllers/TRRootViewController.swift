@@ -29,18 +29,7 @@ class TRRootViewController: TRBaseViewController {
     override func viewDidAppear(animated: Bool) {
         
         super.viewDidAppear(animated)
-        
-        //Check if Legal statement has been updated
-        if TRUserInfo.isLegalAlertShown() == false {
-            self.displayAlertWithTitleAndMessageAnOK("Update", message: "Our Terms of Service and Privacy Policy have changed. \n\n By tapping the “OK” button, you agree to the updated Terms of Service and Privacy Policy", complete: { (complete) in
-                if complete == true {
-                    TRUserInfo.saveLegalAlertDefault()
-                    self.loadAppInitialViewController()
-                }
-            })
-        } else {
-            self.loadAppInitialViewController()
-        }
+        self.loadAppInitialViewController()
     }
 
     func loadAppInitialViewController () {
