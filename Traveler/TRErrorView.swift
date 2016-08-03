@@ -61,7 +61,7 @@ class TRErrorView: UIView {
         switch self.errorType! {
         case .ACTIVITY_NOT_AVAILABLE:
             self.buttonOneYes.setTitle("ADD THIS ACTIVITY", forState: .Normal)
-            self.errorDescription.text = "Sorry, that \(self.eventInfo?.eventActivity?.activitySubType) is no longer available. Would you like to add one of your own?"
+            self.errorDescription.text = "Sorry, that \(self.eventInfo?.clanName) is no longer available. Would you like to add one of your own?"
             break
         case .MAXIMUM_PLAYERS_REACHED:
             self.buttonOneYes.setTitle("YES", forState: .Normal)
@@ -74,7 +74,7 @@ class TRErrorView: UIView {
             break
         case .JOIN_BUNGIE_GROUP:
             self.buttonOneYes.setTitle("VIEW GROUP ON BUNGIE.NET", forState: .Normal)
-            self.errorDescription.text = "You’ll need to be in the <group> to join \(self.eventInfo?.eventActivity?.activitySubType). Request to join?"
+            self.errorDescription.text = "You’ll need to be in the <group> to join \(self.eventInfo?.clanName). Request to join?"
             break
         }
     }

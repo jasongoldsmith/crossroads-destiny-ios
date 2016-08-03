@@ -25,6 +25,7 @@ class TREventInfo: NSObject {
     var isFutureEvent           : Bool = false
     var eventClanID             : String?
     var eventConsoleType        : String?
+    var clanName                : String?
     
     func parseCreateEventInfoObject (swiftyJason: JSON) -> TREventInfo {
         
@@ -38,6 +39,7 @@ class TREventInfo: NSObject {
         self.eventLaunchDate   = swiftyJason["launchDate"].stringValue
         self.eventClanID       = swiftyJason["clanId"].stringValue
         self.eventConsoleType  = swiftyJason["consoleType"].stringValue
+        self.clanName          = swiftyJason["clanName"].stringValue
         
         if (swiftyJason["launchStatus"].string == EVENT_TIME_STATUS.UP_COMING.rawValue) {
             self.isFutureEvent = true
