@@ -16,9 +16,10 @@ class TRUserInfo: NSObject {
     var userID          :String?
     var userImageURL    :String?
     var userClanID      :String?
-    var bungieMemberShipID: String?
+    var psnID           :String?
+    var legalInfo       :TRLegalInfo?
     var consoles        :[TRConsoles] = []
-    var psnID           :String? // Use "getConsoleID" insted of PSN_ID
+    var bungieMemberShipID: String?
     
     
     func parseUserResponse (responseObject: JSON) {
@@ -28,6 +29,14 @@ class TRUserInfo: NSObject {
         self.userClanID     = responseObject["value"]["clanId"].stringValue
         self.bungieMemberShipID = responseObject["value"]["bungieMemberShipId"].stringValue
         
+        // Legal Info
+        if let legalDict = responseObject["value"]["bungieMemberShipId"].dictionary {
+            let legalObject = TRLegalInfo()
+            legalObject.parseLegalObjectDictionary(JSON(legalDict))
+            self.legalInfo = legalObject
+        }
+        
+        //Console Info
         let consoles = responseObject["value"]["consoles"].arrayValue
         for consoleObj in consoles {
             let console = TRConsoles()

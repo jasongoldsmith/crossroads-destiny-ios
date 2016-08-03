@@ -48,20 +48,7 @@ class TREventInfo: NSObject {
         // Dictionary of Activities in an Event
         let activityDictionary = swiftyJason["eType"].dictionary
         if let activity = activityDictionary {
-            let activityInfo = TRActivityInfo()
-            
-            activityInfo.activityID         = activity["_id"]?.stringValue
-            activityInfo.activitySubType    = activity["aSubType"]?.stringValue
-            activityInfo.activityCheckPoint = activity["aCheckpoint"]?.stringValue
-            activityInfo.activityType       = activity["aType"]?.stringValue
-            activityInfo.activityDificulty  = activity["aDifficulty"]?.stringValue
-            activityInfo.activityLight      = activity["aLight"]?.numberValue
-            activityInfo.activityMaxPlayers = activity["maxPlayers"]?.numberValue
-            activityInfo.activityMinPlayers = activity["minPlayers"]?.numberValue
-            activityInfo.activityIconImage  = activity["aIconUrl"]?.stringValue
-            activityInfo.activityIsFeatured = activity["isFeatured"]?.boolValue
-            activityInfo.activitylocation   = activity["location"]?.stringValue
-            activityInfo.activityLevel      = activity["aLevel"]?.stringValue
+            let activityInfo = TRActivityInfo().parseAndCreateActivityObject(JSON(activity))
             
             //Event Activity added
             self.eventActivity = activityInfo
