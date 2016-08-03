@@ -1236,17 +1236,26 @@
                             <constraint firstItem="APu-zA-Kyk" firstAttribute="top" secondItem="NgN-Kf-uF4" secondAttribute="top" id="ors-v8-jEh"/>
                             <constraint firstItem="yga-kS-xxF" firstAttribute="top" secondItem="Gnx-Nj-sRV" secondAttribute="bottom" constant="10" id="pHl-E5-rta"/>
                             <constraint firstItem="yga-kS-xxF" firstAttribute="leading" secondItem="lly-Ep-C9p" secondAttribute="leading" id="svd-AO-Zkl"/>
+                            <constraint firstItem="Z9P-C3-JX9" firstAttribute="centerX" secondItem="APu-zA-Kyk" secondAttribute="centerX" id="tMe-gy-fIo"/>
                             <constraint firstItem="APu-zA-Kyk" firstAttribute="leading" secondItem="NgN-Kf-uF4" secondAttribute="leading" id="y1n-Rl-YXN"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="PZx-vg-DQf"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="avatorImageView" destination="tHf-b5-jNh" id="gjz-lk-mMf"/>
                         <outlet property="avatorUserName" destination="2Ax-E1-ccC" id="7fA-AP-VWF"/>
                         <outlet property="backGroundImageView" destination="APu-zA-Kyk" id="ZtR-PJ-PhM"/>
                         <outlet property="buildNumberLabel" destination="Z9P-C3-JX9" id="gXo-n1-1FR"/>
+                        <outlet property="changePasswordButton" destination="Gnx-Nj-sRV" id="t3B-vy-lVd"/>
                         <outlet property="consoleButton" destination="cYS-BI-7UK" id="Yve-JR-giS"/>
                         <outlet property="consoleButtonImageView" destination="pJ4-DM-yXy" id="3FP-Dq-quX"/>
+                        <outlet property="contactUsButton" destination="yga-kS-xxF" id="wDr-me-tNz"/>
                         <outlet property="legalLabel" destination="xsB-j0-IhM" id="0BP-2m-pf4"/>
+                        <outlet property="logOutButton" destination="lly-Ep-C9p" id="nhz-x9-cL1"/>
                         <segue destination="IOo-gx-K2M" kind="show" identifier="TRShowLegalView" id="XeX-Px-D3l"/>
                     </connections>
                 </viewController>

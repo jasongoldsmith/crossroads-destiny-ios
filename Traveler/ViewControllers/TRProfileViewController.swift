@@ -23,6 +23,11 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
     //Console Buttons/ Image
     @IBOutlet weak var consoleButton: UIButton!
     @IBOutlet weak var consoleButtonImageView: UIImageView!
+    @IBOutlet weak var changePasswordButton: UIButton!
+    @IBOutlet weak var contactUsButton: UIButton!
+    @IBOutlet weak var logOutButton: UIButton!
+    
+    
     var consoleTwoButton: UIButton?
     var consoleAddButton: UIButton?
     var currentUser: TRPlayerInfo?
@@ -35,6 +40,13 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         
         //Update build number
         self.addVersionAndLegalAttributedLabel()
+        
+        //Add Radius to buttons
+        self.changePasswordButton.layer.cornerRadius = 2.0
+        self.contactUsButton.layer.cornerRadius = 2.0
+        self.logOutButton.layer.cornerRadius = 2.0
+        self.consoleButton.round([.TopLeft, .TopRight], radius: 2.0)
+        self.consoleAddButton?.round([.BottomLeft, .BottomRight], radius: 2.0)
     }
     
     override func viewWillAppear(animated: Bool) {
