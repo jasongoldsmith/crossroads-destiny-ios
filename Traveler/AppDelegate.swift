@@ -49,9 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if let isBranchLink = params["+clicked_branch_link"]?.boolValue where  isBranchLink == true {
                 
-                let deepLinkType = params["deepLinkType"] as? String
                 let eventID = params["eventId"] as? String
-                
                 guard let _ = eventID else {
                     return
                 }
