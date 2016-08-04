@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     return
                 }
 
-                TRApplicationManager.sharedInstance.addPostActionbranchDeepLink(eventID!, branchActionType: deepLinkType!, params: params)
+                TRApplicationManager.sharedInstance.addPostActionbranchDeepLink(eventID!, branchActionType: "", params: params)
             }
         })
         

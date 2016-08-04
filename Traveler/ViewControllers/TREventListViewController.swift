@@ -605,6 +605,12 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         let eventInfo = TRApplicationManager.sharedInstance.getEventById(eventID)
         if let _ = eventInfo {
             self.showEventInfoViewController(eventInfo, fromPushNoti: false)
+        } else {
+            _ = TRGetEventRequest().getEventByID(eventID, viewHandlesError: false, completion: { (error, event) in
+                if let _ = event {
+                    self.showEventInfoViewController(event, fromPushNoti: false)
+                }
+            })
         }
     }
     

@@ -56,6 +56,7 @@ class TRPushNotificationView: UIView {
     @IBAction func openEventDetailViewController () {
         if let eventID = pushInfo?.eventID {
             self.parentView!.showEventDetailView(eventID)
+            self.closeErrorView()
         }
     }
     
