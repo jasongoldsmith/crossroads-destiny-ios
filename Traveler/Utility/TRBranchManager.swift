@@ -67,7 +67,7 @@ class TRBranchManager {
             branchUniversalObject.imageUrl  = "http://w3.crossroadsapp.co/bungie/share/branch/v1/default.png"
         }
         
-        branchUniversalObject.addMetadataKey("eventID", value: eventID)
+        branchUniversalObject.addMetadataKey("eventId", value: eventID)
         branchUniversalObject.addMetadataKey("deepLinkType", value: deepLinkType)
         
         
