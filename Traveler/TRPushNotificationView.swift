@@ -95,20 +95,11 @@ class TRPushNotificationView: UIView {
         
         if pushInfo.isMessageNotification == true {
             self.eventStatusLabel.text =  "FIRETEAM MESSAGE"
-            
-            if let eventName = pushInfo.eventName where pushInfo.alertString != nil{
-                let messageString = eventName.uppercaseString + "\n" + pushInfo.alertString!
-                self.eventStatusDescription.text = messageString
+            if let alertString = pushInfo.alertString {
+                self.eventStatusDescription.text =  alertString
                 let font = UIFont(name: "Helvetica", size: 14.0)
                 let height = self.heightWithConstrainedWidth((parentView.view.frame.width - 107), font: font!)
                 self.updateFrameWithHeight(height + 10)
-            } else {
-                if let alertString = pushInfo.alertString {
-                    self.eventStatusDescription.text =  alertString
-                    let font = UIFont(name: "Helvetica", size: 14.0)
-                    let height = self.heightWithConstrainedWidth((parentView.view.frame.width - 107), font: font!)
-                    self.updateFrameWithHeight(height + 10)
-                }
             }
         } else {
             if let eventName = pushInfo.eventName {
