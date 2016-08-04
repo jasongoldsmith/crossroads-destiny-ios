@@ -68,7 +68,9 @@ class TRBungieGroupCell: UITableViewCell {
         
         if let eventCount = groupInfo.eventCount where eventCount > 0 {
             self.clanEnabled.textColor = UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)
-            self.clanEnabled.text = eventCount > 1 ? eventCount.description + " Activities" : eventCount.description + " Activity"
+            
+            let activity = eventCount == 1 ? " Activity" : " Activities"
+            self.clanEnabled.text = eventCount > 1 ? eventCount.description + activity : eventCount.description + activity
         } else {
             self.clanEnabled.textColor = UIColor.lightGrayColor()
             self.clanEnabled.text = "0 Activities"
