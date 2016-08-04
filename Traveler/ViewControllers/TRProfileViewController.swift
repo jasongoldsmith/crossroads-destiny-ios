@@ -45,7 +45,6 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         self.changePasswordButton.layer.cornerRadius = 2.0
         self.contactUsButton.layer.cornerRadius = 2.0
         self.logOutButton.layer.cornerRadius = 2.0
-        self.consoleButton.round([.TopLeft, .TopRight], radius: 2.0)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -53,6 +52,8 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         
         self.updateView()
         self.backGroundImageView?.clipsToBounds = true
+        self.consoleButton.round([.TopLeft, .TopRight], radius: 2.0)
+        self.consoleButton?.round([.BottomRight, .BottomLeft], radius: 2.0)
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -250,8 +251,10 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         
         if self.isConsoleMenuOpen == true {
             self.removeConsoleDropDown()
+            self.consoleButton?.round([.BottomRight, .BottomLeft], radius: 2.0)
         } else {
             self.currentConsoleButtonPressed()
+            self.consoleButton?.round([.BottomRight, .BottomLeft], radius: 0.0)
         }
         
         self.isConsoleMenuOpen = !self.isConsoleMenuOpen
