@@ -685,7 +685,7 @@
                                     <constraint firstAttribute="height" constant="50" id="rwt-Jf-cWe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
-                                <state key="normal" title="PlayStation4">
+                                <state key="normal" title="PlayStation 4">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">

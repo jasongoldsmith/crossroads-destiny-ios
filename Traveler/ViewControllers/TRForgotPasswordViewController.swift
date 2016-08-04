@@ -24,7 +24,7 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
     @IBOutlet weak var consolePicketContainerView: UIView!
     @IBOutlet weak var consolePicketView: UIPickerView!
     
-    var consoleNameArray: NSArray = ["PlayStation4","PlayStation3", "Xbox 360", "Xbox One"]
+    var consoleNameArray: NSArray = ["PlayStation 4","PlayStation 3", "Xbox 360", "Xbox One"]
     var selectedIndex: Int = 0
     
     override func viewDidLoad() {
@@ -128,8 +128,8 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
     //MARK:- NETWORK CALL
     func forgotPasswordForPsnID (userName: String) {
         
-        let consoleType = self.consoleNameArray.objectAtIndex(self.selectedIndex) as! String
-        let consoleTag = userName
+        let consoleName = self.consoleNameArray.objectAtIndex(self.selectedIndex) as! String
+        let consoleType = self.getConsoleTypeFromString(consoleName)
             
         _ = TRForgotPasswordRequest().resetUserPassword(userName, consoleType: consoleType, completion: { (didSucceed) in
             if (didSucceed == true) {
@@ -201,6 +201,28 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
                 self.consoleImage.image = UIImage(named: "iconXboxoneConsole")
             }
         }
+    }
+    
+    func getConsoleTypeFromString (consoleName: String) -> String {
+        
+        var consoleType = ""
+        switch consoleName {
+        case "PlayStation 4":
+            consoleType = ConsoleTypes.PS4
+            break
+        case "PlayStation 3":
+            consoleType = ConsoleTypes.PS3
+            break
+        case "Xbox 360":
+            consoleType = ConsoleTypes.XBOX360
+            break
+            
+        default:
+            consoleType = ConsoleTypes.XBOXONE
+            break
+        }
+        
+        return consoleType
     }
     
     deinit {
