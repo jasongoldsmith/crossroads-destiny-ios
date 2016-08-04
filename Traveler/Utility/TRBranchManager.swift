@@ -53,8 +53,22 @@ class TRBranchManager {
                 groupName = hasCurrentGroup.groupName!
             }
         }
-        let messageString = "\(console!): I need \(playerCount) more for \(activityName!) on \(formatedDate) in the \(groupName) group on Crossroads"
-
+        
+        var messageString = "\(console!): I need \(playerCount) more for \(activityName!) in the \(groupName) group on Crossroads"
+        
+        if eventInfo.isFutureEvent == true {
+            messageString = "\(console!): I need \(playerCount) more for \(activityName!) on \(formatedDate) in the \(groupName) group on Crossroads"
+        }
+        
+        if extraPlayersRequiredCount == 2 {
+            if eventInfo.isFutureEvent == true {
+                messageString = "Check out this \(activityName!) on \(formatedDate) in the \(groupName) group "
+            } else {
+                messageString = "Check out this \(activityName!) in the \(groupName) group "
+            }
+        }
+    
+        
         // Create Branch Object
         branchUniversalObject = BranchUniversalObject.init(canonicalIdentifier: canonicalIdentifier)
         branchUniversalObject.title = "Join My Fireteam"
