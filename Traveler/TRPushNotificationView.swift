@@ -30,6 +30,7 @@ class TRPushNotificationView: UIView {
     @IBOutlet weak var eventStatusLabel: UILabel!
     @IBOutlet weak var eventStatusDescription: UILabel!
     @IBOutlet weak var panGesture: UIPanGestureRecognizer!
+    @IBOutlet weak var eventIconView: UIImageView!
     
     // Parents View Controller
     var delegate: NotificationViewProtocol?

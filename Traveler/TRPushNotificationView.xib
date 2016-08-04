@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="51"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconAlert" translatesAutoresizingMaskIntoConstraints="NO" id="uNN-WY-Dly">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconAlert" translatesAutoresizingMaskIntoConstraints="NO" id="uNN-WY-Dly">
                     <rect key="frame" x="25" y="10" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="Gsg-QG-MU9"/>
@@ -50,21 +50,14 @@
                 <constraint firstItem="Td9-S9-3v0" firstAttribute="top" secondItem="xw6-54-Ep7" secondAttribute="bottom" constant="3" id="9we-sX-B8t"/>
                 <constraint firstItem="uNN-WY-Dly" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="25" id="Ej3-kd-GXO"/>
                 <constraint firstAttribute="trailing" secondItem="Td9-S9-3v0" secondAttribute="trailing" constant="20" id="Hez-Nd-olp"/>
-                <constraint firstAttribute="bottom" secondItem="Td9-S9-3v0" secondAttribute="bottom" constant="8" id="LIz-kL-wxp"/>
                 <constraint firstItem="Td9-S9-3v0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="67" id="Mxb-lR-r5x"/>
-                <constraint firstAttribute="bottom" secondItem="Td9-S9-3v0" secondAttribute="bottom" id="PUa-aJ-Y6C"/>
                 <constraint firstItem="uNN-WY-Dly" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="rYO-8N-XCb"/>
                 <constraint firstItem="xw6-54-Ep7" firstAttribute="leading" secondItem="uNN-WY-Dly" secondAttribute="trailing" constant="12" id="uon-cf-He6"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="LIz-kL-wxp"/>
-                    <exclude reference="PUa-aJ-Y6C"/>
-                </mask>
-            </variation>
             <connections>
+                <outlet property="eventIconView" destination="uNN-WY-Dly" id="57Q-CV-R5d"/>
                 <outlet property="eventStatusDescription" destination="Td9-S9-3v0" id="E0Q-Gp-s47"/>
                 <outlet property="eventStatusLabel" destination="xw6-54-Ep7" id="6tT-yc-g3a"/>
                 <outlet property="panGesture" destination="Ze4-HB-59Q" id="J0S-OX-0S1"/>
