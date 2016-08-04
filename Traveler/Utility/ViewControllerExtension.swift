@@ -11,6 +11,26 @@ import UIKit
 extension UIViewController {
     
     typealias TRActivityIndicatorCompletion = (complete: Bool?) -> ()
+    typealias TRActivityIndicatorCompletionWithHandler = (action: UIAlertAction?) -> ()
+    typealias TRActivityIndicatorWithButtonIndex = (complete: Int?) -> ()
+    
+    //let alertIndex = alertView.actions.indexOf(action)
+    
+    func displayAlertWithActionHandler(title: String, message: String, buttonOneTitle: String, buttonTwoTitle: String, buttonThreeTitle: String, completionHandler: TRActivityIndicatorWithButtonIndex) {
+        
+        let alertView = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        let closure = { (index: Int) in
+            { (action: UIAlertAction!) -> Void in
+                completionHandler(complete: index)
+            }
+        }
+        
+        alertView.addAction(UIAlertAction(title: buttonOneTitle, style: .Default, handler: closure(0)))
+        alertView.addAction(UIAlertAction(title: buttonTwoTitle, style: .Default, handler: closure(1)))
+        alertView.addAction(UIAlertAction(title: buttonThreeTitle, style: .Cancel, handler: closure(2)))
+
+        presentViewController(alertView, animated: true, completion: nil)
+    }
     
     func displayAlertWithTitle(title: String, complete: TRActivityIndicatorCompletion) {
         let alertView = UIAlertController(title: title, message: " ", preferredStyle: .Alert)
