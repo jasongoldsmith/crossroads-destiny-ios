@@ -18,6 +18,12 @@ class TRActiveStatePushInfo {
     var pushId: String?
     var updateTime: String?
     var eventID: String?
+    var imageURL: String?
+    var halmetImage: String?
+    var eventconsole: String?
+    var eventClanName: String?
+    var playerMessageConsoleName: String?
+    
     
     func parsePushNotificationPayLoad (sender: NSNotification) {
         if let userInfo = sender.userInfo as NSDictionary? {
@@ -40,6 +46,30 @@ class TRActiveStatePushInfo {
 
                 if let eventID = payload.objectForKey("eventId") as? String {
                     self.eventID = eventID
+                }
+
+                if let eventImage = payload.objectForKey("clanImageUrl") as? String {
+                    self.imageURL = eventImage
+                }
+
+                if let eventImage = payload.objectForKey("eventClanImageUrl") as? String {
+                    self.imageURL = eventImage
+                }
+                
+                if let evtConsole = payload.objectForKey("eventConsole") as? String {
+                    self.eventconsole = evtConsole
+                }
+
+                if let evtClanName = payload.objectForKey("eventClanName") as? String {
+                    self.eventClanName = evtClanName
+                }
+
+                if let playerImage = payload.objectForKey("messengerImageUrl") as? String {
+                    self.halmetImage = playerImage
+                }
+
+                if let playerName = payload.objectForKey("messengerConsoleId") as? String {
+                    self.playerMessageConsoleName = playerName
                 }
 
                 if let apsData = userInfo.objectForKey("aps") as? NSDictionary {

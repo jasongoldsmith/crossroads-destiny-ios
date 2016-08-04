@@ -222,7 +222,7 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
         self.highlightedCell = cell
        
         if let group = self.selectedGroup {
-            _ = TRUpdateGroupRequest().updateUserGroup(group.groupId!, groupName:(self.selectedGroup?.groupName)! ,completion: { (didSucceed) in
+            _ = TRUpdateGroupRequest().updateUserGroup(group.groupId!, groupName:(self.selectedGroup?.groupName)!, groupImage: (self.selectedGroup?.avatarPath)! ,completion: { (didSucceed) in
                 _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: false, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
                     if(didSucceed == true) {
                         if let del = self.delegate as? TREventListViewController {

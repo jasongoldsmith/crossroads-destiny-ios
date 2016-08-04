@@ -31,6 +31,8 @@ class TRPushNotificationView: UIView {
     @IBOutlet weak var eventStatusDescription: UILabel!
     @IBOutlet weak var panGesture: UIPanGestureRecognizer!
     @IBOutlet weak var eventIconView: UIImageView!
+    @IBOutlet weak var consoleName: UILabel!
+    @IBOutlet weak var labelSecondHeightConstraint: NSLayoutConstraint!
     
     // Parents View Controller
     var delegate: NotificationViewProtocol?
@@ -42,16 +44,16 @@ class TRPushNotificationView: UIView {
         super.layoutSubviews()
         
         let shadowPath = UIBezierPath(rect: bounds)
-        layer.masksToBounds = false
-        layer.shadowColor = UIColor.blackColor().CGColor
-        layer.shadowOffset = CGSizeMake(0.0, 5.0)
-        layer.shadowOpacity = 0.5
-        layer.shadowPath = shadowPath.CGPath
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = UIColor.blackColor().CGColor
+        self.layer.shadowOffset = CGSizeMake(0.0, 5.0)
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowPath = shadowPath.CGPath
         
         //Add radius
         self.layer.cornerRadius = 2.0
-        self.layer.masksToBounds = true
     }
+    
     
     
     @IBAction func openEventDetailViewController () {
@@ -95,8 +97,10 @@ class TRPushNotificationView: UIView {
         self.parentView = parentView
         
         if pushInfo.isMessageNotification == true {
-            self.eventStatusLabel.text =  "FIRETEAM MESSAGE"
             if let alertString = pushInfo.alertString {
+                self.eventStatusLabel?.text = pushInfo.playerMessageConsoleName!
+                self.consoleName.hidden = true
+                self.labelSecondHeightConstraint.constant = 0.0
                 self.eventStatusDescription.text =  alertString
                 let font = UIFont(name: "Helvetica", size: 14.0)
                 let height = self.heightWithConstrainedWidth((parentView.view.frame.width - 107), font: font!)
@@ -104,7 +108,7 @@ class TRPushNotificationView: UIView {
             }
         } else {
             if let eventName = pushInfo.eventName {
-                self.eventStatusLabel.text = eventName
+                self.consoleName.text = eventName.uppercaseString
                 let font = UIFont(name: "Helvetica", size: 14.0)
                 let height = self.heightWithConstrainedWidth((parentView.view.frame.width - 107), font: font!)
                 self.updateFrameWithHeight(height + 10)
@@ -115,8 +119,29 @@ class TRPushNotificationView: UIView {
                 let height = self.heightWithConstrainedWidth((parentView.view.frame.width - 107), font: font!)
                 self.updateFrameWithHeight(height + 10)
             }
+            
+            if let _ = pushInfo.eventClanName, _ = pushInfo.eventconsole {
+                self.eventStatusLabel.text = pushInfo.eventconsole! + ": " + pushInfo.eventClanName!
+            } else {
+                self.eventStatusLabel.hidden = true
+            }
         }
     
+        if pushInfo.isMessageNotification == true {
+            if let userHalmet = pushInfo.halmetImage {
+                self.eventIconView?.sd_setImageWithURL(NSURL(string: userHalmet), placeholderImage: UIImage(named: "iconAlert"))
+                self.eventIconView.roundRectView()
+            }
+        } else {
+            if let hasImage = pushInfo.imageURL  {
+                self.eventIconView?.sd_setImageWithURL(NSURL(string: hasImage), placeholderImage: UIImage(named: "iconAlert"))
+                self.eventIconView?.layer.borderColor = UIColor.whiteColor().CGColor
+                self.eventIconView?.layer.borderWidth     = 1.0
+                self.eventIconView?.layer.borderColor     = UIColor.whiteColor().CGColor
+                self.eventIconView?.layer.masksToBounds   = true
+            }
+        }
+
         self.eventDescriptionFrame = self.eventStatusDescription.frame
         
         return self
