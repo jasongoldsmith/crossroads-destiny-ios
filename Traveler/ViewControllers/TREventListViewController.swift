@@ -654,8 +654,14 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         
     }
     
-    func goToBungie () {
-        let url = NSURL(string: "https://www.bungie.net/")
+    func goToBungie(eventID: String?) {
+        
+        var url = NSURL(string: "https://www.bungie.net")
+        if let _ = eventID {
+            let urlString = "https://www.bungie.net/en/clan/" + eventID!
+           url = NSURL(string: urlString)
+        }
+        
         UIApplication.sharedApplication().openURL(url!)
     }
     

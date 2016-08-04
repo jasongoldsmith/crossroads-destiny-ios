@@ -11,7 +11,7 @@ import UIKit
 @objc protocol ErrorViewProtocol {
     optional func addActivity ()
     optional func addConsole ()
-    optional func goToBungie ()
+    optional func goToBungie (eventID: String?)
 }
 
 class TRErrorView: UIView {
@@ -42,7 +42,7 @@ class TRErrorView: UIView {
             self.delegate?.addConsole!()
             break
         case .JOIN_BUNGIE_GROUP:
-            self.delegate?.goToBungie!()
+            self.delegate?.goToBungie!(self.eventInfo?.eventClanID)
             break
         }
         
