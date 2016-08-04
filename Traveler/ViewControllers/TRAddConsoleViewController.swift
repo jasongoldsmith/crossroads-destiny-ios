@@ -127,10 +127,20 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
     }
     
     @IBAction func textFieldDidDidUpdate (textField: UITextField) {
-        if self.consoleIDTextField?.text?.characters.count > 4 {
+        if self.consoleIDTextField?.text?.characters.count > 3 {
+            if self.openedFromProfile == true {
+                self.addUpdateNewConsole?.enabled = true
+                self.addUpdateNewConsole?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
+            }
+            
             self.nextButton?.enabled = true
             self.nextButton.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
         } else {
+            if self.openedFromProfile == true {
+                self.addUpdateNewConsole?.enabled = false
+                self.addUpdateNewConsole?.backgroundColor = UIColor(red: 54/255, green: 93/255, blue: 101/255, alpha: 1)
+            }
+            
             self.nextButton.enabled = false
             self.nextButton.backgroundColor = UIColor(red: 54/255, green: 93/255, blue: 101/255, alpha: 1)
         }
