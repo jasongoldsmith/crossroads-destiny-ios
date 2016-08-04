@@ -134,7 +134,19 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             if let imageUrl = TRUserInfo.getUserImageString() {
                 let imageUrl = NSURL(string: imageUrl)
                 self.currentPlayerAvatorIcon?.sd_setImageWithURL(imageUrl)
-                self.currentPlayerAvatorIcon?.roundRectView(1, borderColor: UIColor.whiteColor())
+            }
+        }
+        
+        if let console = TRApplicationManager.sharedInstance.currentUser?.getDefaultConsole() {
+            switch console.consoleType! {
+            case ConsoleTypes.XBOXONE, ConsoleTypes.XBOX360:
+                self.currentPlayerAvatorIcon?.roundRectView(1.0, borderColor: UIColor(red: 77/255, green: 194/255, blue: 34/255, alpha: 1))
+                break
+            case ConsoleTypes.PS4, ConsoleTypes.PS3:
+                self.currentPlayerAvatorIcon?.roundRectView(1.0, borderColor: UIColor(red: 1/255, green: 59/255, blue: 152/255, alpha: 1))
+                break
+            default:
+                break
             }
         }
     }
