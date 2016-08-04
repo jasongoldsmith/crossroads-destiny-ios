@@ -105,7 +105,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
 
     func showLegalAlert () {
         
-        if TRApplicationManager.sharedInstance.currentUser?.legalInfo?.privacyNeedsUpdate == true || TRApplicationManager.sharedInstance.currentUser?.legalInfo?.termsNeedsUpdate == true {
+        //if TRApplicationManager.sharedInstance.currentUser?.legalInfo?.privacyNeedsUpdate == true || TRApplicationManager.sharedInstance.currentUser?.legalInfo?.termsNeedsUpdate == true {
             
             self.displayAlertWithActionHandler("Update", message: "Our Terms of Service and Privacy Policy have changed. \n\n By tapping the “OK” button, you agree to the updated Terms of Service and Privacy Policy.", buttonOneTitle: "Private Policy",buttonTwoTitle: "Terms of Service",buttonThreeTitle: "OK", completionHandler: {complete in
                 
@@ -132,7 +132,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
                     break
                 }
             })
-        }
+        //}
     }
     
     //MARK:- Swipe Gestures Begins
@@ -214,15 +214,15 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        //Check if Legal statement has been updated
-        self.showLegalAlert()
-        
         //Reload Table
         self.reloadEventTable()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        //Check if Legal statement has been updated
+        self.showLegalAlert()
         
         //Add FireBase Observer
         TRApplicationManager.sharedInstance.fireBaseManager?.addEventsObserversWithParentView(self)
@@ -384,13 +384,13 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         })
     }
     
-    func fetchEventDetailForDeepLink (eventID: String) {
+    func fetchEventDetailForDeepLink (eventID: String, activityName: String) {
         let eventInfo = TRApplicationManager.sharedInstance.getEventById(eventID)
         if let _ = eventInfo {
             do {
                 let _ = try self.getBranchError(eventInfo!)
             } catch let errorType as Branch_Error {
-                self.showBranchErrorViewWithError(errorType, eventInfo: eventInfo)
+                self.showBranchErrorViewWithError(errorType, eventInfo: eventInfo, activityName: activityName)
                 return
             } catch {
             }
@@ -401,14 +401,14 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
                     do {
                         let _ = try self.getBranchError(event!)
                     } catch let errorType as Branch_Error {
-                        self.showBranchErrorViewWithError(errorType, eventInfo: eventInfo)
+                        self.showBranchErrorViewWithError(errorType, eventInfo: eventInfo, activityName: activityName)
                         return
                     } catch {
                     }
                     self.showEventInfoViewController(event, fromPushNoti: false)
                 } else {
                     if let _ = error {
-                        self.showBranchErrorViewWithError(Branch_Error.ACTIVITY_NOT_AVAILABLE, eventInfo: nil)
+                        self.showBranchErrorViewWithError(Branch_Error.ACTIVITY_NOT_AVAILABLE, eventInfo: nil, activityName: activityName)
                     }
                 }
             })
@@ -436,7 +436,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         }
     }
     
-    func showBranchErrorViewWithError (errorType: Branch_Error, eventInfo: TREventInfo?) {
+    func showBranchErrorViewWithError (errorType: Branch_Error, eventInfo: TREventInfo?, activityName: String?) {
         dispatch_async(dispatch_get_main_queue(), {
             let errorView = NSBundle.mainBundle().loadNibNamed("TRErrorView", owner: self, options: nil)[0] as! TRErrorView
             errorView.frame = self.view.frame
@@ -445,6 +445,10 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             if let _ = eventInfo {
                 errorView.eventInfo = eventInfo!
             }
+            if let _ = activityName {
+                errorView.activityName = activityName
+            }
+            
             self.view.addSubview(errorView)
         })
     }

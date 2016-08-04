@@ -50,11 +50,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if let isBranchLink = params["+clicked_branch_link"]?.boolValue where  isBranchLink == true {
                 
                 let eventID = params["eventId"] as? String
+                let activityName = params["activityName"] as? String
+                
                 guard let _ = eventID else {
                     return
                 }
 
-                TRApplicationManager.sharedInstance.addPostActionbranchDeepLink(eventID!, branchActionType: "", params: params)
+                TRApplicationManager.sharedInstance.addPostActionbranchDeepLink(eventID!, activityName: activityName!, params: params)
             }
         })
         

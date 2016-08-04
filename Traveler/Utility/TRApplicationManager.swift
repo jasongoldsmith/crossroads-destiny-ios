@@ -182,10 +182,10 @@ class TRApplicationManager: NSObject {
                     eventListViewController.updateGroupImage()
                 })
                 
-                let deepLinkType = branchData!["deepLinkType"] as? String
-                let eventID = branchData!["eventID"] as? String
-
-                eventListViewController.fetchEventDetailForDeepLink(eventID!)
+                let eventID = branchData!["eventId"] as? String
+                let activityName = branchData!["activityName"] as? String
+                
+                eventListViewController.fetchEventDetailForDeepLink(eventID!, activityName: activityName!)
             } else if (showGroups){
                 self.fetchBungieGroups(true, completion: { (didSucceed) in
                     self.slideMenuController.view.alpha = 1
@@ -215,7 +215,7 @@ class TRApplicationManager: NSObject {
         })
     }
     
-    func addPostActionbranchDeepLink (eventID: String, branchActionType: String, params: NSDictionary) {
+    func addPostActionbranchDeepLink (eventID: String, activityName: String, params: NSDictionary) {
        
         if var currentView = UIApplication.topViewController() {
             
@@ -231,20 +231,20 @@ class TRApplicationManager: NSObject {
                 if TRApplicationManager.sharedInstance.slideMenuController.isLeftOpen() {
                     let leftView = TRApplicationManager.sharedInstance.slideMenuController.leftViewController as! TRProfileViewController
                     leftView.dismissViewController(false, dismissed: { (didDismiss) in
-                        eventListView!.fetchEventDetailForDeepLink(eventID)
+                        eventListView!.fetchEventDetailForDeepLink(eventID, activityName: activityName)
                     })
                 } else if (TRApplicationManager.sharedInstance.slideMenuController.isRightOpen()) {
                     let rightView = TRApplicationManager.sharedInstance.slideMenuController.rightViewController as! TRChooseGroupViewController
                     rightView.dismissViewController(false, dismissed: { (didDismiss) in
-                        eventListView!.fetchEventDetailForDeepLink(eventID)
+                        eventListView!.fetchEventDetailForDeepLink(eventID, activityName: activityName)
                     })
                 } else {
-                    eventListView!.fetchEventDetailForDeepLink(eventID)
+                    eventListView!.fetchEventDetailForDeepLink(eventID, activityName: activityName)
                 }
             } else {
                 currentView.dismissViewControllerAnimated(false, completion: {
                     let eventListView = self.slideMenuController.mainViewController as! TREventListViewController
-                    eventListView.fetchEventDetailForDeepLink(eventID)
+                    eventListView.fetchEventDetailForDeepLink(eventID, activityName: activityName)
                 })
             }
         }
