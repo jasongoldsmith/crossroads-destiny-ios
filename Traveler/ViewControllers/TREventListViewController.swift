@@ -105,7 +105,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
 
     func showLegalAlert () {
         
-        //if TRApplicationManager.sharedInstance.currentUser?.legalInfo?.privacyNeedsUpdate == true || TRApplicationManager.sharedInstance.currentUser?.legalInfo?.termsNeedsUpdate == true {
+        if TRApplicationManager.sharedInstance.currentUser?.legalInfo?.privacyNeedsUpdate == true || TRApplicationManager.sharedInstance.currentUser?.legalInfo?.termsNeedsUpdate == true {
             
             self.displayAlertWithActionHandler("Update", message: "Our Terms of Service and Privacy Policy have changed. \n\n By tapping the “OK” button, you agree to the updated Terms of Service and Privacy Policy.", buttonOneTitle: "Private Policy",buttonTwoTitle: "Terms of Service",buttonThreeTitle: "OK", completionHandler: {complete in
                 
@@ -132,7 +132,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
                     break
                 }
             })
-        //}
+        }
     }
     
     //MARK:- Swipe Gestures Begins
