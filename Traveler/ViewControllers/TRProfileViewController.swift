@@ -112,25 +112,29 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
             case ConsoleTypes.XBOX360:
                 self.consoleButton.setTitle("Xbox 360", forState: .Normal)
                 self.consoleButtonImageView.image = UIImage(named: "iconXboxoneConsole")
-                self.avatorImageView?.roundRectView(2.0, borderColor: UIColor(red: 77/255, green: 194/255, blue: 34/255, alpha: 1))
+                self.avatorImageView?.roundRectView(3.0, borderColor: UIColor(red: 77/255, green: 194/255, blue: 34/255, alpha: 1))
                 break
             case ConsoleTypes.XBOXONE:
                 self.consoleButton.setTitle("Xbox One", forState: .Normal)
                 self.consoleButtonImageView.image = UIImage(named: "iconXboxoneConsole")
-                self.avatorImageView?.roundRectView(2.0, borderColor: UIColor(red: 77/255, green: 194/255, blue: 34/255, alpha: 1))
+                self.avatorImageView?.roundRectView(3.0, borderColor: UIColor(red: 77/255, green: 194/255, blue: 34/255, alpha: 1))
                 break
             case ConsoleTypes.PS3:
                 self.consoleButton.setTitle("PlayStation 3", forState: .Normal)
                 self.consoleButtonImageView.image = UIImage(named: "iconPsnConsole")
-                self.avatorImageView?.roundRectView(2.0, borderColor: UIColor(red: 1/255, green: 59/255, blue: 152/255, alpha: 1))
+                self.avatorImageView?.roundRectView(3.0, borderColor: UIColor(red: 1/255, green: 59/255, blue: 152/255, alpha: 1))
                 break
             case ConsoleTypes.PS4:
                 self.consoleButton.setTitle("PlayStation 4", forState: .Normal)
                 self.consoleButtonImageView.image = UIImage(named: "iconPsnConsole")
-                self.avatorImageView?.roundRectView(2.0, borderColor: UIColor(red: 1/255, green: 59/255, blue: 152/255, alpha: 1))
+                self.avatorImageView?.roundRectView(3.0, borderColor: UIColor(red: 1/255, green: 59/255, blue: 152/255, alpha: 1))
                 break
             default:
                 break
+            }
+            
+            if TRApplicationManager.sharedInstance.currentUser?.consoles.count < 2 {
+                self.avatorImageView?.roundRectView(3.0, borderColor: UIColor(red: 55/255, green: 100/255, blue: 109/255, alpha: 1))
             }
         }
         
