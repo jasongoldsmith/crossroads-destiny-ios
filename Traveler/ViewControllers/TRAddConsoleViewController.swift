@@ -75,6 +75,7 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
             self.addUpdateNewConsole.hidden = true
             self.upgradeLabel.hidden = true
             self.addLegalStatmentText()
+            self.consoleIDTextField.hidden = false
         }
         
         //Add Console Place Holder Text
@@ -254,28 +255,30 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
                 self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
                 self.consoleImage.image = UIImage(named: "iconPsnConsole")
                 
-                if let consoles = TRApplicationManager.sharedInstance.currentUser?.consoles {
-                    for console in consoles {
-                        if console.consoleType == ConsoleTypes.PS3 || console.consoleType == ConsoleTypes.PS4 {
-                            if let consoleID = console.consoleId {
-                                self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:consoleID, attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
-                                self.consoleIDTextField.enabled = false
-                                self.preSelectedConsoleID = consoleID
-                                self.consoleTagView.hidden = true
-                                self.addUpdateNewConsole.setTitle("UPGRADE", forState: .Normal)
-                                self.upgradeLabel.hidden = false
-                                self.upgradeLabel.text = "NOTE: Once you upgrade to Playstation 4 you will no longer be able to view activities from Playstation 3."
-                                self.isUpgrade = true
+                if self.openedFromProfile == true {
+                    if let consoles = TRApplicationManager.sharedInstance.currentUser?.consoles {
+                        for console in consoles {
+                            if console.consoleType == ConsoleTypes.PS3 || console.consoleType == ConsoleTypes.PS4 {
+                                if let consoleID = console.consoleId {
+                                    self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:consoleID, attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+                                    self.consoleIDTextField.enabled = false
+                                    self.preSelectedConsoleID = consoleID
+                                    self.consoleTagView.hidden = true
+                                    self.addUpdateNewConsole.setTitle("UPGRADE", forState: .Normal)
+                                    self.upgradeLabel.hidden = false
+                                    self.upgradeLabel.text = "NOTE: Once you upgrade to Playstation 4 you will no longer be able to view activities from Playstation 3."
+                                    self.isUpgrade = true
 
-                                break
+                                    break
+                                }
+                            } else {
+                                self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+                                self.preSelectedConsoleID = nil
+                                self.consoleTagView.hidden = false
+                                self.addUpdateNewConsole.setTitle("ADD", forState: .Normal)
+                                self.upgradeLabel.hidden = true
+                                self.isUpgrade = false
                             }
-                        } else {
-                            self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
-                            self.preSelectedConsoleID = nil
-                            self.consoleTagView.hidden = false
-                            self.addUpdateNewConsole.setTitle("ADD", forState: .Normal)
-                            self.upgradeLabel.hidden = true
-                            self.isUpgrade = false
                         }
                     }
                 }
@@ -285,28 +288,30 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
                 self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter Xbox Gamertag", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
                 self.consoleImage.image = UIImage(named: "iconXboxoneConsole")
                 
-                if let consoles = TRApplicationManager.sharedInstance.currentUser?.consoles {
-                    for console in consoles {
-                        if console.consoleType == ConsoleTypes.XBOXONE || console.consoleType == ConsoleTypes.XBOX360 {
-                            if let consoleID = console.consoleId {
-                                self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:consoleID, attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
-                                self.consoleIDTextField.enabled = false
-                                self.preSelectedConsoleID = consoleID
-                                self.consoleTagView.hidden = true
-                                self.addUpdateNewConsole.setTitle("UPGRADE", forState: .Normal)
-                                self.upgradeLabel.hidden = false
-                                self.upgradeLabel.text = "NOTE: Once you upgrade to xBox One you will no longer be able to view activities from xBox 360."
-                                self.isUpgrade = true
-                                
-                                break
+                if self.openedFromProfile == true {
+                    if let consoles = TRApplicationManager.sharedInstance.currentUser?.consoles {
+                        for console in consoles {
+                            if console.consoleType == ConsoleTypes.XBOXONE || console.consoleType == ConsoleTypes.XBOX360 {
+                                if let consoleID = console.consoleId {
+                                    self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:consoleID, attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+                                    self.consoleIDTextField.enabled = false
+                                    self.preSelectedConsoleID = consoleID
+                                    self.consoleTagView.hidden = true
+                                    self.addUpdateNewConsole.setTitle("UPGRADE", forState: .Normal)
+                                    self.upgradeLabel.hidden = false
+                                    self.upgradeLabel.text = "NOTE: Once you upgrade to xBox One you will no longer be able to view activities from xBox 360."
+                                    self.isUpgrade = true
+                                    
+                                    break
+                                }
+                            } else {
+                                self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter Xbox Gamertag", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+                                self.preSelectedConsoleID = nil
+                                self.consoleTagView.hidden = false
+                                self.addUpdateNewConsole.setTitle("ADD", forState: .Normal)
+                                self.upgradeLabel.hidden = true
+                                self.isUpgrade = false
                             }
-                        } else {
-                            self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter Xbox Gamertag", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
-                            self.preSelectedConsoleID = nil
-                            self.consoleTagView.hidden = false
-                            self.addUpdateNewConsole.setTitle("ADD", forState: .Normal)
-                            self.upgradeLabel.hidden = true
-                            self.isUpgrade = false
                         }
                     }
                 }
