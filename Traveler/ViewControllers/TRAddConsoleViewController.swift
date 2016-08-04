@@ -34,6 +34,7 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
     @IBOutlet weak var consoleTagView: UIView!
     @IBOutlet weak var upgradeLabel: UILabel!
     @IBOutlet weak var consoleImage: UIImageView!
+    @IBOutlet weak var moreConsoleInfoLabel: UILabel!
     
     
     var openedFromProfile: Bool = false
@@ -67,6 +68,7 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
             self.nextButton.hidden = true
             self.addUpdateNewConsole.hidden = false
             self.upgradeLabel.hidden = false
+            self.moreConsoleInfoLabel.hidden = true
         } else {
             self.backButton.hidden = false
             self.closeButton.hidden = true
@@ -76,6 +78,7 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
             self.upgradeLabel.hidden = true
             self.addLegalStatmentText()
             self.consoleIDTextField.hidden = false
+            self.moreConsoleInfoLabel.hidden = false
         }
         
         //Add Console Place Holder Text

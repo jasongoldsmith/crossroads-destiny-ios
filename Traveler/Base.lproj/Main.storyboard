@@ -2212,6 +2212,36 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n3y-gf-vY6">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <imageView alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q9A-6x-JSM">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="A0S-zG-8Ql" appends="YES" id="l2u-7P-SqM"/>
+                                        </connections>
+                                    </imageView>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jmq-Wr-K5x">
+                                        <rect key="frame" x="140" y="192" width="320" height="216"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="KOc-md-Vga" id="t5Q-kP-BBw"/>
+                                            <outlet property="delegate" destination="KOc-md-Vga" id="GWW-0m-5wP"/>
+                                        </connections>
+                                    </pickerView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Q9A-6x-JSM" firstAttribute="top" secondItem="n3y-gf-vY6" secondAttribute="top" id="CDG-1c-QBw"/>
+                                    <constraint firstAttribute="trailing" secondItem="Q9A-6x-JSM" secondAttribute="trailing" id="Mux-x8-pXc"/>
+                                    <constraint firstAttribute="bottom" secondItem="Q9A-6x-JSM" secondAttribute="bottom" id="SMF-NA-2I1"/>
+                                    <constraint firstItem="Q9A-6x-JSM" firstAttribute="leading" secondItem="n3y-gf-vY6" secondAttribute="leading" id="aRL-gQ-VwQ"/>
+                                    <constraint firstItem="Jmq-Wr-K5x" firstAttribute="centerX" secondItem="n3y-gf-vY6" secondAttribute="centerX" id="fNQ-Q7-kyS"/>
+                                    <constraint firstItem="Jmq-Wr-K5x" firstAttribute="centerY" secondItem="n3y-gf-vY6" secondAttribute="centerY" id="jea-LW-aAT"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3JW-SK-YBk">
                                 <rect key="frame" x="10" y="20" width="44" height="44"/>
                                 <state key="normal" image="iconBackArrow"/>
@@ -2361,36 +2391,12 @@ from &lt;Playstation 3&gt;. </string>
                                     <constraint firstAttribute="width" constant="24" id="LEN-Vo-SL6"/>
                                 </constraints>
                             </imageView>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n3y-gf-vY6">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <subviews>
-                                    <imageView alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q9A-6x-JSM">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="A0S-zG-8Ql" appends="YES" id="l2u-7P-SqM"/>
-                                        </connections>
-                                    </imageView>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jmq-Wr-K5x">
-                                        <rect key="frame" x="140" y="192" width="320" height="216"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="KOc-md-Vga" id="t5Q-kP-BBw"/>
-                                            <outlet property="delegate" destination="KOc-md-Vga" id="GWW-0m-5wP"/>
-                                        </connections>
-                                    </pickerView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="Q9A-6x-JSM" firstAttribute="top" secondItem="n3y-gf-vY6" secondAttribute="top" id="CDG-1c-QBw"/>
-                                    <constraint firstAttribute="trailing" secondItem="Q9A-6x-JSM" secondAttribute="trailing" id="Mux-x8-pXc"/>
-                                    <constraint firstAttribute="bottom" secondItem="Q9A-6x-JSM" secondAttribute="bottom" id="SMF-NA-2I1"/>
-                                    <constraint firstItem="Q9A-6x-JSM" firstAttribute="leading" secondItem="n3y-gf-vY6" secondAttribute="leading" id="aRL-gQ-VwQ"/>
-                                    <constraint firstItem="Jmq-Wr-K5x" firstAttribute="centerX" secondItem="n3y-gf-vY6" secondAttribute="centerX" id="fNQ-Q7-kyS"/>
-                                    <constraint firstItem="Jmq-Wr-K5x" firstAttribute="centerY" secondItem="n3y-gf-vY6" secondAttribute="centerY" id="jea-LW-aAT"/>
-                                </constraints>
-                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More than one console? You can add it later!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXP-YL-bLf">
+                                <rect key="frame" x="179.5" y="417" width="240" height="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -2409,12 +2415,14 @@ from &lt;Playstation 3&gt;. </string>
                             <constraint firstItem="yJh-Oy-PJq" firstAttribute="top" secondItem="3zm-Da-zw2" secondAttribute="bottom" constant="27" id="Ml6-zC-6Jj"/>
                             <constraint firstAttribute="trailing" secondItem="sHN-zm-iXF" secondAttribute="trailing" id="Obh-fE-rz0"/>
                             <constraint firstItem="uWa-nd-jij" firstAttribute="top" secondItem="unG-fm-H5R" secondAttribute="bottom" constant="40" id="PTh-g1-7ff"/>
+                            <constraint firstItem="aXP-YL-bLf" firstAttribute="top" secondItem="yJh-Oy-PJq" secondAttribute="bottom" constant="12" id="Py8-Z0-sbS"/>
                             <constraint firstItem="PK0-Le-SMR" firstAttribute="trailing" secondItem="F3K-DZ-kKQ" secondAttribute="trailing" constant="15" id="RaD-kJ-77q"/>
                             <constraint firstItem="unG-fm-H5R" firstAttribute="centerX" secondItem="pDa-OZ-Smy" secondAttribute="centerX" id="TT7-JS-h8m"/>
                             <constraint firstAttribute="trailing" secondItem="PK0-Le-SMR" secondAttribute="trailing" constant="10" id="Tzf-Gl-8dA"/>
                             <constraint firstItem="unG-fm-H5R" firstAttribute="top" secondItem="yju-HA-LIZ" secondAttribute="bottom" constant="55" id="UyR-AQ-sSo"/>
                             <constraint firstItem="PK0-Le-SMR" firstAttribute="leading" secondItem="3zm-Da-zw2" secondAttribute="leading" constant="-15" id="V5u-tn-QFH"/>
                             <constraint firstItem="PK0-Le-SMR" firstAttribute="leading" secondItem="pDa-OZ-Smy" secondAttribute="leading" constant="10" id="YqR-Od-lMk"/>
+                            <constraint firstItem="aXP-YL-bLf" firstAttribute="centerX" secondItem="pDa-OZ-Smy" secondAttribute="centerX" id="aMH-zD-7SY"/>
                             <constraint firstItem="XCv-6A-HNo" firstAttribute="leading" secondItem="pDa-OZ-Smy" secondAttribute="leadingMargin" constant="30" id="d4T-bi-l5w"/>
                             <constraint firstItem="rzn-bo-U2A" firstAttribute="top" secondItem="Sjb-Lv-QeM" secondAttribute="bottom" id="dLt-pn-yzc"/>
                             <constraint firstItem="Xcc-0E-LNK" firstAttribute="top" secondItem="yju-HA-LIZ" secondAttribute="bottom" id="eRN-Fe-ifC"/>
@@ -2424,6 +2432,7 @@ from &lt;Playstation 3&gt;. </string>
                             <constraint firstItem="Xcc-0E-LNK" firstAttribute="leading" secondItem="pDa-OZ-Smy" secondAttribute="leading" constant="10" id="hKA-pW-9i9"/>
                             <constraint firstItem="3JW-SK-YBk" firstAttribute="top" secondItem="yju-HA-LIZ" secondAttribute="bottom" id="ipB-fs-hwo"/>
                             <constraint firstItem="XCv-6A-HNo" firstAttribute="top" secondItem="PK0-Le-SMR" secondAttribute="bottom" constant="17" id="lVX-jt-TbL"/>
+                            <constraint firstItem="aXP-YL-bLf" firstAttribute="top" secondItem="PK0-Le-SMR" secondAttribute="bottom" constant="12" id="nnw-8k-hRR"/>
                             <constraint firstItem="yJh-Oy-PJq" firstAttribute="leading" secondItem="pDa-OZ-Smy" secondAttribute="leading" constant="10" id="oaA-zc-Y4J"/>
                             <constraint firstItem="F3K-DZ-kKQ" firstAttribute="centerY" secondItem="PK0-Le-SMR" secondAttribute="centerY" constant="4.5" id="olQ-Rz-ISR"/>
                             <constraint firstItem="Nax-av-Wvi" firstAttribute="top" secondItem="cSX-zS-eiN" secondAttribute="bottom" constant="10" id="riw-S5-rK7"/>
@@ -2435,6 +2444,11 @@ from &lt;Playstation 3&gt;. </string>
                             <constraint firstItem="yJh-Oy-PJq" firstAttribute="top" secondItem="PK0-Le-SMR" secondAttribute="bottom" constant="16" id="yJg-yT-XXK"/>
                             <constraint firstItem="sHN-zm-iXF" firstAttribute="top" secondItem="pDa-OZ-Smy" secondAttribute="top" id="yQo-E6-LSQ"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="nnw-8k-hRR"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="addUpdateNewConsole" destination="Sjb-Lv-QeM" id="ZGh-2o-jQI"/>
@@ -2448,6 +2462,7 @@ from &lt;Playstation 3&gt;. </string>
                         <outlet property="consoleTagView" destination="yJh-Oy-PJq" id="MrY-oo-Uqf"/>
                         <outlet property="consoleTypeLabel" destination="1d9-oV-rS2" id="1wf-sG-1c1"/>
                         <outlet property="legalLabel" destination="cSX-zS-eiN" id="VRu-Gw-7he"/>
+                        <outlet property="moreConsoleInfoLabel" destination="aXP-YL-bLf" id="216-lw-1sW"/>
                         <outlet property="nextButton" destination="Nax-av-Wvi" id="ilg-O1-kh0"/>
                         <outlet property="upgradeLabel" destination="XCv-6A-HNo" id="iwA-Rh-aBG"/>
                     </connections>
