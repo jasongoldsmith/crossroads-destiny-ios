@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="124"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3iY-SW-gwc" id="ZDu-nM-3dI">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="123.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="124"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eventCellBGImage" translatesAutoresizingMaskIntoConstraints="NO" id="xFe-zn-nLa">
@@ -43,10 +43,10 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ytB-QV-e1A">
-                        <rect key="frame" x="59" y="10" width="176" height="24"/>
+                        <rect key="frame" x="59" y="10" width="185" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="781-n7-AZ1"/>
-                            <constraint firstAttribute="width" constant="176" id="nc7-eo-AJi"/>
+                            <constraint firstAttribute="width" constant="185" id="nc7-eo-AJi"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -111,6 +111,7 @@
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="gFP-n8-kSW" secondAttribute="bottom" constant="43" id="1pm-OV-iFy"/>
                     <constraint firstItem="c5f-XM-Con" firstAttribute="top" secondItem="ytB-QV-e1A" secondAttribute="bottom" constant="2" id="3Oh-sZ-AYs"/>
+                    <constraint firstItem="ytB-QV-e1A" firstAttribute="leading" secondItem="3rA-ji-cCh" secondAttribute="leading" id="5o7-Re-nYo"/>
                     <constraint firstItem="3rA-ji-cCh" firstAttribute="leading" secondItem="ZDu-nM-3dI" secondAttribute="leadingMargin" constant="51" id="6ry-cv-zqs"/>
                     <constraint firstItem="Fec-iC-qHn" firstAttribute="leading" secondItem="dtk-b7-EX5" secondAttribute="trailing" constant="6" id="Aja-MI-rMK"/>
                     <constraint firstAttribute="trailingMargin" secondItem="gFP-n8-kSW" secondAttribute="trailing" constant="2" id="BU4-Cb-w3I"/>
@@ -121,6 +122,7 @@
                     <constraint firstItem="c5f-XM-Con" firstAttribute="leading" secondItem="81J-YA-le0" secondAttribute="trailing" constant="9" id="Mw9-LV-zB5"/>
                     <constraint firstItem="ytB-QV-e1A" firstAttribute="leading" secondItem="81J-YA-le0" secondAttribute="trailing" constant="9" id="NhM-70-Y8p"/>
                     <constraint firstItem="xFe-zn-nLa" firstAttribute="top" secondItem="ZDu-nM-3dI" secondAttribute="topMargin" constant="-8" id="P4p-Qu-Gjb"/>
+                    <constraint firstItem="c5f-XM-Con" firstAttribute="leading" secondItem="3rA-ji-cCh" secondAttribute="leading" id="Uew-Qw-YFV"/>
                     <constraint firstItem="xFe-zn-nLa" firstAttribute="leading" secondItem="ZDu-nM-3dI" secondAttribute="leadingMargin" constant="-8" id="Wfn-GB-6nq"/>
                     <constraint firstAttribute="bottomMargin" secondItem="xFe-zn-nLa" secondAttribute="bottom" constant="-16" id="WxZ-si-GpR"/>
                     <constraint firstItem="dtk-b7-EX5" firstAttribute="leading" secondItem="3rA-ji-cCh" secondAttribute="trailing" constant="6" id="ae7-fb-rNP"/>
@@ -139,6 +141,8 @@
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="NhM-70-Y8p"/>
+                        <exclude reference="Mw9-LV-zB5"/>
                         <exclude reference="1pm-OV-iFy"/>
                         <exclude reference="E9k-bl-wE4"/>
                         <exclude reference="gFc-kE-hEn"/>
