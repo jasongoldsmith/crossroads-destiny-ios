@@ -77,10 +77,11 @@ class TRBranchManager {
         }
         
         if extraPlayersRequiredCount == 0 {
+            branchUniversalObject.title = eventInfo.eventActivity?.activitySubType
             if eventInfo.isFutureEvent == true {
-                messageString = "Check out this \(activityName!) on \(formatedDate) in the \(groupName) group"
+                messageString = "\(console): Check out this \(activityName!) on \(formatedDate) in the \(groupName) group"
             } else {
-                messageString = "Check out this \(activityName!) in the \(groupName) group"
+                messageString = "\(console): Check out this \(activityName!) in the \(groupName) group"
             }
         }
         
