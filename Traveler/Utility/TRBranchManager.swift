@@ -54,6 +54,8 @@ class TRBranchManager {
             }
         }
         
+        // Create Branch Object
+        branchUniversalObject = BranchUniversalObject.init(canonicalIdentifier: canonicalIdentifier)
         var messageString = "\(console): I need \(playerCount) more for \(activityName!) in the \(groupName) group"
         
         if TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(eventInfo) {
@@ -85,8 +87,6 @@ class TRBranchManager {
             }
         }
         
-        // Create Branch Object
-        branchUniversalObject = BranchUniversalObject.init(canonicalIdentifier: canonicalIdentifier)
         branchUniversalObject.contentDescription = messageString
         
         if let hasActivityCard = eventInfo.eventActivity?.activityID {
