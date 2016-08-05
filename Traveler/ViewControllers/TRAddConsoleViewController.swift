@@ -198,7 +198,7 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
     
     func showSuccessFor (consoleType: String, consoleID: String) {
         
-        let messageString = "Your \(consoleType) \(consoleID) has been added to your account."
+        let messageString = "Your \(consoleType) \(consoleID) account has been linked to Crossroads."
         self.displayAlertWithTitleAndMessageAnOK("Success!", message: messageString) { (complete) in
             if complete == true {
                 self.dismissViewController(true, dismissed: { (didDismiss) in
