@@ -1722,13 +1722,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eCs-7v-KHy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer delaysTouchesEnded="NO" direction="right" id="ehC-SO-XDe">
+                <swipeGestureRecognizer delaysTouchesEnded="NO" direction="left" id="ehC-SO-XDe">
                     <connections>
                         <action selector="userSwipedLeft:" destination="Ni1-Nm-5hW" id="r7J-en-K4C"/>
                         <outlet property="delegate" destination="Ni1-Nm-5hW" id="EdE-Ol-ovN"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <swipeGestureRecognizer delaysTouchesEnded="NO" direction="left" id="4Yj-fb-Jef">
+                <swipeGestureRecognizer delaysTouchesEnded="NO" direction="right" id="4Yj-fb-Jef">
                     <connections>
                         <action selector="userSwipedRight:" destination="Ni1-Nm-5hW" id="uJz-vL-NEQ"/>
                         <outlet property="delegate" destination="Ni1-Nm-5hW" id="dmM-ET-ySv"/>
