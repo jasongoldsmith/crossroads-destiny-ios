@@ -671,7 +671,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
                 if let existingConsole = consoleArray?.first {
                     _ = TRChangeConsoleRequest().changeConsole(existingConsole.consoleType!, completion: { (didSucceed) in
                         if didSucceed == true {
-                            _ = TRGetEventsList().getEventsListWithClearActivityBackGround(false, clearBG: false, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
+                            _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: false, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
                                 if didSucceed == true {
                                     self.reloadEventTable()
                                     self.updateUserAvatorImage()
