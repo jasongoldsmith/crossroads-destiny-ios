@@ -1186,8 +1186,17 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPsnConsole" translatesAutoresizingMaskIntoConstraints="NO" id="pJ4-DM-yXy">
+                                <rect key="frame" x="185" y="277" width="24" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="xml-hr-Fqh"/>
+                                </constraints>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="iconArrowDown" translatesAutoresizingMaskIntoConstraints="NO" id="LXc-zO-JUp">
+                                <rect key="frame" x="403" y="287" width="10" height="5"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYS-BI-7UK">
-                                <rect key="frame" x="175" y="270" width="250" height="40"/>
+                                <rect key="frame" x="175" y="266" width="250" height="44"/>
                                 <color key="backgroundColor" red="0.011764705882352941" green="0.31764705882352939" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                 <state key="normal" title="PlayStation 4">
@@ -1197,15 +1206,6 @@
                                     <action selector="consoleButtonPressed:" destination="RJW-k0-l6u" eventType="touchUpInside" id="LFT-s0-p7B"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="iconArrowDown" translatesAutoresizingMaskIntoConstraints="NO" id="LXc-zO-JUp">
-                                <rect key="frame" x="403" y="287" width="10" height="5"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPsnConsole" translatesAutoresizingMaskIntoConstraints="NO" id="pJ4-DM-yXy">
-                                <rect key="frame" x="185" y="277" width="24" height="26"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="xml-hr-Fqh"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.36470588240000001" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -1223,11 +1223,11 @@
                             <constraint firstItem="Z9P-C3-JX9" firstAttribute="leading" secondItem="xsB-j0-IhM" secondAttribute="leading" id="PZx-vg-DQf"/>
                             <constraint firstItem="lly-Ep-C9p" firstAttribute="top" secondItem="yga-kS-xxF" secondAttribute="bottom" constant="10" id="SoA-WI-koC"/>
                             <constraint firstItem="LXc-zO-JUp" firstAttribute="leading" secondItem="cYS-BI-7UK" secondAttribute="trailing" constant="-22" id="Sva-ci-j42"/>
-                            <constraint firstItem="pJ4-DM-yXy" firstAttribute="centerY" secondItem="cYS-BI-7UK" secondAttribute="centerY" id="VqV-gf-OSk"/>
+                            <constraint firstItem="pJ4-DM-yXy" firstAttribute="centerY" secondItem="cYS-BI-7UK" secondAttribute="centerY" constant="2" id="VqV-gf-OSk"/>
                             <constraint firstItem="xsB-j0-IhM" firstAttribute="centerX" secondItem="NgN-Kf-uF4" secondAttribute="centerX" id="WNz-sU-1Xq"/>
                             <constraint firstItem="LXc-zO-JUp" firstAttribute="top" secondItem="cYS-BI-7UK" secondAttribute="bottom" constant="-23" id="Y0d-4J-x8V"/>
                             <constraint firstItem="Gnx-Nj-sRV" firstAttribute="trailing" secondItem="yga-kS-xxF" secondAttribute="trailing" id="YFl-OK-jh6"/>
-                            <constraint firstItem="cYS-BI-7UK" firstAttribute="top" secondItem="2Ax-E1-ccC" secondAttribute="bottom" constant="30" id="ZfX-hC-7FD"/>
+                            <constraint firstItem="cYS-BI-7UK" firstAttribute="top" secondItem="2Ax-E1-ccC" secondAttribute="bottom" constant="26" id="ZfX-hC-7FD"/>
                             <constraint firstItem="2Ax-E1-ccC" firstAttribute="top" secondItem="tHf-b5-jNh" secondAttribute="bottom" constant="20" id="aOx-1l-ZZY"/>
                             <constraint firstItem="cYS-BI-7UK" firstAttribute="centerX" secondItem="tHf-b5-jNh" secondAttribute="centerX" id="d1p-CM-Jtd"/>
                             <constraint firstItem="xsB-j0-IhM" firstAttribute="top" secondItem="Z9P-C3-JX9" secondAttribute="bottom" id="eIn-ds-J3L"/>
