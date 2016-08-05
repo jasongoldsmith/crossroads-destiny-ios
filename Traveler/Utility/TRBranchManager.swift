@@ -37,8 +37,8 @@ class TRBranchManager {
 
         let extraPlayersRequiredCount = ((eventInfo.eventActivity?.activityMaxPlayers?.integerValue)! - (eventInfo.eventPlayersArray.count))
         let playerCount = String(extraPlayersRequiredCount)
-        let console = TRUserInfo.getConsoleType()
-        let activityName = eventInfo.eventActivity?.activityType!
+        let console = self.getConsoleTypeFromString(TRUserInfo.getConsoleType()!)
+        let activityName = eventInfo.eventActivity?.activitySubType!
         
         //Formatted Date
         let formatter = NSDateFormatter()
@@ -54,25 +54,39 @@ class TRBranchManager {
             }
         }
         
-        var messageString = "\(console!): I need \(playerCount) more for \(activityName!) in the \(groupName) group on Crossroads"
-        
-        if eventInfo.isFutureEvent == true {
-            messageString = "\(console!): I need \(playerCount) more for \(activityName!) on \(formatedDate) in the \(groupName) group on Crossroads"
-        }
-        
-        if extraPlayersRequiredCount == 2 {
-            if eventInfo.isFutureEvent == true {
-                messageString = "Check out this \(activityName!) on \(formatedDate) in the \(groupName) group "
-            } else {
-                messageString = "Check out this \(activityName!) in the \(groupName) group "
-            }
-        }
-    
+        var messageString = "\(console): I need \(playerCount) more for \(activityName!) in the \(groupName) group"
         
         // Create Branch Object
         branchUniversalObject = BranchUniversalObject.init(canonicalIdentifier: canonicalIdentifier)
-        branchUniversalObject.title = "Join My Fireteam"
         branchUniversalObject.contentDescription = messageString
+        
+        if TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(eventInfo) {
+            branchUniversalObject.title = "Join My Fireteam"
+            if eventInfo.eventPlayersArray.count == eventInfo.eventMaxPlayers!.integerValue {
+                branchUniversalObject.title = eventInfo.eventActivity?.activitySubType
+            }
+            
+            messageString = "\(console): I need \(playerCount) more for \(activityName!) in the \(groupName) group"
+        } else {
+            branchUniversalObject.title = "Searching for Guardians"
+            if eventInfo.eventPlayersArray.count == eventInfo.eventMaxPlayers!.integerValue {
+                branchUniversalObject.title = eventInfo.eventActivity?.activitySubType
+            }
+            
+            messageString = "This fireteam needs \(extraPlayersRequiredCount) more for \(activityName) in the \(groupName) group"
+            
+            if eventInfo.isFutureEvent == true {
+                messageString = "\(console): This fireteam needs \(playerCount) more for \(activityName!) on \(formatedDate) in the \(groupName) group"
+            }
+        }
+        
+        if extraPlayersRequiredCount == 0 {
+            if eventInfo.isFutureEvent == true {
+                messageString = "Check out this \(activityName!) on \(formatedDate) in the \(groupName) group"
+            } else {
+                messageString = "Check out this \(activityName!) in the \(groupName) group"
+            }
+        }
         
         if let hasActivityCard = eventInfo.eventActivity?.activityID {
             let imageString = "http://w3.crossroadsapp.co/bungie/share/branch/v1/\(hasActivityCard)"
@@ -96,6 +110,28 @@ class TRBranchManager {
                 print(String(format: "Branch TestBed: %@", error))
             }
         }
+    }
+    
+    func getConsoleTypeFromString (consoleName: String) -> String {
+        
+        var consoleType = ""
+        switch consoleName {
+        case "PlayStation 4":
+            consoleType = "PS4"
+            break
+        case "PlayStation 3":
+            consoleType = "PS3"
+            break
+        case "Xbox 360":
+            consoleType = "360"
+            break
+            
+        default:
+            consoleType = "XB1"
+            break
+        }
+        
+        return consoleType
     }
 }
 
