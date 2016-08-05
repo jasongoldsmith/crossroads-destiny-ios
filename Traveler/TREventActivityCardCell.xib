@@ -18,10 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="154"/>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hwY-Ba-epx">
-                        <rect key="frame" x="11" y="101" width="39" height="39"/>
+                        <rect key="frame" x="11" y="101" width="40" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="39" id="9kv-si-Qjl"/>
-                            <constraint firstAttribute="height" constant="39" id="dsW-7c-rex"/>
+                            <constraint firstAttribute="width" constant="40" id="9kv-si-Qjl"/>
+                            <constraint firstAttribute="height" constant="40" id="dsW-7c-rex"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9Z-kB-KEc">
@@ -50,7 +50,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="610-rS-Cxr" secondAttribute="trailing" id="0vn-s5-yVt"/>
-                    <constraint firstItem="X9Z-kB-KEc" firstAttribute="leading" secondItem="hwY-Ba-epx" secondAttribute="trailing" constant="9" id="4Qx-vf-AJl"/>
+                    <constraint firstItem="X9Z-kB-KEc" firstAttribute="leading" secondItem="hwY-Ba-epx" secondAttribute="trailing" constant="8" id="4Qx-vf-AJl"/>
                     <constraint firstItem="610-rS-Cxr" firstAttribute="leading" secondItem="k7V-0a-X5J" secondAttribute="leading" id="L9n-Es-ucJ"/>
                     <constraint firstItem="610-rS-Cxr" firstAttribute="top" secondItem="k7V-0a-X5J" secondAttribute="top" id="LT3-I2-fMa"/>
                     <constraint firstItem="2Fi-8c-gzq" firstAttribute="top" secondItem="X9Z-kB-KEc" secondAttribute="bottom" constant="3.5" id="SZb-dx-Z0B"/>
