@@ -129,7 +129,8 @@ class TREventInfo: NSObject {
     
     func isEventGroupPartOfUsersGroups () throws -> Bool {
         
-        if self.eventClanID == TRApplicationManager.sharedInstance.currentUser?.userClanID {
+        let userHasGroup = TRApplicationManager.sharedInstance.bungieGroups.filter{$0.groupId == self.eventClanID}
+        if let _ = userHasGroup.first {
             return false
         }
         

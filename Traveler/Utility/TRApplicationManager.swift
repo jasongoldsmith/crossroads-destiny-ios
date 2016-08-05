@@ -57,11 +57,9 @@ class TRApplicationManager: NSObject {
     
     // FireBase Manager
     var fireBaseManager: TRFireBaseManager?
-    
 
     //Push Notification View Array
     var pushNotificationViewArray: [TRPushNotificationView] = []
-    //var pushNotificationArray: [TRActiveStatePushInfo] = []
     
     //Current View Controller
     var currentViewController: TRBaseViewController?
