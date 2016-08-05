@@ -1102,7 +1102,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" alpha="0.96999999999999997" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lly-Ep-C9p">
-                                <rect key="frame" x="175" y="440" width="250" height="44"/>
+                                <rect key="frame" x="175" y="438" width="250" height="44"/>
                                 <color key="backgroundColor" red="0.074509803920000006" green="0.12549019610000001" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="YW7-o7-ArM"/>
@@ -1122,7 +1122,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.96999999999999997" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yga-kS-xxF">
-                                <rect key="frame" x="175" y="386" width="250" height="44"/>
+                                <rect key="frame" x="175" y="384" width="250" height="44"/>
                                 <color key="backgroundColor" red="0.074509803920000006" green="0.12549019610000001" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="44" id="L8Y-eH-Zq0"/>
@@ -1142,7 +1142,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.96999999999999997" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gnx-Nj-sRV">
-                                <rect key="frame" x="175" y="332" width="250" height="44"/>
+                                <rect key="frame" x="175" y="330" width="250" height="44"/>
                                 <color key="backgroundColor" red="0.074509803921568626" green="0.12549019607843137" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="FpD-OM-DKK"/>
@@ -1187,7 +1187,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYS-BI-7UK">
-                                <rect key="frame" x="175" y="270" width="250" height="42"/>
+                                <rect key="frame" x="175" y="270" width="250" height="40"/>
                                 <color key="backgroundColor" red="0.011764705882352941" green="0.31764705882352939" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                 <state key="normal" title="PlayStation 4">
@@ -1197,14 +1197,14 @@
                                     <action selector="consoleButtonPressed:" destination="RJW-k0-l6u" eventType="touchUpInside" id="LFT-s0-p7B"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="iconArrowDown" translatesAutoresizingMaskIntoConstraints="NO" id="LXc-zO-JUp">
+                                <rect key="frame" x="403" y="287" width="10" height="5"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPsnConsole" translatesAutoresizingMaskIntoConstraints="NO" id="pJ4-DM-yXy">
-                                <rect key="frame" x="185" y="278" width="24" height="26"/>
+                                <rect key="frame" x="185" y="277" width="24" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="xml-hr-Fqh"/>
                                 </constraints>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="iconArrowDown" translatesAutoresizingMaskIntoConstraints="NO" id="LXc-zO-JUp">
-                                <rect key="frame" x="403" y="289" width="10" height="5"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.36470588240000001" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1212,7 +1212,7 @@
                             <constraint firstItem="2Ax-E1-ccC" firstAttribute="centerX" secondItem="NgN-Kf-uF4" secondAttribute="centerX" id="0ov-PX-oVN"/>
                             <constraint firstItem="yga-kS-xxF" firstAttribute="trailing" secondItem="lly-Ep-C9p" secondAttribute="trailing" id="9ce-CJ-tbo"/>
                             <constraint firstItem="Gnx-Nj-sRV" firstAttribute="top" secondItem="cYS-BI-7UK" secondAttribute="bottom" constant="20" id="AMu-gt-rd7"/>
-                            <constraint firstItem="pJ4-DM-yXy" firstAttribute="top" secondItem="cYS-BI-7UK" secondAttribute="bottom" constant="-34" id="CSx-m5-Md1"/>
+                            <constraint firstItem="pJ4-DM-yXy" firstAttribute="top" secondItem="cYS-BI-7UK" secondAttribute="bottom" constant="-33" id="CSx-m5-Md1"/>
                             <constraint firstItem="lly-Ep-C9p" firstAttribute="centerX" secondItem="NgN-Kf-uF4" secondAttribute="centerX" id="CnL-VA-5E1"/>
                             <constraint firstItem="APu-zA-Kyk" firstAttribute="top" secondItem="tHf-b5-jNh" secondAttribute="bottom" constant="-197" id="Djd-Id-5SO"/>
                             <constraint firstItem="Gnx-Nj-sRV" firstAttribute="leading" secondItem="cYS-BI-7UK" secondAttribute="leading" id="E3r-lW-Qfe"/>
