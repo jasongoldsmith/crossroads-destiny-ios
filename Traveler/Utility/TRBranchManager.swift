@@ -56,10 +56,6 @@ class TRBranchManager {
         
         var messageString = "\(console): I need \(playerCount) more for \(activityName!) in the \(groupName) group"
         
-        // Create Branch Object
-        branchUniversalObject = BranchUniversalObject.init(canonicalIdentifier: canonicalIdentifier)
-        branchUniversalObject.contentDescription = messageString
-        
         if TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(eventInfo) {
             branchUniversalObject.title = "Join My Fireteam"
             if eventInfo.eventPlayersArray.count == eventInfo.eventMaxPlayers!.integerValue {
@@ -87,6 +83,10 @@ class TRBranchManager {
                 messageString = "Check out this \(activityName!) in the \(groupName) group"
             }
         }
+        
+        // Create Branch Object
+        branchUniversalObject = BranchUniversalObject.init(canonicalIdentifier: canonicalIdentifier)
+        branchUniversalObject.contentDescription = messageString
         
         if let hasActivityCard = eventInfo.eventActivity?.activityID {
             let imageString = "http://w3.crossroadsapp.co/bungie/share/branch/v1/\(hasActivityCard)"
