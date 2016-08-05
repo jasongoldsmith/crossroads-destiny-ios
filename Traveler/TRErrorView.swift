@@ -79,9 +79,10 @@ class TRErrorView: UIView {
             self.errorDescription.text = "The maximum amount of players has been reached for this activity. Would you like to add one of your own?"
             break
         case .NEEDS_CONSOLE:
-            let console = self.eventInfo?.eventCreator?.playerConsoles.first?.consoleType
-            self.buttonOneYes.setTitle("ADD MY \(console)", forState: .Normal)
-            self.errorDescription.text = "You’ll need to be on \(console) to join that activity from \(eventGroup). Add another console to your account?"
+            if let console  = self.eventInfo?.clanName {
+                self.buttonOneYes.setTitle("ADD MY \(console)", forState: .Normal)
+                self.errorDescription.text = "You’ll need to be on \(console) to join that activity from \(eventGroup). Add another console to your account?"
+            }
             break
         case .JOIN_BUNGIE_GROUP:
             self.buttonOneYes.setTitle("VIEW GROUP ON BUNGIE.NET", forState: .Normal)
