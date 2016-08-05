@@ -2209,6 +2209,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n3y-gf-vY6">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <imageView alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q9A-6x-JSM">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="A0S-zG-8Ql" appends="YES" id="l2u-7P-SqM"/>
+                                        </connections>
+                                    </imageView>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jmq-Wr-K5x">
+                                        <rect key="frame" x="140" y="192" width="320" height="216"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="KOc-md-Vga" id="t5Q-kP-BBw"/>
+                                            <outlet property="delegate" destination="KOc-md-Vga" id="GWW-0m-5wP"/>
+                                        </connections>
+                                    </pickerView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Q9A-6x-JSM" firstAttribute="top" secondItem="n3y-gf-vY6" secondAttribute="top" id="CDG-1c-QBw"/>
+                                    <constraint firstAttribute="trailing" secondItem="Q9A-6x-JSM" secondAttribute="trailing" id="Mux-x8-pXc"/>
+                                    <constraint firstAttribute="bottom" secondItem="Q9A-6x-JSM" secondAttribute="bottom" id="SMF-NA-2I1"/>
+                                    <constraint firstItem="Q9A-6x-JSM" firstAttribute="leading" secondItem="n3y-gf-vY6" secondAttribute="leading" id="aRL-gQ-VwQ"/>
+                                    <constraint firstItem="Jmq-Wr-K5x" firstAttribute="centerX" secondItem="n3y-gf-vY6" secondAttribute="centerX" id="fNQ-Q7-kyS"/>
+                                    <constraint firstItem="Jmq-Wr-K5x" firstAttribute="centerY" secondItem="n3y-gf-vY6" secondAttribute="centerY" id="jea-LW-aAT"/>
+                                </constraints>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrLoadingimgBackgroundMap" translatesAutoresizingMaskIntoConstraints="NO" id="sHN-zm-iXF">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -2357,7 +2387,7 @@ from &lt;Playstation 3&gt;. </string>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3zm-Da-zw2">
-                                <rect key="frame" x="25" y="288" width="24" height="24"/>
+                                <rect key="frame" x="25" y="286" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="LEN-Vo-SL6"/>
                                 </constraints>
@@ -2368,36 +2398,6 @@ from &lt;Playstation 3&gt;. </string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n3y-gf-vY6">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <subviews>
-                                    <imageView alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q9A-6x-JSM">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="A0S-zG-8Ql" appends="YES" id="l2u-7P-SqM"/>
-                                        </connections>
-                                    </imageView>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jmq-Wr-K5x">
-                                        <rect key="frame" x="140" y="192" width="320" height="216"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="KOc-md-Vga" id="t5Q-kP-BBw"/>
-                                            <outlet property="delegate" destination="KOc-md-Vga" id="GWW-0m-5wP"/>
-                                        </connections>
-                                    </pickerView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="Q9A-6x-JSM" firstAttribute="top" secondItem="n3y-gf-vY6" secondAttribute="top" id="CDG-1c-QBw"/>
-                                    <constraint firstAttribute="trailing" secondItem="Q9A-6x-JSM" secondAttribute="trailing" id="Mux-x8-pXc"/>
-                                    <constraint firstAttribute="bottom" secondItem="Q9A-6x-JSM" secondAttribute="bottom" id="SMF-NA-2I1"/>
-                                    <constraint firstItem="Q9A-6x-JSM" firstAttribute="leading" secondItem="n3y-gf-vY6" secondAttribute="leading" id="aRL-gQ-VwQ"/>
-                                    <constraint firstItem="Jmq-Wr-K5x" firstAttribute="centerX" secondItem="n3y-gf-vY6" secondAttribute="centerX" id="fNQ-Q7-kyS"/>
-                                    <constraint firstItem="Jmq-Wr-K5x" firstAttribute="centerY" secondItem="n3y-gf-vY6" secondAttribute="centerY" id="jea-LW-aAT"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -2413,7 +2413,7 @@ from &lt;Playstation 3&gt;. </string>
                             <constraint firstAttribute="trailing" secondItem="n3y-gf-vY6" secondAttribute="trailing" id="KXg-uz-Bc9"/>
                             <constraint firstItem="rzn-bo-U2A" firstAttribute="top" secondItem="Nax-av-Wvi" secondAttribute="bottom" id="MF7-ZU-jp9"/>
                             <constraint firstAttribute="trailing" secondItem="cSX-zS-eiN" secondAttribute="trailing" constant="20" id="Mk7-0a-jU1"/>
-                            <constraint firstItem="yJh-Oy-PJq" firstAttribute="top" secondItem="3zm-Da-zw2" secondAttribute="bottom" constant="27" id="Ml6-zC-6Jj"/>
+                            <constraint firstItem="yJh-Oy-PJq" firstAttribute="top" secondItem="3zm-Da-zw2" secondAttribute="bottom" constant="29" id="Ml6-zC-6Jj"/>
                             <constraint firstAttribute="trailing" secondItem="sHN-zm-iXF" secondAttribute="trailing" id="Obh-fE-rz0"/>
                             <constraint firstItem="uWa-nd-jij" firstAttribute="top" secondItem="unG-fm-H5R" secondAttribute="bottom" constant="40" id="PTh-g1-7ff"/>
                             <constraint firstItem="aXP-YL-bLf" firstAttribute="top" secondItem="yJh-Oy-PJq" secondAttribute="bottom" constant="12" id="Py8-Z0-sbS"/>
@@ -2429,7 +2429,7 @@ from &lt;Playstation 3&gt;. </string>
                             <constraint firstItem="Xcc-0E-LNK" firstAttribute="top" secondItem="yju-HA-LIZ" secondAttribute="bottom" id="eRN-Fe-ifC"/>
                             <constraint firstItem="rzn-bo-U2A" firstAttribute="top" secondItem="sHN-zm-iXF" secondAttribute="bottom" id="fKV-N6-baO"/>
                             <constraint firstItem="cSX-zS-eiN" firstAttribute="leading" secondItem="pDa-OZ-Smy" secondAttribute="leading" constant="20" id="fMy-Do-SdU"/>
-                            <constraint firstItem="3zm-Da-zw2" firstAttribute="centerY" secondItem="PK0-Le-SMR" secondAttribute="centerY" constant="2" id="gSe-tL-gcf"/>
+                            <constraint firstItem="3zm-Da-zw2" firstAttribute="centerY" secondItem="PK0-Le-SMR" secondAttribute="centerY" id="gSe-tL-gcf"/>
                             <constraint firstItem="Xcc-0E-LNK" firstAttribute="leading" secondItem="pDa-OZ-Smy" secondAttribute="leading" constant="10" id="hKA-pW-9i9"/>
                             <constraint firstItem="3JW-SK-YBk" firstAttribute="top" secondItem="yju-HA-LIZ" secondAttribute="bottom" id="ipB-fs-hwo"/>
                             <constraint firstItem="XCv-6A-HNo" firstAttribute="top" secondItem="PK0-Le-SMR" secondAttribute="bottom" constant="17" id="lVX-jt-TbL"/>

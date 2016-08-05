@@ -633,17 +633,58 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         
         let eventInfo = TRApplicationManager.sharedInstance.getEventById(eventID)
         if let _ = eventInfo {
+            self.changeGroupToClickedActivePushNoti((eventInfo?.eventClanID)!)
+            self.changeConsoleToClickActivePushNoti((eventInfo?.eventConsoleType)!)
             self.showEventInfoViewController(eventInfo, fromPushNoti: false)
         } else {
             _ = TRGetEventRequest().getEventByID(eventID, viewHandlesError: false, completion: { (error, event) in
                 if let _ = event {
+                    self.changeConsoleToClickActivePushNoti((event?.eventConsoleType)!)
+                    self.changeGroupToClickedActivePushNoti((event?.eventClanID)!)
                     self.showEventInfoViewController(event, fromPushNoti: false)
                 }
             })
         }
     }
     
+    func changeGroupToClickedActivePushNoti (groupId: String) {
+        
+        if let selectedGroup = TRApplicationManager.sharedInstance.getGroupByGroupId(groupId) {
+            _ = TRUpdateGroupRequest().updateUserGroup(selectedGroup.groupId!, groupName:(selectedGroup.groupName)!, groupImage: (selectedGroup.avatarPath)! ,completion: { (didSucceed) in
+                _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: false, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
+                    if(didSucceed == true) {
+                        self.reloadEventTable()
+                        self.updateGroupImage ()
+                    }
+                })
+            })
+        }
+    }
     
+    func changeConsoleToClickActivePushNoti (eventConsole: String) {
+        
+        if let console = TRApplicationManager.sharedInstance.currentUser?.getDefaultConsole() {
+            if console.consoleType == eventConsole {
+                return
+            } else {
+                let consoleArray = TRApplicationManager.sharedInstance.currentUser?.consoles.filter{$0.consoleType == eventConsole}
+                if let existingConsole = consoleArray?.first {
+                    _ = TRChangeConsoleRequest().changeConsole(existingConsole.consoleType!, completion: { (didSucceed) in
+                        if didSucceed == true {
+                            _ = TRGetEventsList().getEventsListWithClearActivityBackGround(false, clearBG: false, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
+                                if didSucceed == true {
+                                    self.reloadEventTable()
+                                    self.updateUserAvatorImage()
+                                }
+                            })
+                        }
+                    })
+                } else {
+                    return
+                }
+            }
+        }
+    }
     
     //MARK:- Error Message View Handling actions
     func addActivity () {

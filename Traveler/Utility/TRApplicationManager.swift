@@ -270,6 +270,10 @@ class TRApplicationManager: NSObject {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func getGroupByGroupId (groupId: String) -> TRBungieGroupInfo? {
+        let groupsArray = TRApplicationManager.sharedInstance.bungieGroups.filter{$0.groupId == groupId}
+        return groupsArray.first
+    }
     
     func getEventById (eventId: String) -> TREventInfo? {
 

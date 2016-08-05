@@ -279,9 +279,11 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
                                     self.consoleTagView.hidden = true
                                     self.addUpdateNewConsole.setTitle("UPGRADE", forState: .Normal)
                                     self.upgradeLabel.hidden = false
-                                    self.upgradeLabel.text = "NOTE: Once you upgrade to Playstation 4 you will no longer be able to view activities from Playstation 3."
+                                    self.upgradeLabel.text = "NOTE: Once you upgrade to PlayStation 4 you will no longer be able to view activities from PlayStation 3."
                                     self.isUpgrade = true
-
+                                    self.addUpdateNewConsole.enabled = true
+                                    self.addUpdateNewConsole?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
+                                    
                                     break
                                 }
                             } else {
@@ -312,9 +314,11 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
                                     self.consoleTagView.hidden = true
                                     self.addUpdateNewConsole.setTitle("UPGRADE", forState: .Normal)
                                     self.upgradeLabel.hidden = false
-                                    self.upgradeLabel.text = "NOTE: Once you upgrade to xBox One you will no longer be able to view activities from xBox 360."
+                                    self.upgradeLabel.text = "NOTE: Once you upgrade to Xbox One you will no longer be able to view activities from Xbox 360."
                                     self.isUpgrade = true
-                                    
+                                    self.addUpdateNewConsole.enabled = true
+                                    self.addUpdateNewConsole?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
+
                                     break
                                 }
                             } else {
