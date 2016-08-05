@@ -60,9 +60,12 @@ class TRErrorView: UIView {
         self.buttonOneYes.layer.cornerRadius = 2.0
         
         var eventName = ""
-        if let name = self.eventInfo?.clanName {
-            eventName = name
-        } else {
+        var eventGroup = ""
+        
+        if let groupName = self.eventInfo?.clanName {
+            eventGroup = groupName
+        }
+        if let _ = self.activityName {
             eventName = self.activityName!
         }
         
@@ -78,11 +81,11 @@ class TRErrorView: UIView {
         case .NEEDS_CONSOLE:
             let console = self.eventInfo?.eventCreator?.playerConsoles.first?.consoleType
             self.buttonOneYes.setTitle("ADD MY \(console)", forState: .Normal)
-            self.errorDescription.text = "You’ll need to be on \(console) to join that activity from <group>. Add another console to your account?"
+            self.errorDescription.text = "You’ll need to be on \(console) to join that activity from \(eventGroup). Add another console to your account?"
             break
         case .JOIN_BUNGIE_GROUP:
             self.buttonOneYes.setTitle("VIEW GROUP ON BUNGIE.NET", forState: .Normal)
-            self.errorDescription.text = "You’ll need to be in the <group> to join \(eventName). Request to join?"
+            self.errorDescription.text = "You’ll need to be in the \(eventGroup) group to join that \(eventName). Request to join?"
             break
         }
     }

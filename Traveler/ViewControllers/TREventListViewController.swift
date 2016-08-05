@@ -401,7 +401,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
                     do {
                         let _ = try self.getBranchError(event!)
                     } catch let errorType as Branch_Error {
-                        self.showBranchErrorViewWithError(errorType, eventInfo: eventInfo, activityName: activityName)
+                        self.showBranchErrorViewWithError(errorType, eventInfo: event, activityName: activityName)
                         return
                     } catch {
                     }
