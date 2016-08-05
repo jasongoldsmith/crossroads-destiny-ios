@@ -37,7 +37,7 @@ class TRBranchManager {
 
         let extraPlayersRequiredCount = ((eventInfo.eventActivity?.activityMaxPlayers?.integerValue)! - (eventInfo.eventPlayersArray.count))
         let playerCount = String(extraPlayersRequiredCount)
-        let console = self.getConsoleTypeFromString(TRUserInfo.getConsoleType()!)
+        let console = self.getConsoleTypeFromString(eventInfo.eventConsoleType!)
         let activityName = eventInfo.eventActivity?.activitySubType!
         
         //Formatted Date
@@ -116,16 +116,15 @@ class TRBranchManager {
         
         var consoleType = ""
         switch consoleName {
-        case "PlayStation 4":
+        case "PS4":
             consoleType = "PS4"
             break
-        case "PlayStation 3":
+        case "PS3":
             consoleType = "PS3"
             break
-        case "Xbox 360":
+        case "XBOX360":
             consoleType = "360"
             break
-            
         default:
             consoleType = "XB1"
             break
