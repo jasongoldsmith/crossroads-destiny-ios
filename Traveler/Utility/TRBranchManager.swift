@@ -38,7 +38,7 @@ class TRBranchManager {
         let extraPlayersRequiredCount = ((eventInfo.eventActivity?.activityMaxPlayers?.integerValue)! - (eventInfo.eventPlayersArray.count))
         let playerCount = String(extraPlayersRequiredCount)
         let console = self.getConsoleTypeFromString(eventInfo.eventConsoleType!)
-        let activityName = eventInfo.eventActivity?.activitySubType!
+        var activityName = ""
         
         //Formatted Date
         let formatter = NSDateFormatter()
@@ -54,9 +54,13 @@ class TRBranchManager {
             }
         }
         
+        if let aName = eventInfo.eventActivity?.activitySubType! {
+            activityName = aName
+        }
+        
         // Create Branch Object
         branchUniversalObject = BranchUniversalObject.init(canonicalIdentifier: canonicalIdentifier)
-        var messageString = "\(console): I need \(playerCount) more for \(activityName!) in the \(groupName) group"
+        var messageString = "\(console): I need \(playerCount) more for \(activityName) in the \(groupName) group"
         
         if TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(eventInfo) {
             branchUniversalObject.title = "Join My Fireteam"
@@ -64,7 +68,7 @@ class TRBranchManager {
                 branchUniversalObject.title = eventInfo.eventActivity?.activitySubType
             }
             
-            messageString = "\(console): I need \(playerCount) more for \(activityName!) in the \(groupName) group"
+            messageString = "\(console): I need \(playerCount) more for \(activityName) in the \(groupName) group"
         } else {
             branchUniversalObject.title = "Searching for Guardians"
             if eventInfo.eventPlayersArray.count == eventInfo.eventMaxPlayers!.integerValue {
@@ -74,16 +78,16 @@ class TRBranchManager {
             messageString = "This fireteam needs \(extraPlayersRequiredCount) more for \(activityName) in the \(groupName) group"
             
             if eventInfo.isFutureEvent == true {
-                messageString = "\(console): This fireteam needs \(playerCount) more for \(activityName!) on \(formatedDate) in the \(groupName) group"
+                messageString = "\(console): This fireteam needs \(playerCount) more for \(activityName) on \(formatedDate) in the \(groupName) group"
             }
         }
         
         if extraPlayersRequiredCount == 0 {
             branchUniversalObject.title = eventInfo.eventActivity?.activitySubType
             if eventInfo.isFutureEvent == true {
-                messageString = "\(console): Check out this \(activityName!) on \(formatedDate) in the \(groupName) group"
+                messageString = "\(console): Check out this \(activityName) on \(formatedDate) in the \(groupName) group"
             } else {
-                messageString = "\(console): Check out this \(activityName!) in the \(groupName) group"
+                messageString = "\(console): Check out this \(activityName) in the \(groupName) group"
             }
         }
         
