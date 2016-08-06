@@ -2209,36 +2209,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n3y-gf-vY6">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <subviews>
-                                    <imageView alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q9A-6x-JSM">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="A0S-zG-8Ql" appends="YES" id="l2u-7P-SqM"/>
-                                        </connections>
-                                    </imageView>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jmq-Wr-K5x">
-                                        <rect key="frame" x="140" y="192" width="320" height="216"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="KOc-md-Vga" id="t5Q-kP-BBw"/>
-                                            <outlet property="delegate" destination="KOc-md-Vga" id="GWW-0m-5wP"/>
-                                        </connections>
-                                    </pickerView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="Q9A-6x-JSM" firstAttribute="top" secondItem="n3y-gf-vY6" secondAttribute="top" id="CDG-1c-QBw"/>
-                                    <constraint firstAttribute="trailing" secondItem="Q9A-6x-JSM" secondAttribute="trailing" id="Mux-x8-pXc"/>
-                                    <constraint firstAttribute="bottom" secondItem="Q9A-6x-JSM" secondAttribute="bottom" id="SMF-NA-2I1"/>
-                                    <constraint firstItem="Q9A-6x-JSM" firstAttribute="leading" secondItem="n3y-gf-vY6" secondAttribute="leading" id="aRL-gQ-VwQ"/>
-                                    <constraint firstItem="Jmq-Wr-K5x" firstAttribute="centerX" secondItem="n3y-gf-vY6" secondAttribute="centerX" id="fNQ-Q7-kyS"/>
-                                    <constraint firstItem="Jmq-Wr-K5x" firstAttribute="centerY" secondItem="n3y-gf-vY6" secondAttribute="centerY" id="jea-LW-aAT"/>
-                                </constraints>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrLoadingimgBackgroundMap" translatesAutoresizingMaskIntoConstraints="NO" id="sHN-zm-iXF">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -2398,6 +2368,36 @@ from &lt;Playstation 3&gt;. </string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n3y-gf-vY6">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <imageView alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q9A-6x-JSM">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="A0S-zG-8Ql" appends="YES" id="l2u-7P-SqM"/>
+                                        </connections>
+                                    </imageView>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jmq-Wr-K5x">
+                                        <rect key="frame" x="140" y="192" width="320" height="216"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="KOc-md-Vga" id="t5Q-kP-BBw"/>
+                                            <outlet property="delegate" destination="KOc-md-Vga" id="GWW-0m-5wP"/>
+                                        </connections>
+                                    </pickerView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Q9A-6x-JSM" firstAttribute="top" secondItem="n3y-gf-vY6" secondAttribute="top" id="CDG-1c-QBw"/>
+                                    <constraint firstAttribute="trailing" secondItem="Q9A-6x-JSM" secondAttribute="trailing" id="Mux-x8-pXc"/>
+                                    <constraint firstAttribute="bottom" secondItem="Q9A-6x-JSM" secondAttribute="bottom" id="SMF-NA-2I1"/>
+                                    <constraint firstItem="Q9A-6x-JSM" firstAttribute="leading" secondItem="n3y-gf-vY6" secondAttribute="leading" id="aRL-gQ-VwQ"/>
+                                    <constraint firstItem="Jmq-Wr-K5x" firstAttribute="centerX" secondItem="n3y-gf-vY6" secondAttribute="centerX" id="fNQ-Q7-kyS"/>
+                                    <constraint firstItem="Jmq-Wr-K5x" firstAttribute="centerY" secondItem="n3y-gf-vY6" secondAttribute="centerY" id="jea-LW-aAT"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
