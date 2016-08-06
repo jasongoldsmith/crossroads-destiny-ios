@@ -75,7 +75,7 @@ class TRBranchManager {
                 branchUniversalObject.title = eventInfo.eventActivity?.activitySubType
             }
             
-            messageString = "This fireteam needs \(extraPlayersRequiredCount) more for \(activityName) in the \(groupName) group"
+            messageString = "\(console): This fireteam needs \(extraPlayersRequiredCount) more for \(activityName) in the \(groupName) group"
             
             if eventInfo.isFutureEvent == true {
                 messageString = "\(console): This fireteam needs \(playerCount) more for \(activityName) on \(formatedDate) in the \(groupName) group"
