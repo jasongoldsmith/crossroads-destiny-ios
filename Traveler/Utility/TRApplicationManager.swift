@@ -189,19 +189,7 @@ class TRApplicationManager: NSObject {
                     self.slideMenuController.view.alpha = 1
                     eventListViewController.updateGroupImage()
                 })
-            } else if (!showLandingPage){
-                let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
-                let vc : TRCreateEventViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEWCONTROLLER_CREATE_EVENT) as! TRCreateEventViewController
-                let navigationController = UINavigationController(rootViewController: vc)
-                eventListViewController.presentViewController(navigationController, animated: false, completion: {
-                    self.slideMenuController.view.alpha = 1
-                })
-                
-                //Fetch Events
-                self.fetchBungieGroups(false, completion: { (didSucceed) in
-                    eventListViewController.updateGroupImage()
-                })
-            }  else {
+            } else {
                 //Fetch Events
                 
                 self.slideMenuController.view.alpha = 0.6
