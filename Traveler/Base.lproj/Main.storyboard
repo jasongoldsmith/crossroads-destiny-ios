@@ -6,10 +6,10 @@
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
@@ -1754,7 +1754,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bim-z1-0Mm" customClass="EventButton" customModule="Crossroads" customModuleProvider="target">
-                                <rect key="frame" x="153" y="347" width="94" height="96"/>
+                                <rect key="frame" x="153" y="302" width="94" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="N1V-YT-g8O"/>
                                     <constraint firstAttribute="width" constant="94" id="Qmq-en-F2B"/>
@@ -1767,7 +1767,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edw-uz-yzl" customClass="EventButton" customModule="Crossroads" customModuleProvider="target">
-                                <rect key="frame" x="253" y="347" width="94" height="96"/>
+                                <rect key="frame" x="253" y="302" width="94" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="L5Q-3Z-jpq"/>
                                     <constraint firstAttribute="width" constant="94" id="nFS-bB-NCr"/>
@@ -1780,7 +1780,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rqR-A6-np8" customClass="EventButton" customModule="Crossroads" customModuleProvider="target">
-                                <rect key="frame" x="153" y="246" width="94" height="96"/>
+                                <rect key="frame" x="153" y="201" width="94" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="94" id="NbN-os-73Q"/>
                                     <constraint firstAttribute="height" constant="96" id="fWG-NR-bnO"/>
@@ -1793,7 +1793,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWj-rT-82b" customClass="EventButton" customModule="Crossroads" customModuleProvider="target">
-                                <rect key="frame" x="353" y="246" width="94" height="96"/>
+                                <rect key="frame" x="353" y="201" width="94" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="94" id="Kqa-DB-X7o"/>
                                     <constraint firstAttribute="height" constant="96" id="wq7-sn-YhW"/>
@@ -1806,7 +1806,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zec-Re-cT2" customClass="EventButton" customModule="Crossroads" customModuleProvider="target">
-                                <rect key="frame" x="253" y="246" width="94" height="96"/>
+                                <rect key="frame" x="253" y="201" width="94" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="P37-aR-9QB"/>
                                     <constraint firstAttribute="width" constant="94" id="fC6-li-Y4q"/>
@@ -1818,24 +1818,49 @@
                                     <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="tBD-Rw-pWH"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgGlobeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="xX4-xG-ytT">
-                                <rect key="frame" x="275" y="141" width="50" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ZR-uT-eTb">
+                                <rect key="frame" x="153" y="404" width="94" height="96"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="WlJ-Z0-ArL"/>
-                                    <constraint firstAttribute="width" constant="50" id="nxL-fp-UTC"/>
+                                    <constraint firstAttribute="height" constant="96" id="1VK-Vg-Udv"/>
+                                    <constraint firstAttribute="width" constant="94" id="xpa-nS-ZVb"/>
                                 </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you want to do?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBH-9P-IF2">
-                                <rect key="frame" x="166" y="195" width="268" height="28"/>
+                                <state key="normal" image="imgStory"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Skp-MY-YsM">
+                                <rect key="frame" x="253" y="404" width="94" height="96"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="94" id="2ms-QS-iGo"/>
+                                    <constraint firstAttribute="height" constant="96" id="ajD-vo-qbr"/>
+                                </constraints>
+                                <state key="normal" image="imgQuest"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J7K-k3-fIX">
+                                <rect key="frame" x="353" y="404" width="94" height="96"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="LmB-hS-bxp"/>
+                                    <constraint firstAttribute="width" constant="94" id="rh8-ub-Y4u"/>
+                                </constraints>
+                                <state key="normal" image="imgExotic"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHOOSE AN ACTIVITY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBH-9P-IF2">
+                                <rect key="frame" x="191.5" y="154" width="217.5" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="268" id="ZxI-ya-z1q"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ZxI-ya-z1q"/>
+                                    </mask>
+                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbn-l8-9hm" customClass="EventButton" customModule="Crossroads" customModuleProvider="target">
-                                <rect key="frame" x="353" y="347" width="94" height="96"/>
+                                <rect key="frame" x="353" y="302" width="94" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="f20-Zw-YeK"/>
                                     <constraint firstAttribute="width" constant="94" id="xYF-vF-o1W"/>
@@ -1853,22 +1878,25 @@
                             <constraint firstItem="zec-Re-cT2" firstAttribute="top" secondItem="qBH-9P-IF2" secondAttribute="bottom" constant="23" id="01y-ZS-HQ7"/>
                             <constraint firstItem="0ju-Zl-M2q" firstAttribute="leading" secondItem="VHb-Gc-Kgz" secondAttribute="leadingMargin" constant="-20" id="4yB-Ri-ctI"/>
                             <constraint firstItem="bim-z1-0Mm" firstAttribute="leading" secondItem="rqR-A6-np8" secondAttribute="leading" id="7KE-h0-WDE"/>
+                            <constraint firstItem="Skp-MY-YsM" firstAttribute="bottom" secondItem="2ZR-uT-eTb" secondAttribute="bottom" id="9Ml-Q4-Trt"/>
+                            <constraint firstItem="2ZR-uT-eTb" firstAttribute="top" secondItem="bim-z1-0Mm" secondAttribute="bottom" constant="6" id="A6E-ZZ-l4r"/>
                             <constraint firstItem="rqR-A6-np8" firstAttribute="centerY" secondItem="zec-Re-cT2" secondAttribute="centerY" id="DBJ-dD-KH4"/>
+                            <constraint firstItem="Skp-MY-YsM" firstAttribute="leading" secondItem="2ZR-uT-eTb" secondAttribute="trailing" constant="6" id="H59-i7-1c3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0ju-Zl-M2q" secondAttribute="trailing" constant="-20" id="IQ9-a1-49c"/>
                             <constraint firstItem="RWj-rT-82b" firstAttribute="leading" secondItem="zec-Re-cT2" secondAttribute="trailing" constant="6" id="MNJ-V5-fuc"/>
-                            <constraint firstItem="qBH-9P-IF2" firstAttribute="centerX" secondItem="xX4-xG-ytT" secondAttribute="centerX" id="PMQ-9B-Rmb"/>
+                            <constraint firstItem="i2g-3I-3sz" firstAttribute="top" secondItem="2ZR-uT-eTb" secondAttribute="bottom" constant="100" id="Vyw-83-gun"/>
                             <constraint firstItem="RWj-rT-82b" firstAttribute="centerY" secondItem="zec-Re-cT2" secondAttribute="centerY" id="XKG-mV-ozz"/>
                             <constraint firstItem="wbn-l8-9hm" firstAttribute="leading" secondItem="edw-uz-yzl" secondAttribute="trailing" constant="6" id="bsE-EW-L6b"/>
-                            <constraint firstItem="xX4-xG-ytT" firstAttribute="top" secondItem="ayi-je-Xfm" secondAttribute="bottom" multiplier="0.7" constant="127" id="cXw-Wy-hjH"/>
                             <constraint firstItem="i2g-3I-3sz" firstAttribute="top" secondItem="0ju-Zl-M2q" secondAttribute="bottom" id="eUr-mA-sDd"/>
-                            <constraint firstItem="zec-Re-cT2" firstAttribute="top" secondItem="xX4-xG-ytT" secondAttribute="bottom" constant="55" id="hzd-sf-6RO"/>
                             <constraint firstItem="wbn-l8-9hm" firstAttribute="top" secondItem="RWj-rT-82b" secondAttribute="bottom" constant="5" id="jdS-bd-dMj"/>
                             <constraint firstItem="bim-z1-0Mm" firstAttribute="centerY" secondItem="edw-uz-yzl" secondAttribute="centerY" id="kBl-HI-Hnv"/>
                             <constraint firstItem="edw-uz-yzl" firstAttribute="centerY" secondItem="wbn-l8-9hm" secondAttribute="centerY" id="lCU-WX-iFg"/>
-                            <constraint firstItem="qBH-9P-IF2" firstAttribute="top" secondItem="xX4-xG-ytT" secondAttribute="bottom" constant="4" id="sAf-xG-bBC"/>
+                            <constraint firstItem="J7K-k3-fIX" firstAttribute="leading" secondItem="Skp-MY-YsM" secondAttribute="trailing" constant="6" id="mya-cH-ldE"/>
+                            <constraint firstItem="qBH-9P-IF2" firstAttribute="centerX" secondItem="VHb-Gc-Kgz" secondAttribute="centerX" id="qNc-q2-fWs"/>
+                            <constraint firstItem="J7K-k3-fIX" firstAttribute="bottom" secondItem="Skp-MY-YsM" secondAttribute="bottom" id="rd6-HY-e2l"/>
+                            <constraint firstItem="2ZR-uT-eTb" firstAttribute="leading" secondItem="bim-z1-0Mm" secondAttribute="leading" id="s5b-m8-H4n"/>
                             <constraint firstItem="edw-uz-yzl" firstAttribute="centerX" secondItem="zec-Re-cT2" secondAttribute="centerX" id="sdQ-jR-23c"/>
                             <constraint firstItem="zec-Re-cT2" firstAttribute="leading" secondItem="rqR-A6-np8" secondAttribute="trailing" constant="6" id="tZY-vP-sQA"/>
-                            <constraint firstItem="xX4-xG-ytT" firstAttribute="centerX" secondItem="zec-Re-cT2" secondAttribute="centerX" id="wVW-hw-9dv"/>
                             <constraint firstItem="zec-Re-cT2" firstAttribute="centerX" secondItem="VHb-Gc-Kgz" secondAttribute="centerX" id="wy1-OK-MMu"/>
                             <constraint firstItem="0ju-Zl-M2q" firstAttribute="top" secondItem="ayi-je-Xfm" secondAttribute="bottom" constant="-20" id="zB2-2X-zjD"/>
                         </constraints>
@@ -2937,6 +2965,7 @@ from &lt;Playstation 3&gt;. </string>
         <image name="imgCruicible" width="98" height="100"/>
         <image name="imgCruicibleSelected" width="98" height="100"/>
         <image name="imgDogEar" width="28" height="28"/>
+        <image name="imgExotic" width="98" height="100"/>
         <image name="imgFeatured" width="98" height="100"/>
         <image name="imgFeaturedOnTap" width="98" height="100"/>
         <image name="imgGlobeIcon" width="60" height="60"/>
@@ -2945,8 +2974,10 @@ from &lt;Playstation 3&gt;. </string>
         <image name="imgNogroups" width="96" height="96"/>
         <image name="imgPatrol" width="98" height="100"/>
         <image name="imgPatrolOnTap" width="98" height="100"/>
+        <image name="imgQuest" width="98" height="100"/>
         <image name="imgRaids" width="98" height="100"/>
         <image name="imgRaidsSelected" width="98" height="100"/>
+        <image name="imgStory" width="98" height="100"/>
         <image name="imgStrikes" width="98" height="100"/>
         <image name="imgStrikesOnTap" width="98" height="100"/>
         <image name="imgWeekliesSelected" width="98" height="100"/>
