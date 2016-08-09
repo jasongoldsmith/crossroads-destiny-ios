@@ -9,6 +9,8 @@
 import UIKit
 import Branch
 import Mixpanel
+import FBSDKCoreKit
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -66,7 +68,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         })
         
-        return true
+        // FBSDK Initialization
+        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 
     // MARK:- Branch Deep Linking related methods
@@ -75,28 +78,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // do other deep link routing for the Facebook SDK, Pinterest SDK, etc
         }
         
-        return true
+        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
     
     func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
-        // pass the url to the handle deep link call
         Branch.getInstance().continueUserActivity(userActivity);
-        
-        if userActivity.isEqual(NSUserActivityTypeBrowsingWeb) {
-            let url = userActivity.webpageURL
-            print("url: \(url)")
-        }
         
         return true
     }
-    
-    
-//    func application(application: UIApplication, didReceiveRemoteNotification launchOptions: [NSObject: AnyObject]) -> Void {
-//        Branch.getInstance().handlePushNotification(launchOptions)
-//    }
+
     
     // MARK:- Notifications
-    
     func addNotificationsPermission () {
         if UIApplication.sharedApplication().respondsToSelector(#selector(UIApplication.registerUserNotificationSettings(_:))) {
             
@@ -164,6 +156,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
+        FBSDKAppEvents.activateApp()
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 

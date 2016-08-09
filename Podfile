@@ -16,6 +16,7 @@ def project_pods
     pod 'Firebase/Core'
     pod 'Branch'
     pod 'Mixpanel-swift'
+    pod 'FacebookCore'
 end
 
 target 'Traveler' do

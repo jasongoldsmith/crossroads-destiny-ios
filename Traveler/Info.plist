@@ -36,6 +36,12 @@
 				<string>dlcsrd</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb855221411276321</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>15</string>
@@ -66,5 +72,9 @@
 	<false/>
 	<key>branch_key</key>
 	<string>key_live_ilh33QPvqAgDqnVVRh8iXcnnBBaLIp97</string>
+	<key>FacebookAppID</key>
+	<string>855221411276321</string>
+	<key>FacebookDisplayName</key>
+	<string>co.crossroadsapp.destiny</string>
 </dict>
 </plist>

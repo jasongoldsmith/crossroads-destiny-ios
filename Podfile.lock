@@ -1,11 +1,22 @@
 PODS:
   - AFDateHelper (3.4.2)
   - Alamofire (3.3.1)
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
   - Branch (0.12.5):
     - Branch/Core (= 0.12.5)
     - Branch/without-IDFA (= 0.12.5)
   - Branch/Core (0.12.5)
   - Branch/without-IDFA (0.12.5)
+  - FacebookCore (0.1.1):
+    - Bolts (~> 1.8)
+    - FBSDKCoreKit (~> 4.14)
+  - FBSDKCoreKit (4.14.0):
+    - Bolts (~> 1.7)
   - Firebase/Analytics (3.4.0):
     - FirebaseAnalytics (~> 3.3)
   - Firebase/Core (3.4.0):
@@ -45,6 +56,7 @@ DEPENDENCIES:
   - AFDateHelper
   - Alamofire (~> 3.3.1)
   - Branch
+  - FacebookCore
   - Firebase/Core
   - Firebase/Database
   - Firebase/DynamicLinks
@@ -73,7 +85,10 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFDateHelper: aecee6bb264d6531795649f4ebac47783d2bab74
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Branch: 42307809efa9f23a55f40d8375ef8193bfe62b7c
+  FacebookCore: 14f27add6888c27470d42a100374e6361f4e0f79
+  FBSDKCoreKit: 6e020b5db0b5bd1e01f5fb0902131befd129a502
   Firebase: 754562547af419cc2f4b15247fee419081924bc2
   FirebaseAnalytics: 228be2991cb28efb96cdafc4d62f64680e615c69
   FirebaseDatabase: 59bea2e7dfd81b3b8b2f8e396caf1a52c2ced6f7
@@ -90,6 +105,6 @@ SPEC CHECKSUMS:
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   XCGLogger: d6e196e78940ff6daab17d6917107876f973fa31
 
-PODFILE CHECKSUM: 4a95ea566a7053d5f0b67f4753f41ebcfc348cbb
+PODFILE CHECKSUM: b00473a6f251556f1825dd71c44ffe2c5ce12c02
 
 COCOAPODS: 1.0.0
