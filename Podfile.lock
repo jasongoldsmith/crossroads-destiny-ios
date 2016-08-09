@@ -31,6 +31,7 @@ PODS:
   - GoogleSymbolUtilities (1.1.1)
   - GoogleUtilities (1.3.1):
     - GoogleSymbolUtilities (~> 1.0)
+  - Mixpanel-swift (1.0.0)
   - pop (1.0.9)
   - SDWebImage (3.8.1):
     - SDWebImage/Core (= 3.8.1)
@@ -47,6 +48,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/DynamicLinks
+  - Mixpanel-swift
   - pop (from `https://github.com/facebook/pop.git`)
   - SDWebImage (~> 3.7)
   - SlideMenuControllerSwift
@@ -80,6 +82,7 @@ SPEC CHECKSUMS:
   GoogleInterchangeUtilities: def8415a862effc67d549d5b5b0b9c7a2f97d4de
   GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
+  Mixpanel-swift: f35c35756e2122a8dbd9bd2f0e27441fc7a02e33
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   SlideMenuControllerSwift: e257221100c39d49edccaaeb0238b55a0c67953a
@@ -87,6 +90,6 @@ SPEC CHECKSUMS:
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   XCGLogger: d6e196e78940ff6daab17d6917107876f973fa31
 
-PODFILE CHECKSUM: d692ecd51128b3e486ef46ea61e35361d7f0584b
+PODFILE CHECKSUM: 4a95ea566a7053d5f0b67f4753f41ebcfc348cbb
 
 COCOAPODS: 1.0.0

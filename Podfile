@@ -15,6 +15,7 @@ def project_pods
     pod 'Firebase/DynamicLinks'
     pod 'Firebase/Core'
     pod 'Branch'
+    pod 'Mixpanel-swift'
 end
 
 target 'Traveler' do

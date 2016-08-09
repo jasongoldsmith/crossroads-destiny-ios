@@ -8,6 +8,7 @@
 
 import UIKit
 import Branch
+import Mixpanel
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -41,7 +42,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
         
         
+        //MixedPanel Initialized
+        //let token = "23f27698695b0137adfef97f173b9f91"
+        //Mixpanel.initialize(token: token)
         
+        
+        //Branch Initialized
         let branch: Branch = Branch.getInstance()
         branch.initSessionWithLaunchOptions(launchOptions, andRegisterDeepLinkHandler: { params, error in
             // route the user based on what's in params
