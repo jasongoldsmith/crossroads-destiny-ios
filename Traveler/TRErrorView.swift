@@ -79,7 +79,8 @@ class TRErrorView: UIView {
             self.errorDescription.text = "The maximum amount of players has been reached for this activity. Would you like to add one of your own?"
             break
         case .NEEDS_CONSOLE:
-            if let console  = self.eventInfo?.clanName {
+            if let consoleType = self.eventInfo?.eventConsoleType {
+                let console  =  self.getConsoleTypeFromString(consoleType)
                 self.buttonOneYes.setTitle("ADD MY \(console)", forState: .Normal)
                 self.errorDescription.text = "You’ll need to be on \(console) to join that activity from \(eventGroup). Add another console to your account?"
             }
@@ -91,6 +92,26 @@ class TRErrorView: UIView {
         }
     }
     
+    func getConsoleTypeFromString (consoleName: String) -> String {
+        
+        var consoleType = ""
+        switch consoleName {
+        case "PS4":
+            consoleType = "PS4"
+            break
+        case "PS3":
+            consoleType = "PS3"
+            break
+        case "XBOX360":
+            consoleType = "360"
+            break
+        default:
+            consoleType = "XB1"
+            break
+        }
+        
+        return consoleType
+    }
     
     /*
      // Only override drawRect: if you perform custom drawing.

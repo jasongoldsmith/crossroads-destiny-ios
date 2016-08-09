@@ -91,6 +91,7 @@ class TRAuthenticationRequest: TRRequest {
             
             if let _ = error {
                 completion(didSucceed: false)
+                return
             }
             
             let userData = TRUserInfo()
