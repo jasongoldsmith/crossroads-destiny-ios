@@ -87,9 +87,9 @@ class TRFireBaseManager {
 //                })
 //                return
 //            }
+
             // FETCH EVENT OBJECT
-            
-            _ = TRGetEventRequest().getEventByID(hasEventID, completion: { (error, event) in
+            _ = TRGetEventRequest().getEventByID(hasEventID, viewHandlesError: false, showActivityIndicator: false, completion: { (error, event) in
                 if let _ = event {
                     parentViewController.eventInfo = event
                     dispatch_async(dispatch_get_main_queue(), {

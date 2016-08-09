@@ -16,15 +16,21 @@ class TRGetEventRequest: TRRequest {
     }
     
     func getEventByID (eventID: String, viewHandlesError: Bool, completion: TREventObjCallBackWithError) {
+        self.getEventByID(eventID, viewHandlesError: viewHandlesError, showActivityIndicator: false, completion: completion)
+    }
+    
+    func getEventByID (eventID: String, viewHandlesError: Bool, showActivityIndicator: Bool, completion: TREventObjCallBackWithError) {
+        
         let eventInfoULR = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_GET_EVENT
         var params = [String: AnyObject]()
         params["id"] = eventID
-        
         
         let request = TRRequest()
         request.params = params
         request.requestURL = eventInfoULR
         request.viewHandlesError = viewHandlesError
+        request.showActivityIndicator = showActivityIndicator
+        
         request.sendRequestWithCompletion { (error, swiftyJsonVar) -> () in
             
             if let _ = error {
