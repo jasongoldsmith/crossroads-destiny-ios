@@ -10,7 +10,8 @@ import UIKit
 import Branch
 import Mixpanel
 import FBSDKCoreKit
-
+import Answers
+import Fabric
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -67,6 +68,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 TRApplicationManager.sharedInstance.addPostActionbranchDeepLink(eventID!, activityName: activityName!, params: params)
             }
         })
+        
+        //Initialize Answers
+        Fabric.with([Branch.self, Answers.self])
         
         // FBSDK Initialization
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)

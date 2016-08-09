@@ -1000,6 +1000,7 @@
 				33F513621CB30FE6008F0BAF /* Run Script */,
 				E43C5E15F00F1B17075664AA /* 📦 Embed Pods Frameworks */,
 				17BD5445D9919DC2F8B91465 /* 📦 Copy Pods Resources */,
+				33F77F7F1D5A95600002CFAF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1358,6 +1359,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "TAGS=\"TODO:|FIXME:\"\nERRORTAG=\"ERROR:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\" | perl -p -e \"s/($ERRORTAG)/ error: \\$1/\"";
+		};
+		33F77F7F1D5A95600002CFAF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 11f888057a583a50a91f1434bf728d87358f6d8e b75de9b93c05aa55e21b28cc77f5e482147189f52e937ca190c06df0f8bba4c3";
 		};
 		57FE202A2611FD87098D2395 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

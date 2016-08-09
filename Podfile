@@ -17,6 +17,8 @@ def project_pods
     pod 'Branch'
     pod 'Mixpanel-swift'
     pod 'FacebookCore'
+    pod 'Fabric'
+    pod 'Answers'
 end
 
 target 'Traveler' do
