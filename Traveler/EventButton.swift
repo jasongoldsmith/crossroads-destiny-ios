@@ -14,6 +14,7 @@ class EventButton: UIButton {
     var buttonActivityInfo  : TRActivityInfo?
     var buttonPlayerInfo    : TRPlayerInfo?
     var buttonGroupInfo     : TRBungieGroupInfo?
+    var activityTypeString  : Activity_Type?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

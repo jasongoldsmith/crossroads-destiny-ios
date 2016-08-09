@@ -9,13 +9,17 @@
 
 class TRgetActivityList: TRRequest {
     
-    func getActivityList (completion: TRValueCallBack) {
+    func getActivityListofType (aType: String, completion: TRValueCallBack) {
         
         let activityListUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_ActivityListUrl
+        
+        var params = [String: AnyObject]()
+        params["aType"] = aType
         
         let request = TRRequest()
         request.requestURL = activityListUrl
         request.URLMethod = .GET
+        request.params = params
         
         request.sendRequestWithCompletion { (error, swiftyJsonVar) -> () in
             if let _ = error {

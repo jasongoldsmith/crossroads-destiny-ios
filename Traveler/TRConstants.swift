@@ -95,6 +95,7 @@ struct K {
         static let VIEW_CONTROLLER_CHOOSE_GROUP            = "chooseGroup"
         static let VIEW_CONTROLLER_WEB_VIEW                = "legalWebView"
         static let VIEW_CONTROLLER_BUNGIE_VERIFICATION     = "verifyBungieAccount"
+        static let VIEW_CONTROLLER_CREATE_EVENT_FINAL      = "createventfinal"
     }
     
     struct ActivityType {
@@ -189,3 +190,14 @@ enum Branch_Error: ErrorType {
     case JOIN_BUNGIE_GROUP
 }
 
+enum Activity_Type: String {
+    case FEATURED   = "Featured"
+    case RAID       = "Raid"
+    case ARENA      = "Arena"
+    case CRUCIBLE   = "Crucible"
+    case STRIKE     = "Strike"
+    case PATROL     = "Patrol"
+    case STORY      = "Story"
+    case QUEST      = "Quest"
+    case EXOTIC     = "Exotic"
+}

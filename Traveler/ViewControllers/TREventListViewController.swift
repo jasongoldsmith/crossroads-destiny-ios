@@ -507,7 +507,6 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
         let vc : TRCreateEventViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEWCONTROLLER_CREATE_EVENT) as! TRCreateEventViewController
         let navigationController = UINavigationController(rootViewController: vc)
-        navigationController.navigationBar.barStyle = .Black
         self.presentViewController(navigationController, animated: true, completion: nil)
     }
     
@@ -578,17 +577,19 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     
     func createActivityWithActivity (sender: EventButton) {
         
-        _ = TRgetActivityList().getActivityList({ (value) -> () in
-            if (value == true) {
-                let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
-                let vc : TRCreateEventConfirmationViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_CREATE_EVENT_CONFIRM) as! TRCreateEventConfirmationViewController
-                let navigationController = UINavigationController(rootViewController: vc)
-                vc.selectedActivity = sender.buttonActivityInfo
-                vc.showBackButton = false
-                
-                self.presentViewController(navigationController, animated: true, completion: nil)
-            }
-        })
+        if let activityType =  sender.buttonActivityInfo?.activityType {
+            _ = TRgetActivityList().getActivityListofType(activityType, completion: { (value) -> () in
+                if (value == true) {
+                    let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+                    let vc : TRCreateEventConfirmationViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_CREATE_EVENT_CONFIRM) as! TRCreateEventConfirmationViewController
+                    let navigationController = UINavigationController(rootViewController: vc)
+                    vc.selectedActivity = sender.buttonActivityInfo
+                    vc.showBackButton = false
+                    
+                    self.presentViewController(navigationController, animated: true, completion: nil)
+                }
+            })
+        }
     }
     
     func tableViewScrollToBottom(animated: Bool) {

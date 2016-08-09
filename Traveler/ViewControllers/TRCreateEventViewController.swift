@@ -11,112 +11,60 @@ import UIKit
 import SDWebImage
 
 
-class TRCreateEventViewController: TRBaseViewController, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
+class TRCreateEventViewController: TRBaseViewController {
  
-    lazy var customNavigationAnimation: TRCustomNavTransitionAnimator = TRCustomNavTransitionAnimator()
-    lazy var customInteractionAnimation: TRNavInteractionAnimator = TRNavInteractionAnimator()
-
     @IBOutlet var activityIcon          : UIImageView?
-    @IBOutlet var activityFeaturedButton     : EventButton?
-    @IBOutlet var activityRaidButton        : EventButton?
-    @IBOutlet var activityArenaButton   : EventButton?
-    @IBOutlet var activityCrucibleButton   : EventButton?
+    @IBOutlet var activityFeaturedButton : EventButton?
+    @IBOutlet var activityRaidButton     : EventButton?
+    @IBOutlet var activityArenaButton    : EventButton?
+    @IBOutlet var activityCrucibleButton : EventButton?
     @IBOutlet var activityStrikeButton   : EventButton?
     @IBOutlet var activityPatrolButton   : EventButton?
+    @IBOutlet var activityStroryButton   : EventButton?
+    @IBOutlet var activityQuestButton    : EventButton?
+    @IBOutlet var activityExoticButton   : EventButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideNavigationBar()
         
-        //Navigation
-        self.title = "ADD ACTIVITY"
-        self.addNavigationBarButtons(false, showCancel: true)
-        
-        self.navigationController?.interactivePopGestureRecognizer?.enabled = true
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
-        
-        // INTERACTIVE VC ANIMATION
-        self.navigationController?.delegate = self
+        self.activityFeaturedButton?.activityTypeString = Activity_Type.FEATURED
+        self.activityRaidButton?.activityTypeString = Activity_Type.RAID
+        self.activityArenaButton?.activityTypeString = Activity_Type.ARENA
+        self.activityCrucibleButton?.activityTypeString = Activity_Type.CRUCIBLE
+        self.activityStrikeButton?.activityTypeString = Activity_Type.STRIKE
+        self.activityPatrolButton?.activityTypeString = Activity_Type.PATROL
+        self.activityStroryButton?.activityTypeString = Activity_Type.PATROL
+        self.activityQuestButton?.activityTypeString  = Activity_Type.QUEST
+        self.activityExoticButton?.activityTypeString = Activity_Type.EXOTIC
+
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        _ = TRgetActivityList().getActivityList({ (value) -> () in
-            if (value == true) {
-                for (_, activity) in TRApplicationManager.sharedInstance.activityList.enumerate() {
-                    switch activity.activityType! {
-                    case K.ActivityType.RAIDS:
-                        if self.activityRaidButton?.buttonActivityInfo == nil {
-                            self.activityRaidButton?.buttonActivityInfo = activity
-                        }
-                        break
-                    case K.ActivityType.CRUCIBLE:
-                        if self.activityCrucibleButton?.buttonActivityInfo == nil {
-                            self.activityCrucibleButton?.buttonActivityInfo = activity
-                        }
-                        break
-                    case K.ActivityType.ARENA:
-                        if self.activityArenaButton?.buttonActivityInfo == nil {
-                            self.activityArenaButton?.buttonActivityInfo = activity
-                        }
-                        break
-                    case K.ActivityType.STRIKES:
-                        if self.activityStrikeButton?.buttonActivityInfo == nil {
-                            self.activityStrikeButton?.buttonActivityInfo = activity
-                        }
-                        break
-                    case K.ActivityType.PATROL:
-                        if self.activityPatrolButton?.buttonActivityInfo == nil {
-                            self.activityPatrolButton?.buttonActivityInfo = activity
-                        }
-                        break
-                        
-                    default:
-                        break
-                    }
-                }
-            } else {
-                self.appManager.log.debug("Activity List fetch failed")
-            }
-        })
     }
     
     @IBAction func activityButtonPressed (sender: EventButton) {
         
-        if let _ = sender.buttonActivityInfo {
+        _ = TRgetActivityList().getActivityListofType((sender.activityTypeString?.rawValue)!, completion: { (didSucceed) in
+            if didSucceed == true {
+                let vc = TRApplicationManager.sharedInstance.stroryBoardManager.getViewControllerWithID(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_CREATE_EVENT_FINAL, storyBoardID: K.StoryBoard.StoryBoard_Main) as! TRCreateEventFinalView
+                vc.activityInfo = TRApplicationManager.sharedInstance.activityList
+                
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        })
+    }
+    
+    
+    @IBAction func cancelButtonPressed (sender: UIButton) {
+        self.dismissViewController(true) { (didDismiss) in
             
-            let vc = TRApplicationManager.sharedInstance.stroryBoardManager.getViewControllerWithID(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_CREATE_EVENT_SELECTION, storyBoardID: K.StoryBoard.StoryBoard_Main) as! TRCreateEventSelectionViewController
-            vc.seletectedActivity = sender.buttonActivityInfo
-            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
-    @IBAction func featuredActiviyButtonPressed (sender: EventButton) {
-        let vc = TRApplicationManager.sharedInstance.stroryBoardManager.getViewControllerWithID(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_CREATE_EVENT_SELECTION, storyBoardID: K.StoryBoard.StoryBoard_Main) as! TRCreateEventSelectionViewController
-        vc.isFeaturedEvent = true
-        
-        self.navigationController?.pushViewController(vc, animated: true)
+    deinit {
+    
     }
-    
-    
-    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
-        if self.navigationController?.viewControllers.count > 1 {
-            return true
-        }
-        
-        return false
-    }
-    
-//    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        if operation == .Push {
-//            customInteractionAnimation.attachToViewController(toVC)
-//        }
-//        customNavigationAnimation.reverse = operation == .Pop
-//        return customNavigationAnimation
-//    }
-//    
-//    func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-//        return customInteractionAnimation.transitionInProgress ? customInteractionAnimation : nil
-//    }
 }
 
