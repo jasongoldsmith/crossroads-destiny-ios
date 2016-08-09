@@ -13,7 +13,7 @@ class TRForgotPasswordRequest: TRRequest {
         
         let resetPassword = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_FORGOT_PASSWORD
         var params = [String: AnyObject]()
-        params["userName"] = userName
+        params["consoleId"] = userName
         params["consoleType"] = consoleType
         
         let request = TRRequest()

@@ -241,8 +241,10 @@ class TRApplicationManager: NSObject {
                 }
             } else {
                 currentView.dismissViewControllerAnimated(false, completion: {
-                    let eventListView = self.slideMenuController.mainViewController as! TREventListViewController
-                    eventListView.fetchEventDetailForDeepLink(eventID, activityName: activityName)
+                    if let _ = self.slideMenuController.mainViewController {
+                        let eventListView = self.slideMenuController.mainViewController as! TREventListViewController
+                        eventListView.fetchEventDetailForDeepLink(eventID, activityName: activityName)
+                    }
                 })
             }
         }

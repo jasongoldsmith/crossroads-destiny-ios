@@ -83,7 +83,7 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
     }
     
     @IBAction func textFieldDidDidUpdate (textField: UITextField) {
-        if textField.text?.characters.count >= 4 {
+        if textField.text?.characters.count >= 3 {
             self.resetPasswordButton.enabled = true
             self.resetPasswordButton.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
         } else {
