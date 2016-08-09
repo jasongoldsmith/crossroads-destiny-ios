@@ -23,6 +23,9 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
     @IBOutlet weak var consoleImage: UIImageView!
     @IBOutlet weak var consolePicketContainerView: UIView!
     @IBOutlet weak var consolePicketView: UIPickerView!
+    @IBOutlet weak var chooseConsoleLabel: UILabel!
+    @IBOutlet weak var downArrowImage: UIImageView!
+    
     
     var consoleNameArray: NSArray = ["PlayStation 4","PlayStation 3", "Xbox 360", "Xbox One"]
     var selectedIndex: Int = 0
@@ -136,6 +139,10 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
                 
                 self.resetTextBoxParentView.hidden = true
                 self.resetPasswordButton.hidden = true
+                self.chooseConsoleLabel.hidden = true
+                self.changeConsoleButton.hidden = true
+                self.consoleImage.hidden = true
+                self.downArrowImage.hidden = true
                 
                 let messageString = "A Reset Password Link Has Been Sent to Your Bungie.net Account."
                 let bungieString = "Bungie.net"

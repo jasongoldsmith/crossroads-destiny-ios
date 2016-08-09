@@ -782,10 +782,12 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
                         <outlet property="changeConsoleButton" destination="Lhf-tY-FuN" id="9eK-ID-CSQ"/>
+                        <outlet property="chooseConsoleLabel" destination="4XC-MJ-jA1" id="bZp-dk-foV"/>
                         <outlet property="consoleImage" destination="hIX-my-tb9" id="Cty-HF-F6g"/>
                         <outlet property="consolePicketContainerView" destination="OZ9-41-Z2f" id="gkR-4d-54P"/>
                         <outlet property="consolePicketView" destination="w7e-sC-FVD" id="eHm-xT-cpZ"/>
                         <outlet property="consoleTypeLabel" destination="ns5-Vu-hdd" id="HxJ-kE-dc9"/>
+                        <outlet property="downArrowImage" destination="PMP-b6-8og" id="b4F-gq-0MQ"/>
                         <outlet property="resetButtonBottomConstraint" destination="bIQ-VX-Sgs" id="fne-cP-nBd"/>
                         <outlet property="resetPasswordButton" destination="7Cn-fI-BQD" id="K1Q-ip-a9P"/>
                         <outlet property="resetTextBoxParentView" destination="61I-3M-JJz" id="m4G-rm-ly5"/>
