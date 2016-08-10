@@ -927,10 +927,10 @@
 		62C1FF5D1C77CD3900A78798 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				33742D851C7FC46B00C46742 /* TRBaseViewController.swift */,
-				62C1FF311C77C15C00A78798 /* TRRootViewController.swift */,
 				333FA8A61D00FEAB00A5EC1C /* OnBoarding */,
 				333FA8A71D00FEB900A5EC1C /* CreateEvent */,
+				33742D851C7FC46B00C46742 /* TRBaseViewController.swift */,
+				62C1FF311C77C15C00A78798 /* TRRootViewController.swift */,
 				62C5DF781C79769C0039A88E /* TREventListViewController.swift */,
 				3398E1A41CAB18C7001F022B /* TREventInformationViewController.swift */,
 				3398E1AC1CAB3D3D001F022B /* TRProfileViewController.swift */,
