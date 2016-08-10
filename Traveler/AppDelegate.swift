@@ -46,8 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         //MixedPanel Initialized
-        //let token = "23f27698695b0137adfef97f173b9f91"
-        //Mixpanel.initialize(token: token)
+        let token = "23f27698695b0137adfef97f173b9f91"
+        Mixpanel.initialize(token: token)
         
         
         //Branch Initialized
