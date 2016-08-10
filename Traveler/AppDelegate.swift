@@ -8,6 +8,10 @@
 
 import UIKit
 import Branch
+import Mixpanel
+import FBSDKCoreKit
+import Answers
+import Fabric
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -41,7 +45,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
         
         
+        //MixedPanel Initialized
+        let token = "23f27698695b0137adfef97f173b9f91"
+        Mixpanel.initialize(token: token)
         
+        
+        //Branch Initialized
         let branch: Branch = Branch.getInstance()
         branch.initSessionWithLaunchOptions(launchOptions, andRegisterDeepLinkHandler: { params, error in
             // route the user based on what's in params
@@ -60,7 +69,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         })
         
-        return true
+        //Initialize Answers
+        Fabric.with([Branch.self, Answers.self])
+        
+        // FBSDK Initialization
+        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 
     // MARK:- Branch Deep Linking related methods
@@ -69,28 +82,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // do other deep link routing for the Facebook SDK, Pinterest SDK, etc
         }
         
-        return true
+        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
     
     func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
-        // pass the url to the handle deep link call
         Branch.getInstance().continueUserActivity(userActivity);
-        
-        if userActivity.isEqual(NSUserActivityTypeBrowsingWeb) {
-            let url = userActivity.webpageURL
-            print("url: \(url)")
-        }
         
         return true
     }
-    
-    
-//    func application(application: UIApplication, didReceiveRemoteNotification launchOptions: [NSObject: AnyObject]) -> Void {
-//        Branch.getInstance().handlePushNotification(launchOptions)
-//    }
+
     
     // MARK:- Notifications
-    
     func addNotificationsPermission () {
         if UIApplication.sharedApplication().respondsToSelector(#selector(UIApplication.registerUserNotificationSettings(_:))) {
             
@@ -158,6 +160,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
+        FBSDKAppEvents.activateApp()
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 

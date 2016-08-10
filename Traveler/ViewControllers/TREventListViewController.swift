@@ -394,6 +394,10 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
                 return
             } catch {
             }
+            
+            //Deep Link
+            self.changeConsoleToClickActivePushNoti((eventInfo?.eventConsoleType)!)
+            self.changeGroupToClickedActivePushNoti((eventInfo?.eventClanID)!)
             self.showEventInfoViewController(eventInfo, fromPushNoti: false)
         } else {
             _ = TRGetEventRequest().getEventByID(eventID, viewHandlesError: true, completion: { (error, event) in
@@ -405,6 +409,10 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
                         return
                     } catch {
                     }
+                    
+                    //Deep Link
+                    self.changeConsoleToClickActivePushNoti((event?.eventConsoleType)!)
+                    self.changeGroupToClickedActivePushNoti((event?.eventClanID)!)
                     self.showEventInfoViewController(event, fromPushNoti: false)
                 } else {
                     if let _ = error {

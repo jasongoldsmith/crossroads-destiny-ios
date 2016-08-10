@@ -416,6 +416,7 @@
 		33F77F6D1D594BC70002CFAF /* TRCreateEventFinalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F77F6B1D594BC70002CFAF /* TRCreateEventFinalView.swift */; };
 		33F77F6E1D594BC70002CFAF /* TRCreateEventFinalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F77F6B1D594BC70002CFAF /* TRCreateEventFinalView.swift */; };
 		33F77F6F1D594BC70002CFAF /* TRCreateEventFinalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F77F6B1D594BC70002CFAF /* TRCreateEventFinalView.swift */; };
+		33F77F811D5AA7460002CFAF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33F77F801D5AA7460002CFAF /* AdSupport.framework */; };
 		33FDB9A81C84F7C50066237C /* TRCreatorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB9A71C84F7C50066237C /* TRCreatorInfo.swift */; };
 		33FDB9A91C84F82F0066237C /* TRCreatorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB9A71C84F7C50066237C /* TRCreatorInfo.swift */; };
 		33FDB9AA1C84F8300066237C /* TRCreatorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB9A71C84F7C50066237C /* TRCreatorInfo.swift */; };
@@ -589,6 +590,7 @@
 		33EC0F281CFE96820034CE4B /* TRResendBungieVerification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRResendBungieVerification.swift; sourceTree = "<group>"; };
 		33F427481C8A0DBD00560BD3 /* TRCreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCreateEventViewController.swift; sourceTree = "<group>"; };
 		33F77F6B1D594BC70002CFAF /* TRCreateEventFinalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCreateEventFinalView.swift; sourceTree = "<group>"; };
+		33F77F801D5AA7460002CFAF /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		33FDB9A71C84F7C50066237C /* TRCreatorInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCreatorInfo.swift; sourceTree = "<group>"; };
 		33FDB9AD1C850AFC0066237C /* EventButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventButton.swift; sourceTree = "<group>"; };
 		33FDB9B41C8512E60066237C /* TR-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TR-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -645,6 +647,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33F77F811D5AA7460002CFAF /* AdSupport.framework in Frameworks */,
 				3305ACFB1CF2660D00572495 /* SpriteKit.framework in Frameworks */,
 				6E7FA6EF7F3F6EA1DFD560AD /* Pods_Crossroads.framework in Frameworks */,
 			);
@@ -962,6 +965,7 @@
 		F2A408BCD304739F3CA9D85B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				33F77F801D5AA7460002CFAF /* AdSupport.framework */,
 				3305ACFA1CF2660D00572495 /* SpriteKit.framework */,
 				25E7152E28FC6248E82F096C /* Pods_Traveler.framework */,
 				6B4CA35DF535E2D305E6F37D /* Pods_TravelerTests.framework */,
@@ -1006,6 +1010,7 @@
 				33F513621CB30FE6008F0BAF /* Run Script */,
 				E43C5E15F00F1B17075664AA /* 📦 Embed Pods Frameworks */,
 				17BD5445D9919DC2F8B91465 /* 📦 Copy Pods Resources */,
+				33F77F7F1D5A95600002CFAF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1364,6 +1369,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "TAGS=\"TODO:|FIXME:\"\nERRORTAG=\"ERROR:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\" | perl -p -e \"s/($ERRORTAG)/ error: \\$1/\"";
+		};
+		33F77F7F1D5A95600002CFAF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 11f888057a583a50a91f1434bf728d87358f6d8e b75de9b93c05aa55e21b28cc77f5e482147189f52e937ca190c06df0f8bba4c3";
 		};
 		57FE202A2611FD87098D2395 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

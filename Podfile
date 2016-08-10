@@ -15,6 +15,10 @@ def project_pods
     pod 'Firebase/DynamicLinks'
     pod 'Firebase/Core'
     pod 'Branch'
+    pod 'Mixpanel-swift'
+    pod 'FacebookCore'
+    pod 'Fabric'
+    pod 'Answers'
 end
 
 target 'Traveler' do
