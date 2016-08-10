@@ -62,10 +62,6 @@ class TRCreateEventFinalView: TRBaseViewController {
                 let imageUrl = NSURL(string: activityInfo.activityIconImage!)
                 self.activityIconView.sd_setImageWithURL(imageUrl)
             }
-            
-            self.activityLevelLabel.layer.masksToBounds = true
-            self.activityLevelLabel.layer.borderColor = UIColor.whiteColor().CGColor
-            self.activityLevelLabel.layer.borderWidth = 1.0
         }
     }
     

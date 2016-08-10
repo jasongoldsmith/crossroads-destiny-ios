@@ -43,13 +43,13 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EYES UP, GUARDIAN!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhT-Jv-Bmt">
-                    <rect key="frame" x="217" y="223" width="165.5" height="20"/>
+                    <rect key="frame" x="217" y="223" width="166" height="20"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V5g-T7-m0k">
-                    <rect key="frame" x="275" y="263" width="50" height="0.5"/>
+                    <rect key="frame" x="275" y="263" width="50" height="1"/>
                     <color key="backgroundColor" red="0.42745098039215684" green="0.63529411764705879" blue="0.69411764705882351" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="qkJ-fg-QCU"/>
@@ -62,7 +62,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fv-o1-6Ll">
-                    <rect key="frame" x="217.5" y="331" width="164" height="37"/>
+                    <rect key="frame" x="218" y="331" width="164" height="37"/>
                     <color key="backgroundColor" red="0.0" green="0.52549019610000003" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                     <inset key="contentEdgeInsets" minX="15" minY="10" maxX="15" maxY="10"/>
