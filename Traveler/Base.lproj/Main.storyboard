@@ -39,6 +39,7 @@
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue-Bold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -1966,7 +1967,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68f-XA-961">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68f-XA-961">
                                 <rect key="frame" x="12" y="240" width="575" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="575" id="bJA-3K-YDg"/>
@@ -1992,32 +1993,52 @@
                                     <action selector="backButtonPressed:" destination="YXe-0q-e54" eventType="touchUpInside" id="Nsl-G4-Yzl"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gg-oe-wS6">
+                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <color key="backgroundColor" red="0.37254901959999998" green="0.70980392160000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Wvl-N3-MkC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <state key="normal" title="ADD">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addActivityButtonClicked:" destination="YXe-0q-e54" eventType="touchUpInside" id="FI0-Xh-AUp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="yAf-wn-4k1" secondAttribute="trailing" constant="14" id="1Wy-mu-Wex"/>
                             <constraint firstAttribute="trailing" secondItem="fRe-wq-10U" secondAttribute="trailing" id="2dF-dG-r1v"/>
                             <constraint firstItem="u8j-Yj-ni2" firstAttribute="leading" secondItem="kBa-Hn-K7P" secondAttribute="leading" id="AHn-cR-eiH"/>
+                            <constraint firstAttribute="trailing" secondItem="8gg-oe-wS6" secondAttribute="trailing" id="B8N-Xg-NGB"/>
                             <constraint firstItem="68f-XA-961" firstAttribute="leading" secondItem="kBa-Hn-K7P" secondAttribute="leading" constant="12" id="CBe-jy-WmO"/>
                             <constraint firstAttribute="trailing" secondItem="kIK-4y-Rf5" secondAttribute="trailing" constant="13" id="Em2-oh-sEA"/>
                             <constraint firstItem="NuX-A7-8ZL" firstAttribute="centerY" secondItem="yAf-wn-4k1" secondAttribute="centerY" id="O9s-mr-Sat"/>
                             <constraint firstItem="x4L-YE-Rsh" firstAttribute="top" secondItem="fRe-wq-10U" secondAttribute="bottom" id="OOp-rq-g1E"/>
-                            <constraint firstAttribute="trailing" secondItem="68f-XA-961" secondAttribute="trailing" constant="13" id="OUj-tr-egg"/>
+                            <constraint firstAttribute="trailing" secondItem="68f-XA-961" secondAttribute="trailing" priority="750" constant="13" id="OUj-tr-egg"/>
                             <constraint firstItem="u8j-Yj-ni2" firstAttribute="top" secondItem="kBa-Hn-K7P" secondAttribute="top" id="aAa-k6-qem"/>
                             <constraint firstAttribute="trailing" secondItem="u8j-Yj-ni2" secondAttribute="trailing" id="aQ4-Ta-qdW"/>
                             <constraint firstItem="zo4-1Q-yn0" firstAttribute="top" secondItem="4za-Ly-Scu" secondAttribute="bottom" constant="122" id="bnV-nE-fP3"/>
                             <constraint firstItem="kIK-4y-Rf5" firstAttribute="top" secondItem="zo4-1Q-yn0" secondAttribute="bottom" constant="11" id="fT8-QB-Luf"/>
+                            <constraint firstItem="x4L-YE-Rsh" firstAttribute="top" secondItem="8gg-oe-wS6" secondAttribute="bottom" id="gn1-Me-KOP"/>
                             <constraint firstItem="fRe-wq-10U" firstAttribute="top" secondItem="kBa-Hn-K7P" secondAttribute="top" id="hNB-26-4K3"/>
                             <constraint firstItem="68f-XA-961" firstAttribute="top" secondItem="kIK-4y-Rf5" secondAttribute="bottom" constant="3" id="hpe-3p-TaO"/>
                             <constraint firstItem="zo4-1Q-yn0" firstAttribute="centerX" secondItem="kBa-Hn-K7P" secondAttribute="centerX" id="jOu-3E-bLv"/>
                             <constraint firstItem="yAf-wn-4k1" firstAttribute="top" secondItem="fRe-wq-10U" secondAttribute="top" constant="23" id="o3I-UN-rRc"/>
+                            <constraint firstItem="8gg-oe-wS6" firstAttribute="leading" secondItem="kBa-Hn-K7P" secondAttribute="leading" id="q9K-3e-cvJ"/>
                             <constraint firstItem="fRe-wq-10U" firstAttribute="leading" secondItem="NuX-A7-8ZL" secondAttribute="trailing" constant="-56" id="sJc-t1-kkn"/>
                             <constraint firstItem="fRe-wq-10U" firstAttribute="leading" secondItem="kBa-Hn-K7P" secondAttribute="leading" id="sUZ-EV-8N2"/>
                             <constraint firstItem="kIK-4y-Rf5" firstAttribute="leading" secondItem="kBa-Hn-K7P" secondAttribute="leading" constant="12" id="v5a-qg-mnF"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="activityBGImageView" destination="zo4-1Q-yn0" id="dDt-ZD-BqJ"/>
+                        <outlet property="activityBGImageView" destination="u8j-Yj-ni2" id="C8i-kM-eFM"/>
+                        <outlet property="activityIconView" destination="zo4-1Q-yn0" id="559-wH-p9B"/>
+                        <outlet property="activityLevelLabel" destination="68f-XA-961" id="cgA-yC-VYK"/>
+                        <outlet property="activityNameLabel" destination="kIK-4y-Rf5" id="I3F-0d-HJw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eDV-7u-Sh1" userLabel="First Responder" sceneMemberID="firstResponder"/>
