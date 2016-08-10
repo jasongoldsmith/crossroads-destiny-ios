@@ -278,6 +278,14 @@
 		33A588FE1D511C2900D06127 /* TRChangeConsoleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A588FB1D511C2900D06127 /* TRChangeConsoleRequest.swift */; };
 		33A588FF1D511C2900D06127 /* TRChangeConsoleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A588FB1D511C2900D06127 /* TRChangeConsoleRequest.swift */; };
 		33AA2C961D3E9D2200E5BF0D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33B73BFE1D2F171200BEA7E5 /* GoogleService-Info.plist */; };
+		33AABB181D5BC2600099A20C /* TRActivityBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AABB171D5BC2600099A20C /* TRActivityBonus.swift */; };
+		33AABB191D5BC2600099A20C /* TRActivityBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AABB171D5BC2600099A20C /* TRActivityBonus.swift */; };
+		33AABB1A1D5BC2600099A20C /* TRActivityBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AABB171D5BC2600099A20C /* TRActivityBonus.swift */; };
+		33AABB1B1D5BC2600099A20C /* TRActivityBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AABB171D5BC2600099A20C /* TRActivityBonus.swift */; };
+		33AABB1D1D5BC3250099A20C /* TRActivityModifiersInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AABB1C1D5BC3250099A20C /* TRActivityModifiersInfo.swift */; };
+		33AABB1E1D5BC3250099A20C /* TRActivityModifiersInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AABB1C1D5BC3250099A20C /* TRActivityModifiersInfo.swift */; };
+		33AABB1F1D5BC3250099A20C /* TRActivityModifiersInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AABB1C1D5BC3250099A20C /* TRActivityModifiersInfo.swift */; };
+		33AABB201D5BC3250099A20C /* TRActivityModifiersInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AABB1C1D5BC3250099A20C /* TRActivityModifiersInfo.swift */; };
 		33B5BC701C9A2F0B000D94DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C1FF361C77C15C00A78798 /* Assets.xcassets */; };
 		33B5BC711C9A2F0C000D94DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C1FF361C77C15C00A78798 /* Assets.xcassets */; };
 		33B73BFF1D2F171200BEA7E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33B73BFE1D2F171200BEA7E5 /* GoogleService-Info.plist */; };
@@ -573,6 +581,8 @@
 		339D8F2F1C911FB900A2620F /* TRCreateEventConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCreateEventConfirmationViewController.swift; sourceTree = "<group>"; };
 		33A029AF1CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		33A588FB1D511C2900D06127 /* TRChangeConsoleRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRChangeConsoleRequest.swift; sourceTree = "<group>"; };
+		33AABB171D5BC2600099A20C /* TRActivityBonus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRActivityBonus.swift; sourceTree = "<group>"; };
+		33AABB1C1D5BC3250099A20C /* TRActivityModifiersInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRActivityModifiersInfo.swift; sourceTree = "<group>"; };
 		33B73BFE1D2F171200BEA7E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		33B73C001D2F188800BEA7E5 /* TRFireBaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRFireBaseManager.swift; sourceTree = "<group>"; };
 		33B73C051D303F5200BEA7E5 /* TRHelmetUpdateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRHelmetUpdateRequest.swift; sourceTree = "<group>"; };
@@ -798,6 +808,8 @@
 				3312B9191D024251005AF67D /* TRConsoles.swift */,
 				33D9D97E1D48574F00A6289D /* TRAdCardInfo.swift */,
 				335405C41D52A63A00B42BAC /* TRLegalInfo.swift */,
+				33AABB171D5BC2600099A20C /* TRActivityBonus.swift */,
+				33AABB1C1D5BC3250099A20C /* TRActivityModifiersInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1456,6 +1468,7 @@
 				33D9D97F1D48574F00A6289D /* TRAdCardInfo.swift in Sources */,
 				33D0B3FC1CFD0165008ABA04 /* UIApplicationExtension.swift in Sources */,
 				333FA8A91D0109C200A5EC1C /* TRBungieUserAuthRequest.swift in Sources */,
+				33AABB181D5BC2600099A20C /* TRActivityBonus.swift in Sources */,
 				33D0B3FD1CFD0165008ABA04 /* NSBundleExtension.swift in Sources */,
 				335405C51D52A63A00B42BAC /* TRLegalInfo.swift in Sources */,
 				33D0B3FE1CFD0165008ABA04 /* TRSendChatMessageView.swift in Sources */,
@@ -1520,6 +1533,7 @@
 				33D0B42C1CFD0165008ABA04 /* TRGetAllDestinyGroups.swift in Sources */,
 				33B73C011D2F188800BEA7E5 /* TRFireBaseManager.swift in Sources */,
 				33D0B42D1CFD0165008ABA04 /* TRProfileViewController.swift in Sources */,
+				33AABB1D1D5BC3250099A20C /* TRActivityModifiersInfo.swift in Sources */,
 				33D0B42E1CFD0165008ABA04 /* TRBaseEventTableCell.swift in Sources */,
 				33D0B42F1CFD0165008ABA04 /* TRCreateEventViewController.swift in Sources */,
 				33D0B4301CFD0165008ABA04 /* TRActivityCheckPointPicker.swift in Sources */,
@@ -1555,6 +1569,7 @@
 				33D9D9801D48574F00A6289D /* TRAdCardInfo.swift in Sources */,
 				336BF5271CBEB214005CD3DE /* UIApplicationExtension.swift in Sources */,
 				333FA8AA1D0109C200A5EC1C /* TRBungieUserAuthRequest.swift in Sources */,
+				33AABB191D5BC2600099A20C /* TRActivityBonus.swift in Sources */,
 				3369499C1CC5CFEB004979C0 /* NSBundleExtension.swift in Sources */,
 				335405C61D52A63A00B42BAC /* TRLegalInfo.swift in Sources */,
 				5CBD7BCE1CAC91C70078636D /* TRSendChatMessageView.swift in Sources */,
@@ -1619,6 +1634,7 @@
 				332BC17D1CED03AD00012B45 /* TRGetAllDestinyGroups.swift in Sources */,
 				33B73C021D2F188800BEA7E5 /* TRFireBaseManager.swift in Sources */,
 				3398E1AD1CAB3D3D001F022B /* TRProfileViewController.swift in Sources */,
+				33AABB1E1D5BC3250099A20C /* TRActivityModifiersInfo.swift in Sources */,
 				3380EF221CC94517000A9289 /* TRBaseEventTableCell.swift in Sources */,
 				33F427491C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */,
 				3374D74D1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift in Sources */,
@@ -1733,7 +1749,9 @@
 				33728F901D36DA49000A3CF8 /* TRBranchManager.swift in Sources */,
 				3380EF341CC94745000A9289 /* TREventUpcomingNoCheckPointCell.swift in Sources */,
 				3369499D1CC5CFEB004979C0 /* NSBundleExtension.swift in Sources */,
+				33AABB1F1D5BC3250099A20C /* TRActivityModifiersInfo.swift in Sources */,
 				3384371B1CEFB34700AB27F3 /* TRGetGroupByIDRequest.swift in Sources */,
+				33AABB1A1D5BC2600099A20C /* TRActivityBonus.swift in Sources */,
 				3329B58D1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */,
 				3398E1AA1CAB2994001F022B /* TRSendPushMessage.swift in Sources */,
 				339D8F311C911FB900A2620F /* TRCreateEventConfirmationViewController.swift in Sources */,
@@ -1833,7 +1851,9 @@
 				33728F911D36DA49000A3CF8 /* TRBranchManager.swift in Sources */,
 				3380EF351CC94745000A9289 /* TREventUpcomingNoCheckPointCell.swift in Sources */,
 				3369499E1CC5CFEB004979C0 /* NSBundleExtension.swift in Sources */,
+				33AABB201D5BC3250099A20C /* TRActivityModifiersInfo.swift in Sources */,
 				3384371C1CEFB34700AB27F3 /* TRGetGroupByIDRequest.swift in Sources */,
+				33AABB1B1D5BC2600099A20C /* TRActivityBonus.swift in Sources */,
 				3329B58E1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */,
 				3398E1AB1CAB2994001F022B /* TRSendPushMessage.swift in Sources */,
 				339D8F321C911FB900A2620F /* TRCreateEventConfirmationViewController.swift in Sources */,

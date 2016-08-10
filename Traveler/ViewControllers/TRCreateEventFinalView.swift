@@ -63,6 +63,11 @@ class TRCreateEventFinalView: TRBaseViewController {
                 self.activityIconView.sd_setImageWithURL(imageUrl)
             }
         }
+        
+        if let _ = activityInfo.activityImage {
+            let imageURL = NSURL(string: activityInfo.activityImage!)
+            self.activityBGImageView.sd_setImageWithURL(imageURL)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {

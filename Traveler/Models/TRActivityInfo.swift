@@ -26,6 +26,16 @@ class TRActivityInfo: NSObject {
     var activityLevel         : String?
     var activityAdCard        : TRAdCardInfo?
     
+    var activityCheckPointOrder: NSNumber?
+    var activityStory: String?
+    var activityCardOrder: String?
+    var activityTag: String?
+    var activityImageBasePath: String?
+    var activityImage: String?
+    var activityIsActive: Bool?
+    var activityBonus: [TRActivityBonus] = []
+    var activityModifiers: [TRActivityModifiersInfo] = []
+    
     
     func parseAndCreateActivityObject (swiftyJson: JSON) -> TRActivityInfo {
         
@@ -41,12 +51,31 @@ class TRActivityInfo: NSObject {
         self.activityIsFeatured = swiftyJson["isFeatured"].boolValue
         self.activitylocation   = swiftyJson["location"].stringValue
         self.activityLevel      = swiftyJson["aLevel"].stringValue
+        self.activityCheckPointOrder = swiftyJson["aCheckpointOrder"].numberValue
+        self.activityStory = swiftyJson["aStory"].stringValue
+        self.activityCardOrder = swiftyJson["aCardOrder"].stringValue
+        self.activityTag = swiftyJson["tag"].stringValue
+        self.activityImageBasePath = swiftyJson["aImage"][["aImageBaseUrl"]].stringValue
+        self.activityImage = self.activityImageBasePath! + swiftyJson["aImage"][["aImageImagePath"]].stringValue
+        self.activityIsActive = swiftyJson["isActive"].boolValue
+        
         
         if let card = swiftyJson["adCard"].dictionary {
             let acitivityCard = TRAdCardInfo()
             acitivityCard.parseAndCreateActivityObject(JSON(card))
             
             self.activityAdCard = acitivityCard
+        }
+        
+        
+        if let bonus = swiftyJson["aBonus"].dictionary {
+            let activityBonus = TRActivityBonus()
+            activityBonus.parseActivityBonus(JSON(bonus))
+        }
+        
+        if let modifiers = swiftyJson["aModifiers"].dictionary {
+            let activityModifier = TRActivityModifiersInfo()
+            activityModifier.parseActivityModifiers(JSON(modifiers))
         }
         
         return self
