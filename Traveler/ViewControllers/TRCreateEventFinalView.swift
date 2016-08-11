@@ -38,6 +38,12 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, DropDo
     var selectedActivity: TRActivityInfo?
     lazy var activityInfo: [TRActivityInfo] = []
     
+    // Contains Unique Activities Based on SubType/ Difficulty
+    var filteredActivitiesOfSubTypeAndDifficulty: [TRActivityInfo] = []
+
+    // Contains Unique Activities Based on SubType/ Difficulty
+    var filteredCheckPoints: [TRActivityInfo] = []
+
     //Date Picker
     var datePickerView: TRDatePicker?
     
@@ -58,6 +64,12 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, DropDo
         super.viewDidAppear(animated)
     }
 
+    //Button States
+    var isActivityNameButtonOpen: Bool = false
+    var isActivityCheckPointButtonOpen: Bool = false
+    var isActivityDetailsButtonOpen: Bool = false
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,12 +79,6 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, DropDo
         self.activitDetailsView.layer.cornerRadius = 2.0
         self.activitStartTimeView.layer.cornerRadius = 2.0
         self.activitCheckPointView.layer.cornerRadius = 2.0
-        
-        
-        // Update View
-        if let _ = self.activityInfo.first {
-            self.updateViewWithActivity(self.activityInfo.first!)
-        }
         
         //Add Date Picker
         self.datePickerView = NSBundle.mainBundle().loadNibNamed("TRDatePicker", owner: self, options: nil)[0] as? TRDatePicker
@@ -85,6 +91,17 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, DropDo
         self.dropTableView?.delegate = self
         self.dropTableView?.hidden = true
         self.view.addSubview(self.dropTableView!)
+        
+        //Filtered Arrays
+        self.filteredActivitiesOfSubTypeAndDifficulty = self.getFiletreObjOfSubTypeAndDifficulty()!
+        
+        //Get similar activities with different CheckPoints
+        self.filteredCheckPoints = TRApplicationManager.sharedInstance.getActivitiesMatchingSubTypeAndLevel(self.filteredActivitiesOfSubTypeAndDifficulty.first!)!
+
+        // Update View
+        if let _ = self.filteredActivitiesOfSubTypeAndDifficulty.first {
+            self.updateViewWithActivity(self.filteredActivitiesOfSubTypeAndDifficulty.first!)
+        }
     }
     
     //MARK: - Refresh View
@@ -162,6 +179,41 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, DropDo
     }
     
     //MARK: - Button Actions
+    @IBAction func activityNameButtonClicked (sender: UIButton) {
+        
+        if self.filteredActivitiesOfSubTypeAndDifficulty.count <= 1 {
+            return
+        }
+        
+        if self.dropTableView?.hidden == false {
+            self.closeDropDownTable()
+            self.dropTableView?.dataArray.removeAll()
+            self.isActivityNameButtonOpen = false
+            
+            return
+        }
+        
+        for activityInfo in self.filteredActivitiesOfSubTypeAndDifficulty {
+            
+            if let aType = activityInfo.activityType {
+                var nameString = aType
+                
+                if let aSubType =  activityInfo.activitySubType where aSubType != "" {
+                    nameString = "\(nameString) - \(aSubType)"
+                }
+                if let aDifficulty = activityInfo.activityDificulty where aDifficulty != "" {
+                    nameString = "\(nameString) - \(aDifficulty)"
+                }
+                
+                self.dropTableView?.dataArray.append(nameString)
+            }
+        }
+        
+        self.dropTableView?.hidden = false
+        self.isActivityNameButtonOpen = true
+        self.addTableViewWithParent(self.activitNameView)
+    }
+    
     @IBAction func showDatePicker (sender: UIButton) {
         
         guard let _ = self.datePickerView else {
@@ -178,12 +230,24 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, DropDo
     
     @IBAction func showCheckPoints (sender: UIButton) {
         
-        if self.dropTableView?.hidden == false {
-            self.closeDropDownTable()
+        if self.filteredCheckPoints.count <= 1 {
             return
         }
         
+        if self.dropTableView?.hidden == false {
+            self.closeDropDownTable()
+            self.dropTableView?.dataArray.removeAll()
+            self.isActivityCheckPointButtonOpen = false
+            
+            return
+        }
+        
+        for activity in self.filteredCheckPoints {
+            self.dropTableView?.dataArray.append(activity.activityCheckPoint!)
+        }
+        
         self.dropTableView?.hidden = false
+        self.isActivityCheckPointButtonOpen = true
         self.addTableViewWithParent(self.activitCheckPointView)
     }
     
@@ -191,10 +255,13 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, DropDo
         
         if self.dropTableView?.hidden == false {
             self.closeDropDownTable()
+            self.isActivityDetailsButtonOpen = false
+            
             return
         }
 
         self.dropTableView?.hidden = false
+        self.isActivityDetailsButtonOpen = true
         self.addTableViewWithParent(self.activitDetailsView)
     }
     
@@ -250,8 +317,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, DropDo
     
     //MARK:- Table View Methods
     func addTableViewWithParent (sender: UIView) {
-
-        self.dropTableView?.dataArray = ["hello", "world", "swift"]
+        
         let height = CGFloat((self.dropTableView?.dropDownTable.numberOfSections)! * 47)
         self.dropTableView?.frame = CGRectMake(sender.frame.origin.x, sender.frame.origin.y + sender.frame.size.height - (self.dropTableView?.layer.cornerRadius)!, sender.frame.width, height)
         
@@ -259,11 +325,56 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, DropDo
     }
     
     func didSelectRowAtIndex(index: Int) {
-        print("Index: \(index)")
+        
+        var dataArray: [TRActivityInfo] = []
+        switch true {
+        case self.isActivityNameButtonOpen:
+            dataArray = self.filteredActivitiesOfSubTypeAndDifficulty
+            self.isActivityNameButtonOpen = false
+            break
+        case self.isActivityCheckPointButtonOpen:
+            dataArray = self.filteredCheckPoints
+            self.isActivityCheckPointButtonOpen = false
+            break
+        case self.isActivityDetailsButtonOpen:
+            break
+        default:
+            break
+        }
+        
+        if index < dataArray.count {
+            let activitySelected = dataArray[index]
+            
+            self.selectedActivity = activitySelected
+            self.updateViewWithActivity(self.selectedActivity!)
+            
+            self.dropTableView?.dataArray.removeAll()
+            self.closeDropDownTable()
+        }
     }
     
     func closeDropDownTable () {
         self.dropTableView?.hidden = true
+    }
+    
+    
+    //MARK:- Array Filtering
+    //MARK:- DATA METHODS
+    func getFiletreObjOfSubTypeAndDifficulty () -> [TRActivityInfo]? {
+        
+        var filteredArray: [TRActivityInfo] = []
+        for (_, activity) in self.activityInfo.enumerate() {
+            if (self.activityInfo.count < 1) {
+                filteredArray.append(activity)
+            } else {
+                let activityArray = filteredArray.filter {$0.activityDificulty == activity.activityDificulty && $0.activitySubType == activity.activitySubType}
+                if (activityArray.count == 0) {
+                    filteredArray.append(activity)
+                }
+            }
+        }
+        
+        return filteredArray
     }
     
     deinit {

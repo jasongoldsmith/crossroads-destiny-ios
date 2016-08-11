@@ -2036,6 +2036,9 @@
                                         <state key="normal" title="Title">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="activityNameButtonClicked:" destination="YXe-0q-e54" eventType="touchUpInside" id="bhA-Lj-T4i"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconGhostDefault" translatesAutoresizingMaskIntoConstraints="NO" id="yKK-yM-Tsp">
                                         <rect key="frame" x="13" y="14" width="22" height="22"/>
