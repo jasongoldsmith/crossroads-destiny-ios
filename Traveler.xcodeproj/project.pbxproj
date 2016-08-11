@@ -294,6 +294,22 @@
 		33AABB291D5BF85B0099A20C /* TRDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33AABB271D5BF85B0099A20C /* TRDatePicker.xib */; };
 		33AABB2A1D5BF85B0099A20C /* TRDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33AABB271D5BF85B0099A20C /* TRDatePicker.xib */; };
 		33AABB2B1D5BF85B0099A20C /* TRDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33AABB271D5BF85B0099A20C /* TRDatePicker.xib */; };
+		33AABB2D1D5C1B000099A20C /* TRDropDownTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AABB2C1D5C1B000099A20C /* TRDropDownTableView.swift */; };
+		33AABB2E1D5C1B000099A20C /* TRDropDownTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AABB2C1D5C1B000099A20C /* TRDropDownTableView.swift */; };
+		33AABB2F1D5C1B000099A20C /* TRDropDownTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AABB2C1D5C1B000099A20C /* TRDropDownTableView.swift */; };
+		33AABB301D5C1B000099A20C /* TRDropDownTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AABB2C1D5C1B000099A20C /* TRDropDownTableView.swift */; };
+		33AABB321D5C1B2A0099A20C /* TRDropDownTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33AABB311D5C1B2A0099A20C /* TRDropDownTableView.xib */; };
+		33AABB331D5C1B2A0099A20C /* TRDropDownTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33AABB311D5C1B2A0099A20C /* TRDropDownTableView.xib */; };
+		33AABB341D5C1B2A0099A20C /* TRDropDownTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33AABB311D5C1B2A0099A20C /* TRDropDownTableView.xib */; };
+		33AABB351D5C1B2A0099A20C /* TRDropDownTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33AABB311D5C1B2A0099A20C /* TRDropDownTableView.xib */; };
+		33AABB421D5C26D30099A20C /* TrDropDownTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AABB411D5C26D30099A20C /* TrDropDownTableCell.swift */; };
+		33AABB431D5C26D30099A20C /* TrDropDownTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AABB411D5C26D30099A20C /* TrDropDownTableCell.swift */; };
+		33AABB441D5C26D30099A20C /* TrDropDownTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AABB411D5C26D30099A20C /* TrDropDownTableCell.swift */; };
+		33AABB451D5C26D30099A20C /* TrDropDownTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AABB411D5C26D30099A20C /* TrDropDownTableCell.swift */; };
+		33AABB471D5C26F10099A20C /* TrDropDownTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33AABB461D5C26F10099A20C /* TrDropDownTableCell.xib */; };
+		33AABB481D5C26F10099A20C /* TrDropDownTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33AABB461D5C26F10099A20C /* TrDropDownTableCell.xib */; };
+		33AABB491D5C26F10099A20C /* TrDropDownTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33AABB461D5C26F10099A20C /* TrDropDownTableCell.xib */; };
+		33AABB4A1D5C26F10099A20C /* TrDropDownTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33AABB461D5C26F10099A20C /* TrDropDownTableCell.xib */; };
 		33B5BC701C9A2F0B000D94DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C1FF361C77C15C00A78798 /* Assets.xcassets */; };
 		33B5BC711C9A2F0C000D94DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C1FF361C77C15C00A78798 /* Assets.xcassets */; };
 		33B73BFF1D2F171200BEA7E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33B73BFE1D2F171200BEA7E5 /* GoogleService-Info.plist */; };
@@ -593,6 +609,10 @@
 		33AABB1C1D5BC3250099A20C /* TRActivityModifiersInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRActivityModifiersInfo.swift; sourceTree = "<group>"; };
 		33AABB211D5BF8280099A20C /* TRDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRDatePicker.swift; sourceTree = "<group>"; };
 		33AABB271D5BF85B0099A20C /* TRDatePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRDatePicker.xib; sourceTree = "<group>"; };
+		33AABB2C1D5C1B000099A20C /* TRDropDownTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRDropDownTableView.swift; sourceTree = "<group>"; };
+		33AABB311D5C1B2A0099A20C /* TRDropDownTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRDropDownTableView.xib; sourceTree = "<group>"; };
+		33AABB411D5C26D30099A20C /* TrDropDownTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrDropDownTableCell.swift; sourceTree = "<group>"; };
+		33AABB461D5C26F10099A20C /* TrDropDownTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrDropDownTableCell.xib; sourceTree = "<group>"; };
 		33B73BFE1D2F171200BEA7E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		33B73C001D2F188800BEA7E5 /* TRFireBaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRFireBaseManager.swift; sourceTree = "<group>"; };
 		33B73C051D303F5200BEA7E5 /* TRHelmetUpdateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRHelmetUpdateRequest.swift; sourceTree = "<group>"; };
@@ -728,6 +748,7 @@
 			isa = PBXGroup;
 			children = (
 				3380EF251CC94695000A9289 /* Event_Table_Cells */,
+				33AABB361D5C1B340099A20C /* DropDown */,
 				33AABB261D5BF8430099A20C /* Pickers */,
 				33FDB9AD1C850AFC0066237C /* EventButton.swift */,
 				33104BFE1C97B1F40024D601 /* TRActivityIndicatorView.swift */,
@@ -794,6 +815,17 @@
 				33AABB271D5BF85B0099A20C /* TRDatePicker.xib */,
 			);
 			name = Pickers;
+			sourceTree = "<group>";
+		};
+		33AABB361D5C1B340099A20C /* DropDown */ = {
+			isa = PBXGroup;
+			children = (
+				33AABB2C1D5C1B000099A20C /* TRDropDownTableView.swift */,
+				33AABB311D5C1B2A0099A20C /* TRDropDownTableView.xib */,
+				33AABB411D5C26D30099A20C /* TrDropDownTableCell.swift */,
+				33AABB461D5C26F10099A20C /* TrDropDownTableCell.xib */,
+			);
+			name = DropDown;
 			sourceTree = "<group>";
 		};
 		33D0B3F71CFCFD41008ABA04 /* LaunchImage */ = {
@@ -1170,6 +1202,7 @@
 				33D0B44E1CFD0165008ABA04 /* TRActivityIndicatorView.xib in Resources */,
 				33728F951D36F06B000A3CF8 /* Crossroads.entitlements in Resources */,
 				33D0B44F1CFD0165008ABA04 /* TRSendChatMessageView.xib in Resources */,
+				33AABB471D5C26F10099A20C /* TrDropDownTableCell.xib in Resources */,
 				33D0B4501CFD0165008ABA04 /* TREventCurrentNoCheckPointCell.xib in Resources */,
 				33D0B4511CFD0165008ABA04 /* Assets.xcassets in Resources */,
 				33D0B4521CFD0165008ABA04 /* TRBungieGroupCell.xib in Resources */,
@@ -1184,6 +1217,7 @@
 				33AABB281D5BF85B0099A20C /* TRDatePicker.xib in Resources */,
 				33B73BFF1D2F171200BEA7E5 /* GoogleService-Info.plist in Resources */,
 				33D0B45A1CFD0165008ABA04 /* TrLaunchImgBadge.png in Resources */,
+				33AABB321D5C1B2A0099A20C /* TRDropDownTableView.xib in Resources */,
 				33D0B45B1CFD0165008ABA04 /* TREventUpcomingWithCheckPointCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1202,6 +1236,7 @@
 				3374D7511C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */,
 				33104BFB1C97B1E70024D601 /* TRActivityIndicatorView.xib in Resources */,
 				5CBD7BCC1CAC91A90078636D /* TRSendChatMessageView.xib in Resources */,
+				33AABB481D5C26F10099A20C /* TrDropDownTableCell.xib in Resources */,
 				3380EF3B1CC95C28000A9289 /* TREventCurrentNoCheckPointCell.xib in Resources */,
 				62F279BF1C7D1318008D67DC /* Assets.xcassets in Resources */,
 				3333BDC31CEE6C8C001C9E1A /* TRBungieGroupCell.xib in Resources */,
@@ -1216,6 +1251,7 @@
 				33AABB291D5BF85B0099A20C /* TRDatePicker.xib in Resources */,
 				33AA2C961D3E9D2200E5BF0D /* GoogleService-Info.plist in Resources */,
 				33D0B3F21CFCFC2C008ABA04 /* TrLaunchImgBadge.png in Resources */,
+				33AABB331D5C1B2A0099A20C /* TRDropDownTableView.xib in Resources */,
 				3380EF431CC979C1000A9289 /* TREventUpcomingWithCheckPointCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1231,12 +1267,14 @@
 				3329B5991C9B7A9000CC1F9B /* TRPushNotificationView.xib in Resources */,
 				3380EF3C1CC95C28000A9289 /* TREventCurrentNoCheckPointCell.xib in Resources */,
 				33D9D97C1D48477400A6289D /* TREventActivityCardCell.xib in Resources */,
+				33AABB491D5C26F10099A20C /* TrDropDownTableCell.xib in Resources */,
 				339D8F2D1C90F79800A2620F /* TRActivitySelectionCell.xib in Resources */,
 				3398E1B71CAB7F14001F022B /* TREventInfoPlayerCell.xib in Resources */,
 				3329B5911C9B528F00CC1F9B /* TRErrorNotificationView.xib in Resources */,
 				3374D7521C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */,
 				3333BDC41CEE6C8C001C9E1A /* TRBungieGroupCell.xib in Resources */,
 				3380EF481CC979E2000A9289 /* TREventUpcomingNoCheckPointCell.xib in Resources */,
+				33AABB341D5C1B2A0099A20C /* TRDropDownTableView.xib in Resources */,
 				337DA4CE1D4C0D48002A10BA /* TRErrorView.xib in Resources */,
 				3380EF381CC9479C000A9289 /* TREventCurrentWithCheckPointCell.xib in Resources */,
 				338BB2041CEEB99F00A14060 /* TRWebView.xib in Resources */,
@@ -1256,12 +1294,14 @@
 				3329B59A1C9B7A9000CC1F9B /* TRPushNotificationView.xib in Resources */,
 				3380EF3D1CC95C28000A9289 /* TREventCurrentNoCheckPointCell.xib in Resources */,
 				33D9D97D1D48477400A6289D /* TREventActivityCardCell.xib in Resources */,
+				33AABB4A1D5C26F10099A20C /* TrDropDownTableCell.xib in Resources */,
 				339D8F2E1C90F79800A2620F /* TRActivitySelectionCell.xib in Resources */,
 				3398E1B81CAB7F14001F022B /* TREventInfoPlayerCell.xib in Resources */,
 				3329B5921C9B528F00CC1F9B /* TRErrorNotificationView.xib in Resources */,
 				3374D7531C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */,
 				3333BDC51CEE6C8C001C9E1A /* TRBungieGroupCell.xib in Resources */,
 				3380EF491CC979E2000A9289 /* TREventUpcomingNoCheckPointCell.xib in Resources */,
+				33AABB351D5C1B2A0099A20C /* TRDropDownTableView.xib in Resources */,
 				337DA4CF1D4C0D48002A10BA /* TRErrorView.xib in Resources */,
 				3380EF391CC9479C000A9289 /* TREventCurrentWithCheckPointCell.xib in Resources */,
 				338BB2051CEEB99F00A14060 /* TRWebView.xib in Resources */,
@@ -1512,6 +1552,7 @@
 				33D0B4081CFD0165008ABA04 /* TRConstants.swift in Sources */,
 				33D0B4091CFD0165008ABA04 /* TRLeaveEventRequest.swift in Sources */,
 				33A588FC1D511C2900D06127 /* TRChangeConsoleRequest.swift in Sources */,
+				33AABB421D5C26D30099A20C /* TrDropDownTableCell.swift in Sources */,
 				33D0B40A1CFD0165008ABA04 /* TRApplicationManager.swift in Sources */,
 				33D0B40B1CFD0165008ABA04 /* TREventInfoPlayerCell.swift in Sources */,
 				33D0B40C1CFD0165008ABA04 /* TRCreateAccountViewController.swift in Sources */,
@@ -1560,6 +1601,7 @@
 				33AABB1D1D5BC3250099A20C /* TRActivityModifiersInfo.swift in Sources */,
 				33D0B42E1CFD0165008ABA04 /* TRBaseEventTableCell.swift in Sources */,
 				33D0B42F1CFD0165008ABA04 /* TRCreateEventViewController.swift in Sources */,
+				33AABB2D1D5C1B000099A20C /* TRDropDownTableView.swift in Sources */,
 				33D0B4301CFD0165008ABA04 /* TRActivityCheckPointPicker.swift in Sources */,
 				33D0B4311CFD0165008ABA04 /* TRNavTransitionAnimator.swift in Sources */,
 				33D0B4321CFD0165008ABA04 /* ViewControllerExtension.swift in Sources */,
@@ -1614,6 +1656,7 @@
 				33742D801C7FBDF100C46742 /* TRConstants.swift in Sources */,
 				332C9CE41C8B89370092989E /* TRLeaveEventRequest.swift in Sources */,
 				33A588FD1D511C2900D06127 /* TRChangeConsoleRequest.swift in Sources */,
+				33AABB431D5C26D30099A20C /* TrDropDownTableCell.swift in Sources */,
 				33742D881C7FC4B400C46742 /* TRApplicationManager.swift in Sources */,
 				3398E1B21CAB7EE0001F022B /* TREventInfoPlayerCell.swift in Sources */,
 				62C1FF631C77D7F000A78798 /* TRCreateAccountViewController.swift in Sources */,
@@ -1662,6 +1705,7 @@
 				33AABB1E1D5BC3250099A20C /* TRActivityModifiersInfo.swift in Sources */,
 				3380EF221CC94517000A9289 /* TRBaseEventTableCell.swift in Sources */,
 				33F427491C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */,
+				33AABB2E1D5C1B000099A20C /* TRDropDownTableView.swift in Sources */,
 				3374D74D1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift in Sources */,
 				3372219D1CD06762001B1157 /* TRNavTransitionAnimator.swift in Sources */,
 				629497321C7C04E1005E4F91 /* ViewControllerExtension.swift in Sources */,
@@ -1719,6 +1763,7 @@
 				62C1FF601C77CDFF00A78798 /* TRLoginOptionViewController.swift in Sources */,
 				33D067681CD40AF600E05EF1 /* TRUpdateUser.swift in Sources */,
 				33FDB9AF1C850B960066237C /* EventButton.swift in Sources */,
+				33AABB2F1D5C1B000099A20C /* TRDropDownTableView.swift in Sources */,
 				334E05BF1C939D7B00973068 /* AppDelegate.swift in Sources */,
 				33FDB9B71C8621150066237C /* TRCreateEventRequest.swift in Sources */,
 				332BC1761CEBD80C00012B45 /* TRSignUpVerificatioViewController.swift in Sources */,
@@ -1750,6 +1795,7 @@
 				333FA8AB1D0109C200A5EC1C /* TRBungieUserAuthRequest.swift in Sources */,
 				33F4274A1C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */,
 				33916CF91D1DD422006AE37B /* TRGetEventRequest.swift in Sources */,
+				33AABB441D5C26D30099A20C /* TrDropDownTableCell.swift in Sources */,
 				3374D74E1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift in Sources */,
 				62C1FF641C77D7F000A78798 /* TRCreateAccountViewController.swift in Sources */,
 				3312B91C1D024251005AF67D /* TRConsoles.swift in Sources */,
@@ -1822,6 +1868,7 @@
 				62C1FF611C77CDFF00A78798 /* TRLoginOptionViewController.swift in Sources */,
 				33D067691CD40AF600E05EF1 /* TRUpdateUser.swift in Sources */,
 				33FDB9B01C850B970066237C /* EventButton.swift in Sources */,
+				33AABB301D5C1B000099A20C /* TRDropDownTableView.swift in Sources */,
 				334E05C01C939D7C00973068 /* AppDelegate.swift in Sources */,
 				33FDB9B81C8621160066237C /* TRCreateEventRequest.swift in Sources */,
 				332BC1771CEBD80C00012B45 /* TRSignUpVerificatioViewController.swift in Sources */,
@@ -1853,6 +1900,7 @@
 				333FA8AC1D0109C200A5EC1C /* TRBungieUserAuthRequest.swift in Sources */,
 				33F4274B1C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */,
 				33916CFA1D1DD422006AE37B /* TRGetEventRequest.swift in Sources */,
+				33AABB451D5C26D30099A20C /* TrDropDownTableCell.swift in Sources */,
 				3374D74F1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift in Sources */,
 				62C1FF651C77D7F000A78798 /* TRCreateAccountViewController.swift in Sources */,
 				3312B91D1D024251005AF67D /* TRConsoles.swift in Sources */,

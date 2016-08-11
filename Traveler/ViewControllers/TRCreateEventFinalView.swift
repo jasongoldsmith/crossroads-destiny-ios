@@ -9,7 +9,7 @@
 import Foundation
 
 
-class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol {
+class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, DropDownTableProtocol {
     
     
     @IBOutlet weak var activityBGImageView: UIImageView!
@@ -41,6 +41,15 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol {
     //Date Picker
     var datePickerView: TRDatePicker?
     
+    //CheckPoint
+    lazy var actcheckPointsArr: [String] = []
+    
+    //Similar Activities
+    lazy var actOfSameTypeArr : [TRActivityInfo] = []
+    
+    //TableView
+    var dropTableView: TRDropDownTableView?
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -69,6 +78,12 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol {
         self.datePickerView = NSBundle.mainBundle().loadNibNamed("TRDatePicker", owner: self, options: nil)[0] as? TRDatePicker
         self.datePickerView?.frame = self.view.bounds
         self.datePickerView?.delegate = self
+        
+        //DropDown Table
+        self.dropTableView = NSBundle.mainBundle().loadNibNamed("TRDropDownTableView", owner: self, options: nil)[0] as? TRDropDownTableView
+        self.dropTableView?.delegate = self
+        self.dropTableView?.hidden = true
+        self.view.addSubview(self.dropTableView!)
     }
     
     //MARK: - Refresh View
@@ -156,33 +171,96 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol {
         UIView.animateWithDuration(0.4) { () -> Void in
             self.datePickerView?.alpha = 1
         }
-        
-        self.datePickerView?.delegate = self
-        self.view.addSubview(self.datePickerView!)
     }
     
     @IBAction func showCheckPoints (sender: UIButton) {
         
+        if self.dropTableView?.hidden == false {
+            self.closeDropDownTable()
+            return
+        }
+        
+        self.dropTableView?.hidden = false
+        self.addTableViewWithParent(self.activitCheckPointView)
     }
     
     @IBAction func showDetail (sender: UIButton) {
         
+        if self.dropTableView?.hidden == false {
+            self.closeDropDownTable()
+            return
+        }
+
+        self.dropTableView?.hidden = false
+        self.addTableViewWithParent(self.activitDetailsView)
     }
     
     @IBAction func addActivityButtonClicked (sender: UIButton) {
         guard let _ = self.selectedActivity else {
             return
         }
+        
+        guard let activityDate = self.datePickerView?.datePicker?.date else {
+            return
+        }
+
+        
+        let _ = TRCreateEventRequest().createAnEventWithActivity(self.selectedActivity!, selectedTime: activityDate) { (value) -> () in
+            if (value == true) {
+
+                self.datePickerView?.delegate = nil
+                self.datePickerView?.removeFromSuperview()
+
+                self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                    self.didMoveToParentViewController(nil)
+                    self.removeFromParentViewController()
+                })
+            } else {
+                self.appManager.log.debug("Create Event Failed")
+            }
+        }
     }
     
     @IBAction func cancelButtonPressed (sender: UIButton) {
+        
+        self.datePickerView?.delegate = nil
+        self.datePickerView?.removeFromSuperview()
+
+        self.dropTableView?.delegate = nil
+        self.dropTableView?.removeFromSuperview()
+
         self.dismissViewController(true) { (didDismiss) in
             
         }
     }
 
     @IBAction func backButtonPressed (sender: UIButton) {
+        
+        self.datePickerView?.delegate = nil
+        self.datePickerView?.removeFromSuperview()
+        
+        self.dropTableView?.delegate = nil
+        self.dropTableView?.removeFromSuperview()
+        
         self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
+    //MARK:- Table View Methods
+    func addTableViewWithParent (sender: UIView) {
+
+        self.dropTableView?.dataArray = ["hello", "world", "swift"]
+        let height = CGFloat((self.dropTableView?.dropDownTable.numberOfSections)! * 47)
+        self.dropTableView?.frame = CGRectMake(sender.frame.origin.x, sender.frame.origin.y + sender.frame.size.height - (self.dropTableView?.layer.cornerRadius)!, sender.frame.width, height)
+        
+        //self.dropTableView?.addDropDownAnimation()
+    }
+    
+    func didSelectRowAtIndex(index: Int) {
+        print("Index: \(index)")
+    }
+    
+    func closeDropDownTable () {
+        self.dropTableView?.hidden = true
     }
     
     deinit {
