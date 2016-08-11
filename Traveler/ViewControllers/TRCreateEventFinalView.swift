@@ -78,6 +78,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, DropDo
         self.datePickerView = NSBundle.mainBundle().loadNibNamed("TRDatePicker", owner: self, options: nil)[0] as? TRDatePicker
         self.datePickerView?.frame = self.view.bounds
         self.datePickerView?.delegate = self
+    
         
         //DropDown Table
         self.dropTableView = NSBundle.mainBundle().loadNibNamed("TRDropDownTableView", owner: self, options: nil)[0] as? TRDropDownTableView
@@ -168,7 +169,9 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, DropDo
         }
         
         self.datePickerView?.alpha = 0
-        UIView.animateWithDuration(0.4) { () -> Void in
+        self.view.addSubview(self.datePickerView!)
+        
+        UIView.animateWithDuration(0.5) { () -> Void in
             self.datePickerView?.alpha = 1
         }
     }
