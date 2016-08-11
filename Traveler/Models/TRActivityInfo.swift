@@ -71,11 +71,15 @@ class TRActivityInfo: NSObject {
         if let bonus = swiftyJson["aBonus"].dictionary {
             let activityBonus = TRActivityBonus()
             activityBonus.parseActivityBonus(JSON(bonus))
+            
+            self.activityBonus.append(activityBonus)
         }
         
         if let modifiers = swiftyJson["aModifiers"].dictionary {
             let activityModifier = TRActivityModifiersInfo()
             activityModifier.parseActivityModifiers(JSON(modifiers))
+            
+            self.activityModifiers.append(activityModifier)
         }
         
         return self
