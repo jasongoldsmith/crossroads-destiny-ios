@@ -95,8 +95,6 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, DropDo
         //Filtered Arrays
         self.filteredActivitiesOfSubTypeAndDifficulty = self.getFiletreObjOfSubTypeAndDifficulty()!
         
-        //Get similar activities with different CheckPoints
-        self.filteredCheckPoints = TRApplicationManager.sharedInstance.getActivitiesMatchingSubTypeAndLevel(self.filteredActivitiesOfSubTypeAndDifficulty.first!)!
 
         // Update View
         if let _ = self.filteredActivitiesOfSubTypeAndDifficulty.first {
@@ -109,6 +107,11 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, DropDo
         
         // Update default selected activity
         self.selectedActivity = activityInfo
+        
+        
+        //Get similar activities with different CheckPoints
+        self.filteredCheckPoints = TRApplicationManager.sharedInstance.getActivitiesMatchingSubTypeAndLevel(self.selectedActivity!)!
+
         
         // Update View
         if let activitySubType = activityInfo.activitySubType {
@@ -187,7 +190,6 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, DropDo
         
         if self.dropTableView?.hidden == false {
             self.closeDropDownTable()
-            self.dropTableView?.dataArray.removeAll()
             self.isActivityNameButtonOpen = false
             
             return
@@ -236,7 +238,6 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, DropDo
         
         if self.dropTableView?.hidden == false {
             self.closeDropDownTable()
-            self.dropTableView?.dataArray.removeAll()
             self.isActivityCheckPointButtonOpen = false
             
             return
@@ -348,12 +349,12 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, DropDo
             self.selectedActivity = activitySelected
             self.updateViewWithActivity(self.selectedActivity!)
             
-            self.dropTableView?.dataArray.removeAll()
             self.closeDropDownTable()
         }
     }
     
     func closeDropDownTable () {
+        self.dropTableView?.dataArray.removeAll()
         self.dropTableView?.hidden = true
     }
     
