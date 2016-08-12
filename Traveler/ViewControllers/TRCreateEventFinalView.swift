@@ -83,7 +83,8 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         
         
         //Filtered Arrays
-        self.filteredActivitiesOfSubTypeAndDifficulty = self.activityInfo
+        self.filteredActivitiesOfSubTypeAndDifficulty = self.getFiletreObjOfSubTypeAndDifficulty()!
+
         
         //Get similar activities with different CheckPoints
         self.filteredCheckPoints = TRApplicationManager.sharedInstance.getActivitiesMatchingSubTypeAndLevel(self.filteredActivitiesOfSubTypeAndDifficulty.first!)!
@@ -102,6 +103,8 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         
         // Update default selected activity
         self.selectedActivity = activityInfo
+        
+        self.filteredCheckPoints = TRApplicationManager.sharedInstance.getActivitiesMatchingSubTypeAndLevel(self.selectedActivity!)!
         
         // Update View
         if let activitySubType = activityInfo.activitySubType {
@@ -211,6 +214,20 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     
     @IBAction func showCheckPoints (sender: UIButton) {
         
+        if self.filteredCheckPoints.count <= 1 {
+            return
+        }
+        
+        if self.dropDownTableView?.hidden == false {
+            self.dropDownTableView?.hidden = true
+            self.dataArray.removeAll()
+            
+            return
+        }
+        
+        self.dataArray = self.filteredCheckPoints
+        self.dropDownTableView?.hidden = false
+        self.updateTableViewFrame(self.activitCheckPointView)
     }
     
     @IBAction func showDetail (sender: UIButton) {
@@ -237,8 +254,8 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     func getFiletreObjOfSubTypeAndDifficulty () -> [TRActivityInfo]? {
         
         var filteredArray: [TRActivityInfo] = []
-        for (_, activity) in self.filteredActivitiesOfSubTypeAndDifficulty.enumerate() {
-            if (self.filteredActivitiesOfSubTypeAndDifficulty.count < 1) {
+        for (_, activity) in self.activityInfo.enumerate() {
+            if (self.activityInfo.count < 1) {
                 filteredArray.append(activity)
             } else {
                 let activityArray = filteredArray.filter {$0.activityDificulty == activity.activityDificulty && $0.activitySubType == activity.activitySubType}
@@ -250,6 +267,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         
         return filteredArray
     }
+    
     
     //MARK:- Table Delegate Methods
     func updateTableViewFrame (sender: UIView) {
