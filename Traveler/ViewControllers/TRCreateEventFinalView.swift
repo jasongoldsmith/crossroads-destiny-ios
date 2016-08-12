@@ -91,13 +91,10 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         //Filtered Arrays
         self.filteredActivitiesOfSubTypeAndDifficulty = self.getFiletreObjOfSubTypeAndDifficulty()!
 
-        
-        //Get similar activities with different CheckPoints
-        self.filteredCheckPoints = TRApplicationManager.sharedInstance.getActivitiesMatchingSubTypeAndLevel(self.filteredActivitiesOfSubTypeAndDifficulty.first!)!
-        
         //DropDownTable
         self.dropDownTableView.hidden = true
         self.dropDownTableView.layer.borderWidth = 3.0
+        self.dropDownTableView.layer.cornerRadius = 2.0
         self.dropDownTableView.layer.borderColor = UIColor(red: 3/255, green: 81/255, blue: 102/255, alpha: 1).CGColor
         
         // Update View
@@ -111,8 +108,6 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         
         // Update default selected activity
         self.selectedActivity = activityInfo
-        
-        self.filteredCheckPoints = TRApplicationManager.sharedInstance.getActivitiesMatchingSubTypeAndLevel(self.selectedActivity!)!
         
         // Update View
         if let activitySubType = activityInfo.activitySubType {
@@ -199,13 +194,14 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     }
     
     @IBAction func showActivityName (sender: UIButton) {
+        
+        self.dataArray.removeAll()
         if self.filteredActivitiesOfSubTypeAndDifficulty.count <= 1 {
             return
         }
         
         if self.dropDownTableView?.hidden == false {
             self.dropDownTableView?.hidden = true
-            self.dataArray.removeAll()
             self.showGropName = false
             
             return
@@ -214,19 +210,22 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         self.showGropName = true
         self.dataArray = self.filteredActivitiesOfSubTypeAndDifficulty
         self.dropDownTableView?.hidden = false
+        self.dropDownTableView?.reloadData()
         self.updateTableViewFrame(self.activitNameView)
     }
     
     
     @IBAction func showCheckPoints (sender: UIButton) {
         
+        self.dataArray.removeAll()
+        self.filteredCheckPoints = TRApplicationManager.sharedInstance.getActivitiesMatchingSubTypeAndLevel(self.selectedActivity!)!
+
         if self.filteredCheckPoints.count <= 1 {
             return
         }
         
         if self.dropDownTableView?.hidden == false {
             self.dropDownTableView?.hidden = true
-            self.dataArray.removeAll()
             self.showCheckPoint = false
             
             return
@@ -235,6 +234,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         self.showCheckPoint = true
         self.dataArray = self.filteredCheckPoints
         self.dropDownTableView?.hidden = false
+        self.dropDownTableView?.reloadData()
         self.updateTableViewFrame(self.activitCheckPointView)
     }
     
@@ -245,6 +245,18 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     @IBAction func addActivityButtonClicked (sender: UIButton) {
         guard let _ = self.selectedActivity else {
             return
+        }
+        
+        let _ = TRCreateEventRequest().createAnEventWithActivity(self.selectedActivity!, selectedTime: self.datePickerView?.datePicker.date) { (value) -> () in
+            if (value == true) {
+                
+                self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                    self.didMoveToParentViewController(nil)
+                    self.removeFromParentViewController()
+                })
+            } else {
+                self.appManager.log.debug("Create Event Failed")
+            }
         }
     }
     
@@ -279,14 +291,12 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     //MARK:- Table Delegate Methods
     func updateTableViewFrame (sender: UIView) {
     
-        self.dropDownTableView?.reloadData()
-        
         var height = CGFloat((self.dropDownTableView?.numberOfSections)! * 47)
         let maxHeight = self.view.frame.size.height - sender.frame.origin.y + sender.frame.size.height - self.addActivityButton.frame.size.height - 100
         
         height = height > maxHeight ? maxHeight : height
         
-        self.dropDownTableView.frame = CGRectMake(sender.frame.origin.x, sender.frame.origin.y + sender.frame.size.height, sender.frame.size.width,  height)
+        self.dropDownTableView.frame = CGRectMake(sender.frame.origin.x, sender.frame.origin.y + sender.frame.size.height - 2, sender.frame.size.width,  height)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -334,7 +344,6 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     }
     
     func closeDropDown () {
-        self.dataArray.removeAll()
         self.dropDownTableView.hidden = true
     }
     
@@ -342,7 +351,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         if indexPath.section < self.dataArray.count {
             
             self.showCheckPoint = self.showCheckPoint == true ? false : false
-            self.showDetail = self.showDetail == true ? false : false
+            self.showGropName = self.showDetail == true ? false : false
             
             self.updateViewWithActivity(self.dataArray[indexPath.section])
             self.closeDropDown()
