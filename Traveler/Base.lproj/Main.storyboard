@@ -2255,10 +2255,10 @@
                                 </variation>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ig4-lg-5BV">
-                                <rect key="frame" x="40" y="343" width="520" height="208"/>
+                                <rect key="frame" x="40" y="342" width="520" height="208"/>
                                 <color key="backgroundColor" red="0.01176470588" green="0.31764705879999999" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dropDownCell" textLabel="CHX-mr-JEV" style="IBUITableViewCellStyleDefault" id="Ued-Wt-QcP">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="dropDownCell" textLabel="CHX-mr-JEV" style="IBUITableViewCellStyleDefault" id="Ued-Wt-QcP">
                                         <rect key="frame" x="0.0" y="28" width="520" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ued-Wt-QcP" id="CjN-hL-15v">
@@ -2287,14 +2287,14 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="yAf-wn-4k1" secondAttribute="trailing" constant="14" id="1Wy-mu-Wex"/>
                             <constraint firstAttribute="trailing" secondItem="Khc-oP-Jze" secondAttribute="trailing" constant="40" id="1fp-Xg-51X"/>
-                            <constraint firstItem="x4L-YE-Rsh" firstAttribute="top" secondItem="ig4-lg-5BV" secondAttribute="bottom" constant="49" id="1x8-OT-Zw4"/>
+                            <constraint firstItem="x4L-YE-Rsh" firstAttribute="top" secondItem="ig4-lg-5BV" secondAttribute="bottom" constant="50" id="1x8-OT-Zw4"/>
                             <constraint firstItem="J7u-lD-E7j" firstAttribute="top" secondItem="Khc-oP-Jze" secondAttribute="bottom" constant="10" id="21u-1d-cBr"/>
                             <constraint firstAttribute="trailing" secondItem="fRe-wq-10U" secondAttribute="trailing" id="2dF-dG-r1v"/>
                             <constraint firstItem="u8j-Yj-ni2" firstAttribute="leading" secondItem="kBa-Hn-K7P" secondAttribute="leading" id="AHn-cR-eiH"/>
                             <constraint firstAttribute="trailing" secondItem="8gg-oe-wS6" secondAttribute="trailing" id="B8N-Xg-NGB"/>
                             <constraint firstItem="68f-XA-961" firstAttribute="leading" secondItem="kBa-Hn-K7P" secondAttribute="leading" constant="12" id="CBe-jy-WmO"/>
                             <constraint firstAttribute="trailing" secondItem="kIK-4y-Rf5" secondAttribute="trailing" constant="13" id="Em2-oh-sEA"/>
-                            <constraint firstItem="ig4-lg-5BV" firstAttribute="top" secondItem="Dqh-WB-Ou1" secondAttribute="bottom" constant="-1" id="GEj-3X-end"/>
+                            <constraint firstItem="ig4-lg-5BV" firstAttribute="top" secondItem="Dqh-WB-Ou1" secondAttribute="bottom" constant="-2" id="GEj-3X-end"/>
                             <constraint firstItem="Khc-oP-Jze" firstAttribute="top" secondItem="Dqh-WB-Ou1" secondAttribute="bottom" constant="10" id="GZ6-Uu-bZc"/>
                             <constraint firstItem="NuX-A7-8ZL" firstAttribute="centerY" secondItem="yAf-wn-4k1" secondAttribute="centerY" id="O9s-mr-Sat"/>
                             <constraint firstItem="x4L-YE-Rsh" firstAttribute="top" secondItem="fRe-wq-10U" secondAttribute="bottom" id="OOp-rq-g1E"/>

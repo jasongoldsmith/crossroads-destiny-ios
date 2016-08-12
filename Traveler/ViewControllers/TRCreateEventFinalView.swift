@@ -45,6 +45,12 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     // Contains Unique Activities Based on SubType/ Difficulty
     var filteredCheckPoints: [TRActivityInfo] = []
 
+    
+    var showGropName: Bool = false
+    var showCheckPoint: Bool = false
+    var showDetail: Bool = false
+    
+    
     //Table View
     @IBOutlet weak var dropDownTableView: UITableView!
     var dataArray: [TRActivityInfo] = []
@@ -163,10 +169,6 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
             self.activityCheckPointHeightConst.constant = 0
             self.activityCheckPointTopConst.constant = 0
         }
-        
-        if self.dataArray.count > 0 {
-            self.dropDownTableView?.reloadData()
-        }
     }
     
     //MARK: - Protocol Methods
@@ -202,10 +204,12 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         if self.dropDownTableView?.hidden == false {
             self.dropDownTableView?.hidden = true
             self.dataArray.removeAll()
+            self.showGropName = false
             
             return
         }
         
+        self.showGropName = true
         self.dataArray = self.filteredActivitiesOfSubTypeAndDifficulty
         self.dropDownTableView?.hidden = false
         self.updateTableViewFrame(self.activitNameView)
@@ -221,10 +225,12 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         if self.dropDownTableView?.hidden == false {
             self.dropDownTableView?.hidden = true
             self.dataArray.removeAll()
+            self.showCheckPoint = false
             
             return
         }
         
+        self.showCheckPoint = true
         self.dataArray = self.filteredCheckPoints
         self.dropDownTableView?.hidden = false
         self.updateTableViewFrame(self.activitCheckPointView)
@@ -268,15 +274,17 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         return filteredArray
     }
     
-    
     //MARK:- Table Delegate Methods
     func updateTableViewFrame (sender: UIView) {
+    
+        self.dropDownTableView?.reloadData()
         
-        let height = self.view.frame.size.height - sender.frame.origin.y + sender.frame.size.height - self.addActivityButton.frame.size.height - 100
+        var height = CGFloat((self.dropDownTableView?.numberOfSections)! * 47)
+        let maxHeight = self.view.frame.size.height - sender.frame.origin.y + sender.frame.size.height - self.addActivityButton.frame.size.height - 100
+        
+        height = height > maxHeight ? maxHeight : height
         
         self.dropDownTableView.frame = CGRectMake(sender.frame.origin.x, sender.frame.origin.y + sender.frame.size.height, sender.frame.size.width,  height)
-        
-        self.dropDownTableView?.reloadData()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -299,24 +307,44 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("dropDownCell")
-        
         let activityInfo = self.dataArray[indexPath.section]
-        
-        if let aType = activityInfo.activityType {
-            var nameString = aType
-            
-            if let aSubType =  activityInfo.activitySubType where aSubType != "" {
-                nameString = "\(nameString) - \(aSubType)"
+       
+        if self.showGropName == true {
+            if let aType = activityInfo.activityType {
+                var nameString = aType
+                
+                if let aSubType =  activityInfo.activitySubType where aSubType != "" {
+                    nameString = "\(nameString) - \(aSubType)"
+                }
+                if let aDifficulty = activityInfo.activityDificulty where aDifficulty != "" {
+                    nameString = "\(nameString) - \(aDifficulty)"
+                }
+                
+                cell!.textLabel!.text = nameString
             }
-            if let aDifficulty = activityInfo.activityDificulty where aDifficulty != "" {
-                nameString = "\(nameString) - \(aDifficulty)"
-            }
-            
-            cell!.textLabel!.text = nameString
+        } else if self.showCheckPoint == true {
+            cell!.textLabel!.text = activityInfo.activityCheckPoint!
         }
         
         return cell!
+    }
+    
+    func closeDropDown () {
+        self.dataArray.removeAll()
+        self.dropDownTableView.hidden = true
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section < self.dataArray.count {
+            
+            self.showCheckPoint = self.showCheckPoint == true ? false : false
+            self.showGropName = self.showDetail == true ? false : false
+            
+            self.updateViewWithActivity(self.dataArray[indexPath.section])
+            self.closeDropDown()
+        }
     }
     
     deinit {
