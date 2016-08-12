@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import SlideMenuControllerSwift
 
 class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITableViewDataSource, UITableViewDelegate  {
     
@@ -269,13 +269,21 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
             return
         }
         
-        let _ = TRCreateEventRequest().createAnEventWithActivity(self.selectedActivity!, selectedTime: self.datePickerView?.datePicker.date) { (value) -> () in
-            if (value == true) {
-                
+        let _ = TRCreateEventRequest().createAnEventWithActivity(self.selectedActivity!, selectedTime: self.datePickerView?.datePicker.date) { (event) -> () in
+            
+            self.datePickerView?.delegate = nil
+            
+            if let eventInfo = event {
                 self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                    
                     self.didMoveToParentViewController(nil)
                     self.removeFromParentViewController()
+                    
+                    if let eventListViewController = TRApplicationManager.sharedInstance.slideMenuController.mainViewController as? TREventListViewController {
+                        eventListViewController.showEventInfoViewController(eventInfo, fromPushNoti: false)
+                    }
                 })
+
             } else {
                 self.appManager.log.debug("Create Event Failed")
             }
@@ -283,12 +291,14 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     }
     
     @IBAction func cancelButtonPressed (sender: UIButton) {
+        self.datePickerView?.delegate = nil
         self.dismissViewController(true) { (didDismiss) in
             
         }
     }
 
     @IBAction func backButtonPressed (sender: UIButton) {
+        self.datePickerView?.delegate = nil
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     

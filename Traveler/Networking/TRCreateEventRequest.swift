@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class TRCreateEventRequest: TRRequest {
     
-    func createAnEventWithActivity (activity: TRActivityInfo, selectedTime: NSDate?, completion: TRValueCallBack) {
+    func createAnEventWithActivity (activity: TRActivityInfo, selectedTime: NSDate?, completion: TREventObjCallBack) {
         
         let createEventUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_EventCreationUrl
         
@@ -44,7 +44,7 @@ class TRCreateEventRequest: TRRequest {
         request.sendRequestWithCompletion { (error, swiftyJsonVar) -> () in
             if let _ = error {
                 TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("response error")
-                completion(didSucceed: false)
+                completion(event: nil)
                 
                 return
             }
@@ -61,7 +61,7 @@ class TRCreateEventRequest: TRRequest {
             TRApplicationManager.sharedInstance.eventsList.insert(eventInfo, atIndex: 0)
 
             
-            completion(didSucceed: true )
+            completion(event: eventInfo)
         }
     }
 }
