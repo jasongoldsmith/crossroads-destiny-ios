@@ -80,11 +80,6 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         self.activitCheckPointView.layer.cornerRadius = 2.0
         
         
-        // Update View
-        if let _ = self.activityInfo.first {
-            self.updateViewWithActivity(self.activityInfo.first!)
-        }
-        
         //Add Date Picker
         self.datePickerView = NSBundle.mainBundle().loadNibNamed("TRDatePicker", owner: self, options: nil)[0] as? TRDatePicker
         self.datePickerView?.frame = self.view.bounds
@@ -101,8 +96,12 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         self.dropDownTableView.layer.borderColor = UIColor(red: 3/255, green: 81/255, blue: 102/255, alpha: 1).CGColor
         
         // Update View
-        if let _ = self.filteredActivitiesOfSubTypeAndDifficulty.first {
-            self.updateViewWithActivity(self.filteredActivitiesOfSubTypeAndDifficulty.first!)
+        if let _ = self.selectedActivity {
+            self.updateViewWithActivity(self.selectedActivity!)
+        } else {
+            if let _ = self.filteredActivitiesOfSubTypeAndDifficulty.first {
+                self.updateViewWithActivity(self.filteredActivitiesOfSubTypeAndDifficulty.first!)
+            }
         }
     }
     
