@@ -9,7 +9,7 @@
 import UIKit
 import Branch
 import Mixpanel
-//import FBSDKCoreKit
+import FBSDKCoreKit
 import Answers
 import Fabric
 
