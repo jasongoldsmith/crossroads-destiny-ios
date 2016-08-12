@@ -110,8 +110,14 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     func updateViewWithActivity (activityInfo: TRActivityInfo) {
         
         // Update default selected activity
-        //self.selectedActivity = activityInfo
-        
+        if let bonusName = activityInfo.activityBonus.first?.aBonusName {
+            self.eventTagLabel.text = bonusName
+        } else {
+            //Show Modifier
+            if let modifier = activityInfo.activityModifiers.first?.aModifierName {
+                self.eventTagLabel.text = modifier
+            }
+        }
         
         // Tag Label
         self.eventTagLabel.text = activityInfo.activityTag
@@ -121,7 +127,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
             self.activityNameLabel.text = activitySubType
         }
         
-        if let level = activityInfo.activityLevel where Int(level) > 0 {
+        if let level = activityInfo.activityLevel where level != "0" {
             let activityLavelString: String = "LEVEL \(level) "
             let stringFontAttribute = [NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 12)!]
             let levelAttributedStr = NSAttributedString(string: activityLavelString, attributes: stringFontAttribute)
