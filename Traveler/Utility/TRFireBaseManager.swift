@@ -48,7 +48,7 @@ class TRFireBaseManager {
     
     func addEventsObserversWithParentView (parentViewController: TRBaseViewController) {
         
-//        guard let userClan = TRUserInfo.getUserClanID() else {
+//        guard let userClan = TRApplicationManager.sharedInstance.currentUser?.userClanID else {
 //            return
 //        }
 //        

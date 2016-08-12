@@ -15,6 +15,7 @@ class TRgetActivityList: TRRequest {
         
         var params = [String: AnyObject]()
         params["aType"] = aType
+        params["includeTags"] = true
         
         let request = TRRequest()
         request.requestURL = activityListUrl

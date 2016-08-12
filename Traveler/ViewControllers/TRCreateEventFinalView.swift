@@ -164,6 +164,8 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         
         if let aCheckPoint = activityInfo.activityCheckPoint where aCheckPoint != "" {
             self.activityCheckPointButton.setTitle(aCheckPoint, forState: .Normal)
+            self.activityCheckPointHeightConst.constant = 50
+            self.activityCheckPointTopConst.constant = 10
         } else {
             self.activityCheckPointHeightConst.constant = 0
             self.activityCheckPointTopConst.constant = 0
@@ -242,7 +244,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     
     @IBAction func showDetail (sender: UIButton) {
         self.dataArray.removeAll()
-        self.filteredTags = TRApplicationManager.sharedInstance.getActivitiesMatchingSubTypeAndLevel(self.selectedActivity!)!
+        self.filteredTags = TRApplicationManager.sharedInstance.getActivitiesMatchingSubTypeAndLevelAndCheckPoint(self.selectedActivity!)!
         
         if self.filteredTags.count <= 1 {
             return
@@ -373,7 +375,10 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         } else if self.showCheckPoint == true {
             cell!.textLabel!.text = activityInfo.activityCheckPoint!
         } else {
-            cell!.textLabel!.text = "\(indexPath.section)"
+            cell!.textLabel!.text = activityInfo.activityTag!
+            if activityInfo.activityTag! == "" {
+                cell!.textLabel!.text = "None"
+            }
         }
         
         return cell!
