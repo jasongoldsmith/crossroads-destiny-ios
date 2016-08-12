@@ -2352,6 +2352,7 @@
                         <outlet property="activityNameViewsIcon" destination="yKK-yM-Tsp" id="0P9-z7-1JH"/>
                         <outlet property="activityStartTimeButton" destination="ggy-xx-l5s" id="TSy-3T-3tQ"/>
                         <outlet property="addActivityButton" destination="8gg-oe-wS6" id="fLw-Pf-ebU"/>
+                        <outlet property="backButton" destination="NuX-A7-8ZL" id="xQE-lH-Jyo"/>
                         <outlet property="dropDownTableView" destination="ig4-lg-5BV" id="R0Y-6s-Pfx"/>
                     </connections>
                 </viewController>

@@ -25,6 +25,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     @IBOutlet weak var activityNameViewsIcon: UIImageView!
     
     // View Button
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var activityNameButton: UIButton!
     @IBOutlet weak var activityCheckPointButton: UIButton!
     @IBOutlet weak var activityStartTimeButton: UIButton!

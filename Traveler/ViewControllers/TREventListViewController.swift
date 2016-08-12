@@ -365,7 +365,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
                 let cell = self.eventsTableView?.cellForRowAtIndexPath(indexPath) as! TREventActivityCardCell
                 
                 if let _ = cell.cellActivityAddButton.buttonActivityInfo {
-                        self.createActivityWithActivity(cell.cellActivityAddButton)
+                    self.createActivityWithActivity(cell.cellActivityAddButton)
                 }
             }
         } else {
@@ -586,15 +586,13 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     func createActivityWithActivity (sender: EventButton) {
         
         if let activityType =  sender.buttonActivityInfo?.activityType {
-            _ = TRgetActivityList().getActivityListofType(activityType, completion: { (value) -> () in
-                if (value == true) {
-                    let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
-                    let vc : TRCreateEventConfirmationViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_CREATE_EVENT_CONFIRM) as! TRCreateEventConfirmationViewController
-                    let navigationController = UINavigationController(rootViewController: vc)
-                    vc.selectedActivity = sender.buttonActivityInfo
-                    vc.showBackButton = false
+            _ = TRgetActivityList().getActivityListofType(activityType, completion: { (didSucceed) in
+                if didSucceed == true {
+                    let vc = TRApplicationManager.sharedInstance.stroryBoardManager.getViewControllerWithID(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_CREATE_EVENT_FINAL, storyBoardID: K.StoryBoard.StoryBoard_Main) as! TRCreateEventFinalView
+                    vc.activityInfo = TRApplicationManager.sharedInstance.activityList
+                    vc.backButton.hidden = true
                     
-                    self.presentViewController(navigationController, animated: true, completion: nil)
+                    self.presentViewController(vc, animated: true, completion: nil)
                 }
             })
         }
