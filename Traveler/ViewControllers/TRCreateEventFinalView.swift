@@ -9,7 +9,7 @@
 import Foundation
 
 
-class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol {
+class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITableViewDataSource, UITableViewDelegate  {
     
     
     @IBOutlet weak var activityBGImageView: UIImageView!
@@ -29,6 +29,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol {
     @IBOutlet weak var activityCheckPointButton: UIButton!
     @IBOutlet weak var activityStartTimeButton: UIButton!
     @IBOutlet weak var activityDetailButton: UIButton!
+    @IBOutlet weak var addActivityButton: UIButton!
     
     //Constaint outlets
     @IBOutlet weak var activityCheckPointHeightConst: NSLayoutConstraint!
@@ -38,8 +39,18 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol {
     var selectedActivity: TRActivityInfo?
     lazy var activityInfo: [TRActivityInfo] = []
     
+    // Contains Unique Activities Based on SubType/ Difficulty
+    var filteredActivitiesOfSubTypeAndDifficulty: [TRActivityInfo] = []
+    
+    // Contains Unique Activities Based on SubType/ Difficulty
+    var filteredCheckPoints: [TRActivityInfo] = []
+
+    //Table View
+    @IBOutlet weak var dropDownTableView: UITableView!
+    
     //Date Picker
     var datePickerView: TRDatePicker?
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -69,6 +80,21 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol {
         self.datePickerView = NSBundle.mainBundle().loadNibNamed("TRDatePicker", owner: self, options: nil)[0] as? TRDatePicker
         self.datePickerView?.frame = self.view.bounds
         self.datePickerView?.delegate = self
+        
+        
+        //Filtered Arrays
+        self.filteredActivitiesOfSubTypeAndDifficulty = self.activityInfo
+        
+        //Get similar activities with different CheckPoints
+        self.filteredCheckPoints = TRApplicationManager.sharedInstance.getActivitiesMatchingSubTypeAndLevel(self.filteredActivitiesOfSubTypeAndDifficulty.first!)!
+        
+        //DropDownTable
+        self.dropDownTableView.hidden = true
+        
+        // Update View
+        if let _ = self.filteredActivitiesOfSubTypeAndDifficulty.first {
+            self.updateViewWithActivity(self.filteredActivitiesOfSubTypeAndDifficulty.first!)
+        }
     }
     
     //MARK: - Refresh View
@@ -134,6 +160,8 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol {
             self.activityCheckPointHeightConst.constant = 0
             self.activityCheckPointTopConst.constant = 0
         }
+        
+        self.dropDownTableView?.reloadData()
     }
     
     //MARK: - Protocol Methods
@@ -161,6 +189,23 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol {
         self.view.addSubview(self.datePickerView!)
     }
     
+    @IBAction func showActivityName (sender: UIButton) {
+        if self.filteredActivitiesOfSubTypeAndDifficulty.count <= 1 {
+            return
+        }
+        
+        if self.dropDownTableView?.hidden == false {
+            self.dropDownTableView?.hidden = true
+            
+            return
+        }
+        
+        
+        self.dropDownTableView?.hidden = false
+        self.updateTableViewFrame(self.activitNameView)
+    }
+    
+    
     @IBAction func showCheckPoints (sender: UIButton) {
         
     }
@@ -183,6 +228,72 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol {
 
     @IBAction func backButtonPressed (sender: UIButton) {
         self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
+    
+    func getFiletreObjOfSubTypeAndDifficulty () -> [TRActivityInfo]? {
+        
+        var filteredArray: [TRActivityInfo] = []
+        for (_, activity) in self.filteredActivitiesOfSubTypeAndDifficulty.enumerate() {
+            if (self.filteredActivitiesOfSubTypeAndDifficulty.count < 1) {
+                filteredArray.append(activity)
+            } else {
+                let activityArray = filteredArray.filter {$0.activityDificulty == activity.activityDificulty && $0.activitySubType == activity.activitySubType}
+                if (activityArray.count == 0) {
+                    filteredArray.append(activity)
+                }
+            }
+        }
+        
+        return filteredArray
+    }
+    
+    //MARK:- Table Delegate Methods
+    func updateTableViewFrame (sender: UIView) {
+        
+        let height = self.view.frame.size.height - sender.frame.origin.y + sender.frame.size.height - self.addActivityButton.frame.size.height - 100
+        
+        self.dropDownTableView.frame = CGRectMake(sender.frame.origin.x, sender.frame.origin.y + sender.frame.size.height, sender.frame.size.width,  height)
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clearColor()
+        
+        return headerView
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 3.0
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 5
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("dropDownCell")
+        
+        let activityInfo = self.filteredActivitiesOfSubTypeAndDifficulty[indexPath.section]
+        
+        if let aType = activityInfo.activityType {
+            var nameString = aType
+            
+            if let aSubType =  activityInfo.activitySubType where aSubType != "" {
+                nameString = "\(nameString) - \(aSubType)"
+            }
+            if let aDifficulty = activityInfo.activityDificulty where aDifficulty != "" {
+                nameString = "\(nameString) - \(aDifficulty)"
+            }
+            
+            cell!.textLabel!.text = nameString
+        }
+        
+        return cell!
     }
     
     deinit {

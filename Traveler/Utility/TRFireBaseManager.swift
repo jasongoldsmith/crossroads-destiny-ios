@@ -48,23 +48,23 @@ class TRFireBaseManager {
     
     func addEventsObserversWithParentView (parentViewController: TRBaseViewController) {
         
-        guard let userClan = TRUserInfo.getUserClanID() else {
-            return
-        }
-        
-        let endPointKeyReference = userClan
-        self.ref = FIRDatabase.database().reference().child("events/").child(endPointKeyReference)
-        self.ref?.observeEventType(.Value, withBlock: { (snapshot) in
-            _ = TRGetEventsList().getEventsListWithClearActivityBackGround (false, clearBG: true, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
-                if(didSucceed == true) {
-                    dispatch_async(dispatch_get_main_queue(), {
-                        parentViewController.reloadEventTable()
-                    })
-                } else {
-                    
-                }
-            })
-        })
+//        guard let userClan = TRUserInfo.getUserClanID() else {
+//            return
+//        }
+//        
+//        let endPointKeyReference = userClan
+//        self.ref = FIRDatabase.database().reference().child("events/").child(endPointKeyReference)
+//        self.ref?.observeEventType(.Value, withBlock: { (snapshot) in
+//            _ = TRGetEventsList().getEventsListWithClearActivityBackGround (false, clearBG: true, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
+//                if(didSucceed == true) {
+//                    dispatch_async(dispatch_get_main_queue(), {
+//                        parentViewController.reloadEventTable()
+//                    })
+//                } else {
+//                    
+//                }
+//            })
+//        })
     }
     
     func addEventsObserversWithParentViewForDetailView (parentViewController: TREventInformationViewController, withEvent: TREventInfo) {
