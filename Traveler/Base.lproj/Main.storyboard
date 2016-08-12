@@ -1799,6 +1799,9 @@
                                 <state key="normal" image="imgFeatured"/>
                                 <state key="selected" image="imgRaidsSelected"/>
                                 <state key="highlighted" image="imgFeaturedOnTap"/>
+                                <connections>
+                                    <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="Jtf-SY-e1S"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWj-rT-82b" customClass="EventButton" customModule="Crossroads" customModuleProvider="target">
                                 <rect key="frame" x="353" y="179" width="94" height="96"/>
