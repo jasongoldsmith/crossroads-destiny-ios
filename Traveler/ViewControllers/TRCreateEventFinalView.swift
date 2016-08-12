@@ -16,6 +16,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     @IBOutlet weak var activityIconView: UIImageView!
     @IBOutlet weak var activityNameLabel: UILabel!
     @IBOutlet weak var activityLevelLabel: UILabel!
+    @IBOutlet weak var eventTagLabel: UILabel!
     
     // SubViews
     @IBOutlet weak var activitNameView: UIView!
@@ -109,7 +110,11 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     func updateViewWithActivity (activityInfo: TRActivityInfo) {
         
         // Update default selected activity
-        self.selectedActivity = activityInfo
+        //self.selectedActivity = activityInfo
+        
+        
+        // Tag Label
+        self.eventTagLabel.text = activityInfo.activityTag
         
         // Update View
         if let activitySubType = activityInfo.activitySubType {
