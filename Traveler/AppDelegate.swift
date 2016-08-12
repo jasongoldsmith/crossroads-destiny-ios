@@ -9,7 +9,7 @@
 import UIKit
 import Branch
 import Mixpanel
-import FBSDKCoreKit
+//import FBSDKCoreKit
 import Answers
 import Fabric
 
@@ -73,7 +73,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Branch.self, Answers.self])
         
         // FBSDK Initialization
-        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+//        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        return true
     }
 
     // MARK:- Branch Deep Linking related methods
