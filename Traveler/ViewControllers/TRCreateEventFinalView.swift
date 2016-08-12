@@ -97,6 +97,8 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         
         //DropDownTable
         self.dropDownTableView.hidden = true
+        self.dropDownTableView.layer.borderWidth = 3.0
+        self.dropDownTableView.layer.borderColor = UIColor(red: 3/255, green: 81/255, blue: 102/255, alpha: 1).CGColor
         
         // Update View
         if let _ = self.filteredActivitiesOfSubTypeAndDifficulty.first {
@@ -340,7 +342,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         if indexPath.section < self.dataArray.count {
             
             self.showCheckPoint = self.showCheckPoint == true ? false : false
-            self.showGropName = self.showDetail == true ? false : false
+            self.showDetail = self.showDetail == true ? false : false
             
             self.updateViewWithActivity(self.dataArray[indexPath.section])
             self.closeDropDown()

@@ -931,8 +931,8 @@
 				62C1FF2F1C77C15C00A78798 /* AppDelegate.swift */,
 				62C1FF331C77C15C00A78798 /* Main.storyboard */,
 				62C1FF361C77C15C00A78798 /* Assets.xcassets */,
-				62C1FF381C77C15C00A78798 /* LaunchScreen.storyboard */,
 				62C1FF3B1C77C15C00A78798 /* Info.plist */,
+				62C1FF381C77C15C00A78798 /* LaunchScreen.storyboard */,
 				33742D7F1C7FBDF100C46742 /* TRConstants.swift */,
 			);
 			path = Traveler;
