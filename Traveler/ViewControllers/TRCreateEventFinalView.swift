@@ -45,6 +45,8 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     // Contains Unique Activities Based on SubType/ Difficulty
     var filteredCheckPoints: [TRActivityInfo] = []
 
+    // Filtered Tags
+    var filteredTags: [TRActivityInfo] = []
     
     var showGropName: Bool = false
     var showCheckPoint: Bool = false
@@ -239,7 +241,25 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     }
     
     @IBAction func showDetail (sender: UIButton) {
+        self.dataArray.removeAll()
+        self.filteredTags = TRApplicationManager.sharedInstance.getActivitiesMatchingSubTypeAndLevel(self.selectedActivity!)!
         
+        if self.filteredTags.count <= 1 {
+            return
+        }
+        
+        if self.dropDownTableView?.hidden == false {
+            self.dropDownTableView?.hidden = true
+            self.showDetail = false
+            
+            return
+        }
+        
+        self.showDetail = true
+        self.dataArray = self.filteredTags
+        self.dropDownTableView?.hidden = false
+        self.dropDownTableView?.reloadData()
+        self.updateTableViewFrame(self.activitDetailsView)
     }
     
     @IBAction func addActivityButtonClicked (sender: UIButton) {
@@ -291,12 +311,26 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     //MARK:- Table Delegate Methods
     func updateTableViewFrame (sender: UIView) {
     
-        var height = CGFloat((self.dropDownTableView?.numberOfSections)! * 47)
-        let maxHeight = self.view.frame.size.height - sender.frame.origin.y + sender.frame.size.height - self.addActivityButton.frame.size.height - 100
+        var originY: CGFloat = 0.0
+        var maxHeight: CGFloat = 0.0
         
+        if sender.frame.origin.y > 450 {
+            maxHeight = self.view.frame.size.height + sender.frame.origin.y
+        } else {
+            maxHeight = self.view.frame.size.height - sender.frame.origin.y + sender.frame.size.height - self.addActivityButton.frame.size.height - 100
+        }
+        
+        var height = CGFloat((self.dropDownTableView?.numberOfSections)! * 47)
         height = height > maxHeight ? maxHeight : height
         
-        self.dropDownTableView.frame = CGRectMake(sender.frame.origin.x, sender.frame.origin.y + sender.frame.size.height - 2, sender.frame.size.width,  height)
+        if sender.frame.origin.y > 450 {
+            originY = sender.frame.origin.y - height + 2
+        } else {
+            originY = sender.frame.origin.y + sender.frame.size.height - 2
+        }
+        
+  
+        self.dropDownTableView.frame = CGRectMake(sender.frame.origin.x, originY, sender.frame.size.width,  height)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -338,6 +372,8 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
             }
         } else if self.showCheckPoint == true {
             cell!.textLabel!.text = activityInfo.activityCheckPoint!
+        } else {
+            cell!.textLabel!.text = "\(indexPath.section)"
         }
         
         return cell!
@@ -351,7 +387,8 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         if indexPath.section < self.dataArray.count {
             
             self.showCheckPoint = self.showCheckPoint == true ? false : false
-            self.showGropName = self.showDetail == true ? false : false
+            self.showGropName = self.showGropName == true ? false : false
+            self.showDetail = self.showDetail == true ? false : false
             
             self.updateViewWithActivity(self.dataArray[indexPath.section])
             self.closeDropDown()
