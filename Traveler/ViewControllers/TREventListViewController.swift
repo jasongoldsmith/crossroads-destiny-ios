@@ -584,13 +584,16 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
     
     func createActivityWithActivity (sender: EventButton) {
-        
-        if let activityType =  sender.buttonActivityInfo?.activityType {
+        self.createActivityFromEvent(sender.buttonActivityInfo!)
+    }
+    
+    func createActivityFromEvent (sender: TRActivityInfo) {
+        if let activityType =  sender.activityType {
             _ = TRgetActivityList().getActivityListofType(activityType, completion: { (didSucceed) in
                 if didSucceed == true {
                     let vc = TRApplicationManager.sharedInstance.stroryBoardManager.getViewControllerWithID(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_CREATE_EVENT_FINAL, storyBoardID: K.StoryBoard.StoryBoard_Main) as! TRCreateEventFinalView
                     vc.activityInfo = TRApplicationManager.sharedInstance.activityList
-                    vc.selectedActivity = sender.buttonActivityInfo
+                    vc.selectedActivity = sender
                     
                     self.presentViewController(vc, animated: true, completion: {
                         vc.backButton?.hidden = true
@@ -696,8 +699,10 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
     
     //MARK:- Error Message View Handling actions
-    func addActivity () {
-        self.createAnEvent()
+    func addActivity (eventInfo: TREventInfo?) {
+        if let _ = eventInfo?.eventActivity {
+            self.createActivityFromEvent((eventInfo?.eventActivity)!)
+        }
     }
     
     func addConsole () {

@@ -109,6 +109,9 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     //MARK: - Refresh View
     func updateViewWithActivity (activityInfo: TRActivityInfo) {
         
+        //Set Selected Activity
+        self.selectedActivity = activityInfo
+        
         // Update default selected activity
         if let bonusName = activityInfo.activityBonus.first?.aBonusName {
             self.eventTagLabel.text = bonusName

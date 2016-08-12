@@ -9,7 +9,7 @@
 import UIKit
 
 @objc protocol ErrorViewProtocol {
-    optional func addActivity ()
+    optional func addActivity (eventInfo: TREventInfo?)
     optional func addConsole ()
     optional func goToBungie (eventID: String?)
 }
@@ -33,10 +33,10 @@ class TRErrorView: UIView {
     @IBAction func buttonOneYesPressed (sender: UIButton) {
         switch self.errorType! {
         case .ACTIVITY_NOT_AVAILABLE:
-            self.delegate?.addActivity!()
+            self.delegate?.addActivity!(self.eventInfo)
             break
         case .MAXIMUM_PLAYERS_REACHED:
-            self.delegate?.addActivity!()
+            self.delegate?.addActivity!(self.eventInfo)
             break
         case .NEEDS_CONSOLE:
             self.delegate?.addConsole!()
