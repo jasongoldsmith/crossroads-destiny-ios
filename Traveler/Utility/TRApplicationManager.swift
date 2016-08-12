@@ -322,6 +322,25 @@ class TRApplicationManager: NSObject {
     
     func getActivitiesMatchingSubTypeAndLevel(activity: TRActivityInfo) -> [TRActivityInfo]? {
         let activityArray = self.activityList.filter {$0.activitySubType == activity.activitySubType && $0.activityDificulty == activity.activityDificulty}
+        
+        var removeDuplicateArray: [TRActivityInfo] = []
+        for (_, activity) in activityArray.enumerate() {
+            if (removeDuplicateArray.count < 1) {
+                removeDuplicateArray.append(activity)
+            } else {
+                let activityArray = removeDuplicateArray.filter {$0.activityCheckPoint == activity.activityCheckPoint}
+                if (activityArray.count == 0) {
+                    removeDuplicateArray.append(activity)
+                }
+            }
+        }
+        
+        return removeDuplicateArray
+    }
+    
+    func getActivitiesMatchingSubTypeAndLevelAndCheckPoint(activity: TRActivityInfo) -> [TRActivityInfo]? {
+        let activityArray = self.activityList.filter {$0.activitySubType == activity.activitySubType && $0.activityDificulty == activity.activityDificulty && $0.activityCheckPoint == activity.activityCheckPoint
+        }
         return activityArray
     }
     
