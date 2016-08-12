@@ -47,10 +47,10 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
 
     //Table View
     @IBOutlet weak var dropDownTableView: UITableView!
+    var dataArray: [TRActivityInfo] = []
     
     //Date Picker
     var datePickerView: TRDatePicker?
-    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -161,7 +161,9 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
             self.activityCheckPointTopConst.constant = 0
         }
         
-        self.dropDownTableView?.reloadData()
+        if self.dataArray.count > 0 {
+            self.dropDownTableView?.reloadData()
+        }
     }
     
     //MARK: - Protocol Methods
@@ -196,11 +198,12 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         
         if self.dropDownTableView?.hidden == false {
             self.dropDownTableView?.hidden = true
+            self.dataArray.removeAll()
             
             return
         }
         
-        
+        self.dataArray = self.filteredActivitiesOfSubTypeAndDifficulty
         self.dropDownTableView?.hidden = false
         self.updateTableViewFrame(self.activitNameView)
     }
@@ -254,6 +257,8 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         let height = self.view.frame.size.height - sender.frame.origin.y + sender.frame.size.height - self.addActivityButton.frame.size.height - 100
         
         self.dropDownTableView.frame = CGRectMake(sender.frame.origin.x, sender.frame.origin.y + sender.frame.size.height, sender.frame.size.width,  height)
+        
+        self.dropDownTableView?.reloadData()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -272,13 +277,13 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 5
+        return self.dataArray.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("dropDownCell")
         
-        let activityInfo = self.filteredActivitiesOfSubTypeAndDifficulty[indexPath.section]
+        let activityInfo = self.dataArray[indexPath.section]
         
         if let aType = activityInfo.activityType {
             var nameString = aType
