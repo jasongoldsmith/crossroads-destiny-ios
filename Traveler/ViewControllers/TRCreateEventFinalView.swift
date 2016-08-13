@@ -187,8 +187,15 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
             self.activityCheckPointTopConst.constant = 0
         }
         
-        if let description = activityInfo.activityTag {
+        self.filteredTags = self.getActivitiesFilteredSubDifficultyCheckPoint(self.selectedActivity!)!
+        for activity in self.filteredTags {
+            print("Tags: \(activity.activityTag)")
+        }
+        
+        if let description = activityInfo.activityTag where description != "" {
             self.activityDetailButton.setTitle(description, forState: .Normal)
+        } else {
+            self.activityDetailButton.setTitle("None", forState: .Normal)
         }
     }
     
@@ -264,7 +271,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     
     @IBAction func showDetail (sender: UIButton) {
         self.dataArray.removeAll()
-        self.filteredTags = TRApplicationManager.sharedInstance.getActivitiesMatchingSubTypeAndLevelAndCheckPoint(self.selectedActivity!)!
+        self.filteredTags = self.getActivitiesFilteredSubDifficultyCheckPoint(self.selectedActivity!)!
         
         if self.filteredTags.count <= 1 {
             return
@@ -428,6 +435,12 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
             self.updateViewWithActivity(self.dataArray[indexPath.section])
             self.closeDropDown()
         }
+    }
+    
+    func getActivitiesFilteredSubDifficultyCheckPoint (activity: TRActivityInfo) -> [TRActivityInfo]? {
+        let activityArray = self.activityInfo.filter {$0.activitySubType == activity.activitySubType && $0.activityDificulty == activity.activityDificulty && $0.activityCheckPoint == activity.activityCheckPoint
+        }
+        return activityArray
     }
     
     deinit {

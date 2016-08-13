@@ -341,6 +341,7 @@ class TRApplicationManager: NSObject {
     func getActivitiesMatchingSubTypeAndLevelAndCheckPoint(activity: TRActivityInfo) -> [TRActivityInfo]? {
         let activityArray = self.activityList.filter {$0.activitySubType == activity.activitySubType && $0.activityDificulty == activity.activityDificulty && $0.activityCheckPoint == activity.activityCheckPoint
         }
+        
         return activityArray
     }
     
