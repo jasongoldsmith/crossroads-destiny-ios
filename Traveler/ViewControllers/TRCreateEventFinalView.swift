@@ -104,6 +104,8 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
                 self.updateViewWithActivity(self.filteredActivitiesOfSubTypeAndDifficulty.first!)
             }
         }
+        
+        self.activityDetailButton.setTitle("None", forState: .Normal)
     }
     
     //MARK: - Refresh View
@@ -183,6 +185,10 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         } else {
             self.activityCheckPointHeightConst.constant = 0
             self.activityCheckPointTopConst.constant = 0
+        }
+        
+        if let description = activityInfo.activityTag {
+            self.activityDetailButton.setTitle(description, forState: .Normal)
         }
     }
     
@@ -388,7 +394,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
                 var nameString = aType
                 
                 if let aSubType =  activityInfo.activitySubType where aSubType != "" {
-                    nameString = "\(nameString) - \(aSubType)"
+                    nameString = "\(aSubType)"
                 }
                 if let aDifficulty = activityInfo.activityDificulty where aDifficulty != "" {
                     nameString = "\(nameString) - \(aDifficulty)"
