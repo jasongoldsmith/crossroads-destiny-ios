@@ -24,6 +24,7 @@ class TRBaseEventTableCell: UITableViewCell {
         self.eventTimeLabel?.hidden = true
         self.activityCheckPointLabel?.text = nil
         self.activityCheckPointLabel?.hidden = true
+        self.eventTagLabel?.text = nil
     }
     
     @IBOutlet weak var eventIcon            :UIImageView?
@@ -38,6 +39,7 @@ class TRBaseEventTableCell: UITableViewCell {
     @IBOutlet weak var leaveEventButton     :EventButton!
     @IBOutlet weak var activityCheckPointLabel : UILabel?
     @IBOutlet weak var eventTimeLabel       :UILabel?
+    @IBOutlet weak var eventTagLabel        :TRInsertLabel?
     
     func updateCellViewWithEvent (eventInfo: TREventInfo) {
 
@@ -50,6 +52,14 @@ class TRBaseEventTableCell: UITableViewCell {
         self.addRadiusToPlayerIconsForPlayersArray(eventInfo)
         
         self.eventTitle?.text = eventInfo.eventActivity?.activitySubType
+        
+        //Event Tag
+        if let hasTag = eventInfo.eventActivity?.activityTag where hasTag != "" {
+            self.eventTagLabel?.hidden = false
+            self.eventTagLabel?.text = eventInfo.eventActivity?.activityTag
+        } else {
+            self.eventTagLabel?.hidden = true
+        }
         
         if let _ = eventInfo.eventActivity?.activityLight?.intValue where eventInfo.eventActivity?.activityLight?.intValue > 0 {
             

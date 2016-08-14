@@ -8,19 +8,19 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="currentEventCellWithCheckPoint" rowHeight="137" id="3iY-SW-gwc" userLabel="Cell" customClass="TREventCurrentWithCheckPointCell" customModule="Crossroads" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="137"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="currentEventCellWithCheckPoint" rowHeight="166" id="3iY-SW-gwc" userLabel="Cell" customClass="TREventCurrentWithCheckPointCell" customModule="Crossroads" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="166"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3iY-SW-gwc" id="ZDu-nM-3dI">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="137"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="165.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eventCellBGImage" translatesAutoresizingMaskIntoConstraints="NO" id="xFe-zn-nLa">
-                        <rect key="frame" x="0.0" y="-5" width="320" height="150"/>
+                        <rect key="frame" x="0.0" y="-5" width="320" height="179"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </imageView>
                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dtk-b7-EX5">
-                        <rect key="frame" x="101" y="85" width="36" height="36"/>
+                        <rect key="frame" x="101" y="113" width="36" height="36"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="36" id="5wD-IS-XS1"/>
@@ -28,7 +28,7 @@
                         </constraints>
                     </imageView>
                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fec-iC-qHn">
-                        <rect key="frame" x="143" y="85" width="36" height="36"/>
+                        <rect key="frame" x="143" y="113" width="36" height="36"/>
                         <color key="backgroundColor" red="0.43529411764705883" green="0.53333333333333333" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="36" id="PvK-Jw-SUc"/>
@@ -73,7 +73,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFP-n8-kSW" customClass="EventButton" customModule="Crossroads" customModuleProvider="target">
-                        <rect key="frame" x="246" y="85" width="64" height="36"/>
+                        <rect key="frame" x="246" y="113" width="64" height="36"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="64" id="ik7-58-mFt"/>
                             <constraint firstAttribute="height" constant="36" id="wHD-DR-WlB"/>
@@ -81,7 +81,7 @@
                         <state key="normal" image="btnJOIN"/>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3rA-ji-cCh">
-                        <rect key="frame" x="59" y="85" width="36" height="36"/>
+                        <rect key="frame" x="59" y="113" width="36" height="36"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="36" id="chK-Wt-nWs"/>
@@ -89,7 +89,7 @@
                         </constraints>
                     </imageView>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ei9-ub-0q7" customClass="EventButton" customModule="Crossroads" customModuleProvider="target">
-                        <rect key="frame" x="204" y="85" width="36" height="36"/>
+                        <rect key="frame" x="204" y="113" width="36" height="36"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="36" id="ASF-g4-Dza"/>
                             <constraint firstAttribute="height" constant="36" id="ur7-KB-tuZ"/>
@@ -97,7 +97,7 @@
                         <state key="normal" image="imgCancelX"/>
                     </button>
                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIc-sv-e0E">
-                        <rect key="frame" x="143" y="85" width="36" height="36"/>
+                        <rect key="frame" x="143" y="113" width="36" height="36"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="36" id="721-Qr-grS"/>
                             <constraint firstAttribute="height" constant="36" id="FWn-xl-jYp"/>
@@ -114,6 +114,13 @@
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                         <color key="textColor" red="1" green="0.77647058820000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lfa-7t-EU1" customClass="TRInsertLabel" customModule="Crossroads" customModuleProvider="target">
+                        <rect key="frame" x="59" y="78" width="27" height="13"/>
+                        <color key="backgroundColor" red="0.12549019607843137" green="0.19607843137254902" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                        <color key="textColor" red="0.60784313725490191" green="0.6588235294117647" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -133,6 +140,7 @@
                     <constraint firstItem="ytB-QV-e1A" firstAttribute="leading" secondItem="81J-YA-le0" secondAttribute="trailing" constant="9" id="NhM-70-Y8p"/>
                     <constraint firstItem="xFe-zn-nLa" firstAttribute="top" secondItem="ZDu-nM-3dI" secondAttribute="topMargin" constant="-13" id="P4p-Qu-Gjb"/>
                     <constraint firstItem="Pqn-gZ-1Lp" firstAttribute="leading" secondItem="3rA-ji-cCh" secondAttribute="leading" id="Qu1-Z7-kGO"/>
+                    <constraint firstItem="Lfa-7t-EU1" firstAttribute="leading" secondItem="c5f-XM-Con" secondAttribute="leading" id="Rvu-Zp-Lgq"/>
                     <constraint firstItem="c5f-XM-Con" firstAttribute="top" secondItem="Pqn-gZ-1Lp" secondAttribute="bottom" constant="1" id="WSP-Am-6YC"/>
                     <constraint firstItem="xFe-zn-nLa" firstAttribute="leading" secondItem="ZDu-nM-3dI" secondAttribute="leadingMargin" constant="-8" id="Wfn-GB-6nq"/>
                     <constraint firstItem="c5f-XM-Con" firstAttribute="leading" secondItem="3rA-ji-cCh" secondAttribute="leading" id="WqN-DZ-D5q"/>
@@ -151,6 +159,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="vk1-Ju-Lhf" secondAttribute="trailing" constant="2" id="tAi-LF-kuy"/>
                     <constraint firstAttribute="bottomMargin" secondItem="dIc-sv-e0E" secondAttribute="bottom" constant="8" id="u7E-Ed-UTf"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Fec-iC-qHn" secondAttribute="bottom" constant="8" id="uAp-gh-NAp"/>
+                    <constraint firstItem="Lfa-7t-EU1" firstAttribute="top" secondItem="c5f-XM-Con" secondAttribute="bottom" constant="11" id="uzA-Yf-Eij"/>
                     <constraint firstItem="vk1-Ju-Lhf" firstAttribute="top" secondItem="ZDu-nM-3dI" secondAttribute="topMargin" constant="2" id="yix-kB-TVg"/>
                 </constraints>
                 <variation key="default">
@@ -172,6 +181,7 @@
                 <outlet property="activityLight" destination="vk1-Ju-Lhf" id="xsu-Jm-eGo"/>
                 <outlet property="eventIcon" destination="81J-YA-le0" id="vrn-rq-VhV"/>
                 <outlet property="eventPlayersName" destination="c5f-XM-Con" id="QGe-IF-MWW"/>
+                <outlet property="eventTagLabel" destination="Lfa-7t-EU1" id="c01-ZY-olm"/>
                 <outlet property="eventTitle" destination="ytB-QV-e1A" id="00O-Ga-BRf"/>
                 <outlet property="joinEventButton" destination="gFP-n8-kSW" id="etr-g5-4af"/>
                 <outlet property="leaveEventButton" destination="Ei9-ub-0q7" id="Y8X-VT-LV7"/>
@@ -180,7 +190,7 @@
                 <outlet property="playerImageOne" destination="3rA-ji-cCh" id="D5g-BG-G2O"/>
                 <outlet property="playerImageTwo" destination="dtk-b7-EX5" id="Pms-cV-3E0"/>
             </connections>
-            <point key="canvasLocation" x="-1702" y="239.5"/>
+            <point key="canvasLocation" x="-2171" y="180"/>
         </tableViewCell>
     </objects>
     <resources>

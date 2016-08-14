@@ -306,10 +306,18 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
                 
                 if self.eventsInfo[indexPath.section].eventActivity?.activityCheckPoint != "" && self.eventsInfo[indexPath.section].eventActivity?.activityCheckPoint != nil{
                     cell = tableView.dequeueReusableCellWithIdentifier(CURRENT_EVENT_WITH_CHECK_POINT_CELL) as! TREventCurrentWithCheckPointCell
+                    
                     self.eventsTableView?.rowHeight = EVENT_CURRENT_WITH_CHECK_POINT_CELL_HEIGHT
+                    if let hasTag = self.eventsInfo[indexPath.section].eventActivity?.activityTag where hasTag != ""{
+                        self.eventsTableView?.rowHeight = 166.0
+                    }
                 } else {
                     cell = tableView.dequeueReusableCellWithIdentifier(CURRENT_EVENT_NO_CHECK_POINT_CELL) as! TREventCurrentNoCheckPointCell
                     self.eventsTableView?.rowHeight = EVENT_CURRENT_NO_CHECK_POINT_CELL_HEIGHT
+                    
+                    if let hasTag = self.eventsInfo[indexPath.section].eventActivity?.activityTag where hasTag != ""{
+                        self.eventsTableView?.rowHeight = 153.0
+                    }
                 }
                 
                 cell?.updateCellViewWithEvent(self.eventsInfo[indexPath.section])
@@ -334,11 +342,15 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             if self.futureEventsInfo[indexPath.section].eventActivity?.activityCheckPoint != "" && self.futureEventsInfo[indexPath.section].eventActivity?.activityCheckPoint != nil{
                 cell = tableView.dequeueReusableCellWithIdentifier(UPCOMING_EVENT_WITH_CHECK_POINT_CELL) as! TREventUpcomingWithCheckPointCell
                 self.eventsTableView?.rowHeight = EVENT_UPCOMING_WITH_CHECK_POINT_CELL_HEIGHT
+                
+                if let hasTag = self.eventsInfo[indexPath.section].eventActivity?.activityTag where hasTag != ""{
+                    self.eventsTableView?.rowHeight = 180.0
+                }
             } else {
                 cell = tableView.dequeueReusableCellWithIdentifier(UPCOMING_EVENT_NO_CHECK_POINT_CELL) as! TREventUpcomingNoCheckPointCell
                 self.eventsTableView?.rowHeight = EVENT_UPCOMING_NO_CHECK_POINT_CELL_HEIGHT
             }
-            
+
             cell?.updateCellViewWithEvent(self.futureEventsInfo[indexPath.section])
             cell?.joinEventButton?.buttonEventInfo = futureEventsInfo[indexPath.section]
             cell?.leaveEventButton.buttonEventInfo = futureEventsInfo[indexPath.section]

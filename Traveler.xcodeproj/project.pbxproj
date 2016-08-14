@@ -23,6 +23,10 @@
 		3305AD091CF26FD100572495 /* YTGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3305AD081CF26FD100572495 /* YTGameViewController.swift */; };
 		3305AD0A1CF26FD100572495 /* YTGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3305AD081CF26FD100572495 /* YTGameViewController.swift */; };
 		3305AD0B1CF26FD100572495 /* YTGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3305AD081CF26FD100572495 /* YTGameViewController.swift */; };
+		3308A2F71D61224E0073BC57 /* TRInsertLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3308A2F61D61224E0073BC57 /* TRInsertLabel.swift */; };
+		3308A2F81D61224E0073BC57 /* TRInsertLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3308A2F61D61224E0073BC57 /* TRInsertLabel.swift */; };
+		3308A2F91D61224E0073BC57 /* TRInsertLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3308A2F61D61224E0073BC57 /* TRInsertLabel.swift */; };
+		3308A2FA1D61224E0073BC57 /* TRInsertLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3308A2F61D61224E0073BC57 /* TRInsertLabel.swift */; };
 		33095FDF1CDD271A0094DF49 /* TRAlignableUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33095FDE1CDD271A0094DF49 /* TRAlignableUILabel.swift */; };
 		33095FE01CDD27400094DF49 /* TRAlignableUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33095FDE1CDD271A0094DF49 /* TRAlignableUILabel.swift */; };
 		33095FE11CDD27410094DF49 /* TRAlignableUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33095FDE1CDD271A0094DF49 /* TRAlignableUILabel.swift */; };
@@ -510,6 +514,7 @@
 		3305ACFA1CF2660D00572495 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		3305AD001CF26B2C00572495 /* YTGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTGameScene.swift; sourceTree = "<group>"; };
 		3305AD081CF26FD100572495 /* YTGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTGameViewController.swift; sourceTree = "<group>"; };
+		3308A2F61D61224E0073BC57 /* TRInsertLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRInsertLabel.swift; sourceTree = "<group>"; };
 		33095FDE1CDD271A0094DF49 /* TRAlignableUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TRAlignableUILabel.swift; path = Traveler/TRAlignableUILabel.swift; sourceTree = SOURCE_ROOT; };
 		33104BFA1C97B1E70024D601 /* TRActivityIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRActivityIndicatorView.xib; sourceTree = "<group>"; };
 		33104BFE1C97B1F40024D601 /* TRActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRActivityIndicatorView.swift; sourceTree = "<group>"; };
@@ -887,6 +892,7 @@
 				33728F8D1D36DA49000A3CF8 /* TRBranchManager.swift */,
 				337DA4DA1D4FCFE5002A10BA /* ConsoleButtons.xib */,
 				337DA4DF1D50554F002A10BA /* ArrayExtension.swift */,
+				3308A2F61D61224E0073BC57 /* TRInsertLabel.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -1495,6 +1501,7 @@
 				33AABB181D5BC2600099A20C /* TRActivityBonus.swift in Sources */,
 				33D0B3FD1CFD0165008ABA04 /* NSBundleExtension.swift in Sources */,
 				335405C51D52A63A00B42BAC /* TRLegalInfo.swift in Sources */,
+				3308A2F71D61224E0073BC57 /* TRInsertLabel.swift in Sources */,
 				33D0B3FE1CFD0165008ABA04 /* TRSendChatMessageView.swift in Sources */,
 				33EC0F291CFE96820034CE4B /* TRResendBungieVerification.swift in Sources */,
 				3300FC121D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift in Sources */,
@@ -1597,6 +1604,7 @@
 				33AABB191D5BC2600099A20C /* TRActivityBonus.swift in Sources */,
 				3369499C1CC5CFEB004979C0 /* NSBundleExtension.swift in Sources */,
 				335405C61D52A63A00B42BAC /* TRLegalInfo.swift in Sources */,
+				3308A2F81D61224E0073BC57 /* TRInsertLabel.swift in Sources */,
 				5CBD7BCE1CAC91C70078636D /* TRSendChatMessageView.swift in Sources */,
 				33EC0F2A1CFE96820034CE4B /* TRResendBungieVerification.swift in Sources */,
 				3300FC131D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift in Sources */,
@@ -1755,6 +1763,7 @@
 				3312B91C1D024251005AF67D /* TRConsoles.swift in Sources */,
 				33742D811C7FC17700C46742 /* TRConstants.swift in Sources */,
 				5C2671741CBB2DD800C47615 /* TRSendChatMessageView.swift in Sources */,
+				3308A2F91D61224E0073BC57 /* TRInsertLabel.swift in Sources */,
 				33FDB9BD1C863AF30066237C /* TRgetActivityList.swift in Sources */,
 				33E6CA861CEA49AC003408CB /* TRPushNotification.swift in Sources */,
 				62C5DF7A1C79769C0039A88E /* TREventListViewController.swift in Sources */,
@@ -1858,6 +1867,7 @@
 				3312B91D1D024251005AF67D /* TRConsoles.swift in Sources */,
 				33742D821C7FC17800C46742 /* TRConstants.swift in Sources */,
 				5C2671751CBB2DD900C47615 /* TRSendChatMessageView.swift in Sources */,
+				3308A2FA1D61224E0073BC57 /* TRInsertLabel.swift in Sources */,
 				33FDB9BE1C863AF40066237C /* TRgetActivityList.swift in Sources */,
 				33E6CA871CEA49AC003408CB /* TRPushNotification.swift in Sources */,
 				62C5DF7B1C79769C0039A88E /* TREventListViewController.swift in Sources */,
