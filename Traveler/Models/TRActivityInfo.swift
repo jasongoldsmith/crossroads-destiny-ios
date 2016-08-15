@@ -25,7 +25,7 @@ class TRActivityInfo: NSObject {
     var activitylocation      : String?
     var activityLevel         : String?
     var activityAdCard        : TRAdCardInfo?
-    
+    var activityDescription   : String?
     var activityCheckPointOrder: NSNumber?
     var activityStory: String?
     var activityCardOrder: String?
@@ -58,6 +58,7 @@ class TRActivityInfo: NSObject {
         self.activityImageBasePath = swiftyJson["aImage"][["aImageBaseUrl"]].stringValue
         self.activityImage = self.activityImageBasePath! + swiftyJson["aImage"][["aImageImagePath"]].stringValue
         self.activityIsActive = swiftyJson["isActive"].boolValue
+        self.activityDescription = swiftyJson["aDescription"].stringValue
         
         
         if let card = swiftyJson["adCard"].dictionary {
@@ -67,20 +68,23 @@ class TRActivityInfo: NSObject {
             self.activityAdCard = acitivityCard
         }
         
-        
-        if let bonus = swiftyJson["aBonus"].dictionary {
+        let bonus = swiftyJson["aBonus"].arrayValue
+        for bonusInfo in bonus {
             let activityBonus = TRActivityBonus()
-            activityBonus.parseActivityBonus(JSON(bonus))
+            activityBonus.parseActivityBonus(bonusInfo)
             
             self.activityBonus.append(activityBonus)
         }
         
-        if let modifiers = swiftyJson["aModifiers"].dictionary {
+        
+        let modifiers = swiftyJson["aModifiers"].arrayValue
+        for modifiersInfo in modifiers {
             let activityModifier = TRActivityModifiersInfo()
-            activityModifier.parseActivityModifiers(JSON(modifiers))
+            activityModifier.parseActivityModifiers(modifiersInfo)
             
             self.activityModifiers.append(activityModifier)
         }
+        
         
         return self
     }

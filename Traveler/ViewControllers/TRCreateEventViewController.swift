@@ -34,7 +34,7 @@ class TRCreateEventViewController: TRBaseViewController {
         self.activityCrucibleButton?.activityTypeString = Activity_Type.CRUCIBLE
         self.activityStrikeButton?.activityTypeString = Activity_Type.STRIKE
         self.activityPatrolButton?.activityTypeString = Activity_Type.PATROL
-        self.activityStroryButton?.activityTypeString = Activity_Type.PATROL
+        self.activityStroryButton?.activityTypeString = Activity_Type.STORY
         self.activityQuestButton?.activityTypeString  = Activity_Type.QUEST
         self.activityExoticButton?.activityTypeString = Activity_Type.EXOTIC
 
