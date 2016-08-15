@@ -25,6 +25,7 @@ class TRBaseEventTableCell: UITableViewCell {
         self.activityCheckPointLabel?.text = nil
         self.activityCheckPointLabel?.hidden = true
         self.eventTagLabel?.text = nil
+        self.activityLight?.hidden == true
     }
     
     @IBOutlet weak var eventIcon            :UIImageView?
@@ -45,12 +46,10 @@ class TRBaseEventTableCell: UITableViewCell {
 
         if DeviceType.IS_IPHONE_4_OR_LESS || DeviceType.IS_IPHONE_5 {
             eventTitle?.font = UIFont(name:"HelveticaNeue", size: 17)
-            activityLight?.font = UIFont(name:"HelveticaNeue", size: 17)
         }
 
         //Adding Radius to
         self.addRadiusToPlayerIconsForPlayersArray(eventInfo)
-        
         self.eventTitle?.text = eventInfo.eventActivity?.activitySubType
         
         //Event Tag
@@ -61,6 +60,25 @@ class TRBaseEventTableCell: UITableViewCell {
             self.eventTagLabel?.hidden = true
         }
         
+        
+        if let eventType = eventInfo.eventActivity?.activityType {
+            self.activityLight?.hidden = false
+            
+            switch eventType {
+            case K.ActivityType.RAIDS:
+                let difficultyCount = eventInfo.eventActivity?.activityDificulty == "Hard" ? "Hard" : "Normal"
+                self.activityLight?.text = difficultyCount
+                break
+            case K.ActivityType.CRUCIBLE:
+                let vCount = eventInfo.eventActivity?.activityMaxPlayers?.intValue > 3 ? "6v6" : "3v3"
+                self.activityLight?.text = vCount
+                break
+            default:
+                self.activityLight?.hidden = true
+            }
+        }
+        
+        /*
         if let _ = eventInfo.eventActivity?.activityLight?.intValue where eventInfo.eventActivity?.activityLight?.intValue > 0 {
             
             let fontStarIcon = "\u{02726}"
@@ -86,7 +104,7 @@ class TRBaseEventTableCell: UITableViewCell {
             
             self.activityLight?.attributedText = finalString
         }
-        
+        */
         
         // Set  Event Player Names
         if (eventInfo.eventPlayersArray.count < eventInfo.eventActivity?.activityMaxPlayers?.integerValue) {

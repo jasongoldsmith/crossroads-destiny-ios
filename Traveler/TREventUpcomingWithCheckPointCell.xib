@@ -60,12 +60,11 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vk1-Ju-Lhf">
-                        <rect key="frame" x="254" y="10" width="56" height="24"/>
+                        <rect key="frame" x="254" y="20" width="56" height="14"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="24" id="DH0-X0-hV1"/>
                             <constraint firstAttribute="width" constant="56" id="oSf-0M-FaD"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                         <color key="textColor" red="1" green="0.77647058820000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -156,6 +155,7 @@
                     <constraint firstAttribute="bottomMargin" secondItem="xFe-zn-nLa" secondAttribute="bottom" constant="-8.5" id="WxZ-si-GpR"/>
                     <constraint firstItem="dtk-b7-EX5" firstAttribute="leading" secondItem="3rA-ji-cCh" secondAttribute="trailing" constant="6" id="ae7-fb-rNP"/>
                     <constraint firstAttribute="bottomMargin" secondItem="3rA-ji-cCh" secondAttribute="bottom" constant="8" id="bya-Dd-IPf"/>
+                    <constraint firstItem="vk1-Ju-Lhf" firstAttribute="bottom" secondItem="ytB-QV-e1A" secondAttribute="bottom" id="gQo-BP-mlX"/>
                     <constraint firstItem="ZkQ-oi-HXw" firstAttribute="leading" secondItem="Zw2-WR-fMP" secondAttribute="leading" id="gdo-25-iWJ"/>
                     <constraint firstItem="Pqn-gZ-1Lp" firstAttribute="leading" secondItem="81J-YA-le0" secondAttribute="trailing" constant="9" id="i8c-i5-JJq"/>
                     <constraint firstItem="dIc-sv-e0E" firstAttribute="leading" secondItem="dtk-b7-EX5" secondAttribute="trailing" constant="6" id="iPb-3a-TTl"/>
@@ -177,6 +177,7 @@
                         <exclude reference="i8c-i5-JJq"/>
                         <exclude reference="Mw9-LV-zB5"/>
                         <exclude reference="mhl-oK-rP8"/>
+                        <exclude reference="yix-kB-TVg"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
