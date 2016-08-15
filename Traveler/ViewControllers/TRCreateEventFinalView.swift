@@ -16,7 +16,6 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     @IBOutlet weak var activityIconView: UIImageView!
     @IBOutlet weak var activityNameLabel: UILabel!
     @IBOutlet weak var activityLevelLabel: UILabel!
-    @IBOutlet weak var eventTagLabel: UILabel!
     
     // SubViews
     @IBOutlet weak var activitNameView: UIView!
@@ -36,6 +35,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     //Constaint outlets
     @IBOutlet weak var activityCheckPointHeightConst: NSLayoutConstraint!
     @IBOutlet weak var activityCheckPointTopConst: NSLayoutConstraint!
+    @IBOutlet weak var addButtonTopTopConst: NSLayoutConstraint!
     
     //Activities of same sub-typeJ
     var selectedActivity: TRActivityInfo?
@@ -53,9 +53,6 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     var showGropName: Bool = false
     var showCheckPoint: Bool = false
     var showDetail: Bool = false
-    
-    //Modifier View
-    var modifierView: TRBorderLabelViewContainer?
     
     //Table View
     @IBOutlet weak var dropDownTableView: UITableView!
@@ -116,19 +113,6 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         //Set Selected Activity
         self.selectedActivity = activityInfo
         
-        // Update default selected activity
-        if let bonusName = activityInfo.activityBonus.first?.aBonusName {
-            self.eventTagLabel.text = bonusName
-        } else {
-            //Show Modifier
-            if let modifier = activityInfo.activityModifiers.first?.aModifierName {
-                self.eventTagLabel.text = modifier
-            }
-        }
-        
-        // Tag Label
-        self.eventTagLabel.text = activityInfo.activityTag
-        
         // Update View
         if let activitySubType = activityInfo.activitySubType {
             self.activityNameLabel.text = activitySubType
@@ -147,6 +131,12 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
                 
                 activityAttrString.appendAttributedString(activityColorString)
                 finalString.appendAttributedString(activityAttrString)
+            } else {
+                if let location = activityInfo.activitylocation where location != "" {
+                    let locationString = NSAttributedString(string: location, attributes: stringFontAttribute)
+                    finalString.appendAttributedString(locationString)
+                }
+                
             }
             
             self.activityLevelLabel.attributedText = finalString
@@ -154,6 +144,10 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
             if let _ = activityInfo.activityIconImage {
                 let imageUrl = NSURL(string: activityInfo.activityIconImage!)
                 self.activityIconView.sd_setImageWithURL(imageUrl)
+            }
+        } else {
+            if let _ = activityInfo.activityDescription {
+                self.activityLevelLabel.text = activityInfo.activityDescription!
             }
         }
         
@@ -184,15 +178,14 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
             self.activityCheckPointButton.setTitle(aCheckPoint, forState: .Normal)
             self.activityCheckPointHeightConst.constant = 50
             self.activityCheckPointTopConst.constant = 10
+            self.addButtonTopTopConst.constant = 49
         } else {
             self.activityCheckPointHeightConst.constant = 0
             self.activityCheckPointTopConst.constant = 0
+            self.addButtonTopTopConst.constant = 120
         }
         
         self.filteredTags = self.getActivitiesFilteredSubDifficultyCheckPoint(self.selectedActivity!)!
-        for activity in self.filteredTags {
-            print("Tags: \(activity.activityTag)")
-        }
         
         if let description = activityInfo.activityTag where description != "" {
             self.activityDetailButton.setTitle(description, forState: .Normal)
@@ -465,42 +458,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         if mofifiersArray.count == 0 {
             return
         }
-        
-        self.modifierView?.removeFromSuperview()
-        
-        self.modifierView = NSBundle.mainBundle().loadNibNamed("TRBorderLabelViewContainer", owner: self, options: nil)[0] as? TRBorderLabelViewContainer
-        self.view.addSubview(self.modifierView!)
-        
-        if self.selectedActivity?.activityBonus.count > 0 {
-            for bonus in (self.selectedActivity?.activityBonus)! {
-                mofifiersArray.append(bonus.aBonusName!)
-            }
-        }
-       
-        self.modifierView?.updateViewWithStringArray(mofifiersArray)
-        var labelWidth: CGFloat?
-        
-        switch mofifiersArray.count {
-        case 1:
-            labelWidth = self.modifierView?.labelOne?.intrinsicContentSize().width
-            break
-        case 2:
-            labelWidth = (self.modifierView?.labelOne?.intrinsicContentSize().width)! + (self.modifierView?.labelTwo?.intrinsicContentSize().width)!
-            break
-        case 3:
-            break
-        case 4:
-            break
-        case 5:
-            break
-        default:
-            break
-        }
-
-        self.modifierView?.frame = CGRectMake(self.activitNameView.frame.origin.x, self.eventTagLabel.frame.origin.y + self.eventTagLabel.frame.size.height + 25 , labelWidth!, 40)
-
-        self.modifierView!.center = CGPointMake(self.view.center.x, (self.modifierView?.frame.origin.y)!)
-     }
+    }
     
     deinit {
         
