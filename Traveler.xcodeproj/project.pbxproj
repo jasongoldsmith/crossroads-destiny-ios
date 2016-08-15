@@ -27,6 +27,14 @@
 		3308A2F81D61224E0073BC57 /* TRInsertLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3308A2F61D61224E0073BC57 /* TRInsertLabel.swift */; };
 		3308A2F91D61224E0073BC57 /* TRInsertLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3308A2F61D61224E0073BC57 /* TRInsertLabel.swift */; };
 		3308A2FA1D61224E0073BC57 /* TRInsertLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3308A2F61D61224E0073BC57 /* TRInsertLabel.swift */; };
+		3308A2FC1D617CB60073BC57 /* TRBorderLabelViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3308A2FB1D617CB60073BC57 /* TRBorderLabelViewContainer.swift */; };
+		3308A2FD1D617CB60073BC57 /* TRBorderLabelViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3308A2FB1D617CB60073BC57 /* TRBorderLabelViewContainer.swift */; };
+		3308A2FE1D617CB60073BC57 /* TRBorderLabelViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3308A2FB1D617CB60073BC57 /* TRBorderLabelViewContainer.swift */; };
+		3308A2FF1D617CB60073BC57 /* TRBorderLabelViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3308A2FB1D617CB60073BC57 /* TRBorderLabelViewContainer.swift */; };
+		3308A3011D617CE40073BC57 /* TRBorderLabelViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3308A3001D617CE40073BC57 /* TRBorderLabelViewContainer.xib */; };
+		3308A3021D617CE40073BC57 /* TRBorderLabelViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3308A3001D617CE40073BC57 /* TRBorderLabelViewContainer.xib */; };
+		3308A3031D617CE40073BC57 /* TRBorderLabelViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3308A3001D617CE40073BC57 /* TRBorderLabelViewContainer.xib */; };
+		3308A3041D617CE40073BC57 /* TRBorderLabelViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3308A3001D617CE40073BC57 /* TRBorderLabelViewContainer.xib */; };
 		33095FDF1CDD271A0094DF49 /* TRAlignableUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33095FDE1CDD271A0094DF49 /* TRAlignableUILabel.swift */; };
 		33095FE01CDD27400094DF49 /* TRAlignableUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33095FDE1CDD271A0094DF49 /* TRAlignableUILabel.swift */; };
 		33095FE11CDD27410094DF49 /* TRAlignableUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33095FDE1CDD271A0094DF49 /* TRAlignableUILabel.swift */; };
@@ -515,6 +523,8 @@
 		3305AD001CF26B2C00572495 /* YTGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTGameScene.swift; sourceTree = "<group>"; };
 		3305AD081CF26FD100572495 /* YTGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTGameViewController.swift; sourceTree = "<group>"; };
 		3308A2F61D61224E0073BC57 /* TRInsertLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRInsertLabel.swift; sourceTree = "<group>"; };
+		3308A2FB1D617CB60073BC57 /* TRBorderLabelViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRBorderLabelViewContainer.swift; sourceTree = "<group>"; };
+		3308A3001D617CE40073BC57 /* TRBorderLabelViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRBorderLabelViewContainer.xib; sourceTree = "<group>"; };
 		33095FDE1CDD271A0094DF49 /* TRAlignableUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TRAlignableUILabel.swift; path = Traveler/TRAlignableUILabel.swift; sourceTree = SOURCE_ROOT; };
 		33104BFA1C97B1E70024D601 /* TRActivityIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRActivityIndicatorView.xib; sourceTree = "<group>"; };
 		33104BFE1C97B1F40024D601 /* TRActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRActivityIndicatorView.swift; sourceTree = "<group>"; };
@@ -753,6 +763,8 @@
 				338BB2021CEEB99F00A14060 /* TRWebView.xib */,
 				337DA4C61D4C0D10002A10BA /* TRErrorView.swift */,
 				337DA4CB1D4C0D48002A10BA /* TRErrorView.xib */,
+				3308A2FB1D617CB60073BC57 /* TRBorderLabelViewContainer.swift */,
+				3308A3001D617CE40073BC57 /* TRBorderLabelViewContainer.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1173,6 +1185,7 @@
 				33D0B44C1CFD0165008ABA04 /* TRActivitySelectionCell.xib in Resources */,
 				337DA4DB1D4FCFE5002A10BA /* ConsoleButtons.xib in Resources */,
 				33D0B44D1CFD0165008ABA04 /* TRActivityCheckPointPicker.xib in Resources */,
+				3308A3011D617CE40073BC57 /* TRBorderLabelViewContainer.xib in Resources */,
 				33D0B44E1CFD0165008ABA04 /* TRActivityIndicatorView.xib in Resources */,
 				33728F951D36F06B000A3CF8 /* Crossroads.entitlements in Resources */,
 				33D0B44F1CFD0165008ABA04 /* TRSendChatMessageView.xib in Resources */,
@@ -1205,6 +1218,7 @@
 				3380EF471CC979E2000A9289 /* TREventUpcomingNoCheckPointCell.xib in Resources */,
 				337DA4DC1D4FCFE5002A10BA /* ConsoleButtons.xib in Resources */,
 				339D8F2C1C90F79800A2620F /* TRActivitySelectionCell.xib in Resources */,
+				3308A3021D617CE40073BC57 /* TRBorderLabelViewContainer.xib in Resources */,
 				3374D7511C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */,
 				33104BFB1C97B1E70024D601 /* TRActivityIndicatorView.xib in Resources */,
 				5CBD7BCC1CAC91A90078636D /* TRSendChatMessageView.xib in Resources */,
@@ -1242,6 +1256,7 @@
 				3329B5911C9B528F00CC1F9B /* TRErrorNotificationView.xib in Resources */,
 				3374D7521C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */,
 				3333BDC41CEE6C8C001C9E1A /* TRBungieGroupCell.xib in Resources */,
+				3308A3031D617CE40073BC57 /* TRBorderLabelViewContainer.xib in Resources */,
 				3380EF481CC979E2000A9289 /* TREventUpcomingNoCheckPointCell.xib in Resources */,
 				337DA4CE1D4C0D48002A10BA /* TRErrorView.xib in Resources */,
 				3380EF381CC9479C000A9289 /* TREventCurrentWithCheckPointCell.xib in Resources */,
@@ -1267,6 +1282,7 @@
 				3329B5921C9B528F00CC1F9B /* TRErrorNotificationView.xib in Resources */,
 				3374D7531C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */,
 				3333BDC51CEE6C8C001C9E1A /* TRBungieGroupCell.xib in Resources */,
+				3308A3041D617CE40073BC57 /* TRBorderLabelViewContainer.xib in Resources */,
 				3380EF491CC979E2000A9289 /* TREventUpcomingNoCheckPointCell.xib in Resources */,
 				337DA4CF1D4C0D48002A10BA /* TRErrorView.xib in Resources */,
 				3380EF391CC9479C000A9289 /* TREventCurrentWithCheckPointCell.xib in Resources */,
@@ -1557,6 +1573,7 @@
 				33D0B4261CFD0165008ABA04 /* TRChangePasswordViewController.swift in Sources */,
 				33D0B4271CFD0165008ABA04 /* TRPushNotification.swift in Sources */,
 				33D0B4281CFD0165008ABA04 /* ExSlideMenuController.swift in Sources */,
+				3308A2FC1D617CB60073BC57 /* TRBorderLabelViewContainer.swift in Sources */,
 				33D0B4291CFD0165008ABA04 /* TRStoryBoardManager.swift in Sources */,
 				33D0B42A1CFD0165008ABA04 /* TRBungieGroupCell.swift in Sources */,
 				33D0B42B1CFD0165008ABA04 /* TRErrorNotificationView.swift in Sources */,
@@ -1660,6 +1677,7 @@
 				3333BDB71CED6E3C001C9E1A /* TRChangePasswordViewController.swift in Sources */,
 				33E6CA851CEA49AC003408CB /* TRPushNotification.swift in Sources */,
 				33974F141CADA0E50015C9D5 /* ExSlideMenuController.swift in Sources */,
+				3308A2FD1D617CB60073BC57 /* TRBorderLabelViewContainer.swift in Sources */,
 				33742D8A1C7FC51700C46742 /* TRStoryBoardManager.swift in Sources */,
 				3333BDBF1CEE6C7F001C9E1A /* TRBungieGroupCell.swift in Sources */,
 				3329B58C1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */,
@@ -1758,6 +1776,7 @@
 				333FA8AB1D0109C200A5EC1C /* TRBungieUserAuthRequest.swift in Sources */,
 				33F4274A1C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */,
 				33916CF91D1DD422006AE37B /* TRGetEventRequest.swift in Sources */,
+				3308A2FE1D617CB60073BC57 /* TRBorderLabelViewContainer.swift in Sources */,
 				3374D74E1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift in Sources */,
 				62C1FF641C77D7F000A78798 /* TRCreateAccountViewController.swift in Sources */,
 				3312B91C1D024251005AF67D /* TRConsoles.swift in Sources */,
@@ -1862,6 +1881,7 @@
 				333FA8AC1D0109C200A5EC1C /* TRBungieUserAuthRequest.swift in Sources */,
 				33F4274B1C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */,
 				33916CFA1D1DD422006AE37B /* TRGetEventRequest.swift in Sources */,
+				3308A2FF1D617CB60073BC57 /* TRBorderLabelViewContainer.swift in Sources */,
 				3374D74F1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift in Sources */,
 				62C1FF651C77D7F000A78798 /* TRCreateAccountViewController.swift in Sources */,
 				3312B91D1D024251005AF67D /* TRConsoles.swift in Sources */,

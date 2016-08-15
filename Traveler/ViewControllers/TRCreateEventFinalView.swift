@@ -54,6 +54,8 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     var showCheckPoint: Bool = false
     var showDetail: Bool = false
     
+    //Modifier View
+    var modifierView: TRBorderLabelViewContainer?
     
     //Table View
     @IBOutlet weak var dropDownTableView: UITableView!
@@ -96,6 +98,8 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         self.dropDownTableView.layer.cornerRadius = 2.0
         self.dropDownTableView.layer.borderColor = UIColor(red: 3/255, green: 81/255, blue: 102/255, alpha: 1).CGColor
         
+        self.activityDetailButton.setTitle("None", forState: .Normal)
+        
         // Update View
         if let _ = self.selectedActivity {
             self.updateViewWithActivity(self.selectedActivity!)
@@ -104,8 +108,6 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
                 self.updateViewWithActivity(self.filteredActivitiesOfSubTypeAndDifficulty.first!)
             }
         }
-        
-        self.activityDetailButton.setTitle("None", forState: .Normal)
     }
     
     //MARK: - Refresh View
@@ -197,6 +199,9 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         } else {
             self.activityDetailButton.setTitle("None", forState: .Normal)
         }
+        
+        //ModifierView
+        self.addModifiersView()
     }
     
     //MARK: - Protocol Methods
@@ -442,6 +447,60 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         }
         return activityArray
     }
+    
+    //MARK:- Bounded Box Labels
+    func addModifiersView () {
+        
+        var mofifiersArray: [String] = []
+        if self.selectedActivity?.activityModifiers.count > 0 {
+            for modifiers in (self.selectedActivity?.activityModifiers)! {
+                mofifiersArray.append(modifiers.aModifierName!)
+            }
+        } else {
+            if let hasCheckPoint = self.selectedActivity?.activityCheckPoint where hasCheckPoint != ""{
+                mofifiersArray.append(hasCheckPoint)
+            }
+        }
+
+        if mofifiersArray.count == 0 {
+            return
+        }
+        
+        self.modifierView?.removeFromSuperview()
+        
+        self.modifierView = NSBundle.mainBundle().loadNibNamed("TRBorderLabelViewContainer", owner: self, options: nil)[0] as? TRBorderLabelViewContainer
+        self.view.addSubview(self.modifierView!)
+        
+        if self.selectedActivity?.activityBonus.count > 0 {
+            for bonus in (self.selectedActivity?.activityBonus)! {
+                mofifiersArray.append(bonus.aBonusName!)
+            }
+        }
+       
+        self.modifierView?.updateViewWithStringArray(mofifiersArray)
+        var labelWidth: CGFloat?
+        
+        switch mofifiersArray.count {
+        case 1:
+            labelWidth = self.modifierView?.labelOne?.intrinsicContentSize().width
+            break
+        case 2:
+            labelWidth = (self.modifierView?.labelOne?.intrinsicContentSize().width)! + (self.modifierView?.labelTwo?.intrinsicContentSize().width)!
+            break
+        case 3:
+            break
+        case 4:
+            break
+        case 5:
+            break
+        default:
+            break
+        }
+
+        self.modifierView?.frame = CGRectMake(self.activitNameView.frame.origin.x, self.eventTagLabel.frame.origin.y + self.eventTagLabel.frame.size.height + 25 , labelWidth!, 40)
+
+        self.modifierView!.center = CGPointMake(self.view.center.x, (self.modifierView?.frame.origin.y)!)
+     }
     
     deinit {
         

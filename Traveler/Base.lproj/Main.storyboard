@@ -2314,6 +2314,7 @@
                             <constraint firstItem="x4L-YE-Rsh" firstAttribute="top" secondItem="fRe-wq-10U" secondAttribute="bottom" id="OOp-rq-g1E"/>
                             <constraint firstAttribute="trailing" secondItem="68f-XA-961" secondAttribute="trailing" priority="750" constant="13" id="OUj-tr-egg"/>
                             <constraint firstItem="8gg-oe-wS6" firstAttribute="top" secondItem="u8j-Yj-ni2" secondAttribute="bottom" constant="260" id="R8a-Pm-wuH"/>
+                            <constraint firstItem="d7x-3r-X0O" firstAttribute="top" secondItem="68f-XA-961" secondAttribute="bottom" constant="8" symbolic="YES" id="RiD-We-fep"/>
                             <constraint firstItem="J7u-lD-E7j" firstAttribute="leading" secondItem="kBa-Hn-K7P" secondAttribute="leading" constant="40" id="TQL-8N-eez"/>
                             <constraint firstAttribute="trailing" secondItem="IBA-sA-Zeb" secondAttribute="trailing" constant="40" id="TSb-BS-qwb"/>
                             <constraint firstItem="Dqh-WB-Ou1" firstAttribute="leading" secondItem="kBa-Hn-K7P" secondAttribute="leading" constant="40" id="Vc5-kD-HCS"/>
@@ -2343,6 +2344,7 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="9EY-OX-JVx"/>
                                 <exclude reference="nvE-PQ-iBP"/>
                                 <exclude reference="X09-t9-7C9"/>
                             </mask>

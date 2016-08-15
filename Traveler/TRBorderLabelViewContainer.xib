@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TRBorderLabelViewContainer" customModule="Crossroads" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="396" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cZ-id-Sd7" customClass="TRInsertLabel" customModule="Crossroads" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="25.5" height="12"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="10"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5QV-QY-Dv2" customClass="TRInsertLabel" customModule="Crossroads" customModuleProvider="target">
+                    <rect key="frame" x="31" y="0.0" width="25.5" height="12"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="10"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Taa-Ds-ur6" customClass="TRInsertLabel" customModule="Crossroads" customModuleProvider="target">
+                    <rect key="frame" x="93.5" y="0.0" width="25.5" height="12"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="10"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaX-0m-L2r" customClass="TRInsertLabel" customModule="Crossroads" customModuleProvider="target">
+                    <rect key="frame" x="62" y="0.0" width="25.5" height="12"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="10"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Taa-Ds-ur6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3Jg-b2-GmD"/>
+                <constraint firstItem="jaX-0m-L2r" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="QHt-1J-mG7"/>
+                <constraint firstItem="5QV-QY-Dv2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="b4C-NX-bSL"/>
+                <constraint firstItem="8cZ-id-Sd7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="huG-lq-Hkf"/>
+                <constraint firstItem="jaX-0m-L2r" firstAttribute="leading" secondItem="5QV-QY-Dv2" secondAttribute="trailing" constant="6" id="oNS-OX-zRF"/>
+                <constraint firstItem="Taa-Ds-ur6" firstAttribute="leading" secondItem="jaX-0m-L2r" secondAttribute="trailing" constant="6" id="r3h-pI-yrz"/>
+                <constraint firstItem="8cZ-id-Sd7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rmZ-h3-s1U"/>
+                <constraint firstItem="5QV-QY-Dv2" firstAttribute="leading" secondItem="8cZ-id-Sd7" secondAttribute="trailing" constant="6" id="tmk-uw-ZLf"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="labelFour" destination="Taa-Ds-ur6" id="L2c-Q8-GET"/>
+                <outlet property="labelOne" destination="8cZ-id-Sd7" id="5kR-MT-e3J"/>
+                <outlet property="labelOneLeftConstraint" destination="huG-lq-Hkf" id="hzA-Cl-sfy"/>
+                <outlet property="labelThree" destination="jaX-0m-L2r" id="vYS-ru-DG4"/>
+                <outlet property="labelTwo" destination="5QV-QY-Dv2" id="nFS-eV-OK7"/>
+            </connections>
+            <point key="canvasLocation" x="-374" y="205"/>
+        </view>
+    </objects>
+</document>
