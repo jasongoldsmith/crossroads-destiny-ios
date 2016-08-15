@@ -8,19 +8,26 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="upcomingEventCellNoCheckPoint" rowHeight="137" id="3iY-SW-gwc" userLabel="Cell" customClass="TREventUpcomingNoCheckPointCell" customModule="Crossroads" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="137"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="upcomingEventCellNoCheckPoint" rowHeight="166" id="3iY-SW-gwc" userLabel="Cell" customClass="TREventUpcomingNoCheckPointCell" customModule="Crossroads" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="166"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3iY-SW-gwc" id="ZDu-nM-3dI">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="137"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="165.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eventCellBGImage" translatesAutoresizingMaskIntoConstraints="NO" id="xFe-zn-nLa">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="137"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="165.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mn6-BI-hwt" customClass="TRInsertLabel" customModule="Crossroads" customModuleProvider="target">
+                        <rect key="frame" x="62" y="79" width="27" height="13"/>
+                        <color key="backgroundColor" red="0.12549019610000001" green="0.1960784314" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                        <color key="textColor" red="0.60784313729999995" green="0.6588235294" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dtk-b7-EX5">
-                        <rect key="frame" x="104" y="85" width="36" height="36"/>
+                        <rect key="frame" x="104" y="113" width="36" height="36"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="36" id="5wD-IS-XS1"/>
@@ -28,7 +35,7 @@
                         </constraints>
                     </imageView>
                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fec-iC-qHn">
-                        <rect key="frame" x="146" y="85" width="36" height="36"/>
+                        <rect key="frame" x="146" y="113" width="36" height="36"/>
                         <color key="backgroundColor" red="0.43529411764705883" green="0.53333333333333333" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="36" id="PvK-Jw-SUc"/>
@@ -73,7 +80,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFP-n8-kSW" customClass="EventButton" customModule="Crossroads" customModuleProvider="target">
-                        <rect key="frame" x="246" y="85" width="64" height="36"/>
+                        <rect key="frame" x="246" y="113" width="64" height="36"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="64" id="ik7-58-mFt"/>
                             <constraint firstAttribute="height" constant="36" id="wHD-DR-WlB"/>
@@ -81,7 +88,7 @@
                         <state key="normal" image="btnJOIN"/>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3rA-ji-cCh">
-                        <rect key="frame" x="62" y="85" width="36" height="36"/>
+                        <rect key="frame" x="62" y="113" width="36" height="36"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="36" id="chK-Wt-nWs"/>
@@ -89,7 +96,7 @@
                         </constraints>
                     </imageView>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ei9-ub-0q7" customClass="EventButton" customModule="Crossroads" customModuleProvider="target">
-                        <rect key="frame" x="204" y="85" width="36" height="36"/>
+                        <rect key="frame" x="204" y="113" width="36" height="36"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="36" id="ASF-g4-Dza"/>
                             <constraint firstAttribute="height" constant="36" id="ur7-KB-tuZ"/>
@@ -97,7 +104,7 @@
                         <state key="normal" image="imgCancelX"/>
                     </button>
                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIc-sv-e0E">
-                        <rect key="frame" x="146" y="85" width="36" height="36"/>
+                        <rect key="frame" x="146" y="113" width="36" height="36"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="36" id="721-Qr-grS"/>
                             <constraint firstAttribute="height" constant="36" id="FWn-xl-jYp"/>
@@ -135,7 +142,9 @@
                     <constraint firstAttribute="bottomMargin" secondItem="xFe-zn-nLa" secondAttribute="bottom" constant="-8" id="WxZ-si-GpR"/>
                     <constraint firstItem="dtk-b7-EX5" firstAttribute="leading" secondItem="3rA-ji-cCh" secondAttribute="trailing" constant="6" id="ae7-fb-rNP"/>
                     <constraint firstAttribute="bottomMargin" secondItem="3rA-ji-cCh" secondAttribute="bottom" constant="8" id="bya-Dd-IPf"/>
+                    <constraint firstItem="Mn6-BI-hwt" firstAttribute="leading" secondItem="9wO-jJ-pda" secondAttribute="leading" id="eyQ-SE-Dff"/>
                     <constraint firstItem="dIc-sv-e0E" firstAttribute="leading" secondItem="dtk-b7-EX5" secondAttribute="trailing" constant="6" id="iPb-3a-TTl"/>
+                    <constraint firstItem="Mn6-BI-hwt" firstAttribute="top" secondItem="9wO-jJ-pda" secondAttribute="bottom" constant="11" id="ifY-Gv-hcJ"/>
                     <constraint firstAttribute="bottomMargin" secondItem="dtk-b7-EX5" secondAttribute="bottom" constant="8" id="k6A-am-Bif"/>
                     <constraint firstItem="ytB-QV-e1A" firstAttribute="top" secondItem="ZDu-nM-3dI" secondAttribute="topMargin" constant="2" id="kAt-TB-WqG"/>
                     <constraint firstAttribute="bottomMargin" secondItem="gFP-n8-kSW" secondAttribute="bottom" constant="8" id="lT6-37-eOj"/>
@@ -153,6 +162,7 @@
                 <outlet property="activityLight" destination="vk1-Ju-Lhf" id="xsu-Jm-eGo"/>
                 <outlet property="eventIcon" destination="81J-YA-le0" id="vrn-rq-VhV"/>
                 <outlet property="eventPlayersName" destination="c5f-XM-Con" id="QGe-IF-MWW"/>
+                <outlet property="eventTagLabel" destination="Mn6-BI-hwt" id="1yT-uW-1CQ"/>
                 <outlet property="eventTimeLabel" destination="9wO-jJ-pda" id="zve-c7-Tsd"/>
                 <outlet property="eventTitle" destination="ytB-QV-e1A" id="00O-Ga-BRf"/>
                 <outlet property="joinEventButton" destination="gFP-n8-kSW" id="etr-g5-4af"/>
