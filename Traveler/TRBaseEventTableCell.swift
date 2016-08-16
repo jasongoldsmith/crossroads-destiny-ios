@@ -25,7 +25,7 @@ class TRBaseEventTableCell: UITableViewCell {
         self.activityCheckPointLabel?.text = nil
         self.activityCheckPointLabel?.hidden = true
         self.eventTagLabel?.text = nil
-        self.activityLight?.hidden == true
+        self.activityLight?.hidden = true
     }
     
     @IBOutlet weak var eventIcon            :UIImageView?
