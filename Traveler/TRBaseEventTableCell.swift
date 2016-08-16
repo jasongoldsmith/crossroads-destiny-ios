@@ -60,6 +60,9 @@ class TRBaseEventTableCell: UITableViewCell {
             self.eventTagLabel?.hidden = true
         }
         
+        //Add corner radius
+        self.eventTagLabel?.layer.cornerRadius = 2.0
+        self.eventTagLabel?.layer.masksToBounds = true
         
         if let eventType = eventInfo.eventActivity?.activityType {
             self.activityLight?.hidden = false
