@@ -392,11 +392,16 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
     
     func showEventInfoViewController(eventInfo: TREventInfo?, fromPushNoti: Bool?) {
+        //TREventDetailViewController
+        //VIEW_CONTROLLER_EVENT_DESCRIPTION
         
         let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
-        let vc : TREventInformationViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_EVENT_INFORMATION) as! TREventInformationViewController
+//        let vc : TREventInformationViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_EVENT_INFORMATION) as! TREventInformationViewController
+//        vc.eventInfo = eventInfo
+
+        let vc : TREventDetailViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_EVENT_DESCRIPTION) as! TREventDetailViewController
         vc.eventInfo = eventInfo
-        
+
         self.presentViewController(vc, animated: true, completion: {
         })
     }

@@ -96,6 +96,7 @@ struct K {
         static let VIEW_CONTROLLER_WEB_VIEW                = "legalWebView"
         static let VIEW_CONTROLLER_BUNGIE_VERIFICATION     = "verifyBungieAccount"
         static let VIEW_CONTROLLER_CREATE_EVENT_FINAL      = "createventfinal"
+        static let VIEW_CONTROLLER_EVENT_DESCRIPTION       = "eventDescriptionVC"
     }
     
     struct ActivityType {

@@ -430,6 +430,10 @@
 		33F427491C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F427481C8A0DBD00560BD3 /* TRCreateEventViewController.swift */; };
 		33F4274A1C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F427481C8A0DBD00560BD3 /* TRCreateEventViewController.swift */; };
 		33F4274B1C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F427481C8A0DBD00560BD3 /* TRCreateEventViewController.swift */; };
+		33F4DB401D62F1DE001FF0AB /* TREventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F4DB3F1D62F1DE001FF0AB /* TREventDetailViewController.swift */; };
+		33F4DB411D62F1DE001FF0AB /* TREventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F4DB3F1D62F1DE001FF0AB /* TREventDetailViewController.swift */; };
+		33F4DB421D62F1DE001FF0AB /* TREventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F4DB3F1D62F1DE001FF0AB /* TREventDetailViewController.swift */; };
+		33F4DB431D62F1DE001FF0AB /* TREventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F4DB3F1D62F1DE001FF0AB /* TREventDetailViewController.swift */; };
 		33F77F6C1D594BC70002CFAF /* TRCreateEventFinalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F77F6B1D594BC70002CFAF /* TRCreateEventFinalView.swift */; };
 		33F77F6D1D594BC70002CFAF /* TRCreateEventFinalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F77F6B1D594BC70002CFAF /* TRCreateEventFinalView.swift */; };
 		33F77F6E1D594BC70002CFAF /* TRCreateEventFinalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F77F6B1D594BC70002CFAF /* TRCreateEventFinalView.swift */; };
@@ -613,6 +617,7 @@
 		33E6CA841CEA49AC003408CB /* TRPushNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRPushNotification.swift; sourceTree = "<group>"; };
 		33EC0F281CFE96820034CE4B /* TRResendBungieVerification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRResendBungieVerification.swift; sourceTree = "<group>"; };
 		33F427481C8A0DBD00560BD3 /* TRCreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCreateEventViewController.swift; sourceTree = "<group>"; };
+		33F4DB3F1D62F1DE001FF0AB /* TREventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREventDetailViewController.swift; sourceTree = "<group>"; };
 		33F77F6B1D594BC70002CFAF /* TRCreateEventFinalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCreateEventFinalView.swift; sourceTree = "<group>"; };
 		33F77F801D5AA7460002CFAF /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		33FDB9A71C84F7C50066237C /* TRCreatorInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCreatorInfo.swift; sourceTree = "<group>"; };
@@ -971,6 +976,7 @@
 				62C1FF311C77C15C00A78798 /* TRRootViewController.swift */,
 				62C5DF781C79769C0039A88E /* TREventListViewController.swift */,
 				3398E1A41CAB18C7001F022B /* TREventInformationViewController.swift */,
+				33F4DB3F1D62F1DE001FF0AB /* TREventDetailViewController.swift */,
 				3398E1AC1CAB3D3D001F022B /* TRProfileViewController.swift */,
 				33974F191CADD9CD0015C9D5 /* TRSendReportViewController.swift */,
 				33A029AF1CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift */,
@@ -1554,6 +1560,7 @@
 				33D0B4241CFD0165008ABA04 /* TREventUpcomingWithCheckPointCell.swift in Sources */,
 				337DA4E01D50554F002A10BA /* ArrayExtension.swift in Sources */,
 				33D0B4251CFD0165008ABA04 /* TREventCurrentNoCheckPointCell.swift in Sources */,
+				33F4DB401D62F1DE001FF0AB /* TREventDetailViewController.swift in Sources */,
 				33D0B4261CFD0165008ABA04 /* TRChangePasswordViewController.swift in Sources */,
 				33D0B4271CFD0165008ABA04 /* TRPushNotification.swift in Sources */,
 				33D0B4281CFD0165008ABA04 /* ExSlideMenuController.swift in Sources */,
@@ -1657,6 +1664,7 @@
 				3380EF2F1CC94725000A9289 /* TREventUpcomingWithCheckPointCell.swift in Sources */,
 				337DA4E11D50554F002A10BA /* ArrayExtension.swift in Sources */,
 				3380EF2B1CC946F4000A9289 /* TREventCurrentNoCheckPointCell.swift in Sources */,
+				33F4DB411D62F1DE001FF0AB /* TREventDetailViewController.swift in Sources */,
 				3333BDB71CED6E3C001C9E1A /* TRChangePasswordViewController.swift in Sources */,
 				33E6CA851CEA49AC003408CB /* TRPushNotification.swift in Sources */,
 				33974F141CADA0E50015C9D5 /* ExSlideMenuController.swift in Sources */,
@@ -1732,6 +1740,7 @@
 				332BC1761CEBD80C00012B45 /* TRSignUpVerificatioViewController.swift in Sources */,
 				3398E1AE1CAB3D3D001F022B /* TRProfileViewController.swift in Sources */,
 				33F77F6E1D594BC70002CFAF /* TRCreateEventFinalView.swift in Sources */,
+				33F4DB421D62F1DE001FF0AB /* TREventDetailViewController.swift in Sources */,
 				336DD7801CDC310A00CCCB04 /* TRNavInteractionAnimator.swift in Sources */,
 				3333BDB81CED6E3C001C9E1A /* TRChangePasswordViewController.swift in Sources */,
 				33974F131CADA0E40015C9D5 /* ExSlideMenuController.swift in Sources */,
@@ -1836,6 +1845,7 @@
 				332BC1771CEBD80C00012B45 /* TRSignUpVerificatioViewController.swift in Sources */,
 				3398E1AF1CAB3D3D001F022B /* TRProfileViewController.swift in Sources */,
 				33F77F6F1D594BC70002CFAF /* TRCreateEventFinalView.swift in Sources */,
+				33F4DB431D62F1DE001FF0AB /* TREventDetailViewController.swift in Sources */,
 				336DD7811CDC310A00CCCB04 /* TRNavInteractionAnimator.swift in Sources */,
 				3333BDB91CED6E3C001C9E1A /* TRChangePasswordViewController.swift in Sources */,
 				33974F121CADA0E40015C9D5 /* ExSlideMenuController.swift in Sources */,

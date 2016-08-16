@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -1057,6 +1058,69 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u2m-Ce-8jD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-867" y="990"/>
+        </scene>
+        <!--Event Detail View Controller-->
+        <scene sceneID="KBg-kJ-0xr">
+            <objects>
+                <viewController storyboardIdentifier="eventDescriptionVC" id="ylH-PI-zc9" customClass="TREventDetailViewController" customModule="Crossroads" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SZv-Sb-Y8a"/>
+                        <viewControllerLayoutGuide type="bottom" id="ikf-rV-Vma"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dm9-t4-bDT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ovx-QA-1WC">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.090196078431372548" green="0.14901960784313725" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgBGVaultOfGlass" translatesAutoresizingMaskIntoConstraints="NO" id="drq-eW-kIC">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="239"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="drq-eW-kIC" secondAttribute="height" multiplier="300:139" id="jGW-EN-3PH"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="jGW-EN-3PH"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aoz-5g-iA4">
+                                <rect key="frame" x="6" y="22" width="44" height="44"/>
+                                <state key="normal" image="iconCollapseArrow"/>
+                                <connections>
+                                    <action selector="dismissButton:" destination="ylH-PI-zc9" eventType="touchUpInside" id="37C-7F-fO0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cL-fd-Ne5">
+                                <rect key="frame" x="543" y="12" width="44" height="44"/>
+                                <state key="normal" image="iconShare"/>
+                                <connections>
+                                    <action selector="shareButton:" destination="ylH-PI-zc9" eventType="touchUpInside" id="nu9-qB-AUX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ikf-rV-Vma" firstAttribute="top" secondItem="Ovx-QA-1WC" secondAttribute="bottom" id="Avc-69-UmC"/>
+                            <constraint firstAttribute="trailing" secondItem="Ovx-QA-1WC" secondAttribute="trailing" id="Tlh-RQ-YYf"/>
+                            <constraint firstItem="Ovx-QA-1WC" firstAttribute="top" secondItem="Dm9-t4-bDT" secondAttribute="top" id="X2q-St-SGo"/>
+                            <constraint firstItem="aoz-5g-iA4" firstAttribute="top" secondItem="SZv-Sb-Y8a" secondAttribute="bottom" constant="2" id="Xx0-lK-D0n"/>
+                            <constraint firstItem="Ovx-QA-1WC" firstAttribute="leading" secondItem="Dm9-t4-bDT" secondAttribute="leading" id="bDM-Tt-sdg"/>
+                            <constraint firstItem="7cL-fd-Ne5" firstAttribute="top" secondItem="Dm9-t4-bDT" secondAttribute="top" constant="12" id="jII-7q-Vqq"/>
+                            <constraint firstAttribute="trailing" secondItem="7cL-fd-Ne5" secondAttribute="trailing" constant="13" id="jfY-HQ-POL"/>
+                            <constraint firstItem="drq-eW-kIC" firstAttribute="leading" secondItem="Dm9-t4-bDT" secondAttribute="leading" id="lsD-Lk-O7Z"/>
+                            <constraint firstItem="aoz-5g-iA4" firstAttribute="leading" secondItem="Dm9-t4-bDT" secondAttribute="leading" constant="6" id="q9M-mJ-zAJ"/>
+                            <constraint firstItem="drq-eW-kIC" firstAttribute="top" secondItem="Dm9-t4-bDT" secondAttribute="top" id="sNX-A3-mht"/>
+                            <constraint firstAttribute="trailing" secondItem="drq-eW-kIC" secondAttribute="trailing" id="vsC-AS-9wq"/>
+                            <constraint firstItem="ikf-rV-Vma" firstAttribute="top" secondItem="drq-eW-kIC" secondAttribute="bottom" constant="361" id="wye-Px-Wfg"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0GH-nc-UZE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2253" y="193"/>
         </scene>
         <!--Legal View Controller-->
         <scene sceneID="Ncw-Ae-IHM">
@@ -3359,6 +3423,7 @@ from &lt;Playstation 3&gt;. </string>
         <image name="iconArrowRight" width="5" height="10"/>
         <image name="iconBackArrow" width="44" height="44"/>
         <image name="iconCheckpoint" width="20" height="20"/>
+        <image name="iconCollapseArrow" width="44" height="44"/>
         <image name="iconDetails" width="14" height="15"/>
         <image name="iconGhostDefault" width="40" height="40"/>
         <image name="iconNotificationsOff" width="44" height="44"/>
