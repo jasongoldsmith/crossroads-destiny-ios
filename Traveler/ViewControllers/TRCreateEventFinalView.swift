@@ -61,6 +61,9 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     //Date Picker
     var datePickerView: TRDatePicker?
     
+    var keys:[String] = []
+    @IBOutlet weak var searchScrollView: UIScrollView!
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -69,6 +72,11 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         super.viewDidAppear(animated)
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.addModifiersView()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -458,8 +466,77 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         if mofifiersArray.count == 0 {
             return
         }
+        
+        self.keys.removeAll()
+        self.keys = mofifiersArray
+        self.reloadButtons()
     }
     
+    
+    
+    private func reloadButtons() {
+        for button in self.searchScrollView.subviews {
+            button.removeFromSuperview()
+        }
+        var previousRect = CGRectZero
+        var initialPointInRow = CGPointZero
+        var found = false
+        for i in 0 ..< keys.count {
+            let key = keys[i]
+            let giphyButton = UIButton()
+            giphyButton.layer.borderColor = UIColor.whiteColor().CGColor
+            giphyButton.layer.borderWidth = 1.0
+            giphyButton.titleLabel!.font =  UIFont(name: "HelveticaNeue", size: 10)
+            giphyButton.setTitle(key, forState: .Normal)
+            let newRect = calculateNewFrame(previousRect, keyToDisplay: key)
+            if newRect.origin.y != initialPointInRow.y {
+                //another row
+                let remainingSpace = (self.searchScrollView.frame.size.width - (previousRect.origin.x + previousRect.size.width))/2
+                for button in self.searchScrollView.subviews {
+                    if button.frame.origin.y == initialPointInRow.y && !found {
+                        button.frame = CGRectMake(button.frame.origin.x+remainingSpace, button.frame.origin.y, button.frame.size.width, button.frame.size.height)
+                    }
+                }
+                found = true
+                initialPointInRow = newRect.origin
+            } else {
+                found = false
+            }
+            previousRect = newRect
+            giphyButton.frame = previousRect
+            giphyButton.tag = i
+            self.searchScrollView.addSubview(giphyButton)
+            self.searchScrollView.contentSize = CGSizeMake(self.searchScrollView.frame.size.width, previousRect.origin.y+previousRect.size.height)
+            if i == keys.count-1 {
+                let remainingSpace = (self.searchScrollView.frame.size.width - (giphyButton.frame.origin.x + giphyButton.frame.size.width))/2
+                for button in self.searchScrollView.subviews {
+                    if button.frame.origin.y == giphyButton.frame.origin.y {
+                        button.frame = CGRectMake(button.frame.origin.x+remainingSpace, button.frame.origin.y, button.frame.size.width, button.frame.size.height)
+                    }
+                }
+            }
+        }
+    }
+    
+    private func calculateNewFrame(previousRect:CGRect, keyToDisplay:String) -> CGRect {
+        let rect:CGRect = "\(keyToDisplay)".boundingRectWithSize(CGSizeMake(self.searchScrollView.frame.size.width, 0), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 10)!], context: nil)
+        let requiredSpaceForKey = rect.size.width + 20
+        var initialPoint = previousRect.origin.x + previousRect.size.width
+        if initialPoint != 0.0 {
+            initialPoint += 8.0
+        }
+        if initialPoint + requiredSpaceForKey < self.searchScrollView.frame.size.width {
+            return CGRectMake(initialPoint, previousRect.origin.y, requiredSpaceForKey, 22)
+        } else {
+            if requiredSpaceForKey < self.searchScrollView.frame.size.width {
+                return CGRectMake(0, previousRect.origin.y+previousRect.size.height+8, requiredSpaceForKey, 22)
+            } else {
+                return CGRectMake(0, previousRect.origin.y+previousRect.size.height+8, self.searchScrollView.frame.size.width, 22)
+            }
+        }
+    }
+
+
     deinit {
         
     }
