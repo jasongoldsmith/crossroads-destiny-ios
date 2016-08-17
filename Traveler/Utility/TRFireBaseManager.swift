@@ -67,7 +67,7 @@ class TRFireBaseManager {
         })
     }
     
-    func addEventsObserversWithParentViewForDetailView (parentViewController: TREventInformationViewController, withEvent: TREventInfo) {
+    func addEventsObserversWithParentViewForDetailView (parentViewController: TREventDetailViewController, withEvent: TREventInfo) {
         
         guard let hasEventClan = withEvent.eventClanID else {
             return

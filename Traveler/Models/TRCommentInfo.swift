@@ -20,7 +20,7 @@ class TRCommentInfo: NSObject {
 
         if let hasUserInfo = commentInfo["user"].dictionary {
             self.commentUserInfo = TRUserInfo()
-            self.commentUserInfo!.parseUserResponse(JSON(hasUserInfo))
+            self.commentUserInfo!.parseUserResponseWithOutValueKey(JSON(hasUserInfo))
         }
         
         self.commentText = commentInfo["text"].stringValue

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="eventCommentCell" id="tzW-zk-PTj" customClass="TREventCommentCell" customModule="Crossroads" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tzW-zk-PTj" id="VYj-2W-lvO">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yWd-tJ-MJG">
+                        <rect key="frame" x="15" y="10" width="36" height="36"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="36" id="52u-lm-GOc"/>
+                            <constraint firstAttribute="width" constant="36" id="Zc1-Sl-JXw"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdB-Cm-tx4">
+                        <rect key="frame" x="65" y="10" width="30" height="14"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                        <color key="textColor" red="1" green="0.77647058820000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTR-h9-MMf">
+                        <rect key="frame" x="65" y="29" width="247" height="37"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="37" id="nPd-4h-KNf"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="nPd-4h-KNf"/>
+                            </mask>
+                        </variation>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="aTR-h9-MMf" firstAttribute="trailing" secondItem="VYj-2W-lvO" secondAttribute="trailingMargin" id="5qb-97-yjZ"/>
+                    <constraint firstItem="aTR-h9-MMf" firstAttribute="bottom" secondItem="VYj-2W-lvO" secondAttribute="bottomMargin" id="JB0-Va-RvW"/>
+                    <constraint firstItem="aTR-h9-MMf" firstAttribute="bottom" secondItem="VYj-2W-lvO" secondAttribute="bottomMargin" id="Lh6-cV-XPO"/>
+                    <constraint firstItem="aTR-h9-MMf" firstAttribute="leading" secondItem="hdB-Cm-tx4" secondAttribute="leading" id="N1e-kZ-DNF"/>
+                    <constraint firstItem="hdB-Cm-tx4" firstAttribute="top" secondItem="VYj-2W-lvO" secondAttribute="top" constant="10" id="Oup-WX-4ca"/>
+                    <constraint firstItem="yWd-tJ-MJG" firstAttribute="top" secondItem="VYj-2W-lvO" secondAttribute="top" constant="10" id="Pav-ab-VbJ"/>
+                    <constraint firstItem="aTR-h9-MMf" firstAttribute="top" secondItem="hdB-Cm-tx4" secondAttribute="bottom" constant="5" id="Tel-Fz-Cy4"/>
+                    <constraint firstItem="hdB-Cm-tx4" firstAttribute="leading" secondItem="yWd-tJ-MJG" secondAttribute="trailing" constant="14" id="da4-D4-a42"/>
+                    <constraint firstItem="yWd-tJ-MJG" firstAttribute="leading" secondItem="VYj-2W-lvO" secondAttribute="leading" constant="15" id="f3C-7h-rmX"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="JB0-Va-RvW"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.11372549019607843" green="0.19215686274509802" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="playerComment" destination="aTR-h9-MMf" id="W4d-ql-B6B"/>
+                <outlet property="playerIcon" destination="yWd-tJ-MJG" id="VSt-Gd-2fB"/>
+                <outlet property="playerUserName" destination="hdB-Cm-tx4" id="SXG-y4-Fhl"/>
+            </connections>
+            <point key="canvasLocation" x="982" y="787"/>
+        </tableViewCell>
+    </objects>
+</document>

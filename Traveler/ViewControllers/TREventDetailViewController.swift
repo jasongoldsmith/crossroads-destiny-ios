@@ -12,7 +12,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     
     
     private let EVENT_DESCRIPTION_CELL = "eventDescriptionCell"
-    private let EVENT_MESSAGE_CELL = "eventMessageCell"
+    private let EVENT_COMMENT_CELL = "eventCommentCell"
     
     //Cell Height
     private let event_description_row_height: CGFloat = 54
@@ -67,8 +67,13 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         
         self.eventName.text = self.eventInfo?.eventActivity?.activitySubType
         
+        // Table View
         self.eventTable?.registerNib(UINib(nibName: "TREventDescriptionCell", bundle: nil), forCellReuseIdentifier: EVENT_DESCRIPTION_CELL)
-        self.eventTable?.registerNib(UINib(nibName: "TREventMessageCell", bundle: nil), forCellReuseIdentifier: EVENT_MESSAGE_CELL)
+        self.eventTable?.registerNib(UINib(nibName: "TREventCommentCell", bundle: nil), forCellReuseIdentifier: EVENT_COMMENT_CELL)
+        self.eventTable?.estimatedRowHeight = event_description_row_height
+        self.eventTable?.rowHeight = UITableViewAutomaticDimension
+        self.eventTable?.setNeedsLayout()
+        self.eventTable?.layoutIfNeeded()
         
         if let hasCheckPoint = self.eventInfo?.eventActivity?.activityCheckPoint where hasCheckPoint != "" {
             let checkPoint = hasCheckPoint
@@ -119,7 +124,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-//        TRApplicationManager.sharedInstance.fireBaseManager?.addEventsObserversWithParentViewForDetailView(self, withEvent: self.eventInfo!)
+        TRApplicationManager.sharedInstance.fireBaseManager?.addEventsObserversWithParentViewForDetailView(self, withEvent: self.eventInfo!)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -234,7 +239,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             
             return (self.eventInfo?.eventPlayersArray.count)!
         } else {
-            return 0
+            return (self.eventInfo?.eventComments.count)!
         }
     }
     
@@ -244,6 +249,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         
         if segmentControl?.selectedSegmentIndex == 0 {
             cell = tableView.dequeueReusableCellWithIdentifier(EVENT_DESCRIPTION_CELL) as? TREventDescriptionCell
+            
             if indexPath.section < self.eventInfo?.eventPlayersArray.count {
                 cell?.playerUserName.text = self.eventInfo?.eventPlayersArray[indexPath.section].playerPsnID
                 
@@ -251,16 +257,26 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                     let imageURL = NSURL(string: hasImage)
                     cell?.playerIcon.sd_setImageWithURL(imageURL)
                     cell?.playerIcon.roundRectView (1, borderColor: UIColor.grayColor())
+                    
+                    return cell!
                 }
             } else {
                 cell?.playerIcon?.image = UIImage(named: "iconProfileBlank")
                 cell?.playerUserName?.text = "searching..."
-//                cell?.chatButton?.hidden = true
+                
+                return cell!
             }
-
-            self.eventTable?.rowHeight = event_description_row_height
         } else {
+            let commentCell: TREventCommentCell = (tableView.dequeueReusableCellWithIdentifier(EVENT_COMMENT_CELL) as? TREventCommentCell)!
+            commentCell.playerUserName.text = self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userName!
+            commentCell.playerComment.text = self.eventInfo?.eventComments[indexPath.section].commentText!
+            if let hasImage = self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userImageURL! {
+                let imageURL = NSURL(string: hasImage)
+                commentCell.playerIcon.sd_setImageWithURL(imageURL)
+                commentCell.playerIcon.roundRectView (1, borderColor: UIColor.grayColor())
+            }
             
+            return commentCell
         }
     
         return cell!

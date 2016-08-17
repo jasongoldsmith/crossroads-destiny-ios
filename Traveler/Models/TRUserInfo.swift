@@ -54,6 +54,39 @@ class TRUserInfo: NSObject {
         }
     }
     
+    //Some lagacy code... :(
+    func parseUserResponseWithOutValueKey (responseObject: JSON) {
+        self.userName       = responseObject["userName"].stringValue
+        self.userID         = responseObject["_id"].stringValue
+        self.userImageURL   = responseObject["imageUrl"].stringValue
+        self.userClanID     = responseObject["clanId"].stringValue
+        self.bungieMemberShipID = responseObject["bungieMemberShipId"].stringValue
+        
+        // Legal Info
+        if let legalDict = responseObject["legal"].dictionary {
+            let legalObject = TRLegalInfo()
+            legalObject.parseLegalObjectDictionary(JSON(legalDict))
+            self.legalInfo = legalObject
+        }
+        
+        //Console Info
+        let consoles = responseObject["consoles"].arrayValue
+        for consoleObj in consoles {
+            let console = TRConsoles()
+            console.consoleId = consoleObj["consoleId"].stringValue
+            console.consoleType = consoleObj["consoleType"].stringValue
+            console.verifyStatus = consoleObj["verifyStatus"].stringValue
+            console.isPrimary    = consoleObj["isPrimary"].bool
+            
+            //Save user console in NSUserDefaults if this is the current console
+            if console.isPrimary == true && self.userID == TRUserInfo.getUserID() {
+                TRUserInfo.saveConsolesObject(console)
+            }
+            
+            self.consoles.append(console)
+        }
+    }
+    
     func getDefaultConsole () -> TRConsoles? {
         let currentConsole = self.consoles.filter{$0.isPrimary == true}
         
