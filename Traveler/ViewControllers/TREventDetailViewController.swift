@@ -228,6 +228,10 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
         if self.segmentControl?.selectedSegmentIndex == 0 {
+            if self.eventInfo?.eventPlayersArray.count < self.eventInfo?.eventMaxPlayers?.integerValue {
+                return (self.eventInfo?.eventPlayersArray.count)! + 1
+            }
+            
             return (self.eventInfo?.eventPlayersArray.count)!
         } else {
             return 0
@@ -240,14 +244,20 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         
         if segmentControl?.selectedSegmentIndex == 0 {
             cell = tableView.dequeueReusableCellWithIdentifier(EVENT_DESCRIPTION_CELL) as? TREventDescriptionCell
-            cell?.playerUserName.text = self.eventInfo?.eventPlayersArray[indexPath.section].playerPsnID
-            
-            if let hasImage = self.eventInfo?.eventPlayersArray[indexPath.section].playerImageUrl {
-                let imageURL = NSURL(string: hasImage)
-                cell?.playerIcon.sd_setImageWithURL(imageURL)
-                cell?.playerIcon.roundRectView (1, borderColor: UIColor.grayColor())
+            if indexPath.section < self.eventInfo?.eventPlayersArray.count {
+                cell?.playerUserName.text = self.eventInfo?.eventPlayersArray[indexPath.section].playerPsnID
+                
+                if let hasImage = self.eventInfo?.eventPlayersArray[indexPath.section].playerImageUrl {
+                    let imageURL = NSURL(string: hasImage)
+                    cell?.playerIcon.sd_setImageWithURL(imageURL)
+                    cell?.playerIcon.roundRectView (1, borderColor: UIColor.grayColor())
+                }
+            } else {
+                cell?.playerIcon?.image = UIImage(named: "iconProfileBlank")
+                cell?.playerUserName?.text = "searching..."
+//                cell?.chatButton?.hidden = true
             }
-            
+
             self.eventTable?.rowHeight = event_description_row_height
         } else {
             
