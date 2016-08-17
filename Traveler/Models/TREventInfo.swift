@@ -26,6 +26,8 @@ class TREventInfo: NSObject {
     var eventClanID             : String?
     var eventConsoleType        : String?
     var clanName                : String?
+    var eventComments           : [TRCommentInfo] = []
+    
     
     func parseCreateEventInfoObject (swiftyJason: JSON) -> TREventInfo {
         
@@ -53,6 +55,16 @@ class TREventInfo: NSObject {
             //Event Activity added
             self.eventActivity = activityInfo
         }
+        
+        //Event Comments
+        let comments = swiftyJason["comments"].arrayValue
+        for commentInfo in comments {
+            let commentObj = TRCommentInfo()
+            commentObj.parseCommentInfo(commentInfo)
+            
+            self.eventComments.append(commentObj)
+        }
+
         
         // Creating Creator Object from Events List
         let creatorDictionary = swiftyJason["creator"].dictionary

@@ -109,6 +109,10 @@
 		3369499C1CC5CFEB004979C0 /* NSBundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369499B1CC5CFEB004979C0 /* NSBundleExtension.swift */; };
 		3369499D1CC5CFEB004979C0 /* NSBundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369499B1CC5CFEB004979C0 /* NSBundleExtension.swift */; };
 		3369499E1CC5CFEB004979C0 /* NSBundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369499B1CC5CFEB004979C0 /* NSBundleExtension.swift */; };
+		336B99C21D64E1D300668BF4 /* TRCommentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336B99C11D64E1D300668BF4 /* TRCommentInfo.swift */; };
+		336B99C31D64E1D300668BF4 /* TRCommentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336B99C11D64E1D300668BF4 /* TRCommentInfo.swift */; };
+		336B99C41D64E1D300668BF4 /* TRCommentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336B99C11D64E1D300668BF4 /* TRCommentInfo.swift */; };
+		336B99C51D64E1D300668BF4 /* TRCommentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336B99C11D64E1D300668BF4 /* TRCommentInfo.swift */; };
 		336BF5271CBEB214005CD3DE /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */; };
 		336BF5281CBEB214005CD3DE /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */; };
 		336BF5291CBEB214005CD3DE /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */; };
@@ -559,6 +563,7 @@
 		335405C41D52A63A00B42BAC /* TRLegalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLegalInfo.swift; sourceTree = "<group>"; };
 		335405C91D52AFA100B42BAC /* TRRequestUpdateLegalRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRequestUpdateLegalRequest.swift; sourceTree = "<group>"; };
 		3369499B1CC5CFEB004979C0 /* NSBundleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSBundleExtension.swift; path = ../Networking/NSBundleExtension.swift; sourceTree = "<group>"; };
+		336B99C11D64E1D300668BF4 /* TRCommentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCommentInfo.swift; sourceTree = "<group>"; };
 		336BF5261CBEB214005CD3DE /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		336DD77E1CDC289200CCCB04 /* TRNavInteractionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRNavInteractionAnimator.swift; sourceTree = "<group>"; };
 		3372219C1CD06762001B1157 /* TRNavTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRNavTransitionAnimator.swift; sourceTree = "<group>"; };
@@ -872,6 +877,7 @@
 				335405C41D52A63A00B42BAC /* TRLegalInfo.swift */,
 				33AABB171D5BC2600099A20C /* TRActivityBonus.swift */,
 				33AABB1C1D5BC3250099A20C /* TRActivityModifiersInfo.swift */,
+				336B99C11D64E1D300668BF4 /* TRCommentInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1541,6 +1547,7 @@
 				3312B91A1D024251005AF67D /* TRConsoles.swift in Sources */,
 				33D0B3FB1CFD0165008ABA04 /* TRPushNotificationView.swift in Sources */,
 				337DA4C71D4C0D10002A10BA /* TRErrorView.swift in Sources */,
+				336B99C21D64E1D300668BF4 /* TRCommentInfo.swift in Sources */,
 				33D9D97F1D48574F00A6289D /* TRAdCardInfo.swift in Sources */,
 				33D0B3FC1CFD0165008ABA04 /* UIApplicationExtension.swift in Sources */,
 				333FA8A91D0109C200A5EC1C /* TRBungieUserAuthRequest.swift in Sources */,
@@ -1647,6 +1654,7 @@
 				3312B91B1D024251005AF67D /* TRConsoles.swift in Sources */,
 				331E0F051C9B852200A80D32 /* TRPushNotificationView.swift in Sources */,
 				337DA4C81D4C0D10002A10BA /* TRErrorView.swift in Sources */,
+				336B99C31D64E1D300668BF4 /* TRCommentInfo.swift in Sources */,
 				33D9D9801D48574F00A6289D /* TRAdCardInfo.swift in Sources */,
 				336BF5271CBEB214005CD3DE /* UIApplicationExtension.swift in Sources */,
 				333FA8AA1D0109C200A5EC1C /* TRBungieUserAuthRequest.swift in Sources */,
@@ -1784,6 +1792,7 @@
 				334E05BF1C939D7B00973068 /* AppDelegate.swift in Sources */,
 				33FDB9B71C8621150066237C /* TRCreateEventRequest.swift in Sources */,
 				332BC1761CEBD80C00012B45 /* TRSignUpVerificatioViewController.swift in Sources */,
+				336B99C41D64E1D300668BF4 /* TRCommentInfo.swift in Sources */,
 				3398E1AE1CAB3D3D001F022B /* TRProfileViewController.swift in Sources */,
 				33F77F6E1D594BC70002CFAF /* TRCreateEventFinalView.swift in Sources */,
 				33F4DB421D62F1DE001FF0AB /* TREventDetailViewController.swift in Sources */,
@@ -1891,6 +1900,7 @@
 				334E05C01C939D7C00973068 /* AppDelegate.swift in Sources */,
 				33FDB9B81C8621160066237C /* TRCreateEventRequest.swift in Sources */,
 				332BC1771CEBD80C00012B45 /* TRSignUpVerificatioViewController.swift in Sources */,
+				336B99C51D64E1D300668BF4 /* TRCommentInfo.swift in Sources */,
 				3398E1AF1CAB3D3D001F022B /* TRProfileViewController.swift in Sources */,
 				33F77F6F1D594BC70002CFAF /* TRCreateEventFinalView.swift in Sources */,
 				33F4DB431D62F1DE001FF0AB /* TREventDetailViewController.swift in Sources */,
