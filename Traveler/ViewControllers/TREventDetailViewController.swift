@@ -103,7 +103,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             }
             
         } else {
-            self.eventCheckPointTopConstraint.constant = -10
+            self.eventCheckPointTopConstraint.constant = -13
             self.eventCheckPoint_Time.hidden = true
         }
         
@@ -112,9 +112,17 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+//        TRApplicationManager.sharedInstance.fireBaseManager?.addEventsObserversWithParentViewForDetailView(self, withEvent: self.eventInfo!)
     }
     
-
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        //Remove FireBase Observer
+        TRApplicationManager.sharedInstance.fireBaseManager?.removeObservers()
+    }
+    
     func reloadButton () {
         self.joinButton.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
         

@@ -488,7 +488,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         
         // If Event Info is open, If Navigations are open, close them too
         if let topController = UIApplication.topViewController() {
-            if topController.isKindOfClass(TREventInformationViewController) {
+            if topController.isKindOfClass(TREventDetailViewController) {
                 topController.dismissViewControllerAnimated(false, completion: {
                     topController.didMoveToParentViewController(nil)
                     topController.removeFromParentViewController()

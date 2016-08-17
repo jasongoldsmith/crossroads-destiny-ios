@@ -175,7 +175,7 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
 
         TRApplicationManager.sharedInstance.pushNotiController?.showAllNotificationsWithEventID(eventInfo!.eventID!, parentView: self)
 
-        TRApplicationManager.sharedInstance.fireBaseManager?.addEventsObserversWithParentViewForDetailView(self,withEvent: self.eventInfo!)
+//        TRApplicationManager.sharedInstance.fireBaseManager?.addEventsObserversWithParentViewForDetailView(self,withEvent: self.eventInfo!)
     }
     
     override func viewWillDisappear(animated: Bool) {
