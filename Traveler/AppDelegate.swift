@@ -73,8 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Branch.self, Answers.self])
         
         // FBSDK Initialization
-//        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        return true
+        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 
     // MARK:- Branch Deep Linking related methods
@@ -83,7 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // do other deep link routing for the Facebook SDK, Pinterest SDK, etc
         }
         
-        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+        return true
     }
     
     func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
