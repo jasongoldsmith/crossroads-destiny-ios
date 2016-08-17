@@ -1231,6 +1231,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="eventBackGround" destination="drq-eW-kIC" id="Wou-iU-LJO"/>
                         <outlet property="eventCheckPointTopConstraint" destination="tNC-sQ-wC7" id="k5e-in-iTJ"/>
                         <outlet property="eventCheckPoint_Time" destination="frN-Rs-fvP" id="u6f-LJ-0M2"/>
                         <outlet property="eventIcon" destination="0vp-kp-FgA" id="sOW-rd-UJB"/>

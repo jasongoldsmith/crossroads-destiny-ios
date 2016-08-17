@@ -28,6 +28,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     @IBOutlet weak var joinButton: UIButton!
     @IBOutlet weak var eventCheckPoint_Time: UILabel!
     @IBOutlet weak var eventCheckPointTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var eventBackGround: UIImageView!
     
     //Current Event
     var eventInfo: TREventInfo?
@@ -108,6 +109,11 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         }
         
         self.reloadButton()
+        
+        if let hasImage = self.eventInfo?.eventActivity!.activityImage {
+            let imageURL = NSURL(string: hasImage)
+            self.eventBackGround.sd_setImageWithURL(imageURL)
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
