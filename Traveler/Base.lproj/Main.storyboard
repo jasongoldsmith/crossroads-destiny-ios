@@ -1153,7 +1153,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lML-KN-3nB" customClass="TRInsertLabel" customModule="Crossroads" customModuleProvider="target">
-                                <rect key="frame" x="72" y="162" width="27" height="13"/>
+                                <rect key="frame" x="72" y="181" width="27" height="13"/>
                                 <color key="backgroundColor" red="0.12549019607843137" green="0.19607843137254902" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                 <color key="textColor" red="0.60784313725490191" green="0.6588235294117647" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
@@ -1161,7 +1161,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNz-aR-fLG">
                                 <rect key="frame" x="0.0" y="550" width="600" height="50"/>
-                                <color key="backgroundColor" red="0.90196078431372551" green="0.69803921568627447" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="dxU-Fk-YgO"/>
                                 </constraints>
@@ -1170,6 +1170,12 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frN-Rs-fvP">
+                                <rect key="frame" x="72" y="157" width="30" height="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vya-EI-Q0G">
                                 <rect key="frame" x="0.0" y="263" width="600" height="287"/>
                                 <color key="backgroundColor" red="0.090196078430000007" green="0.14901960780000001" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
@@ -1192,11 +1198,11 @@
                             <constraint firstItem="0vp-kp-FgA" firstAttribute="leading" secondItem="Dm9-t4-bDT" secondAttribute="leading" constant="20" id="DYn-xa-ael"/>
                             <constraint firstAttribute="trailing" secondItem="V3u-Lz-xh1" secondAttribute="trailing" constant="32" id="Efs-lG-jal"/>
                             <constraint firstItem="vya-EI-Q0G" firstAttribute="leading" secondItem="Dm9-t4-bDT" secondAttribute="leading" id="JVl-J3-9bV"/>
+                            <constraint firstItem="lML-KN-3nB" firstAttribute="top" secondItem="frN-Rs-fvP" secondAttribute="bottom" constant="10" id="Ld8-TN-JU3"/>
                             <constraint firstItem="HAF-uu-5cX" firstAttribute="leading" secondItem="Dm9-t4-bDT" secondAttribute="leading" constant="32" id="OpG-hH-hY3"/>
                             <constraint firstItem="gNz-aR-fLG" firstAttribute="top" secondItem="vya-EI-Q0G" secondAttribute="bottom" id="TF7-ZA-JIk"/>
                             <constraint firstItem="jYq-R8-c9p" firstAttribute="top" secondItem="Khp-dG-aaY" secondAttribute="bottom" constant="76" id="Uci-F8-q96"/>
                             <constraint firstItem="aoz-5g-iA4" firstAttribute="top" secondItem="SZv-Sb-Y8a" secondAttribute="bottom" constant="2" id="Xx0-lK-D0n"/>
-                            <constraint firstItem="lML-KN-3nB" firstAttribute="top" secondItem="Khp-dG-aaY" secondAttribute="bottom" constant="8" id="Zmh-C8-NdN"/>
                             <constraint firstItem="V3u-Lz-xh1" firstAttribute="top" secondItem="jYq-R8-c9p" secondAttribute="bottom" constant="-1" id="apV-jk-1QS"/>
                             <constraint firstAttribute="trailing" secondItem="gNz-aR-fLG" secondAttribute="trailing" id="crM-gh-bDK"/>
                             <constraint firstAttribute="trailing" secondItem="vya-EI-Q0G" secondAttribute="trailing" id="cuG-iu-D6E"/>
@@ -1205,6 +1211,7 @@
                             <constraint firstItem="vya-EI-Q0G" firstAttribute="top" secondItem="Lid-sl-3qB" secondAttribute="bottom" constant="1" id="fRA-rm-ERe"/>
                             <constraint firstItem="Lid-sl-3qB" firstAttribute="leading" secondItem="Dm9-t4-bDT" secondAttribute="leading" id="g0V-sy-19T"/>
                             <constraint firstItem="7cL-fd-Ne5" firstAttribute="top" secondItem="Dm9-t4-bDT" secondAttribute="top" constant="16" id="jII-7q-Vqq"/>
+                            <constraint firstItem="frN-Rs-fvP" firstAttribute="leading" secondItem="Khp-dG-aaY" secondAttribute="leading" id="jNx-q9-Oe2"/>
                             <constraint firstAttribute="trailing" secondItem="7cL-fd-Ne5" secondAttribute="trailing" constant="13" id="jfY-HQ-POL"/>
                             <constraint firstItem="jYq-R8-c9p" firstAttribute="top" secondItem="0vp-kp-FgA" secondAttribute="bottom" constant="63" id="k0X-Z2-Rt2"/>
                             <constraint firstItem="gNz-aR-fLG" firstAttribute="leading" secondItem="Dm9-t4-bDT" secondAttribute="leading" id="lGl-wh-3zL"/>
@@ -1212,6 +1219,7 @@
                             <constraint firstItem="aoz-5g-iA4" firstAttribute="leading" secondItem="Dm9-t4-bDT" secondAttribute="leading" constant="6" id="q9M-mJ-zAJ"/>
                             <constraint firstItem="drq-eW-kIC" firstAttribute="top" secondItem="Dm9-t4-bDT" secondAttribute="top" id="sNX-A3-mht"/>
                             <constraint firstItem="lML-KN-3nB" firstAttribute="leading" secondItem="Khp-dG-aaY" secondAttribute="leading" id="sXk-nz-QYC"/>
+                            <constraint firstItem="frN-Rs-fvP" firstAttribute="top" secondItem="Khp-dG-aaY" secondAttribute="bottom" constant="3" id="tNC-sQ-wC7"/>
                             <constraint firstAttribute="trailing" secondItem="drq-eW-kIC" secondAttribute="trailing" id="vsC-AS-9wq"/>
                             <constraint firstItem="ikf-rV-Vma" firstAttribute="top" secondItem="drq-eW-kIC" secondAttribute="bottom" constant="361" id="wye-Px-Wfg"/>
                             <constraint firstAttribute="trailing" secondItem="jYq-R8-c9p" secondAttribute="trailing" id="zhi-VG-2md"/>
@@ -1223,6 +1231,8 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="eventCheckPointTopConstraint" destination="tNC-sQ-wC7" id="k5e-in-iTJ"/>
+                        <outlet property="eventCheckPoint_Time" destination="frN-Rs-fvP" id="u6f-LJ-0M2"/>
                         <outlet property="eventIcon" destination="0vp-kp-FgA" id="sOW-rd-UJB"/>
                         <outlet property="eventName" destination="Khp-dG-aaY" id="ESt-GY-Oi3"/>
                         <outlet property="eventTable" destination="vya-EI-Q0G" id="LAN-5Y-H8b"/>

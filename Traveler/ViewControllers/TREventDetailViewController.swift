@@ -26,7 +26,8 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     @IBOutlet weak var eventTag: TRInsertLabel!
     @IBOutlet weak var eventTable: UITableView!
     @IBOutlet weak var joinButton: UIButton!
-    
+    @IBOutlet weak var eventCheckPoint_Time: UILabel!
+    @IBOutlet weak var eventCheckPointTopConstraint: NSLayoutConstraint!
     
     //Current Event
     var eventInfo: TREventInfo?
@@ -34,6 +35,10 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let _ = self.eventInfo else {
+            return
+        }
         
         self.segmentControl?.removeBorders()
         
@@ -64,14 +69,45 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         self.eventTable?.registerNib(UINib(nibName: "TREventDescriptionCell", bundle: nil), forCellReuseIdentifier: EVENT_DESCRIPTION_CELL)
         self.eventTable?.registerNib(UINib(nibName: "TREventMessageCell", bundle: nil), forCellReuseIdentifier: EVENT_MESSAGE_CELL)
         
-        let isCurrentUserInTheEvent = TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!)
-        if isCurrentUserInTheEvent == true {
-            self.joinButton.titleLabel?.text = "LEAVE"
-            self.joinButton.titleLabel?.backgroundColor = UIColor(red: 230/255, green: 178/255, blue: 0/255, alpha: 1)
+        if let hasCheckPoint = self.eventInfo?.eventActivity?.activityCheckPoint where hasCheckPoint != "" {
+            let checkPoint = hasCheckPoint
+            let stringColorAttribute = [NSForegroundColorAttributeName: UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)]
+            
+            let checkAttributedStr = NSAttributedString(string: checkPoint + "  ", attributes: stringColorAttribute)
+
+            let finalString:NSMutableAttributedString = checkAttributedStr.mutableCopy() as! NSMutableAttributedString
+            
+            if self.eventInfo?.isFutureEvent == true {
+                if let hasLaunchDate = self.eventInfo?.eventLaunchDate {
+                    let formatter = NSDateFormatter()
+                    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                    let eventDate = formatter.dateFromString(hasLaunchDate)
+                    let dateString = eventDate!.toString(format: .Custom(trDateFormat()))
+                    
+                    let timeAttributedStr = NSAttributedString(string: dateString, attributes: nil)
+                    finalString.appendAttributedString(timeAttributedStr)
+                }
+            }
+            
+            self.eventCheckPoint_Time?.attributedText = finalString
+        } else if (self.eventInfo?.isFutureEvent == true){
+            if let hasLaunchDate = self.eventInfo?.eventLaunchDate {
+                let formatter = NSDateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                let eventDate = formatter.dateFromString(hasLaunchDate)
+                let dateString = eventDate!.toString(format: .Custom(trDateFormat()))
+                
+                let timeAttributedStr = NSAttributedString(string: dateString, attributes: nil)
+                //finalString.appendAttributedString(timeAttributedStr)
+                self.eventCheckPoint_Time?.attributedText = timeAttributedStr
+            }
+            
         } else {
-            self.joinButton.titleLabel?.text = "JOIN"
-            self.joinButton.titleLabel?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
+            self.eventCheckPointTopConstraint.constant = -10
+            self.eventCheckPoint_Time.hidden = true
         }
+        
+        self.reloadButton()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -79,6 +115,21 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     }
     
 
+    func reloadButton () {
+        self.joinButton.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
+        
+        let isCurrentUserInTheEvent = TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!)
+        if isCurrentUserInTheEvent == true {
+            self.joinButton?.backgroundColor = UIColor(red: 230/255, green: 178/255, blue: 0/255, alpha: 1)
+            self.joinButton?.addTarget(self, action: #selector(leaveEvent(_:)), forControlEvents: .TouchUpInside)
+            self.joinButton.setTitle("LEAVE", forState: .Normal)
+        } else {
+            self.joinButton?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
+            self.joinButton?.addTarget(self, action: #selector(joinAnEvent(_:)), forControlEvents: .TouchUpInside)
+            self.joinButton.setTitle("JOIN", forState: .Normal)
+        }
+    }
+    
     //MARK:- IB_ACTIONS
     @IBAction func dismissButton (sender: UIButton) {
         self.dismissViewController(true) { (didDismiss) in
@@ -119,9 +170,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         }
         
         //Reload Data
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
-            self.eventTable?.reloadData()
-        }
+        self.reloadEventTable()
     }
     
     
@@ -133,20 +182,22 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         if self.segmentControl?.selectedSegmentIndex == 0 {
-            let headerView = UILabel()
-            headerView.text = self.eventInfo?.clanName
-            headerView.textAlignment = .Center
-            headerView.textColor = UIColor.whiteColor()
-            headerView.font = UIFont(name:"HelveticaNeue", size: 12)
-            headerView.backgroundColor = UIColor.clearColor()
-            
-            return headerView
-        } else {
-            let headerView = UIView()
-            headerView.backgroundColor = UIColor.clearColor()
-            
-            return headerView
+            if section == 0 {
+                let headerView = UILabel()
+                headerView.text = self.eventInfo?.clanName
+                headerView.textAlignment = .Center
+                headerView.textColor = UIColor.whiteColor()
+                headerView.font = UIFont(name:"HelveticaNeue", size: 12)
+                headerView.backgroundColor = UIColor.clearColor()
+                
+                return headerView
+            }
         }
+        
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clearColor()
+        
+        return headerView
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -195,6 +246,49 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
 
     }
 
+    override func reloadEventTable() {
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            if let _ = self.eventInfo {
+                self.eventTable?.reloadData()
+            }
+        }
+    }
+    
+    //MARK:- Network requests
+    func leaveEvent (sender: UIButton) {
+        
+        guard let _ = self.eventInfo else {
+            return
+        }
+        
+        _ = TRLeaveEventRequest().leaveAnEvent(self.eventInfo!, completion: { (event) in
+            if let _ = event {
+                self.eventInfo = event
+                self.reloadEventTable()
+                self.reloadButton()
+            } else {
+                self.dismissViewController(true, dismissed: { (didDismiss) in
+                    
+                })
+            }
+        })
+    }
+    
+    func joinAnEvent (sender: UIButton) {
+        guard let _ = self.eventInfo else {
+            return
+        }
+        
+        _ = TRJoinEventRequest().joinEventWithUserForEvent(TRUserInfo.getUserID()!, eventInfo: self.eventInfo!, completion: { (event) in
+            if let _ = event {
+                self.eventInfo = event
+                dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                    self.reloadEventTable()
+                    self.reloadButton()
+                }
+            }
+        })
+    }
     
     deinit {
         
