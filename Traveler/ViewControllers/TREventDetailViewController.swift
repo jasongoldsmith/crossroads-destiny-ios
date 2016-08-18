@@ -129,7 +129,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         
         self.reloadButton()
         
-        if let hasImage = self.eventInfo?.eventActivity!.activityImage {
+        if let hasImage = self.eventInfo?.eventActivity!.activityImage where hasImage != "" {
             let imageURL = NSURL(string: hasImage)
             self.eventBackGround.sd_setImageWithURL(imageURL)
         }
@@ -158,19 +158,19 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             if isCurrentUserInTheEvent == true {
                 self.joinButton?.backgroundColor = UIColor(red: 230/255, green: 178/255, blue: 0/255, alpha: 1)
                 self.joinButton?.addTarget(self, action: #selector(leaveEvent(_:)), forControlEvents: .TouchUpInside)
-                self.joinButton.setTitle("LEAVE", forState: .Normal)
+                self.joinButton?.setTitle("LEAVE", forState: .Normal)
             } else {
                 self.joinButton?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
                 self.joinButton?.addTarget(self, action: #selector(joinAnEvent(_:)), forControlEvents: .TouchUpInside)
-                self.joinButton.setTitle("JOIN", forState: .Normal)
+                self.joinButton?.setTitle("JOIN", forState: .Normal)
             }
         } else {
+            self.tableViewScrollToBottom(true)
             let isCurrentUserInTheEvent = TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!)
             if isCurrentUserInTheEvent == true {
                 self.chatTextBoxView?.hidden = false
                 self.sendMessageButton.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
                 self.sendMessageButton.addTarget(self, action: #selector(sendMessage(_:)), forControlEvents: .TouchUpInside)
-                self.tableViewScrollToBottom(true)
             } else {
                 self.joinButton?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
                 self.joinButton?.addTarget(self, action: #selector(joinAnEvent(_:)), forControlEvents: .TouchUpInside)

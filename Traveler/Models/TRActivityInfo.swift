@@ -22,7 +22,7 @@ class TRActivityInfo: NSObject {
     var activityMinPlayers    : NSNumber?
     var activityIconImage     : String?
     var activityIsFeatured    : Bool?
-    var activitylocation      : String?
+    var activitylocation      : TRLocationInfo?
     var activityLevel         : String?
     var activityAdCard        : TRAdCardInfo?
     var activityDescription   : String?
@@ -49,7 +49,6 @@ class TRActivityInfo: NSObject {
         self.activityMinPlayers = swiftyJson["minPlayers"].numberValue
         self.activityIconImage  = swiftyJson["aIconUrl"].stringValue
         self.activityIsFeatured = swiftyJson["isFeatured"].boolValue
-        self.activitylocation   = swiftyJson["location"].stringValue
         self.activityLevel      = swiftyJson["aLevel"].stringValue
         self.activityCheckPointOrder = swiftyJson["aCheckpointOrder"].numberValue
         self.activityStory = swiftyJson["aStory"].stringValue
@@ -59,6 +58,14 @@ class TRActivityInfo: NSObject {
         self.activityImage = self.activityImageBasePath! + swiftyJson["aImage"][["aImageImagePath"]].stringValue
         self.activityIsActive = swiftyJson["isActive"].boolValue
         self.activityDescription = swiftyJson["aDescription"].stringValue
+        
+        
+        if let aLocation = swiftyJson["aLocation"].dictionary {
+            let location = TRLocationInfo()
+            location.parseLocationDict(JSON(aLocation))
+            
+            self.activitylocation = location
+        }
         
         
         if let card = swiftyJson["adCard"].dictionary {

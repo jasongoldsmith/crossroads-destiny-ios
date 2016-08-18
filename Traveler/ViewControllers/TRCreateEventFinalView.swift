@@ -140,7 +140,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
                 activityAttrString.appendAttributedString(activityColorString)
                 finalString.appendAttributedString(activityAttrString)
             } else {
-                if let location = activityInfo.activitylocation where location != "" {
+                if let location = activityInfo.activitylocation?.aSubLocation where location != "" {
                     let locationString = NSAttributedString(string: location, attributes: stringFontAttribute)
                     finalString.appendAttributedString(locationString)
                 }
