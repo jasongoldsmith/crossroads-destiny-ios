@@ -150,18 +150,6 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             self.eventBackGround.sd_setImageWithURL(imageURL)
         }
         
-        //Update Comment count on segment tab
-//        let commentString: String = "COMMENTS"
-//        let commentFontAttribute = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Bold", size: 14)!]
-//        let commentAttributedStr = NSAttributedString(string: commentString, attributes: commentFontAttribute)
-//        let countAttributedStr = NSAttributedString(string:  "\(self.eventInfo?.eventComments.count)", attributes: nil)
-//        
-//        //countAttributedStr.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1) , range: NSMakeRange(0, countAttributedStr.length))
-//        
-//        let finalString: NSMutableAttributedString = commentAttributedStr.mutableCopy() as! NSMutableAttributedString
-//        finalString.appendAttributedString(countAttributedStr)
-        
-        
         //Update Comment Count
         if let hasComments = self.eventInfo?.eventComments.count {
             let commentString = "COMMENTS (\(hasComments))"
@@ -169,14 +157,18 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         }
         
         //Title Placements
-        if (self.hasCheckPoint == true && self.hasTag == true) {
-            
-        } else if (self.hasCheckPoint == true || self.hasTag == true || self.isFutureEvent == true) {
-            self.titleHeightConstraint.constant = 170
-            self.iconHeightConstraint.constant = 170
+        if self.isFutureEvent == false {
+            if (self.hasTag) {
+            } else {
+                self.titleHeightConstraint.constant = 175
+                self.iconHeightConstraint.constant = 170
+            }
         } else {
-            self.titleHeightConstraint.constant = 185
-            self.iconHeightConstraint.constant = 180
+            if (self.hasTag) {
+            } else {
+                self.titleHeightConstraint.constant = 175
+                self.iconHeightConstraint.constant = 170
+            }
         }
     }
     
