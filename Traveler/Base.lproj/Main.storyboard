@@ -1995,7 +1995,7 @@
                                     <constraint firstAttribute="width" constant="94" id="Qmq-en-F2B"/>
                                 </constraints>
                                 <state key="normal" image="imgCruicible"/>
-                                <state key="selected" image="imgRaidsSelected"/>
+                                <state key="selected" image="imgCruicibleSelected"/>
                                 <state key="highlighted" image="imgCruicibleSelected"/>
                                 <connections>
                                     <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="j15-Sf-xyc"/>
@@ -2008,7 +2008,7 @@
                                     <constraint firstAttribute="width" constant="94" id="nFS-bB-NCr"/>
                                 </constraints>
                                 <state key="normal" image="imgStrikes"/>
-                                <state key="selected" image="imgRaidsSelected"/>
+                                <state key="selected" image="imgStrikesOnTap"/>
                                 <state key="highlighted" image="imgStrikesOnTap"/>
                                 <connections>
                                     <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="REL-pJ-m5g"/>
@@ -2034,7 +2034,7 @@
                                     <constraint firstAttribute="height" constant="96" id="wq7-sn-YhW"/>
                                 </constraints>
                                 <state key="normal" image="imgArena"/>
-                                <state key="selected" image="imgCruicibleSelected"/>
+                                <state key="selected" image="imgArenaOnTap"/>
                                 <state key="highlighted" image="imgArenaOnTap"/>
                                 <connections>
                                     <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="0Nx-WU-NPD"/>
@@ -2060,7 +2060,7 @@
                                     <constraint firstAttribute="width" constant="94" id="xYF-vF-o1W"/>
                                 </constraints>
                                 <state key="normal" image="imgPatrol"/>
-                                <state key="selected" image="imgRaidsSelected"/>
+                                <state key="selected" image="imgPatrolOnTap"/>
                                 <state key="highlighted" image="imgPatrolOnTap"/>
                                 <connections>
                                     <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="lrJ-yk-W0Z"/>
@@ -2074,6 +2074,7 @@
                                     <constraint firstAttribute="width" constant="94" id="xpa-nS-ZVb"/>
                                 </constraints>
                                 <state key="normal" image="imgStory"/>
+                                <state key="selected" image="imgStorySelected"/>
                                 <connections>
                                     <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="VJQ-R0-5uM"/>
                                 </connections>
@@ -2086,6 +2087,7 @@
                                     <constraint firstAttribute="height" constant="96" id="ajD-vo-qbr"/>
                                 </constraints>
                                 <state key="normal" image="imgQuest"/>
+                                <state key="selected" image="imgQuestSelected"/>
                                 <connections>
                                     <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="G0h-tJ-H1U"/>
                                 </connections>
@@ -2098,6 +2100,7 @@
                                     <constraint firstAttribute="width" constant="94" id="rh8-ub-Y4u"/>
                                 </constraints>
                                 <state key="normal" image="imgExotic"/>
+                                <state key="selected" image="imgExoticSelected"/>
                                 <connections>
                                     <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="s6O-Fi-B32"/>
                                 </connections>
@@ -3599,6 +3602,7 @@ from &lt;Playstation 3&gt;. </string>
         <image name="imgCruicibleSelected" width="98" height="100"/>
         <image name="imgDogEar" width="28" height="28"/>
         <image name="imgExotic" width="98" height="100"/>
+        <image name="imgExoticSelected" width="98" height="100"/>
         <image name="imgFeatured" width="98" height="100"/>
         <image name="imgFeaturedOnTap" width="98" height="100"/>
         <image name="imgGlobeIcon" width="60" height="60"/>
@@ -3609,10 +3613,12 @@ from &lt;Playstation 3&gt;. </string>
         <image name="imgPatrol" width="98" height="100"/>
         <image name="imgPatrolOnTap" width="98" height="100"/>
         <image name="imgQuest" width="98" height="100"/>
+        <image name="imgQuestSelected" width="98" height="100"/>
         <image name="imgRaids" width="98" height="100"/>
         <image name="imgRaidsSelected" width="98" height="100"/>
         <image name="imgSendBtn" width="34" height="34"/>
         <image name="imgStory" width="98" height="100"/>
+        <image name="imgStorySelected" width="98" height="100"/>
         <image name="imgStrikes" width="98" height="100"/>
         <image name="imgStrikesOnTap" width="98" height="100"/>
         <image name="imgWeekliesSelected" width="98" height="100"/>
