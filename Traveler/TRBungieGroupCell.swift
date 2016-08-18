@@ -19,6 +19,9 @@ class TRBungieGroupCell: UITableViewCell {
     
     
     override func prepareForReuse() {
+        
+        super.prepareForReuse()
+        
         self.groupName.text = nil
         self.groupAvator?.image = nil
         self.memberCount?.text = nil

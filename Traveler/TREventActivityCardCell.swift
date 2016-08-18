@@ -19,6 +19,9 @@ class TREventActivityCardCell: UITableViewCell {
     @IBOutlet weak var cellActivityAddButton: EventButton!
     
     override func prepareForReuse() {
+        
+        super.prepareForReuse()
+        
         self.cellBackgroundImageView.image = nil
         self.cellActivityIconImageView.image = nil
         self.cellActivityNameLabel.text = nil

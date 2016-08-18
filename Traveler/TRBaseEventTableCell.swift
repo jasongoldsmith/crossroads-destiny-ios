@@ -13,6 +13,8 @@ class TRBaseEventTableCell: UITableViewCell {
     
     override func prepareForReuse() {
         
+        super.prepareForReuse()
+        
         self.playerImageOne.image = nil
         self.playerImageTwo.image = nil
         self.playerCountLabel.text = nil

@@ -16,6 +16,9 @@ class TREventInfoPlayerCell: UITableViewCell {
     @IBOutlet weak var chatButton: EventButton?
     
     override func prepareForReuse() {
+        
+        super.prepareForReuse()
+        
         self.playerAvatorImageView?.layer.borderWidth = 0.0
         self.playerAvatorImageView?.image = nil
         self.playerNameLable?.text = nil
