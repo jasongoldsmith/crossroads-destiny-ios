@@ -312,7 +312,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 headerView.textAlignment = .Center
                 headerView.textColor = UIColor.whiteColor()
                 headerView.font = UIFont(name:"HelveticaNeue", size: 12)
-                headerView.backgroundColor = UIColor.clearColor()
+                headerView.backgroundColor = UIColor(red: 32/255, green: 50/255, blue: 54/255, alpha: 1)
                 
                 return headerView
             }
