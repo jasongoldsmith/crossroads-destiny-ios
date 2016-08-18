@@ -2068,39 +2068,39 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ZR-uT-eTb" customClass="EventButton" customModule="Crossroads" customModuleProvider="target">
                                 <rect key="frame" x="153" y="382" width="94" height="96"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="1VK-Vg-Udv"/>
                                     <constraint firstAttribute="width" constant="94" id="xpa-nS-ZVb"/>
                                 </constraints>
                                 <state key="normal" image="imgStory"/>
                                 <state key="selected" image="imgStorySelected"/>
+                                <state key="highlighted" image="imgStorySelected"/>
                                 <connections>
                                     <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="VJQ-R0-5uM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Skp-MY-YsM" customClass="EventButton" customModule="Crossroads" customModuleProvider="target">
                                 <rect key="frame" x="253" y="382" width="94" height="96"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="94" id="2ms-QS-iGo"/>
                                     <constraint firstAttribute="height" constant="96" id="ajD-vo-qbr"/>
                                 </constraints>
                                 <state key="normal" image="imgQuest"/>
                                 <state key="selected" image="imgQuestSelected"/>
+                                <state key="highlighted" image="imgQuestSelected"/>
                                 <connections>
                                     <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="G0h-tJ-H1U"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J7K-k3-fIX" customClass="EventButton" customModule="Crossroads" customModuleProvider="target">
                                 <rect key="frame" x="353" y="382" width="94" height="96"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="LmB-hS-bxp"/>
                                     <constraint firstAttribute="width" constant="94" id="rh8-ub-Y4u"/>
                                 </constraints>
                                 <state key="normal" image="imgExotic"/>
                                 <state key="selected" image="imgExoticSelected"/>
+                                <state key="highlighted" image="imgExoticSelected"/>
                                 <connections>
                                     <action selector="activityButtonPressed:" destination="iX8-L2-jzY" eventType="touchUpInside" id="s6O-Fi-B32"/>
                                 </connections>
