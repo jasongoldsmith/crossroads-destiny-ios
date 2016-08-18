@@ -239,6 +239,10 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     //MARK:- Table View Delegates
     func tableViewScrollToBottom(animated: Bool) {
         
+        if let numberOfSections = self.eventTable?.numberOfSections where numberOfSections < 1 {
+            return
+        }
+        
         let delay = 0.1 * Double(NSEC_PER_SEC)
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         
