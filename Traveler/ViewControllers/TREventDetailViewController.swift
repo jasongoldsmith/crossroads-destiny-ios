@@ -231,8 +231,8 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         }
         
         //Reload Data
-        self.reloadButton()
         self.reloadEventTable()
+        self.reloadButton()
     }
     
     
