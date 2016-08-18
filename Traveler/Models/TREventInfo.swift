@@ -82,6 +82,7 @@ class TREventInfo: NSObject {
                 creatorConsole.consoleType = consoles["consoleType"].stringValue
                 creatorConsole.verifyStatus = consoles["verifyStatus"].stringValue
                 creatorConsole.isPrimary    = consoles["isPrimary"].bool
+                creatorConsole.clanTag = consoles["clanTag"].stringValue
                 
                 if creatorConsole.isPrimary == true {
                     creatorInfo.playerPsnID = creatorConsole.consoleId

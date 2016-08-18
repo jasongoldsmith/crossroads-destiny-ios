@@ -13,8 +13,9 @@ class TRConsoles {
     var consoleType: String?
     var verifyStatus: String?
     var isPrimary: Bool?
+    var clanTag: String?
     
-    
+
     func saveConsolesObject (consoleObj: TRConsoles) {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         userDefaults.setValue(consoleObj.consoleId, forKey: K.UserDefaultKey.UserAccountInfo.TR_USER_CONSOLE_ID)

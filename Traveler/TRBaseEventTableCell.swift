@@ -119,12 +119,24 @@ class TRBaseEventTableCell: UITableViewCell {
             // Attributed Strings
             let extraPlayersRequiredCountStringNewAttributed = NSAttributedString(string: extraPlayersRequiredCountStringNew, attributes: stringColorAttribute)
             if let _ = eventInfo.eventCreator?.playerPsnID {
+                
                 let finalString = NSMutableAttributedString(string: (eventInfo.eventCreator?.playerPsnID!)!)
+                if var clanTag = eventInfo.eventCreator?.playerConsoles.first!.clanTag where clanTag != "" {
+                    clanTag = " " + "[" + clanTag + "]"
+                    let clanAttributedStr = NSAttributedString(string: clanTag)
+                    finalString.appendAttributedString(clanAttributedStr)
+                }
+                
                 finalString.appendAttributedString(extraPlayersRequiredCountStringNewAttributed)
                 self.eventPlayersName.attributedText = finalString
             }
         } else {
-            let playersNameString = (eventInfo.eventCreator?.playerPsnID!)!
+            var playersNameString = (eventInfo.eventCreator?.playerPsnID!)!
+            if var clanTag = eventInfo.eventCreator?.playerConsoles.first!.clanTag where clanTag != "" {
+                clanTag = " " + "[" + clanTag + "]"
+                playersNameString = playersNameString + clanTag
+            }
+            
             self.eventPlayersName.text = playersNameString
         }
         
