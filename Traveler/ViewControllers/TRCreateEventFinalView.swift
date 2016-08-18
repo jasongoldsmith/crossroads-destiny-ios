@@ -123,7 +123,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         
         // Update View
         if let activitySubType = activityInfo.activitySubType {
-            self.activityNameLabel.text = activitySubType
+            self.activityNameLabel.text = activitySubType.uppercaseString
         }
         
         if let level = activityInfo.activityLevel where level != "0" {
@@ -486,8 +486,8 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
             giphyButton.layer.borderColor = UIColor.whiteColor().CGColor
             giphyButton.layer.borderWidth = 1.0
             giphyButton.titleLabel!.font =  UIFont(name: "HelveticaNeue", size: 10)
-            giphyButton.setTitle(key, forState: .Normal)
-            let newRect = calculateNewFrame(previousRect, keyToDisplay: key)
+            giphyButton.setTitle(key.uppercaseString, forState: .Normal)
+            let newRect = calculateNewFrame(previousRect, keyToDisplay: key.uppercaseString)
             if newRect.origin.y != initialPointInRow.y {
                 //another row
                 let remainingSpace = (self.searchScrollView.frame.size.width - (previousRect.origin.x + previousRect.size.width))/2
