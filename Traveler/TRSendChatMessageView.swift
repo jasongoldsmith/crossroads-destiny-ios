@@ -103,7 +103,7 @@ class TRSendChatMessageView: UIView, UITextViewDelegate {
     
     func sendChatMessage(sender: EventButton) {
         
-        
+        /*
         let message: String = (self.chatBubbleTextView?.text)!
         if (message.characters.count == 0) {
             TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Please enter a message.")
@@ -133,6 +133,7 @@ class TRSendChatMessageView: UIView, UITextViewDelegate {
                 })
             }
         }
+         */
     }
 }
 

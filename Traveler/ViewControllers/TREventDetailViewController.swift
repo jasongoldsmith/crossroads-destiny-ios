@@ -150,13 +150,6 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     
     func reloadButton () {
         
-        self.chatTextBoxView?.hidden = false
-        self.sendMessageButton.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
-        self.sendMessageButton.addTarget(self, action: #selector(sendMessage(_:)), forControlEvents: .TouchUpInside)
-        self.tableViewScrollToBottom(true)
-        return
-        
-        
         self.joinButton.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
         self.chatTextBoxView?.hidden = true
         
@@ -402,8 +395,9 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     func sendMessage (sender: UIButton) {
         
         if let textMessage = self.chatTextView.text where textMessage != "type your comment here" {
-            _ = TRSendPushMessage().sendPushMessageToAll((self.eventInfo?.eventID!)!, messageString: textMessage, completion: { (didSucceed) in
+            _ = TRSendPushMessage().sendEventMessage((self.eventInfo?.eventID!)!, messageString: textMessage, completion: { (didSucceed) in
                 if (didSucceed != nil)  {
+                    
                 } else {
                 }
             })
