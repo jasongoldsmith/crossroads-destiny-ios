@@ -27,17 +27,26 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     @IBOutlet weak var eventTable: UITableView!
     @IBOutlet weak var joinButton: UIButton!
     @IBOutlet weak var eventCheckPoint_Time: UILabel!
-    @IBOutlet weak var eventCheckPointTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var eventBackGround: UIImageView!
     @IBOutlet weak var sendMessageButton: UIButton!
-    @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
     
     //Chat View
     @IBOutlet weak var chatTextBoxView: UIView!
     @IBOutlet weak var chatTextView: UITextView!
     
+    
+    //LayOut Constraints
+    @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var iconHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var titleHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var eventCheckPointTopConstraint: NSLayoutConstraint!
+    
+    
     //Current Event
     var eventInfo: TREventInfo?
+    var hasTag: Bool = false
+    var hasCheckPoint: Bool = false
+    var isFutureEvent: Bool = false
     
     
     override func viewDidLoad() {
@@ -77,6 +86,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             self.eventTag.text = hasTag
             self.eventTag.layer.cornerRadius = 2
             self.eventTag.clipsToBounds = true
+            self.hasTag = true
         } else {
             self.eventTag.hidden = true
         }
@@ -92,6 +102,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         self.eventTable?.layoutIfNeeded()
         
         if let hasCheckPoint = self.eventInfo?.eventActivity?.activityCheckPoint where hasCheckPoint != "" {
+            self.hasCheckPoint = true
             let checkPoint = hasCheckPoint
             let stringColorAttribute = [NSForegroundColorAttributeName: UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)]
             
@@ -100,6 +111,8 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             let finalString:NSMutableAttributedString = checkAttributedStr.mutableCopy() as! NSMutableAttributedString
             
             if self.eventInfo?.isFutureEvent == true {
+                self.isFutureEvent = true
+                
                 if let hasLaunchDate = self.eventInfo?.eventLaunchDate {
                     let formatter = NSDateFormatter()
                     formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -113,6 +126,8 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             
             self.eventCheckPoint_Time?.attributedText = finalString
         } else if (self.eventInfo?.isFutureEvent == true){
+            self.isFutureEvent = true
+            
             if let hasLaunchDate = self.eventInfo?.eventLaunchDate {
                 let formatter = NSDateFormatter()
                 formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -123,7 +138,6 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 //finalString.appendAttributedString(timeAttributedStr)
                 self.eventCheckPoint_Time?.attributedText = timeAttributedStr
             }
-            
         } else {
             self.eventCheckPointTopConstraint.constant = -13
             self.eventCheckPoint_Time.hidden = true
@@ -152,6 +166,17 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         if let hasComments = self.eventInfo?.eventComments.count {
             let commentString = "COMMENTS (\(hasComments))"
             self.segmentControl?.setTitle(commentString, forSegmentAtIndex: 1)
+        }
+        
+        //Title Placements
+        if (self.hasCheckPoint == true && self.hasTag == true) {
+            
+        } else if (self.hasCheckPoint == true || self.hasTag == true || self.isFutureEvent == true) {
+            self.titleHeightConstraint.constant = 170
+            self.iconHeightConstraint.constant = 170
+        } else {
+            self.titleHeightConstraint.constant = 185
+            self.iconHeightConstraint.constant = 180
         }
     }
     

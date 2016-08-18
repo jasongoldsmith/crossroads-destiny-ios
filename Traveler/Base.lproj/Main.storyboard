@@ -1142,7 +1142,7 @@
                                     <constraint firstAttribute="height" constant="3" id="cT1-sy-LAk"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0vp-kp-FgA">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0vp-kp-FgA">
                                 <rect key="frame" x="20" y="127" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="R9a-KP-ye2"/>
@@ -1277,12 +1277,14 @@
                         <outlet property="eventName" destination="Khp-dG-aaY" id="ESt-GY-Oi3"/>
                         <outlet property="eventTable" destination="vya-EI-Q0G" id="LAN-5Y-H8b"/>
                         <outlet property="eventTag" destination="lML-KN-3nB" id="oz6-JP-HSy"/>
+                        <outlet property="iconHeightConstraint" destination="Qd0-kH-wcW" id="n2J-W8-jKw"/>
                         <outlet property="joinButton" destination="gNz-aR-fLG" id="GtI-IP-jzJ"/>
                         <outlet property="segmentControl" destination="jYq-R8-c9p" id="eRh-tq-NMa"/>
                         <outlet property="segmentOneUnderLine" destination="HAF-uu-5cX" id="50b-jr-ddx"/>
                         <outlet property="segmentTwoUnderLine" destination="V3u-Lz-xh1" id="Cil-eC-kWw"/>
                         <outlet property="sendMessageButton" destination="om7-3h-vXW" id="Zh9-OY-39q"/>
                         <outlet property="textViewHeightConstraint" destination="fDw-ij-qVg" id="ezF-3Q-uKE"/>
+                        <outlet property="titleHeightConstraint" destination="zQ2-mg-X89" id="2E8-Md-eFr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0GH-nc-UZE" userLabel="First Responder" sceneMemberID="firstResponder"/>
