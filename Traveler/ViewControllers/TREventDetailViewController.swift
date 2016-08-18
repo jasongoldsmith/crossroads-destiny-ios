@@ -329,6 +329,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         
         if segmentControl?.selectedSegmentIndex == 0 {
             cell = tableView.dequeueReusableCellWithIdentifier(EVENT_DESCRIPTION_CELL) as? TREventDescriptionCell
+            self.eventTable?.rowHeight = event_description_row_height
             
             if indexPath.section < self.eventInfo?.eventPlayersArray.count {
                 cell?.playerUserName.text = self.eventInfo?.eventPlayersArray[indexPath.section].playerPsnID
@@ -350,6 +351,9 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             let commentCell: TREventCommentCell = (tableView.dequeueReusableCellWithIdentifier(EVENT_COMMENT_CELL) as? TREventCommentCell)!
             commentCell.playerUserName.text = self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userName!
             commentCell.playerComment.text = self.eventInfo?.eventComments[indexPath.section].commentText!
+            self.eventTable?.estimatedRowHeight = event_description_row_height
+            self.eventTable?.rowHeight = UITableViewAutomaticDimension
+
             
             if let hasTime = self.eventInfo?.eventComments[indexPath.section].commentCreated {
                 let formatter = NSDateFormatter()
@@ -366,7 +370,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 commentCell.playerIcon.sd_setImageWithURL(imageURL)
                 commentCell.playerIcon.roundRectView (1, borderColor: UIColor.grayColor())
             }
-            
+
             return commentCell
         }
     
