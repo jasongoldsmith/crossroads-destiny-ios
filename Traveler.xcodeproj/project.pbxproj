@@ -174,6 +174,8 @@
 		3374D7511C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3374D7501C92591F0036E9C8 /* TRActivityCheckPointPicker.xib */; };
 		3374D7521C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3374D7501C92591F0036E9C8 /* TRActivityCheckPointPicker.xib */; };
 		3374D7531C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3374D7501C92591F0036E9C8 /* TRActivityCheckPointPicker.xib */; };
+		3378F4381D6639040064C1B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3378F4371D6639040064C1B4 /* GoogleService-Info.plist */; };
+		3378F4391D66390F0064C1B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3378F4371D6639040064C1B4 /* GoogleService-Info.plist */; };
 		337DA4C71D4C0D10002A10BA /* TRErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337DA4C61D4C0D10002A10BA /* TRErrorView.swift */; };
 		337DA4C81D4C0D10002A10BA /* TRErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337DA4C61D4C0D10002A10BA /* TRErrorView.swift */; };
 		337DA4C91D4C0D10002A10BA /* TRErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337DA4C61D4C0D10002A10BA /* TRErrorView.swift */; };
@@ -292,7 +294,6 @@
 		33A588FD1D511C2900D06127 /* TRChangeConsoleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A588FB1D511C2900D06127 /* TRChangeConsoleRequest.swift */; };
 		33A588FE1D511C2900D06127 /* TRChangeConsoleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A588FB1D511C2900D06127 /* TRChangeConsoleRequest.swift */; };
 		33A588FF1D511C2900D06127 /* TRChangeConsoleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A588FB1D511C2900D06127 /* TRChangeConsoleRequest.swift */; };
-		33AA2C961D3E9D2200E5BF0D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33B73BFE1D2F171200BEA7E5 /* GoogleService-Info.plist */; };
 		33AABB181D5BC2600099A20C /* TRActivityBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AABB171D5BC2600099A20C /* TRActivityBonus.swift */; };
 		33AABB191D5BC2600099A20C /* TRActivityBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AABB171D5BC2600099A20C /* TRActivityBonus.swift */; };
 		33AABB1A1D5BC2600099A20C /* TRActivityBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AABB171D5BC2600099A20C /* TRActivityBonus.swift */; };
@@ -311,7 +312,6 @@
 		33AABB2B1D5BF85B0099A20C /* TRDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33AABB271D5BF85B0099A20C /* TRDatePicker.xib */; };
 		33B5BC701C9A2F0B000D94DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C1FF361C77C15C00A78798 /* Assets.xcassets */; };
 		33B5BC711C9A2F0C000D94DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C1FF361C77C15C00A78798 /* Assets.xcassets */; };
-		33B73BFF1D2F171200BEA7E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33B73BFE1D2F171200BEA7E5 /* GoogleService-Info.plist */; };
 		33B73C011D2F188800BEA7E5 /* TRFireBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B73C001D2F188800BEA7E5 /* TRFireBaseManager.swift */; };
 		33B73C021D2F188800BEA7E5 /* TRFireBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B73C001D2F188800BEA7E5 /* TRFireBaseManager.swift */; };
 		33B73C031D2F188800BEA7E5 /* TRFireBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B73C001D2F188800BEA7E5 /* TRFireBaseManager.swift */; };
@@ -587,6 +587,7 @@
 		33742DAC1C810AE300C46742 /* TRActivityInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRActivityInfo.swift; sourceTree = "<group>"; };
 		3374D74C1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRActivityCheckPointPicker.swift; sourceTree = "<group>"; };
 		3374D7501C92591F0036E9C8 /* TRActivityCheckPointPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRActivityCheckPointPicker.xib; sourceTree = "<group>"; };
+		3378F4371D6639040064C1B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		337DA4C61D4C0D10002A10BA /* TRErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRErrorView.swift; sourceTree = "<group>"; };
 		337DA4CB1D4C0D48002A10BA /* TRErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRErrorView.xib; sourceTree = "<group>"; };
 		337DA4D51D4F2661002A10BA /* TRGetUserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRGetUserRequest.swift; sourceTree = "<group>"; };
@@ -976,6 +977,7 @@
 		62C1FF2E1C77C15C00A78798 /* Traveler */ = {
 			isa = PBXGroup;
 			children = (
+				3378F4371D6639040064C1B4 /* GoogleService-Info.plist */,
 				33D0B3F71CFCFD41008ABA04 /* LaunchImage */,
 				3305ACF51CF2643800572495 /* Yatri */,
 				629497301C7C047F005E4F91 /* Utility */,
@@ -1229,6 +1231,7 @@
 				33D0B44F1CFD0165008ABA04 /* TRSendChatMessageView.xib in Resources */,
 				33D0B4501CFD0165008ABA04 /* TREventCurrentNoCheckPointCell.xib in Resources */,
 				33D0B4511CFD0165008ABA04 /* Assets.xcassets in Resources */,
+				3378F4381D6639040064C1B4 /* GoogleService-Info.plist in Resources */,
 				33D0B4521CFD0165008ABA04 /* TRBungieGroupCell.xib in Resources */,
 				33D0B4531CFD0165008ABA04 /* LaunchScreen.storyboard in Resources */,
 				33D0B4551CFD0165008ABA04 /* TRErrorNotificationView.xib in Resources */,
@@ -1240,7 +1243,6 @@
 				33D0B4591CFD0165008ABA04 /* Main.storyboard in Resources */,
 				33D9D97A1D48477400A6289D /* TREventActivityCardCell.xib in Resources */,
 				33AABB281D5BF85B0099A20C /* TRDatePicker.xib in Resources */,
-				33B73BFF1D2F171200BEA7E5 /* GoogleService-Info.plist in Resources */,
 				33D0B45A1CFD0165008ABA04 /* TrLaunchImgBadge.png in Resources */,
 				33D0B45B1CFD0165008ABA04 /* TREventUpcomingWithCheckPointCell.xib in Resources */,
 			);
@@ -1261,6 +1263,7 @@
 				3374D7511C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */,
 				33104BFB1C97B1E70024D601 /* TRActivityIndicatorView.xib in Resources */,
 				5CBD7BCC1CAC91A90078636D /* TRSendChatMessageView.xib in Resources */,
+				3378F4391D66390F0064C1B4 /* GoogleService-Info.plist in Resources */,
 				3380EF3B1CC95C28000A9289 /* TREventCurrentNoCheckPointCell.xib in Resources */,
 				62F279BF1C7D1318008D67DC /* Assets.xcassets in Resources */,
 				3333BDC31CEE6C8C001C9E1A /* TRBungieGroupCell.xib in Resources */,
@@ -1274,7 +1277,6 @@
 				62C1FF351C77C15C00A78798 /* Main.storyboard in Resources */,
 				33D9D97B1D48477400A6289D /* TREventActivityCardCell.xib in Resources */,
 				33AABB291D5BF85B0099A20C /* TRDatePicker.xib in Resources */,
-				33AA2C961D3E9D2200E5BF0D /* GoogleService-Info.plist in Resources */,
 				33D0B3F21CFCFC2C008ABA04 /* TrLaunchImgBadge.png in Resources */,
 				3380EF431CC979C1000A9289 /* TREventUpcomingWithCheckPointCell.xib in Resources */,
 			);

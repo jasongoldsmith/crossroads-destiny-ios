@@ -135,6 +135,24 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             let imageURL = NSURL(string: hasImage)
             self.eventBackGround.sd_setImageWithURL(imageURL)
         }
+        
+        //Update Comment count on segment tab
+//        let commentString: String = "COMMENTS"
+//        let commentFontAttribute = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Bold", size: 14)!]
+//        let commentAttributedStr = NSAttributedString(string: commentString, attributes: commentFontAttribute)
+//        let countAttributedStr = NSAttributedString(string:  "\(self.eventInfo?.eventComments.count)", attributes: nil)
+//        
+//        //countAttributedStr.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1) , range: NSMakeRange(0, countAttributedStr.length))
+//        
+//        let finalString: NSMutableAttributedString = commentAttributedStr.mutableCopy() as! NSMutableAttributedString
+//        finalString.appendAttributedString(countAttributedStr)
+        
+        
+        //Update Comment Count
+        if let hasComments = self.eventInfo?.eventComments.count {
+            let commentString = "COMMENTS (\(hasComments))"
+            self.segmentControl?.setTitle(commentString, forSegmentAtIndex: 1)
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -355,6 +373,14 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     override func reloadEventTable() {
         dispatch_async(dispatch_get_main_queue()) { () -> Void in
             if let _ = self.eventInfo {
+
+                //Update Comment Count
+                if let hasComments = self.eventInfo?.eventComments.count {
+                    let commentString = "COMMENTS (\(hasComments))"
+                    self.segmentControl?.setTitle(commentString, forSegmentAtIndex: 1)
+                }
+                
+                //Reload Data
                 self.eventTable?.reloadData()
             }
         }
@@ -401,7 +427,8 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         if let textMessage = self.chatTextView.text where textMessage != "type your comment here" {
             _ = TRSendPushMessage().sendEventMessage((self.eventInfo?.eventID!)!, messageString: textMessage, completion: { (didSucceed) in
                 if (didSucceed != nil)  {
-                    
+                    //Clear Text 
+                    self.chatTextView.text = nil
                 } else {
                 }
             })
