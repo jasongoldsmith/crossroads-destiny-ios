@@ -159,9 +159,8 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
             }
         }
         
-        if let _ = activityInfo.activityImage {
-            let imageURL = NSURL(string: activityInfo.activityImage!)
-            self.activityBGImageView.sd_setImageWithURL(imageURL)
+        if let imageURL = activityInfo.activityImage where imageURL != "" {
+            self.activityBGImageView.sd_setImageWithURL(NSURL(string: imageURL), placeholderImage: UIImage(named: "imgBGVaultOfGlass"))
         }
         
         if let _ = activityInfo.activityIconImage {
