@@ -49,6 +49,8 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         
         //TextView Delegate
         self.chatTextView?.layer.cornerRadius = 4.0
+        self.chatTextView?.text = "Type your comment here"
+        self.chatTextView?.textColor = UIColor.lightGrayColor()
         
         //Key Board Observer
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRSignInViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
@@ -232,8 +234,10 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     //MARK:- Table View Delegates
     func tableViewScrollToBottom(animated: Bool) {
         
-        if let numberOfSections = self.eventTable?.numberOfSections where numberOfSections < 1 {
-            return
+        if self.segmentControl?.selectedSegmentIndex == 1 {
+            if self.eventInfo?.eventComments.count < 1 {
+                return
+            }
         }
         
         let delay = 0.1 * Double(NSEC_PER_SEC)
@@ -423,6 +427,18 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     
     func textViewDidBeginEditing(textField: UITextView) {
         self.chatTextView?.becomeFirstResponder()
+        
+        if self.chatTextView?.textColor == UIColor.lightGrayColor() {
+            self.chatTextView?.text = nil
+            self.chatTextView?.textColor = UIColor.blackColor()
+        }
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Type your comment here"
+            textView.textColor = UIColor.lightGrayColor()
+        }
     }
     
     func keyboardWillShow(sender: NSNotification) {

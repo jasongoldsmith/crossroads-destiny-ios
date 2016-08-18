@@ -14,7 +14,7 @@ class TRSendPushMessage: TRRequest {
         let pushMessage = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_SEND_MESSAGE
         var params = [String: AnyObject]()
         params["eId"]       = eventId
-        params["message"]   = messageString
+        params["text"]   = messageString
         
         let request = TRRequest()
         request.params = params
