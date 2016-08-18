@@ -42,14 +42,22 @@
                             </mask>
                         </variation>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3TJ-KV-cia">
+                        <rect key="frame" x="278" y="11" width="29" height="14"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                        <color key="textColor" red="0.50588235294117645" green="0.61960784313725492" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="aTR-h9-MMf" firstAttribute="trailing" secondItem="VYj-2W-lvO" secondAttribute="trailingMargin" id="5qb-97-yjZ"/>
                     <constraint firstItem="aTR-h9-MMf" firstAttribute="bottom" secondItem="VYj-2W-lvO" secondAttribute="bottomMargin" id="JB0-Va-RvW"/>
                     <constraint firstItem="aTR-h9-MMf" firstAttribute="bottom" secondItem="VYj-2W-lvO" secondAttribute="bottomMargin" id="Lh6-cV-XPO"/>
                     <constraint firstItem="aTR-h9-MMf" firstAttribute="leading" secondItem="hdB-Cm-tx4" secondAttribute="leading" id="N1e-kZ-DNF"/>
+                    <constraint firstAttribute="trailing" secondItem="3TJ-KV-cia" secondAttribute="trailing" constant="13" id="OSD-gw-LU0"/>
                     <constraint firstItem="hdB-Cm-tx4" firstAttribute="top" secondItem="VYj-2W-lvO" secondAttribute="top" constant="10" id="Oup-WX-4ca"/>
                     <constraint firstItem="yWd-tJ-MJG" firstAttribute="top" secondItem="VYj-2W-lvO" secondAttribute="top" constant="10" id="Pav-ab-VbJ"/>
+                    <constraint firstItem="3TJ-KV-cia" firstAttribute="top" secondItem="VYj-2W-lvO" secondAttribute="top" constant="11" id="SBW-Dr-Phy"/>
                     <constraint firstItem="aTR-h9-MMf" firstAttribute="top" secondItem="hdB-Cm-tx4" secondAttribute="bottom" constant="5" id="Tel-Fz-Cy4"/>
                     <constraint firstItem="hdB-Cm-tx4" firstAttribute="leading" secondItem="yWd-tJ-MJG" secondAttribute="trailing" constant="14" id="da4-D4-a42"/>
                     <constraint firstItem="yWd-tJ-MJG" firstAttribute="leading" secondItem="VYj-2W-lvO" secondAttribute="leading" constant="15" id="f3C-7h-rmX"/>
@@ -62,6 +70,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.11372549019607843" green="0.19215686274509802" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
+                <outlet property="messageTimeLabel" destination="3TJ-KV-cia" id="HGg-4b-wjt"/>
                 <outlet property="playerComment" destination="aTR-h9-MMf" id="W4d-ql-B6B"/>
                 <outlet property="playerIcon" destination="yWd-tJ-MJG" id="VSt-Gd-2fB"/>
                 <outlet property="playerUserName" destination="hdB-Cm-tx4" id="SXG-y4-Fhl"/>

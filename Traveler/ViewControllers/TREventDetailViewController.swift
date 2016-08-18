@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UITableViewDataSource {
+class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     
     
     private let EVENT_DESCRIPTION_CELL = "eventDescriptionCell"
@@ -29,6 +29,12 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     @IBOutlet weak var eventCheckPoint_Time: UILabel!
     @IBOutlet weak var eventCheckPointTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var eventBackGround: UIImageView!
+    @IBOutlet weak var sendMessageButton: UIButton!
+    @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
+    
+    //Chat View
+    @IBOutlet weak var chatTextBoxView: UIView!
+    @IBOutlet weak var chatTextView: UITextView!
     
     //Current Event
     var eventInfo: TREventInfo?
@@ -40,6 +46,14 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         guard let _ = self.eventInfo else {
             return
         }
+        
+        //TextView Delegate
+        self.chatTextView?.layer.cornerRadius = 4.0
+        
+        //Key Board Observer
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRSignInViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRSignInViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
+
         
         self.segmentControl?.removeBorders()
         
@@ -135,22 +149,50 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     }
     
     func reloadButton () {
-        self.joinButton.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
         
-        let isCurrentUserInTheEvent = TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!)
-        if isCurrentUserInTheEvent == true {
-            self.joinButton?.backgroundColor = UIColor(red: 230/255, green: 178/255, blue: 0/255, alpha: 1)
-            self.joinButton?.addTarget(self, action: #selector(leaveEvent(_:)), forControlEvents: .TouchUpInside)
-            self.joinButton.setTitle("LEAVE", forState: .Normal)
+        self.chatTextBoxView?.hidden = false
+        self.sendMessageButton.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
+        self.sendMessageButton.addTarget(self, action: #selector(sendMessage(_:)), forControlEvents: .TouchUpInside)
+        self.tableViewScrollToBottom(true)
+        return
+        
+        
+        self.joinButton.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
+        self.chatTextBoxView?.hidden = true
+        
+        if self.segmentControl?.selectedSegmentIndex == 0 {
+            let isCurrentUserInTheEvent = TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!)
+            if isCurrentUserInTheEvent == true {
+                self.joinButton?.backgroundColor = UIColor(red: 230/255, green: 178/255, blue: 0/255, alpha: 1)
+                self.joinButton?.addTarget(self, action: #selector(leaveEvent(_:)), forControlEvents: .TouchUpInside)
+                self.joinButton.setTitle("LEAVE", forState: .Normal)
+            } else {
+                self.joinButton?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
+                self.joinButton?.addTarget(self, action: #selector(joinAnEvent(_:)), forControlEvents: .TouchUpInside)
+                self.joinButton.setTitle("JOIN", forState: .Normal)
+            }
         } else {
-            self.joinButton?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
-            self.joinButton?.addTarget(self, action: #selector(joinAnEvent(_:)), forControlEvents: .TouchUpInside)
-            self.joinButton.setTitle("JOIN", forState: .Normal)
+            let isCurrentUserInTheEvent = TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!)
+            if isCurrentUserInTheEvent == true {
+                self.chatTextBoxView?.hidden = false
+                self.sendMessageButton.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
+                self.sendMessageButton.addTarget(self, action: #selector(sendMessage(_:)), forControlEvents: .TouchUpInside)
+                self.tableViewScrollToBottom(true)
+            } else {
+                self.joinButton?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
+                self.joinButton?.addTarget(self, action: #selector(joinAnEvent(_:)), forControlEvents: .TouchUpInside)
+                self.joinButton.setTitle("JOIN", forState: .Normal)
+            }
         }
     }
     
     //MARK:- IB_ACTIONS
     @IBAction func dismissButton (sender: UIButton) {
+        
+        if self.chatTextView?.isFirstResponder() == true {
+            self.chatTextView.resignFirstResponder()
+        }
+        
         self.dismissViewController(true) { (didDismiss) in
             
         }
@@ -189,11 +231,30 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         }
         
         //Reload Data
+        self.reloadButton()
         self.reloadEventTable()
     }
     
     
     //MARK:- Table View Delegates
+    func tableViewScrollToBottom(animated: Bool) {
+        
+        let delay = 0.1 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        
+        dispatch_after(time, dispatch_get_main_queue(), {
+            
+            let numberOfSections = self.eventTable?.numberOfSections
+            let numberOfRows = self.eventTable?.numberOfRowsInSection(numberOfSections!-1)
+            
+            if numberOfRows > 0 {
+                let indexPath = NSIndexPath(forRow: numberOfRows!-1, inSection: (numberOfSections!-1))
+                self.eventTable.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: animated)
+            }
+            
+        })
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -270,6 +331,8 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             let commentCell: TREventCommentCell = (tableView.dequeueReusableCellWithIdentifier(EVENT_COMMENT_CELL) as? TREventCommentCell)!
             commentCell.playerUserName.text = self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userName!
             commentCell.playerComment.text = self.eventInfo?.eventComments[indexPath.section].commentText!
+            commentCell.messageTimeLabel.text = "2 mins ago"
+            
             if let hasImage = self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userImageURL! {
                 let imageURL = NSURL(string: hasImage)
                 commentCell.playerIcon.sd_setImageWithURL(imageURL)
@@ -283,7 +346,9 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-
+        if segmentControl?.selectedSegmentIndex == 1 {
+            self.chatTextView.resignFirstResponder()
+        }
     }
 
     override func reloadEventTable() {
@@ -328,6 +393,71 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 }
             }
         })
+    }
+    
+    func sendMessage (sender: UIButton) {
+        
+        if let textMessage = self.chatTextView.text where textMessage != "type your comment here" {
+            _ = TRSendPushMessage().sendPushMessageToAll((self.eventInfo?.eventID!)!, messageString: textMessage, completion: { (didSucceed) in
+                if (didSucceed != nil)  {
+                } else {
+                }
+            })
+        }
+    }
+    
+    //MARK:- Text View Methods
+    func textViewDidChange(textView: UITextView) {
+        
+        let rows = (textView.contentSize.height - textView.textContainerInset.top - textView.textContainerInset.bottom) / textView.font!.lineHeight
+        let myRowsInInt: Int = Int(rows)
+        
+        if (myRowsInInt > 1 && myRowsInInt <= 4) {
+            let contentSizeHeight = textView.contentSize.height
+            self.textViewHeightConstraint.constant = contentSizeHeight
+            self.view.updateConstraints()
+        }
+    }
+    
+    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+        return true
+    }
+    
+    func textViewDidBeginEditing(textField: UITextView) {
+        self.chatTextView?.becomeFirstResponder()
+    }
+    
+    func keyboardWillShow(sender: NSNotification) {
+        
+        let userInfo: [NSObject : AnyObject] = sender.userInfo!
+        
+        let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
+        let offset: CGSize = userInfo[UIKeyboardFrameEndUserInfoKey]!.CGRectValue.size
+        
+        if keyboardSize.height == offset.height {
+            if self.view.frame.origin.y == 0 {
+                UIView.animateWithDuration(0.2, animations: { () -> Void in
+                    self.view.frame.origin.y -= keyboardSize.height
+                })
+            }
+        } else {
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                self.view.frame.origin.y += keyboardSize.height - offset.height
+            })
+        }
+        
+    }
+    
+    func keyboardWillHide(sender: NSNotification) {
+        let userInfo: [NSObject : AnyObject] = sender.userInfo!
+        let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
+        
+        if self.view.frame.origin.y == self.view.frame.origin.y - keyboardSize.height {
+            self.view.frame.origin.y += keyboardSize.height
+        }
+        else {
+            self.view.frame.origin.y = 0
+        }
     }
     
     deinit {
