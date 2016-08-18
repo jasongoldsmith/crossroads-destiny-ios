@@ -350,7 +350,16 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             let commentCell: TREventCommentCell = (tableView.dequeueReusableCellWithIdentifier(EVENT_COMMENT_CELL) as? TREventCommentCell)!
             commentCell.playerUserName.text = self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userName!
             commentCell.playerComment.text = self.eventInfo?.eventComments[indexPath.section].commentText!
-            commentCell.messageTimeLabel.text = "2 mins ago"
+            
+            if let hasTime = self.eventInfo?.eventComments[indexPath.section].commentCreated {
+                let formatter = NSDateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                
+                let updateDate = formatter.dateFromString(hasTime)
+                updateDate!.relative()
+                
+                commentCell.messageTimeLabel?.text = updateDate!.relative()
+            }
             
             if let hasImage = self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userImageURL! {
                 let imageURL = NSURL(string: hasImage)
