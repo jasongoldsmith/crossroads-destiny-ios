@@ -12,11 +12,11 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tzW-zk-PTj" id="VYj-2W-lvO">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="73.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uAn-P1-PzQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="73.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
                         <color key="backgroundColor" red="0.25098039215686274" green="0.33333333333333331" blue="0.35686274509803922" alpha="1" colorSpace="calibratedRGB"/>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yWd-tJ-MJG">
@@ -27,17 +27,17 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdB-Cm-tx4">
-                        <rect key="frame" x="65" y="10" width="30" height="14"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                        <rect key="frame" x="65" y="10" width="35" height="17"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                         <color key="textColor" red="1" green="0.77647058820000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTR-h9-MMf">
-                        <rect key="frame" x="65" y="29" width="247" height="37"/>
+                        <rect key="frame" x="65" y="32" width="247" height="34"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="37" id="nPd-4h-KNf"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                         <variation key="default">
