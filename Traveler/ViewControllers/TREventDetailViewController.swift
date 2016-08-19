@@ -40,7 +40,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     @IBOutlet weak var iconHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var titleHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var eventCheckPointTopConstraint: NSLayoutConstraint!
-    
+    @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
     
     //Current Event
     var eventInfo: TREventInfo?
@@ -197,9 +197,14 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 self.joinButton?.addTarget(self, action: #selector(leaveEvent(_:)), forControlEvents: .TouchUpInside)
                 self.joinButton?.setTitle("LEAVE", forState: .Normal)
             } else {
-                self.joinButton?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
-                self.joinButton?.addTarget(self, action: #selector(joinAnEvent(_:)), forControlEvents: .TouchUpInside)
-                self.joinButton?.setTitle("JOIN", forState: .Normal)
+                if self.eventInfo?.eventPlayersArray.count == self.eventInfo?.eventMaxPlayers?.integerValue {
+                    self.joinButton.hidden = true
+                    self.tableViewBottomConstraint.constant = -(self.joinButton?.frame.size.height)!
+                } else {
+                    self.joinButton?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
+                    self.joinButton?.addTarget(self, action: #selector(joinAnEvent(_:)), forControlEvents: .TouchUpInside)
+                    self.joinButton?.setTitle("JOIN", forState: .Normal)
+                }
             }
         } else {
             self.tableViewScrollToBottom(true)
@@ -209,9 +214,14 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 self.sendMessageButton.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
                 self.sendMessageButton.addTarget(self, action: #selector(sendMessage(_:)), forControlEvents: .TouchUpInside)
             } else {
-                self.joinButton?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
-                self.joinButton?.addTarget(self, action: #selector(joinAnEvent(_:)), forControlEvents: .TouchUpInside)
-                self.joinButton.setTitle("JOIN", forState: .Normal)
+                if self.eventInfo?.eventPlayersArray.count == self.eventInfo?.eventMaxPlayers?.integerValue {
+                    self.joinButton.hidden = true
+                    self.tableViewBottomConstraint.constant = -(self.joinButton?.frame.size.height)!
+                } else {
+                    self.joinButton?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
+                    self.joinButton?.addTarget(self, action: #selector(joinAnEvent(_:)), forControlEvents: .TouchUpInside)
+                    self.joinButton.setTitle("JOIN", forState: .Normal)
+                }
             }
         }
     }
