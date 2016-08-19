@@ -373,8 +373,8 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
             originY = sender.frame.origin.y + sender.frame.size.height - 2
         }
         
-  
         self.dropDownTableView.frame = CGRectMake(sender.frame.origin.x, originY, sender.frame.size.width,  height)
+        self.view.bringSubviewToFront(self.dropDownTableView)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -2221,7 +2221,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgBGVaultOfGlass" translatesAutoresizingMaskIntoConstraints="NO" id="u8j-Yj-ni2">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="326"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgGlobeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="zo4-1Q-yn0">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgGlobeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="zo4-1Q-yn0">
                                 <rect key="frame" x="270" y="142" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="N59-0L-vz5"/>
@@ -2294,7 +2294,7 @@
                                             <action selector="showActivityName:" destination="YXe-0q-e54" eventType="touchUpInside" id="yMO-c7-rae"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconGhostDefault" translatesAutoresizingMaskIntoConstraints="NO" id="yKK-yM-Tsp">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconGhostDefault" translatesAutoresizingMaskIntoConstraints="NO" id="yKK-yM-Tsp">
                                         <rect key="frame" x="13" y="14" width="22" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="22" id="5mf-gB-nKB"/>
