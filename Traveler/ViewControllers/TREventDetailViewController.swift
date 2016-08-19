@@ -454,6 +454,10 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     
     func sendMessage (sender: UIButton) {
         
+        if self.chatTextView?.isFirstResponder() == true {
+            self.chatTextView.resignFirstResponder()
+        }
+        
         if let textMessage = self.chatTextView.text where textMessage != "type your comment here" {
             _ = TRSendPushMessage().sendEventMessage((self.eventInfo?.eventID!)!, messageString: textMessage, completion: { (didSucceed) in
                 if (didSucceed != nil)  {
