@@ -91,7 +91,14 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             self.eventTag.hidden = true
         }
         
-        self.eventName.text = self.eventInfo?.eventActivity?.activitySubType
+        //Activity Name Label
+        if var eventSubType = self.eventInfo?.eventActivity?.activitySubType {
+            if let hasDifficulty = self.eventInfo?.eventActivity?.activityDificulty where hasDifficulty != "" {
+                eventSubType = "\(eventSubType) - \(hasDifficulty)"
+            }
+            self.eventName.text = eventSubType
+        }
+        
         
         // Table View
         self.eventTable?.registerNib(UINib(nibName: "TREventDescriptionCell", bundle: nil), forCellReuseIdentifier: EVENT_DESCRIPTION_CELL)
