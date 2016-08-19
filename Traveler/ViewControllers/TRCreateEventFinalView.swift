@@ -181,17 +181,6 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
             self.activityNameButton.setTitle(nameString, forState: .Normal)
         }
         
-        if let aCheckPoint = activityInfo.activityCheckPoint where aCheckPoint != "" {
-            self.activityCheckPointButton.setTitle(aCheckPoint, forState: .Normal)
-            self.activityCheckPointHeightConst.constant = 50
-            self.activityCheckPointTopConst.constant = 10
-            self.addButtonTopTopConst.constant = 49
-        } else {
-            self.activityCheckPointHeightConst.constant = 0
-            self.activityCheckPointTopConst.constant = 0
-            self.addButtonTopTopConst.constant = 120
-        }
-        
         self.filteredTags = self.getActivitiesFilteredSubDifficultyCheckPoint(self.selectedActivity!)!
         
         if let description = activityInfo.activityTag where description != "" {
@@ -202,6 +191,17 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         
         //ModifierView
         self.addModifiersView()
+        
+        // Position Buttons
+        if let aCheckPoint = activityInfo.activityCheckPoint where aCheckPoint != "" {
+            self.activityCheckPointButton.setTitle(aCheckPoint, forState: .Normal)
+            self.activityCheckPointHeightConst.constant = 50
+            self.activityCheckPointTopConst.constant = 10
+        } else {
+            self.activityCheckPointHeightConst.constant = 0
+            self.activityCheckPointTopConst.constant = 0
+            self.addButtonTopTopConst.constant = 120
+        }
     }
     
     //MARK: - Protocol Methods
