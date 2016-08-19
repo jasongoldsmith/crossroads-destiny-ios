@@ -350,8 +350,8 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
         if self.segmentControl?.selectedSegmentIndex == 0 {
-            if self.eventInfo?.eventPlayersArray.count < self.eventInfo?.eventMaxPlayers?.integerValue {
-                return (self.eventInfo?.eventPlayersArray.count)! + 1
+            if let _ = self.eventInfo {
+                return (self.eventInfo?.eventActivity?.activityMaxPlayers?.integerValue)!
             }
             
             return (self.eventInfo?.eventPlayersArray.count)!
@@ -375,12 +375,14 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                     let imageURL = NSURL(string: hasImage)
                     cell?.playerIcon.sd_setImageWithURL(imageURL)
                     cell?.playerIcon.roundRectView (1, borderColor: UIColor.grayColor())
+                    cell?.playerUserName?.textColor = UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)
                     
                     return cell!
                 }
             } else {
                 cell?.playerIcon?.image = UIImage(named: "iconProfileBlank")
                 cell?.playerUserName?.text = "searching..."
+                cell?.playerUserName?.textColor = UIColor.whiteColor()
                 
                 return cell!
             }
