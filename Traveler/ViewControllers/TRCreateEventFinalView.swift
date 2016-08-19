@@ -103,7 +103,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         self.dropDownTableView.layer.cornerRadius = 2.0
         self.dropDownTableView.layer.borderColor = UIColor(red: 3/255, green: 81/255, blue: 102/255, alpha: 1).CGColor
         
-        self.activityDetailButton.setTitle("None", forState: .Normal)
+        self.activityDetailButton.setTitle("(none)", forState: .Normal)
         
         // Update View
         if let _ = self.selectedActivity {
@@ -197,7 +197,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         if let description = activityInfo.activityTag where description != "" {
             self.activityDetailButton.setTitle(description, forState: .Normal)
         } else {
-            self.activityDetailButton.setTitle("None", forState: .Normal)
+            self.activityDetailButton.setTitle("(none)", forState: .Normal)
         }
         
         //ModifierView
@@ -419,7 +419,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         } else {
             cell!.textLabel!.text = activityInfo.activityTag!
             if activityInfo.activityTag! == "" {
-                cell!.textLabel!.text = "None"
+                cell!.textLabel!.text = "(none)"
             }
         }
         
