@@ -181,6 +181,17 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
             self.activityNameButton.setTitle(nameString, forState: .Normal)
         }
         
+        if let aCheckPoint = activityInfo.activityCheckPoint where aCheckPoint != "" {
+            self.activityCheckPointButton.setTitle(aCheckPoint, forState: .Normal)
+            self.activityCheckPointHeightConst.constant = 50
+            self.activityCheckPointTopConst.constant = 10
+            self.addButtonTopTopConst.constant = 49
+        } else {
+            self.activityCheckPointHeightConst.constant = 0
+            self.activityCheckPointTopConst.constant = 0
+            self.addButtonTopTopConst.constant = 120
+        }
+        
         self.filteredTags = self.getActivitiesFilteredSubDifficultyCheckPoint(self.selectedActivity!)!
         
         if let description = activityInfo.activityTag where description != "" {
@@ -191,17 +202,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         
         //ModifierView
         self.addModifiersView()
-        
-        // Position Buttons
-        if let aCheckPoint = activityInfo.activityCheckPoint where aCheckPoint != "" {
-            self.activityCheckPointButton.setTitle(aCheckPoint, forState: .Normal)
-            self.activityCheckPointHeightConst.constant = 50
-            self.activityCheckPointTopConst.constant = 10
-        } else {
-            self.activityCheckPointHeightConst.constant = 0
-            self.activityCheckPointTopConst.constant = 0
-            self.addButtonTopTopConst.constant = 120
-        }
+        self.view.bringSubviewToFront(self.dropDownTableView)
     }
     
     //MARK: - Protocol Methods
@@ -358,7 +359,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         var originY: CGFloat = 0.0
         var maxHeight: CGFloat = 0.0
         
-        if sender.frame.origin.y > 400 {
+        if sender.frame.origin.y > 420 {
             maxHeight = self.view.frame.size.height + sender.frame.origin.y
         } else {
             maxHeight = self.view.frame.size.height - sender.frame.origin.y + sender.frame.size.height - self.addActivityButton.frame.size.height - 100
@@ -367,14 +368,14 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         var height = CGFloat((self.dropDownTableView?.numberOfSections)! * 47)
         height = height > maxHeight ? maxHeight : height
         
-        if sender.frame.origin.y > 400 {
+        if sender.frame.origin.y > 420 {
             originY = sender.frame.origin.y - height + 2
         } else {
             originY = sender.frame.origin.y + sender.frame.size.height - 2
         }
         
+  
         self.dropDownTableView.frame = CGRectMake(sender.frame.origin.x, originY, sender.frame.size.width,  height)
-        self.view.bringSubviewToFront(self.dropDownTableView)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
