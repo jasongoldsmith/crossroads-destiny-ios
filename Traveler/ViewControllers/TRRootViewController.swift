@@ -45,9 +45,11 @@ class TRRootViewController: TRBaseViewController {
                             var showGroups = false
                             
                             if(didSucceed == true) {
-                                if (TRUserInfo.getUserClanID() == ACCOUNT_VERIFICATION.USER_NOT_VERIFIED.rawValue) {
-                                    // If has events, show event list view else show create Activity View
+                                let userDefaults = NSUserDefaults.standardUserDefaults()
+                                let showGroupBool = userDefaults.boolForKey(K.UserDefaultKey.SHOW_GROUP_PICKER)
+                                if (showGroupBool == true) {
                                     showGroups = true
+                                    userDefaults.setBool(false, forKey: K.UserDefaultKey.SHOW_GROUP_PICKER)
                                 } else if TRApplicationManager.sharedInstance.eventsList.count > 0 {
                                     showEventListLandingPage = true
                                 }

@@ -85,6 +85,10 @@ class TRSignUpVerificatioViewController: TRBaseViewController, TTTAttributedLabe
             if didCompelete == true {
                 if TRUserInfo.isUserVerified() == ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue {
                     
+                    // We will show Group Picker to the user only after he sign up
+                    let userDefaults = NSUserDefaults.standardUserDefaults()
+                    userDefaults.setBool(true, forKey: K.UserDefaultKey.SHOW_GROUP_PICKER)
+                    
                     var messageString = ""
                     if let userName = TRUserInfo.getUserName() {
                         messageString = "Hi \(userName) \n \nThanks for signing up for Crossroads, the Destiny Fireteam Finder!"

@@ -3,7 +3,8 @@ import UIKit
 struct K {
     struct UserDefaultKey {
         
-        static let  TR_DID_SHOW_ONBOARDING = "TR_DID_SHOW_ONBOARDING"
+        static let TR_DID_SHOW_ONBOARDING = "TR_DID_SHOW_ONBOARDING"
+        static let SHOW_GROUP_PICKER = "SHOW_GROUP_PICKER"
         
         struct UserAccountInfo {
             static let TR_UserName      = "TR_UserName"
