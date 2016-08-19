@@ -193,6 +193,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         if self.segmentControl?.selectedSegmentIndex == 0 {
             let isCurrentUserInTheEvent = TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!)
             if isCurrentUserInTheEvent == true {
+                self.joinButton.hidden = false
                 self.joinButton?.backgroundColor = UIColor(red: 230/255, green: 178/255, blue: 0/255, alpha: 1)
                 self.joinButton?.addTarget(self, action: #selector(leaveEvent(_:)), forControlEvents: .TouchUpInside)
                 self.joinButton?.setTitle("LEAVE", forState: .Normal)
@@ -201,6 +202,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                     self.joinButton.hidden = true
                     self.tableViewBottomConstraint.constant = -(self.joinButton?.frame.size.height)!
                 } else {
+                    self.joinButton.hidden = false
                     self.joinButton?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
                     self.joinButton?.addTarget(self, action: #selector(joinAnEvent(_:)), forControlEvents: .TouchUpInside)
                     self.joinButton?.setTitle("JOIN", forState: .Normal)
@@ -218,6 +220,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                     self.joinButton.hidden = true
                     self.tableViewBottomConstraint.constant = -(self.joinButton?.frame.size.height)!
                 } else {
+                    self.joinButton.hidden = false
                     self.joinButton?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
                     self.joinButton?.addTarget(self, action: #selector(joinAnEvent(_:)), forControlEvents: .TouchUpInside)
                     self.joinButton.setTitle("JOIN", forState: .Normal)
