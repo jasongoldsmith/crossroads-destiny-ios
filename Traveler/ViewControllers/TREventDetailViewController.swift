@@ -237,6 +237,12 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     }
     
     //MARK:- IB_ACTIONS
+    @IBAction func dismissKeyboard(recognizer : UITapGestureRecognizer) {
+        if self.chatTextView?.isFirstResponder() == true {
+            self.chatTextView.resignFirstResponder()
+        }
+    }
+    
     @IBAction func dismissButton (sender: UIButton) {
         
         if self.chatTextView?.isFirstResponder() == true {

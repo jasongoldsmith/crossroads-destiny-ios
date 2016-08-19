@@ -1217,6 +1217,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.090196078431372548" green="0.14901960784313725" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="jYq-R8-c9p" firstAttribute="leading" secondItem="Dm9-t4-bDT" secondAttribute="leading" id="08t-Ph-uYQ"/>
                             <constraint firstItem="ikf-rV-Vma" firstAttribute="top" secondItem="vya-EI-Q0G" secondAttribute="bottom" constant="50" id="184-pG-LdI"/>
@@ -1269,6 +1270,9 @@
                                 <exclude reference="184-pG-LdI"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="u1V-w4-WH6" appends="YES" id="kpW-M6-j9I"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="chatTextBoxView" destination="cwo-YJ-XXx" id="YhQ-he-myq"/>
@@ -1292,6 +1296,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0GH-nc-UZE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="u1V-w4-WH6">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="ylH-PI-zc9" id="SSt-No-9zP"/>
+                        <outlet property="delegate" destination="ylH-PI-zc9" id="7wl-xw-bPf"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-2689" y="166"/>
         </scene>
