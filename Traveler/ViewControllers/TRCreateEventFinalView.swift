@@ -358,7 +358,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         var originY: CGFloat = 0.0
         var maxHeight: CGFloat = 0.0
         
-        if sender.frame.origin.y > 450 {
+        if sender.frame.origin.y > 400 {
             maxHeight = self.view.frame.size.height + sender.frame.origin.y
         } else {
             maxHeight = self.view.frame.size.height - sender.frame.origin.y + sender.frame.size.height - self.addActivityButton.frame.size.height - 100
@@ -367,7 +367,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         var height = CGFloat((self.dropDownTableView?.numberOfSections)! * 47)
         height = height > maxHeight ? maxHeight : height
         
-        if sender.frame.origin.y > 450 {
+        if sender.frame.origin.y > 400 {
             originY = sender.frame.origin.y - height + 2
         } else {
             originY = sender.frame.origin.y + sender.frame.size.height - 2
