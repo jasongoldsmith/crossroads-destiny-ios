@@ -369,7 +369,14 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             self.eventTable?.rowHeight = event_description_row_height
             
             if indexPath.section < self.eventInfo?.eventPlayersArray.count {
-                cell?.playerUserName.text = self.eventInfo?.eventPlayersArray[indexPath.section].playerPsnID
+                
+                var playersNameString = self.eventInfo?.eventPlayersArray[indexPath.section].playerPsnID
+                if var clanTag = self.eventInfo?.eventPlayersArray[indexPath.section].playerConsoles.first!.clanTag where clanTag != "" {
+                    clanTag = " " + "[" + clanTag + "]"
+                    playersNameString = playersNameString! + clanTag
+                }
+                
+                cell?.playerUserName.text = playersNameString
                 
                 if let hasImage = self.eventInfo?.eventPlayersArray[indexPath.section].playerImageUrl {
                     let imageURL = NSURL(string: hasImage)

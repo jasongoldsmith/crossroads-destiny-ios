@@ -115,6 +115,7 @@ class TREventInfo: NSObject {
                 playerConsole.consoleType = consoles["consoleType"].stringValue
                 playerConsole.verifyStatus = consoles["verifyStatus"].stringValue
                 playerConsole.isPrimary    = consoles["isPrimary"].bool
+                playerConsole.clanTag      = consoles["clanTag"].stringValue
                 
                 if playerConsole.isPrimary == true {
                     playerInfo.playerPsnID = playerConsole.consoleId
