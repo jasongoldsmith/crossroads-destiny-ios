@@ -454,6 +454,15 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     
     func sendMessage (sender: UIButton) {
         
+        if self.chatTextView.text.isEmpty == true {
+            return
+        }
+        
+        let trimmedString = self.chatTextView.text.stringByTrimmingCharactersInSet(NSCharacterSet.newlineCharacterSet())
+        if trimmedString.characters.count == 0 {
+            return
+        }
+        
         if self.chatTextView?.isFirstResponder() == true {
             self.chatTextView.resignFirstResponder()
         }
