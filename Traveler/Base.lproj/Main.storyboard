@@ -1185,6 +1185,7 @@
                                 <connections>
                                     <outlet property="dataSource" destination="ylH-PI-zc9" id="OQR-Jf-fbr"/>
                                     <outlet property="delegate" destination="ylH-PI-zc9" id="V6d-Sc-tTc"/>
+                                    <outletCollection property="gestureRecognizers" destination="u1V-w4-WH6" appends="YES" id="7QN-Es-0eU"/>
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cwo-YJ-XXx">
@@ -1270,9 +1271,6 @@
                                 <exclude reference="184-pG-LdI"/>
                             </mask>
                         </variation>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="u1V-w4-WH6" appends="YES" id="kpW-M6-j9I"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="chatTextBoxView" destination="cwo-YJ-XXx" id="YhQ-he-myq"/>
