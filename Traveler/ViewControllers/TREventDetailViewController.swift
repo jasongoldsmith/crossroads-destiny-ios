@@ -460,6 +460,8 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 //Reload Data
                 self.eventTable?.reloadData()
             }
+            
+            self.tableViewScrollToBottom(false)
         }
     }
     
@@ -514,7 +516,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             self.chatTextView.resignFirstResponder()
         }
         
-        if let textMessage = self.chatTextView.text where textMessage != "type your comment here" {
+        if let textMessage = self.chatTextView.text where textMessage != "Type your comment here" {
             _ = TRSendPushMessage().sendEventMessage((self.eventInfo?.eventID!)!, messageString: textMessage, completion: { (didSucceed) in
                 if (didSucceed != nil)  {
                     //Clear Text 
@@ -526,6 +528,15 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     }
     
     //MARK:- Text View Methods
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            self.chatTextView.resignFirstResponder()
+            self.sendMessage(self.sendMessageButton)
+        }
+        
+        return true
+    }
+    
     func textViewDidChange(textView: UITextView) {
         
         let rows = (textView.contentSize.height - textView.textContainerInset.top - textView.textContainerInset.bottom) / textView.font!.lineHeight
