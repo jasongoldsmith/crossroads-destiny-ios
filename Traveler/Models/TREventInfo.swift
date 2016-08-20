@@ -57,6 +57,8 @@ class TREventInfo: NSObject {
         }
         
         //Event Comments
+        self.eventComments.removeAll()
+        
         let comments = swiftyJason["comments"].arrayValue
         for commentInfo in comments {
             let commentObj = TRCommentInfo()
