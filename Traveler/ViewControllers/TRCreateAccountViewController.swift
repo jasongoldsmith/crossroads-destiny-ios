@@ -148,6 +148,8 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
         createRequest.registerTRUserWith(userInfo) { (value ) in  //, errorData) in
             
             if value == true {
+                _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(nil, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_SIGNUP_INIT)
+
                 self.createAccountSuccess()
             } else {
                 

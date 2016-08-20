@@ -157,6 +157,8 @@ enum NOTIFICATION_TRACKABLE: Int {
 enum APP_TRACKING_DATA_TYPE: String {
     case TRACKING_EVENT = "event"
     case TRACKING_PUSH_NOTIFICATION = "pushNotification"
+    case TRACKING_SIGNUP_INIT = "signupInit"
+    case TRACKING_EVENT_SHARING = "eventSharing"
 }
 
 enum ACCOUNT_VERIFICATION: String {

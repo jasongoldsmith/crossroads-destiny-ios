@@ -263,6 +263,18 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 
                 let activityViewController = UIActivityViewController(activityItems: groupToShare , applicationActivities: nil)
                 self.presentViewController(activityViewController, animated: true, completion: {})
+                activityViewController.completionWithItemsHandler = {(activityType, completed:Bool, returnedItems:[AnyObject]?, error: NSError?) in
+                    if (!completed) {
+                        return
+                    }
+            
+                    if let _ = self.eventInfo?.eventID {
+                        var myEventDict = [String: AnyObject]()
+                        myEventDict["eventId"] = self.eventInfo?.eventID
+                            
+                        _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(myEventDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_EVENT_SHARING)
+                    }
+                }
             } else {
                 print(String(format: "Branch TestBed: %@", error))
             }

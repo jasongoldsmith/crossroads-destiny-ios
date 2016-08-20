@@ -10,11 +10,17 @@ import Foundation
 
 class TRAppTrackingRequest: TRRequest {
     
-    func sendApplicationPushNotiTracking (notiDict: NSDictionary, trackingType: APP_TRACKING_DATA_TYPE) {
+    func sendApplicationPushNotiTracking (notiDict: NSDictionary?, trackingType: APP_TRACKING_DATA_TYPE) {
        
         let appTrackingUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_APP_TRACKING
         var params = [String: AnyObject]()
-        params["trackingData"] = notiDict
+        
+        if let _ = notiDict {
+            params["trackingData"] = notiDict
+        } else {
+            params["trackingData"] = NSDictionary()
+        }
+        
         params["trackingKey"] = trackingType.rawValue
         
         let request = TRRequest()
