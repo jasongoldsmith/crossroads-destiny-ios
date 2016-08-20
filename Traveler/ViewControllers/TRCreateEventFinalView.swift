@@ -163,11 +163,6 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
             self.activityBGImageView.sd_setImageWithURL(NSURL(string: imageURL), placeholderImage: UIImage(named: "imgBGVaultOfGlass"))
         }
         
-        if let _ = activityInfo.activityIconImage {
-            let imageURL = NSURL(string: activityInfo.activityIconImage!)
-            self.activityNameViewsIcon.sd_setImageWithURL(imageURL)
-        }
-        
         if let aType = activityInfo.activityType {
             var nameString = aType
             
