@@ -241,7 +241,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         }
         
         self.showGropName = true
-        self.dataArray = self.filteredActivitiesOfSubTypeAndDifficulty
+        self.dataArray = self.filteredActivitiesOfSubTypeAndDifficulty.sort{$0.activitySubType < $1.activitySubType}
         self.dropDownTableView?.hidden = false
         self.dropDownTableView?.reloadData()
         self.updateTableViewFrame(self.activitNameView)
@@ -265,7 +265,8 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         }
         
         self.showCheckPoint = true
-        self.dataArray = self.filteredCheckPoints
+        self.dataArray = self.filteredCheckPoints.sort{$0.activityCheckPoint < $1.activityCheckPoint}
+
         self.dropDownTableView?.hidden = false
         self.dropDownTableView?.reloadData()
         self.updateTableViewFrame(self.activitCheckPointView)
@@ -287,7 +288,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         }
         
         self.showDetail = true
-        self.dataArray = self.filteredTags
+        self.dataArray = self.filteredTags.sort{$0.activityTag < $1.activityTag}
         self.dropDownTableView?.hidden = false
         self.dropDownTableView?.reloadData()
         self.updateTableViewFrame(self.activitDetailsView)
