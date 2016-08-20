@@ -47,6 +47,8 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     var hasTag: Bool = false
     var hasCheckPoint: Bool = false
     var isFutureEvent: Bool = false
+    var chatViewOriginalContentSize: CGSize?
+    var chatViewOriginalFrame: CGRect?
     
     
     override func viewDidLoad() {
@@ -182,6 +184,9 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
+        self.chatViewOriginalContentSize = self.chatTextView?.contentSize
+        self.chatViewOriginalFrame = self.chatTextView?.frame
+
         TRApplicationManager.sharedInstance.fireBaseManager?.addEventsObserversWithParentViewForDetailView(self, withEvent: self.eventInfo!)
     }
     
@@ -461,7 +466,9 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 self.eventTable?.reloadData()
             }
             
-            self.tableViewScrollToBottom(false)
+            if self.segmentControl?.selectedSegmentIndex == 1 {
+                self.tableViewScrollToBottom(false)
+            }
         }
     }
     
@@ -519,7 +526,11 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         if let textMessage = self.chatTextView.text where textMessage != "Type your comment here" {
             _ = TRSendPushMessage().sendEventMessage((self.eventInfo?.eventID!)!, messageString: textMessage, completion: { (didSucceed) in
                 if (didSucceed != nil)  {
-                    //Clear Text 
+                    
+                    //Clear Text and reset Chat View
+                    self.chatTextView?.contentSize = self.chatViewOriginalContentSize!
+                    self.chatTextView?.frame = self.chatViewOriginalFrame!
+                    self.textViewHeightConstraint.constant = 50
                     self.chatTextView.text = nil
                 } else {
                 }
