@@ -66,7 +66,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Tracking Open Source
             var mySourceDict = [String: AnyObject]()
             mySourceDict["source"] = "branch"
-
+            _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_SIGNUP_INIT)
+            
+            
             if let isBranchLink = params["+clicked_branch_link"]?.boolValue where  isBranchLink == true {
                 
                 let eventID = params["eventId"] as? String
@@ -80,8 +82,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         })
         
-        _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_SIGNUP_INIT)
-
         
         return true
     }
