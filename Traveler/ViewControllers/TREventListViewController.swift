@@ -382,6 +382,13 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
                 let cell = self.eventsTableView?.cellForRowAtIndexPath(indexPath) as! TREventActivityCardCell
                 
                 if let _ = cell.cellActivityAddButton.buttonActivityInfo {
+                    
+                    // Tracking Open Source
+                    var mySourceDict = [String: AnyObject]()
+                    mySourceDict["activityId"] = cell.cellActivityAddButton.buttonActivityInfo?.activityID
+                    
+                    _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_ADD_CARD_CLICKED)
+
                     self.createActivityWithActivity(cell.cellActivityAddButton)
                 }
             }

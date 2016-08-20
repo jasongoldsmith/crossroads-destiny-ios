@@ -69,6 +69,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         })
         
+        // Tracking Open Source
+        var mySourceDict = [String: AnyObject]()
+        mySourceDict["source"] = "sourceUnknown"
+        
+        _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_SIGNUP_INIT)
+
+        
         //Initialize Answers
         Fabric.with([Branch.self, Answers.self])
         

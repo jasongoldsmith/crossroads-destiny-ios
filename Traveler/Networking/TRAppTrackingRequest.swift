@@ -26,6 +26,8 @@ class TRAppTrackingRequest: TRRequest {
         let request = TRRequest()
         request.params = params
         request.requestURL = appTrackingUrl
+        request.showActivityIndicator = false
+        
         request.sendRequestWithCompletion { (error, swiftyJsonVar) -> () in
             
             if let _ = error {
