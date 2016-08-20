@@ -49,13 +49,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let token = "23f27698695b0137adfef97f173b9f91"
         Mixpanel.initialize(token: token)
         
+
+        //Initialize Answers
+        Fabric.with([Branch.self, Answers.self])
+
+        
+        //Facebook Init
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+
         
         //Branch Initialized
         let branch: Branch = Branch.getInstance()
         branch.initSessionWithLaunchOptions(launchOptions, andRegisterDeepLinkHandler: { params, error in
             // route the user based on what's in params
-            print("Param: \(params)")
             
+            // Tracking Open Source
+            var mySourceDict = [String: AnyObject]()
+            mySourceDict["source"] = "branch"
+
             if let isBranchLink = params["+clicked_branch_link"]?.boolValue where  isBranchLink == true {
                 
                 let eventID = params["eventId"] as? String
@@ -69,18 +80,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         })
         
-        // Tracking Open Source
-        var mySourceDict = [String: AnyObject]()
-        mySourceDict["source"] = "sourceUnknown"
-        
         _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_SIGNUP_INIT)
 
         
-        //Initialize Answers
-        Fabric.with([Branch.self, Answers.self])
-        
-        // FBSDK Initialization
-        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        return true
     }
 
     // MARK:- Branch Deep Linking related methods
