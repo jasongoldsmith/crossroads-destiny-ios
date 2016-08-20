@@ -77,6 +77,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         
         self.addModifiersView()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -458,10 +459,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
             }
         }
 
-        if mofifiersArray.count == 0 {
-            return
-        }
-        
+
         self.keys.removeAll()
         self.keys = mofifiersArray
         self.reloadButtons()
