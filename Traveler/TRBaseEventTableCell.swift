@@ -71,7 +71,7 @@ class TRBaseEventTableCell: UITableViewCell {
             
             switch eventType {
             case K.ActivityType.RAIDS:
-                let difficultyCount = eventInfo.eventActivity?.activityDificulty == "Hard" ? "Hard" : "Normal"
+                let difficultyCount = eventInfo.eventActivity?.activityDificulty == "Hard" ? "HARD" : "NORMAL"
                 self.activityLight?.text = difficultyCount
                 break
             case K.ActivityType.CRUCIBLE:
