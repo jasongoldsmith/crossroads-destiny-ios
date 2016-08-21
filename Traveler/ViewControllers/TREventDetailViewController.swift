@@ -62,6 +62,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         self.chatTextView?.layer.cornerRadius = 4.0
         self.chatTextView?.text = "Type your comment here"
         self.chatTextView?.textColor = UIColor.lightGrayColor()
+        self.chatTextView.layer.cornerRadius = 3.0
         
         //Key Board Observer
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRSignInViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)

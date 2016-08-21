@@ -47,6 +47,7 @@
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue-Bold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -1192,11 +1193,12 @@
                                 <rect key="frame" x="0.0" y="550" width="600" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="om7-3h-vXW">
-                                        <rect key="frame" x="559" y="8" width="34" height="34"/>
-                                        <state key="normal" image="imgSendBtn"/>
+                                        <rect key="frame" x="546" y="11" width="39" height="29"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                        <state key="normal" title="SEND"/>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="type your comment here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8QU-AI-bfh">
-                                        <rect key="frame" x="8" y="8" width="551" height="34"/>
+                                        <rect key="frame" x="8" y="8" width="524" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
@@ -1207,9 +1209,9 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.52549019610000003" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="om7-3h-vXW" firstAttribute="leading" secondItem="8QU-AI-bfh" secondAttribute="trailing" id="1Hw-xy-ADW"/>
-                                    <constraint firstAttribute="trailing" secondItem="om7-3h-vXW" secondAttribute="trailing" constant="7" id="66T-7T-asK"/>
-                                    <constraint firstAttribute="bottom" secondItem="om7-3h-vXW" secondAttribute="bottom" constant="8" id="TBa-xF-biu"/>
+                                    <constraint firstItem="om7-3h-vXW" firstAttribute="leading" secondItem="8QU-AI-bfh" secondAttribute="trailing" constant="14" id="1Hw-xy-ADW"/>
+                                    <constraint firstAttribute="trailing" secondItem="om7-3h-vXW" secondAttribute="trailing" constant="15" id="66T-7T-asK"/>
+                                    <constraint firstAttribute="bottom" secondItem="om7-3h-vXW" secondAttribute="bottom" constant="10" id="TBa-xF-biu"/>
                                     <constraint firstAttribute="height" constant="50" id="fDw-ij-qVg"/>
                                     <constraint firstAttribute="bottom" secondItem="8QU-AI-bfh" secondAttribute="bottom" constant="8" id="fKg-Uw-5zZ"/>
                                     <constraint firstItem="8QU-AI-bfh" firstAttribute="leading" secondItem="cwo-YJ-XXx" secondAttribute="leading" constant="8" id="h0w-af-cIc"/>
@@ -3637,7 +3639,6 @@ from &lt;Playstation 3&gt;. </string>
         <image name="imgQuestSelected" width="98" height="100"/>
         <image name="imgRaids" width="98" height="100"/>
         <image name="imgRaidsSelected" width="98" height="100"/>
-        <image name="imgSendBtn" width="34" height="34"/>
         <image name="imgStory" width="98" height="100"/>
         <image name="imgStorySelected" width="98" height="100"/>
         <image name="imgStrikes" width="98" height="100"/>
