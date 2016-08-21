@@ -418,7 +418,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             }
         } else {
             let commentCell: TREventCommentCell = (tableView.dequeueReusableCellWithIdentifier(EVENT_COMMENT_CELL) as? TREventCommentCell)!
-            commentCell.playerUserName.text = self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userName!
+            commentCell.playerUserName.text = self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.getDefaultConsole()?.consoleId!
             commentCell.playerComment.text = self.eventInfo?.eventComments[indexPath.section].commentText!
             self.eventTable?.estimatedRowHeight = event_description_row_height
             self.eventTable?.rowHeight = UITableViewAutomaticDimension
