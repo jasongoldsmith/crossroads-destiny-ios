@@ -45,7 +45,7 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
         }
         
         
-        self.userNameTxtField.attributedPlaceholder = NSAttributedString(string:"Enter username", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+        self.userNameTxtField.attributedPlaceholder = NSAttributedString(string:"Enter Crossroads username", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         self.userPwdTxtField.attributedPlaceholder = NSAttributedString(string:"Enter password", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         
         self.userConsoleIDTxtField.delegate = self

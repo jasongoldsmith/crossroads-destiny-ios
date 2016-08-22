@@ -399,25 +399,25 @@
                                         <rect key="frame" x="0.0" y="0.0" width="580" height="66"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgIconName" translatesAutoresizingMaskIntoConstraints="NO" id="zeK-8M-JsG">
-                                        <rect key="frame" x="17" y="17" width="25" height="25"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconCrossroadsLogin" translatesAutoresizingMaskIntoConstraints="NO" id="zeK-8M-JsG">
+                                        <rect key="frame" x="17" y="17" width="20" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="9ME-KR-Pjt"/>
-                                            <constraint firstAttribute="width" constant="25" id="dZU-yY-IB7"/>
+                                            <constraint firstAttribute="height" constant="24" id="9ME-KR-Pjt"/>
+                                            <constraint firstAttribute="width" constant="20" id="dZU-yY-IB7"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USERNAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fu6-Cc-R0h">
-                                        <rect key="frame" x="67" y="17" width="66" height="11"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CROSSROADS USERNAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fu6-Cc-R0h">
+                                        <rect key="frame" x="62" y="17" width="151" height="11"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="66" id="N0q-Tc-17o"/>
+                                            <constraint firstAttribute="width" constant="151" id="N0q-Tc-17o"/>
                                             <constraint firstAttribute="height" constant="11" id="TdN-Ev-HOb"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z5h-68-hi8">
-                                        <rect key="frame" x="67" y="30" width="503" height="28"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Crossroads username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z5h-68-hi8">
+                                        <rect key="frame" x="62" y="30" width="508" height="28"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="3l0-4z-QNs"/>
@@ -525,8 +525,8 @@
                                     <segue destination="XJ1-EK-ne3" kind="unwind" unwindAction="trUnwindAction:" id="V2d-0K-NAe"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Login?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zky-dc-1HO">
-                                <rect key="frame" x="257" y="434" width="87" height="17"/>
+                            <label opaque="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Login?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zky-dc-1HO">
+                                <rect key="frame" x="256.5" y="434" width="87.5" height="17"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -3193,10 +3193,10 @@ from &lt;Playstation 3&gt;. </string>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrLoadingimgBackgroundMap" translatesAutoresizingMaskIntoConstraints="NO" id="8zj-GS-nmN">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CREATE CROSSROADS ACCOUNT" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1W-EG-Uyv">
-                                <rect key="frame" x="181" y="206" width="238" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CREATE NEW CROSSROADS ACCOUNT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1W-EG-Uyv">
+                                <rect key="frame" x="181" y="206" width="296" height="17"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="238" id="VAB-gI-uiM"/>
+                                    <constraint firstAttribute="width" constant="296" id="VAB-gI-uiM"/>
                                     <constraint firstAttribute="height" constant="17" id="u9z-Fu-JcQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
@@ -3224,15 +3224,15 @@ from &lt;Playstation 3&gt;. </string>
                                         <rect key="frame" x="0.0" y="0.0" width="580" height="66"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgIconName" translatesAutoresizingMaskIntoConstraints="NO" id="Ezz-Kp-KbL">
-                                        <rect key="frame" x="17" y="17" width="25" height="25"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconCrossroadsLogin" translatesAutoresizingMaskIntoConstraints="NO" id="Ezz-Kp-KbL">
+                                        <rect key="frame" x="17" y="17" width="20" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="25" id="DaT-Yr-dDH"/>
-                                            <constraint firstAttribute="height" constant="25" id="PuF-du-DU0"/>
+                                            <constraint firstAttribute="width" constant="20" id="DaT-Yr-dDH"/>
+                                            <constraint firstAttribute="height" constant="24" id="PuF-du-DU0"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jDt-Q2-Vaf">
-                                        <rect key="frame" x="67" y="30" width="503" height="28"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Crossroads username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jDt-Q2-Vaf">
+                                        <rect key="frame" x="62" y="30" width="508" height="28"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="ZPf-Mg-Jab"/>
@@ -3244,11 +3244,11 @@ from &lt;Playstation 3&gt;. </string>
                                             <outlet property="delegate" destination="8fv-qL-jQi" id="qOx-Xf-i24"/>
                                         </connections>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USERNAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nN4-QE-6lf">
-                                        <rect key="frame" x="67" y="17" width="71" height="11"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CROSSROADS USERNAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nN4-QE-6lf">
+                                        <rect key="frame" x="62" y="17" width="142" height="11"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="11" id="mAS-ss-oS7"/>
-                                            <constraint firstAttribute="width" constant="71" id="z2W-Vq-MBx"/>
+                                            <constraint firstAttribute="width" constant="142" id="z2W-Vq-MBx"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3410,7 +3410,7 @@ from &lt;Playstation 3&gt;. </string>
                             <constraint firstItem="cIs-IX-Wfr" firstAttribute="top" secondItem="R1W-EG-Uyv" secondAttribute="bottom" constant="5" id="14v-bW-fcm"/>
                             <constraint firstItem="EfW-Rr-lwB" firstAttribute="centerX" secondItem="Q9w-zl-5ST" secondAttribute="centerX" id="17H-9e-Kte"/>
                             <constraint firstItem="qQW-9x-jI3" firstAttribute="leading" secondItem="Q9w-zl-5ST" secondAttribute="leadingMargin" constant="-10" id="20f-We-2qr"/>
-                            <constraint firstItem="R1W-EG-Uyv" firstAttribute="centerX" secondItem="EfW-Rr-lwB" secondAttribute="centerX" id="2QZ-5e-fzv"/>
+                            <constraint firstItem="R1W-EG-Uyv" firstAttribute="centerX" secondItem="EfW-Rr-lwB" secondAttribute="centerX" constant="29" id="2QZ-5e-fzv"/>
                             <constraint firstItem="2hL-lQ-Rf4" firstAttribute="leading" secondItem="Q9w-zl-5ST" secondAttribute="leadingMargin" constant="-10" id="3yV-XJ-twO"/>
                             <constraint firstItem="EfW-Rr-lwB" firstAttribute="top" secondItem="N37-3G-2Ts" secondAttribute="bottom" constant="20" id="8Sq-GV-1Ub"/>
                             <constraint firstAttribute="bottomMargin" secondItem="iyy-mu-wYL" secondAttribute="bottom" constant="25" id="A69-HJ-D3v"/>
@@ -3596,7 +3596,6 @@ from &lt;Playstation 3&gt;. </string>
         <image name="EventHeaderBg" width="375" height="129"/>
         <image name="TrImgBadge" width="198" height="137"/>
         <image name="TrImgIconID" width="17" height="23"/>
-        <image name="TrImgIconName" width="23" height="23"/>
         <image name="TrImgIconPassword" width="21" height="23"/>
         <image name="TrImgLoginBtn" width="90" height="90"/>
         <image name="TrLoadingimgBackgroundMap" width="375" height="667"/>
@@ -3610,6 +3609,7 @@ from &lt;Playstation 3&gt;. </string>
         <image name="iconBackArrow" width="44" height="44"/>
         <image name="iconCheckpoint" width="20" height="20"/>
         <image name="iconCollapseArrow" width="44" height="44"/>
+        <image name="iconCrossroadsLogin" width="20" height="24"/>
         <image name="iconDetails" width="14" height="15"/>
         <image name="iconGhostDefault" width="40" height="40"/>
         <image name="iconNotificationsOff" width="44" height="44"/>
