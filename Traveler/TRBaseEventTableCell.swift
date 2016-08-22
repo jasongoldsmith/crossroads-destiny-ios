@@ -151,12 +151,17 @@ class TRBaseEventTableCell: UITableViewCell {
         // Set Event Button Status
         self.eventButtonStatusForCurrentPlayer(eventInfo, button: self.joinEventButton)
         
-        
         if let hasLaunchDate = eventInfo.eventLaunchDate {
             let formatter = NSDateFormatter()
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-            let eventDate = formatter.dateFromString(hasLaunchDate)
-            self.eventTimeLabel?.text = eventDate!.toString(format: .Custom(trDateFormat()))
+            if let eventDate = formatter.dateFromString(hasLaunchDate) {
+                if eventDate.isThisWeek() == true {
+                    let time = eventDate.toString(format: .Custom(weekDayDateFormat()))
+                    self.eventTimeLabel?.text = "\(time)"
+                } else {
+                    self.eventTimeLabel?.text = eventDate.toString(format: .Custom(trDateFormat()))
+                }
+            }
         }
         
         if eventInfo.eventActivity?.activityCheckPoint != "" &&  eventInfo.eventActivity?.activityCheckPoint != nil{

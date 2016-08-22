@@ -75,3 +75,7 @@ func trDateFormat () -> String {
     return "EEE, MMM d '-' hh:mm a"
 }
 
+func weekDayDateFormat () -> String {
+    return "EEEE 'at' hh:mm a"
+}
+

@@ -123,14 +123,21 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             if self.eventInfo?.isFutureEvent == true {
                 self.isFutureEvent = true
                 
+                
                 if let hasLaunchDate = self.eventInfo?.eventLaunchDate {
                     let formatter = NSDateFormatter()
                     formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                    let eventDate = formatter.dateFromString(hasLaunchDate)
-                    let dateString = eventDate!.toString(format: .Custom(trDateFormat()))
-                    
-                    let timeAttributedStr = NSAttributedString(string: dateString, attributes: nil)
-                    finalString.appendAttributedString(timeAttributedStr)
+                    if let eventDate = formatter.dateFromString(hasLaunchDate) {
+                        if eventDate.isThisWeek() == true {
+                            let time = eventDate.toString(format: .Custom(weekDayDateFormat()))
+                            let timeAttributedStr = NSAttributedString(string: time, attributes: nil)
+                            finalString.appendAttributedString(timeAttributedStr)
+                        } else {
+                            let time = eventDate.toString(format: .Custom(trDateFormat()))
+                            let timeAttributedStr = NSAttributedString(string: time, attributes: nil)
+                            finalString.appendAttributedString(timeAttributedStr)
+                        }
+                    }
                 }
             }
             
@@ -141,12 +148,17 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             if let hasLaunchDate = self.eventInfo?.eventLaunchDate {
                 let formatter = NSDateFormatter()
                 formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                let eventDate = formatter.dateFromString(hasLaunchDate)
-                let dateString = eventDate!.toString(format: .Custom(trDateFormat()))
-                
-                let timeAttributedStr = NSAttributedString(string: dateString, attributes: nil)
-                //finalString.appendAttributedString(timeAttributedStr)
-                self.eventCheckPoint_Time?.attributedText = timeAttributedStr
+                if let eventDate = formatter.dateFromString(hasLaunchDate) {
+                    if eventDate.isThisWeek() == true {
+                        let time = eventDate.toString(format: .Custom(weekDayDateFormat()))
+                        let timeAttributedStr = NSAttributedString(string: time, attributes: nil)
+                        self.eventCheckPoint_Time?.attributedText = timeAttributedStr
+                    } else {
+                        let time = eventDate.toString(format: .Custom(trDateFormat()))
+                        let timeAttributedStr = NSAttributedString(string: time, attributes: nil)
+                        self.eventCheckPoint_Time?.attributedText = timeAttributedStr
+                    }
+                }
             }
         } else {
             self.eventCheckPointTopConstraint.constant = -13
