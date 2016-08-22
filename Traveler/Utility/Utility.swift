@@ -72,7 +72,7 @@ func secondsToHoursMinutesSeconds (seconds : Int) -> String {
 }
 
 func trDateFormat () -> String {
-    return "EEE, MMM d '-' hh:mm a"
+    return "MMM d 'at' hh:mm a"
 }
 
 func weekDayDateFormat () -> String {
