@@ -134,7 +134,7 @@ class TRBaseEventTableCell: UITableViewCell {
             }
         } else {
             var playersNameString = (eventInfo.eventCreator?.playerPsnID!)!
-            if var clanTag = eventInfo.eventCreator?.playerConsoles.first!.clanTag where clanTag != "" {
+            if var clanTag = eventInfo.eventCreator?.getDefaultConsole()?.clanTag where clanTag != "" {
                 clanTag = " " + "[" + clanTag + "]"
                 playersNameString = playersNameString + clanTag
             }
