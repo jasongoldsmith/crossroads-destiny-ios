@@ -123,7 +123,7 @@ class TRBaseEventTableCell: UITableViewCell {
             if let _ = eventInfo.eventCreator?.playerPsnID {
                 
                 let finalString = NSMutableAttributedString(string: (eventInfo.eventCreator?.playerPsnID!)!)
-                if var clanTag = eventInfo.eventCreator?.getDefaultConsole().clanTag where clanTag != "" {
+                if var clanTag = eventInfo.eventCreator?.getDefaultConsole()?.clanTag where clanTag != "" {
                     clanTag = " " + "[" + clanTag + "]"
                     let clanAttributedStr = NSAttributedString(string: clanTag)
                     finalString.appendAttributedString(clanAttributedStr)
