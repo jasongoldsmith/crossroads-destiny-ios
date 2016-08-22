@@ -3202,7 +3202,7 @@ from &lt;Playstation 3&gt;. </string>
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CREATE NEW CROSSROADS ACCOUNT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1W-EG-Uyv">
-                                <rect key="frame" x="181" y="206" width="296" height="17"/>
+                                <rect key="frame" x="152" y="206" width="296" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="296" id="VAB-gI-uiM"/>
                                     <constraint firstAttribute="height" constant="17" id="u9z-Fu-JcQ"/>
@@ -3233,7 +3233,7 @@ from &lt;Playstation 3&gt;. </string>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconCrossroadsLogin" translatesAutoresizingMaskIntoConstraints="NO" id="Ezz-Kp-KbL">
-                                        <rect key="frame" x="17" y="17" width="20" height="24"/>
+                                        <rect key="frame" x="18" y="17" width="20" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="DaT-Yr-dDH"/>
                                             <constraint firstAttribute="height" constant="24" id="PuF-du-DU0"/>
@@ -3268,7 +3268,7 @@ from &lt;Playstation 3&gt;. </string>
                                     <constraint firstItem="Ezz-Kp-KbL" firstAttribute="top" secondItem="qQW-9x-jI3" secondAttribute="top" constant="17" id="4yw-Sw-RPz"/>
                                     <constraint firstAttribute="height" constant="66" id="63D-aG-Zc0"/>
                                     <constraint firstItem="nN4-QE-6lf" firstAttribute="top" secondItem="qQW-9x-jI3" secondAttribute="top" constant="17" id="84w-pD-F57"/>
-                                    <constraint firstItem="Ezz-Kp-KbL" firstAttribute="leading" secondItem="qQW-9x-jI3" secondAttribute="leading" constant="17" id="8Wk-d6-RSx"/>
+                                    <constraint firstItem="Ezz-Kp-KbL" firstAttribute="leading" secondItem="qQW-9x-jI3" secondAttribute="leading" constant="18" id="8Wk-d6-RSx"/>
                                     <constraint firstItem="jDt-Q2-Vaf" firstAttribute="top" secondItem="nN4-QE-6lf" secondAttribute="bottom" constant="2" id="97A-mQ-aos"/>
                                     <constraint firstAttribute="trailing" secondItem="ZFC-ve-BxR" secondAttribute="trailing" id="BeN-Fu-fb5"/>
                                     <constraint firstItem="jDt-Q2-Vaf" firstAttribute="bottom" secondItem="qQW-9x-jI3" secondAttribute="bottomMargin" id="PZ8-C7-uS1"/>
@@ -3276,8 +3276,8 @@ from &lt;Playstation 3&gt;. </string>
                                     <constraint firstAttribute="bottom" secondItem="ZFC-ve-BxR" secondAttribute="bottom" id="QMy-Ad-brM"/>
                                     <constraint firstAttribute="trailing" secondItem="jDt-Q2-Vaf" secondAttribute="trailing" constant="10" id="a2j-L3-MVC"/>
                                     <constraint firstItem="ZFC-ve-BxR" firstAttribute="leading" secondItem="qQW-9x-jI3" secondAttribute="leading" id="iEE-z9-8cH"/>
-                                    <constraint firstItem="jDt-Q2-Vaf" firstAttribute="leading" secondItem="Ezz-Kp-KbL" secondAttribute="trailing" constant="25" id="nSg-LA-wAk"/>
-                                    <constraint firstItem="nN4-QE-6lf" firstAttribute="leading" secondItem="Ezz-Kp-KbL" secondAttribute="trailing" constant="25" id="rxt-gn-ZPj"/>
+                                    <constraint firstItem="jDt-Q2-Vaf" firstAttribute="leading" secondItem="Ezz-Kp-KbL" secondAttribute="trailing" constant="24" id="nSg-LA-wAk"/>
+                                    <constraint firstItem="nN4-QE-6lf" firstAttribute="leading" secondItem="Ezz-Kp-KbL" secondAttribute="trailing" constant="24" id="rxt-gn-ZPj"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -3300,7 +3300,7 @@ from &lt;Playstation 3&gt;. </string>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Acm-pw-6j5">
-                                        <rect key="frame" x="67" y="17" width="64" height="11"/>
+                                        <rect key="frame" x="62" y="17" width="64" height="11"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="64" id="Hb0-AZ-0QB"/>
                                             <constraint firstAttribute="height" constant="11" id="dxU-z0-oeL"/>
@@ -3310,7 +3310,7 @@ from &lt;Playstation 3&gt;. </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="inV-dA-HPN">
-                                        <rect key="frame" x="67" y="30" width="503" height="28"/>
+                                        <rect key="frame" x="62" y="30" width="503" height="28"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="iNe-QZ-Kac"/>
@@ -3328,11 +3328,11 @@ from &lt;Playstation 3&gt;. </string>
                                     <constraint firstItem="inV-dA-HPN" firstAttribute="top" secondItem="Acm-pw-6j5" secondAttribute="bottom" constant="2" id="3Qg-jx-owi"/>
                                     <constraint firstItem="e7d-SP-T9T" firstAttribute="top" secondItem="2hL-lQ-Rf4" secondAttribute="top" constant="17" id="AWw-Hx-xEl"/>
                                     <constraint firstItem="KFf-SL-jUu" firstAttribute="top" secondItem="2hL-lQ-Rf4" secondAttribute="top" id="BCY-wA-8PQ"/>
-                                    <constraint firstItem="inV-dA-HPN" firstAttribute="leading" secondItem="e7d-SP-T9T" secondAttribute="trailing" constant="25" id="H14-3c-0Rl"/>
+                                    <constraint firstItem="inV-dA-HPN" firstAttribute="leading" secondItem="e7d-SP-T9T" secondAttribute="trailing" constant="20" id="H14-3c-0Rl"/>
                                     <constraint firstItem="KFf-SL-jUu" firstAttribute="leading" secondItem="2hL-lQ-Rf4" secondAttribute="leading" id="N8Z-vu-Gu9"/>
-                                    <constraint firstAttribute="trailing" secondItem="inV-dA-HPN" secondAttribute="trailing" constant="10" id="OV9-ty-TOw"/>
+                                    <constraint firstAttribute="trailing" secondItem="inV-dA-HPN" secondAttribute="trailing" constant="15" id="OV9-ty-TOw"/>
                                     <constraint firstItem="e7d-SP-T9T" firstAttribute="leading" secondItem="2hL-lQ-Rf4" secondAttribute="leading" constant="17" id="QiN-Kb-MuW"/>
-                                    <constraint firstItem="Acm-pw-6j5" firstAttribute="leading" secondItem="e7d-SP-T9T" secondAttribute="trailing" constant="25" id="UnU-8O-3rE"/>
+                                    <constraint firstItem="Acm-pw-6j5" firstAttribute="leading" secondItem="e7d-SP-T9T" secondAttribute="trailing" constant="20" id="UnU-8O-3rE"/>
                                     <constraint firstAttribute="trailing" secondItem="KFf-SL-jUu" secondAttribute="trailing" id="gnF-EJ-FWP"/>
                                     <constraint firstAttribute="bottom" secondItem="KFf-SL-jUu" secondAttribute="bottom" id="rBG-7y-aC6"/>
                                     <constraint firstAttribute="height" constant="66" id="so2-ZZ-c4U"/>
@@ -3354,7 +3354,7 @@ from &lt;Playstation 3&gt;. </string>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLAYSTATION ID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dk0-f4-ctF">
-                                        <rect key="frame" x="67" y="17" width="123" height="11"/>
+                                        <rect key="frame" x="62" y="17" width="123" height="11"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="11" id="CgR-9d-xIV"/>
                                             <constraint firstAttribute="width" constant="123" id="RCe-O9-3Ds"/>
@@ -3364,7 +3364,7 @@ from &lt;Playstation 3&gt;. </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EIL-78-WGA">
-                                        <rect key="frame" x="67" y="30" width="503" height="28"/>
+                                        <rect key="frame" x="62" y="30" width="503" height="28"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="Mck-dw-JUR"/>
@@ -3380,10 +3380,10 @@ from &lt;Playstation 3&gt;. </string>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="xFa-XT-Rnn" secondAttribute="bottom" id="9Tz-ma-8nw"/>
-                                    <constraint firstAttribute="trailing" secondItem="EIL-78-WGA" secondAttribute="trailing" constant="10" id="Ch9-db-mag"/>
-                                    <constraint firstItem="dk0-f4-ctF" firstAttribute="leading" secondItem="eft-ju-k0P" secondAttribute="trailing" constant="25" id="PpY-q6-dgp"/>
+                                    <constraint firstAttribute="trailing" secondItem="EIL-78-WGA" secondAttribute="trailing" constant="15" id="Ch9-db-mag"/>
+                                    <constraint firstItem="dk0-f4-ctF" firstAttribute="leading" secondItem="eft-ju-k0P" secondAttribute="trailing" constant="20" id="PpY-q6-dgp"/>
                                     <constraint firstItem="xFa-XT-Rnn" firstAttribute="top" secondItem="cIs-IX-Wfr" secondAttribute="top" id="RMT-0R-k5c"/>
-                                    <constraint firstItem="EIL-78-WGA" firstAttribute="leading" secondItem="eft-ju-k0P" secondAttribute="trailing" constant="25" id="aWV-KT-mcg"/>
+                                    <constraint firstItem="EIL-78-WGA" firstAttribute="leading" secondItem="eft-ju-k0P" secondAttribute="trailing" constant="20" id="aWV-KT-mcg"/>
                                     <constraint firstItem="EIL-78-WGA" firstAttribute="top" secondItem="dk0-f4-ctF" secondAttribute="bottom" constant="2" id="cxY-US-IPA"/>
                                     <constraint firstAttribute="height" constant="66" id="fFL-6t-zIK"/>
                                     <constraint firstAttribute="trailing" secondItem="xFa-XT-Rnn" secondAttribute="trailing" id="gJF-mn-pBJ"/>
@@ -3432,6 +3432,7 @@ from &lt;Playstation 3&gt;. </string>
                             <constraint firstItem="45T-dp-vXs" firstAttribute="top" secondItem="nBQ-dn-VdF" secondAttribute="bottom" constant="11" id="aON-dt-Nfx"/>
                             <constraint firstItem="8zj-GS-nmN" firstAttribute="leading" secondItem="Q9w-zl-5ST" secondAttribute="leadingMargin" constant="-20" id="d8F-eK-RfR"/>
                             <constraint firstItem="qQW-9x-jI3" firstAttribute="top" secondItem="2hL-lQ-Rf4" secondAttribute="bottom" constant="2" id="eJu-zd-eLW"/>
+                            <constraint firstItem="R1W-EG-Uyv" firstAttribute="centerX" secondItem="Q9w-zl-5ST" secondAttribute="centerX" id="ep2-0H-Grm"/>
                             <constraint firstItem="AIM-Bo-Bpg" firstAttribute="leading" secondItem="Q9w-zl-5ST" secondAttribute="leading" constant="10" id="k1Y-ig-zWE"/>
                             <constraint firstItem="R1W-EG-Uyv" firstAttribute="top" secondItem="EfW-Rr-lwB" secondAttribute="bottom" constant="29" id="kvA-T5-csD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cIs-IX-Wfr" secondAttribute="trailing" constant="-10" id="mkN-d7-kaA"/>
@@ -3444,6 +3445,7 @@ from &lt;Playstation 3&gt;. </string>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="2QZ-5e-fzv"/>
                                 <exclude reference="eJu-zd-eLW"/>
                                 <exclude reference="F4g-SP-GBl"/>
                                 <exclude reference="zj8-rd-Aw2"/>
