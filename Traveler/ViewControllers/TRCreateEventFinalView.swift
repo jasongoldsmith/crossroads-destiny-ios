@@ -304,16 +304,13 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
             self.datePickerView?.delegate = nil
             
             if let eventInfo = event {
-                self.dismissViewControllerAnimated(true, completion: { () -> Void in
-                    
-                    self.didMoveToParentViewController(nil)
-                    self.removeFromParentViewController()
-                    
-                    if let eventListViewController = TRApplicationManager.sharedInstance.slideMenuController.mainViewController as? TREventListViewController {
-                        eventListViewController.showEventInfoViewController(eventInfo, fromPushNoti: false)
-                    }
-                })
+                
+                let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+                
+                let vc : TREventDetailViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_EVENT_DESCRIPTION) as! TREventDetailViewController
+                vc.eventInfo = eventInfo
 
+                self.navigationController?.pushViewController(vc, animated: true)
             } else {
                 self.appManager.log.debug("Create Event Failed")
             }
