@@ -242,6 +242,12 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         
         self.showGropName = true
         self.dataArray = self.filteredActivitiesOfSubTypeAndDifficulty.sort{$0.activitySubType < $1.activitySubType}
+        let itemToDelete = self.dataArray.filter{$0.activityDificulty == self.selectedActivity?.activityDificulty && $0.activitySubType == self.selectedActivity?.activitySubType}.first
+        if let _ = itemToDelete {
+            let index = self.dataArray.indexOf(itemToDelete!)
+            self.dataArray.removeAtIndex(index!)
+        }
+        
         self.dropDownTableView?.hidden = false
         self.dropDownTableView?.reloadData()
         self.updateTableViewFrame(self.activitNameView)
@@ -266,6 +272,13 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         
         self.showCheckPoint = true
         self.dataArray = self.filteredCheckPoints.sort{$0.activityCheckPoint < $1.activityCheckPoint}
+
+        let itemToDelete = self.dataArray.filter{$0.activityCheckPoint == self.selectedActivity?.activityCheckPoint}.first
+        if let _ = itemToDelete {
+            let index = self.dataArray.indexOf(itemToDelete!)
+            self.dataArray.removeAtIndex(index!)
+        }
+
 
         self.dropDownTableView?.hidden = false
         self.dropDownTableView?.reloadData()
