@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="166"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3iY-SW-gwc" id="ZDu-nM-3dI">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="166"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="165.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eventCellBGImage" translatesAutoresizingMaskIntoConstraints="NO" id="xFe-zn-nLa">
@@ -114,7 +114,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Normal" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vk1-Ju-Lhf">
-                        <rect key="frame" x="271" y="20" width="39" height="14"/>
+                        <rect key="frame" x="271" y="18" width="39" height="14"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                         <color key="textColor" red="1" green="0.77647058820000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -146,7 +146,7 @@
                     <constraint firstAttribute="bottomMargin" secondItem="gFP-n8-kSW" secondAttribute="bottom" constant="8" id="lT6-37-eOj"/>
                     <constraint firstAttribute="trailingMargin" secondItem="xFe-zn-nLa" secondAttribute="trailing" constant="-8" id="lnl-wl-RUL"/>
                     <constraint firstItem="81J-YA-le0" firstAttribute="top" secondItem="ZDu-nM-3dI" secondAttribute="topMargin" constant="2" id="nH8-xT-37d"/>
-                    <constraint firstItem="vk1-Ju-Lhf" firstAttribute="bottom" secondItem="ytB-QV-e1A" secondAttribute="bottom" id="q11-De-NeF"/>
+                    <constraint firstItem="vk1-Ju-Lhf" firstAttribute="bottom" secondItem="ytB-QV-e1A" secondAttribute="bottom" constant="-2" id="q11-De-NeF"/>
                     <constraint firstAttribute="trailingMargin" secondItem="vk1-Ju-Lhf" secondAttribute="trailing" constant="2" id="tAi-LF-kuy"/>
                     <constraint firstAttribute="bottomMargin" secondItem="dIc-sv-e0E" secondAttribute="bottom" constant="8" id="u7E-Ed-UTf"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Fec-iC-qHn" secondAttribute="bottom" constant="8" id="uAp-gh-NAp"/>

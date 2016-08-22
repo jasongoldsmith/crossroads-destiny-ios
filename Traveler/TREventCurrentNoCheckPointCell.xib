@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="153"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3iY-SW-gwc" id="ZDu-nM-3dI">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="153"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="152.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eventCellBGImage" translatesAutoresizingMaskIntoConstraints="NO" id="xFe-zn-nLa">
@@ -60,7 +60,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Normal" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vk1-Ju-Lhf">
-                        <rect key="frame" x="271" y="20" width="39" height="14"/>
+                        <rect key="frame" x="271" y="18" width="39" height="14"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                         <color key="textColor" red="1" green="0.77647058820000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -127,7 +127,7 @@
                     <constraint firstItem="c5f-XM-Con" firstAttribute="leading" secondItem="81J-YA-le0" secondAttribute="trailing" constant="9" id="Mw9-LV-zB5"/>
                     <constraint firstItem="ytB-QV-e1A" firstAttribute="leading" secondItem="81J-YA-le0" secondAttribute="trailing" constant="9" id="NhM-70-Y8p"/>
                     <constraint firstItem="xFe-zn-nLa" firstAttribute="top" secondItem="ZDu-nM-3dI" secondAttribute="topMargin" constant="-8" id="P4p-Qu-Gjb"/>
-                    <constraint firstItem="ytB-QV-e1A" firstAttribute="bottom" secondItem="vk1-Ju-Lhf" secondAttribute="bottom" id="ROK-Fc-wC5"/>
+                    <constraint firstItem="ytB-QV-e1A" firstAttribute="bottom" secondItem="vk1-Ju-Lhf" secondAttribute="bottom" constant="2" id="ROK-Fc-wC5"/>
                     <constraint firstItem="c5f-XM-Con" firstAttribute="leading" secondItem="3rA-ji-cCh" secondAttribute="leading" id="Uew-Qw-YFV"/>
                     <constraint firstItem="xFe-zn-nLa" firstAttribute="leading" secondItem="ZDu-nM-3dI" secondAttribute="leadingMargin" constant="-8" id="Wfn-GB-6nq"/>
                     <constraint firstAttribute="bottomMargin" secondItem="xFe-zn-nLa" secondAttribute="bottom" constant="-16" id="WxZ-si-GpR"/>
@@ -149,10 +149,10 @@
                     <mask key="constraints">
                         <exclude reference="NhM-70-Y8p"/>
                         <exclude reference="Mw9-LV-zB5"/>
-                        <exclude reference="yix-kB-TVg"/>
                         <exclude reference="1pm-OV-iFy"/>
                         <exclude reference="E9k-bl-wE4"/>
                         <exclude reference="gFc-kE-hEn"/>
+                        <exclude reference="yix-kB-TVg"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
