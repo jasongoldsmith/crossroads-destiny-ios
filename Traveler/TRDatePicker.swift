@@ -25,6 +25,8 @@ class TRDatePicker: UIView {
         self.datePicker?.layer.cornerRadius = 5.0
         self.datePicker?.backgroundColor = UIColor.whiteColor()
         self.datePicker?.layer.masksToBounds = true
+        
+        self.datePicker?.minimumDate = NSDate()
     }
     
     @IBAction func closePickerView (sender: UITapGestureRecognizer) {
