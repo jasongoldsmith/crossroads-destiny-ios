@@ -117,7 +117,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which group would you like to play with?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Hh-ej-dOf">
-                                <rect key="frame" x="70" y="117" width="460" height="24"/>
+                                <rect key="frame" x="117.5" y="117" width="367" height="24"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -231,6 +231,7 @@
                             <constraint firstItem="UcS-9m-9Pf" firstAttribute="leading" secondItem="a4f-Bs-Ivf" secondAttribute="leading" constant="12" id="hu7-cV-VAc"/>
                             <constraint firstItem="2WA-Rs-ejf" firstAttribute="top" secondItem="T5d-y2-feT" secondAttribute="bottom" id="kns-Zn-dGH"/>
                             <constraint firstItem="2WA-Rs-ejf" firstAttribute="top" secondItem="21G-5K-sdg" secondAttribute="bottom" id="o37-Bg-DVN"/>
+                            <constraint firstItem="4Hh-ej-dOf" firstAttribute="centerX" secondItem="a4f-Bs-Ivf" secondAttribute="centerX" constant="1" id="p0f-zb-XkS"/>
                             <constraint firstAttribute="trailing" secondItem="UcS-9m-9Pf" secondAttribute="trailing" constant="12" id="pAP-0h-zWH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CWz-lA-epg" secondAttribute="trailing" constant="12" id="pBw-VO-Wmd"/>
                             <constraint firstAttribute="trailing" secondItem="WhP-cr-BTL" secondAttribute="trailing" constant="12" id="v0H-AB-0qV"/>
@@ -239,6 +240,12 @@
                             <constraint firstItem="WhP-cr-BTL" firstAttribute="centerX" secondItem="a4f-Bs-Ivf" secondAttribute="centerX" id="wvI-om-71U"/>
                             <constraint firstItem="T7g-l3-C1j" firstAttribute="centerX" secondItem="a4f-Bs-Ivf" secondAttribute="centerX" id="zv2-pD-CGk"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="4k1-07-SUa"/>
+                                <exclude reference="Ivg-Kw-yuR"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="appIcon" destination="T7g-l3-C1j" id="5S5-Eu-vQk"/>
