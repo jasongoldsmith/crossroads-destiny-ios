@@ -406,7 +406,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             
             if indexPath.section < self.eventInfo?.eventPlayersArray.count {
                 
-                var playersNameString = self.eventInfo?.eventPlayersArray[indexPath.section].playerPsnID
+                var playersNameString = self.eventInfo?.eventPlayersArray[indexPath.section].getDefaultConsole()?.consoleId!
                 if var clanTag = self.eventInfo?.eventPlayersArray[indexPath.section].playerConsoles.first!.clanTag where clanTag != "" {
                     clanTag = " " + "[" + clanTag + "]"
                     playersNameString = playersNameString! + clanTag
@@ -431,11 +431,16 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             }
         } else {
             let commentCell: TREventCommentCell = (tableView.dequeueReusableCellWithIdentifier(EVENT_COMMENT_CELL) as? TREventCommentCell)!
-            commentCell.playerUserName.text = self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.getDefaultConsole()?.consoleId!
             commentCell.playerComment.text = self.eventInfo?.eventComments[indexPath.section].commentText!
             self.eventTable?.estimatedRowHeight = event_description_row_height
             self.eventTable?.rowHeight = UITableViewAutomaticDimension
 
+            if let coonsoleID = self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.getDefaultConsole()?.consoleId! {
+                commentCell.playerUserName.text = coonsoleID
+            } else {
+                commentCell.playerUserName.text = " "
+            }
+            
             
             if let hasTime = self.eventInfo?.eventComments[indexPath.section].commentCreated {
                 let formatter = NSDateFormatter()
