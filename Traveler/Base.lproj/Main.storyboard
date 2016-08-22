@@ -2642,6 +2642,7 @@
                         <outlet property="checkPointDropDownTriangle" destination="sAa-5D-OIz" id="1Ij-td-xT6"/>
                         <outlet property="dropDownTableView" destination="ig4-lg-5BV" id="R0Y-6s-Pfx"/>
                         <outlet property="searchScrollView" destination="yIQ-ai-loJ" id="saX-pf-1Te"/>
+                        <outlet property="tagDropDownTriangle" destination="274-RR-v93" id="Uvd-vo-53C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eDV-7u-Sh1" userLabel="First Responder" sceneMemberID="firstResponder"/>

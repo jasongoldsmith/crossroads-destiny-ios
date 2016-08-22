@@ -17,6 +17,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     @IBOutlet weak var activityNameLabel: UILabel!
     @IBOutlet weak var activityLevelLabel: UILabel!
     @IBOutlet weak var checkPointDropDownTriangle: UIImageView!
+    @IBOutlet weak var tagDropDownTriangle: UIImageView!
     
     // SubViews
     @IBOutlet weak var activitNameView: UIView!
@@ -197,6 +198,11 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         }
         
         self.filteredTags = self.getActivitiesFilteredSubDifficultyCheckPoint(self.selectedActivity!)!
+        if let fTags = self.getActivitiesFilteredSubDifficultyCheckPoint(self.selectedActivity!) where fTags.count > 1 {
+            self.tagDropDownTriangle.hidden = false
+        } else {
+            self.tagDropDownTriangle.hidden = true
+        }
         
         if let description = activityInfo.activityTag where description != "" {
             self.activityDetailButton.setTitle(description, forState: .Normal)
@@ -318,6 +324,13 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         
         self.showDetail = true
         self.dataArray = self.filteredTags.sort{$0.activityTag < $1.activityTag}
+        
+//        let itemToDelete = self.dataArray.filter{$0.activitySubType == self.selectedActivity?.activitySubType && $0.activityDificulty == self.selectedActivity?.activityDificulty && $0.activityCheckPoint == self.selectedActivity?.activityCheckPoint}.first
+//        if let _ = itemToDelete {
+//            let index = self.dataArray.indexOf(itemToDelete!)
+//            self.dataArray.removeAtIndex(index!)
+//        }
+        
         self.dropDownTableView?.hidden = false
         self.dropDownTableView?.reloadData()
         self.updateTableViewFrame(self.activitDetailsView)
