@@ -150,15 +150,15 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
             }
             
             self.activityLevelLabel.attributedText = finalString
-            
-            if let _ = activityInfo.activityIconImage {
-                let imageUrl = NSURL(string: activityInfo.activityIconImage!)
-                self.activityIconView.sd_setImageWithURL(imageUrl)
-            }
         } else {
             if let _ = activityInfo.activityDescription {
                 self.activityLevelLabel.text = activityInfo.activityDescription!
             }
+        }
+        
+        if let _ = activityInfo.activityIconImage {
+            let imageUrl = NSURL(string: activityInfo.activityIconImage!)
+            self.activityIconView.sd_setImageWithURL(imageUrl)
         }
         
         if let imageURL = activityInfo.activityImage where imageURL != "" {
