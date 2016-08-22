@@ -16,6 +16,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     @IBOutlet weak var activityIconView: UIImageView!
     @IBOutlet weak var activityNameLabel: UILabel!
     @IBOutlet weak var activityLevelLabel: UILabel!
+    @IBOutlet weak var checkPointDropDownTriangle: UIImageView!
     
     // SubViews
     @IBOutlet weak var activitNameView: UIView!
@@ -199,6 +200,14 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         //ModifierView
         self.addModifiersView()
         self.view.bringSubviewToFront(self.dropDownTableView)
+        
+        //Show hide CheckPoint dropdown triangle
+        let checkPoint = TRApplicationManager.sharedInstance.getActivitiesMatchingSubTypeAndLevel(self.selectedActivity!)
+        if let _ = checkPoint where checkPoint?.count > 1 {
+            self.checkPointDropDownTriangle.hidden = false
+        } else {
+            self.checkPointDropDownTriangle.hidden = true
+        }
     }
     
     //MARK: - Protocol Methods

@@ -117,7 +117,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which group would you like to play with?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Hh-ej-dOf">
-                                <rect key="frame" x="117.5" y="117" width="367" height="24"/>
+                                <rect key="frame" x="118" y="117" width="367" height="24"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -533,7 +533,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Login?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zky-dc-1HO">
-                                <rect key="frame" x="256.5" y="434" width="87.5" height="17"/>
+                                <rect key="frame" x="257" y="434" width="87" height="17"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -2620,6 +2620,7 @@
                         <outlet property="addActivityButton" destination="8gg-oe-wS6" id="fLw-Pf-ebU"/>
                         <outlet property="addButtonTopTopConst" destination="BJ9-WA-AVr" id="zr6-NI-wxZ"/>
                         <outlet property="backButton" destination="NuX-A7-8ZL" id="xQE-lH-Jyo"/>
+                        <outlet property="checkPointDropDownTriangle" destination="sAa-5D-OIz" id="1Ij-td-xT6"/>
                         <outlet property="dropDownTableView" destination="ig4-lg-5BV" id="R0Y-6s-Pfx"/>
                         <outlet property="searchScrollView" destination="yIQ-ai-loJ" id="saX-pf-1Te"/>
                     </connections>
