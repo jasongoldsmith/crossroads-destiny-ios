@@ -43,7 +43,7 @@ extension NSDate {
             return now.weeksFrom(self).description  + " week"  + { return now.weeksFrom(self)   > 1 ? "s" : "" }() + " ago"
         }
         if now.daysFrom(self)    > 0 {
-            if daysFrom(self) == 1 { return "Yesterday" }
+            if now.daysFrom(self) == 1 { return "Yesterday" }
             return now.daysFrom(self).description + " days ago"
         }
         if now.hoursFrom(self)   > 0 {
@@ -71,7 +71,7 @@ extension NSDate {
             return now.weeksFrom(self).description  + " week"  + { return now.weeksFrom(self)   > 1 ? "s" : "" }() + " ago"
         }
         if now.daysFrom(self)    > 0 {
-            if daysFrom(self) == 1 { return "Yesterday" }
+            if now.daysFrom(self) == 1 { return "Yesterday" }
             return now.daysFrom(self).description + " days ago"
         }
         if now.hoursFrom(self)   > 0 {
