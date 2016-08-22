@@ -21,12 +21,18 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrLoadingimgBackgroundMap" translatesAutoresizingMaskIntoConstraints="NO" id="Wy4-m5-Wg3">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrLaunchImgBadge" translatesAutoresizingMaskIntoConstraints="NO" id="01j-As-rd6">
-                                <rect key="frame" x="209" y="105" width="182" height="137"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBadge" translatesAutoresizingMaskIntoConstraints="NO" id="01j-As-rd6">
+                                <rect key="frame" x="201" y="105" width="198" height="137"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="182" id="Vep-ND-Ds6"/>
                                     <constraint firstAttribute="height" constant="137" id="h5P-ff-ibN"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Vep-ND-Ds6"/>
+                                        <exclude reference="h5P-ff-ibN"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -46,7 +52,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="TrLaunchImgBadge" width="198" height="137"/>
+        <image name="TrImgBadge" width="198" height="137"/>
         <image name="TrLoadingimgBackgroundMap" width="375" height="667"/>
     </resources>
 </document>

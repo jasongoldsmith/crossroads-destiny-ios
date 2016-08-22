@@ -66,12 +66,18 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrLoadingimgBackgroundMap" translatesAutoresizingMaskIntoConstraints="NO" id="pzR-GQ-Feb">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBadge" translatesAutoresizingMaskIntoConstraints="NO" id="vWc-bB-0Dl">
-                                <rect key="frame" x="209" y="105" width="182" height="137"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBadge" translatesAutoresizingMaskIntoConstraints="NO" id="vWc-bB-0Dl">
+                                <rect key="frame" x="201" y="105" width="198" height="137"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="182" id="7Pe-x7-KrO"/>
                                     <constraint firstAttribute="height" constant="137" id="I1F-zM-joe"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7Pe-x7-KrO"/>
+                                        <exclude reference="I1F-zM-joe"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -366,7 +372,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBadge" translatesAutoresizingMaskIntoConstraints="NO" id="PXD-xD-2hM">
-                                <rect key="frame" x="209" y="77" width="182" height="137"/>
+                                <rect key="frame" x="201" y="77" width="198" height="137"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="182" id="Gx5-Eb-reY"/>
@@ -377,6 +383,8 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="Gx5-Eb-reY"/>
+                                        <exclude reference="U5S-0y-HqK"/>
+                                        <exclude reference="WhW-Wd-0Bf"/>
                                         <exclude reference="ZhB-cC-9Ze"/>
                                     </mask>
                                 </variation>
