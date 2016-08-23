@@ -38,7 +38,7 @@ class TREventActivityCardCell: UITableViewCell {
         if let hasBGImage = self.activityInfo?.activityAdCard?.adCardImageURL where activityInfo?.activityAdCard?.adCardBaseUrl != "" {
             let imageString = (self.activityInfo?.activityAdCard?.adCardBaseUrl!)! + hasBGImage
             let imageURL = NSURL(string: imageString)
-            self.cellBackgroundImageView.sd_setImageWithURL(imageURL)
+            self.cellBackgroundImageView.sd_setImageWithURL(imageURL, placeholderImage: UIImage(named: "addCardDefault"))
         }
 
         if let iconImageString = self.activityInfo?.activityIconImage {
