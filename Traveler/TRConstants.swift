@@ -24,6 +24,12 @@ struct K {
         }
     }
     
+    struct Legal {
+        static let PP = "PRIVATE_POLICY"
+        static let TOS = "TERMS_OF_SERVICE"
+        static let OK = "OK"
+    }
+    
     struct Path {
         static let DocumentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
     }

@@ -105,34 +105,48 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
 
     func showLegalAlert () {
         
-        if TRApplicationManager.sharedInstance.currentUser?.legalInfo?.privacyNeedsUpdate == true || TRApplicationManager.sharedInstance.currentUser?.legalInfo?.termsNeedsUpdate == true {
-            
-            self.displayAlertWithActionHandler("Update", message: "Our Terms of Service and Privacy Policy have changed. \n\n By tapping the “OK” button, you agree to the updated Terms of Service and Privacy Policy.", buttonOneTitle: "Private Policy",buttonTwoTitle: "Terms of Service",buttonThreeTitle: "OK", completionHandler: {complete in
-                
-                let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
-                switch complete! {
-                case 0:
-                    let legalViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_WEB_VIEW) as! TRLegalViewController
-                    legalViewController.linkToOpen = NSURL(string: "https://www.crossroadsapp.co/terms")!
-                    self.presentViewController(legalViewController, animated: true, completion: {
-                    })
-                    
-                    break
-                case 1:
-                    let legalViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_WEB_VIEW) as! TRLegalViewController
-                    legalViewController.linkToOpen = NSURL(string: "https://www.crossroadsapp.co/privacy")!
-                    self.presentViewController(legalViewController, animated: true, completion: {
-                    })
-                    break
-                case 2:
-                    _ = TRRequestUpdateLegalRequest().updateLegalAcceptance({ (didSucceed) in
-                    })
-                    break
-                default:
-                    break
-                }
-            })
+        var legalMessage = ""
+        var buttonOneTitle: String?
+        var buttonTwoTitle: String?
+        let buttonOkTitle  = "OK"
+        
+        if TRApplicationManager.sharedInstance.currentUser?.legalInfo?.privacyNeedsUpdate == true && TRApplicationManager.sharedInstance.currentUser?.legalInfo?.termsNeedsUpdate == true {
+            legalMessage = "Our Terms of Service and Privacy Policy have changed. \n\n By tapping the “OK” button, you agree to the updated Terms of Service and Privacy Policy."
+            buttonOneTitle = "Privacy Policy"
+            buttonTwoTitle = "Terms of Service"
+        } else if (TRApplicationManager.sharedInstance.currentUser?.legalInfo?.privacyNeedsUpdate == true) {
+            legalMessage = "Our Privacy Policy has changed. \n\n By tapping the “OK” button, you agree to the updated Privacy Policy."
+            buttonOneTitle = "   Privacy Policy   "
+        } else {
+            legalMessage = "Our Terms of Service has changed. \n\n By tapping the “OK” button, you agree to the updated Terms of Service."
+            buttonTwoTitle = "Terms of Service"
         }
+        
+        self.displayAlertWithActionHandler("Update", message: legalMessage, buttonOneTitle: buttonOneTitle ,buttonTwoTitle: buttonTwoTitle, buttonThreeTitle: buttonOkTitle, completionHandler: {complete in
+            
+            let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+            switch complete! {
+            case K.Legal.TOS:
+                let legalViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_WEB_VIEW) as! TRLegalViewController
+                legalViewController.linkToOpen = NSURL(string: "https://www.crossroadsapp.co/terms")!
+                self.presentViewController(legalViewController, animated: true, completion: {
+                })
+                
+                break
+            case K.Legal.PP:
+                let legalViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_WEB_VIEW) as! TRLegalViewController
+                legalViewController.linkToOpen = NSURL(string: "https://www.crossroadsapp.co/privacy")!
+                self.presentViewController(legalViewController, animated: true, completion: {
+                })
+                break
+            case K.Legal.OK:
+                _ = TRRequestUpdateLegalRequest().updateLegalAcceptance({ (didSucceed) in
+                })
+                break
+            default:
+                break
+            }
+        })
     }
     
     //MARK:- Swipe Gestures Begins
