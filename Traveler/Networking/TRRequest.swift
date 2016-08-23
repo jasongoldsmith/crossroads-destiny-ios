@@ -49,6 +49,9 @@ class TRRequest {
             TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(self.showActivityIndicatorBgClear, activityTopConstraintValue: self.activityIndicatorTopConstraint)
         }
         
+        //Add System Info
+        self.addSystemInformation()
+        
         
         TRApplicationManager.sharedInstance.alamoFireManager!.request(self.URLMethod!, self.requestURL!, parameters:self.params)
             .responseJSON { response in
@@ -86,6 +89,36 @@ class TRRequest {
                     }
                 }
         }
+    }
+    
+    func addSystemInformation () {
+        
+        if let _ = self.params {
+        } else {
+            self.params = [String: AnyObject]()
+        }
+        
+        let systemVersion = UIDevice.currentDevice().systemVersion
+        let deviceModel = UIDevice.currentDevice().model
+        let devicetype = "iOS"
+        let appversion = "\(NSBundle.mainBundle().releaseVersionNumber!) (\(NSBundle.mainBundle().buildVersionNumber!))"
+        let manufacturer = "Apple"
+        let branchSDKVersion = "0.12.5"
+        let faceBookSDKVersion = "0.1.1"
+        let fireBaseSDKVersion = "3.5.1"
+        let mixPlanelSDKVersion = "1.0.0"
+        let fabricSDK = "1.6.8"
+        
+        self.params?["x-osversion"] = systemVersion
+        self.params?["x-devicetype"] = devicetype
+        self.params?["x-devicemodel"] = deviceModel
+        self.params?["x-appversion"] = appversion
+        self.params?["x-fbooksdk"] = faceBookSDKVersion
+        self.params?["x-fbasesdk"] = fireBaseSDKVersion
+        self.params?["x-mpsdk"] = mixPlanelSDKVersion
+        self.params?["x-branchsdk"] = branchSDKVersion
+        self.params?["x-manufacturer"] = manufacturer
+        self.params?["x-fabricSDK"] = fabricSDK
     }
 }
 
