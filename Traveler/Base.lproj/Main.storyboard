@@ -1419,7 +1419,7 @@
                                     <constraint firstAttribute="height" constant="44" id="cLs-Od-GSI"/>
                                     <constraint firstAttribute="width" constant="250" id="xkf-aj-fT9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Contact Us"/>
                                 <variation key="default">
                                     <mask key="constraints">
