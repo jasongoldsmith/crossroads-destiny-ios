@@ -371,7 +371,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrLoadingimgBackgroundMap" translatesAutoresizingMaskIntoConstraints="NO" id="QNn-lH-hYo">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBadge" translatesAutoresizingMaskIntoConstraints="NO" id="PXD-xD-2hM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBadge" translatesAutoresizingMaskIntoConstraints="NO" id="PXD-xD-2hM">
                                 <rect key="frame" x="201" y="77" width="198" height="137"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -3000,7 +3000,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PK0-Le-SMR">
-                                <rect key="frame" x="10" y="273" width="580" height="50"/>
+                                <rect key="frame" x="10" y="277" width="580" height="50"/>
                                 <color key="backgroundColor" red="0.01176470588" green="0.31764705879999999" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="PFr-oT-Pp4"/>
@@ -3014,7 +3014,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconArrowDown" translatesAutoresizingMaskIntoConstraints="NO" id="F3K-DZ-kKQ">
-                                <rect key="frame" x="565" y="297" width="10" height="5"/>
+                                <rect key="frame" x="565" y="301" width="10" height="5"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nax-av-Wvi">
                                 <rect key="frame" x="0.0" y="550" width="600" height="50"/>
@@ -3067,7 +3067,7 @@ from &lt;Playstation 3&gt;. </string>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3zm-Da-zw2">
-                                <rect key="frame" x="25" y="286" width="24" height="24"/>
+                                <rect key="frame" x="25" y="290" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="LEN-Vo-SL6"/>
                                 </constraints>
@@ -3123,7 +3123,7 @@ from &lt;Playstation 3&gt;. </string>
                             <constraint firstAttribute="trailing" secondItem="n3y-gf-vY6" secondAttribute="trailing" id="KXg-uz-Bc9"/>
                             <constraint firstItem="rzn-bo-U2A" firstAttribute="top" secondItem="Nax-av-Wvi" secondAttribute="bottom" id="MF7-ZU-jp9"/>
                             <constraint firstAttribute="trailing" secondItem="cSX-zS-eiN" secondAttribute="trailing" constant="20" id="Mk7-0a-jU1"/>
-                            <constraint firstItem="yJh-Oy-PJq" firstAttribute="top" secondItem="3zm-Da-zw2" secondAttribute="bottom" constant="29" id="Ml6-zC-6Jj"/>
+                            <constraint firstItem="yJh-Oy-PJq" firstAttribute="top" secondItem="3zm-Da-zw2" secondAttribute="bottom" constant="25" id="Ml6-zC-6Jj"/>
                             <constraint firstAttribute="trailing" secondItem="sHN-zm-iXF" secondAttribute="trailing" id="Obh-fE-rz0"/>
                             <constraint firstItem="uWa-nd-jij" firstAttribute="top" secondItem="unG-fm-H5R" secondAttribute="bottom" constant="40" id="PTh-g1-7ff"/>
                             <constraint firstItem="aXP-YL-bLf" firstAttribute="top" secondItem="yJh-Oy-PJq" secondAttribute="bottom" constant="12" id="Py8-Z0-sbS"/>
@@ -3142,17 +3142,17 @@ from &lt;Playstation 3&gt;. </string>
                             <constraint firstItem="3zm-Da-zw2" firstAttribute="centerY" secondItem="PK0-Le-SMR" secondAttribute="centerY" id="gSe-tL-gcf"/>
                             <constraint firstItem="Xcc-0E-LNK" firstAttribute="leading" secondItem="pDa-OZ-Smy" secondAttribute="leading" constant="10" id="hKA-pW-9i9"/>
                             <constraint firstItem="3JW-SK-YBk" firstAttribute="top" secondItem="yju-HA-LIZ" secondAttribute="bottom" id="ipB-fs-hwo"/>
-                            <constraint firstItem="XCv-6A-HNo" firstAttribute="top" secondItem="PK0-Le-SMR" secondAttribute="bottom" constant="17" id="lVX-jt-TbL"/>
+                            <constraint firstItem="XCv-6A-HNo" firstAttribute="top" secondItem="PK0-Le-SMR" secondAttribute="bottom" constant="13" id="lVX-jt-TbL"/>
                             <constraint firstItem="aXP-YL-bLf" firstAttribute="top" secondItem="PK0-Le-SMR" secondAttribute="bottom" constant="12" id="nnw-8k-hRR"/>
                             <constraint firstItem="yJh-Oy-PJq" firstAttribute="leading" secondItem="pDa-OZ-Smy" secondAttribute="leading" constant="10" id="oaA-zc-Y4J"/>
                             <constraint firstItem="F3K-DZ-kKQ" firstAttribute="centerY" secondItem="PK0-Le-SMR" secondAttribute="centerY" constant="1.5" id="olQ-Rz-ISR"/>
                             <constraint firstItem="Nax-av-Wvi" firstAttribute="top" secondItem="cSX-zS-eiN" secondAttribute="bottom" constant="10" id="riw-S5-rK7"/>
                             <constraint firstItem="cSX-zS-eiN" firstAttribute="centerX" secondItem="pDa-OZ-Smy" secondAttribute="centerX" id="sWV-Ll-fBJ"/>
-                            <constraint firstItem="PK0-Le-SMR" firstAttribute="top" secondItem="uWa-nd-jij" secondAttribute="bottom" constant="5" id="swv-a1-6r4"/>
+                            <constraint firstItem="PK0-Le-SMR" firstAttribute="top" secondItem="uWa-nd-jij" secondAttribute="bottom" constant="9" id="swv-a1-6r4"/>
                             <constraint firstItem="Nax-av-Wvi" firstAttribute="leading" secondItem="pDa-OZ-Smy" secondAttribute="leading" id="vdl-1d-LZS"/>
                             <constraint firstAttribute="trailing" secondItem="Sjb-Lv-QeM" secondAttribute="trailing" id="x9b-Lg-ihc"/>
                             <constraint firstItem="n3y-gf-vY6" firstAttribute="top" secondItem="pDa-OZ-Smy" secondAttribute="top" id="xXj-OO-iYQ"/>
-                            <constraint firstItem="yJh-Oy-PJq" firstAttribute="top" secondItem="PK0-Le-SMR" secondAttribute="bottom" constant="16" id="yJg-yT-XXK"/>
+                            <constraint firstItem="yJh-Oy-PJq" firstAttribute="top" secondItem="PK0-Le-SMR" secondAttribute="bottom" constant="12" id="yJg-yT-XXK"/>
                             <constraint firstItem="sHN-zm-iXF" firstAttribute="top" secondItem="pDa-OZ-Smy" secondAttribute="top" id="yQo-E6-LSQ"/>
                         </constraints>
                         <variation key="default">
@@ -3238,13 +3238,19 @@ from &lt;Playstation 3&gt;. </string>
                                 <color key="textColor" red="0.67843137249999996" green="0.78039215689999997" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBadge" translatesAutoresizingMaskIntoConstraints="NO" id="EfW-Rr-lwB">
-                                <rect key="frame" x="209" y="40" width="182" height="137"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBadge" translatesAutoresizingMaskIntoConstraints="NO" id="EfW-Rr-lwB">
+                                <rect key="frame" x="201" y="40" width="198" height="137"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="182" id="Oun-Sq-CE2"/>
                                     <constraint firstAttribute="height" constant="137" id="PCl-uX-Fep"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Oun-Sq-CE2"/>
+                                        <exclude reference="PCl-uX-Fep"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qQW-9x-jI3" userLabel="username View">
                                 <rect key="frame" x="10" y="296" width="580" height="66"/>
