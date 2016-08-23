@@ -117,9 +117,11 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         } else if (TRApplicationManager.sharedInstance.currentUser?.legalInfo?.privacyNeedsUpdate == true) {
             legalMessage = "Our Privacy Policy has changed. \n\n By tapping the “OK” button, you agree to the updated Privacy Policy."
             buttonOneTitle = "   Privacy Policy   "
-        } else {
+        } else if (TRApplicationManager.sharedInstance.currentUser?.legalInfo?.termsNeedsUpdate == true) {
             legalMessage = "Our Terms of Service have changed. \n\n By tapping the “OK” button, you agree to the updated Terms of Service."
             buttonTwoTitle = "Terms of Service"
+        } else {
+            return
         }
         
         self.displayAlertWithActionHandler("Update", message: legalMessage, buttonOneTitle: buttonOneTitle ,buttonTwoTitle: buttonTwoTitle, buttonThreeTitle: buttonOkTitle, completionHandler: {complete in
