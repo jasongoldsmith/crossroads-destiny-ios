@@ -286,12 +286,18 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrLoginOptionBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Q4O-b1-LyM">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBadge" translatesAutoresizingMaskIntoConstraints="NO" id="b67-XM-c3B">
-                                <rect key="frame" x="209" y="147" width="182" height="137"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBadge" translatesAutoresizingMaskIntoConstraints="NO" id="b67-XM-c3B">
+                                <rect key="frame" x="201" y="147" width="198" height="137"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="182" id="qnD-oZ-oDy"/>
                                     <constraint firstAttribute="height" constant="137" id="sIG-L1-f57"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="qnD-oZ-oDy"/>
+                                        <exclude reference="sIG-L1-f57"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9OI-ue-1e9">
                                 <rect key="frame" x="0.0" y="536" width="300" height="64"/>
