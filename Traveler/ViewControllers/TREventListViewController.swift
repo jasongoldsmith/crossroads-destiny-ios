@@ -646,10 +646,11 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
                     let vc = TRApplicationManager.sharedInstance.stroryBoardManager.getViewControllerWithID(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_CREATE_EVENT_FINAL, storyBoardID: K.StoryBoard.StoryBoard_Main) as! TRCreateEventFinalView
                     vc.activityInfo = TRApplicationManager.sharedInstance.activityList
                     vc.selectedActivity = sender
-                    vc.backButton?.hidden = true
                     
                     let navigationController = UINavigationController(rootViewController: vc)
-                    self.presentViewController(navigationController, animated: true, completion: nil)
+                    self.presentViewController(navigationController, animated: true, completion: {
+                        vc.backButton?.hidden = true
+                    })
                 }
             })
         }
