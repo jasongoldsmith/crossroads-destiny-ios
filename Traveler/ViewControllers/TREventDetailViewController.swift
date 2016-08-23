@@ -419,7 +419,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             if indexPath.section < self.eventInfo?.eventPlayersArray.count {
                 
                 var playersNameString = self.eventInfo?.eventPlayersArray[indexPath.section].getDefaultConsole()?.consoleId!
-                if var clanTag = self.eventInfo?.eventPlayersArray[indexPath.section].playerConsoles.first!.clanTag where clanTag != "" {
+                if var clanTag = self.eventInfo?.eventPlayersArray[indexPath.section].getDefaultConsole()?.clanTag! where clanTag != "" {
                     clanTag = " " + "[" + clanTag + "]"
                     playersNameString = playersNameString! + clanTag
                 }
@@ -447,12 +447,14 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             self.eventTable?.estimatedRowHeight = event_description_row_height
             self.eventTable?.rowHeight = UITableViewAutomaticDimension
 
-            if let coonsoleID = self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.getDefaultConsole()?.consoleId! {
-                commentCell.playerUserName.text = coonsoleID
-            } else {
-                commentCell.playerUserName.text = " "
+            
+            var playersNameString = self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.getDefaultConsole()?.consoleId!
+            if var clanTag = self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.getDefaultConsole()?.clanTag where clanTag != "" {
+                clanTag = " " + "[" + clanTag + "]"
+                playersNameString = playersNameString! + clanTag
             }
             
+            commentCell.playerUserName.text = playersNameString
             
             if let hasTime = self.eventInfo?.eventComments[indexPath.section].commentCreated {
                 let formatter = NSDateFormatter()

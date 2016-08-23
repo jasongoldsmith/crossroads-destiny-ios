@@ -140,7 +140,7 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
             
             if let activityLight = activityInfo.activityLight  where Int(activityLight) > 0 {
                 let activityAttrString = NSMutableAttributedString(string: "Recommended Light: ")
-                let activityColorString = NSMutableAttributedString(string: "\u{02726} \(activityLight)")
+                let activityColorString = NSMutableAttributedString(string: "\u{02726}\(activityLight)")
                 activityColorString.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1) , range: NSMakeRange(0, activityColorString.length))
                 
                 activityAttrString.appendAttributedString(activityColorString)
