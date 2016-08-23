@@ -66,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Tracking Open Source
             var mySourceDict = [String: AnyObject]()
             mySourceDict["source"] = "branch"
-            _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_SIGNUP_INIT)
+            _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_APP_INIT)
             
             
             if let isBranchLink = params["+clicked_branch_link"]?.boolValue where  isBranchLink == true {
@@ -82,6 +82,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         })
         
+        
+        // Tracking App Init
+        var mySourceDict = [String: AnyObject]()
+        mySourceDict["source"] = "unknown"
+        _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_APP_INIT)
+
         
         return true
     }
@@ -171,6 +177,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         FBSDKAppEvents.activateApp()
+        
+        // Tracking App Init
+        var mySourceDict = [String: AnyObject]()
+        mySourceDict["source"] = "unknown"
+        _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_APP_INIT)
+
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 

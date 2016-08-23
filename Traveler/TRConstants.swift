@@ -166,6 +166,7 @@ enum APP_TRACKING_DATA_TYPE: String {
     case TRACKING_SIGNUP_INIT = "signupInit"
     case TRACKING_EVENT_SHARING = "eventSharing"
     case TRACKING_ADD_CARD_CLICKED = "addCardInit"
+    case TRACKING_APP_INIT         = "appInit"
 }
 
 enum ACCOUNT_VERIFICATION: String {
