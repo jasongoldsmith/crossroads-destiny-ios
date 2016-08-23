@@ -24,7 +24,11 @@ class TRRequestUpdateLegalRequest: TRRequest {
                 
                 return
             }
-             
+            
+            let userData = TRUserInfo()
+            userData.parseUserResponse(swiftyJsonVar)
+            TRUserInfo.saveUserData(userData)
+            
             completion(didSucceed: true )
         }
     }
