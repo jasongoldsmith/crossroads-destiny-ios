@@ -118,7 +118,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             legalMessage = "Our Privacy Policy has changed. \n\n By tapping the “OK” button, you agree to the updated Privacy Policy."
             buttonOneTitle = "   Privacy Policy   "
         } else {
-            legalMessage = "Our Terms of Service has changed. \n\n By tapping the “OK” button, you agree to the updated Terms of Service."
+            legalMessage = "Our Terms of Service have changed. \n\n By tapping the “OK” button, you agree to the updated Terms of Service."
             buttonTwoTitle = "Terms of Service"
         }
         
