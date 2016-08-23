@@ -35,6 +35,9 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     @IBOutlet var emptyTableBackGround: UIImageView?
     @IBOutlet var playerGroupsIcon: UIImageView?
     @IBOutlet var eventTableTopConstraint: NSLayoutConstraint?
+    @IBOutlet weak var leftSectionUnderLineRightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var rightSectionUnderLineLeftConstraint: NSLayoutConstraint!
+
     
     //Events Information
     var eventsInfo: [TREventInfo] = []
@@ -101,6 +104,15 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         //Add Notification Permission
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.addNotificationsPermission()
+        
+        //Constraints
+        if DeviceType.IS_IPHONE_6P == true {
+            self.leftSectionUnderLineRightConstraint?.constant = 8
+            self.rightSectionUnderLineLeftConstraint?.constant = 5
+        } else {
+            self.leftSectionUnderLineRightConstraint?.constant = 2
+            self.rightSectionUnderLineLeftConstraint?.constant = 0
+        }
     }
 
     func showLegalAlert () {

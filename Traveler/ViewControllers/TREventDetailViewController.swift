@@ -41,6 +41,8 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     @IBOutlet weak var titleHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var eventCheckPointTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var leftSectionUnderLineRightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var rightSectionUnderLineLeftConstraint: NSLayoutConstraint!
     
     //Current Event
     var eventInfo: TREventInfo?
@@ -191,6 +193,16 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 self.titleHeightConstraint.constant = 175
                 self.iconHeightConstraint.constant = 170
             }
+        }
+        
+        
+        //Constraints
+        if DeviceType.IS_IPHONE_6P == true {
+            self.leftSectionUnderLineRightConstraint?.constant = 40
+            self.rightSectionUnderLineLeftConstraint?.constant = 40
+        } else {
+            self.leftSectionUnderLineRightConstraint?.constant = 32
+            self.rightSectionUnderLineLeftConstraint?.constant = 32
         }
     }
     

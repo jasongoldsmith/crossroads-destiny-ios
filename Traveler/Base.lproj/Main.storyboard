@@ -1206,15 +1206,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vya-EI-Q0G">
-                                <rect key="frame" x="0.0" y="263" width="600" height="287"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="ylH-PI-zc9" id="OQR-Jf-fbr"/>
-                                    <outlet property="delegate" destination="ylH-PI-zc9" id="V6d-Sc-tTc"/>
-                                    <outletCollection property="gestureRecognizers" destination="u1V-w4-WH6" appends="YES" id="7QN-Es-0eU"/>
-                                </connections>
-                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cwo-YJ-XXx">
                                 <rect key="frame" x="0.0" y="550" width="600" height="50"/>
                                 <subviews>
@@ -1244,6 +1235,15 @@
                                     <constraint firstItem="8QU-AI-bfh" firstAttribute="top" secondItem="cwo-YJ-XXx" secondAttribute="top" constant="8" id="zPW-u7-ixC"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vya-EI-Q0G">
+                                <rect key="frame" x="0.0" y="263" width="600" height="287"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ylH-PI-zc9" id="OQR-Jf-fbr"/>
+                                    <outlet property="delegate" destination="ylH-PI-zc9" id="V6d-Sc-tTc"/>
+                                    <outletCollection property="gestureRecognizers" destination="u1V-w4-WH6" appends="YES" id="7QN-Es-0eU"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.090196078431372548" green="0.14901960784313725" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -1312,6 +1312,8 @@
                         <outlet property="eventTag" destination="lML-KN-3nB" id="oz6-JP-HSy"/>
                         <outlet property="iconHeightConstraint" destination="Qd0-kH-wcW" id="n2J-W8-jKw"/>
                         <outlet property="joinButton" destination="gNz-aR-fLG" id="GtI-IP-jzJ"/>
+                        <outlet property="leftSectionUnderLineRightConstraint" destination="OpG-hH-hY3" id="CZM-DM-ClP"/>
+                        <outlet property="rightSectionUnderLineLeftConstraint" destination="Efs-lG-jal" id="N35-Aw-34j"/>
                         <outlet property="segmentControl" destination="jYq-R8-c9p" id="eRh-tq-NMa"/>
                         <outlet property="segmentOneUnderLine" destination="HAF-uu-5cX" id="50b-jr-ddx"/>
                         <outlet property="segmentTwoUnderLine" destination="V3u-Lz-xh1" id="Cil-eC-kWw"/>
@@ -1329,7 +1331,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-2689" y="166"/>
+            <point key="canvasLocation" x="-2301" y="212"/>
         </scene>
         <!--Legal View Controller-->
         <scene sceneID="Ncw-Ae-IHM">
@@ -1997,7 +1999,9 @@
                         <outlet property="emptyTableBackGround" destination="HnB-tK-Gh9" id="fNz-zZ-I4k"/>
                         <outlet property="eventTableTopConstraint" destination="o54-D6-a8c" id="MrD-nk-ZZj"/>
                         <outlet property="eventsTableView" destination="huA-O1-54n" id="gEr-ib-MKo"/>
+                        <outlet property="leftSectionUnderLineRightConstraint" destination="Blp-dT-mR6" id="JC2-2j-1MP"/>
                         <outlet property="playerGroupsIcon" destination="mXp-dP-eCo" id="q0X-jp-QHo"/>
+                        <outlet property="rightSectionUnderLineLeftConstraint" destination="lZO-TY-WEQ" id="lAh-TJ-3Qq"/>
                         <outlet property="segmentControl" destination="ros-Bk-ZVy" id="i3U-uh-wdz"/>
                         <outlet property="segmentOneUnderLine" destination="z2g-Bm-q4G" id="TtB-fc-gBv"/>
                         <outlet property="segmentTwoUnderLine" destination="VH7-Fj-a7t" id="6vE-Bv-iqq"/>
@@ -2509,14 +2513,10 @@
                                 <constraints>
                                     <constraint firstItem="bz1-JW-UV5" firstAttribute="leading" secondItem="IBA-sA-Zeb" secondAttribute="leading" id="4H7-Wi-7yi"/>
                                     <constraint firstItem="274-RR-v93" firstAttribute="top" secondItem="IBA-sA-Zeb" secondAttribute="top" constant="23" id="8IT-tF-mbl"/>
-                                    <constraint firstItem="nbM-BQ-GOC" firstAttribute="centerY" secondItem="IBA-sA-Zeb" secondAttribute="centerY" id="Ahk-OB-myu"/>
                                     <constraint firstAttribute="trailing" secondItem="274-RR-v93" secondAttribute="trailing" constant="15" id="GBG-Nu-eIy"/>
-                                    <constraint firstItem="nbM-BQ-GOC" firstAttribute="leading" secondItem="IBA-sA-Zeb" secondAttribute="leading" constant="13" id="H3Q-PF-dtx"/>
-                                    <constraint firstItem="nbM-BQ-GOC" firstAttribute="centerY" secondItem="bz1-JW-UV5" secondAttribute="centerY" id="MPB-bV-0qP"/>
                                     <constraint firstAttribute="bottom" secondItem="bz1-JW-UV5" secondAttribute="bottom" id="Qff-cA-KSf"/>
                                     <constraint firstAttribute="height" constant="50" id="TDO-SM-fCn"/>
                                     <constraint firstItem="nbM-BQ-GOC" firstAttribute="centerY" secondItem="274-RR-v93" secondAttribute="centerY" id="TUU-Cb-YVd"/>
-                                    <constraint firstItem="nbM-BQ-GOC" firstAttribute="top" secondItem="IBA-sA-Zeb" secondAttribute="top" constant="14" id="ToZ-W6-ijc"/>
                                     <constraint firstItem="274-RR-v93" firstAttribute="centerY" secondItem="IBA-sA-Zeb" secondAttribute="centerY" id="UFG-vt-E6F"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="g1K-1h-1gR"/>
                                     <constraint firstItem="bz1-JW-UV5" firstAttribute="top" secondItem="IBA-sA-Zeb" secondAttribute="top" id="ruQ-0F-cqy"/>
@@ -2526,10 +2526,6 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="g1K-1h-1gR"/>
-                                        <exclude reference="Ahk-OB-myu"/>
-                                        <exclude reference="H3Q-PF-dtx"/>
-                                        <exclude reference="MPB-bV-0qP"/>
-                                        <exclude reference="ToZ-W6-ijc"/>
                                         <exclude reference="8IT-tF-mbl"/>
                                     </mask>
                                 </variation>
