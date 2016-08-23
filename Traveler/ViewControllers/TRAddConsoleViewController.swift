@@ -130,7 +130,7 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
     }
     
     @IBAction func textFieldDidDidUpdate (textField: UITextField) {
-        if self.consoleIDTextField?.text?.characters.count > 3 {
+        if self.consoleIDTextField?.text?.characters.count > 0 {
             if self.openedFromProfile == true {
                 self.addUpdateNewConsole?.enabled = true
                 self.addUpdateNewConsole?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
