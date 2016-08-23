@@ -489,9 +489,14 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
     func addModifiersView () {
         
         var mofifiersArray: [String] = []
+        
         if self.selectedActivity?.activityModifiers.count > 0 {
             for modifiers in (self.selectedActivity?.activityModifiers)! {
                 mofifiersArray.append(modifiers.aModifierName!)
+            }
+            
+            for bonus in (self.selectedActivity?.activityBonus)! {
+                mofifiersArray.append(bonus.aBonusName!)
             }
         } else {
             if let hasCheckPoint = self.selectedActivity?.activityCheckPoint where hasCheckPoint != ""{
