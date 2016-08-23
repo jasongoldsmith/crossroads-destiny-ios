@@ -397,7 +397,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconCrossroadsLogin" translatesAutoresizingMaskIntoConstraints="NO" id="zeK-8M-JsG">
-                                        <rect key="frame" x="17" y="17" width="20" height="24"/>
+                                        <rect key="frame" x="18" y="17" width="20" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="9ME-KR-Pjt"/>
                                             <constraint firstAttribute="width" constant="20" id="dZU-yY-IB7"/>
@@ -431,7 +431,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="66" id="3pZ-Lz-K0C"/>
                                     <constraint firstItem="fu6-Cc-R0h" firstAttribute="top" secondItem="hVA-9s-Rtz" secondAttribute="top" constant="17" id="9co-An-Lbh"/>
-                                    <constraint firstItem="zeK-8M-JsG" firstAttribute="leading" secondItem="hVA-9s-Rtz" secondAttribute="leading" constant="17" id="CAK-MT-eWx"/>
+                                    <constraint firstItem="zeK-8M-JsG" firstAttribute="leading" secondItem="hVA-9s-Rtz" secondAttribute="leading" constant="18" id="CAK-MT-eWx"/>
                                     <constraint firstItem="zeK-8M-JsG" firstAttribute="top" secondItem="hVA-9s-Rtz" secondAttribute="top" constant="17" id="EAL-H7-1Jf"/>
                                     <constraint firstAttribute="trailing" secondItem="0oM-Cb-lhN" secondAttribute="trailing" id="GBb-37-KYM"/>
                                     <constraint firstItem="z5h-68-hi8" firstAttribute="top" secondItem="fu6-Cc-R0h" secondAttribute="bottom" constant="2" id="Pvb-e8-Myc"/>
@@ -439,8 +439,8 @@
                                     <constraint firstAttribute="height" constant="66" id="bMA-fe-fPY"/>
                                     <constraint firstAttribute="trailing" secondItem="z5h-68-hi8" secondAttribute="trailing" constant="10" id="cdV-ef-m8e"/>
                                     <constraint firstItem="0oM-Cb-lhN" firstAttribute="leading" secondItem="hVA-9s-Rtz" secondAttribute="leading" id="cqS-fO-P4B"/>
-                                    <constraint firstItem="fu6-Cc-R0h" firstAttribute="leading" secondItem="zeK-8M-JsG" secondAttribute="trailing" constant="25" id="dqS-7v-3ji"/>
-                                    <constraint firstItem="z5h-68-hi8" firstAttribute="leading" secondItem="zeK-8M-JsG" secondAttribute="trailing" constant="25" id="nzm-6G-cKb"/>
+                                    <constraint firstItem="fu6-Cc-R0h" firstAttribute="leading" secondItem="zeK-8M-JsG" secondAttribute="trailing" constant="24" id="dqS-7v-3ji"/>
+                                    <constraint firstItem="z5h-68-hi8" firstAttribute="leading" secondItem="zeK-8M-JsG" secondAttribute="trailing" constant="24" id="nzm-6G-cKb"/>
                                     <constraint firstAttribute="bottom" secondItem="0oM-Cb-lhN" secondAttribute="bottom" id="osk-Pl-y3a"/>
                                 </constraints>
                                 <variation key="default">
@@ -2985,13 +2985,19 @@
                                     <constraint firstItem="UFf-VE-a39" firstAttribute="top" secondItem="1d9-oV-rS2" secondAttribute="bottom" constant="2" id="oeO-IZ-zFX"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBadge" translatesAutoresizingMaskIntoConstraints="NO" id="unG-fm-H5R">
-                                <rect key="frame" x="209" y="75" width="182" height="137"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBadge" translatesAutoresizingMaskIntoConstraints="NO" id="unG-fm-H5R">
+                                <rect key="frame" x="201" y="75" width="198" height="137"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="137" id="QVT-46-CqO"/>
                                     <constraint firstAttribute="width" constant="182" id="mgl-Zt-IwG"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="QVT-46-CqO"/>
+                                        <exclude reference="mgl-Zt-IwG"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHOOSE YOUR CONSOLE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWa-nd-jij">
                                 <rect key="frame" x="217" y="252" width="166" height="16"/>
@@ -3523,12 +3529,17 @@ from &lt;Playstation 3&gt;. </string>
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBadge" translatesAutoresizingMaskIntoConstraints="NO" id="ggX-cr-WPZ">
-                                <rect key="frame" x="209" y="55" width="182" height="137"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBadge" translatesAutoresizingMaskIntoConstraints="NO" id="ggX-cr-WPZ">
+                                <rect key="frame" x="201" y="55" width="198" height="137"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="137" id="jbw-yS-1rw"/>
                                     <constraint firstAttribute="width" constant="182" id="kQK-Yc-qIQ"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="kQK-Yc-qIQ"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VERIFY YOUR ACCOUNT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ws7-ac-Igq">
                                 <rect key="frame" x="227" y="233" width="147" height="21"/>

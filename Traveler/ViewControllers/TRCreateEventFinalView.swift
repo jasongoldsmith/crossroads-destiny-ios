@@ -84,6 +84,9 @@ class TRCreateEventFinalView: TRBaseViewController, TRDatePickerProtocol, UITabl
         super.viewDidLoad()
         
         
+        //Hide Navigation
+        self.hideNavigationBar()
+        
         // Adding Corner Radius to Views
         self.activitNameView.layer.cornerRadius = 2.0
         self.activitDetailsView.layer.cornerRadius = 2.0
