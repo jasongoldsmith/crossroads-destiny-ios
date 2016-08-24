@@ -81,6 +81,7 @@ class TRApplicationManager: NSObject {
         let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
         configuration.timeoutIntervalForRequest = REQUEST_TIME_OUT
         configuration.timeoutIntervalForResource = REQUEST_TIME_OUT
+        configuration.HTTPAdditionalHeaders = self.addHeaderInformation()
         self.alamoFireManager = Alamofire.Manager(configuration: configuration)
 
         
@@ -113,6 +114,35 @@ class TRApplicationManager: NSObject {
         self.branchManager = TRBranchManager()
     }
 
+    func addHeaderInformation () -> [String: String] {
+        
+        let systemVersion = UIDevice.currentDevice().systemVersion
+        let deviceModel = UIDevice.currentDevice().model
+        let devicetype = "iOS"
+        let appversion = "\(NSBundle.mainBundle().releaseVersionNumber!) (\(NSBundle.mainBundle().buildVersionNumber!))"
+        let manufacturer = "Apple"
+        let branchSDKVersion = "0.12.5"
+        let faceBookSDKVersion = "0.1.1"
+        let fireBaseSDKVersion = "3.5.1"
+        let mixPlanelSDKVersion = "1.0.0"
+        let fabricSDK = "1.6.8"
+        
+        var params = [String: String]()
+        
+        params["x-osversion"] = systemVersion
+        params["x-devicetype"] = devicetype
+        params["x-devicemodel"] = deviceModel
+        params["x-appversion"] = appversion
+        params["x-fbooksdk"] = faceBookSDKVersion
+        params["x-fbasesdk"] = fireBaseSDKVersion
+        params["x-mpsdk"] = mixPlanelSDKVersion
+        params["x-branchsdk"] = branchSDKVersion
+        params["x-manufacturer"] = manufacturer
+        params["x-fabricSDK"] = fabricSDK
+        
+        return params
+    }
+    
     func didReceiveRemoteNotificationInActiveSesion(sender: NSNotification) {
         
         let pushInfo = TRActiveStatePushInfo()
