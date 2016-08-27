@@ -1,6 +1,13 @@
 import UIKit
 
 struct K {
+    
+    struct SharingPlatformType {
+        static let Platform_Branch = "branch"
+        static let Platform_Facebook = "facebook"
+        static let Platform_UnKnown = "unknown"
+    }
+    
     struct UserDefaultKey {
         
         static let TR_DID_SHOW_ONBOARDING = "TR_DID_SHOW_ONBOARDING"
@@ -167,6 +174,7 @@ enum APP_TRACKING_DATA_TYPE: String {
     case TRACKING_EVENT_SHARING = "eventSharing"
     case TRACKING_ADD_CARD_CLICKED = "addCardInit"
     case TRACKING_APP_INIT         = "appInit"
+    case TRACKING_APP_INSTALL         = "appInstall"
 }
 
 enum ACCOUNT_VERIFICATION: String {

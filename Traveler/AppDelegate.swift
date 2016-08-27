@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
         // Override point for customization after application launch.
         
         //Initializing Manager
@@ -33,7 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             rootViewController.pushNotificationData = remoteNotification
         }
 
-        
         //Local Notifications
         let localNotification:UILocalNotification = UILocalNotification()
         localNotification.alertAction = "Testing notifications on iOS8"
@@ -65,11 +65,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             // Tracking Open Source
             var mySourceDict = [String: AnyObject]()
-            mySourceDict["source"] = "branch"
+            mySourceDict["source"] = K.SharingPlatformType.Platform_Branch
             _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_APP_INIT)
             
             
             if let isBranchLink = params["+clicked_branch_link"]?.boolValue where  isBranchLink == true {
+                if let isFirstSession = params["+is_first_session"]?.boolValue where  isFirstSession == true {
+                    let branchUrl: NSURL = NSURL(string: "branch")!
+                    let deepLinkObj = TRDeepLinkObject(link: branchUrl)
+                    let deepLinkAnalyticsDict = deepLinkObj.createLinkInfoAndPassToBackEnd()
+                    if let _ = deepLinkAnalyticsDict {
+                        self.appInstallRequestWithDict(deepLinkAnalyticsDict!)
+                    }
+                    do {
+                        let _ = try TRKeyChainHelper.updateData(K.SharingPlatformType.Platform_Branch, itemValue: "true")
+                    } catch _ as KeychainError {
+                        
+                    } catch {
+                    }
+                } else {
+                    var mySourceDict = [String: AnyObject]()
+                    mySourceDict["source"] = K.SharingPlatformType.Platform_Branch
+                    self.appInitializedRequest(mySourceDict)
+                }
                 
                 let eventID = params["eventId"] as? String
                 let activityName = params["activityName"] as? String
@@ -82,27 +100,64 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         })
         
-        
-        // Tracking App Init
-        var mySourceDict = [String: AnyObject]()
-        mySourceDict["source"] = "unknown"
-        _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_APP_INIT)
 
+//        do {
+//            let _ = try TRKeyChainHelper.deleteData(K.SharingPlatformType.Platform_Branch)
+//            let _ = try TRKeyChainHelper.deleteData(K.SharingPlatformType.Platform_Facebook)
+//        } catch _ as KeychainError {
+//            
+//        } catch {
+//        }
+
+        
+        // App Initialized Metrics
+        var mySourceDict = [String: AnyObject]()
+        mySourceDict["source"] = K.SharingPlatformType.Platform_UnKnown
+        self.appInitializedRequest(mySourceDict)
+        
+        // App Install Metrics
+        self.appInstallInfoSequence(mySourceDict)
         
         return true
     }
 
     // MARK:- Branch Deep Linking related methods
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        if (!Branch.getInstance().handleDeepLink(url)) {
-            // do other deep link routing for the Facebook SDK, Pinterest SDK, etc
+        
+        if (Branch.getInstance().handleDeepLink(url)) {
+            var mySourceDict = [String: AnyObject]()
+            mySourceDict["source"] = K.SharingPlatformType.Platform_Branch
+            self.appInitializedRequest(mySourceDict)
         }
+
+        FBSDKAppLinkUtility.fetchDeferredAppLink({ (URL, error) -> Void in
+            if error != nil {
+            }
+            if URL != nil {
+                
+                let deepLinkObj = TRDeepLinkObject(link: URL)
+                let deepLinkAnalyticsDict = deepLinkObj.createLinkInfoAndPassToBackEnd()
+                if let _ = deepLinkAnalyticsDict {
+                    self.appInstallInfoSequence(deepLinkAnalyticsDict!)
+                }
+                do {
+                    let _ = try TRKeyChainHelper.updateData(K.SharingPlatformType.Platform_Facebook, itemValue: "true")
+                } catch _ as KeychainError {
+                    
+                } catch {
+                }
+            }
+        })
         
         return true
     }
     
     func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
         Branch.getInstance().continueUserActivity(userActivity);
+        
+        if userActivity.activityType == NSUserActivityTypeBrowsingWeb {
+            //let url = userActivity.webpageURL!
+        }
         
         return true
     }
@@ -180,7 +235,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Tracking App Init
         var mySourceDict = [String: AnyObject]()
-        mySourceDict["source"] = "unknown"
+        mySourceDict["source"] = K.SharingPlatformType.Platform_UnKnown
         _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_APP_INIT)
 
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
@@ -190,5 +245,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    
+    //MARK:- App Data Requests
+    func appInitializedRequest (initInfo: Dictionary<String, AnyObject>) {
+        _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(initInfo, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_APP_INIT)
+    }
+    
+    func appInstallRequestWithDict (installInfo: Dictionary<String, AnyObject>) {
+        _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(installInfo, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_APP_INSTALL)
+    }
+    
+    func appInstallInfoSequence (installInfo: Dictionary<String, AnyObject>) {
+        do {
+            let isBranchInstall = try TRKeyChainHelper.queryData(K.SharingPlatformType.Platform_Branch)
+            let isFaceBookInstall = try TRKeyChainHelper.queryData(K.SharingPlatformType.Platform_Facebook)
+            
+            if isBranchInstall!.boolValue == true || isFaceBookInstall!.boolValue == true {
+                return
+            } else {
+                self.appInstallRequestWithDict(installInfo)
+            }
+            
+        } catch KeychainError.ItemNotFound {
+            
+            //Send Install Info, this will be overwritten if FaceBook's deferred link is called or if Branch's call back gets called
+            self.appInstallRequestWithDict(installInfo)
+            
+            do {
+                let _ = try TRKeyChainHelper.addData(K.SharingPlatformType.Platform_Branch, itemValue: "false")
+                let _ = try TRKeyChainHelper.addData(K.SharingPlatformType.Platform_Facebook, itemValue: "false")
+            } catch _ as KeychainError {
+                
+            } catch {
+            }
+        } catch {
+            print("catch")
+        }
+    }
 }
 
