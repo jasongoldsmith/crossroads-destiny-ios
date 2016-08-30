@@ -148,8 +148,21 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
         createRequest.registerTRUserWith(userInfo) { (value ) in  //, errorData) in
             
             if value == true {
-                _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(nil, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_SIGNUP_INIT)
-
+                
+                // On Successful creation save his userID to KeyChain, so that on next install, we know it was an already existing user (In case he deleted the app)
+                do {
+                    _ = try TRKeyChainHelper.addData(userInfo.userID!, itemValue: K.keyChainInfo.UserId)
+                } catch _ as KeychainError {
+                    
+                } catch {
+                    
+                }
+                
+                _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(nil, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_SIGNUP_INIT, completion: {didSucceed in
+                    if didSucceed == true {
+                    }
+                })
+                
                 self.createAccountSuccess()
             } else {
                 

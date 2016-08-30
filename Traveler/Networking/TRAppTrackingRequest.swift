@@ -10,7 +10,7 @@ import Foundation
 
 class TRAppTrackingRequest: TRRequest {
     
-    func sendApplicationPushNotiTracking (notiDict: NSDictionary?, trackingType: APP_TRACKING_DATA_TYPE) {
+    func sendApplicationPushNotiTracking (notiDict: NSDictionary?, trackingType: APP_TRACKING_DATA_TYPE, completion: TRValueCallBack) {
        
         let appTrackingUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_APP_TRACKING
         var params = [String: AnyObject]()
@@ -31,8 +31,11 @@ class TRAppTrackingRequest: TRRequest {
         request.sendRequestWithCompletion { (error, swiftyJsonVar) -> () in
             
             if let _ = error {
+                completion(didSucceed: false)
                 return
             }
+            
+            completion(didSucceed: true)
         }
     }
 }

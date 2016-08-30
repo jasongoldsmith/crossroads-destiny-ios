@@ -2,6 +2,10 @@ import UIKit
 
 struct K {
     
+    struct keyChainInfo {
+        static let UserId = "UserId"
+    }
+    
     struct SharingPlatformType {
         static let Platform_Branch = "branch"
         static let Platform_Facebook = "facebook"
@@ -12,6 +16,10 @@ struct K {
         
         static let TR_DID_SHOW_ONBOARDING = "TR_DID_SHOW_ONBOARDING"
         static let SHOW_GROUP_PICKER = "SHOW_GROUP_PICKER"
+        static let INSTALL_FROM_FACEBOOK = "INSTALL_FROM_FACEBOOK"
+        static let INSTALL_FROM_BRANCH = "INSTALL_FROM_BRANCH"
+        static let INSTALL_INFO_SENT = "INSTALL_INFO_SENT" 
+        static let Platform_Info_Dict = "Platform_Info_Dict"
         
         struct UserAccountInfo {
             static let TR_UserName      = "TR_UserName"
@@ -48,6 +56,7 @@ struct K {
         #elseif ADHOC
             static let TR_BaseUrl            =   "https://travelerbackend.herokuapp.com"
         #else
+//        static let TR_BaseUrl            =   "https://live.crossroadsapp.co"
             static let TR_BaseUrl            =   "https://travelerbackend.herokuapp.com"
         #endif
         

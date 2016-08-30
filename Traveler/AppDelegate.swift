@@ -49,7 +49,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let token = "23f27698695b0137adfef97f173b9f91"
         Mixpanel.initialize(token: token)
         
-
+        let mixpanel = Mixpanel.mainInstance()
+        mixpanel!.createAlias("13793", distinctId: mixpanel!.distinctId)
+        mixpanel!.identify(distinctId: mixpanel!.distinctId)
+        TRApplicationManager.sharedInstance.alamoFireManager!.session.configuration.HTTPAdditionalHeaders!["x-mixPanleID"] = mixpanel!.distinctId
+        
+        
         //Initialize Answers
         Fabric.with([Branch.self, Answers.self])
 
@@ -66,23 +71,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Tracking Open Source
             var mySourceDict = [String: AnyObject]()
             mySourceDict["source"] = K.SharingPlatformType.Platform_Branch
-            _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_APP_INIT)
+            _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_APP_INIT, completion: {didSucceed in
+                if didSucceed == true {
+                    
+                }
+            })
+
             
             
             if let isBranchLink = params["+clicked_branch_link"]?.boolValue where  isBranchLink == true {
                 if let isFirstSession = params["+is_first_session"]?.boolValue where  isFirstSession == true {
-                    let branchUrl: NSURL = NSURL(string: "branch")!
-                    let deepLinkObj = TRDeepLinkObject(link: branchUrl)
-                    let deepLinkAnalyticsDict = deepLinkObj.createLinkInfoAndPassToBackEnd()
-                    if let _ = deepLinkAnalyticsDict {
-                        self.appInstallRequestWithDict(deepLinkAnalyticsDict!)
-                    }
-                    do {
-                        let _ = try TRKeyChainHelper.updateData(K.SharingPlatformType.Platform_Branch, itemValue: "true")
-                    } catch _ as KeychainError {
-                        
-                    } catch {
-                    }
+                    
+                     // App Install Metrics
+                    var mySourceDict = [String: AnyObject]()
+                    mySourceDict["source"] = K.SharingPlatformType.Platform_Branch
+                    let userDefaults = NSUserDefaults.standardUserDefaults()
+                    userDefaults.setObject(mySourceDict, forKey: K.UserDefaultKey.Platform_Info_Dict)
+
+                    self.appInstallInfoSequence(mySourceDict)
                 } else {
                     var mySourceDict = [String: AnyObject]()
                     mySourceDict["source"] = K.SharingPlatformType.Platform_Branch
@@ -99,24 +105,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 TRApplicationManager.sharedInstance.addPostActionbranchDeepLink(eventID!, activityName: activityName!, params: params)
             }
         })
-        
-
-//        do {
-//            let _ = try TRKeyChainHelper.deleteData(K.SharingPlatformType.Platform_Branch)
-//            let _ = try TRKeyChainHelper.deleteData(K.SharingPlatformType.Platform_Facebook)
-//        } catch _ as KeychainError {
-//            
-//        } catch {
-//        }
-
+    
         
         // App Initialized Metrics
         var mySourceDict = [String: AnyObject]()
         mySourceDict["source"] = K.SharingPlatformType.Platform_UnKnown
         self.appInitializedRequest(mySourceDict)
         
-        // App Install Metrics
-        self.appInstallInfoSequence(mySourceDict)
+        
+        //Add app install scheduler 
+        self.performSelector(#selector(appInstallInfoSequence), withObject: mySourceDict, afterDelay: 5)
+        
         
         return true
     }
@@ -129,7 +128,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             mySourceDict["source"] = K.SharingPlatformType.Platform_Branch
             self.appInitializedRequest(mySourceDict)
         }
-
+        
         FBSDKAppLinkUtility.fetchDeferredAppLink({ (URL, error) -> Void in
             if error != nil {
             }
@@ -138,13 +137,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let deepLinkObj = TRDeepLinkObject(link: URL)
                 let deepLinkAnalyticsDict = deepLinkObj.createLinkInfoAndPassToBackEnd()
                 if let _ = deepLinkAnalyticsDict {
+                    // Set Install was from FacrBook
+                    let userDefaults = NSUserDefaults.standardUserDefaults()
+                    userDefaults.setObject(deepLinkAnalyticsDict, forKey: K.UserDefaultKey.Platform_Info_Dict)
                     self.appInstallInfoSequence(deepLinkAnalyticsDict!)
-                }
-                do {
-                    let _ = try TRKeyChainHelper.updateData(K.SharingPlatformType.Platform_Facebook, itemValue: "true")
-                } catch _ as KeychainError {
-                    
-                } catch {
                 }
             }
         })
@@ -223,7 +219,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        // If your application supports background execution, thi s method is called instead of applicationWillTerminate: when the user quits.
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
@@ -236,9 +232,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Tracking App Init
         var mySourceDict = [String: AnyObject]()
         mySourceDict["source"] = K.SharingPlatformType.Platform_UnKnown
-        _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_APP_INIT)
-
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_APP_INIT, completion: {didSucceed in
+            if didSucceed == true {
+                
+            }
+        })
     }
 
     func applicationWillTerminate(application: UIApplication) {
@@ -248,38 +246,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //MARK:- App Data Requests
     func appInitializedRequest (initInfo: Dictionary<String, AnyObject>) {
-        _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(initInfo, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_APP_INIT)
+        _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(initInfo, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_APP_INIT, completion: {didSucceed in
+            
+            if didSucceed == true {
+                
+            }
+        })
     }
     
     func appInstallRequestWithDict (installInfo: Dictionary<String, AnyObject>) {
-        _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(installInfo, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_APP_INSTALL)
+        
+        _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(installInfo, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_APP_INSTALL, completion: {didSucceed in
+            if didSucceed == true {
+                let userDefaults = NSUserDefaults.standardUserDefaults()
+                userDefaults.setBool(true, forKey: K.UserDefaultKey.INSTALL_INFO_SENT)
+                userDefaults.synchronize()
+            }
+        })
     }
     
     func appInstallInfoSequence (installInfo: Dictionary<String, AnyObject>) {
-        do {
-            let isBranchInstall = try TRKeyChainHelper.queryData(K.SharingPlatformType.Platform_Branch)
-            let isFaceBookInstall = try TRKeyChainHelper.queryData(K.SharingPlatformType.Platform_Facebook)
-            
-            if isBranchInstall!.boolValue == true || isFaceBookInstall!.boolValue == true {
-                return
-            } else {
-                self.appInstallRequestWithDict(installInfo)
-            }
-            
-        } catch KeychainError.ItemNotFound {
-            
-            //Send Install Info, this will be overwritten if FaceBook's deferred link is called or if Branch's call back gets called
+
+        //Cancel perform scheduler
+        NSObject.cancelPreviousPerformRequestsWithTarget(self)
+        
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let isInstallInfoSent = userDefaults.boolForKey(K.UserDefaultKey.INSTALL_INFO_SENT)
+        let installInfoDict = userDefaults.dictionaryForKey(K.UserDefaultKey.Platform_Info_Dict)
+        
+        if isInstallInfoSent.boolValue == true {
+            return
+        }
+        
+        if let _ = installInfoDict {
+            self.appInstallRequestWithDict(installInfoDict!)
+        } else {
             self.appInstallRequestWithDict(installInfo)
-            
-            do {
-                let _ = try TRKeyChainHelper.addData(K.SharingPlatformType.Platform_Branch, itemValue: "false")
-                let _ = try TRKeyChainHelper.addData(K.SharingPlatformType.Platform_Facebook, itemValue: "false")
-            } catch _ as KeychainError {
-                
-            } catch {
-            }
-        } catch {
-            print("catch")
         }
     }
 }

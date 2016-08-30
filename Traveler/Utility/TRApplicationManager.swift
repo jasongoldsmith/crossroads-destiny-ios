@@ -138,7 +138,7 @@ class TRApplicationManager: NSObject {
         params["x-mpsdk"] = mixPlanelSDKVersion
         params["x-branchsdk"] = branchSDKVersion
         params["x-manufacturer"] = manufacturer
-        params["x-fabricSDK"] = fabricSDK
+        params["x-fabricsdk"] = fabricSDK
         
         return params
     }

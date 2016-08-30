@@ -302,7 +302,12 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                         var myEventDict = [String: AnyObject]()
                         myEventDict["eventId"] = self.eventInfo?.eventID
                             
-                        _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(myEventDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_EVENT_SHARING)
+                        _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(myEventDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_EVENT_SHARING, completion: {didSucceed in
+                            
+                            if didSucceed == true {
+                                
+                            }
+                        })
                     }
                 }
             } else {

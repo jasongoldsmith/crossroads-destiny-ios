@@ -16,7 +16,11 @@ class TRPushNotification {
     func fetchEventFromPushNotification (pushPayLoad: NSDictionary, complete: TREventObjCallBack) {
         
         defer {
-            _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(pushPayLoad, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_PUSH_NOTIFICATION)
+            _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(pushPayLoad, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_PUSH_NOTIFICATION, completion: {didSucceed in
+                if didSucceed == true {
+                    
+                }
+            })
         }
         
         if let notiName = pushPayLoad.objectForKey("notificationName") as? String {
