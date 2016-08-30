@@ -334,17 +334,18 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
                 
                 if self.eventsInfo[indexPath.section].eventActivity?.activityCheckPoint != "" && self.eventsInfo[indexPath.section].eventActivity?.activityCheckPoint != nil{
                     cell = tableView.dequeueReusableCellWithIdentifier(CURRENT_EVENT_WITH_CHECK_POINT_CELL) as! TREventCurrentWithCheckPointCell
-                    
-                    self.eventsTableView?.rowHeight = EVENT_CURRENT_WITH_CHECK_POINT_CELL_HEIGHT
                     if let hasTag = self.eventsInfo[indexPath.section].eventActivity?.activityTag where hasTag != ""{
                         self.eventsTableView?.rowHeight = 166.0
+                    } else {
+                        self.eventsTableView?.rowHeight = EVENT_CURRENT_WITH_CHECK_POINT_CELL_HEIGHT
                     }
                 } else {
                     cell = tableView.dequeueReusableCellWithIdentifier(CURRENT_EVENT_NO_CHECK_POINT_CELL) as! TREventCurrentNoCheckPointCell
-                    self.eventsTableView?.rowHeight = EVENT_CURRENT_NO_CHECK_POINT_CELL_HEIGHT
                     
                     if let hasTag = self.eventsInfo[indexPath.section].eventActivity?.activityTag where hasTag != ""{
                         self.eventsTableView?.rowHeight = 153.0
+                    } else {
+                        self.eventsTableView?.rowHeight = EVENT_CURRENT_NO_CHECK_POINT_CELL_HEIGHT
                     }
                 }
                 
@@ -369,17 +370,19 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             
             if self.futureEventsInfo[indexPath.section].eventActivity?.activityCheckPoint != "" && self.futureEventsInfo[indexPath.section].eventActivity?.activityCheckPoint != nil{
                 cell = tableView.dequeueReusableCellWithIdentifier(UPCOMING_EVENT_WITH_CHECK_POINT_CELL) as! TREventUpcomingWithCheckPointCell
-                self.eventsTableView?.rowHeight = EVENT_UPCOMING_WITH_CHECK_POINT_CELL_HEIGHT
                 
                 if let hasTag = self.futureEventsInfo[indexPath.section].eventActivity?.activityTag where hasTag != ""{
                     self.eventsTableView?.rowHeight = 180.0
+                } else {
+                    self.eventsTableView?.rowHeight = EVENT_UPCOMING_WITH_CHECK_POINT_CELL_HEIGHT
                 }
             } else {
                 cell = tableView.dequeueReusableCellWithIdentifier(UPCOMING_EVENT_NO_CHECK_POINT_CELL) as! TREventUpcomingNoCheckPointCell
-                self.eventsTableView?.rowHeight = EVENT_UPCOMING_NO_CHECK_POINT_CELL_HEIGHT
                 
                 if let hasTag = self.futureEventsInfo[indexPath.section].eventActivity?.activityTag where hasTag != ""{
                     self.eventsTableView?.rowHeight = 166
+                } else {
+                    self.eventsTableView?.rowHeight = EVENT_UPCOMING_NO_CHECK_POINT_CELL_HEIGHT
                 }
             }
 
@@ -392,6 +395,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
 
         cell?.joinEventButton?.addTarget(self, action: #selector(TREventListViewController.joinAnEvent(_:)), forControlEvents: .TouchUpInside)
         cell?.leaveEventButton?.addTarget(self, action: #selector(TREventListViewController.leaveAnEvent(_:)), forControlEvents: .TouchUpInside)
+        cell?.layoutSubviews()
         
         return cell!
     }
@@ -415,7 +419,11 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
                     var mySourceDict = [String: AnyObject]()
                     mySourceDict["activityId"] = cell.cellActivityAddButton.buttonActivityInfo?.activityID
                     
-                    _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_ADD_CARD_CLICKED)
+                    _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_ADD_CARD_CLICKED, completion: {didSucceed in
+                        if didSucceed == true {
+                            
+                        }
+                    })
 
                     self.createActivityWithActivity(cell.cellActivityAddButton)
                 }
@@ -595,8 +603,10 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         self.eventsInfo       = TRApplicationManager.sharedInstance.getCurrentEvents()
         self.futureEventsInfo = TRApplicationManager.sharedInstance.getFutureEvents()
         self.activityCardsInfo = TRApplicationManager.sharedInstance.eventsListActivity
-            
+        
+        let contentOffset = self.eventsTableView?.contentOffset
         self.eventsTableView?.reloadData()
+        self.eventsTableView?.contentOffset = contentOffset!
     }
     
     @IBAction func segmentControlSelection (sender: UISegmentedControl) {
