@@ -184,8 +184,9 @@ enum APP_TRACKING_DATA_TYPE: String {
     case TRACKING_ADD_CARD_CLICKED          = "addCardInit"
     case TRACKING_APP_INIT                  = "appInit"
     case TRACKING_APP_INSTALL               = "appInstall"
-    case TRACKING_SEG_CURRENT_CLICKED       = "addInit"
-    case TRACKING_SEG_UPCOMING_CLICKED      = "addInit"
+    case TRACKING_ADD_ACTIVITY_CLICKED      = "addActivityInit"
+    case TRACKING_SEG_CURRENT_CLICKED       = "currentTabInit"
+    case TRACKING_SEG_UPCOMING_CLICKED      = "upcomingTabInit"
 }
 
 enum ACCOUNT_VERIFICATION: String {
