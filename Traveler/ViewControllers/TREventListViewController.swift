@@ -566,7 +566,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     @IBAction func createAnEvent () {
 
         //TRACKING
-        _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_ADD_ACTIVITY_CLICKED, completion: {didSucceed in
+        _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(nil, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_ADD_ACTIVITY_CLICKED, completion: {didSucceed in
             if didSucceed == true {
             }
         })
@@ -617,7 +617,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             self.emptyTableBackGround?.hidden = self.eventsInfo.count > 0 ? true : false
             
             //TRACKING
-            _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_SEG_CURRENT_CLICKED, completion: {didSucceed in
+            _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(nil, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_SEG_CURRENT_CLICKED, completion: {didSucceed in
                 if didSucceed == true {
                 }
             })
@@ -630,7 +630,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             self.emptyTableBackGround?.hidden = self.futureEventsInfo.count > 0 ? true : false
 
             //TRACKING
-            _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_SEG_UPCOMING_CLICKED, completion: {didSucceed in
+            _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(nil, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_SEG_UPCOMING_CLICKED, completion: {didSucceed in
                 if didSucceed == true {
                 }
             })
