@@ -110,7 +110,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         //Add app install scheduler 
-        self.performSelector(#selector(appInstallInfoSequence), withObject: mySourceDict, afterDelay: 5)
+        var myInstallDict = [String: AnyObject]()
+        myInstallDict["ads"] = K.SharingPlatformType.Platform_UnKnown
+        self.performSelector(#selector(appInstallInfoSequence), withObject: myInstallDict, afterDelay: 10)
 
         
         return true
