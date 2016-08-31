@@ -289,6 +289,13 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     }
     
     @IBAction func shareButton (sender: UIButton) {
+
+        _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(myEventDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_EVENT_SHARING, completion: {didSucceed in
+                if didSucceed == true {
+                    
+                }
+        })
+
         TRApplicationManager.sharedInstance.branchManager?.createLinkWithBranch(self.eventInfo!, deepLinkType: BRANCH_DEEP_LINKING_END_POINT.EVENT_DETAIL.rawValue, callback: {(url, error) in
             if (error == nil) {
                 print(url)
@@ -305,12 +312,6 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                     if let _ = self.eventInfo?.eventID {
                         var myEventDict = [String: AnyObject]()
                         myEventDict["eventId"] = self.eventInfo?.eventID
-                            
-                        _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(myEventDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_EVENT_SHARING, completion: {didSucceed in
-                            
-                            if didSucceed == true {
-                                
-                            }
                         })
                     }
                 }
