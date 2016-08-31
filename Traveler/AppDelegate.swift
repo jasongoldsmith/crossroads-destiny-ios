@@ -48,10 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //MixedPanel Initialized
         let token = "23f27698695b0137adfef97f173b9f91"
-        let mixpanel = Mixpanel.sharedInstanceWithToken(token)
+        _ = Mixpanel.sharedInstanceWithToken(token)
       
-        TRApplicationManager.sharedInstance.alamoFireManager!.session.configuration.HTTPAdditionalHeaders!["x-mixpanelid"] = mixpanel.distinctId
-        
         
         //Initialize Answers
         Fabric.with([Branch.self, Answers.self])

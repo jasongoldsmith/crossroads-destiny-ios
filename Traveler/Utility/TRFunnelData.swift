@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreTelephony
+import Mixpanel
 
 class TRFunnelData {
     
@@ -48,6 +49,9 @@ class TRFunnelData {
         p["x-branchsdk"] = branchSDKVersion
         p["x-fabricsdk"] = fabricSDK
         
+        let token = "23f27698695b0137adfef97f173b9f91"
+        let mixpanel = Mixpanel.sharedInstanceWithToken(token)
+        p["x-mixpanelid"] = mixpanel.distinctId
         
         return p
     }
