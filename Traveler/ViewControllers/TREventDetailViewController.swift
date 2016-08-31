@@ -234,6 +234,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 self.joinButton?.backgroundColor = UIColor(red: 230/255, green: 178/255, blue: 0/255, alpha: 1)
                 self.joinButton?.addTarget(self, action: #selector(leaveEvent(_:)), forControlEvents: .TouchUpInside)
                 self.joinButton?.setTitle("LEAVE", forState: .Normal)
+                self.tableViewBottomConstraint.constant = 0
             } else {
                 if self.eventInfo?.eventPlayersArray.count == self.eventInfo?.eventMaxPlayers?.integerValue {
                     self.joinButton.hidden = true
@@ -243,6 +244,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                     self.joinButton?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
                     self.joinButton?.addTarget(self, action: #selector(joinAnEvent(_:)), forControlEvents: .TouchUpInside)
                     self.joinButton?.setTitle("JOIN", forState: .Normal)
+                    self.tableViewBottomConstraint.constant = 0
                 }
             }
         } else {
@@ -252,6 +254,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 self.chatTextBoxView?.hidden = false
                 self.sendMessageButton.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
                 self.sendMessageButton.addTarget(self, action: #selector(sendMessage(_:)), forControlEvents: .TouchUpInside)
+                self.tableViewBottomConstraint.constant = 0
             } else {
                 if self.eventInfo?.eventPlayersArray.count == self.eventInfo?.eventMaxPlayers?.integerValue {
                     self.joinButton.hidden = true
@@ -261,6 +264,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                     self.joinButton?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
                     self.joinButton?.addTarget(self, action: #selector(joinAnEvent(_:)), forControlEvents: .TouchUpInside)
                     self.joinButton.setTitle("JOIN", forState: .Normal)
+                    self.tableViewBottomConstraint.constant = 0
                 }
             }
         }
