@@ -30,6 +30,12 @@ class TRLoginOptionViewController: TRBaseViewController {
             let verifyAccountViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEWCONTROLLER_SIGNUP) as! TRCreateAccountViewController
             self.navigationController?.pushViewController(verifyAccountViewController, animated: true)
         } else {
+            
+            _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(nil, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_SIGNUP_INIT, completion: {didSucceed in
+                if didSucceed == true {
+                }
+            })
+
             let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
             let verifyAccountViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_BUNGIE_VERIFICATION) as! TRAddConsoleViewController
             self.navigationController?.pushViewController(verifyAccountViewController, animated: true)
