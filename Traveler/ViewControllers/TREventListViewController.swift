@@ -565,6 +565,12 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     
     @IBAction func createAnEvent () {
 
+        //TRACKING
+        _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_ADD_ACTIVITY_CLICKED, completion: {didSucceed in
+            if didSucceed == true {
+            }
+        })
+        
         let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
         let vc : TRCreateEventViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEWCONTROLLER_CREATE_EVENT) as! TRCreateEventViewController
         let navigationController = UINavigationController(rootViewController: vc)
@@ -610,11 +616,24 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             self.segmentTwoUnderLine?.hidden = true
             self.emptyTableBackGround?.hidden = self.eventsInfo.count > 0 ? true : false
             
+            //TRACKING
+            _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_SEG_CURRENT_CLICKED, completion: {didSucceed in
+                if didSucceed == true {
+                }
+            })
+
+            
             break;
         case 1:
             self.segmentOneUnderLine?.hidden = true
             self.segmentTwoUnderLine?.hidden = false
             self.emptyTableBackGround?.hidden = self.futureEventsInfo.count > 0 ? true : false
+
+            //TRACKING
+            _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_SEG_UPCOMING_CLICKED, completion: {didSucceed in
+                if didSucceed == true {
+                }
+            })
 
             break;
         default:
