@@ -36,8 +36,14 @@ class TRRootViewController: TRBaseViewController {
         if (TRUserInfo.isUserLoggedIn()) {
             if (TRUserInfo.isUserVerified() == ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue) {
                 
-                _ = TRGetUserRequest().getUserByID(TRUserInfo.getUserID()!, completion: { (userObject) in
-                    if let _ = userObject {
+                let userDefaults = NSUserDefaults.standardUserDefaults()
+                let userInfo = TRUserInfo()
+                userInfo.userName = userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_UserName) as? String
+                userInfo.password = userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_UserPwd) as? String
+
+                let createRequest = TRAuthenticationRequest()
+                createRequest.loginTRUserWith(userInfo) { (value ) in
+                    if value == true {
                         
                         _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: true, indicatorTopConstraint: self.ACTIVITY_INDICATOR_TOP_CONSTRAINT, completion: { (didSucceed) -> () in
                             
@@ -61,8 +67,16 @@ class TRRootViewController: TRBaseViewController {
                                 self.appManager.log.debug("Failed")
                             }
                         })
+                    } else{
+                        
+                        //Delete the saved Password if sign-in was not successful
+                        userDefaults.setValue(nil, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
+                        userDefaults.synchronize()
+                        
+                        // Add Error View
+                        TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("The username and password do not match. Please try again.")
                     }
-                })
+                }
             } else {
                 let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
                 let verifyAccountViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_VERIFY_ACCOUNT) as! TRSignUpVerificatioViewController
