@@ -121,10 +121,10 @@ class TRApplicationManager: NSObject {
         let devicetype = "iOS"
         let appversion = "\(NSBundle.mainBundle().releaseVersionNumber!) (\(NSBundle.mainBundle().buildVersionNumber!))"
         let manufacturer = "Apple"
-        let branchSDKVersion = "0.12.5"
+        let branchSDKVersion = "0.12.6"
         let faceBookSDKVersion = "0.1.1"
-        let fireBaseSDKVersion = "3.5.1"
-        let mixPlanelSDKVersion = "1.0.0"
+        let fireBaseSDKVersion = "3.5.2"
+        let mixPlanelSDKVersion = "3.0.2"
         let fabricSDK = "1.6.8"
         
         var params = [String: String]()
