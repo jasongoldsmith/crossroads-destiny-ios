@@ -177,13 +177,13 @@ enum NOTIFICATION_TRACKABLE: Int {
 }
 
 enum APP_TRACKING_DATA_TYPE: String {
-    case TRACKING_EVENT = "event"
+    case TRACKING_EVENT             = "event"
     case TRACKING_PUSH_NOTIFICATION = "pushNotification"
-    case TRACKING_SIGNUP_INIT = "signupInit"
-    case TRACKING_EVENT_SHARING = "eventSharing"
-    case TRACKING_ADD_CARD_CLICKED = "addCardInit"
-    case TRACKING_APP_INIT         = "appInit"
-    case TRACKING_APP_INSTALL         = "appInstall"
+    case TRACKING_SIGNUP_INIT       = "signupInit"
+    case TRACKING_EVENT_SHARING     = "eventSharing"
+    case TRACKING_ADD_CARD_CLICKED  = "addCardInit"
+    case TRACKING_APP_INIT          = "appInit"
+    case TRACKING_APP_INSTALL       = "appInstall"
 }
 
 enum ACCOUNT_VERIFICATION: String {

@@ -419,6 +419,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
                     var mySourceDict = [String: AnyObject]()
                     mySourceDict["activityId"] = cell.cellActivityAddButton.buttonActivityInfo?.activityID
                     
+                    //TRACKING
                     _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_ADD_CARD_CLICKED, completion: {didSucceed in
                         if didSucceed == true {
                             
