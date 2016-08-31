@@ -273,12 +273,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let userDefaults = NSUserDefaults.standardUserDefaults()
         let isInstallInfoSent = userDefaults.boolForKey(K.UserDefaultKey.INSTALL_INFO_SENT)
-        let installInfoDict = userDefaults.dictionaryForKey(K.UserDefaultKey.Platform_Info_Dict)
         
         if isInstallInfoSent.boolValue == true {
             return
         }
         
+        let installInfoDict = userDefaults.dictionaryForKey(K.UserDefaultKey.Platform_Info_Dict)
         if let _ = installInfoDict {
             self.appInstallRequestWithDict(installInfoDict!)
         } else {
