@@ -433,7 +433,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 
                 if let hasImage = self.eventInfo?.eventPlayersArray[indexPath.section].playerImageUrl {
                     let imageURL = NSURL(string: hasImage)
-                    cell?.playerIcon.sd_setImageWithURL(imageURL)
+                    cell?.playerIcon.sd_setImageWithURL(imageURL, placeholderImage: UIImage(named: "iconProfileBlank"))
                     cell?.playerIcon.roundRectView (1, borderColor: UIColor.grayColor())
                     cell?.playerUserName?.textColor = UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)
                     
