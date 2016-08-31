@@ -140,16 +140,6 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
         createRequest.registerTRUserWith(userInfo) { (value ) in  //, errorData) in
             
             if value == true {
-                
-                // On Successful creation save his userID to KeyChain, so that on next install, we know it was an already existing user (In case he deleted the app)
-                do {
-                    _ = try TRKeyChainHelper.addData(userInfo.userID!, itemValue: K.keyChainInfo.UserId)
-                } catch _ as KeychainError {
-                    
-                } catch {
-                    
-                }
-                
                 self.createAccountSuccess()
             } else {
                 
