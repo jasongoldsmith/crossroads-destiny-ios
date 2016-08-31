@@ -26,6 +26,11 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(nil, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_SIGNUP_INIT, completion: {didSucceed in
+            if didSucceed == true {
+            }
+        })
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRCreateAccountViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRCreateAccountViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
 
@@ -149,11 +154,6 @@ class TRCreateAccountViewController: TRBaseViewController, UITextFieldDelegate, 
                 } catch {
                     
                 }
-                
-                _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(nil, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_SIGNUP_INIT, completion: {didSucceed in
-                    if didSucceed == true {
-                    }
-                })
                 
                 self.createAccountSuccess()
             } else {
