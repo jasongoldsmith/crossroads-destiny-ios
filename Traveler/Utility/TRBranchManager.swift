@@ -112,7 +112,7 @@ class TRBranchManager {
                 callback(url, nil)
                 
             } else {
-                print(String(format: "Branch TestBed: %@", error))
+                print(String(format: "Branch TestBed: %@", error!))
             }
         }
     }

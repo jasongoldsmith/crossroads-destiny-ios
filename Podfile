@@ -15,7 +15,7 @@ def project_pods
     pod 'Firebase/DynamicLinks'
     pod 'Firebase/Core'
     pod 'Branch'
-    pod 'Mixpanel-swift'
+    pod 'Mixpanel'
     pod 'FacebookCore'
     pod 'Fabric'
     pod 'Answers'

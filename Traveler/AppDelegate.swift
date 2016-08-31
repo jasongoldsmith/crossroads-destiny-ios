@@ -13,6 +13,7 @@ import FBSDKCoreKit
 import Answers
 import Fabric
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -47,11 +48,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //MixedPanel Initialized
         let token = "23f27698695b0137adfef97f173b9f91"
-        Mixpanel.initialize(token: token)
-        
-        let mixpanel = Mixpanel.mainInstance()
-        mixpanel!.identify(distinctId: mixpanel!.distinctId)
-        TRApplicationManager.sharedInstance.alamoFireManager!.session.configuration.HTTPAdditionalHeaders!["x-mixpanelid"] = mixpanel!.distinctId
+        let mixpanel = Mixpanel.sharedInstanceWithToken(token)
+      
+        TRApplicationManager.sharedInstance.alamoFireManager!.session.configuration.HTTPAdditionalHeaders!["x-mixpanelid"] = mixpanel.distinctId
         
         
         //Initialize Answers

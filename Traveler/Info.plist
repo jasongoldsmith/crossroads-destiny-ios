@@ -46,7 +46,7 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>FIREBASE_ANALYTICS_COLLECTION_DEACTIVATED</key>
-	<string>NO</string>
+	<string>YES</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -90,5 +90,7 @@
 	<false/>
 	<key>branch_key</key>
 	<string>key_live_ilh33QPvqAgDqnVVRh8iXcnnBBaLIp97</string>
+	<key>FirebaseAppDelegateProxyEnabled</key>
+	<false/>
 </dict>
 </plist>

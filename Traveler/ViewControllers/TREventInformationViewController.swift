@@ -363,12 +363,12 @@ class TREventInformationViewController: TRBaseViewController, UITableViewDataSou
             if (error == nil) {
                 print(url)
                 // Group to Share
-                let groupToShare = [url!] as [AnyObject]
+                let groupToShare = [url] as [AnyObject]
                 
                 let activityViewController = UIActivityViewController(activityItems: groupToShare , applicationActivities: nil)
                 self.presentViewController(activityViewController, animated: true, completion: {})
             } else {
-                print(String(format: "Branch TestBed: %@", error))
+                print(String(format: "Branch TestBed: %@", error!))
             }
         })
     }
