@@ -14,8 +14,12 @@ class TRFunnelData {
     static let telephonyInfo = CTTelephonyNetworkInfo()
     
     class func getData () -> Dictionary <String, AnyObject> {
-        
+
         var p: Dictionary <String, AnyObject> = Dictionary()
+        let branchSDKVersion = "0.12.6"
+        let faceBookSDKVersion = "0.1.1"
+        let fireBaseSDKVersion = "3.5.2"
+        let fabricSDK = "1.6.8"
         let size = UIScreen.mainScreen().bounds.size
         let infoDict = NSBundle.mainBundle().infoDictionary
         if let infoDict = infoDict {
@@ -39,6 +43,11 @@ class TRFunnelData {
         p["$ios_device_model"]  = self.deviceModel()
         p["$ios_version"]       = UIDevice.currentDevice().systemVersion
         p["$ios_lib_version"]   = self.libVersion()
+        p["x-fbooksdk"] = faceBookSDKVersion
+        p["x-fbasesdk"] = fireBaseSDKVersion
+        p["x-branchsdk"] = branchSDKVersion
+        p["x-fabricsdk"] = fabricSDK
+        
         
         return p
     }
