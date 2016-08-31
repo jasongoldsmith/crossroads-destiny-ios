@@ -50,9 +50,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Mixpanel.initialize(token: token)
         
         let mixpanel = Mixpanel.mainInstance()
-        mixpanel!.createAlias("13793", distinctId: mixpanel!.distinctId)
         mixpanel!.identify(distinctId: mixpanel!.distinctId)
-        TRApplicationManager.sharedInstance.alamoFireManager!.session.configuration.HTTPAdditionalHeaders!["x-mixPanleID"] = mixpanel!.distinctId
+        TRApplicationManager.sharedInstance.alamoFireManager!.session.configuration.HTTPAdditionalHeaders!["x-mixpanelid"] = mixpanel!.distinctId
         
         
         //Initialize Answers
@@ -115,7 +114,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Add app install scheduler 
         self.performSelector(#selector(appInstallInfoSequence), withObject: mySourceDict, afterDelay: 5)
-        
+
         
         return true
     }
@@ -134,8 +133,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             if URL != nil {
                 
-                let deepLinkObj = TRDeepLinkObject(link: URL)
+                let urlString = URL.absoluteString
+                let deepLinkObj = TRDeepLinkObject(link: urlString)
                 let deepLinkAnalyticsDict = deepLinkObj.createLinkInfoAndPassToBackEnd()
+                
                 if let _ = deepLinkAnalyticsDict {
                     // Set Install was from FacrBook
                     let userDefaults = NSUserDefaults.standardUserDefaults()
@@ -219,7 +220,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, thi s method is called instead of applicationWillTerminate: when the user quits.
+        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
 
     func applicationWillEnterForeground(application: UIApplication) {

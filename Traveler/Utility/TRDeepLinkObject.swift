@@ -12,77 +12,31 @@ import SwiftyJSON
 
 class TRDeepLinkObject: NSObject {
     
-    var deepLink: String? //Link
-    var deepSource: String? //FB, Branch
+    var deepLinkString: String?
+    var deepLinkKey: String?
     
-    //Advertisement
-    var deeplinkIsAd: Bool? //Ad
-    var deepCampain: String? //Campian Type
-    var deepAdType: String?
-    var deepCreative: String?
-    
-    init(link: NSURL) {
+    init(link: NSString) {
         
         super.init()
         
-        let urlString = link.absoluteString
-        let finalString = urlString.stringByReplacingOccurrencesOfString("dlcsrd:/", withString: "")
-        let parsedKeys = finalString.componentsSeparatedByString("/")
-        var deepLinkDict = [String: String]()
+        let finalString = link.stringByReplacingOccurrencesOfString("dlcsrd://", withString: "")
+        let trimmedString = finalString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        let parsedKeys = trimmedString.componentsSeparatedByString("/")
         
-        for (index, element) in parsedKeys.enumerate() {
-            switch index {
-            case 0:
-                deepLinkDict["source"] = element
-                break
-            case 1:
-                deepLinkDict["campaign"] = element
-                break
-            case 2:
-                deepLinkDict["ad"] = element
-                break
-            case 3:
-                deepLinkDict["creative"] = element
-                break
-
-            default:
-                break
-            }
+        if let _ = parsedKeys.first {
+            self.deepLinkKey = parsedKeys.first
+            self.deepLinkString = trimmedString.stringByReplacingOccurrencesOfString(self.deepLinkKey!, withString:"")
         }
-        
-        self.parseDeepLinkDict(JSON(deepLinkDict))
     }
 
     
-    func parseDeepLinkDict (linkJson: JSON) {
-        
-        self.deeplinkIsAd = linkJson["source"].boolValue
-        self.deepSource = linkJson["campaign"].stringValue
-        self.deepCampain = linkJson["ad"].stringValue
-        self.deepAdType   = linkJson["creative"].stringValue
-    }
-    
-    func createLinkInfoAndPassToBackEnd () -> Dictionary <String, AnyObject>? {
-        
-        var trackingDict = Dictionary<String, AnyObject> ()
-        
-        if let _ = self.deeplinkIsAd {
-            trackingDict["source"] = self.deeplinkIsAd
-        }
+    func createLinkInfoAndPassToBackEnd () -> Dictionary <String, String>? {
 
-        if let _ = self.deepSource {
-            trackingDict["campaign"] = self.deepSource
-        }
-
-        if let _ = self.deepCampain {
-            trackingDict["ad"] = self.deepCampain
-        }
-
-        if let _ = self.deepAdType {
-            trackingDict["creative"] = self.deepAdType
+        if let _ = self.deepLinkKey {
+            let paramDict: [String: String] = [self.deepLinkKey! : self.deepLinkString!]
+            return paramDict
         }
         
-        return trackingDict
-        
+        return nil
     }
 }
