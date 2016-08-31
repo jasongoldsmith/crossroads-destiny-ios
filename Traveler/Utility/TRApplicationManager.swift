@@ -81,7 +81,7 @@ class TRApplicationManager: NSObject {
         let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
         configuration.timeoutIntervalForRequest = REQUEST_TIME_OUT
         configuration.timeoutIntervalForResource = REQUEST_TIME_OUT
-        configuration.HTTPAdditionalHeaders = self.addHeaderInformation()
+        configuration.HTTPAdditionalHeaders = TRFunnelData.getData()
         self.alamoFireManager = Alamofire.Manager(configuration: configuration)
 
         
