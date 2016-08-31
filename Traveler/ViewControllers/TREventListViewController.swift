@@ -282,14 +282,6 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             TRApplicationManager.sharedInstance.fireBaseManager?.removeObservers()
             TRApplicationManager.sharedInstance.fireBaseManager?.addEventsObserversWithParentView(self)
         }
-
-        _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: false, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
-            if(didSucceed == true) {
-                    self.reloadEventTable()
-            } else {
-                self.appManager.log.debug("Failed")
-            }
-        })
     }
 
     
