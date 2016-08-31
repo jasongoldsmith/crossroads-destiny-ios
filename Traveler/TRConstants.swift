@@ -56,7 +56,6 @@ struct K {
         #elseif ADHOC
             static let TR_BaseUrl            =   "https://travelerbackend.herokuapp.com"
         #else
-//        static let TR_BaseUrl            =   "https://live.crossroadsapp.co"
             static let TR_BaseUrl            =   "https://travelerbackend.herokuapp.com"
         #endif
         
@@ -181,7 +180,7 @@ enum APP_TRACKING_DATA_TYPE: String {
     case TRACKING_PUSH_NOTIFICATION         = "pushNotification"
     case TRACKING_SIGNUP_INIT               = "signupInit"
     case TRACKING_EVENT_SHARING             = "eventSharing"
-    case TRACKING_ADD_CARD_CLICKED          = "addCardInit"
+    case TRACKING_ADD_CARD_CLICKED          = "adCardInit"
     case TRACKING_APP_INIT                  = "appInit"
     case TRACKING_APP_INSTALL               = "appInstall"
     case TRACKING_ADD_ACTIVITY_CLICKED      = "addActivityInit"
