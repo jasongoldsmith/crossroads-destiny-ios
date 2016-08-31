@@ -82,7 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     
                      // App Install Metrics
                     var mySourceDict = [String: AnyObject]()
-                    mySourceDict["source"] = K.SharingPlatformType.Platform_Branch
+                    mySourceDict["ads"] = K.SharingPlatformType.Platform_Branch
                     let userDefaults = NSUserDefaults.standardUserDefaults()
                     userDefaults.setObject(mySourceDict, forKey: K.UserDefaultKey.Platform_Info_Dict)
 
