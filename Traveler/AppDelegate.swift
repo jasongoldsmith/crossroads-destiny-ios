@@ -76,20 +76,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             
             if let isBranchLink = params["+clicked_branch_link"]?.boolValue where  isBranchLink == true {
-                if let isFirstSession = params["+is_first_session"]?.boolValue where  isFirstSession == true {
-                    
-                     // App Install Metrics
-                    var mySourceDict = [String: AnyObject]()
-                    mySourceDict["ads"] = K.SharingPlatformType.Platform_Branch
-                    let userDefaults = NSUserDefaults.standardUserDefaults()
-                    userDefaults.setObject(mySourceDict, forKey: K.UserDefaultKey.Platform_Info_Dict)
-
-                    self.appInstallInfoSequence()
+                
+                let isInstallInfoSent = userDefaults.boolForKey(K.UserDefaultKey.INSTALL_INFO_SENT)
+                if isInstallInfoSent.boolValue == false {
+                    let installInfoDict = userDefaults.dictionaryForKey(K.UserDefaultKey.Platform_Info_Dict)
+                    if let _ = installInfoDict where installInfoDict!["ads"]?.string != K.SharingPlatformType.Platform_UnKnown {
+                        // App Install Metrics
+                        var mySourceDict = [String: AnyObject]()
+                        mySourceDict["ads"] = K.SharingPlatformType.Platform_Branch
+                        let userDefaults = NSUserDefaults.standardUserDefaults()
+                        userDefaults.setObject(mySourceDict, forKey: K.UserDefaultKey.Platform_Info_Dict)
+                        
+                        self.appInstallInfoSequence()
+                    }
                 } else {
                     var mySourceDict = [String: AnyObject]()
                     mySourceDict["source"] = K.SharingPlatformType.Platform_Branch
                     self.appInitializedRequest(mySourceDict)
                 }
+
                 
                 let eventID = params["eventId"] as? String
                 let activityName = params["activityName"] as? String
