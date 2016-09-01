@@ -36,11 +36,6 @@ class TRFunnelData {
         p["$model"]             = self.deviceModel()
         p["$screen_height"]     = Int(size.height)
         p["$screen_width"]      = Int(size.width)
-       
-        if let infoDict = infoDict {
-            p["$ios_app_version"] = infoDict["CFBundleVersion"]
-            p["$ios_app_release"] = infoDict["CFBundleShortVersionString"]
-        }
         p["$ios_device_model"]  = self.deviceModel()
         p["$ios_version"]       = UIDevice.currentDevice().systemVersion
         p["$ios_lib_version"]   = self.libVersion()
