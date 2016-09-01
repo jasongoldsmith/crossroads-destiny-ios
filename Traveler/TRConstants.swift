@@ -9,7 +9,7 @@ struct K {
     struct SharingPlatformType {
         static let Platform_Branch = "branch"
         static let Platform_Facebook = "facebook"
-        static let Platform_UnKnown = "unknown"
+        static let Platform_UnKnown = "organic"
     }
     
     struct UserDefaultKey {
