@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         //MixedPanel Initialized
-        let token = "23f27698695b0137adfef97f173b9f91"
+        let token = K.Tokens.Mix_Panle_Token
         _ = Mixpanel.sharedInstanceWithToken(token)
       
         

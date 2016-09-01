@@ -44,7 +44,7 @@ class TRFunnelData {
         p["x-branchsdk"] = branchSDKVersion
         p["x-fabricsdk"] = fabricSDK
         
-        let token = "23f27698695b0137adfef97f173b9f91"
+        let token = K.Tokens.Mix_Panle_Token
         let mixpanel = Mixpanel.sharedInstanceWithToken(token)
         p["x-mixpanelid"] = mixpanel.distinctId
         
