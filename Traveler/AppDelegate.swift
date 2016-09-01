@@ -77,6 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if let isBranchLink = params["+clicked_branch_link"]?.boolValue where  isBranchLink == true {
                 
+                let userDefaults = NSUserDefaults.standardUserDefaults()
                 let isInstallInfoSent = userDefaults.boolForKey(K.UserDefaultKey.INSTALL_INFO_SENT)
                 if isInstallInfoSent.boolValue == false {
                     let installInfoDict = userDefaults.dictionaryForKey(K.UserDefaultKey.Platform_Info_Dict)
@@ -84,7 +85,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         // App Install Metrics
                         var mySourceDict = [String: AnyObject]()
                         mySourceDict["ads"] = K.SharingPlatformType.Platform_Branch
-                        let userDefaults = NSUserDefaults.standardUserDefaults()
                         userDefaults.setObject(mySourceDict, forKey: K.UserDefaultKey.Platform_Info_Dict)
                         
                         self.appInstallInfoSequence()
