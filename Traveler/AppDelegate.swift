@@ -84,7 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     let userDefaults = NSUserDefaults.standardUserDefaults()
                     userDefaults.setObject(mySourceDict, forKey: K.UserDefaultKey.Platform_Info_Dict)
 
-                    self.appInstallInfoSequence(mySourceDict)
+                    self.appInstallInfoSequence()
                 } else {
                     var mySourceDict = [String: AnyObject]()
                     mySourceDict["source"] = K.SharingPlatformType.Platform_Branch
@@ -109,11 +109,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.appInitializedRequest(mySourceDict)
         
         
-        //Add app install scheduler 
-        var myInstallDict = [String: AnyObject]()
-        myInstallDict["ads"] = K.SharingPlatformType.Platform_UnKnown
-        self.performSelector(#selector(appInstallInfoSequence), withObject: myInstallDict, afterDelay: 60)
-
+        
+        // Send App Install request if the app already has Install source Info
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let installInfoDict = userDefaults.dictionaryForKey(K.UserDefaultKey.Platform_Info_Dict)
+        if let _ = installInfoDict {
+            self.appInstallInfoSequence()
+        } else {
+            //Add app install scheduler
+            var myInstallDict = [String: AnyObject]()
+            myInstallDict["ads"] = K.SharingPlatformType.Platform_UnKnown
+            userDefaults.setObject(myInstallDict, forKey: K.UserDefaultKey.Platform_Info_Dict)
+            self.performSelector(#selector(appInstallInfoSequence), withObject: nil, afterDelay: 60)
+        }
+        
         
         return true
     }
@@ -140,7 +149,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     // Set Install was from FacrBook
                     let userDefaults = NSUserDefaults.standardUserDefaults()
                     userDefaults.setObject(deepLinkAnalyticsDict, forKey: K.UserDefaultKey.Platform_Info_Dict)
-                    self.appInstallInfoSequence(deepLinkAnalyticsDict!)
+                    self.appInstallInfoSequence()
                 }
             }
         })
@@ -224,19 +233,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(application: UIApplication) {
-        FBSDKAppEvents.activateApp()
         
         // Tracking App Init
         var mySourceDict = [String: AnyObject]()
         mySourceDict["source"] = K.SharingPlatformType.Platform_UnKnown
-        _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_APP_INIT, completion: {didSucceed in
+        _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_APP_RESUME, completion: {didSucceed in
             if didSucceed == true {
                 
             }
         })
+    }
+
+    func applicationDidBecomeActive(application: UIApplication) {
+        FBSDKAppEvents.activateApp()
     }
 
     func applicationWillTerminate(application: UIApplication) {
@@ -265,7 +274,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
     }
     
-    func appInstallInfoSequence (installInfo: Dictionary<String, AnyObject>) {
+    func appInstallInfoSequence () {
 
         //Cancel perform scheduler
         NSObject.cancelPreviousPerformRequestsWithTarget(self)
@@ -278,10 +287,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         let installInfoDict = userDefaults.dictionaryForKey(K.UserDefaultKey.Platform_Info_Dict)
-        if let _ = installInfoDict {
+        if let _ = installInfoDict where installInfoDict!["ads"]?.string != K.SharingPlatformType.Platform_UnKnown {
             self.appInstallRequestWithDict(installInfoDict!)
         } else {
-            self.appInstallRequestWithDict(installInfo)
+            var mySourceDict = [String: AnyObject]()
+            mySourceDict["ads"] = K.SharingPlatformType.Platform_Organic
+            self.appInstallRequestWithDict(mySourceDict)
         }
     }
 }

@@ -9,7 +9,8 @@ struct K {
     struct SharingPlatformType {
         static let Platform_Branch = "branch"
         static let Platform_Facebook = "facebook"
-        static let Platform_UnKnown = "organic"
+        static let Platform_UnKnown = "unknown"
+        static let Platform_Organic = "organic"
     }
     
     struct UserDefaultKey {
@@ -186,6 +187,7 @@ enum APP_TRACKING_DATA_TYPE: String {
     case TRACKING_ADD_ACTIVITY_CLICKED      = "addActivityInit"
     case TRACKING_SEG_CURRENT_CLICKED       = "currentTabInit"
     case TRACKING_SEG_UPCOMING_CLICKED      = "upcomingTabInit"
+    case TRACKING_APP_RESUME                = "appResume"
 }
 
 enum ACCOUNT_VERIFICATION: String {
