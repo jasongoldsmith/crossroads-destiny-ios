@@ -87,7 +87,7 @@ class TRSignUpVerificatioViewController: TRBaseViewController, TTTAttributedLabe
                     
                     // We will show Group Picker to the user only after he sign up
                     let userDefaults = NSUserDefaults.standardUserDefaults()
-                    userDefaults.setBool(true, forKey: K.UserDefaultKey.SHOW_GROUP_PICKER)
+                    userDefaults.setBool(true, forKey: K.UserDefaultKey.SHOWN_GROUP_PICKER)
                     
                     var messageString = ""
                     if let userName = TRUserInfo.getUserName() {

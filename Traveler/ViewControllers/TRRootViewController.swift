@@ -52,12 +52,12 @@ class TRRootViewController: TRBaseViewController {
                             
                             if(didSucceed == true) {
                                 let userDefaults = NSUserDefaults.standardUserDefaults()
-                                let showGroupBool = userDefaults.boolForKey(K.UserDefaultKey.SHOW_GROUP_PICKER)
-                                if (showGroupBool == true) {
-                                    showGroups = true
-                                    userDefaults.setBool(false, forKey: K.UserDefaultKey.SHOW_GROUP_PICKER)
-                                } else if TRApplicationManager.sharedInstance.eventsList.count > 0 {
+                                let shownGroupBool = userDefaults.boolForKey(K.UserDefaultKey.SHOWN_GROUP_PICKER)
+                                if (shownGroupBool == true) {
                                     showEventListLandingPage = true
+                                } else if TRApplicationManager.sharedInstance.eventsList.count > 0 {
+                                    showGroups = true
+                                    userDefaults.setBool(true, forKey: K.UserDefaultKey.SHOWN_GROUP_PICKER)
                                 }
                                 
                                 TRApplicationManager.sharedInstance.addSlideMenuController(self, pushData: self.pushNotificationData, branchData: self.branchLinkData, showLandingPage: showEventListLandingPage, showGroups: showGroups)
