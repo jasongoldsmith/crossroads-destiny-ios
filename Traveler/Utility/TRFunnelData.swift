@@ -28,7 +28,7 @@ class TRFunnelData {
             p["$app_version_string"]   = infoDict["CFBundleShortVersionString"]
         }
         p["$carrier"]           = self.telephonyInfo.subscriberCellularProvider?.carrierName
-        p["mp_lib"]             = "swift"
+        p["mp_lib"]             = "iphone"
         p["$lib_version"]       = self.libVersion()
         p["$manufacturer"]      = "Apple"
         p["$os"]                = UIDevice.currentDevice().systemName
