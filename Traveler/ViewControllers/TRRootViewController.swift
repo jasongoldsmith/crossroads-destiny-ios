@@ -85,13 +85,15 @@ class TRRootViewController: TRBaseViewController {
                 })
             }
         } else {
-            //loginOptions
-            let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
-            let vc : TRLoginOptionViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEWCONTROLLER_LOGIN_OPTIONS) as! TRLoginOptionViewController
-            let navigationController = UINavigationController(rootViewController: vc)
-            navigationController.navigationBar.hidden = true
-            self.presentViewController(navigationController, animated: true, completion: {
-                
+            //loginOptions // Get Public Feed 
+            _ = TRPublicFeedRequest().getPublicFeed({ (didSucceed) in
+                let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+                let vc : TRLoginOptionViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEWCONTROLLER_LOGIN_OPTIONS) as! TRLoginOptionViewController
+                let navigationController = UINavigationController(rootViewController: vc)
+                navigationController.navigationBar.hidden = true
+                self.presentViewController(navigationController, animated: true, completion: {
+                    
+                })
             })
         }
     }

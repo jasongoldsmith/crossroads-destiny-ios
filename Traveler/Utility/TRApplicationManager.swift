@@ -73,6 +73,10 @@ class TRApplicationManager: NSObject {
     //Current User
     var currentUser: TRUserInfo?
     
+    //Total Users
+    var totalUsers: Int?
+    
+    
     // MARK:- Initializer
     private override init() {
         super.init()
