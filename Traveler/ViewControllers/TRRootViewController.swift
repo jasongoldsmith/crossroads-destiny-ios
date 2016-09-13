@@ -27,9 +27,7 @@ class TRRootViewController: TRBaseViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        
         super.viewDidAppear(animated)
-        self.loadAppInitialViewController()
     }
 
     func loadAppInitialViewController () {

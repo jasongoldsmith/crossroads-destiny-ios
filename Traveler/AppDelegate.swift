@@ -22,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        // Override point for customization after application launch.
+        //RootViewController
+        let rootViewController = self.window?.rootViewController as! TRRootViewController
         
         //Initializing Manager
         TRApplicationManager.sharedInstance
@@ -30,11 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Initialize FireBase Configuration
         TRApplicationManager.sharedInstance.fireBaseManager?.initFireBaseConfig()
         
-        if let remoteNotification = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? NSDictionary? {
-            let rootViewController = self.window!.rootViewController as! TRRootViewController
-            rootViewController.pushNotificationData = remoteNotification
-        }
-
         //Local Notifications
         let localNotification:UILocalNotification = UILocalNotification()
         localNotification.alertAction = "Testing notifications on iOS8"
@@ -73,21 +69,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             })
 
-            
-            
+         
             if let isBranchLink = params["+clicked_branch_link"]?.boolValue where  isBranchLink == true {
                 
                 let userDefaults = NSUserDefaults.standardUserDefaults()
                 let isInstallInfoSent = userDefaults.boolForKey(K.UserDefaultKey.INSTALL_INFO_SENT)
                 if isInstallInfoSent.boolValue == false {
-                    let installInfoDict = userDefaults.dictionaryForKey(K.UserDefaultKey.Platform_Info_Dict)
-                    if let _ = installInfoDict where installInfoDict!["ads"]?.string != K.SharingPlatformType.Platform_UnKnown {
-                        // App Install Metrics
-                        var mySourceDict = [String: AnyObject]()
-                        mySourceDict["ads"] = K.SharingPlatformType.Platform_Branch
-                        userDefaults.setObject(mySourceDict, forKey: K.UserDefaultKey.Platform_Info_Dict)
-                        
-                        self.appInstallInfoSequence()
+
+                    // App Install Request
+                    let myInstallDict = [String: AnyObject]()
+                    mySourceDict["ads"] = K.SharingPlatformType.Platform_Branch
+                    
+                    self.appInstallRequestWithDict(myInstallDict) { (didSucceed) in
+                        if didSucceed == true {
+                            
+                        }
                     }
                 } else {
                     var mySourceDict = [String: AnyObject]()
@@ -107,28 +103,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         })
     
-        
-        // App Initialized Metrics
-        var mySourceDict = [String: AnyObject]()
-        mySourceDict["source"] = K.SharingPlatformType.Platform_UnKnown
-        self.appInitializedRequest(mySourceDict)
-        
-        
-        
-        // Send App Install request if the app already has Install source Info
+
+        // App Install Request
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        let installInfoDict = userDefaults.dictionaryForKey(K.UserDefaultKey.Platform_Info_Dict)
-        if let _ = installInfoDict {
-            self.appInstallInfoSequence()
-        } else {
-            //Add app install scheduler
+        let isInstallInfoSent = userDefaults.boolForKey(K.UserDefaultKey.INSTALL_INFO_SENT)
+        if isInstallInfoSent == false {
             var myInstallDict = [String: AnyObject]()
-            myInstallDict["ads"] = K.SharingPlatformType.Platform_UnKnown
-            userDefaults.setObject(myInstallDict, forKey: K.UserDefaultKey.Platform_Info_Dict)
-            self.performSelector(#selector(appInstallInfoSequence), withObject: nil, afterDelay: 60)
+            myInstallDict["ads"] = K.SharingPlatformType.Platform_Organic
+            
+            self.appInstallRequestWithDict(myInstallDict) { (didSucceed) in
+                if didSucceed == true {
+
+                    //Load View
+                    rootViewController.loadAppInitialViewController()
+                    
+                    // App Initialized Request
+                    var mySourceDict = [String: AnyObject]()
+                    mySourceDict["source"] = K.SharingPlatformType.Platform_UnKnown
+                    self.appInitializedRequest(mySourceDict)
+                }
+            }
+        } else {
+
+            //Load View
+            rootViewController.loadAppInitialViewController()
+
+            // App Initialized Request
+            var mySourceDict = [String: AnyObject]()
+            mySourceDict["source"] = K.SharingPlatformType.Platform_UnKnown
+            self.appInitializedRequest(mySourceDict)
         }
-        
-        
+
+        // Remote Notification
+        if let remoteNotification = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? NSDictionary? {
+            rootViewController.pushNotificationData = remoteNotification
+        }
+
         return true
     }
 
@@ -151,10 +161,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let deepLinkAnalyticsDict = deepLinkObj.createLinkInfoAndPassToBackEnd()
                 
                 if let _ = deepLinkAnalyticsDict {
-                    // Set Install was from FacrBook
-                    let userDefaults = NSUserDefaults.standardUserDefaults()
-                    userDefaults.setObject(deepLinkAnalyticsDict, forKey: K.UserDefaultKey.Platform_Info_Dict)
-                    self.appInstallInfoSequence()
+                    
+                    self.appInstallRequestWithDict(deepLinkAnalyticsDict!) { (didSucceed) in
+                        if didSucceed == true {
+                            
+                        }
+                    }
                 }
             }
         })
@@ -266,37 +278,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
     }
     
-    func appInstallRequestWithDict (installInfo: Dictionary<String, AnyObject>) {
+    func appInstallRequestWithDict (installInfo: Dictionary<String, AnyObject>, completion: TRValueCallBack) {
         
         _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(installInfo, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_APP_INSTALL, completion: {didSucceed in
             if didSucceed == true {
                 let userDefaults = NSUserDefaults.standardUserDefaults()
                 userDefaults.setBool(true, forKey: K.UserDefaultKey.INSTALL_INFO_SENT)
                 userDefaults.synchronize()
+                
+                completion(didSucceed: true)
             }
         })
-    }
-    
-    func appInstallInfoSequence () {
-
-        //Cancel perform scheduler
-        NSObject.cancelPreviousPerformRequestsWithTarget(self)
-        
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        let isInstallInfoSent = userDefaults.boolForKey(K.UserDefaultKey.INSTALL_INFO_SENT)
-        
-        if isInstallInfoSent.boolValue == true {
-            return
-        }
-        
-        let installInfoDict = userDefaults.dictionaryForKey(K.UserDefaultKey.Platform_Info_Dict)
-        if let _ = installInfoDict where installInfoDict!["ads"]?.string != K.SharingPlatformType.Platform_UnKnown {
-            self.appInstallRequestWithDict(installInfoDict!)
-        } else {
-            var mySourceDict = [String: AnyObject]()
-            mySourceDict["ads"] = K.SharingPlatformType.Platform_Organic
-            self.appInstallRequestWithDict(mySourceDict)
-        }
     }
 }
 
