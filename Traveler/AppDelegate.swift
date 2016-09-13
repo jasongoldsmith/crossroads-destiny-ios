@@ -124,10 +124,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         } else {
-
             //Load View
-            rootViewController.loadAppInitialViewController()
-
+            delay(0.3, closure: {
+                rootViewController.loadAppInitialViewController()
+            })
+            
             // App Initialized Request
             var mySourceDict = [String: AnyObject]()
             mySourceDict["source"] = K.SharingPlatformType.Platform_UnKnown
