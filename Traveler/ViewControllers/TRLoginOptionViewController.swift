@@ -10,14 +10,25 @@ import UIKit
 
 class TRLoginOptionViewController: TRBaseViewController {
     
+    @IBOutlet weak var playerCountLabel: UILabel!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let countString = TRApplicationManager.sharedInstance.totalUsers?.description
+        let stringColorAttribute = [NSForegroundColorAttributeName: UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)]
+        let countAttributedStr = NSAttributedString(string: countString!, attributes: stringColorAttribute)
+        let helpAttributedStr = NSAttributedString(string: " Guardians looking for your help:", attributes: nil)
+        
+        let finalString:NSMutableAttributedString = countAttributedStr.mutableCopy() as! NSMutableAttributedString
+        finalString.appendAttributedString(helpAttributedStr)
+
+        self.playerCountLabel.attributedText = finalString
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewDidAppear(animated: Bool) {
