@@ -182,7 +182,7 @@ class TRBaseEventTableCell: UITableViewCell {
                 
                 if let imageURLString = player.playerImageUrl {
                     let url = NSURL(string: imageURLString)
-                    self.playerImageOne!.sd_setImageWithURL(url)
+                    self.playerImageOne!.sd_setImageWithURL(url, placeholderImage: UIImage(named: "iconProfileBlank"))
                     self.playerImageOne?.roundRectView(1, borderColor: UIColor.grayColor())
                 }
                 
@@ -193,7 +193,7 @@ class TRBaseEventTableCell: UITableViewCell {
                 
                 if let imageURLString = player.playerImageUrl {
                     let url = NSURL(string: imageURLString)
-                    self.playerImageTwo!.sd_setImageWithURL(url)
+                    self.playerImageTwo!.sd_setImageWithURL(url, placeholderImage: UIImage(named: "iconProfileBlank"))
                     self.playerImageTwo?.roundRectView(1, borderColor: UIColor.grayColor())
                 }
                 
@@ -213,7 +213,7 @@ class TRBaseEventTableCell: UITableViewCell {
                     
                     if let imageURLString = player.playerImageUrl {
                         let url = NSURL(string: imageURLString)
-                        self.playerCountImage!.sd_setImageWithURL(url)
+                        self.playerCountImage!.sd_setImageWithURL(url, placeholderImage: UIImage(named: "iconProfileBlank"))
                         self.playerCountImage?.roundRectView(1, borderColor: UIColor.grayColor())
                     }
                 }
