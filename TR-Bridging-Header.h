@@ -14,5 +14,7 @@
 #import "SDWebImage/UIImageView+WebCache.h"
 #import "TTTAttributedLabel/TTTAttributedLabel.h"
 #import "Mixpanel/Mixpanel.h"
+#import "iCarousel/iCarousel.h"
+
 
 #endif

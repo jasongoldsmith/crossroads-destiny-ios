@@ -44,6 +44,14 @@
 		33104BFF1C97B1F40024D601 /* TRActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33104BFE1C97B1F40024D601 /* TRActivityIndicatorView.swift */; };
 		33104C001C97B1F40024D601 /* TRActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33104BFE1C97B1F40024D601 /* TRActivityIndicatorView.swift */; };
 		33104C011C97B1F40024D601 /* TRActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33104BFE1C97B1F40024D601 /* TRActivityIndicatorView.swift */; };
+		331194B71D88C004007A1262 /* TRCaroselCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 331194B61D88C004007A1262 /* TRCaroselCellView.xib */; };
+		331194B81D88C004007A1262 /* TRCaroselCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 331194B61D88C004007A1262 /* TRCaroselCellView.xib */; };
+		331194B91D88C004007A1262 /* TRCaroselCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 331194B61D88C004007A1262 /* TRCaroselCellView.xib */; };
+		331194BA1D88C004007A1262 /* TRCaroselCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 331194B61D88C004007A1262 /* TRCaroselCellView.xib */; };
+		331194BC1D88C00F007A1262 /* TRCaroselCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331194BB1D88C00F007A1262 /* TRCaroselCellView.swift */; };
+		331194BD1D88C00F007A1262 /* TRCaroselCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331194BB1D88C00F007A1262 /* TRCaroselCellView.swift */; };
+		331194BE1D88C00F007A1262 /* TRCaroselCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331194BB1D88C00F007A1262 /* TRCaroselCellView.swift */; };
+		331194BF1D88C00F007A1262 /* TRCaroselCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331194BB1D88C00F007A1262 /* TRCaroselCellView.swift */; };
 		3312B91A1D024251005AF67D /* TRConsoles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3312B9191D024251005AF67D /* TRConsoles.swift */; };
 		3312B91B1D024251005AF67D /* TRConsoles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3312B9191D024251005AF67D /* TRConsoles.swift */; };
 		3312B91C1D024251005AF67D /* TRConsoles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3312B9191D024251005AF67D /* TRConsoles.swift */; };
@@ -566,6 +574,8 @@
 		330993C71D70C4AF00428B5A /* TRDeepLinkObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRDeepLinkObject.swift; sourceTree = "<group>"; };
 		33104BFA1C97B1E70024D601 /* TRActivityIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRActivityIndicatorView.xib; sourceTree = "<group>"; };
 		33104BFE1C97B1F40024D601 /* TRActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRActivityIndicatorView.swift; sourceTree = "<group>"; };
+		331194B61D88C004007A1262 /* TRCaroselCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRCaroselCellView.xib; sourceTree = "<group>"; };
+		331194BB1D88C00F007A1262 /* TRCaroselCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCaroselCellView.swift; sourceTree = "<group>"; };
 		3312B9191D024251005AF67D /* TRConsoles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRConsoles.swift; sourceTree = "<group>"; };
 		331F8F361D469AB1006CCE80 /* TRPushNotiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRPushNotiController.swift; sourceTree = "<group>"; };
 		3329B58B1C9B524D00CC1F9B /* TRErrorNotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRErrorNotificationView.swift; sourceTree = "<group>"; };
@@ -813,6 +823,8 @@
 				338BB2021CEEB99F00A14060 /* TRWebView.xib */,
 				337DA4C61D4C0D10002A10BA /* TRErrorView.swift */,
 				337DA4CB1D4C0D48002A10BA /* TRErrorView.xib */,
+				331194B61D88C004007A1262 /* TRCaroselCellView.xib */,
+				331194BB1D88C00F007A1262 /* TRCaroselCellView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1270,6 +1282,7 @@
 				33F4DB4B1D63B992001FF0AB /* TREventDescriptionCell.xib in Resources */,
 				33D0B4591CFD0165008ABA04 /* Main.storyboard in Resources */,
 				33D9D97A1D48477400A6289D /* TREventActivityCardCell.xib in Resources */,
+				331194B71D88C004007A1262 /* TRCaroselCellView.xib in Resources */,
 				33AABB281D5BF85B0099A20C /* TRDatePicker.xib in Resources */,
 				33D0B45A1CFD0165008ABA04 /* TrLaunchImgBadge.png in Resources */,
 				33D0B45B1CFD0165008ABA04 /* TREventUpcomingWithCheckPointCell.xib in Resources */,
@@ -1304,6 +1317,7 @@
 				33F4DB4C1D63B992001FF0AB /* TREventDescriptionCell.xib in Resources */,
 				62C1FF351C77C15C00A78798 /* Main.storyboard in Resources */,
 				33D9D97B1D48477400A6289D /* TREventActivityCardCell.xib in Resources */,
+				331194B81D88C004007A1262 /* TRCaroselCellView.xib in Resources */,
 				33AABB291D5BF85B0099A20C /* TRDatePicker.xib in Resources */,
 				33D0B3F21CFCFC2C008ABA04 /* TrLaunchImgBadge.png in Resources */,
 				3380EF431CC979C1000A9289 /* TREventUpcomingWithCheckPointCell.xib in Resources */,
@@ -1324,6 +1338,7 @@
 				33D9D97C1D48477400A6289D /* TREventActivityCardCell.xib in Resources */,
 				336B99CE1D64E94900668BF4 /* TREventCommentCell.xib in Resources */,
 				339D8F2D1C90F79800A2620F /* TRActivitySelectionCell.xib in Resources */,
+				331194B91D88C004007A1262 /* TRCaroselCellView.xib in Resources */,
 				3398E1B71CAB7F14001F022B /* TREventInfoPlayerCell.xib in Resources */,
 				3329B5911C9B528F00CC1F9B /* TRErrorNotificationView.xib in Resources */,
 				3374D7521C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */,
@@ -1351,6 +1366,7 @@
 				33D9D97D1D48477400A6289D /* TREventActivityCardCell.xib in Resources */,
 				336B99CF1D64E94900668BF4 /* TREventCommentCell.xib in Resources */,
 				339D8F2E1C90F79800A2620F /* TRActivitySelectionCell.xib in Resources */,
+				331194BA1D88C004007A1262 /* TRCaroselCellView.xib in Resources */,
 				3398E1B81CAB7F14001F022B /* TREventInfoPlayerCell.xib in Resources */,
 				3329B5921C9B528F00CC1F9B /* TRErrorNotificationView.xib in Resources */,
 				3374D7531C92591F0036E9C8 /* TRActivityCheckPointPicker.xib in Resources */,
@@ -1612,6 +1628,7 @@
 				33D0B4091CFD0165008ABA04 /* TRLeaveEventRequest.swift in Sources */,
 				33A588FC1D511C2900D06127 /* TRChangeConsoleRequest.swift in Sources */,
 				33F4DB451D63B964001FF0AB /* TREventDescriptionCell.swift in Sources */,
+				331194BC1D88C00F007A1262 /* TRCaroselCellView.swift in Sources */,
 				33D0B40A1CFD0165008ABA04 /* TRApplicationManager.swift in Sources */,
 				33D0B40B1CFD0165008ABA04 /* TREventInfoPlayerCell.swift in Sources */,
 				33D0B40C1CFD0165008ABA04 /* TRCreateAccountViewController.swift in Sources */,
@@ -1725,6 +1742,7 @@
 				332C9CE41C8B89370092989E /* TRLeaveEventRequest.swift in Sources */,
 				33A588FD1D511C2900D06127 /* TRChangeConsoleRequest.swift in Sources */,
 				33F4DB461D63B964001FF0AB /* TREventDescriptionCell.swift in Sources */,
+				331194BD1D88C00F007A1262 /* TRCaroselCellView.swift in Sources */,
 				33742D881C7FC4B400C46742 /* TRApplicationManager.swift in Sources */,
 				3398E1B21CAB7EE0001F022B /* TREventInfoPlayerCell.swift in Sources */,
 				62C1FF631C77D7F000A78798 /* TRCreateAccountViewController.swift in Sources */,
@@ -1838,6 +1856,7 @@
 				33A029B11CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift in Sources */,
 				62C1FF601C77CDFF00A78798 /* TRLoginOptionViewController.swift in Sources */,
 				33D067681CD40AF600E05EF1 /* TRUpdateUser.swift in Sources */,
+				331194BE1D88C00F007A1262 /* TRCaroselCellView.swift in Sources */,
 				33FDB9AF1C850B960066237C /* EventButton.swift in Sources */,
 				334E05BF1C939D7B00973068 /* AppDelegate.swift in Sources */,
 				33FDB9B71C8621150066237C /* TRCreateEventRequest.swift in Sources */,
@@ -1951,6 +1970,7 @@
 				33A029B21CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift in Sources */,
 				62C1FF611C77CDFF00A78798 /* TRLoginOptionViewController.swift in Sources */,
 				33D067691CD40AF600E05EF1 /* TRUpdateUser.swift in Sources */,
+				331194BF1D88C00F007A1262 /* TRCaroselCellView.swift in Sources */,
 				33FDB9B01C850B970066237C /* EventButton.swift in Sources */,
 				334E05C01C939D7C00973068 /* AppDelegate.swift in Sources */,
 				33FDB9B81C8621160066237C /* TRCreateEventRequest.swift in Sources */,

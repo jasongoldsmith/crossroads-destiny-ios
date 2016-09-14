@@ -19,6 +19,7 @@ def project_pods
     pod 'FacebookCore'
     pod 'Fabric'
     pod 'Answers'
+    pod 'iCarousel'
 end
 
 target 'Traveler' do

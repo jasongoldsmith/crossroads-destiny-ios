@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import iCarousel
 
-class TRLoginOptionViewController: TRBaseViewController {
+class TRLoginOptionViewController: TRBaseViewController, iCarouselDataSource, iCarouselDelegate {
     
+    
+    var items: [TREventInfo] = TRApplicationManager.sharedInstance.eventsList
     @IBOutlet weak var playerCountLabel: UILabel!
-
+    @IBOutlet weak var carousel : iCarousel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,7 @@ class TRLoginOptionViewController: TRBaseViewController {
         finalString.appendAttributedString(helpAttributedStr)
 
         self.playerCountLabel.attributedText = finalString
+        self.carousel?.autoscroll = -0.1
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,5 +63,40 @@ class TRLoginOptionViewController: TRBaseViewController {
     
     @IBAction func trUnwindActionToLoginOption(segue: UIStoryboardSegue) {
         
+    }
+    
+    //MARK:- carousel
+    func numberOfItemsInCarousel(carousel: iCarousel) -> Int {
+        return items.count
+    }
+
+    func carousel(carousel: iCarousel, viewForItemAtIndex index: Int, reusingView view: UIView?) -> UIView {
+       
+        var itemView: TRCaroselCellView
+        
+        //create new view if no view is available for recycling
+        if (view == nil) {
+            itemView = NSBundle.mainBundle().loadNibNamed("TRCaroselCellView", owner: self, options: nil)[0] as! TRCaroselCellView
+        } else {
+            itemView = view as! TRCaroselCellView
+        }
+        
+        itemView.updateViewWithActivity(items[index])
+        return itemView
+    }
+    
+    func carousel(carousel: iCarousel, valueForOption option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
+        
+        switch (option)
+        {
+        case .Wrap:
+            return 1
+        case .Spacing:
+            return value * 1.04
+        case .VisibleItems:
+            return 3
+        default:
+            return value
+        }
     }
 }
