@@ -137,6 +137,7 @@
                 <outlet property="eventIcon" destination="Yix-pY-JJU" id="i77-Ip-sw9"/>
                 <outlet property="eventName" destination="i20-Jd-TUw" id="tg1-gv-nnG"/>
                 <outlet property="joinButton" destination="iKP-KW-728" id="l0V-HS-zKD"/>
+                <outlet property="playerCountLabelIcon" destination="J0Q-0Q-4sY" id="Oom-nt-wJD"/>
                 <outlet property="playerOneIcon" destination="ofS-h7-qFr" id="qmt-8L-wFx"/>
                 <outlet property="playerThreeIcon" destination="HR6-BL-5Ps" id="gA4-Gf-4l8"/>
                 <outlet property="playerTwoIcon" destination="S9Z-FD-6w6" id="AFC-lq-XmU"/>
