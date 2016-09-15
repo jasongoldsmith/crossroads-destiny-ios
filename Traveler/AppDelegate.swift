@@ -135,18 +135,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let remoteNotification = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? NSDictionary? {
             rootViewController.pushNotificationData = remoteNotification
         }
-
-        
-        //Check if already existing user, log them out for this version
-        if userDefaults.boolForKey(K.UserDefaultKey.FORCED_LOGOUT) == false {
-            if TRUserInfo.isUserLoggedIn() == true {
-                _ = TRAuthenticationRequest().logoutTRUser({ (value ) in
-                    if value == true {
-                        userDefaults.setBool(true, forKey: K.UserDefaultKey.FORCED_LOGOUT)
-                    }
-                })
-            }
-        }
         
 
         return true
