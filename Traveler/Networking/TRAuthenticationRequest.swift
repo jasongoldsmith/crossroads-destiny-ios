@@ -123,6 +123,7 @@ class TRAuthenticationRequest: TRRequest {
         
         let request = TRRequest()
         request.params = params
+        request.viewHandlesError = true
         request.requestURL = loginUserUrl
         request.sendRequestWithCompletion { (error, responseObject) in
             

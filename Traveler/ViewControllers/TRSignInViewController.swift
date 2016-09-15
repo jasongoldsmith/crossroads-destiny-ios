@@ -164,7 +164,11 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
                 defaults.synchronize()
                 
                 // Add Error View
-                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("The username and password do not match. Please try again.")
+                let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+                let vc : TRSignInErrorViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_SIGNIN_ERROR) as! TRSignInErrorViewController
+                vc.userName = self.userNameTxtField.text
+                
+                self.navigationController?.pushViewController(vc, animated: true)
             }
         }
     }

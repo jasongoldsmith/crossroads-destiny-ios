@@ -56,6 +56,10 @@
 		331194C21D89F36B007A1262 /* TRAddConsoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331194C01D89F36B007A1262 /* TRAddConsoleViewController.swift */; };
 		331194C31D89F36B007A1262 /* TRAddConsoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331194C01D89F36B007A1262 /* TRAddConsoleViewController.swift */; };
 		331194C41D89F36B007A1262 /* TRAddConsoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331194C01D89F36B007A1262 /* TRAddConsoleViewController.swift */; };
+		331194C61D8A2322007A1262 /* TRSignInErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331194C51D8A2322007A1262 /* TRSignInErrorViewController.swift */; };
+		331194C71D8A2322007A1262 /* TRSignInErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331194C51D8A2322007A1262 /* TRSignInErrorViewController.swift */; };
+		331194C81D8A2322007A1262 /* TRSignInErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331194C51D8A2322007A1262 /* TRSignInErrorViewController.swift */; };
+		331194C91D8A2322007A1262 /* TRSignInErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331194C51D8A2322007A1262 /* TRSignInErrorViewController.swift */; };
 		3312B91A1D024251005AF67D /* TRConsoles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3312B9191D024251005AF67D /* TRConsoles.swift */; };
 		3312B91B1D024251005AF67D /* TRConsoles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3312B9191D024251005AF67D /* TRConsoles.swift */; };
 		3312B91C1D024251005AF67D /* TRConsoles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3312B9191D024251005AF67D /* TRConsoles.swift */; };
@@ -569,6 +573,7 @@
 		331194B61D88C004007A1262 /* TRCaroselCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRCaroselCellView.xib; sourceTree = "<group>"; };
 		331194BB1D88C00F007A1262 /* TRCaroselCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCaroselCellView.swift; sourceTree = "<group>"; };
 		331194C01D89F36B007A1262 /* TRAddConsoleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRAddConsoleViewController.swift; sourceTree = "<group>"; };
+		331194C51D8A2322007A1262 /* TRSignInErrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRSignInErrorViewController.swift; sourceTree = "<group>"; };
 		3312B9191D024251005AF67D /* TRConsoles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRConsoles.swift; sourceTree = "<group>"; };
 		331F8F361D469AB1006CCE80 /* TRPushNotiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRPushNotiController.swift; sourceTree = "<group>"; };
 		3329B58B1C9B524D00CC1F9B /* TRErrorNotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRErrorNotificationView.swift; sourceTree = "<group>"; };
@@ -771,6 +776,7 @@
 				331194C01D89F36B007A1262 /* TRAddConsoleViewController.swift */,
 				62C1FF5E1C77CDFF00A78798 /* TRLoginOptionViewController.swift */,
 				62C1FF661C77D83800A78798 /* TRSignInViewController.swift */,
+				331194C51D8A2322007A1262 /* TRSignInErrorViewController.swift */,
 			);
 			name = OnBoarding;
 			sourceTree = "<group>";
@@ -1669,6 +1675,7 @@
 				33D0B4301CFD0165008ABA04 /* TRActivityCheckPointPicker.swift in Sources */,
 				33D0B4311CFD0165008ABA04 /* TRNavTransitionAnimator.swift in Sources */,
 				33D0B4321CFD0165008ABA04 /* ViewControllerExtension.swift in Sources */,
+				331194C61D8A2322007A1262 /* TRSignInErrorViewController.swift in Sources */,
 				33D0B4331CFD0165008ABA04 /* TRWebView.swift in Sources */,
 				33D0B4341CFD0165008ABA04 /* TRgetActivityList.swift in Sources */,
 				33D0B4351CFD0165008ABA04 /* TRCreateAReportRequest.swift in Sources */,
@@ -1781,6 +1788,7 @@
 				3374D74D1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift in Sources */,
 				3372219D1CD06762001B1157 /* TRNavTransitionAnimator.swift in Sources */,
 				629497321C7C04E1005E4F91 /* ViewControllerExtension.swift in Sources */,
+				331194C71D8A2322007A1262 /* TRSignInErrorViewController.swift in Sources */,
 				338BB1FF1CEEB96200A14060 /* TRWebView.swift in Sources */,
 				33FDB9BC1C863A550066237C /* TRgetActivityList.swift in Sources */,
 				33974F161CADD0740015C9D5 /* TRCreateAReportRequest.swift in Sources */,
@@ -1893,6 +1901,7 @@
 				33D9D9771D48476000A6289D /* TREventActivityCardCell.swift in Sources */,
 				3305AD0A1CF26FD100572495 /* YTGameViewController.swift in Sources */,
 				337DA4C91D4C0D10002A10BA /* TRErrorView.swift in Sources */,
+				331194C81D8A2322007A1262 /* TRSignInErrorViewController.swift in Sources */,
 				3333BDC01CEE6C7F001C9E1A /* TRBungieGroupCell.swift in Sources */,
 				3300FC141D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift in Sources */,
 				33742D9E1C80FFAE00C46742 /* TRGetEventsList.swift in Sources */,
@@ -2005,6 +2014,7 @@
 				33D9D9781D48476000A6289D /* TREventActivityCardCell.swift in Sources */,
 				3305AD0B1CF26FD100572495 /* YTGameViewController.swift in Sources */,
 				337DA4CA1D4C0D10002A10BA /* TRErrorView.swift in Sources */,
+				331194C91D8A2322007A1262 /* TRSignInErrorViewController.swift in Sources */,
 				3333BDC11CEE6C7F001C9E1A /* TRBungieGroupCell.swift in Sources */,
 				3300FC151D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift in Sources */,
 				33742D9F1C80FFAE00C46742 /* TRGetEventsList.swift in Sources */,
