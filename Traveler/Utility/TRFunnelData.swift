@@ -43,6 +43,7 @@ class TRFunnelData {
         p["x-fbasesdk"] = fireBaseSDKVersion
         p["x-branchsdk"] = branchSDKVersion
         p["x-fabricsdk"] = fabricSDK
+        p["x-newloginflow"] = true
         
         let token = K.Tokens.Mix_Panle_Token
         let mixpanel = Mixpanel.sharedInstanceWithToken(token)

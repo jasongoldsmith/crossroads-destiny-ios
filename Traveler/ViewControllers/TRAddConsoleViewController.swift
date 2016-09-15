@@ -56,10 +56,7 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
         self.consolePicker?.layer.cornerRadius = 5.0
         self.consolePicker?.layer.masksToBounds = true
 
-        //KeyBoard Notifications
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRCreateAccountViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRCreateAccountViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
-    
+
         if self.openedFromProfile == true {
             self.chooseConsoleButton.setTitle(self.consoleNameArray.firstObject as? String, forState: .Normal)
             self.backButton.hidden = true
@@ -230,14 +227,6 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
             selectedConsole = ConsoleTypes.XBOXONE
             break
         }
-        
-        _ = TRBungieUserAuthRequest().verifyBungieUserName((self.consoleIDTextField?.text!)!, consoleType: selectedConsole, completion: { (didSucceed) in
-            if didSucceed == true {
-                let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
-                let verifyAccountViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEWCONTROLLER_SIGNUP) as! TRCreateAccountViewController
-                self.navigationController?.pushViewController(verifyAccountViewController, animated: true)
-            }
-        })
     }
 
     @IBAction func closeAddConsoleView (sender: UIButton) {

@@ -20,9 +20,19 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
     @IBOutlet weak var userNameTxtField: UITextField!
     @IBOutlet weak var userPwdTxtField: UITextField!
     @IBOutlet weak var forgotPassword: UILabel!
+    @IBOutlet weak var playStationButton: UIButton!
+    @IBOutlet weak var xBoxStationButton: UIButton!
+    @IBOutlet weak var playStationImage: UIImageView!
+    @IBOutlet weak var xBoxStationImage: UIImageView!
+    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var appIconImage: UIImageView!
+    @IBOutlet weak var viewInfoLabel: UILabel!
+
+    
     
     var errorView: TRErrorNotificationView?
-
+    var selectedConsole: String?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,14 +41,15 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
             self.leftTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.forgotPasswordTapped))
             self.leftTapGesture!.delegate = self
         }
-
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRSignInViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRSignInViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
 
-        self.userNameTxtField.attributedPlaceholder = NSAttributedString(string:"Enter Crossroads username", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         self.userPwdTxtField.attributedPlaceholder = NSAttributedString(string:"Enter password", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         self.forgotPassword.addGestureRecognizer(self.leftTapGesture!)
+        
+        //UnSelected Button View Updates
+        self.playStationSelected()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -79,6 +90,33 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
         return true
     }
 
+    
+    @IBAction func playStationSelected () {
+        self.selectedConsole = ConsoleTypes.PS4
+        self.playStationButton?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
+        self.playStationButton?.layer.cornerRadius = 2.0
+        self.playStationButton?.alpha = 1
+        self.playStationImage?.alpha = 1
+        self.userNameTxtField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+        
+        self.xBoxStationButton?.backgroundColor = UIColor.blackColor()
+        self.xBoxStationImage?.alpha = 0.5
+        self.xBoxStationButton?.alpha = 0.5
+    }
+
+    @IBAction func xBoxSelected () {
+        self.selectedConsole = ConsoleTypes.XBOXONE
+        self.xBoxStationButton?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
+        self.xBoxStationButton?.layer.cornerRadius = 2.0
+        self.xBoxStationButton?.alpha = 1
+        self.xBoxStationImage?.alpha = 1
+        self.userNameTxtField.attributedPlaceholder = NSAttributedString(string:"Enter Xbox One ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+        
+        self.playStationButton?.backgroundColor = UIColor.blackColor()
+        self.playStationImage?.alpha = 0.5
+        self.playStationButton?.alpha = 0.5
+    }
+
     @IBAction func signInBtnTapped(sender: AnyObject) {
 
         // Close KeyBoards
@@ -95,6 +133,9 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
             return
         }
 
+        guard let _ = self.selectedConsole else {
+            return
+        }
         
         let userInfo = TRUserInfo()
         userInfo.userName = userNameTxtField.text
@@ -108,9 +149,13 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
         defaults.setValue(userPwdTxtField.text, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
         defaults.synchronize()
 
+        
+        var console = [String: AnyObject]()
+        console["consoleType"] = self.selectedConsole
+        console["consoleId"] = userNameTxtField.text
         let createRequest = TRAuthenticationRequest()
-        createRequest.loginTRUserWith(userInfo) { (value ) in
-            if value == true {
+        createRequest.loginTRUserWith(console, password: userPwdTxtField.text) { (didSucceed) in
+            if didSucceed == true {
                 self.signInSuccess()
             } else{
                 
@@ -151,7 +196,9 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
         if keyboardSize.height == offset.height {
             if self.view.frame.origin.y == 0 {
                 UIView.animateWithDuration(0.2, animations: { () -> Void in
-                    self.view.frame.origin.y -= keyboardSize.height - 20
+                    self.view.frame.origin.y -= keyboardSize.height
+                    self.appIconImage?.alpha = 0
+                    self.viewInfoLabel?.alpha = 0
                 })
             }
         } else {
@@ -159,7 +206,6 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
                 self.view.frame.origin.y += keyboardSize.height - offset.height
             })
         }
-        
     }
     
     func keyboardWillHide(sender: NSNotification) {
@@ -167,9 +213,11 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
         let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
         
         if self.view.frame.origin.y == self.view.frame.origin.y - keyboardSize.height {
-        self.view.frame.origin.y += keyboardSize.height
+            self.view.frame.origin.y += keyboardSize.height
         }
         else {
+            self.appIconImage?.alpha = 1
+            self.viewInfoLabel?.alpha = 1
             self.view.frame.origin.y = 0
         }
     }
@@ -182,5 +230,4 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
             userPwdTxtField.resignFirstResponder()
         }
     }
-
 }

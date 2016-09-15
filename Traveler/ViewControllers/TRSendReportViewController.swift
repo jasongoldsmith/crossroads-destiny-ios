@@ -19,10 +19,6 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
 
         self.title = "CONTACT US"
         self.addNavigationBarButtons(false, showCancel: true)
-
-        // Key-Board Notifications
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRCreateAccountViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRCreateAccountViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
     }
     
     override func viewWillAppear(animated: Bool) {

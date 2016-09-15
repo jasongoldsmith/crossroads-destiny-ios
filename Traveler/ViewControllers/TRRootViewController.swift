@@ -77,12 +77,6 @@ class TRRootViewController: TRBaseViewController {
                         TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("The username and password do not match. Please try again.")
                     }
                 }
-            } else {
-                let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
-                let verifyAccountViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_VERIFY_ACCOUNT) as! TRSignUpVerificatioViewController
-                self.presentViewController(verifyAccountViewController, animated: true, completion: {
-                    
-                })
             }
         } else {
             //loginOptions // Get Public Feed 

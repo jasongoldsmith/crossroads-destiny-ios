@@ -27,6 +27,8 @@ struct K {
         static let SHOWN_GROUP_PICKER = "SHOW_GROUP_PICKER"
         static let INSTALL_INFO_SENT = "INSTALL_INFO_SENT"
         static let Platform_Info_Dict = "Platform_Info_Dict"
+        static let FORCED_LOGOUT = "FORCED_LOGOUT" 
+        
         
         struct UserAccountInfo {
             static let TR_UserName      = "TR_UserName"
@@ -142,6 +144,13 @@ struct K {
         static let APPLICATION_WILL_TERMINATE                   = "UIApplicationWillTerminateNotification"
         static let APPLICATION_WILL_RESIGN_ACTIVE               = "UIApplicationWillResignActiveNotification"
     }
+    
+    struct ConsoleTypes {
+        static let PS4      = "PS4"
+        static let PS3      = "PS3"
+        static let XBOX360  = "XBOX360"
+        static let XBOXONE  = "XBOXONE"
+    }
 }
 
 enum EVENT_STATUS : String {
@@ -239,3 +248,4 @@ enum Activity_Type: String {
     case QUEST      = "Quest"
     case EXOTIC     = "Exotic"
 }
+
