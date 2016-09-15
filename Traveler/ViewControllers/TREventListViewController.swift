@@ -113,6 +113,15 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
             self.leftSectionUnderLineRightConstraint?.constant = 2
             self.rightSectionUnderLineLeftConstraint?.constant = 0
         }
+        
+        //Is User Verified
+        if TRUserInfo.isUserVerified()! == ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue {
+            let verificationPrompt = NSBundle.mainBundle().loadNibNamed("TRVerificationPromptView", owner: self, options: nil)[0] as! TRVerificationPromptView
+            verificationPrompt.frame = self.view.frame
+            verificationPrompt.updateView()
+            
+            self.view.addSubview(verificationPrompt)
+        }
     }
 
     func showLegalAlert () {
