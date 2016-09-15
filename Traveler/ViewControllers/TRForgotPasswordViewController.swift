@@ -22,7 +22,12 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
     @IBOutlet weak var xBoxStationImage: UIImageView!
     @IBOutlet weak var resetPasswordButton: UIButton!
     @IBOutlet weak var resetPasswordButtonBottom: NSLayoutConstraint!
+    @IBOutlet weak var userNameView: UIView!
+    @IBOutlet weak var instructionLabel: UILabel!
     
+    @IBOutlet weak var successView: UIView!
+    @IBOutlet weak var resetLabel: TTTAttributedLabel!
+    @IBOutlet weak var goToBungieButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +37,25 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
 
         self.userNameTxtField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         self.playStationSelected()
+        
+        //Attributed Label
+        let messageString = "Check your messages on Bungie.net for a reset password link (also viewable in the Destiny companion app)."
+        let bungieLinkName = "Bungie.net"
+        self.resetLabel?.text = messageString
+        
+        // Add HyperLink to Bungie
+        let nsString = messageString as NSString
+        let range = nsString.rangeOfString(bungieLinkName)
+        let url = NSURL(string: "https://www.bungie.net/")!
+        let subscriptionNoticeLinkAttributes = [
+            NSForegroundColorAttributeName: UIColor(red: 0/255, green: 182/255, blue: 231/255, alpha: 1),
+            NSUnderlineStyleAttributeName: NSNumber(bool:true),
+            ]
+        self.resetLabel?.linkAttributes = subscriptionNoticeLinkAttributes
+        self.resetLabel?.addLinkToURL(url, withRange: range)
+        self.resetLabel?.delegate = self
+        
+        self.goToBungieButton?.layer.cornerRadius = 2.0
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -118,6 +142,44 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
         if userNameTxtField.isFirstResponder() {
             userNameTxtField.resignFirstResponder()
         }
+    }
+    
+    
+   @IBAction func forgotPassword () {
+        
+        let userName = self.userNameTxtField?.text
+        let consoleType = self.selectedConsole
+            
+        _ = TRForgotPasswordRequest().resetUserPassword(userName!, consoleType: consoleType!, completion: { (didSucceed) in
+            if (didSucceed == true) {
+                
+                self.userNameView.hidden = true
+                self.xBoxStationButton.hidden = true
+                self.playStationButton.hidden = true
+                self.xBoxStationImage.hidden = true
+                self.playStationImage.hidden = true
+                self.resetPasswordButton.hidden = true
+                self.instructionLabel.hidden = true
+                
+                self.successView.hidden = false
+                self.resignKeyBoardResponders()
+            } else {
+                
+            }
+        })
+    }
+
+    func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
+        UIApplication.sharedApplication().openURL(url)
+    }
+    
+    func goToBungie () {
+        let url = NSURL(string: "https://www.bungie.net/")!
+        UIApplication.sharedApplication().openURL(url)
+    }
+    
+    @IBAction func bungieButtonAction () {
+        self.goToBungie()
     }
     
     deinit {
