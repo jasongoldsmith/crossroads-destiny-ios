@@ -178,9 +178,7 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
         let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
         let vc : TRForgotPasswordViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_FORGOT_PASSWORD) as! TRForgotPasswordViewController
         
-        self.presentViewController(vc, animated: true) { 
-            
-        }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     @IBAction func dismissKeyboard(recognizer : UITapGestureRecognizer) {

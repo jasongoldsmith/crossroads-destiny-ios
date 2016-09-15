@@ -11,24 +11,18 @@ import TTTAttributedLabel
 
 private let PICKER_COMPONET_COUNT = 1
 
-class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIGestureRecognizerDelegate {
-
-    @IBOutlet weak var userNameTextField: UITextField!
+class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDelegate {
+    
+    var selectedConsole: String?
+    
+    @IBOutlet weak var userNameTxtField: UITextField!
+    @IBOutlet weak var playStationButton: UIButton!
+    @IBOutlet weak var xBoxStationButton: UIButton!
+    @IBOutlet weak var playStationImage: UIImageView!
+    @IBOutlet weak var xBoxStationImage: UIImageView!
     @IBOutlet weak var resetPasswordButton: UIButton!
-    @IBOutlet weak var resetButtonBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var resetTextBoxParentView: UIView!
-    @IBOutlet weak var titleMessageLable: TTTAttributedLabel!
-    @IBOutlet weak var consoleTypeLabel: UILabel!
-    @IBOutlet weak var changeConsoleButton: UIButton!
-    @IBOutlet weak var consoleImage: UIImageView!
-    @IBOutlet weak var consolePicketContainerView: UIView!
-    @IBOutlet weak var consolePicketView: UIPickerView!
-    @IBOutlet weak var chooseConsoleLabel: UILabel!
-    @IBOutlet weak var downArrowImage: UIImageView!
+    @IBOutlet weak var resetPasswordButtonBottom: NSLayoutConstraint!
     
-    
-    var consoleNameArray: NSArray = ["PlayStation 4","PlayStation 3", "Xbox 360", "Xbox One"]
-    var selectedIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,15 +30,8 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRForgotPasswordViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRForgotPasswordViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
 
-        self.userNameTextField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
-        self.userNameTextField?.becomeFirstResponder()
-        
-        // layer Radius
-        self.consolePicketView.layer.cornerRadius = 5.0
-        self.consolePicketView.layer.masksToBounds = true
-        
-        self.changeConsoleButton.layer.cornerRadius = 3.0
-        self.changeConsoleButton.layer.masksToBounds = true
+        self.userNameTxtField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+        self.playStationSelected()
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -63,173 +50,74 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
         super.didReceiveMemoryWarning()
     }
     
-    
-    @IBAction func changeConsoleButtonPressed (sender: UIButton) {
-        self.consolePicketContainerView.hidden = false
 
-        //Close KeyBoard
-        if self.userNameTextField?.isFirstResponder() == true {
-            self.userNameTextField?.resignFirstResponder()
-        }
+    @IBAction func playStationSelected () {
+        self.selectedConsole = ConsoleTypes.PS4
+        self.playStationButton?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
+        self.playStationButton?.layer.cornerRadius = 2.0
+        self.playStationButton?.alpha = 1
+        self.playStationImage?.alpha = 1
+        self.userNameTxtField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+        
+        self.xBoxStationButton?.backgroundColor = UIColor.blackColor()
+        self.xBoxStationImage?.alpha = 0.5
+        self.xBoxStationButton?.alpha = 0.5
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    @IBAction func xBoxSelected () {
+        self.selectedConsole = ConsoleTypes.XBOXONE
+        self.xBoxStationButton?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
+        self.xBoxStationButton?.layer.cornerRadius = 2.0
+        self.xBoxStationButton?.alpha = 1
+        self.xBoxStationImage?.alpha = 1
+        self.userNameTxtField.attributedPlaceholder = NSAttributedString(string:"Enter Xbox One ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         
-        if self.userNameTextField.text!.isEmpty {
-            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Please enter PSN ID!")
-            return false
-        }
-        
-        self.forgotPasswordForPsnID(self.userNameTextField!.text!)
-        
-        return true
+        self.playStationButton?.backgroundColor = UIColor.blackColor()
+        self.playStationImage?.alpha = 0.5
+        self.playStationButton?.alpha = 0.5
     }
     
-    @IBAction func textFieldDidDidUpdate (textField: UITextField) {
-        if textField.text?.characters.count >= 3 {
-            self.resetPasswordButton.enabled = true
-            self.resetPasswordButton.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
-        } else {
-            self.resetPasswordButton.enabled = false
-            self.resetPasswordButton.backgroundColor = UIColor(red: 54/255, green: 93/255, blue: 101/255, alpha: 1)
-        }
-    }
-    
-    @IBAction func backButtonPressed(sender: UIButton) {
-        
-        if self.userNameTextField.isFirstResponder() {
-            self.userNameTextField.resignFirstResponder()
-        }
-        
-        delay(0.3) {
-            self.dismissViewController(true) { (didDismiss) in
-                
-            }
-        }
-    }
-
-    @IBAction func resetButtonPressed (sender: UIButton) {
-        if self.userNameTextField.text!.isEmpty {
-            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Please enter PSN ID!")
-        }
-        
-        self.forgotPasswordForPsnID(self.userNameTextField!.text!)
+    @IBAction func backButton () {
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     func keyboardWillShow(sender: NSNotification) {
         
         let userInfo: [NSObject : AnyObject] = sender.userInfo!
+        
         let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
-
-        self.resetButtonBottomConstraint!.constant = keyboardSize.height
+        let offset: CGSize = userInfo[UIKeyboardFrameEndUserInfoKey]!.CGRectValue.size
+        
+        if keyboardSize.height == offset.height {
+            if self.view.frame.origin.y == 0 {
+                UIView.animateWithDuration(0.1, animations: { () -> Void in
+                    self.resetPasswordButtonBottom.constant = keyboardSize.height
+                    self.view.updateConstraints()
+                })
+            }
+        } else {
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                self.view.frame.origin.y += keyboardSize.height - offset.height
+            })
+        }
     }
     
     func keyboardWillHide(sender: NSNotification) {
-        self.resetButtonBottomConstraint!.constant = 0
-    }
-    
-    //MARK:- NETWORK CALL
-    func forgotPasswordForPsnID (userName: String) {
+        let userInfo: [NSObject : AnyObject] = sender.userInfo!
+        let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
         
-        let consoleName = self.consoleNameArray.objectAtIndex(self.selectedIndex) as! String
-        let consoleType = self.getConsoleTypeFromString(consoleName)
-            
-        _ = TRForgotPasswordRequest().resetUserPassword(userName, consoleType: consoleType, completion: { (didSucceed) in
-            if (didSucceed == true) {
-                
-                self.resetTextBoxParentView.hidden = true
-                self.resetPasswordButton.hidden = true
-                self.chooseConsoleLabel.hidden = true
-                self.changeConsoleButton.hidden = true
-                self.consoleImage.hidden = true
-                self.downArrowImage.hidden = true
-                
-                let messageString = "A Reset Password Link Has Been Sent to Your Bungie.net Account."
-                let bungieString = "Bungie.net"
-                self.titleMessageLable.text = messageString
-                
-                // Add HyperLink to Bungie
-                let nsString = messageString as NSString
-                let rangeBungieString = nsString.rangeOfString(bungieString)
-                let urlBungieString = NSURL(string: "https://www.bungie.net/")!
-                let linkAttributes = [
-                    NSUnderlineStyleAttributeName: NSNumber(bool:true),
-                ]
-                
-                self.titleMessageLable?.linkAttributes = linkAttributes
-                self.titleMessageLable?.addLinkToURL(urlBungieString, withRange: rangeBungieString)
-                self.titleMessageLable?.delegate = self
-                
-                if self.userNameTextField?.isFirstResponder() == true {
-                    self.userNameTextField?.resignFirstResponder()
-                }
-            } else {
-            }
-        })
-    }
-    
-    func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
-        UIApplication.sharedApplication().openURL(url)
-    }
-    
-    
-    //#MARK:- PICKER_VIEW
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return PICKER_COMPONET_COUNT
-    }
-    
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.consoleNameArray.count
-    }
-    
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.consoleNameArray.objectAtIndex(row) as? String
-    }
-    
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.userNameTextField.text = nil
-        self.selectedIndex = row
-    }
-    
-    @IBAction func closePickerView(recognizer : UITapGestureRecognizer) {
-        
-        self.consolePicketContainerView.hidden = true
-        
-        if let consoleType = self.consoleNameArray.objectAtIndex(self.selectedIndex) as? String {
-            self.changeConsoleButton?.titleLabel?.text = consoleType
-            
-            if self.selectedIndex < 2 {
-                self.consoleTypeLabel.text = "PLAYSTATION ID"
-                self.userNameTextField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
-                self.consoleImage.image = UIImage(named: "iconPsnConsole")
-            } else {
-                self.consoleTypeLabel.text = "XBOX GAMERTAG"
-                self.userNameTextField.attributedPlaceholder = NSAttributedString(string:"Enter Xbox Gamertag", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
-                self.consoleImage.image = UIImage(named: "iconXboxoneConsole")
-            }
+        if self.view.frame.origin.y == self.view.frame.origin.y - keyboardSize.height {
+            self.view.frame.origin.y += keyboardSize.height
+        }
+        else {
+            self.resetPasswordButtonBottom.constant = 0
         }
     }
     
-    func getConsoleTypeFromString (consoleName: String) -> String {
-        
-        var consoleType = ""
-        switch consoleName {
-        case "PlayStation 4":
-            consoleType = ConsoleTypes.PS4
-            break
-        case "PlayStation 3":
-            consoleType = ConsoleTypes.PS3
-            break
-        case "Xbox 360":
-            consoleType = ConsoleTypes.XBOX360
-            break
-            
-        default:
-            consoleType = ConsoleTypes.XBOXONE
-            break
+    func resignKeyBoardResponders () {
+        if userNameTxtField.isFirstResponder() {
+            userNameTxtField.resignFirstResponder()
         }
-        
-        return consoleType
     }
     
     deinit {

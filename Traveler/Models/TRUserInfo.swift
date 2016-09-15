@@ -147,8 +147,8 @@ class TRUserInfo: NSObject {
     class func isUserLoggedIn () -> Bool {
         
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        if (userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_UserName) != nil) &&
-           (userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_UserPwd) != nil)  {
+        if (userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_UserID) != nil) &&
+           (userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_UserID) != nil)  {
             
             return true
         }

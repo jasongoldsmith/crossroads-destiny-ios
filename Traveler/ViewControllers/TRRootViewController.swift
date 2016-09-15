@@ -41,8 +41,8 @@ class TRRootViewController: TRBaseViewController {
 
             
             var console = [String: AnyObject]()
-            console["consoleType"] = userInfo.getDefaultConsole()?.consoleType
-            console["consoleId"] = userInfo.getDefaultConsole()?.consoleId
+            console["consoleId"] = userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_USER_CONSOLE_ID) as? String
+            console["consoleType"] = userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_USER_CONSOLE_TYPE) as? String
 
             let createRequest = TRAuthenticationRequest()
             createRequest.loginTRUserWith(console, password: userInfo.password, completion: { (didSucceed) in
