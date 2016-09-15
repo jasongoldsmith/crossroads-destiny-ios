@@ -10,7 +10,14 @@ import Foundation
 import TTTAttributedLabel
 
 
+@objc protocol VerificationPopUpProtocol {
+    optional func showGroups ()
+}
+
+
 class TRVerificationPromptView: UIView, TTTAttributedLabelDelegate {
+    
+    var delegate: VerificationPopUpProtocol?
     
     @IBOutlet weak var userNameView: UIView!
     @IBOutlet weak var userImage: UIImageView!
@@ -22,8 +29,8 @@ class TRVerificationPromptView: UIView, TTTAttributedLabelDelegate {
     @IBOutlet weak var bungieAttLabel: TTTAttributedLabel!
     
     func updateView () {
-        self.userNameView?.layer.cornerRadius = 2.0
         
+        self.userNameView?.layer.cornerRadius = 2.0
         self.userNameLabel?.text = TRUserInfo.getConsoleID()
         self.userImage.roundRectView()
         
@@ -70,6 +77,11 @@ class TRVerificationPromptView: UIView, TTTAttributedLabelDelegate {
     }
     
     @IBAction func closeView () {
+        if let _ = self.delegate {
+            self.delegate!.showGroups!()
+            self.delegate = nil
+        }
+        
         self.removeFromSuperview()
     }
 }

@@ -25,7 +25,7 @@ private let EVENT_UPCOMING_WITH_CHECK_POINT_CELL_HEIGHT:CGFloat  = 150.0
 private let EVENT_UPCOMING_NO_CHECK_POINT_CELL_HEIGHT:CGFloat    = 137.0
 private let EVENT_ACTIVITY_CELL_HEIGHT:CGFloat                   = 156.0
 
-class TREventListViewController: TRBaseViewController, UITableViewDataSource, UITableViewDelegate,ErrorViewProtocol {
+class TREventListViewController: TRBaseViewController, UITableViewDataSource, UITableViewDelegate, ErrorViewProtocol, VerificationPopUpProtocol {
     
     @IBOutlet var segmentControl: UISegmentedControl?
     @IBOutlet var eventsTableView: UITableView?
@@ -38,6 +38,9 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     @IBOutlet weak var leftSectionUnderLineRightConstraint: NSLayoutConstraint!
     @IBOutlet weak var rightSectionUnderLineLeftConstraint: NSLayoutConstraint!
 
+    
+    //UnVerified User PopUp
+    var verificationPrompt = TRVerificationPromptView()
     
     //Events Information
     var eventsInfo: [TREventInfo] = []
@@ -116,14 +119,21 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         
         //Is User Verified
         if TRUserInfo.isUserVerified()! != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue {
-            let verificationPrompt = NSBundle.mainBundle().loadNibNamed("TRVerificationPromptView", owner: self, options: nil)[0] as! TRVerificationPromptView
-            verificationPrompt.frame = self.view.frame
-            verificationPrompt.updateView()
+            self.verificationPrompt = TRApplicationManager.sharedInstance.addVerificationPrompt()
+            self.verificationPrompt.frame = self.view.frame
+            self.verificationPrompt.delegate = self
+            self.verificationPrompt.updateView()
             
-            self.view.addSubview(verificationPrompt)
+            self.view.addSubview(self.verificationPrompt)
         }
     }
 
+    // Close Verification Prompt and Show Groups
+    func showGroups () {
+        TRApplicationManager.sharedInstance.fetchBungieGroups(true, completion: { (didSucceed) in
+        })
+    }
+    
     func showLegalAlert () {
         
         var legalMessage = ""
