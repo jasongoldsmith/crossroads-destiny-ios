@@ -39,10 +39,14 @@ class TRRootViewController: TRBaseViewController {
             userInfo.userName = userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_UserName) as? String
             userInfo.password = userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_UserPwd) as? String
 
+            
+            var console = [String: AnyObject]()
+            console["consoleType"] = userInfo.getDefaultConsole()?.consoleType
+            console["consoleId"] = userInfo.getDefaultConsole()?.consoleId
+
             let createRequest = TRAuthenticationRequest()
-            createRequest.loginTRUserWith(userInfo) { (value ) in
-                if value == true {
-                    
+            createRequest.loginTRUserWith(console, password: userInfo.password, completion: { (didSucceed) in
+                if didSucceed == true {
                     _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: true, indicatorTopConstraint: self.ACTIVITY_INDICATOR_TOP_CONSTRAINT, completion: { (didSucceed) -> () in
                         
                         var showEventListLandingPage = false
@@ -65,8 +69,7 @@ class TRRootViewController: TRBaseViewController {
                             self.appManager.log.debug("Failed")
                         }
                     })
-                } else{
-                    
+                } else {
                     //Delete the saved Password if sign-in was not successful
                     userDefaults.setValue(nil, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
                     userDefaults.synchronize()
@@ -74,7 +77,7 @@ class TRRootViewController: TRBaseViewController {
                     // Add Error View
                     TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("The username and password do not match. Please try again.")
                 }
-            }
+            })
         } else {
             //loginOptions // Get Public Feed 
             _ = TRPublicFeedRequest().getPublicFeed({ (didSucceed) in
