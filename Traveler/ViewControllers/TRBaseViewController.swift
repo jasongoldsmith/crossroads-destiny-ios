@@ -90,7 +90,12 @@ class TRBaseViewController: UIViewController {
     }
     
     func applicationWillEnterForeground() {
-        
+        //Add Observer to check if the user has been verified
+        if (TRUserInfo.isUserVerified() != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue) {
+            TRApplicationManager.sharedInstance.fireBaseManager?.addUserObserverWithCompletion({ (didCompelete) in
+                
+            })
+        }
     }
     
     func reloadEventTable () {

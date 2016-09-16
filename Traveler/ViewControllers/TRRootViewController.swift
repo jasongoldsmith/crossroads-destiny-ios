@@ -35,7 +35,6 @@ class TRRootViewController: TRBaseViewController {
     func loadAppInitialViewController () {
         
         //Add Observer to check if the user has been verified
-        //addUserObserverWithCompletion
         if (TRUserInfo.isUserVerified() != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue) {
             TRApplicationManager.sharedInstance.fireBaseManager?.addUserObserverWithCompletion({ (didCompelete) in
                 
