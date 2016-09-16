@@ -190,7 +190,7 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
     }
     
     @IBAction func showPasswordClicked () {
-        if let _ = self.userPwdTxtField.text {
+        if let _ = self.userPwdTxtField.text where self.userPwdTxtField.text?.isEmpty != true {
             self.userPwdTxtField.secureTextEntry = !self.userPwdTxtField.secureTextEntry
         }
     }
