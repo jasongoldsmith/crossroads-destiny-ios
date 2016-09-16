@@ -68,6 +68,44 @@ class TRAuthenticationRequest: TRRequest {
     }
     
     //MARK:- LOGIN USER
+    func loginTRUserWithSuccess(console: Dictionary<String, AnyObject>?, password: String?, completion:TRValueCallBack)  {
+        
+        let loginUserUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_LoginUrl
+        var params = [String: AnyObject]()
+        if let _ = console {
+            params["consoles"] = console
+        } else { return }
+        
+        if password?.characters.isEmpty == false {
+            params["passWord"] = password
+        } else { return }
+        
+        let request = TRRequest()
+        request.params = params
+        request.viewHandlesError = true
+        request.requestURL = loginUserUrl
+        request.sendRequestWithCompletion { (error, responseObject) in
+            
+            if let _ = error {
+                completion(didSucceed: false)
+                return
+            }
+            
+            let userData = TRUserInfo()
+            userData.parseUserResponse(responseObject)
+            TRUserInfo.saveUserData(userData)
+            
+            for console in userData.consoles {
+                if console.isPrimary == true {
+                    TRUserInfo.saveConsolesObject(console)
+                }
+            }
+            
+            completion(didSucceed: true )
+        }
+    }
+
+    
     func loginTRUserWith(console: Dictionary<String, AnyObject>?, password: String?, completion:TRResponseCallBack)  {
         
         let loginUserUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_LoginUrl
@@ -114,7 +152,6 @@ class TRAuthenticationRequest: TRRequest {
         
         let logoutUserUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_LogoutUrl
         let request = TRRequest()
-        request.params = params
         request.requestURL = logoutUserUrl
         request.sendRequestWithCompletion { (error, responseObject) in
             
