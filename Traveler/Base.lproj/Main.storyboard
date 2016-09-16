@@ -1920,6 +1920,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                         <outlet property="changePasswordButton" destination="Gnx-Nj-sRV" id="t3B-vy-lVd"/>
                         <outlet property="consoleButton" destination="cYS-BI-7UK" id="Yve-JR-giS"/>
                         <outlet property="consoleButtonImageView" destination="pJ4-DM-yXy" id="3FP-Dq-quX"/>
+                        <outlet property="consoleDropDownArrow" destination="LXc-zO-JUp" id="jQZ-RE-5k3"/>
                         <outlet property="contactUsButton" destination="yga-kS-xxF" id="wDr-me-tNz"/>
                         <outlet property="legalLabel" destination="xsB-j0-IhM" id="0BP-2m-pf4"/>
                         <outlet property="logOutButton" destination="lly-Ep-C9p" id="nhz-x9-cL1"/>

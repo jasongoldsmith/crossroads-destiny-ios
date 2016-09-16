@@ -26,6 +26,7 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
     @IBOutlet weak var changePasswordButton: UIButton!
     @IBOutlet weak var contactUsButton: UIButton!
     @IBOutlet weak var logOutButton: UIButton!
+    @IBOutlet weak var consoleDropDownArrow: UIImageView!
     
     
     var consoleTwoButton: UIButton?
@@ -48,6 +49,10 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         self.changePasswordButton.layer.cornerRadius = 2.0
         self.contactUsButton.layer.cornerRadius = 2.0
         self.logOutButton.layer.cornerRadius = 2.0
+        
+        if TRApplicationManager.sharedInstance.currentUser?.consoles.count == 1 {
+            self.consoleDropDownArrow?.hidden = true
+        }
 }
     
     override func viewWillAppear(animated: Bool) {
@@ -289,43 +294,11 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
     }
     
     func currentConsoleButtonPressed () {
-        
-        let consoleCount = TRApplicationManager.sharedInstance.currentUser?.consoles.count
-        
-        if consoleCount == 1 {
-            self.createAddConsoleButtonBelow(self.consoleButton)
-        } else {
-            for console in (TRApplicationManager.sharedInstance.currentUser?.consoles)! {
-                if console.isPrimary == false {
-                    self.addConsoleButtonFOrType(self.consoleButton, console: console)
-                } else {
-                    continue
-                }
-                
-                if console.consoleType == ConsoleTypes.PS3 || console.consoleType == ConsoleTypes.XBOX360 {
-                    self.createAddConsoleButtonBelow(self.consoleTwoButton!)
-                }
+        for console in (TRApplicationManager.sharedInstance.currentUser?.consoles)! {
+            if console.isPrimary == false {
+                self.addConsoleButtonFOrType(self.consoleButton, console: console)
             }
         }
-    }
-    
-    func createAddConsoleButtonBelow (sender: UIButton) {
-        
-        self.consoleAddButton = UIButton(type: .Custom)
-        self.consoleAddButton?.backgroundColor = UIColor(red: 0/255, green: 56/255, blue: 71/255, alpha: 1)
-        self.consoleAddButton?.frame = CGRectMake(sender.frame.origin.x, sender.frame.origin.y + sender.frame.size.height, sender.frame.size.width, self.consoleButton.frame.size.height)
-        self.consoleAddButton?.setTitle("Add Console", forState: .Normal)
-        self.consoleAddButton?.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 14)
-        self.consoleAddButton?.addTarget(self, action: #selector(TRProfileViewController.addNewConsole), forControlEvents: .TouchUpInside)
-        self.consoleAddButton?.layer.borderColor = UIColor(red: 3/255, green: 81/255, blue: 102/255, alpha: 1).CGColor
-        self.consoleAddButton?.layer.borderWidth = 2.0
-        
-        self.consoleAddButtonImageView = UIImageView.init(image: UIImage(named: "iconAddConsole"))
-        self.consoleAddButtonImageView!.frame = CGRectMake((self.consoleAddButton?.frame.origin.x)! + 10, (self.consoleAddButton?.frame.origin.y)! + 10, self.consoleAddButtonImageView!.frame.size.width, self.consoleAddButtonImageView!.frame.size.height)
-        self.consoleAddButton?.round([.BottomLeft, .BottomRight], radius: 2.0)
-        
-        self.view.addSubview(self.consoleAddButton!)
-        self.view.addSubview(self.consoleAddButtonImageView!)
     }
     
     func addConsoleButtonFOrType (sender: UIButton, console: TRConsoles) {
