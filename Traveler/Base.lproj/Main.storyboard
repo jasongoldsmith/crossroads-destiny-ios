@@ -53,6 +53,7 @@
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue-Bold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -129,6 +130,9 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which group would you like to play with?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Hh-ej-dOf">
                                 <rect key="frame" x="118" y="117" width="367" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="e1L-Pr-J1j"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -180,7 +184,7 @@
                                         <color key="textColor" red="1" green="0.77647058823529413" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imgDogEar" translatesAutoresizingMaskIntoConstraints="NO" id="Adq-bX-Xek">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgDogEar" translatesAutoresizingMaskIntoConstraints="NO" id="Adq-bX-Xek">
                                         <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jvc-Az-YMP">
@@ -191,6 +195,7 @@
                                 <color key="backgroundColor" red="0.074509803921568626" green="0.12156862745098039" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="yqb-eJ-W4C" firstAttribute="leading" secondItem="FYn-IG-MGk" secondAttribute="trailing" constant="10" id="2Ha-IN-Zxe"/>
+                                    <constraint firstItem="FYn-IG-MGk" firstAttribute="leading" secondItem="Adq-bX-Xek" secondAttribute="leading" id="98m-W8-di6"/>
                                     <constraint firstItem="Jvc-Az-YMP" firstAttribute="leading" secondItem="UcS-9m-9Pf" secondAttribute="leading" id="DSu-Vi-UpZ"/>
                                     <constraint firstItem="ffE-na-oqv" firstAttribute="leading" secondItem="FYn-IG-MGk" secondAttribute="trailing" constant="10" id="F3g-ns-To0"/>
                                     <constraint firstItem="FYn-IG-MGk" firstAttribute="top" secondItem="UcS-9m-9Pf" secondAttribute="top" id="SLI-N4-26k"/>
@@ -199,6 +204,7 @@
                                     <constraint firstAttribute="bottom" secondItem="uRt-Ts-zs5" secondAttribute="bottom" constant="8" id="ZZZ-fo-QrO"/>
                                     <constraint firstItem="FYn-IG-MGk" firstAttribute="leading" secondItem="UcS-9m-9Pf" secondAttribute="leading" id="cxW-KF-e01"/>
                                     <constraint firstItem="Jvc-Az-YMP" firstAttribute="trailing" secondItem="UcS-9m-9Pf" secondAttribute="trailing" id="d6f-6P-vV7"/>
+                                    <constraint firstItem="FYn-IG-MGk" firstAttribute="top" secondItem="Adq-bX-Xek" secondAttribute="top" id="eu5-lN-PT4"/>
                                     <constraint firstItem="Jvc-Az-YMP" firstAttribute="top" secondItem="FYn-IG-MGk" secondAttribute="bottom" constant="-1" id="n1P-ae-ahG"/>
                                     <constraint firstItem="m2v-IK-CtW" firstAttribute="top" secondItem="UcS-9m-9Pf" secondAttribute="top" constant="13" id="omv-Xb-thx"/>
                                     <constraint firstItem="uRt-Ts-zs5" firstAttribute="top" secondItem="ffE-na-oqv" secondAttribute="bottom" constant="2" id="pun-dF-1ZN"/>
@@ -217,19 +223,60 @@
                                     <outlet property="delegate" destination="Hk0-IT-ZlF" id="wxL-EB-R1c"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWz-lA-epg" customClass="TTTAttributedLabel">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWz-lA-epg" customClass="TTTAttributedLabel">
                                 <rect key="frame" x="32" y="504" width="536" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o6a-dj-zeo">
+                                <rect key="frame" x="0.0" y="317" width="600" height="233"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradientOverlayGroups" translatesAutoresizingMaskIntoConstraints="NO" id="usi-Hn-pab">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="233"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VERIFY NOW, GUARDIAN!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LV9-gn-P9r">
+                                        <rect key="frame" x="213" y="116" width="174" height="17"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" red="1" green="0.77647058820000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgM-4M-zhX" customClass="TTTAttributedLabel">
+                                        <rect key="frame" x="20" y="148" width="560" height="56"/>
+                                        <string key="text">To play with other groups and update your profile, please verify your account.
+
+Check your messages on Bungie.net for a verification link from Crossroads.</string>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="wgM-4M-zhX" firstAttribute="top" secondItem="LV9-gn-P9r" secondAttribute="bottom" constant="15" id="Bl7-GX-KT5"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="wgM-4M-zhX" secondAttribute="trailing" constant="12" id="GXD-2n-o2l"/>
+                                    <constraint firstAttribute="bottom" secondItem="usi-Hn-pab" secondAttribute="bottom" id="Hki-Ei-1Hs"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="wgM-4M-zhX" secondAttribute="bottom" constant="21" id="N5q-0D-Hqj"/>
+                                    <constraint firstItem="LV9-gn-P9r" firstAttribute="centerX" secondItem="o6a-dj-zeo" secondAttribute="centerX" id="OXO-9i-1p1"/>
+                                    <constraint firstItem="usi-Hn-pab" firstAttribute="leading" secondItem="o6a-dj-zeo" secondAttribute="leading" id="Zbn-bG-sr1"/>
+                                    <constraint firstItem="usi-Hn-pab" firstAttribute="top" secondItem="o6a-dj-zeo" secondAttribute="top" id="cdX-Jt-Mss"/>
+                                    <constraint firstItem="wgM-4M-zhX" firstAttribute="leading" secondItem="o6a-dj-zeo" secondAttribute="leadingMargin" constant="12" id="m9c-Ff-dWn"/>
+                                    <constraint firstAttribute="trailing" secondItem="usi-Hn-pab" secondAttribute="trailing" id="p6k-Jp-b0U"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="o6a-dj-zeo" secondAttribute="trailing" id="1rw-FS-N4b"/>
+                            <constraint firstItem="o6a-dj-zeo" firstAttribute="leading" secondItem="a4f-Bs-Ivf" secondAttribute="leadingMargin" constant="-20" id="4Q1-0j-v5j"/>
                             <constraint firstItem="4Hh-ej-dOf" firstAttribute="leading" secondItem="a4f-Bs-Ivf" secondAttribute="leadingMargin" constant="50" id="4k1-07-SUa"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="o6a-dj-zeo" secondAttribute="bottom" id="56D-bl-YB4"/>
+                            <constraint firstItem="2WA-Rs-ejf" firstAttribute="top" secondItem="o6a-dj-zeo" secondAttribute="bottom" constant="50" id="5rc-kz-KHj"/>
                             <constraint firstItem="UcS-9m-9Pf" firstAttribute="top" secondItem="4Hh-ej-dOf" secondAttribute="bottom" constant="13" id="BoY-4l-Sqb"/>
+                            <constraint firstItem="o6a-dj-zeo" firstAttribute="top" secondItem="UcS-9m-9Pf" secondAttribute="bottom" constant="97" id="Cdn-Ir-SRj"/>
                             <constraint firstAttribute="trailing" secondItem="21G-5K-sdg" secondAttribute="trailing" id="DUH-gL-dQe"/>
                             <constraint firstItem="WhP-cr-BTL" firstAttribute="leading" secondItem="a4f-Bs-Ivf" secondAttribute="leading" constant="12" id="Fie-ys-hn9"/>
+                            <constraint firstItem="o6a-dj-zeo" firstAttribute="top" secondItem="UcS-9m-9Pf" secondAttribute="bottom" constant="97" id="Fth-id-wk4"/>
                             <constraint firstItem="21G-5K-sdg" firstAttribute="top" secondItem="CWz-lA-epg" secondAttribute="bottom" constant="25" id="IPI-ky-reu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4Hh-ej-dOf" secondAttribute="trailing" constant="50" id="Ivg-Kw-yuR"/>
                             <constraint firstItem="T5d-y2-feT" firstAttribute="leading" secondItem="a4f-Bs-Ivf" secondAttribute="leading" id="Pfo-YM-cp5"/>
@@ -245,16 +292,22 @@
                             <constraint firstItem="4Hh-ej-dOf" firstAttribute="centerX" secondItem="a4f-Bs-Ivf" secondAttribute="centerX" constant="1" id="p0f-zb-XkS"/>
                             <constraint firstAttribute="trailing" secondItem="UcS-9m-9Pf" secondAttribute="trailing" constant="12" id="pAP-0h-zWH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CWz-lA-epg" secondAttribute="trailing" constant="12" id="pBw-VO-Wmd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="o6a-dj-zeo" secondAttribute="trailing" constant="-20" id="q0h-Rf-qg4"/>
                             <constraint firstAttribute="trailing" secondItem="WhP-cr-BTL" secondAttribute="trailing" constant="12" id="v0H-AB-0qV"/>
                             <constraint firstItem="CWz-lA-epg" firstAttribute="leading" secondItem="a4f-Bs-Ivf" secondAttribute="leadingMargin" constant="12" id="vFO-2z-UWP"/>
                             <constraint firstItem="2WA-Rs-ejf" firstAttribute="top" secondItem="WhP-cr-BTL" secondAttribute="bottom" constant="50" id="wKa-Bt-2gb"/>
                             <constraint firstItem="WhP-cr-BTL" firstAttribute="centerX" secondItem="a4f-Bs-Ivf" secondAttribute="centerX" id="wvI-om-71U"/>
+                            <constraint firstItem="o6a-dj-zeo" firstAttribute="leading" secondItem="a4f-Bs-Ivf" secondAttribute="leading" id="xmf-wE-NFi"/>
                             <constraint firstItem="T7g-l3-C1j" firstAttribute="centerX" secondItem="a4f-Bs-Ivf" secondAttribute="centerX" id="zv2-pD-CGk"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="4k1-07-SUa"/>
                                 <exclude reference="Ivg-Kw-yuR"/>
+                                <exclude reference="4Q1-0j-v5j"/>
+                                <exclude reference="56D-bl-YB4"/>
+                                <exclude reference="Cdn-Ir-SRj"/>
+                                <exclude reference="q0h-Rf-qg4"/>
                             </mask>
                         </variation>
                     </view>
@@ -270,6 +323,8 @@
                         <outlet property="selectedGroupViewGroupName" destination="yqb-eJ-W4C" id="XMN-T3-Gwi"/>
                         <outlet property="selectedGroupViewMemberCount" destination="ffE-na-oqv" id="noU-RT-Mza"/>
                         <outlet property="selectedGroupViewNotificationButton" destination="m2v-IK-CtW" id="nb7-GF-cHJ"/>
+                        <outlet property="unVerifiedUserLabel" destination="wgM-4M-zhX" id="cXc-ad-76e"/>
+                        <outlet property="unVerifiedUserView" destination="o6a-dj-zeo" id="Rc7-iD-wBo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D98-Bi-edU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -734,7 +789,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MISADVENTURE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dH-lG-kzU">
-                                <rect key="frame" x="244" y="34" width="113" height="17"/>
+                                <rect key="frame" x="244" y="34" width="112.5" height="17"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -757,13 +812,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NewUserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdJ-6n-7Fq">
-                                        <rect key="frame" x="54" y="24" width="116" height="21"/>
+                                        <rect key="frame" x="54" y="24" width="115.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We couldn’t find a Bungie.net profile linked to the  you entered." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsz-Fn-aeP">
-                                        <rect key="frame" x="17" y="71" width="540" height="20"/>
+                                        <rect key="frame" x="17" y="71" width="539.5" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -786,7 +841,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FOLLOW THESE STEPS TO TROUBLESHOOT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qNC-lR-DSR">
-                                <rect key="frame" x="148" y="341" width="304" height="17"/>
+                                <rect key="frame" x="148" y="341" width="303.5" height="17"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" red="1" green="0.68627450980000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -811,7 +866,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check that Bungie.net is online." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6v9-ub-1aA">
-                                <rect key="frame" x="35" y="429" width="256" height="21"/>
+                                <rect key="frame" x="35" y="429" width="255.5" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -3969,6 +4024,7 @@ from &lt;Playstation 3&gt;. </string>
         <image name="createEventBG" width="375" height="667"/>
         <image name="eventDetailHeaderBG" width="375" height="129"/>
         <image name="eventsViewBG" width="375" height="667"/>
+        <image name="gradientOverlayGroups" width="340" height="357"/>
         <image name="iconArrowDown" width="10" height="5"/>
         <image name="iconArrowRight" width="5" height="10"/>
         <image name="iconBackArrow" width="44" height="44"/>

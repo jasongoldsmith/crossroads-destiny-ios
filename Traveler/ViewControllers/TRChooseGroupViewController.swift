@@ -36,6 +36,10 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     @IBOutlet weak var selectedGroupViewEventCount: UILabel!
     @IBOutlet weak var selectedGroupViewNotificationButton: EventButton!
     
+    //UnVerified User's View
+    @IBOutlet weak var unVerifiedUserView: UIView!
+    @IBOutlet weak var unVerifiedUserLabel: TTTAttributedLabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +56,7 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
         self.bungieGroups = TRApplicationManager.sharedInstance.bungieGroups
         
         if TRApplicationManager.sharedInstance.bungieGroups.count <=  1 {
-            self.addNoneGroupCountUI()
+            //self.addNoneGroupCountUI()
             self.lableThree.hidden = false
         } else {
             self.saveButton.setTitle(nil, forState: .Normal)
@@ -91,6 +95,11 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
             completion: nil);
         }
         
+        if TRUserInfo.isUserVerified()! != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue {
+            self.addNonVerifiedUserUI()
+        } else {
+            self.removeNonVerifiedUserUI()
+        }
     }
 
     func changeSaveButtonVisuals () {
@@ -148,6 +157,30 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         TRApplicationManager.sharedInstance.slideMenuController.rightPanGesture?.enabled = true
+    }
+    
+    func addNonVerifiedUserUI () {
+        self.unVerifiedUserView.hidden = false
+        
+        let messageString = "To play with other groups and update your profile, please verify your account. \n\n Check your messages on Bungie.net for a verification link from Crossroads."
+        let bungieLinkName = "Bungie.net"
+        self.unVerifiedUserLabel?.text = messageString
+        
+        // Add HyperLink to Bungie
+        let nsString = messageString as NSString
+        let range = nsString.rangeOfString(bungieLinkName)
+        let url = NSURL(string: "https://www.bungie.net/")!
+        let subscriptionNoticeLinkAttributes = [
+            NSForegroundColorAttributeName: UIColor(red: 0/255, green: 182/255, blue: 231/255, alpha: 1),
+            NSUnderlineStyleAttributeName: NSNumber(bool:true),
+            ]
+        self.unVerifiedUserLabel?.linkAttributes = subscriptionNoticeLinkAttributes
+        self.unVerifiedUserLabel?.addLinkToURL(url, withRange: range)
+        self.unVerifiedUserLabel?.delegate = self
+    }
+    
+    func removeNonVerifiedUserUI () {
+        self.unVerifiedUserView.removeFromSuperview()
     }
     
     func addNoneGroupCountUI () {
