@@ -68,48 +68,7 @@ class TRAuthenticationRequest: TRRequest {
     }
     
     //MARK:- LOGIN USER
-    func loginTRUserWith(userData: TRUserInfo?,completion:TRValueCallBack)  {
-        
-        if (userData == nil) {
-            completion(didSucceed: false)
-            return
-        }
-        
-        let loginUserUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_LoginUrl
-        var params = [String: AnyObject]()
-        if userData?.userName?.characters.isEmpty == false {
-            params["userName"] = userData?.userName
-        }
-        if userData?.password?.characters.isEmpty == false {
-            params["passWord"] = userData?.password
-        }
-
-        let request = TRRequest()
-        request.params = params
-        request.requestURL = loginUserUrl
-        request.sendRequestWithCompletion { (error, responseObject) in
-            
-            if let _ = error {
-                completion(didSucceed: false)
-                return
-            }
-            
-            let userData = TRUserInfo()
-            userData.parseUserResponse(responseObject)
-            TRUserInfo.saveUserData(userData)
-            
-            for console in userData.consoles {
-                if console.isPrimary == true {
-                    TRUserInfo.saveConsolesObject(console)
-                }
-            }
-            
-            completion(didSucceed: true )
-        }
-    }
-    
-    
-    func loginTRUserWith(console: Dictionary<String, AnyObject>?, password: String? ,completion:TRValueCallBack)  {
+    func loginTRUserWith(console: Dictionary<String, AnyObject>?, password: String?, completion:TRResponseCallBack)  {
         
         let loginUserUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_LoginUrl
         var params = [String: AnyObject]()
@@ -128,7 +87,7 @@ class TRAuthenticationRequest: TRRequest {
         request.sendRequestWithCompletion { (error, responseObject) in
             
             if let _ = error {
-                completion(didSucceed: false)
+                completion(error: error, responseObject: nil)
                 return
             }
             
@@ -142,7 +101,7 @@ class TRAuthenticationRequest: TRRequest {
                 }
             }
             
-            completion(didSucceed: true )
+            completion(error: nil, responseObject: (responseObject))
         }
     }
     

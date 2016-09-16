@@ -146,31 +146,33 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
         //Saving Password here, since the backend won't be sending PW back and the current login flow is checking for UserName and PW
         //to let user login to home page.
         //Setting to "nil" if sign-in is not success
-        
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setValue(userPwdTxtField.text, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
         defaults.synchronize()
 
-        
         var console = [String: AnyObject]()
         console["consoleType"] = self.selectedConsole
         console["consoleId"] = userNameTxtField.text
         let createRequest = TRAuthenticationRequest()
-        createRequest.loginTRUserWith(console, password: userPwdTxtField.text) { (didSucceed) in
-            if didSucceed == true {
+        createRequest.loginTRUserWith(console, password: userPwdTxtField.text) { (error, responseObject) in
+            if let errorString = error {
+                if errorString == "The username and password do not match our records." {
+                    TRApplicationManager.sharedInstance.addErrorSubViewWithMessage(errorString)
+                    return
+                } else if (true) {
+                    //Delete the saved Password if sign-in was not successful
+                    defaults.setValue(nil, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
+                    defaults.synchronize()
+                    
+                    // Add Error View
+                    let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+                    let vc : TRSignInErrorViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_SIGNIN_ERROR) as! TRSignInErrorViewController
+                    vc.userName = self.userNameTxtField.text
+                    
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            } else {
                 self.signInSuccess()
-            } else{
-                
-                //Delete the saved Password if sign-in was not successful
-                defaults.setValue(nil, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
-                defaults.synchronize()
-                
-                // Add Error View
-                let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
-                let vc : TRSignInErrorViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_SIGNIN_ERROR) as! TRSignInErrorViewController
-                vc.userName = self.userNameTxtField.text
-                
-                self.navigationController?.pushViewController(vc, animated: true)
             }
         }
     }
