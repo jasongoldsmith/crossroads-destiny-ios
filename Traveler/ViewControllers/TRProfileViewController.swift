@@ -35,6 +35,9 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
     var consoleAddButtonImageView: UIImageView?
     var consoleTwoButtonImageView: UIImageView?
     
+    // unVerified Prompt
+    var verificationPrompt = TRVerificationPromptView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,7 +48,7 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         self.changePasswordButton.layer.cornerRadius = 2.0
         self.contactUsButton.layer.cornerRadius = 2.0
         self.logOutButton.layer.cornerRadius = 2.0
-    }
+}
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -163,6 +166,19 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
     }
     
     @IBAction func avatorImageViewTapped (sender: UITapGestureRecognizer) {
+        
+        // UnVerified User Prompt
+        if TRUserInfo.isUserVerified()! != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue {
+            self.verificationPrompt = NSBundle.mainBundle().loadNibNamed("TRVerificationPromptView", owner: self, options: nil)[0] as! TRVerificationPromptView
+            self.verificationPrompt.frame = self.view.frame
+            self.verificationPrompt.updateView()
+            
+            self.view.addSubview(self.verificationPrompt)
+            
+            return
+        }
+
+
         _ = TRHelmetUpdateRequest().updateHelmetForUser({ (imageStringUrl) in
             if let _ = imageStringUrl {
                 let imageURL = NSURL(string: imageStringUrl!)

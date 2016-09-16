@@ -77,20 +77,11 @@ class TRRootViewController: TRBaseViewController {
                     _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: true, indicatorTopConstraint: self.ACTIVITY_INDICATOR_TOP_CONSTRAINT, completion: { (didSucceed) -> () in
                         
                         var showEventListLandingPage = false
-                        var showGroups = false
                         
                         if(didSucceed == true) {
-                            let userDefaults = NSUserDefaults.standardUserDefaults()
-                            let shownGroupBool = userDefaults.boolForKey(K.UserDefaultKey.SHOWN_GROUP_PICKER)
-                            if (shownGroupBool == true) {
-                                showEventListLandingPage = true
-                            } else if TRApplicationManager.sharedInstance.eventsList.count > 0 {
-                                showGroups = true
-                                userDefaults.setBool(true, forKey: K.UserDefaultKey.SHOWN_GROUP_PICKER)
-                            }
+                            showEventListLandingPage = true
                             
-                            TRApplicationManager.sharedInstance.addSlideMenuController(self, pushData: self.pushNotificationData, branchData: self.branchLinkData, showLandingPage: showEventListLandingPage, showGroups: showGroups)
-                            
+                            TRApplicationManager.sharedInstance.addSlideMenuController(self, pushData: self.pushNotificationData, branchData: self.branchLinkData, showLandingPage: showEventListLandingPage, showGroups: false)
                             self.pushNotificationData = nil
                         } else {
                             self.appManager.log.debug("Failed")

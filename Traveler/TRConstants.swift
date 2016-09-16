@@ -24,7 +24,6 @@ struct K {
     struct UserDefaultKey {
         
         static let TR_DID_SHOW_ONBOARDING = "TR_DID_SHOW_ONBOARDING"
-        static let SHOWN_GROUP_PICKER = "SHOW_GROUP_PICKER"
         static let INSTALL_INFO_SENT = "INSTALL_INFO_SENT"
         static let Platform_Info_Dict = "Platform_Info_Dict"
         static let FORCED_LOGOUT = "FORCED_LOGOUT" 

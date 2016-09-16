@@ -76,9 +76,6 @@ class TRApplicationManager: NSObject {
     //Total Users
     var totalUsers: Int?
     
-    // Error Notification View
-    var verificationView = TRVerificationPromptView()
-
     
     // MARK:- Initializer
     private override init() {
@@ -105,9 +102,6 @@ class TRApplicationManager: NSObject {
         // Init Error Notification View with nib
         self.errorNotificationView = NSBundle.mainBundle().loadNibNamed("TRErrorNotificationView", owner: self, options: nil)[0] as! TRErrorNotificationView
         
-        //Init VerificationPrompt View
-        self.verificationView = NSBundle.mainBundle().loadNibNamed("TRVerificationPromptView", owner: self, options: nil)[0] as! TRVerificationPromptView
-        
         //Init Push Notification Controller (Active State)
         self.pushNotiController = TRPushNotiController()
         
@@ -122,7 +116,6 @@ class TRApplicationManager: NSObject {
         
         //Init Branch Manager
         self.branchManager = TRBranchManager()
-        
     }
     
     func didReceiveRemoteNotificationInActiveSesion(sender: NSNotification) {
@@ -196,11 +189,6 @@ class TRApplicationManager: NSObject {
                 let activityName = branchData!["activityName"] as? String
                 
                 eventListViewController.fetchEventDetailForDeepLink(eventID!, activityName: activityName!)
-            } else if (showGroups){
-                self.fetchBungieGroups(true, completion: { (didSucceed) in
-                    self.slideMenuController.view.alpha = 1
-                    eventListViewController.updateGroupImage()
-                })
             } else {
                 //Fetch Events
                 
@@ -262,9 +250,6 @@ class TRApplicationManager: NSObject {
         })
     }
 
-    func addVerificationPrompt () -> TRVerificationPromptView {
-        return self.verificationView
-    }
     
     func addErrorSubViewWithMessage(errorString: String) {
         self.errorNotificationView.errorSting = errorString

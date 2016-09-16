@@ -119,7 +119,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         
         //Is User Verified
         if TRUserInfo.isUserVerified()! != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue {
-            self.verificationPrompt = TRApplicationManager.sharedInstance.addVerificationPrompt()
+            self.verificationPrompt = NSBundle.mainBundle().loadNibNamed("TRVerificationPromptView", owner: self, options: nil)[0] as! TRVerificationPromptView
             self.verificationPrompt.frame = self.view.frame
             self.verificationPrompt.delegate = self
             self.verificationPrompt.updateView()
