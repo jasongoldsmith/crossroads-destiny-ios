@@ -54,6 +54,8 @@
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue-Bold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -2129,13 +2131,13 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <gestureRecognizers/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Need help with something? Want to send us feedback? Let us know!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhx-jG-gxI">
-                                <rect key="frame" x="50" y="72" width="500" height="47"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONTACT US" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhx-jG-gxI">
+                                <rect key="frame" x="254" y="37" width="91" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="445" id="CEE-Sd-xql"/>
                                     <constraint firstAttribute="height" constant="69" id="cPA-24-HcT"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -2145,14 +2147,15 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                     </mask>
                                 </variation>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.55000000000000004" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SHC-Yf-EmA">
-                                <rect key="frame" x="30" y="184" width="539" height="294"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SHC-Yf-EmA">
+                                <rect key="frame" x="10" y="256" width="580" height="123"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="294" id="SeV-K3-GTO"/>
                                     <constraint firstAttribute="width" constant="448" id="cCa-bk-omn"/>
                                     <constraint firstAttribute="height" constant="294" id="rij-hn-jyr"/>
                                     <constraint firstAttribute="width" constant="499" id="t5Q-f1-8Zs"/>
+                                    <constraint firstAttribute="height" constant="123" id="vgJ-DI-3cb"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -2161,6 +2164,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                     <mask key="constraints">
                                         <exclude reference="SeV-K3-GTO"/>
                                         <exclude reference="cCa-bk-omn"/>
+                                        <exclude reference="rij-hn-jyr"/>
                                         <exclude reference="t5Q-f1-8Zs"/>
                                     </mask>
                                 </variation>
@@ -2168,44 +2172,102 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                     <outlet property="delegate" destination="vH8-Nd-68e" id="XrR-tf-Rmm"/>
                                 </connections>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahp-Nk-xyg">
-                                <rect key="frame" x="460" y="493" width="90" height="30"/>
-                                <color key="backgroundColor" red="0.1215686275" green="0.1960784314" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xs8-65-bYq">
+                                <rect key="frame" x="10" y="23" width="44" height="44"/>
+                                <state key="normal" image="iconBackArrow"/>
+                                <connections>
+                                    <action selector="navBackButtonPressed" destination="vH8-Nd-68e" eventType="touchUpInside" id="e1G-AD-SjM"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgLogoBadge" translatesAutoresizingMaskIntoConstraints="NO" id="p8f-ms-SXi">
+                                <rect key="frame" x="268" y="79" width="64" height="73"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zbZ-Ml-hnp">
+                                <rect key="frame" x="10" y="180" width="580" height="66"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vGe-kS-NrE">
+                                        <rect key="frame" x="0.0" y="0.0" width="580" height="66"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Email (required)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5FC-Eg-PeY">
+                                        <rect key="frame" x="23" y="18" width="545" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="QGP-kg-UHm"/>
-                                    <constraint firstAttribute="height" constant="30" id="bei-7b-o3j"/>
+                                    <constraint firstAttribute="bottom" secondItem="vGe-kS-NrE" secondAttribute="bottom" id="3TG-TB-0Ur"/>
+                                    <constraint firstItem="5FC-Eg-PeY" firstAttribute="centerY" secondItem="zbZ-Ml-hnp" secondAttribute="centerY" id="Brj-nS-uTy"/>
+                                    <constraint firstItem="vGe-kS-NrE" firstAttribute="top" secondItem="zbZ-Ml-hnp" secondAttribute="top" id="Ukz-jK-JHq"/>
+                                    <constraint firstAttribute="height" constant="66" id="e1s-RY-com"/>
+                                    <constraint firstItem="vGe-kS-NrE" firstAttribute="leading" secondItem="zbZ-Ml-hnp" secondAttribute="leading" id="fw7-Xv-BNF"/>
+                                    <constraint firstAttribute="trailing" secondItem="vGe-kS-NrE" secondAttribute="trailing" id="ihK-Od-Kr3"/>
+                                    <constraint firstAttribute="trailing" secondItem="5FC-Eg-PeY" secondAttribute="trailing" constant="12" id="qHX-E9-0YM"/>
+                                    <constraint firstItem="5FC-Eg-PeY" firstAttribute="leading" secondItem="zbZ-Ml-hnp" secondAttribute="leading" constant="23" id="ujn-ra-Qt7"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Send">
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSx-8W-Hkx">
+                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.52549019610000003" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="TIi-wv-J27"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                <state key="normal" title="SEND">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="sendReportButtonAdded:" destination="vH8-Nd-68e" eventType="touchUpInside" id="CnL-oY-1wE"/>
+                                    <action selector="sendReportButtonAdded:" destination="vH8-Nd-68e" eventType="touchUpInside" id="bgZ-hl-6yr"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fhx-jG-gxI" firstAttribute="leading" secondItem="aDR-mt-Www" secondAttribute="leadingMargin" constant="30" id="1gY-7A-S52"/>
+                            <constraint firstAttribute="trailing" secondItem="zbZ-Ml-hnp" secondAttribute="trailing" constant="10" id="20p-8B-oUF"/>
+                            <constraint firstItem="SHC-Yf-EmA" firstAttribute="top" secondItem="zbZ-Ml-hnp" secondAttribute="bottom" constant="10" id="7gx-T9-Hbi"/>
+                            <constraint firstItem="Xs8-65-bYq" firstAttribute="leading" secondItem="aDR-mt-Www" secondAttribute="leadingMargin" constant="-10" id="BH6-q2-cac"/>
+                            <constraint firstItem="aYC-fX-WDX" firstAttribute="top" secondItem="TSx-8W-Hkx" secondAttribute="bottom" id="Bhh-UY-1PM"/>
+                            <constraint firstItem="p8f-ms-SXi" firstAttribute="centerX" secondItem="aDR-mt-Www" secondAttribute="centerX" id="Ecg-6n-FZJ"/>
                             <constraint firstItem="ZPG-Pm-LKH" firstAttribute="top" secondItem="aDR-mt-Www" secondAttribute="topMargin" id="Ecl-rD-RFM"/>
+                            <constraint firstItem="zbZ-Ml-hnp" firstAttribute="leading" secondItem="aDR-mt-Www" secondAttribute="leading" constant="10" id="IQg-a5-tK2"/>
+                            <constraint firstAttribute="trailing" secondItem="TSx-8W-Hkx" secondAttribute="trailing" id="JRF-B0-gv9"/>
+                            <constraint firstItem="SHC-Yf-EmA" firstAttribute="leading" secondItem="aDR-mt-Www" secondAttribute="leading" constant="10" id="Jct-oM-yHM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fhx-jG-gxI" secondAttribute="trailing" constant="30" id="JhS-ye-5YL"/>
-                            <constraint firstItem="SHC-Yf-EmA" firstAttribute="top" secondItem="fhx-jG-gxI" secondAttribute="bottom" constant="65" id="SMv-rc-VJT"/>
+                            <constraint firstItem="Xs8-65-bYq" firstAttribute="top" secondItem="lFW-Yw-m9S" secondAttribute="bottom" constant="3" id="QgZ-nI-lD3"/>
                             <constraint firstItem="fhx-jG-gxI" firstAttribute="centerX" secondItem="aDR-mt-Www" secondAttribute="centerX" id="VhI-Ti-HB4"/>
-                            <constraint firstItem="ahp-Nk-xyg" firstAttribute="top" secondItem="SHC-Yf-EmA" secondAttribute="bottom" constant="15" id="ZPF-vQ-iCK"/>
                             <constraint firstItem="ZPG-Pm-LKH" firstAttribute="leading" secondItem="aDR-mt-Www" secondAttribute="leadingMargin" constant="-20" id="Ziz-Er-GiC"/>
                             <constraint firstItem="SHC-Yf-EmA" firstAttribute="leading" secondItem="aDR-mt-Www" secondAttribute="leadingMargin" constant="10" id="csZ-II-Qal"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ahp-Nk-xyg" secondAttribute="trailing" constant="30" id="dtE-rk-PsB"/>
                             <constraint firstItem="SHC-Yf-EmA" firstAttribute="trailing" secondItem="aDR-mt-Www" secondAttribute="trailingMargin" constant="-11" id="gZt-wq-aTS"/>
                             <constraint firstItem="aYC-fX-WDX" firstAttribute="top" secondItem="ZPG-Pm-LKH" secondAttribute="bottom" id="hlc-HR-19n"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZPG-Pm-LKH" secondAttribute="trailing" constant="-20" id="lt6-Uz-bBg"/>
-                            <constraint firstItem="fhx-jG-gxI" firstAttribute="top" secondItem="lFW-Yw-m9S" secondAttribute="bottom" constant="52" id="m4X-3x-nwK"/>
+                            <constraint firstItem="fhx-jG-gxI" firstAttribute="top" secondItem="lFW-Yw-m9S" secondAttribute="bottom" constant="17" id="m4X-3x-nwK"/>
+                            <constraint firstItem="TSx-8W-Hkx" firstAttribute="leading" secondItem="aDR-mt-Www" secondAttribute="leading" id="n0C-Ya-v7m"/>
+                            <constraint firstItem="zbZ-Ml-hnp" firstAttribute="top" secondItem="p8f-ms-SXi" secondAttribute="bottom" constant="28" id="og4-Cc-xB2"/>
+                            <constraint firstAttribute="trailing" secondItem="SHC-Yf-EmA" secondAttribute="trailing" constant="10" id="sm9-ha-C4M"/>
+                            <constraint firstItem="p8f-ms-SXi" firstAttribute="top" secondItem="fhx-jG-gxI" secondAttribute="bottom" constant="25" id="tn5-gC-FQX"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="csZ-II-Qal"/>
+                                <exclude reference="gZt-wq-aTS"/>
+                                <exclude reference="1gY-7A-S52"/>
+                                <exclude reference="JhS-ye-5YL"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Iep-ZX-CqL" appends="YES" id="kuw-A9-lUA"/>
                         </connections>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="emailTextView" destination="5FC-Eg-PeY" id="VuG-Oz-kYD"/>
+                        <outlet property="emailView" destination="zbZ-Ml-hnp" id="0ww-ch-2Zs"/>
                         <outlet property="reportTextView" destination="SHC-Yf-EmA" id="o2V-Rl-WtO"/>
+                        <outlet property="sendButtonBottomConst" destination="Bhh-UY-1PM" id="Fvz-o7-58h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Zw-Jj-Sh4" userLabel="First Responder" sceneMemberID="firstResponder"/>

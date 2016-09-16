@@ -170,10 +170,10 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         // UnVerified User Prompt
         if TRUserInfo.isUserVerified()! != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue {
             self.verificationPrompt = NSBundle.mainBundle().loadNibNamed("TRVerificationPromptView", owner: self, options: nil)[0] as! TRVerificationPromptView
-            self.verificationPrompt.frame = self.view.frame
+            self.verificationPrompt.frame = (self.view.window?.frame)!
             self.verificationPrompt.updateView()
             
-            self.view.addSubview(self.verificationPrompt)
+            self.view.window?.addSubview(self.verificationPrompt)
             
             return
         }
@@ -212,6 +212,7 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         let vc : TRSendReportViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_SEND_REPORT) as! TRSendReportViewController
         
         let navigationController = UINavigationController(rootViewController: vc)
+        navigationController.navigationBar.hidden = true
         self.presentViewController(navigationController, animated: true, completion: nil)
     }
     

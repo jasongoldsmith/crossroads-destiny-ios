@@ -116,7 +116,7 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
             if self.view.frame.origin.y == 0 {
                 UIView.animateWithDuration(0.1, animations: { () -> Void in
                     self.resetPasswordButtonBottom.constant = keyboardSize.height
-                    self.view.updateConstraints()
+                    self.view.layoutIfNeeded()
                 })
             }
         } else {
@@ -135,6 +135,7 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
         }
         else {
             self.resetPasswordButtonBottom.constant = 0
+            self.view.layoutIfNeeded()
         }
     }
     

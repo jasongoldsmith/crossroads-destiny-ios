@@ -13,12 +13,22 @@ import UIKit
 class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
     
     @IBOutlet weak var reportTextView: UITextView!
+    @IBOutlet weak var emailTextView: UITextField!
+    @IBOutlet weak var emailView: UIView!
+    @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var sendButtonBottomConst: NSLayoutConstraint!
+    
     
     override func viewDidLoad() {
-         super.viewDidLoad()
+        super.viewDidLoad()
+        self.emailView?.layer.cornerRadius = 2.0
+        self.reportTextView?.layer.cornerRadius = 2.0
+        self.emailView?.clipsToBounds = true
+        
+        self.emailTextView?.attributedPlaceholder = NSAttributedString(string:"Your Email (required)", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
 
-        self.title = "CONTACT US"
-        self.addNavigationBarButtons(false, showCancel: true)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRSendReportViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRSendReportViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -36,7 +46,8 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: self.view.window)
     }
     
-    override func navBackButtonPressed (sender: UIBarButtonItem?) {
+    
+    @IBAction func navBackButtonPressed () {
         
         if self.reportTextView.isFirstResponder() {
             self.reportTextView.resignFirstResponder()
@@ -58,7 +69,8 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
         if keyboardSize.height == offset.height {
             if self.view.frame.origin.y == 0 {
                 UIView.animateWithDuration(0.2, animations: { () -> Void in
-                    self.view.frame.origin.y -= keyboardSize.height - 65
+                    self.sendButtonBottomConst?.constant = keyboardSize.height
+                    self.view.layoutIfNeeded()
                 })
             }
         } else {
@@ -93,7 +105,8 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
             self.view.frame.origin.y += keyboardSize.height
         }
         else {
-            self.view.frame.origin.y = 0
+            self.sendButtonBottomConst?.constant = 0
+            self.view.layoutIfNeeded()
         }
     }
 
