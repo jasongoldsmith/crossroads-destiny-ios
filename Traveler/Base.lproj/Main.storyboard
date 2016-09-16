@@ -232,7 +232,7 @@
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o6a-dj-zeo">
                                 <rect key="frame" x="0.0" y="317" width="600" height="233"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradientOverlayGroups" translatesAutoresizingMaskIntoConstraints="NO" id="usi-Hn-pab">
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradientOverlayGroups" translatesAutoresizingMaskIntoConstraints="NO" id="usi-Hn-pab">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="233"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VERIFY NOW, GUARDIAN!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LV9-gn-P9r">
