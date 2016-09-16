@@ -34,6 +34,14 @@ class TRRootViewController: TRBaseViewController {
 
     func loadAppInitialViewController () {
         
+        //Add Observer to check if the user has been verified
+        //addUserObserverWithCompletion
+        if (TRUserInfo.isUserVerified() != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue) {
+            TRApplicationManager.sharedInstance.fireBaseManager?.addUserObserverWithCompletion({ (didCompelete) in
+                
+            })
+        }
+        
         //Check if already existing user, log them out for this version
         let userDefaults = NSUserDefaults.standardUserDefaults()
         if TRUserInfo.isUserLoggedIn() == true {

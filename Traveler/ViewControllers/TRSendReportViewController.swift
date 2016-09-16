@@ -142,15 +142,11 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
                     self.reportTextView.resignFirstResponder()
                 }
 
-                self.displayAlertWithTitle("Message Sent", complete: { (complete) in
-                    self.dismissViewController(true, dismissed: { (didDismiss) in
-                        self.didMoveToParentViewController(nil)
-                        self.removeFromParentViewController()
-                    })
-                })
-            } else {
+                let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+                let vc = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_CONTACT_MESSAGE_SENT) as! TRMessageSentConfViewController
                 
-            }
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {}
         })
     }
 }

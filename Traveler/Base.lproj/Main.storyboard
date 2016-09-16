@@ -56,6 +56,7 @@
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue-Bold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -2278,6 +2279,70 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-2193" y="990"/>
+        </scene>
+        <!--Message Sent Conf View Controller-->
+        <scene sceneID="27Y-Ev-n5M">
+            <objects>
+                <viewController storyboardIdentifier="messageSent" id="703-P7-HS9" customClass="TRMessageSentConfViewController" customModule="Crossroads" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RYJ-AM-xXA"/>
+                        <viewControllerLayoutGuide type="bottom" id="N8n-3Z-Y6W"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="20s-nK-vUV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrLoadingimgBackgroundMap" translatesAutoresizingMaskIntoConstraints="NO" id="kVs-Qf-sbu">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgBGSIGNIN-1" translatesAutoresizingMaskIntoConstraints="NO" id="d7h-ZR-9ES">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="178"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MESSAGE SENT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBI-HP-xi6">
+                                <rect key="frame" x="237" y="122" width="126" height="19.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you! Your message has been sent to support@crossroadsapp.co and we will email you if we need additional details." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BI-Cf-XFG">
+                                <rect key="frame" x="37" y="166" width="526" height="17.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQl-tE-UQ2">
+                                <rect key="frame" x="6" y="22" width="44" height="44"/>
+                                <state key="normal" image="iconCollapseArrow"/>
+                                <connections>
+                                    <action selector="closeMessageSentConfirmation" destination="703-P7-HS9" eventType="touchUpInside" id="ax7-t1-SrK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="d7h-ZR-9ES" firstAttribute="top" secondItem="20s-nK-vUV" secondAttribute="top" id="6BQ-K5-Dpo"/>
+                            <constraint firstAttribute="trailing" secondItem="d7h-ZR-9ES" secondAttribute="trailing" id="731-Nc-1Gl"/>
+                            <constraint firstItem="8BI-Cf-XFG" firstAttribute="leading" secondItem="20s-nK-vUV" secondAttribute="leadingMargin" constant="17" id="Apk-Xn-vaT"/>
+                            <constraint firstItem="kVs-Qf-sbu" firstAttribute="top" secondItem="20s-nK-vUV" secondAttribute="top" id="DCp-Q0-Kox"/>
+                            <constraint firstItem="nQl-tE-UQ2" firstAttribute="leading" secondItem="20s-nK-vUV" secondAttribute="leading" constant="6" id="I4B-5r-wjm"/>
+                            <constraint firstItem="N8n-3Z-Y6W" firstAttribute="top" secondItem="d7h-ZR-9ES" secondAttribute="bottom" constant="422" id="KCM-3c-I1V"/>
+                            <constraint firstAttribute="trailing" secondItem="kVs-Qf-sbu" secondAttribute="trailing" id="L3k-6S-0PG"/>
+                            <constraint firstItem="KBI-HP-xi6" firstAttribute="top" secondItem="RYJ-AM-xXA" secondAttribute="bottom" constant="102" id="U1j-3k-dVK"/>
+                            <constraint firstItem="nQl-tE-UQ2" firstAttribute="top" secondItem="20s-nK-vUV" secondAttribute="top" constant="22" id="Var-OS-ffS"/>
+                            <constraint firstItem="N8n-3Z-Y6W" firstAttribute="top" secondItem="kVs-Qf-sbu" secondAttribute="bottom" id="car-OP-aEw"/>
+                            <constraint firstItem="8BI-Cf-XFG" firstAttribute="top" secondItem="KBI-HP-xi6" secondAttribute="bottom" constant="25" id="fFM-pK-Igo"/>
+                            <constraint firstItem="kVs-Qf-sbu" firstAttribute="leading" secondItem="20s-nK-vUV" secondAttribute="leading" id="feQ-nH-Xxw"/>
+                            <constraint firstItem="d7h-ZR-9ES" firstAttribute="leading" secondItem="20s-nK-vUV" secondAttribute="leading" id="gDt-Op-py7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8BI-Cf-XFG" secondAttribute="trailing" constant="17" id="lBe-CM-C9q"/>
+                            <constraint firstItem="8BI-Cf-XFG" firstAttribute="centerX" secondItem="20s-nK-vUV" secondAttribute="centerX" id="nYd-g4-VSU"/>
+                            <constraint firstItem="KBI-HP-xi6" firstAttribute="centerX" secondItem="20s-nK-vUV" secondAttribute="centerX" id="tIG-Ke-f39"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DMi-fJ-zVg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2869" y="990"/>
         </scene>
         <!--Event List View Controller-->
         <scene sceneID="ovf-Ol-GMU">

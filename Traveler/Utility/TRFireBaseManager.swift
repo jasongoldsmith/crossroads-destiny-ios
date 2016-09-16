@@ -13,6 +13,8 @@ import SwiftyJSON
 class TRFireBaseManager {
     
     var ref: FIRDatabaseReference?
+    var userObserverHandler: FIRDatabaseHandle?
+    
     typealias TRFireBaseSuccessCallBack = (didCompelete: Bool?) -> ()
     
     //Initialize FireBase Configuration
@@ -25,7 +27,7 @@ class TRFireBaseManager {
         if let userID = TRUserInfo.getUserID() {
             let endPointKeyReference = userID
             self.ref = FIRDatabase.database().reference().child("users/").child(endPointKeyReference)
-            self.ref?.observeEventType(.Value, withBlock: { (snapshot) in
+            self.userObserverHandler = self.ref?.observeEventType(.Value, withBlock: { (snapshot) in
                
                 if let snap = snapshot.value as? NSDictionary {
                     let userData = TRUserInfo()
@@ -40,9 +42,24 @@ class TRFireBaseManager {
                     
                     TRUserInfo.saveUserData(userData)
                     
+                    // Check if user is VERIFIED and if it is then remove the observer
+                    if (TRUserInfo.isUserVerified() == ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue) {
+                        self.removeUserObserver()
+                    }
+                    
                     complete(didCompelete: true)
                 }
             })
+        }
+    }
+    
+    func removeUserObserver () {
+        if let userID = TRUserInfo.getUserID() {
+            if let _ = self.userObserverHandler {
+                let endPointKeyReference = userID
+                self.ref = FIRDatabase.database().reference().child("users/").child(endPointKeyReference)
+                self.ref?.removeObserverWithHandle(self.userObserverHandler!)
+            }
         }
     }
     
