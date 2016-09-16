@@ -50,6 +50,10 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
         
         //UnSelected Button View Updates
         self.playStationSelected()
+        
+        delay(1.0) { 
+            self.userNameTxtField?.becomeFirstResponder()
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {

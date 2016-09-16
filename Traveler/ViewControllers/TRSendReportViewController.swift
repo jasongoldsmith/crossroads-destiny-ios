@@ -119,8 +119,13 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
         
         let textString: String = (self.reportTextView?.text)!
         if (textString.characters.count == 0) {
-            
             TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Please enter a message")
+            return
+        }
+        
+        let emailString: String = (self.emailTextView?.text)!
+        if self.isValidEmail(emailString) == false {
+            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Please enter a valid email address")
             return
         }
         
@@ -148,5 +153,12 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
                 self.navigationController?.pushViewController(vc, animated: true)
             } else {}
         })
+    }
+    
+    func isValidEmail(testStr:String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluateWithObject(testStr)
     }
 }
