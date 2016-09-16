@@ -536,7 +536,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ycE-Lh-dgU">
-                                        <rect key="frame" x="62" y="19" width="503" height="28"/>
+                                        <rect key="frame" x="62" y="19" width="450" height="28"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="8Ta-YX-Glb"/>
@@ -548,18 +548,32 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                             <outlet property="delegate" destination="wsB-4U-0gI" id="83x-6u-SgF"/>
                                         </connections>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fum-hx-sND">
+                                        <rect key="frame" x="530" y="8" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="5t4-5S-wCL"/>
+                                            <constraint firstAttribute="height" constant="50" id="xTl-Y6-H2y"/>
+                                        </constraints>
+                                        <state key="normal" image="iconShowpassword"/>
+                                        <connections>
+                                            <action selector="showPasswordClicked" destination="wsB-4U-0gI" eventType="touchUpInside" id="C29-hV-Vgt"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="Fum-hx-sND" firstAttribute="leading" secondItem="ycE-Lh-dgU" secondAttribute="trailing" constant="18" id="0p7-Na-cXz"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fum-hx-sND" secondAttribute="trailing" id="97b-vO-h3c"/>
                                     <constraint firstAttribute="trailing" secondItem="cMJ-fU-bBn" secondAttribute="trailing" id="9dM-7C-hxL"/>
                                     <constraint firstItem="Acz-T2-gXD" firstAttribute="top" secondItem="ux4-gh-xb2" secondAttribute="top" constant="17" id="F7g-rG-Pqu"/>
                                     <constraint firstItem="ycE-Lh-dgU" firstAttribute="leading" secondItem="Acz-T2-gXD" secondAttribute="trailing" constant="20" id="PPg-7v-har"/>
                                     <constraint firstItem="ycE-Lh-dgU" firstAttribute="top" secondItem="cMJ-fU-bBn" secondAttribute="bottom" constant="-47" id="WNd-25-INt"/>
                                     <constraint firstItem="Acz-T2-gXD" firstAttribute="leading" secondItem="ux4-gh-xb2" secondAttribute="leading" constant="17" id="aCu-Ws-FYe"/>
+                                    <constraint firstAttribute="bottom" secondItem="Fum-hx-sND" secondAttribute="bottom" constant="8" id="cZn-tk-BMr"/>
                                     <constraint firstAttribute="bottom" secondItem="cMJ-fU-bBn" secondAttribute="bottom" id="dcI-28-a6N"/>
+                                    <constraint firstItem="Fum-hx-sND" firstAttribute="top" secondItem="ux4-gh-xb2" secondAttribute="top" constant="8" id="dg4-VT-VVh"/>
                                     <constraint firstItem="cMJ-fU-bBn" firstAttribute="leading" secondItem="ux4-gh-xb2" secondAttribute="leading" id="gzW-m1-7bn"/>
                                     <constraint firstItem="cMJ-fU-bBn" firstAttribute="top" secondItem="ux4-gh-xb2" secondAttribute="top" id="i8U-Si-yTc"/>
-                                    <constraint firstAttribute="trailing" secondItem="ycE-Lh-dgU" secondAttribute="trailing" constant="15" id="nhW-8W-gHk"/>
                                     <constraint firstAttribute="height" constant="66" id="vD4-Ro-3l7"/>
                                 </constraints>
                             </view>
@@ -572,9 +586,13 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                             </button>
                             <label opaque="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FORGOT PASSWORD?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zky-dc-1HO">
                                 <rect key="frame" x="226" y="498" width="148" height="17"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="w3Q-Gl-Otw" appends="YES" id="HC2-BL-DtH"/>
+                                </connections>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvT-En-vEh">
                                 <rect key="frame" x="300" y="295" width="290" height="44"/>
@@ -737,8 +755,8 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                             </mask>
                         </variation>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="w3Q-Gl-Otw" appends="YES" id="7aN-Kv-Oyk"/>
                             <outletCollection property="gestureRecognizers" destination="Qji-RK-OE2" appends="YES" id="nnv-cS-1jV"/>
+                            <outletCollection property="gestureRecognizers" destination="w3Q-Gl-Otw" appends="YES" id="7aN-Kv-Oyk"/>
                         </connections>
                     </view>
                     <connections>
@@ -4164,12 +4182,13 @@ from &lt;Playstation 3&gt;. </string>
         <image name="iconNotificationsOn" width="44" height="44"/>
         <image name="iconPsnConsole" width="26" height="26"/>
         <image name="iconShare" width="44" height="44"/>
+        <image name="iconShowpassword" width="26" height="17"/>
         <image name="iconStartTime" width="20" height="20"/>
         <image name="iconXboxoneConsole" width="26" height="26"/>
         <image name="imgArena" width="98" height="100"/>
         <image name="imgArenaOnTap" width="98" height="100"/>
         <image name="imgBGChooseActivity" width="375" height="324"/>
-        <image name="imgBGSIGNIN" width="375" height="226"/>
+        <image name="imgBGSIGNIN" width="375" height="326"/>
         <image name="imgBGSIGNIN-1" width="375" height="178"/>
         <image name="imgBGVNightfallStrikeDefault" width="375" height="326"/>
         <image name="imgBGVaultOfGlass" width="375" height="326"/>

@@ -24,10 +24,8 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
     @IBOutlet weak var xBoxStationButton: UIButton!
     @IBOutlet weak var playStationImage: UIImageView!
     @IBOutlet weak var xBoxStationImage: UIImageView!
-    @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var appIconImage: UIImageView!
     @IBOutlet weak var viewInfoLabel: UILabel!
-
     
     
     var errorView: TRErrorNotificationView?
@@ -191,7 +189,13 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
         self.resignKeyBoardResponders()
     }
     
+    @IBAction func showPasswordClicked () {
+        if let _ = self.userPwdTxtField.text {
+            self.userPwdTxtField.secureTextEntry = !self.userPwdTxtField.secureTextEntry
+        }
+    }
     
+    //MARK:-KEY-BOARD
     func keyboardWillShow(sender: NSNotification) {
         
         let userInfo: [NSObject : AnyObject] = sender.userInfo!
