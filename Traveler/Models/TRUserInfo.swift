@@ -128,7 +128,6 @@ class TRUserInfo: NSObject {
         userDefaults.setValue(userData?.userID, forKeyPath: K.UserDefaultKey.UserAccountInfo.TR_UserID)
         userDefaults.setValue(userData?.bungieMemberShipID, forKeyPath: K.UserDefaultKey.UserAccountInfo.TR_USER_BUNGIE_MEMBERSHIP_ID)
         
-        //userDefaults.setValue(userData?.psnID, forKey: K.UserDefaultKey.UserAccountInfo.TR_PsnId)
         userDefaults.synchronize()
         
         TRApplicationManager.sharedInstance.currentUser = userData
@@ -284,7 +283,16 @@ class TRUserInfo: NSObject {
     }
     
     class func removeUserData () {
-        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(NSBundle.mainBundle().bundleIdentifier!)
+        
+        NSUserDefaults.standardUserDefaults().removeObjectForKey(K.UserDefaultKey.UserAccountInfo.TR_USER_CONSOLE_ID)
+        NSUserDefaults.standardUserDefaults().removeObjectForKey(K.UserDefaultKey.UserAccountInfo.TR_USER_CONSOLE_TYPE)
+        NSUserDefaults.standardUserDefaults().removeObjectForKey(K.UserDefaultKey.UserAccountInfo.TR_CONSOLE_VERIFIED)
+        NSUserDefaults.standardUserDefaults().removeObjectForKey(K.UserDefaultKey.UserAccountInfo.TR_UserName)
+        NSUserDefaults.standardUserDefaults().removeObjectForKey(K.UserDefaultKey.UserAccountInfo.TR_USER_IMAGE)
+        NSUserDefaults.standardUserDefaults().removeObjectForKey(K.UserDefaultKey.UserAccountInfo.TR_USER_CLAN_ID)
+        NSUserDefaults.standardUserDefaults().removeObjectForKey(K.UserDefaultKey.UserAccountInfo.TR_UserID)
+        NSUserDefaults.standardUserDefaults().removeObjectForKey(K.UserDefaultKey.UserAccountInfo.TR_USER_BUNGIE_MEMBERSHIP_ID)
     }
-
 }
+
+

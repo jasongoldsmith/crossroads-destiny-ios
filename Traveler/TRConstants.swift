@@ -32,7 +32,6 @@ struct K {
         struct UserAccountInfo {
             static let TR_UserName      = "TR_UserName"
             static let TR_UserPwd       = "TR_UserPwd"
-            static let TR_PsnId         = "TR_PsnId"
             static let TR_UserID        = "TR_UserID"
             static let TR_USER_IMAGE    = "TR_USER_IMAGE"
             static let TR_USER_CLAN_ID  = "TR_USER_CLAN_ID"
