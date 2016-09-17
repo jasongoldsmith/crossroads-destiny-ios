@@ -156,10 +156,17 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
         let createRequest = TRAuthenticationRequest()
         createRequest.loginTRUserWith(console, password: userPwdTxtField.text) { (error, responseObject) in
             if let errorString = error {
-                if errorString == "The username and password do not match our records." {
+                if (errorString == "The username and password do not match our records.") {
                     TRApplicationManager.sharedInstance.addErrorSubViewWithMessage(errorString)
                     return
-                } else if (true) {
+                } else if (errorString == "It looks like this account is on a legacy platform. We’re no longer able to display the information you seek.") {
+                    let refreshAlert = UIAlertController(title: "Crossroads", message: errorString, preferredStyle: UIAlertControllerStyle.Alert)
+                    refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
+                        
+                    }))
+                    
+                    self.presentViewController(refreshAlert, animated: true, completion: nil)
+                } else {
                     //Delete the saved Password if sign-in was not successful
                     defaults.setValue(nil, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
                     defaults.synchronize()
