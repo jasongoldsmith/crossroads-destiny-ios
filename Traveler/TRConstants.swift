@@ -58,6 +58,9 @@ struct K {
     
     struct TRUrls {
         
+        //Staging: https://travelerbackendproduction.herokuapp.com
+        //Live: https://live.crossroadsapp.co
+
         #if RELEASE
             static let TR_BaseUrl            =   "https://live.crossroadsapp.co"
         #elseif ADHOC
