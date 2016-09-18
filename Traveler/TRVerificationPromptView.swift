@@ -28,6 +28,28 @@ class TRVerificationPromptView: UIView, TTTAttributedLabelDelegate {
     @IBOutlet weak var bungieButton: UIButton!
     @IBOutlet weak var bungieAttLabel: TTTAttributedLabel!
     
+    func addVerificationPromptViewWithDelegate (delegate: VerificationPopUpProtocol?) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let window = appDelegate.window
+        self.frame = (window?.frame)!
+        window?.addSubview(self)
+        
+        if let _ = delegate {
+            self.delegate = delegate
+        }
+        
+        self.updateView()
+    }
+
+    @IBAction func removeVerificationPromptView () {
+        if let _ = self.delegate {
+            self.delegate!.showGroups!()
+            self.delegate = nil
+        }
+        
+        self.removeFromSuperview()
+    }
+    
     func updateView () {
         
         self.userNameView?.layer.cornerRadius = 2.0
@@ -75,13 +97,5 @@ class TRVerificationPromptView: UIView, TTTAttributedLabelDelegate {
     @IBAction func bungieButtonAction () {
         self.goToBungie()
     }
-    
-    @IBAction func closeView () {
-        if let _ = self.delegate {
-            self.delegate!.showGroups!()
-            self.delegate = nil
-        }
-        
-        self.removeFromSuperview()
-    }
 }
+

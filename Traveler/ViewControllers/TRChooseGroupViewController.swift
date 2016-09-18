@@ -300,7 +300,10 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
         UIApplication.sharedApplication().openURL(url)
     }
     
-    
+    @IBAction func showUnVerifiedView (sender: UITapGestureRecognizer) {
+        TRApplicationManager.sharedInstance.addUnVerifiedUserPromptWithDelegate(nil)
+    }
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

@@ -237,6 +237,10 @@
                                 <subviews>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradientOverlayGroups" translatesAutoresizingMaskIntoConstraints="NO" id="usi-Hn-pab">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="233"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="zrJ-Lh-8vP" appends="YES" id="nSX-6A-Qpj"/>
+                                        </connections>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VERIFY NOW, GUARDIAN!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LV9-gn-P9r">
                                         <rect key="frame" x="213" y="116" width="174" height="17"/>
@@ -331,6 +335,11 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D98-Bi-edU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="zrJ-Lh-8vP">
+                    <connections>
+                        <action selector="showUnVerifiedView:" destination="Hk0-IT-ZlF" id="O5h-KO-2Ri"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-861" y="251"/>
         </scene>

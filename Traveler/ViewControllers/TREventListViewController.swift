@@ -39,9 +39,6 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     @IBOutlet weak var rightSectionUnderLineLeftConstraint: NSLayoutConstraint!
 
     
-    //UnVerified User PopUp
-    var verificationPrompt = TRVerificationPromptView()
-    
     //Events Information
     var eventsInfo: [TREventInfo] = []
     
@@ -119,12 +116,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         
         //Is User Verified
         if TRUserInfo.isUserVerified()! != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue {
-            self.verificationPrompt = NSBundle.mainBundle().loadNibNamed("TRVerificationPromptView", owner: self, options: nil)[0] as! TRVerificationPromptView
-            self.verificationPrompt.frame = self.view.frame
-            self.verificationPrompt.delegate = self
-            self.verificationPrompt.updateView()
-            
-            self.view.addSubview(self.verificationPrompt)
+            TRApplicationManager.sharedInstance.addUnVerifiedUserPromptWithDelegate(self)
         }
     }
 

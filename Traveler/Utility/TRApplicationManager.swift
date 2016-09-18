@@ -76,7 +76,9 @@ class TRApplicationManager: NSObject {
     //Total Users
     var totalUsers: Int?
     
-    
+    // unVerified Prompt
+    var verificationPrompt = TRVerificationPromptView()
+
     // MARK:- Initializer
     private override init() {
         super.init()
@@ -104,6 +106,7 @@ class TRApplicationManager: NSObject {
         
         //Init Push Notification Controller (Active State)
         self.pushNotiController = TRPushNotiController()
+        
         
         // Notification Observer
         NSNotificationCenter.defaultCenter().addObserver(self,
@@ -250,6 +253,15 @@ class TRApplicationManager: NSObject {
         })
     }
 
+    func addUnVerifiedUserPromptWithDelegate (delegate: VerificationPopUpProtocol?) {
+        self.verificationPrompt = NSBundle.mainBundle().loadNibNamed("TRVerificationPromptView", owner: self, options: nil)[0] as! TRVerificationPromptView
+        
+        self.verificationPrompt.addVerificationPromptViewWithDelegate(delegate)
+    }
+
+    func removeUnVerifiedUserPrompt  () {
+        self.verificationPrompt.removeVerificationPromptView()
+    }
     
     func addErrorSubViewWithMessage(errorString: String) {
         self.errorNotificationView.errorSting = errorString
