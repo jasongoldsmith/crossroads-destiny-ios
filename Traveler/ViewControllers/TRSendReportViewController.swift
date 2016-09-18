@@ -140,7 +140,7 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
             return
         }
         
-        _ = TRCreateAReportRequest().sendCreatedReport((self.reportTextView?.text)!, reportType: "issue", reporterID: currentUserID, completion: { (didSucceed) in
+        _ = TRCreateAReportRequest().sendCreatedReport(emailString, reportDetail:(self.reportTextView?.text)!, reportType: "issue", reporterID: currentUserID, completion: { (didSucceed) in
             if (didSucceed != nil)  {
 
                 if self.reportTextView.isFirstResponder() {

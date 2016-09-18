@@ -9,14 +9,16 @@
 
 class TRCreateAReportRequest: TRRequest {
     
-    func sendCreatedReport (reportDetail: String, reportType: String, reporterID: String, completion: TRValueCallBack) {
+    func sendCreatedReport (reporterEmail: String, reportDetail: String, reportType: String, reporterID: String, completion: TRValueCallBack) {
         
         let pushMessage = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_SEND_REPORT
         var params = [String: AnyObject]()
         params["reportDetails"] = reportDetail
         params["reportType"] = reportType
         params["reporter"] = reporterID
+        params["reporterEmail"] = reporterEmail
         
+        //reporterEmail
         
         let request = TRRequest()
         request.params = params
