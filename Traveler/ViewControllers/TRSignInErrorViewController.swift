@@ -16,6 +16,7 @@ class TRSignInErrorViewController: TRBaseViewController {
     @IBOutlet weak var starOneLabel: UILabel!
     @IBOutlet weak var starTwoLabel: UILabel!
     @IBOutlet weak var userInfoLabel: UILabel!
+    @IBOutlet weak var userNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,7 @@ class TRSignInErrorViewController: TRBaseViewController {
         
         if let _ = self.userName {
             self.userInfoLabel?.text = "We couldn’t find a Bungie.net profile linked to the \(self.userName!) you entered."
+            self.userNameLabel?.text = self.userName! 
         }
     }
     
