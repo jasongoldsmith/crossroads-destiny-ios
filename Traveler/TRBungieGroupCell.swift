@@ -15,7 +15,6 @@ class TRBungieGroupCell: UITableViewCell {
     @IBOutlet weak var memberCount: UILabel!
     @IBOutlet weak var clanEnabled: UILabel!
     @IBOutlet weak var notificationButton: EventButton!
-    @IBOutlet weak var overlayImageView: UIImageView!
     
     
     override func prepareForReuse() {
@@ -27,7 +26,6 @@ class TRBungieGroupCell: UITableViewCell {
         self.memberCount?.text = nil
         self.clanEnabled?.text = nil
         self.contentView.alpha = 1
-        self.overlayImageView.hidden = true
         self.contentView.userInteractionEnabled = true
         self.notificationButton?.highlighted = false
         self.memberCount.hidden = true
@@ -42,7 +40,6 @@ class TRBungieGroupCell: UITableViewCell {
         self.round([.AllCorners], radius: 2)
         
         self.groupAvator?.image = UIImage(named: "imgNogroups")
-        self.overlayImageView.hidden = false
         self.notificationButton.selected = true
         self.groupName.text = "Your Bungie Group Here"
         self.memberCount.text = "87 in Orbit"

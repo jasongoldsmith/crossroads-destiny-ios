@@ -157,7 +157,7 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="closeView" destination="iN0-l3-epB" eventType="touchUpInside" id="gnM-nz-xC3"/>
+                                <action selector="removeVerificationPromptView" destination="iN0-l3-epB" eventType="touchUpInside" id="pKR-D7-MnL"/>
                             </connections>
                         </button>
                     </subviews>

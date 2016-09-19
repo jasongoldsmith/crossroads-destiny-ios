@@ -131,7 +131,7 @@
                                     <constraint firstAttribute="height" constant="73" id="gUi-0Y-ZuB"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which group would you like to play with?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Hh-ej-dOf">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which group would you like to play with?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Hh-ej-dOf">
                                 <rect key="frame" x="118" y="117" width="367" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="e1L-Pr-J1j"/>
@@ -233,23 +233,23 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o6a-dj-zeo">
-                                <rect key="frame" x="0.0" y="317" width="600" height="233"/>
+                                <rect key="frame" x="0.0" y="241" width="600" height="309"/>
                                 <subviews>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradientOverlayGroups" translatesAutoresizingMaskIntoConstraints="NO" id="usi-Hn-pab">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="233"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="309"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="zrJ-Lh-8vP" appends="YES" id="nSX-6A-Qpj"/>
                                         </connections>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VERIFY NOW, GUARDIAN!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LV9-gn-P9r">
-                                        <rect key="frame" x="213" y="116" width="174" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VERIFY YOURSELF, GUARDIAN!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LV9-gn-P9r">
+                                        <rect key="frame" x="193" y="192" width="214" height="17"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" red="1" green="0.77647058820000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgM-4M-zhX" customClass="TTTAttributedLabel">
-                                        <rect key="frame" x="20" y="148" width="560" height="56"/>
+                                        <rect key="frame" x="20" y="224" width="560" height="56"/>
                                         <string key="text">To play with other groups and update your profile, please verify your account.
 
 Check your messages on Bungie.net for a verification link from Crossroads.</string>
@@ -283,7 +283,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                             <constraint firstItem="o6a-dj-zeo" firstAttribute="top" secondItem="UcS-9m-9Pf" secondAttribute="bottom" constant="97" id="Cdn-Ir-SRj"/>
                             <constraint firstAttribute="trailing" secondItem="21G-5K-sdg" secondAttribute="trailing" id="DUH-gL-dQe"/>
                             <constraint firstItem="WhP-cr-BTL" firstAttribute="leading" secondItem="a4f-Bs-Ivf" secondAttribute="leading" constant="12" id="Fie-ys-hn9"/>
-                            <constraint firstItem="o6a-dj-zeo" firstAttribute="top" secondItem="UcS-9m-9Pf" secondAttribute="bottom" constant="97" id="Fth-id-wk4"/>
+                            <constraint firstItem="o6a-dj-zeo" firstAttribute="top" secondItem="UcS-9m-9Pf" secondAttribute="bottom" constant="21" id="Fth-id-wk4"/>
                             <constraint firstItem="21G-5K-sdg" firstAttribute="top" secondItem="CWz-lA-epg" secondAttribute="bottom" constant="25" id="IPI-ky-reu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4Hh-ej-dOf" secondAttribute="trailing" constant="50" id="Ivg-Kw-yuR"/>
                             <constraint firstItem="T5d-y2-feT" firstAttribute="leading" secondItem="a4f-Bs-Ivf" secondAttribute="leading" id="Pfo-YM-cp5"/>

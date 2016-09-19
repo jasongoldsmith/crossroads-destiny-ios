@@ -177,6 +177,11 @@ class TRChooseGroupViewController: TRBaseViewController, UITableViewDataSource, 
         self.unVerifiedUserLabel?.linkAttributes = subscriptionNoticeLinkAttributes
         self.unVerifiedUserLabel?.addLinkToURL(url, withRange: range)
         self.unVerifiedUserLabel?.delegate = self
+        
+        self.saveButton.enabled = true
+        self.saveButton?.hidden = false
+        self.saveButton.setTitle("VERIFY ON BUNGIE.NET", forState: .Normal)
+        self.saveButton?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
     }
     
     func removeNonVerifiedUserUI () {
