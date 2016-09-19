@@ -199,6 +199,12 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
     }
     
     @IBAction func showPasswordClicked () {
+        
+        _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(nil, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_SHOW_PASSWORD, completion: {didSucceed in
+            if didSucceed == true {
+            }
+        })
+        
         if let _ = self.userPwdTxtField.text where self.userPwdTxtField.text?.isEmpty != true {
             self.userPwdTxtField.secureTextEntry = !self.userPwdTxtField.secureTextEntry
         }

@@ -207,6 +207,7 @@ enum APP_TRACKING_DATA_TYPE: String {
     case TRACKING_SEG_CURRENT_CLICKED       = "currentTabInit"
     case TRACKING_SEG_UPCOMING_CLICKED      = "upcomingTabInit"
     case TRACKING_APP_RESUME                = "appResume"
+    case TRACKING_SHOW_PASSWORD             = "showPassword"
 }
 
 enum ACCOUNT_VERIFICATION: String {
