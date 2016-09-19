@@ -52,6 +52,7 @@ class TRVerificationPromptView: UIView, TTTAttributedLabelDelegate {
     
     func updateView () {
         
+        self.bungieButton?.titleEdgeInsets = UIEdgeInsets(top: 0.0, left: 10.0, bottom: 0.0, right: 10.0)
         self.userNameView?.layer.cornerRadius = 2.0
         self.userNameLabel?.text = TRUserInfo.getConsoleID()
         self.userImage.roundRectView()
