@@ -190,13 +190,17 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     func updateUserAvatorImage () {
         
         //Avator for Current PlayerJ
-        if self.currentPlayerAvatorIcon?.image == nil {
-            if let imageUrl = TRUserInfo.getUserImageString() {
-                let imageUrl = NSURL(string: imageUrl)
-                self.currentPlayerAvatorIcon?.sd_setImageWithURL(imageUrl)
+        if TRUserInfo.isUserVerified()! != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue {
+            self.currentPlayerAvatorIcon?.backgroundColor = UIColor.whiteColor()
+        } else {
+            if self.currentPlayerAvatorIcon?.image == nil {
+                if let imageUrl = TRUserInfo.getUserImageString() {
+                    let imageUrl = NSURL(string: imageUrl)
+                    self.currentPlayerAvatorIcon?.sd_setImageWithURL(imageUrl)
+                }
             }
         }
-        
+
         if TRApplicationManager.sharedInstance.currentUser?.consoles.count > 1 {
             if let console = TRApplicationManager.sharedInstance.currentUser?.getDefaultConsole() {
                 switch console.consoleType! {

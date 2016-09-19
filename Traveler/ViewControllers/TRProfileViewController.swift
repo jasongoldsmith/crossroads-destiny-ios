@@ -150,7 +150,7 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         self.updateUserAvatorImage()
             
         // User's psnID
-        if let hasUserName = self.currentUser?.playerUserName {
+        if let hasUserName = TRApplicationManager.sharedInstance.currentUser?.getDefaultConsole()?.consoleId {
             self.avatorUserName?.text = hasUserName
         } else {
             self.avatorUserName?.text = TRUserInfo.getUserName()
@@ -160,10 +160,14 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
     func updateUserAvatorImage () {
         
         //Avator for Current Player
-        if self.avatorImageView?.image == nil {
-            if let imageUrl = TRUserInfo.getUserImageString() {
-                let imageUrl = NSURL(string: imageUrl)
-                self.avatorImageView?.sd_setImageWithURL(imageUrl)
+        if TRUserInfo.isUserVerified()! != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue {
+            self.avatorImageView?.backgroundColor = UIColor.whiteColor()
+        } else {
+            if self.avatorImageView?.image == nil {
+                if let imageUrl = TRUserInfo.getUserImageString() {
+                    let imageUrl = NSURL(string: imageUrl)
+                    self.avatorImageView?.sd_setImageWithURL(imageUrl)
+                }
             }
         }
     }
