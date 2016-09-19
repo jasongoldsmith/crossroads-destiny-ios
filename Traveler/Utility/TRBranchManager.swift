@@ -102,7 +102,7 @@ class TRBranchManager {
         
         branchUniversalObject.addMetadataKey("eventId", value: eventID)
         branchUniversalObject.addMetadataKey("deepLinkType", value: deepLinkType)
-        branchUniversalObject.addMetadataKey("activityName", value: eventInfo.eventActivity?.activitySubType)
+        branchUniversalObject.addMetadataKey("activityName", value: (eventInfo.eventActivity?.activitySubType)!)
         
         // Create Link
         let linkProperties = BranchLinkProperties()

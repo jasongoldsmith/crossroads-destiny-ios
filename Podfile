@@ -9,7 +9,7 @@ def project_pods
     pod 'SDWebImage', '~>3.7'
     pod 'AFDateHelper'
     pod 'pop', :git => 'https://github.com/facebook/pop.git'
-    pod 'SlideMenuControllerSwift'
+    pod 'SlideMenuControllerSwift', :git => 'https://github.com/dekatotoro/SlideMenuControllerSwift.git', :branch => 'swift2.3'
     pod 'TTTAttributedLabel'
     pod 'Firebase/Database'
     pod 'Firebase/DynamicLinks'
