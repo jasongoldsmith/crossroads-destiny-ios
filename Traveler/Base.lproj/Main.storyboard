@@ -417,6 +417,12 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                     <outlet property="delegate" destination="GCe-sl-3u9" id="4xQ-Qd-O29"/>
                                 </connections>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By clicking the “Sign In” button below, I have read and agree to the Crossroads Terms of Service and Privacy Policy." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTB-4R-w7W" customClass="TTTAttributedLabel">
+                                <rect key="frame" x="20" y="468" width="560" height="40"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -432,10 +438,14 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                             <constraint firstItem="VFK-zq-jCs" firstAttribute="top" secondItem="Vp9-6u-dUS" secondAttribute="bottom" id="RwR-2w-RON"/>
                             <constraint firstItem="vqs-Cy-515" firstAttribute="leading" secondItem="emr-nd-Vuk" secondAttribute="leadingMargin" id="TWA-lj-86b"/>
                             <constraint firstAttribute="bottom" secondItem="Vp9-6u-dUS" secondAttribute="bottom" id="UZz-b8-vhF"/>
+                            <constraint firstItem="RTB-4R-w7W" firstAttribute="trailing" secondItem="emr-nd-Vuk" secondAttribute="trailingMargin" id="WAC-hE-fDu"/>
                             <constraint firstItem="Q4O-b1-LyM" firstAttribute="top" secondItem="emr-nd-Vuk" secondAttribute="topMargin" id="ZHH-Mz-ubR"/>
                             <constraint firstItem="Q4O-b1-LyM" firstAttribute="leading" secondItem="emr-nd-Vuk" secondAttribute="leadingMargin" constant="-20" id="d8C-Qf-igF"/>
+                            <constraint firstItem="RTB-4R-w7W" firstAttribute="top" secondItem="1VW-X0-n68" secondAttribute="bottom" constant="79" id="dFp-LW-eLW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Q4O-b1-LyM" secondAttribute="trailing" constant="-20" id="e1k-IC-jlr"/>
                             <constraint firstItem="b67-XM-c3B" firstAttribute="top" secondItem="9L3-Es-dEz" secondAttribute="bottom" constant="117" id="iBO-uO-GaH"/>
+                            <constraint firstItem="RTB-4R-w7W" firstAttribute="leading" secondItem="emr-nd-Vuk" secondAttribute="leadingMargin" id="idu-KP-ckA"/>
+                            <constraint firstItem="S27-A4-Euw" firstAttribute="top" secondItem="RTB-4R-w7W" secondAttribute="bottom" constant="10" id="j5e-yT-qUl"/>
                             <constraint firstItem="Vp9-6u-dUS" firstAttribute="leading" secondItem="emr-nd-Vuk" secondAttribute="leading" id="mrP-mi-gUk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1VW-X0-n68" secondAttribute="trailing" constant="-20" id="pH0-Um-Cdy"/>
                             <constraint firstItem="1VW-X0-n68" firstAttribute="leading" secondItem="emr-nd-Vuk" secondAttribute="leadingMargin" constant="-20" id="ssJ-2W-qOP"/>
@@ -451,6 +461,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                     </view>
                     <connections>
                         <outlet property="carousel" destination="1VW-X0-n68" id="oAS-Gj-SL6"/>
+                        <outlet property="legalLabel" destination="RTB-4R-w7W" id="JTv-oU-xIc"/>
                         <outlet property="playerCountLabel" destination="vqs-Cy-515" id="puV-pM-Vqa"/>
                         <segue destination="wsB-4U-0gI" kind="show" identifier="TRSignInView" id="ZGx-ZN-3te"/>
                         <segue destination="KOc-md-Vga" kind="show" identifier="TRAddConsoleView" id="LY0-OA-8mv"/>

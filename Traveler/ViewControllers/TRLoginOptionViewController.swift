@@ -8,13 +8,17 @@
 
 import UIKit
 import iCarousel
+import TTTAttributedLabel
 
-class TRLoginOptionViewController: TRBaseViewController, iCarouselDataSource, iCarouselDelegate {
+
+class TRLoginOptionViewController: TRBaseViewController, iCarouselDataSource, iCarouselDelegate, TTTAttributedLabelDelegate {
     
     
     var items: [TREventInfo] = TRApplicationManager.sharedInstance.eventsList
     @IBOutlet weak var playerCountLabel: UILabel!
     @IBOutlet weak var carousel : iCarousel!
+    @IBOutlet weak var legalLabel: TTTAttributedLabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +37,9 @@ class TRLoginOptionViewController: TRBaseViewController, iCarouselDataSource, iC
 
         self.playerCountLabel.attributedText = finalString
         self.carousel?.autoscroll = -0.1
+        
+        //Legal Statement
+        self.addLegalStatmentText()
     }
     
     override func didReceiveMemoryWarning() {
@@ -85,5 +92,40 @@ class TRLoginOptionViewController: TRBaseViewController, iCarouselDataSource, iC
         default:
             return value
         }
+    }
+    
+    func addLegalStatmentText () {
+        let legalString = "By clicking the \"Next\" button below, I have read and agree to the Crossroads Terms of Service and Privacy Policy."
+        
+        let customerAgreement = "Terms of Service"
+        let privacyPolicy = "Privacy Policy"
+        
+        self.legalLabel?.text = legalString
+        
+        // Add HyperLink to Bungie
+        let nsString = legalString as NSString
+        
+        let rangeCustomerAgreement = nsString.rangeOfString(customerAgreement)
+        let rangePrivacyPolicy = nsString.rangeOfString(privacyPolicy)
+        let urlCustomerAgreement = NSURL(string: "https://www.crossroadsapp.co/terms")!
+        let urlPrivacyPolicy = NSURL(string: "https://www.crossroadsapp.co/privacy")!
+        
+        let subscriptionNoticeLinkAttributes = [
+            NSForegroundColorAttributeName: UIColor(red: 0/255, green: 182/255, blue: 231/255, alpha: 1),
+            NSUnderlineStyleAttributeName: NSNumber(bool:true),
+            ]
+        self.legalLabel?.linkAttributes = subscriptionNoticeLinkAttributes
+        self.legalLabel?.addLinkToURL(urlCustomerAgreement, withRange: rangeCustomerAgreement)
+        self.legalLabel?.addLinkToURL(urlPrivacyPolicy, withRange: rangePrivacyPolicy)
+        self.legalLabel?.delegate = self
+    }
+    
+    func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
+        let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+        let legalViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_WEB_VIEW) as! TRLegalViewController
+        legalViewController.linkToOpen = url
+        self.presentViewController(legalViewController, animated: true, completion: {
+            
+        })
     }
 }
