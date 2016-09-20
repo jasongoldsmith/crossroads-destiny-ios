@@ -49,6 +49,10 @@ class TRRequest {
             TRApplicationManager.sharedInstance.activityIndicator.startActivityIndicator(self.showActivityIndicatorBgClear, activityTopConstraintValue: self.activityIndicatorTopConstraint)
         }
         
+        
+        print("Request-: \(self.requestURL, self.params)")
+        
+        
         TRApplicationManager.sharedInstance.alamoFireManager!.request(self.URLMethod!, self.requestURL!, parameters:self.params)
             .responseJSON { response in
                 
