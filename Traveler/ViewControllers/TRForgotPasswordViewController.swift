@@ -24,10 +24,12 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
     @IBOutlet weak var resetPasswordButtonBottom: NSLayoutConstraint!
     @IBOutlet weak var userNameView: UIView!
     @IBOutlet weak var instructionLabel: UILabel!
+    @IBOutlet weak var resetPasswordLabel: UILabel!
     
     @IBOutlet weak var successView: UIView!
     @IBOutlet weak var resetLabel: TTTAttributedLabel!
     @IBOutlet weak var goToBungieButton: UIButton!
+    @IBOutlet weak var resetPasswordLabelTop: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -180,6 +182,9 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
                 self.resetPasswordButton.hidden = true
                 self.instructionLabel.hidden = true
                 
+                self.resetPasswordLabel?.text = "PASSWORD RESET"
+                self.resetPasswordLabelTop.constant = self.resetPasswordLabelTop.constant + 10
+                self.goToBungieButton?.titleEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
                 self.successView.hidden = false
                 self.resignKeyBoardResponders()
             } else {
