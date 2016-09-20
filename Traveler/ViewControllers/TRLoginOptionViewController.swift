@@ -26,7 +26,7 @@ class TRLoginOptionViewController: TRBaseViewController, iCarouselDataSource, iC
         let countString = TRApplicationManager.sharedInstance.totalUsers?.description
         let stringColorAttribute = [NSForegroundColorAttributeName: UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)]
         var countAttributedStr = NSAttributedString(string: countString!, attributes: stringColorAttribute)
-        let helpAttributedStr = NSAttributedString(string: " Guardians searching for Fireteam:", attributes: nil)
+        let helpAttributedStr = NSAttributedString(string: " Guardians searching for Fireteams:", attributes: nil)
         
         if TRApplicationManager.sharedInstance.totalUsers < 1 {
             countAttributedStr = NSAttributedString(string: "", attributes: nil)

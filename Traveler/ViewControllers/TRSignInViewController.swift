@@ -112,7 +112,7 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
         self.xBoxStationButton?.layer.cornerRadius = 2.0
         self.xBoxStationButton?.alpha = 1
         self.xBoxStationImage?.alpha = 1
-        self.userNameTxtField.attributedPlaceholder = NSAttributedString(string:"Enter Gamertag", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+        self.userNameTxtField.attributedPlaceholder = NSAttributedString(string:"Enter Xbox Gamertag", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         
         self.playStationButton?.backgroundColor = UIColor.blackColor()
         self.playStationImage?.alpha = 0.5
