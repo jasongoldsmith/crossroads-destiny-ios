@@ -2178,31 +2178,6 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                     </mask>
                                 </variation>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SHC-Yf-EmA">
-                                <rect key="frame" x="10" y="256" width="580" height="123"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="294" id="SeV-K3-GTO"/>
-                                    <constraint firstAttribute="width" constant="448" id="cCa-bk-omn"/>
-                                    <constraint firstAttribute="height" constant="294" id="rij-hn-jyr"/>
-                                    <constraint firstAttribute="width" constant="499" id="t5Q-f1-8Zs"/>
-                                    <constraint firstAttribute="height" constant="123" id="vgJ-DI-3cb"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="SeV-K3-GTO"/>
-                                        <exclude reference="cCa-bk-omn"/>
-                                        <exclude reference="rij-hn-jyr"/>
-                                        <exclude reference="t5Q-f1-8Zs"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <outlet property="delegate" destination="vH8-Nd-68e" id="XrR-tf-Rmm"/>
-                                </connections>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xs8-65-bYq">
                                 <rect key="frame" x="10" y="23" width="44" height="44"/>
                                 <state key="normal" image="iconBackArrow"/>
@@ -2254,37 +2229,79 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                     <action selector="sendReportButtonAdded:" destination="vH8-Nd-68e" eventType="touchUpInside" id="bgZ-hl-6yr"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WOD-Pq-Z92">
+                                <rect key="frame" x="10" y="256" width="580" height="123"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mh6-Ci-No5">
+                                        <rect key="frame" x="0.0" y="0.0" width="580" height="123"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SHC-Yf-EmA">
+                                        <rect key="frame" x="23" y="0.0" width="534" height="123"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="294" id="SeV-K3-GTO"/>
+                                            <constraint firstAttribute="width" constant="448" id="cCa-bk-omn"/>
+                                            <constraint firstAttribute="height" constant="294" id="rij-hn-jyr"/>
+                                            <constraint firstAttribute="width" constant="499" id="t5Q-f1-8Zs"/>
+                                            <constraint firstAttribute="height" constant="123" id="vgJ-DI-3cb"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="SeV-K3-GTO"/>
+                                                <exclude reference="cCa-bk-omn"/>
+                                                <exclude reference="rij-hn-jyr"/>
+                                                <exclude reference="t5Q-f1-8Zs"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <outlet property="delegate" destination="vH8-Nd-68e" id="XrR-tf-Rmm"/>
+                                        </connections>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="mh6-Ci-No5" secondAttribute="bottom" id="4Ws-dR-rj5"/>
+                                    <constraint firstAttribute="height" constant="123" id="55S-ky-I6P"/>
+                                    <constraint firstItem="mh6-Ci-No5" firstAttribute="top" secondItem="WOD-Pq-Z92" secondAttribute="top" id="Czq-7R-8xB"/>
+                                    <constraint firstAttribute="trailing" secondItem="SHC-Yf-EmA" secondAttribute="trailing" constant="23" id="IBf-A4-6xA"/>
+                                    <constraint firstAttribute="bottom" secondItem="SHC-Yf-EmA" secondAttribute="bottom" id="NnR-Xr-4w9"/>
+                                    <constraint firstItem="SHC-Yf-EmA" firstAttribute="leading" secondItem="WOD-Pq-Z92" secondAttribute="leading" constant="23" id="RHG-p7-692"/>
+                                    <constraint firstItem="SHC-Yf-EmA" firstAttribute="top" secondItem="WOD-Pq-Z92" secondAttribute="top" id="dME-ze-wYy"/>
+                                    <constraint firstItem="mh6-Ci-No5" firstAttribute="leading" secondItem="WOD-Pq-Z92" secondAttribute="leading" id="oYQ-Gi-7Ha"/>
+                                    <constraint firstAttribute="trailing" secondItem="mh6-Ci-No5" secondAttribute="trailing" id="vPH-Dg-Fgg"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fhx-jG-gxI" firstAttribute="leading" secondItem="aDR-mt-Www" secondAttribute="leadingMargin" constant="30" id="1gY-7A-S52"/>
                             <constraint firstAttribute="trailing" secondItem="zbZ-Ml-hnp" secondAttribute="trailing" constant="10" id="20p-8B-oUF"/>
-                            <constraint firstItem="SHC-Yf-EmA" firstAttribute="top" secondItem="zbZ-Ml-hnp" secondAttribute="bottom" constant="10" id="7gx-T9-Hbi"/>
                             <constraint firstItem="Xs8-65-bYq" firstAttribute="leading" secondItem="aDR-mt-Www" secondAttribute="leadingMargin" constant="-10" id="BH6-q2-cac"/>
                             <constraint firstItem="aYC-fX-WDX" firstAttribute="top" secondItem="TSx-8W-Hkx" secondAttribute="bottom" id="Bhh-UY-1PM"/>
                             <constraint firstItem="p8f-ms-SXi" firstAttribute="centerX" secondItem="aDR-mt-Www" secondAttribute="centerX" id="Ecg-6n-FZJ"/>
                             <constraint firstItem="ZPG-Pm-LKH" firstAttribute="top" secondItem="aDR-mt-Www" secondAttribute="topMargin" id="Ecl-rD-RFM"/>
                             <constraint firstItem="zbZ-Ml-hnp" firstAttribute="leading" secondItem="aDR-mt-Www" secondAttribute="leading" constant="10" id="IQg-a5-tK2"/>
                             <constraint firstAttribute="trailing" secondItem="TSx-8W-Hkx" secondAttribute="trailing" id="JRF-B0-gv9"/>
-                            <constraint firstItem="SHC-Yf-EmA" firstAttribute="leading" secondItem="aDR-mt-Www" secondAttribute="leading" constant="10" id="Jct-oM-yHM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fhx-jG-gxI" secondAttribute="trailing" constant="30" id="JhS-ye-5YL"/>
                             <constraint firstItem="Xs8-65-bYq" firstAttribute="top" secondItem="lFW-Yw-m9S" secondAttribute="bottom" constant="3" id="QgZ-nI-lD3"/>
                             <constraint firstItem="fhx-jG-gxI" firstAttribute="centerX" secondItem="aDR-mt-Www" secondAttribute="centerX" id="VhI-Ti-HB4"/>
+                            <constraint firstItem="WOD-Pq-Z92" firstAttribute="leading" secondItem="aDR-mt-Www" secondAttribute="leadingMargin" constant="-10" id="YKV-6w-T0J"/>
                             <constraint firstItem="ZPG-Pm-LKH" firstAttribute="leading" secondItem="aDR-mt-Www" secondAttribute="leadingMargin" constant="-20" id="Ziz-Er-GiC"/>
-                            <constraint firstItem="SHC-Yf-EmA" firstAttribute="leading" secondItem="aDR-mt-Www" secondAttribute="leadingMargin" constant="10" id="csZ-II-Qal"/>
-                            <constraint firstItem="SHC-Yf-EmA" firstAttribute="trailing" secondItem="aDR-mt-Www" secondAttribute="trailingMargin" constant="-11" id="gZt-wq-aTS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WOD-Pq-Z92" secondAttribute="trailing" constant="-10" id="con-ab-ZZZ"/>
                             <constraint firstItem="aYC-fX-WDX" firstAttribute="top" secondItem="ZPG-Pm-LKH" secondAttribute="bottom" id="hlc-HR-19n"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZPG-Pm-LKH" secondAttribute="trailing" constant="-20" id="lt6-Uz-bBg"/>
                             <constraint firstItem="fhx-jG-gxI" firstAttribute="top" secondItem="lFW-Yw-m9S" secondAttribute="bottom" constant="17" id="m4X-3x-nwK"/>
                             <constraint firstItem="TSx-8W-Hkx" firstAttribute="leading" secondItem="aDR-mt-Www" secondAttribute="leading" id="n0C-Ya-v7m"/>
                             <constraint firstItem="zbZ-Ml-hnp" firstAttribute="top" secondItem="p8f-ms-SXi" secondAttribute="bottom" constant="28" id="og4-Cc-xB2"/>
-                            <constraint firstAttribute="trailing" secondItem="SHC-Yf-EmA" secondAttribute="trailing" constant="10" id="sm9-ha-C4M"/>
                             <constraint firstItem="p8f-ms-SXi" firstAttribute="top" secondItem="fhx-jG-gxI" secondAttribute="bottom" constant="25" id="tn5-gC-FQX"/>
+                            <constraint firstItem="WOD-Pq-Z92" firstAttribute="top" secondItem="zbZ-Ml-hnp" secondAttribute="bottom" constant="10" id="uWQ-AT-6LU"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="csZ-II-Qal"/>
-                                <exclude reference="gZt-wq-aTS"/>
                                 <exclude reference="1gY-7A-S52"/>
                                 <exclude reference="JhS-ye-5YL"/>
                             </mask>

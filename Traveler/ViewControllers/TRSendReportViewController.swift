@@ -12,6 +12,8 @@ import UIKit
 
 class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
     
+    let placeHolderString = "What would you like to tell us?"
+    
     @IBOutlet weak var reportTextView: UITextView!
     @IBOutlet weak var emailTextView: UITextField!
     @IBOutlet weak var emailView: UIView!
@@ -21,14 +23,18 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.emailView?.layer.cornerRadius = 2.0
         self.reportTextView?.layer.cornerRadius = 2.0
         self.emailView?.clipsToBounds = true
         
-        self.emailTextView?.attributedPlaceholder = NSAttributedString(string:"Your Email (required)", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+        self.emailTextView?.attributedPlaceholder = NSAttributedString(string:"Your Email (required)", attributes: [NSForegroundColorAttributeName: UIColor.lightGrayColor()])
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRSendReportViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRSendReportViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
+        
+        self.reportTextView?.text = placeHolderString
+        self.reportTextView?.textColor = UIColor.lightGrayColor()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -37,10 +43,17 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        self.emailTextView?.becomeFirstResponder()
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        if self.emailTextView?.isFirstResponder() == true {
+            self.emailTextView?.resignFirstResponder()
+        } else {
+            self.reportTextView?.resignFirstResponder()
+        }
         
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: self.view.window)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: self.view.window)
@@ -87,6 +100,20 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
         }
     }
     
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        if textView.textColor == UIColor.lightGrayColor() {
+            textView.text = nil
+            textView.textColor = UIColor.whiteColor()
+        }
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = placeHolderString
+            textView.textColor = UIColor.lightGrayColor()
+        }
+    }
     
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
