@@ -34,7 +34,7 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRForgotPasswordViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRForgotPasswordViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
-
+        
         self.userNameTxtField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         self.playStationSelected()
         
@@ -57,7 +57,7 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
         
         self.goToBungieButton?.layer.cornerRadius = 2.0
     }
-
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidDisappear(animated)
     }
@@ -74,7 +74,7 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
         super.didReceiveMemoryWarning()
     }
     
-
+    
     @IBAction func playStationSelected () {
         self.selectedConsole = ConsoleTypes.PS4
         self.playStationButton?.backgroundColor = UIColor(red: 0/255, green: 134/255, blue: 208/255, alpha: 1)
@@ -146,11 +146,24 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
     }
     
     
-   @IBAction func forgotPassword () {
+    @IBAction func forgotPassword () {
         
         let userName = self.userNameTxtField?.text
         let consoleType = self.selectedConsole
+        
+        let displatString: String?
+        if self.selectedConsole == ConsoleTypes.PS4 {
+            displatString = "PlayStation ID"
+        } else {
+            displatString = "Xbox Gamertag"
+        }
+        
+        if self.userNameTxtField?.text?.isEmpty == true {
+           TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Please enter \(displatString!)")
             
+            return
+        }
+        
         _ = TRForgotPasswordRequest().resetUserPassword(userName!, consoleType: consoleType!, completion: { (didSucceed) in
             if (didSucceed == true) {
                 
@@ -169,7 +182,7 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
             }
         })
     }
-
+    
     func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
         UIApplication.sharedApplication().openURL(url)
     }

@@ -1093,8 +1093,8 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                     <action selector="playStationSelected" destination="xrT-dz-8g5" eventType="touchUpInside" id="xlh-kK-8QI"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FORGOT PASSWORD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rjs-Hl-CGS">
-                                <rect key="frame" x="218" y="128" width="164" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD RESET" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rjs-Hl-CGS">
+                                <rect key="frame" x="225.5" y="128" width="149.5" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="5to-D8-sCo"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="OMb-lk-Ao7"/>
