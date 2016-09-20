@@ -40,8 +40,12 @@ class TRSignInErrorViewController: TRBaseViewController, TTTAttributedLabelDeleg
         }
         
         self.supportText?.delegate = self
+        let emailLinkAttributes = [
+            NSForegroundColorAttributeName: UIColor(red: 0/255, green: 182/255, blue: 231/255, alpha: 1),
+            ]
         self.supportText?.enabledTextCheckingTypes = NSTextCheckingType.Link.rawValue
-        self.supportText?.text = "If you are still having login issues, email us at support@crossroadsapp.com or contact us directly."
+        self.supportText?.text = "If you are still having login issues, email us at support@crossroadsapp.co or contact us directly."
+        self.supportText?.linkAttributes = emailLinkAttributes
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -60,9 +64,9 @@ class TRSignInErrorViewController: TRBaseViewController, TTTAttributedLabelDeleg
     }
     
     func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
-        let emailTitle = "Feedback"
-        let messageBody = "Feature request or bug report?"
-        let toRecipents = ["support@crossroadsapp.com"]
+        let emailTitle = "Crossroads for Destiny Support Request"
+        let messageBody = "Please include your device and gamertag for the fastest assistance."
+        let toRecipents = ["support@crossroadsapp.co"]
         let mc: MFMailComposeViewController = MFMailComposeViewController()
         mc.mailComposeDelegate = self
         mc.setSubject(emailTitle)
