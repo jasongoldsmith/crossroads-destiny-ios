@@ -56,6 +56,8 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
         self.resetLabel?.delegate = self
         
         self.goToBungieButton?.layer.cornerRadius = 2.0
+        
+        self.userNameTxtField?.becomeFirstResponder()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -65,6 +67,9 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
+        if self.userNameTxtField?.isFirstResponder() == true {
+            self.userNameTxtField?.resignFirstResponder()
+        }
         
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: self.view.window)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: self.view.window)

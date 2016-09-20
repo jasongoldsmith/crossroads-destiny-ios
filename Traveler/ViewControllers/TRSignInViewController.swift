@@ -48,18 +48,27 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
         
         //UnSelected Button View Updates
         self.playStationSelected()
-        
-        delay(1.0) { 
-            self.userNameTxtField?.becomeFirstResponder()
-        }
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
+        if self.userNameTxtField?.isFirstResponder() == true {
+           self.userNameTxtField?.resignFirstResponder()
+        } else if self.userPwdTxtField?.isFirstResponder() == true {
+            self.userPwdTxtField?.resignFirstResponder()
+        }
         
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: self.view.window)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: self.view.window)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        delay(0.5) {
+            self.userNameTxtField?.becomeFirstResponder()
+        }
     }
     
     override func didReceiveMemoryWarning() {
