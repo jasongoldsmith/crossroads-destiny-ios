@@ -191,7 +191,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         
         //Avator for Current PlayerJ
         if TRUserInfo.isUserVerified()! != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue {
-            self.currentPlayerAvatorIcon?.backgroundColor = UIColor.whiteColor()
+            self.currentPlayerAvatorIcon?.image = UIImage(named:"default_helmet")
         } else {
             if self.currentPlayerAvatorIcon?.image == nil {
                 if let imageUrl = TRUserInfo.getUserImageString() {

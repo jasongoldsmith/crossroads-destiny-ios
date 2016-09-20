@@ -81,12 +81,15 @@ class TRCaroselCellView: UIView {
         self.joinButton.layer.cornerRadius = 2.0
         
         if (eventInfo.eventStatus == EVENT_STATUS.FULL.rawValue) {
-            self.joinButton?.titleLabel!.text = "FULL"
+            self.joinButton?.setTitle("FULL", forState: .Normal)
             self.joinButton?.backgroundColor = UIColor(red: 99/255, green: 182/255, blue: 32/255, alpha: 1)
         } else {
-            self.joinButton?.titleLabel!.text = "JOIN"
+            self.joinButton?.setTitle("JOIN", forState: .Normal)
             self.joinButton?.backgroundColor = UIColor(red: 29/255, green: 43/255, blue: 51/255, alpha: 1)
         }
+        
+        self.playerOneIcon?.roundRectView(1, borderColor: UIColor.grayColor())
+        self.playerTwoIcon?.roundRectView(1, borderColor: UIColor.grayColor())
     }
     
     func addRadiusToPlayerIconsForPlayersArray (eventInfo: TREventInfo) {
@@ -101,10 +104,10 @@ class TRCaroselCellView: UIView {
                 
                 if let imageURLString = player.playerImageUrl {
                     let url = NSURL(string: imageURLString)
-                    self.playerOneIcon!.sd_setImageWithURL(url, placeholderImage: UIImage(named: "iconProfileBlank"))
-                    self.playerOneIcon?.roundRectView(1, borderColor: UIColor.grayColor())
+                    self.playerOneIcon!.sd_setImageWithURL(url, placeholderImage: UIImage(named: "default_helmet"))
                 }
                 
+                self.playerOneIcon?.roundRectView(1, borderColor: UIColor.grayColor())
                 break;
             case 1:
                 
@@ -112,10 +115,10 @@ class TRCaroselCellView: UIView {
                 
                 if let imageURLString = player.playerImageUrl {
                     let url = NSURL(string: imageURLString)
-                    self.playerTwoIcon!.sd_setImageWithURL(url, placeholderImage: UIImage(named: "iconProfileBlank"))
-                    self.playerTwoIcon?.roundRectView(1, borderColor: UIColor.grayColor())
+                    self.playerTwoIcon!.sd_setImageWithURL(url, placeholderImage: UIImage(named: "default_helmet"))
                 }
                 
+                self.playerTwoIcon?.roundRectView(1, borderColor: UIColor.grayColor())
                 break;
                 
             case 2:
@@ -123,18 +126,22 @@ class TRCaroselCellView: UIView {
                 self.playerThreeIcon.hidden = false
                 if(eventInfo.eventMaxPlayers?.integerValue > 3 && eventInfo.eventPlayersArray.count > 3) {
                     self.playerThreeIcon.image = nil
-                    self.playerThreeIcon.hidden = false
+                    self.playerCountLabelIcon.hidden = false
                     self.playerCountLabelIcon?.text = "+" + String((playerArray.count - 2))
                     self.playerThreeIcon?.roundRectView(1, borderColor: UIColor.grayColor())
                     
                 } else {
-                    self.playerThreeIcon.hidden = true
+                    self.playerThreeIcon.hidden = false
+                    self.playerCountLabelIcon.hidden = true
                     
                     if let imageURLString = player.playerImageUrl {
                         let url = NSURL(string: imageURLString)
-                        self.playerThreeIcon!.sd_setImageWithURL(url, placeholderImage: UIImage(named: "iconProfileBlank"))
-                        self.playerThreeIcon?.roundRectView(1, borderColor: UIColor.grayColor())
+                        self.playerThreeIcon!.sd_setImageWithURL(url, placeholderImage: UIImage(named: "default_helmet"))
+                    } else {
+                        self.playerThreeIcon?.image = UIImage(named: "default_helmet")
                     }
+                    
+                    self.playerThreeIcon?.roundRectView(1, borderColor: UIColor.grayColor())
                 }
                 
                 break;

@@ -19,7 +19,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgCardBgFULL" translatesAutoresizingMaskIntoConstraints="NO" id="g22-Qh-2N8">
                     <rect key="frame" x="0.0" y="0.0" width="327" height="134"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yix-pY-JJU">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconGhostDefault" translatesAutoresizingMaskIntoConstraints="NO" id="Yix-pY-JJU">
                     <rect key="frame" x="8" y="8" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="AiO-lz-hT7"/>
@@ -33,7 +33,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awC-eg-F5E">
-                    <rect key="frame" x="60" y="41" width="29.5" height="14"/>
+                    <rect key="frame" x="60" y="41" width="30" height="14"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="14" id="IYS-dV-S6O"/>
                     </constraints>
@@ -42,25 +42,25 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qu7-RN-azc">
-                    <rect key="frame" x="60" y="56" width="29.5" height="14"/>
+                    <rect key="frame" x="60" y="56" width="30" height="14"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t91-zo-xiE">
-                    <rect key="frame" x="284.5" y="15" width="29.5" height="14"/>
+                    <rect key="frame" x="285" y="15" width="29" height="14"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                     <color key="textColor" red="1" green="0.68627450980000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconProfileBlank" translatesAutoresizingMaskIntoConstraints="NO" id="ofS-h7-qFr">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_helmet" translatesAutoresizingMaskIntoConstraints="NO" id="ofS-h7-qFr">
                     <rect key="frame" x="60" y="88" width="36" height="36"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="36" id="fyK-pE-Vsl"/>
                         <constraint firstAttribute="width" constant="36" id="znA-ts-URy"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconProfileBlank" translatesAutoresizingMaskIntoConstraints="NO" id="S9Z-FD-6w6">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_helmet" translatesAutoresizingMaskIntoConstraints="NO" id="S9Z-FD-6w6">
                     <rect key="frame" x="107" y="88" width="36" height="36"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="36" id="Eo7-t9-zGb"/>
@@ -82,12 +82,12 @@
                         <constraint firstAttribute="width" constant="64" id="Q6W-A6-98f"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
-                    <state key="normal" title="JOIN">
+                    <state key="normal" title="FULL">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0Q-0Q-4sY">
-                    <rect key="frame" x="157" y="99" width="29.5" height="14"/>
+                    <rect key="frame" x="157" y="99" width="30" height="14"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -146,7 +146,8 @@
         </view>
     </objects>
     <resources>
-        <image name="iconProfileBlank" width="36" height="36"/>
+        <image name="default_helmet" width="96" height="96"/>
+        <image name="iconGhostDefault" width="40" height="40"/>
         <image name="imgCardBgFULL" width="327" height="135"/>
     </resources>
 </document>

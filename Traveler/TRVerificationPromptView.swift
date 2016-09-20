@@ -59,7 +59,7 @@ class TRVerificationPromptView: UIView, TTTAttributedLabelDelegate {
         
         let playerImage = TRApplicationManager.sharedInstance.currentUser?.userImageURL
         if let _ = playerImage where playerImage != "" {
-            self.userImage!.sd_setImageWithURL(NSURL(string: playerImage!), placeholderImage: UIImage(named: "iconProfileBlank"))
+            self.userImage!.sd_setImageWithURL(NSURL(string: playerImage!), placeholderImage: UIImage(named: "default_helmet"))
         }
         
         self.bungieButton?.layer.cornerRadius = 2.0

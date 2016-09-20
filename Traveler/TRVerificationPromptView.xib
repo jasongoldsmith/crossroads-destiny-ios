@@ -74,7 +74,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LPs-AE-wqP">
                             <rect key="frame" x="15" y="69" width="546" height="50"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconProfileBlank" translatesAutoresizingMaskIntoConstraints="NO" id="5nJ-Hg-Kpv">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_helmet" translatesAutoresizingMaskIntoConstraints="NO" id="5nJ-Hg-Kpv">
                                     <rect key="frame" x="12" y="10" width="30" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="Hm8-yI-Jpr"/>
@@ -230,8 +230,8 @@
         </view>
     </objects>
     <resources>
+        <image name="default_helmet" width="96" height="96"/>
         <image name="iconCloseXBlue" width="44" height="44"/>
-        <image name="iconProfileBlank" width="36" height="36"/>
         <image name="imgModalBackground2" width="352" height="455"/>
     </resources>
 </document>

@@ -161,7 +161,7 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         
         //Avator for Current Player
         if TRUserInfo.isUserVerified()! != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue {
-            self.avatorImageView?.backgroundColor = UIColor.whiteColor()
+            self.avatorImageView?.image = UIImage(named: "default_helmet.png")
         } else {
             if self.avatorImageView?.image == nil {
                 if let imageUrl = TRUserInfo.getUserImageString() {
