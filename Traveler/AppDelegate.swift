@@ -24,6 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //RootViewController
         let rootViewController = self.window?.rootViewController as! TRRootViewController
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let isInstallInfoSent = userDefaults.boolForKey(K.UserDefaultKey.INSTALL_INFO_SENT)
+        if isInstallInfoSent == false {
+            rootViewController.shouldLoadInitialViewDefault = false
+        }
+        
         
         //Initializing Manager
         TRApplicationManager.sharedInstance
@@ -58,20 +64,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Branch Initialized
         let branch: Branch = Branch.getInstance()
         branch.initSessionWithLaunchOptions(launchOptions, andRegisterDeepLinkHandler: { params, error in
-            // route the user based on what's in params
-            
-            // Tracking Open Source
-            var mySourceDict = [String: AnyObject]()
-            mySourceDict["source"] = K.SharingPlatformType.Platform_Branch
-            _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_APP_INIT, completion: {didSucceed in
-                if didSucceed == true {
-                    
-                }
-            })
-
          
             if let isBranchLink = params["+clicked_branch_link"]?.boolValue where  isBranchLink == true {
                 
+                // Tracking Open Source
+                var mySourceDict = [String: AnyObject]()
+                mySourceDict["source"] = K.SharingPlatformType.Platform_Branch
+                _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_APP_INIT, completion: {didSucceed in
+                    if didSucceed == true {
+                        
+                    }
+                })
+
                 let userDefaults = NSUserDefaults.standardUserDefaults()
                 let isInstallInfoSent = userDefaults.boolForKey(K.UserDefaultKey.INSTALL_INFO_SENT)
                 if isInstallInfoSent.boolValue == false {
@@ -105,8 +109,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 
         // App Install Request
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        let isInstallInfoSent = userDefaults.boolForKey(K.UserDefaultKey.INSTALL_INFO_SENT)
         if isInstallInfoSent == false {
             var myInstallDict = [String: AnyObject]()
             myInstallDict["ads"] = K.SharingPlatformType.Platform_Organic
@@ -116,6 +118,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
                     //Load View
                     rootViewController.loadAppInitialViewController()
+                    rootViewController.shouldLoadInitialViewDefault = true
                     
                     // App Initialized Request
                     var mySourceDict = [String: AnyObject]()
