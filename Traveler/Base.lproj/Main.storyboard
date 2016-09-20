@@ -2199,7 +2199,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                         <rect key="frame" x="23" y="18" width="545" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                                     </textField>
                                 </subviews>
@@ -2247,7 +2247,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                             <constraint firstAttribute="height" constant="123" id="vgJ-DI-3cb"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send"/>
                                         <variation key="default">
                                             <mask key="constraints">
