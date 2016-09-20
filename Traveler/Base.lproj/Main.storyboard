@@ -874,32 +874,32 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="t" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZN-TL-TQP">
-                                <rect key="frame" x="17" y="371" width="6" height="21"/>
+                                <rect key="frame" x="17" y="371" width="10" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.68627450980000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0H-Gh-san">
-                                <rect key="frame" x="35" y="368" width="555" height="42"/>
-                                <string key="text">Ensure that your Bungie.net profile is public. You can view this from: Settings &gt; Linked Accounts &gt; display on public profile (checked box)</string>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Check that you typed your gamertag correctly" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0H-Gh-san">
+                                <rect key="frame" x="39" y="368" width="551" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="t" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AzL-tT-9g6">
-                                <rect key="frame" x="17" y="430" width="6" height="21"/>
+                                <rect key="frame" x="17" y="409" width="6" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.68627450980000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check that Bungie.net is online." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6v9-ub-1aA">
-                                <rect key="frame" x="35" y="429" width="256" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6v9-ub-1aA">
+                                <rect key="frame" x="38" y="399" width="551.5" height="63"/>
+                                <string key="text">Ensure that your Bungie.net profile is public. You can view this from: Settings &gt; Accounts &amp; Linking &gt; “Display on public profile” is checked</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you are still having login issues, email us at support@crossroadsapp.co or contact us directly." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeJ-ur-s0O">
-                                <rect key="frame" x="20" y="478" width="560" height="42"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you are still having login issues, email us at support@crossroadsapp.co or contact us directly." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeJ-ur-s0O" customClass="TTTAttributedLabel">
+                                <rect key="frame" x="17" y="482" width="572.5" height="43"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -925,19 +925,20 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                             <constraint firstItem="6v9-ub-1aA" firstAttribute="leading" secondItem="b0H-Gh-san" secondAttribute="leading" id="2hN-W8-G1V"/>
                             <constraint firstItem="zqy-Qa-5c5" firstAttribute="leading" secondItem="gEt-jg-5fI" secondAttribute="leadingMargin" constant="-10" id="4Ex-Gf-JOq"/>
                             <constraint firstItem="b0H-Gh-san" firstAttribute="top" secondItem="qNC-lR-DSR" secondAttribute="bottom" constant="10" id="7PW-dT-Cif"/>
-                            <constraint firstItem="QeJ-ur-s0O" firstAttribute="top" secondItem="AzL-tT-9g6" secondAttribute="bottom" constant="27" id="7a4-9r-1FE"/>
+                            <constraint firstItem="QeJ-ur-s0O" firstAttribute="top" secondItem="AzL-tT-9g6" secondAttribute="bottom" constant="49" id="7a4-9r-1FE"/>
                             <constraint firstItem="AzL-tT-9g6" firstAttribute="top" secondItem="b0H-Gh-san" secondAttribute="bottom" constant="20" id="7wd-JZ-X6C"/>
                             <constraint firstItem="qNC-lR-DSR" firstAttribute="centerX" secondItem="gEt-jg-5fI" secondAttribute="centerX" id="9ze-Qz-DLX"/>
                             <constraint firstItem="Thr-8b-BQF" firstAttribute="leading" secondItem="gEt-jg-5fI" secondAttribute="leadingMargin" constant="-20" id="Cb8-ts-TVg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="usO-jn-Vcf" secondAttribute="trailing" constant="-20" id="G5E-v4-2hj"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="QeJ-ur-s0O" secondAttribute="trailing" id="HSY-TK-anv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QeJ-ur-s0O" secondAttribute="trailing" constant="-9.5" id="HSY-TK-anv"/>
+                            <constraint firstItem="QeJ-ur-s0O" firstAttribute="top" secondItem="6v9-ub-1aA" secondAttribute="bottom" constant="20" id="Hfg-TB-l3C"/>
                             <constraint firstItem="TUC-NT-Dou" firstAttribute="top" secondItem="usO-jn-Vcf" secondAttribute="bottom" id="KqR-0X-4rj"/>
                             <constraint firstItem="rs7-og-QD4" firstAttribute="top" secondItem="7dH-lG-kzU" secondAttribute="bottom" constant="25" id="NL1-nO-JPg"/>
-                            <constraint firstItem="QeJ-ur-s0O" firstAttribute="leading" secondItem="gEt-jg-5fI" secondAttribute="leadingMargin" id="O8H-6F-Aop"/>
+                            <constraint firstItem="QeJ-ur-s0O" firstAttribute="leading" secondItem="gEt-jg-5fI" secondAttribute="leadingMargin" constant="-3" id="O8H-6F-Aop"/>
                             <constraint firstItem="usO-jn-Vcf" firstAttribute="leading" secondItem="gEt-jg-5fI" secondAttribute="leadingMargin" constant="-20" id="Pc0-Lv-Hra"/>
                             <constraint firstAttribute="trailingMargin" secondItem="b0H-Gh-san" secondAttribute="trailing" constant="-10" id="Q6Z-hU-aH3"/>
                             <constraint firstItem="GZN-TL-TQP" firstAttribute="leading" secondItem="gEt-jg-5fI" secondAttribute="leading" constant="17" id="QgI-0Z-Cup"/>
-                            <constraint firstItem="6v9-ub-1aA" firstAttribute="top" secondItem="b0H-Gh-san" secondAttribute="bottom" constant="19" id="RDL-vH-mKX"/>
+                            <constraint firstItem="6v9-ub-1aA" firstAttribute="top" secondItem="b0H-Gh-san" secondAttribute="bottom" constant="10" id="RDL-vH-mKX"/>
                             <constraint firstItem="qNC-lR-DSR" firstAttribute="top" secondItem="zqy-Qa-5c5" secondAttribute="bottom" constant="27" id="XFg-Gl-bmp"/>
                             <constraint firstItem="usO-jn-Vcf" firstAttribute="top" secondItem="gEt-jg-5fI" secondAttribute="topMargin" id="YKW-AD-ahg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Thr-8b-BQF" secondAttribute="trailing" constant="-20" id="YQN-Sb-A8f"/>
@@ -950,6 +951,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                             <constraint firstItem="b0H-Gh-san" firstAttribute="leading" secondItem="GZN-TL-TQP" secondAttribute="trailing" constant="12" id="iws-Ci-bcd"/>
                             <constraint firstItem="AzL-tT-9g6" firstAttribute="leading" secondItem="GZN-TL-TQP" secondAttribute="leading" id="qxR-K2-upC"/>
                             <constraint firstItem="ssc-Ca-cxY" firstAttribute="top" secondItem="U2M-zp-Ndd" secondAttribute="bottom" id="s5x-a2-UlU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6v9-ub-1aA" secondAttribute="trailing" constant="-10" id="twQ-gL-b2o"/>
                             <constraint firstItem="b0H-Gh-san" firstAttribute="leading" secondItem="GZN-TL-TQP" secondAttribute="trailing" constant="99" id="vja-0d-vbN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zqy-Qa-5c5" secondAttribute="trailing" constant="-10" id="xw7-Xl-4ED"/>
                         </constraints>
@@ -963,6 +965,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                         <outlet property="infoView" destination="zqy-Qa-5c5" id="iNX-so-5kR"/>
                         <outlet property="starOneLabel" destination="GZN-TL-TQP" id="TTI-CP-whC"/>
                         <outlet property="starTwoLabel" destination="AzL-tT-9g6" id="mCz-cz-eJO"/>
+                        <outlet property="supportText" destination="QeJ-ur-s0O" id="tyx-rv-JAX"/>
                         <outlet property="userInfoLabel" destination="vsz-Fn-aeP" id="YcR-if-SZv"/>
                         <outlet property="userNameLabel" destination="wdJ-6n-7Fq" id="1W0-t5-a7b"/>
                     </connections>

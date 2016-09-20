@@ -7,16 +7,22 @@
 //
 
 import Foundation
+import MessageUI
+import TTTAttributedLabel
 
 
-class TRSignInErrorViewController: TRBaseViewController {
+class TRSignInErrorViewController: TRBaseViewController, TTTAttributedLabelDelegate, MFMailComposeViewControllerDelegate {
     
     var userName: String?
+    var signInError: String?
+    
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var starOneLabel: UILabel!
     @IBOutlet weak var starTwoLabel: UILabel!
     @IBOutlet weak var userInfoLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var supportText: TTTAttributedLabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +32,16 @@ class TRSignInErrorViewController: TRBaseViewController {
         self.starTwoLabel?.text = "\u{02726}"
         
         if let _ = self.userName {
-            self.userInfoLabel?.text = "We couldn’t find a Bungie.net profile linked to the \(self.userName!) you entered."
-            self.userNameLabel?.text = self.userName! 
+            if let errorString = self.signInError {
+                self.userInfoLabel?.text = errorString
+            }
+            
+            self.userNameLabel?.text = self.userName!
         }
+        
+        self.supportText?.delegate = self
+        self.supportText?.enabledTextCheckingTypes = NSTextCheckingType.Link.rawValue
+        self.supportText?.text = "If you are still having login issues, email us at support@crossroadsapp.com or contact us directly."
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -44,6 +57,35 @@ class TRSignInErrorViewController: TRBaseViewController {
 
     @IBAction func closeView () {
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
+        let emailTitle = "Feedback"
+        let messageBody = "Feature request or bug report?"
+        let toRecipents = ["support@crossroadsapp.com"]
+        let mc: MFMailComposeViewController = MFMailComposeViewController()
+        mc.mailComposeDelegate = self
+        mc.setSubject(emailTitle)
+        mc.setMessageBody(messageBody, isHTML: false)
+        mc.setToRecipients(toRecipents)
+        
+        self.presentViewController(mc, animated: true, completion: nil)
+    }
+    
+    func mailComposeController(controller:MFMailComposeViewController, didFinishWithResult result:MFMailComposeResult, error:NSError?) {
+        switch result {
+        case MFMailComposeResultCancelled:
+            print("Mail cancelled")
+        case MFMailComposeResultSaved:
+            print("Mail saved")
+        case MFMailComposeResultSent:
+            print("Mail sent")
+        case MFMailComposeResultFailed:
+            print("Mail sent failure: \(error!.localizedDescription)")
+        default:
+            break
+        }
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     deinit {
