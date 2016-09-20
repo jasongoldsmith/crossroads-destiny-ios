@@ -66,7 +66,7 @@ struct K {
         #elseif ADHOC
             static let TR_BaseUrl            =   "https://travelerbackend.herokuapp.com"
         #else
-            static let TR_BaseUrl            =   "https://travelerbackend.herokuapp.com"
+            static let TR_BaseUrl            =   "https://travelerbackendproduction.herokuapp.com"
         #endif
         
         static let TR_RegisterUrl        =   "/api/v1/auth/register"

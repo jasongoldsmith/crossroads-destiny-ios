@@ -57,6 +57,7 @@
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue-Bold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -487,17 +488,6 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrLoadingimgBackgroundMap" translatesAutoresizingMaskIntoConstraints="NO" id="QNn-lH-hYo">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgBGSIGNIN" translatesAutoresizingMaskIntoConstraints="NO" id="6AV-vO-JVV">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="326"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="235" id="wlG-Z9-V8B"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="wlG-Z9-V8B"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hVA-9s-Rtz" userLabel="username View">
                                 <rect key="frame" x="10" y="349" width="580" height="66"/>
                                 <subviews>
@@ -610,9 +600,9 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                 </connections>
                             </button>
                             <label opaque="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FORGOT PASSWORD?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zky-dc-1HO">
-                                <rect key="frame" x="226" y="498" width="148" height="17"/>
+                                <rect key="frame" x="235" y="498" width="131" height="15"/>
                                 <gestureRecognizers/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <connections>
@@ -721,6 +711,17 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                     <action selector="signInBtnTapped:" destination="wsB-4U-0gI" eventType="touchUpInside" id="3Xg-7n-Ol8"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgBGSIGNIN" translatesAutoresizingMaskIntoConstraints="NO" id="6AV-vO-JVV">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="326"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="235" id="wlG-Z9-V8B"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="wlG-Z9-V8B"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -784,7 +785,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                         <action selector="dismissKeyboard:" destination="wsB-4U-0gI" id="fkS-47-ldB"/>
                     </connections>
                 </tapGestureRecognizer>
-                <swipeGestureRecognizer direction="right" id="w3Q-Gl-Otw">
+                <swipeGestureRecognizer enabled="NO" direction="right" id="w3Q-Gl-Otw">
                     <connections>
                         <action selector="handleSwipeRight:" destination="wsB-4U-0gI" id="4Kh-IT-Tjd"/>
                     </connections>
@@ -2440,7 +2441,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                     <constraint firstAttribute="height" constant="50" id="XN0-oK-KTJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="ADD ACTIVITY">
+                                <state key="normal" title="FIND A TEAM">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -2832,7 +2833,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                     <constraint firstAttribute="height" constant="50" id="Wvl-N3-MkC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
-                                <state key="normal" title="ADD">
+                                <state key="normal" title="FIND A TEAM">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>

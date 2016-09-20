@@ -26,7 +26,7 @@ class TRLoginOptionViewController: TRBaseViewController, iCarouselDataSource, iC
         let countString = TRApplicationManager.sharedInstance.totalUsers?.description
         let stringColorAttribute = [NSForegroundColorAttributeName: UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)]
         var countAttributedStr = NSAttributedString(string: countString!, attributes: stringColorAttribute)
-        let helpAttributedStr = NSAttributedString(string: " Guardians looking for your help:", attributes: nil)
+        let helpAttributedStr = NSAttributedString(string: " Guardians searching for Fireteam:", attributes: nil)
         
         if TRApplicationManager.sharedInstance.totalUsers < 1 {
             countAttributedStr = NSAttributedString(string: "", attributes: nil)
@@ -95,7 +95,7 @@ class TRLoginOptionViewController: TRBaseViewController, iCarouselDataSource, iC
     }
     
     func addLegalStatmentText () {
-        let legalString = "By clicking the \"Next\" button below, I have read and agree to the Crossroads Terms of Service and Privacy Policy."
+        let legalString = "By clicking the button below, I have read and agree to the Crossroads Terms of Service and Privacy Policy."
         
         let customerAgreement = "Terms of Service"
         let privacyPolicy = "Privacy Policy"
