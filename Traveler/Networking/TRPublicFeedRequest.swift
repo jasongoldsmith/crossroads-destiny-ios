@@ -30,7 +30,9 @@ class TRPublicFeedRequest: TRRequest {
             
             for events in swiftyJsonVar["currentEvents"].arrayValue {
                 let eventInfo = TREventInfo().parseCreateEventInfoObject(events)
-                TRApplicationManager.sharedInstance.eventsList.append(eventInfo)
+                if  eventInfo.eventStatus != EVENT_STATUS.FULL.rawValue {
+                    TRApplicationManager.sharedInstance.eventsList.append(eventInfo)
+                }
             }
             
             for events in swiftyJsonVar["futureEvents"].arrayValue {
