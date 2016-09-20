@@ -60,13 +60,15 @@ struct K {
         
         //Staging: https://travelerbackendproduction.herokuapp.com
         //Live: https://live.crossroadsapp.co
+        //Develop: https://travelerbackend.herokuapp.com
 
+        
         #if RELEASE
             static let TR_BaseUrl            =   "https://live.crossroadsapp.co"
         #elseif ADHOC
-            static let TR_BaseUrl            =   "https://travelerbackend.herokuapp.com"
-        #else
             static let TR_BaseUrl            =   "https://travelerbackendproduction.herokuapp.com"
+        #else
+            static let TR_BaseUrl            =   "https://travelerbackend.herokuapp.com"
         #endif
         
         static let TR_RegisterUrl        =   "/api/v1/auth/register"
