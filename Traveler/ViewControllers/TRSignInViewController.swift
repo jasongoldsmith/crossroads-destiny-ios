@@ -195,6 +195,7 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
                     let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
                     let vc : TRSignInErrorViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_SIGNIN_ERROR) as! TRSignInErrorViewController
                     vc.userName = self.userNameTxtField.text
+                    vc.signInError = error
                     
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
