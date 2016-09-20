@@ -125,8 +125,15 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
         self.resignKeyBoardResponders()
         
         if userNameTxtField.text?.isEmpty  == true {
-            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Please enter a username")
+            let displatString: String?
+            if self.selectedConsole == ConsoleTypes.PS4 {
+                displatString = "PlayStation ID"
+            } else {
+                displatString = "Xbox Gamertag"
+            }
             
+            TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Please enter \(displatString!)")
+
             return
         }     
         if userPwdTxtField.text?.isEmpty == true {
