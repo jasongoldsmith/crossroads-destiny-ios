@@ -1141,7 +1141,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions on how to reset your password will be sent to your Bungie account." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUS-bt-pQR">
-                                <rect key="frame" x="-5" y="300" width="610" height="19"/>
+                                <rect key="frame" x="25" y="300" width="550" height="37.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1186,7 +1186,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                             <constraint firstAttribute="trailingMargin" secondItem="ZjZ-dI-KYe" secondAttribute="trailing" constant="-20" id="1Nb-yB-KmL"/>
                             <constraint firstItem="S7l-JB-kye" firstAttribute="top" secondItem="qQx-cy-iBt" secondAttribute="topMargin" id="3rp-CD-JfQ"/>
                             <constraint firstItem="t94-VO-gcV" firstAttribute="top" secondItem="7w2-Rd-0OK" secondAttribute="bottom" id="3vE-ce-EOq"/>
-                            <constraint firstItem="jUS-bt-pQR" firstAttribute="leading" secondItem="qQx-cy-iBt" secondAttribute="leadingMargin" constant="-25" id="7sr-ht-Wjq"/>
+                            <constraint firstItem="jUS-bt-pQR" firstAttribute="leading" secondItem="qQx-cy-iBt" secondAttribute="leadingMargin" constant="5" id="7sr-ht-Wjq"/>
                             <constraint firstItem="VCv-Ks-te4" firstAttribute="leading" secondItem="omt-YD-fSK" secondAttribute="leading" constant="-13" id="7uf-ie-gNn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Czk-AD-KG5" secondAttribute="trailing" constant="-10" id="8dA-sz-qrc"/>
                             <constraint firstItem="bO0-HY-cEQ" firstAttribute="top" secondItem="Czk-AD-KG5" secondAttribute="bottom" constant="-34" id="DOL-pF-kyG"/>
@@ -1199,7 +1199,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                             <constraint firstItem="VCv-Ks-te4" firstAttribute="top" secondItem="Rjs-Hl-CGS" secondAttribute="bottom" constant="20" id="OO6-ha-wsv"/>
                             <constraint firstItem="ua4-qs-Sq2" firstAttribute="top" secondItem="VCv-Ks-te4" secondAttribute="bottom" constant="10" id="Ovb-7X-LZq"/>
                             <constraint firstItem="Czk-AD-KG5" firstAttribute="leading" secondItem="VCv-Ks-te4" secondAttribute="trailing" id="RJQ-NE-GdT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jUS-bt-pQR" secondAttribute="trailing" constant="-25" id="U9Q-zl-wpX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jUS-bt-pQR" secondAttribute="trailing" constant="5" id="U9Q-zl-wpX"/>
                             <constraint firstItem="jUS-bt-pQR" firstAttribute="top" secondItem="ua4-qs-Sq2" secondAttribute="bottom" constant="15" id="UhK-Fw-WDN"/>
                             <constraint firstItem="ua4-qs-Sq2" firstAttribute="leading" secondItem="qQx-cy-iBt" secondAttribute="leadingMargin" constant="-10" id="VRf-97-5zj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="S7l-JB-kye" secondAttribute="trailing" constant="-20" id="VVb-vv-pHd"/>
