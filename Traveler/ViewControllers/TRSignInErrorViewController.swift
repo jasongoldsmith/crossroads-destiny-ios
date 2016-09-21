@@ -64,16 +64,19 @@ class TRSignInErrorViewController: TRBaseViewController, TTTAttributedLabelDeleg
     }
     
     func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
-//        let emailTitle = "Crossroads for Destiny Support Request"
-//        let messageBody = "Please include your device and gamertag for the fastest assistance."
-//        let toRecipents = ["support@crossroadsapp.co"]
-//        let mc: MFMailComposeViewController = MFMailComposeViewController()
-//        mc.mailComposeDelegate = self
-//        mc.setSubject(emailTitle)
-//        mc.setMessageBody(messageBody, isHTML: false)
-//        mc.setToRecipients(toRecipents)
-//        
-//        self.presentViewController(mc, animated: true, completion: nil)
+        
+        if MFMailComposeViewController.canSendMail() == true {
+            let emailTitle = "Crossroads for Destiny Support Request"
+            let messageBody = "Please include your device and gamertag for the fastest assistance."
+            let toRecipents = ["support@crossroadsapp.co"]
+            let mc: MFMailComposeViewController = MFMailComposeViewController()
+            mc.mailComposeDelegate = self
+            mc.setSubject(emailTitle)
+            mc.setMessageBody(messageBody, isHTML: false)
+            mc.setToRecipients(toRecipents)
+            
+            self.presentViewController(mc, animated: true, completion: nil)
+        }
     }
     
     func mailComposeController(controller:MFMailComposeViewController, didFinishWithResult result:MFMailComposeResult, error:NSError?) {
