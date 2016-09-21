@@ -133,9 +133,9 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which group would you like to play with?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Hh-ej-dOf">
-                                <rect key="frame" x="118" y="117" width="367" height="24"/>
+                                <rect key="frame" x="117" y="117" width="367" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="e1L-Pr-J1j"/>
+                                    <constraint firstAttribute="height" constant="40" id="5nG-rc-EfL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -156,7 +156,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UcS-9m-9Pf">
-                                <rect key="frame" x="12" y="154" width="576" height="66"/>
+                                <rect key="frame" x="12" y="170" width="576" height="66"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgNogroups" translatesAutoresizingMaskIntoConstraints="NO" id="FYn-IG-MGk">
                                         <rect key="frame" x="0.0" y="0.0" width="66" height="66"/>
@@ -220,7 +220,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="66" sectionHeaderHeight="15" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="WhP-cr-BTL">
-                                <rect key="frame" x="12" y="241" width="576" height="309"/>
+                                <rect key="frame" x="12" y="257" width="576" height="293"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Hk0-IT-ZlF" id="Way-Ty-32N"/>
@@ -234,23 +234,23 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o6a-dj-zeo">
-                                <rect key="frame" x="0.0" y="241" width="600" height="309"/>
+                                <rect key="frame" x="0.0" y="257" width="600" height="293"/>
                                 <subviews>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradientOverlayGroups" translatesAutoresizingMaskIntoConstraints="NO" id="usi-Hn-pab">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="309"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="293"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="zrJ-Lh-8vP" appends="YES" id="nSX-6A-Qpj"/>
                                         </connections>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VERIFY YOURSELF, GUARDIAN!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LV9-gn-P9r">
-                                        <rect key="frame" x="193" y="192" width="214" height="17"/>
+                                        <rect key="frame" x="193" y="176" width="214" height="17"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" red="1" green="0.77647058820000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgM-4M-zhX" customClass="TTTAttributedLabel">
-                                        <rect key="frame" x="20" y="224" width="560" height="56"/>
+                                        <rect key="frame" x="20" y="208" width="560" height="56"/>
                                         <string key="text">To play with other groups and update your profile, please verify your account.
 
 Check your messages on Bungie.net for a verification link from Crossroads.</string>
@@ -297,7 +297,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                             <constraint firstItem="UcS-9m-9Pf" firstAttribute="leading" secondItem="a4f-Bs-Ivf" secondAttribute="leading" constant="12" id="hu7-cV-VAc"/>
                             <constraint firstItem="2WA-Rs-ejf" firstAttribute="top" secondItem="T5d-y2-feT" secondAttribute="bottom" id="kns-Zn-dGH"/>
                             <constraint firstItem="2WA-Rs-ejf" firstAttribute="top" secondItem="21G-5K-sdg" secondAttribute="bottom" id="o37-Bg-DVN"/>
-                            <constraint firstItem="4Hh-ej-dOf" firstAttribute="centerX" secondItem="a4f-Bs-Ivf" secondAttribute="centerX" constant="1" id="p0f-zb-XkS"/>
+                            <constraint firstItem="4Hh-ej-dOf" firstAttribute="centerX" secondItem="a4f-Bs-Ivf" secondAttribute="centerX" id="p0f-zb-XkS"/>
                             <constraint firstAttribute="trailing" secondItem="UcS-9m-9Pf" secondAttribute="trailing" constant="12" id="pAP-0h-zWH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CWz-lA-epg" secondAttribute="trailing" constant="12" id="pBw-VO-Wmd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="o6a-dj-zeo" secondAttribute="trailing" constant="-20" id="q0h-Rf-qg4"/>
@@ -898,7 +898,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you are still having login issues, email us at support@crossroadsapp.co or contact us directly." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeJ-ur-s0O" customClass="TTTAttributedLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="If you are still having login issues, email us at support@crossroadsapp.co or contact us directly." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeJ-ur-s0O" customClass="TTTAttributedLabel">
                                 <rect key="frame" x="17" y="482" width="572.5" height="43"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
