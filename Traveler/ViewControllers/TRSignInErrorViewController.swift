@@ -64,6 +64,7 @@ class TRSignInErrorViewController: TRBaseViewController, TTTAttributedLabelDeleg
     }
     
     func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
+        return
         
         if MFMailComposeViewController.canSendMail() == true {
             let emailTitle = "Crossroads for Destiny Support Request"
