@@ -219,7 +219,9 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         super.viewWillDisappear(animated)
         
         //Remove FireBase Observer
-        TRApplicationManager.sharedInstance.fireBaseManager?.removeObservers()
+        if let _ = self.eventInfo {
+            TRApplicationManager.sharedInstance.fireBaseManager?.removeDetailObserver(self.eventInfo!)
+        }
     }
     
     func reloadButton () {

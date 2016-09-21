@@ -14,6 +14,8 @@ class TRFireBaseManager {
     
     var ref: FIRDatabaseReference?
     var userObserverHandler: FIRDatabaseHandle?
+    var eventListObserverHandler: FIRDatabaseHandle?
+    var eventDescriptionObserverHandler: FIRDatabaseHandle?
     
     typealias TRFireBaseSuccessCallBack = (didCompelete: Bool?) -> ()
     
@@ -23,6 +25,7 @@ class TRFireBaseManager {
     }
     
     
+    //MARK:- ADD FIREBASE OBSERVERS
     func addUserObserverWithCompletion (complete: TRFireBaseSuccessCallBack) {
         if let userID = TRUserInfo.getUserID() {
             let endPointKeyReference = userID
@@ -53,16 +56,6 @@ class TRFireBaseManager {
         }
     }
     
-    func removeUserObserver () {
-        if let userID = TRUserInfo.getUserID() {
-            if let _ = self.userObserverHandler {
-                let endPointKeyReference = userID
-                self.ref = FIRDatabase.database().reference().child("users/").child(endPointKeyReference)
-                self.ref?.removeObserverWithHandle(self.userObserverHandler!)
-            }
-        }
-    }
-    
     func addEventsObserversWithParentView (parentViewController: TRBaseViewController) {
         
         guard let userClan = TRApplicationManager.sharedInstance.currentUser?.userClanID else {
@@ -71,7 +64,7 @@ class TRFireBaseManager {
         
         let endPointKeyReference = userClan
         self.ref = FIRDatabase.database().reference().child("events/").child(endPointKeyReference)
-        self.ref?.observeEventType(.Value, withBlock: { (snapshot) in
+        self.eventListObserverHandler = self.ref?.observeEventType(.Value, withBlock: { (snapshot) in
             _ = TRGetEventsList().getEventsListWithClearActivityBackGround (false, clearBG: true, indicatorTopConstraint: nil, completion: { (didSucceed) -> () in
                 if(didSucceed == true) {
                     dispatch_async(dispatch_get_main_queue(), {
@@ -97,7 +90,7 @@ class TRFireBaseManager {
         
         let endPointKeyReference = hasEventClan + "/" + hasEventID
         self.ref = FIRDatabase.database().reference().child("events/").child(endPointKeyReference)
-        self.ref?.observeEventType(.Value, withBlock: { (snapshot) in
+        self.eventDescriptionObserverHandler = self.ref?.observeEventType(.Value, withBlock: { (snapshot) in
 //            if snapshot.value is NSNull {
 //                parentViewController.dismissViewController(true, dismissed: { (didDismiss) in
 //                    
@@ -117,6 +110,46 @@ class TRFireBaseManager {
         })
     }
     
+    //MARK:- REMOVE FIREBASE OBSERVERS
+    func removeUserObserver () {
+        if let userID = TRUserInfo.getUserID() {
+            if let _ = self.userObserverHandler {
+                let endPointKeyReference = userID
+                self.ref = FIRDatabase.database().reference().child("users/").child(endPointKeyReference)
+                self.ref?.removeObserverWithHandle(self.userObserverHandler!)
+            }
+        }
+    }
+    
+    func removeEventListObserver () {
+        guard let userClan = TRApplicationManager.sharedInstance.currentUser?.userClanID else {
+            return
+        }
+        guard let _ = self.eventListObserverHandler else {
+            return
+        }
+        
+        let endPointKeyReference = userClan
+        self.ref = FIRDatabase.database().reference().child("events/").child(endPointKeyReference)
+        self.ref?.removeObserverWithHandle(self.eventListObserverHandler!)
+    }
+
+    func removeDetailObserver (withEvent: TREventInfo) {
+        guard let hasEventClan = withEvent.eventClanID else {
+            return
+        }
+        guard let hasEventID = withEvent.eventID else {
+            return
+        }
+        guard let _ = self.eventDescriptionObserverHandler else {
+            return
+        }
+        
+        let endPointKeyReference = hasEventClan + "/" + hasEventID
+        self.ref = FIRDatabase.database().reference().child("events/").child(endPointKeyReference)
+        self.ref?.removeObserverWithHandle(self.eventDescriptionObserverHandler!)
+    }
+
     func removeObservers () {
         self.ref?.removeAllObservers()
     }

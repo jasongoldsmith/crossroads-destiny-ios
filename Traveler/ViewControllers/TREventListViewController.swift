@@ -240,7 +240,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         }
         
         //Remove Observer running on previous clan and add it again on current clan
-        TRApplicationManager.sharedInstance.fireBaseManager?.removeObservers()
+        TRApplicationManager.sharedInstance.fireBaseManager?.removeEventListObserver()
         TRApplicationManager.sharedInstance.fireBaseManager?.addEventsObserversWithParentView(self)
     }
     
@@ -282,7 +282,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         super.viewWillDisappear(animated)
         
         //Remove FireBase Observer
-        TRApplicationManager.sharedInstance.fireBaseManager?.removeObservers()
+        TRApplicationManager.sharedInstance.fireBaseManager?.removeEventListObserver()
     }
     
     override func didReceiveMemoryWarning() {
@@ -294,7 +294,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         
         //Add FireBase Observer
         if self.currentViewController?.isKindOfClass(TREventListViewController) == true {
-            TRApplicationManager.sharedInstance.fireBaseManager?.removeObservers()
+            TRApplicationManager.sharedInstance.fireBaseManager?.removeEventListObserver()
             TRApplicationManager.sharedInstance.fireBaseManager?.addEventsObserversWithParentView(self)
         }
     }
