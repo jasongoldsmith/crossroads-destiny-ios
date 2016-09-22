@@ -129,6 +129,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     var mySourceDict = [String: AnyObject]()
                     mySourceDict["source"] = K.SharingPlatformType.Platform_UnKnown
                     self.appInitializedRequest(mySourceDict)
+                } else {
+                    //Load View
+                    rootViewController.loadAppInitialViewController()
+                    rootViewController.shouldLoadInitialViewDefault = true
                 }
             }
         } else {
