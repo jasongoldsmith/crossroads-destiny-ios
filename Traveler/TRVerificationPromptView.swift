@@ -54,7 +54,14 @@ class TRVerificationPromptView: UIView, TTTAttributedLabelDelegate {
         
         self.bungieButton?.titleEdgeInsets = UIEdgeInsets(top: 0.0, left: 10.0, bottom: 0.0, right: 10.0)
         self.userNameView?.layer.cornerRadius = 2.0
-        self.userNameLabel?.text = TRUserInfo.getConsoleID()
+        
+        var userName = TRUserInfo.getConsoleID()
+        if var clanTag = TRApplicationManager.sharedInstance.currentUser?.getDefaultConsole()?.clanTag where clanTag != "" {
+            clanTag = " " + "[" + clanTag + "]"
+            userName = userName! + clanTag
+        }
+        
+        self.userNameLabel?.text = userName
         self.userImage.roundRectView()
         
         let playerImage = TRApplicationManager.sharedInstance.currentUser?.userImageURL
