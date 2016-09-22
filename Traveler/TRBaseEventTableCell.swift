@@ -179,22 +179,30 @@ class TRBaseEventTableCell: UITableViewCell {
             case 0:
                 
                 self.playerImageOne.hidden = false
+                self.playerImageOne?.roundRectView(1, borderColor: UIColor.grayColor())
                 
-                if let imageURLString = player.playerImageUrl {
-                    let url = NSURL(string: imageURLString)
-                    self.playerImageOne!.sd_setImageWithURL(url, placeholderImage: UIImage(named: "default_helmet"))
-                    self.playerImageOne?.roundRectView(1, borderColor: UIColor.grayColor())
+                if player.userVerified == false && player.playerID == TRApplicationManager.sharedInstance.currentUser?.userID {
+                    self.playerImageOne?.image = UIImage(named: "default_helmet")
+                } else {
+                    if let imageURLString = player.playerImageUrl {
+                        let url = NSURL(string: imageURLString)
+                        self.playerImageOne!.sd_setImageWithURL(url, placeholderImage: UIImage(named: "default_helmet"))
+                    }
                 }
                 
                 break;
             case 1:
                 
                 self.playerImageTwo.hidden = false
+                self.playerImageTwo?.roundRectView(1, borderColor: UIColor.grayColor())
                 
-                if let imageURLString = player.playerImageUrl {
-                    let url = NSURL(string: imageURLString)
-                    self.playerImageTwo!.sd_setImageWithURL(url, placeholderImage: UIImage(named: "default_helmet"))
-                    self.playerImageTwo?.roundRectView(1, borderColor: UIColor.grayColor())
+                if player.userVerified == false && player.playerID == TRApplicationManager.sharedInstance.currentUser?.userID {
+                    self.playerImageTwo?.image = UIImage(named: "default_helmet")
+                } else {
+                    if let imageURLString = player.playerImageUrl {
+                        let url = NSURL(string: imageURLString)
+                        self.playerImageTwo!.sd_setImageWithURL(url, placeholderImage: UIImage(named: "default_helmet"))
+                    }
                 }
                 
                 break;
@@ -210,11 +218,15 @@ class TRBaseEventTableCell: UITableViewCell {
                     
                 } else {
                     self.playerCountLabel.hidden = true
-                    
-                    if let imageURLString = player.playerImageUrl {
-                        let url = NSURL(string: imageURLString)
-                        self.playerCountImage!.sd_setImageWithURL(url, placeholderImage: UIImage(named: "default_helmet"))
-                        self.playerCountImage?.roundRectView(1, borderColor: UIColor.grayColor())
+                    self.playerCountImage?.roundRectView(1, borderColor: UIColor.grayColor())
+
+                    if player.userVerified == false && player.playerID == TRApplicationManager.sharedInstance.currentUser?.userID {
+                        self.playerCountImage?.image = UIImage(named: "default_helmet")
+                    } else {
+                        if let imageURLString = player.playerImageUrl {
+                            let url = NSURL(string: imageURLString)
+                            self.playerCountImage!.sd_setImageWithURL(url, placeholderImage: UIImage(named: "default_helmet"))
+                        }
                     }
                 }
                 

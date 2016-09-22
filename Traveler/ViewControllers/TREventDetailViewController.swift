@@ -434,15 +434,21 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 }
                 
                 cell?.playerUserName.text = playersNameString
+                cell?.playerUserName?.textColor = UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)
+                cell?.playerIcon.roundRectView (1, borderColor: UIColor.grayColor())
+
                 
-                if let hasImage = self.eventInfo?.eventPlayersArray[indexPath.section].playerImageUrl {
-                    let imageURL = NSURL(string: hasImage)
-                    cell?.playerIcon.sd_setImageWithURL(imageURL, placeholderImage: UIImage(named: "default_helmet"))
-                    cell?.playerIcon.roundRectView (1, borderColor: UIColor.grayColor())
-                    cell?.playerUserName?.textColor = UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)
-                    
-                    return cell!
+                if self.eventInfo?.eventPlayersArray[indexPath.section].userVerified == false
+                && self.eventInfo?.eventPlayersArray[indexPath.section].playerID == TRApplicationManager.sharedInstance.currentUser?.userID{
+                    cell?.playerIcon.image = UIImage(named: "default_helmet")
+                } else {
+                    if let hasImage = self.eventInfo?.eventPlayersArray[indexPath.section].playerImageUrl {
+                        let imageURL = NSURL(string: hasImage)
+                        cell?.playerIcon.sd_setImageWithURL(imageURL, placeholderImage: UIImage(named: "default_helmet"))
+                    }
                 }
+                
+                return cell!
             } else {
                 cell?.playerIcon?.image = UIImage(named: "iconProfileBlank")
                 cell?.playerUserName?.text = "searching..."
@@ -464,6 +470,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             }
             
             commentCell.playerUserName.text = playersNameString
+            commentCell.playerIcon.roundRectView (1, borderColor: UIColor.grayColor())
             
             if let hasTime = self.eventInfo?.eventComments[indexPath.section].commentCreated {
                 let formatter = NSDateFormatter()
@@ -471,20 +478,20 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 
                 let updateDate = formatter.dateFromString(hasTime)
                 updateDate!.relative()
-                
                 commentCell.messageTimeLabel?.text = updateDate!.relative()
             }
             
-            if let hasImage = self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userImageURL! {
-                let imageURL = NSURL(string: hasImage)
-                commentCell.playerIcon.sd_setImageWithURL(imageURL)
-                commentCell.playerIcon.roundRectView (1, borderColor: UIColor.grayColor())
+            if self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userVerified == false && self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userID == TRApplicationManager.sharedInstance.currentUser?.userID {
+                commentCell.playerIcon.image = UIImage(named: "default_helmet")
+            } else {
+                if let hasImage = self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userImageURL! {
+                    let imageURL = NSURL(string: hasImage)
+                    commentCell.playerIcon.sd_setImageWithURL(imageURL)
+                }
             }
 
             return commentCell
         }
-    
-        return cell!
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

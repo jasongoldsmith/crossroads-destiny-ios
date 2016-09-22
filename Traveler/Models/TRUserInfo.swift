@@ -20,7 +20,7 @@ class TRUserInfo: NSObject {
     var legalInfo       :TRLegalInfo?
     var consoles        :[TRConsoles] = []
     var bungieMemberShipID: String?
-    
+    var userVerified  : Bool?
     
     func parseUserResponse (responseObject: JSON) {
         self.userName       = responseObject["value"]["userName"].stringValue
@@ -28,6 +28,7 @@ class TRUserInfo: NSObject {
         self.userImageURL   = responseObject["value"]["imageUrl"].stringValue
         self.userClanID     = responseObject["value"]["clanId"].stringValue
         self.bungieMemberShipID = responseObject["value"]["bungieMemberShipId"].stringValue
+        self.userVerified     = responseObject["value"]["verifyStatus"].boolValue
         
         // Legal Info
         if let legalDict = responseObject["value"]["legal"].dictionary {
@@ -62,6 +63,7 @@ class TRUserInfo: NSObject {
         self.userImageURL   = responseObject["imageUrl"].stringValue
         self.userClanID     = responseObject["clanId"].stringValue
         self.bungieMemberShipID = responseObject["bungieMemberShipId"].stringValue
+        self.userVerified     = responseObject["value"]["verifyStatus"].boolValue
         
         // Legal Info
         if let legalDict = responseObject["legal"].dictionary {
