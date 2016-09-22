@@ -18,7 +18,7 @@ import Fabric
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var faceBookAdLink: Dictionary <String, String>?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -116,6 +116,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.appInstallRequestWithDict(myInstallDict) { (didSucceed) in
                 if didSucceed == true {
 
+                    //Send FaceBook Install Info, if avalable
+                    if let _ = self.faceBookAdLink {
+                        self.sendFaceBookAdsInstallInfo()
+                    }
+                    
                     //Load View
                     rootViewController.loadAppInitialViewController()
                     rootViewController.shouldLoadInitialViewDefault = true
@@ -138,7 +143,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let remoteNotification = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? NSDictionary? {
             rootViewController.pushNotificationData = remoteNotification
         }
-        
+
 
         return true
     }
@@ -152,6 +157,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.appInitializedRequest(mySourceDict)
         }
         
+        
         FBSDKAppLinkUtility.fetchDeferredAppLink({ (URL, error) -> Void in
             if error != nil {
             }
@@ -162,12 +168,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let deepLinkAnalyticsDict = deepLinkObj.createLinkInfoAndPassToBackEnd()
                 
                 if let _ = deepLinkAnalyticsDict {
-                    
-                    self.appInstallRequestWithDict(deepLinkAnalyticsDict!) { (didSucceed) in
-                        if didSucceed == true {
-                            
-                        }
-                    }
+                    self.faceBookAdLink = deepLinkAnalyticsDict
                 }
             }
         })
@@ -290,6 +291,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 completion(didSucceed: true)
             }
         })
+    }
+    
+    func sendFaceBookAdsInstallInfo () {
+        
+        if let _ = self.faceBookAdLink {
+            self.appInstallRequestWithDict(self.faceBookAdLink!) { (didSucceed) in
+                if didSucceed == true {
+                    
+                }
+            }
+        }
     }
 }
 
