@@ -77,6 +77,7 @@ class TREventInfo: NSObject {
             creatorInfo.playerUserName  = creator["userName"]?.stringValue
             creatorInfo.playerDate      = creator["date"]?.stringValue
             creatorInfo.playerUdate     = creator["uDate"]?.stringValue
+            creatorInfo.userVerified    = creator["verifyStatus"]?.boolValue
             
             for consoles in creator["consoles"]!.arrayValue {
                 let creatorConsole = TRConsoles()
