@@ -442,7 +442,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 cell?.playerIcon.roundRectView (1, borderColor: UIColor.grayColor())
 
                 
-                if self.eventInfo?.eventPlayersArray[indexPath.section].userVerified == false
+                if self.eventInfo?.eventPlayersArray[indexPath.section].userVerified != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue
                 && self.eventInfo?.eventPlayersArray[indexPath.section].playerID == TRApplicationManager.sharedInstance.currentUser?.userID{
                     cell?.playerIcon.image = UIImage(named: "default_helmet")
                 } else {
@@ -489,7 +489,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 commentCell.messageTimeLabel?.text = updateDate!.relative()
             }
             
-            if self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userVerified == false && self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userID == TRApplicationManager.sharedInstance.currentUser?.userID {
+            if self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userVerified != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue && self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userID == TRApplicationManager.sharedInstance.currentUser?.userID {
                 commentCell.playerIcon.image = UIImage(named: "default_helmet")
             } else {
                 if let hasImage = self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userImageURL! {

@@ -19,7 +19,7 @@ class TRPlayerInfo: NSObject {
     var playerUdate         : String?
     var playerImageUrl      : String?
     var playerConsoles      : [TRConsoles] = []
-    var userVerified        : Bool?
+    var userVerified        : String?
     
     func getDefaultConsole () -> TRConsoles? {
         let currentConsole = self.playerConsoles.filter{$0.isPrimary == true}

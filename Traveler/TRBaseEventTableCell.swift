@@ -189,7 +189,7 @@ class TRBaseEventTableCell: UITableViewCell {
                 self.playerImageOne.hidden = false
                 self.playerImageOne?.roundRectView(1, borderColor: UIColor.grayColor())
                 
-                if player.userVerified == false && player.playerID == TRApplicationManager.sharedInstance.currentUser?.userID {
+                if player.userVerified != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue && player.playerID == TRApplicationManager.sharedInstance.currentUser?.userID {
                     self.playerImageOne?.image = UIImage(named: "default_helmet")
                 } else {
                     if let imageURLString = player.playerImageUrl {
@@ -204,7 +204,7 @@ class TRBaseEventTableCell: UITableViewCell {
                 self.playerImageTwo.hidden = false
                 self.playerImageTwo?.roundRectView(1, borderColor: UIColor.grayColor())
                 
-                if player.userVerified == false && player.playerID == TRApplicationManager.sharedInstance.currentUser?.userID {
+                if player.userVerified != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue && player.playerID == TRApplicationManager.sharedInstance.currentUser?.userID {
                     self.playerImageTwo?.image = UIImage(named: "default_helmet")
                 } else {
                     if let imageURLString = player.playerImageUrl {
@@ -228,7 +228,7 @@ class TRBaseEventTableCell: UITableViewCell {
                     self.playerCountLabel.hidden = true
                     self.playerCountImage?.roundRectView(1, borderColor: UIColor.grayColor())
 
-                    if player.userVerified == false && player.playerID == TRApplicationManager.sharedInstance.currentUser?.userID {
+                    if player.userVerified != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue && player.playerID == TRApplicationManager.sharedInstance.currentUser?.userID {
                         self.playerCountImage?.image = UIImage(named: "default_helmet")
                     } else {
                         if let imageURLString = player.playerImageUrl {

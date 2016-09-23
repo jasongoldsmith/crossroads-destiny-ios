@@ -117,6 +117,11 @@ class TRChangePasswordViewController: TRBaseViewController, UIGestureRecognizerD
         let _ = TRUpdateUser().updateUserPassword(self.newPassword?.text, oldPassword: self.oldPassword?.text) { (didSucceed) in
             
             if didSucceed == true {
+                
+                let defaults = NSUserDefaults.standardUserDefaults()
+                defaults.setValue(self.newPassword?.text, forKey: K.UserDefaultKey.UserAccountInfo.TR_UserPwd)
+                defaults.synchronize()
+
                 self.oldPasswordView?.hidden = true
                 self.newPasswordView?.hidden = true
                 self.passwordUpdatedLabel?.hidden = false
