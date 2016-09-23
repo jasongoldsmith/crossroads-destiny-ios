@@ -432,7 +432,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                     clanTag = " " + "[" + clanTag + "]"
                     if self.eventInfo?.eventPlayersArray[indexPath.section].playerID != TRApplicationManager.sharedInstance.currentUser?.userID {
                         playersNameString = playersNameString! + clanTag
-                    } else if (self.eventInfo?.eventPlayersArray[indexPath.section].userVerified == true) {
+                    } else if (TRUserInfo.isUserVerified()! == ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue) {
                         playersNameString = playersNameString! + clanTag
                     }
                 }
@@ -472,7 +472,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 clanTag = " " + "[" + clanTag + "]"
                 if self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userID != TRApplicationManager.sharedInstance.currentUser?.userID {
                     playersNameString = playersNameString! + clanTag
-                } else if (self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userVerified == true) {
+                } else if (TRUserInfo.isUserVerified()! == ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue) {
                     playersNameString = playersNameString! + clanTag
                 }
             }

@@ -128,7 +128,7 @@ class TRBaseEventTableCell: UITableViewCell {
                     let clanAttributedStr = NSAttributedString(string: clanTag)
                     if eventInfo.eventCreator!.playerID != TRApplicationManager.sharedInstance.currentUser?.userID {
                         finalString.appendAttributedString(clanAttributedStr)
-                    } else if (eventInfo.eventCreator!.userVerified == true) {
+                    } else if (TRUserInfo.isUserVerified()! == ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue) {
                         finalString.appendAttributedString(clanAttributedStr)
                     }
                 }
@@ -142,7 +142,7 @@ class TRBaseEventTableCell: UITableViewCell {
                 clanTag = " " + "[" + clanTag + "]"
                 if eventInfo.eventCreator!.playerID != TRApplicationManager.sharedInstance.currentUser?.userID {
                     playersNameString = playersNameString + clanTag
-                } else if (eventInfo.eventCreator!.userVerified == true) {
+                } else if (TRUserInfo.isUserVerified()! == ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue) {
                     playersNameString = playersNameString + clanTag
                 }
             }
