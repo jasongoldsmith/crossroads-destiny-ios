@@ -431,6 +431,11 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 if var clanTag = self.eventInfo?.eventPlayersArray[indexPath.section].getDefaultConsole()?.clanTag! where clanTag != "" {
                     clanTag = " " + "[" + clanTag + "]"
                     playersNameString = playersNameString! + clanTag
+                    if self.eventInfo?.eventPlayersArray[indexPath.section].playerID != TRApplicationManager.sharedInstance.currentUser?.userID {
+                        playersNameString = playersNameString! + clanTag
+                    } else if (self.eventInfo?.eventPlayersArray[indexPath.section].userVerified == true) {
+                        playersNameString = playersNameString! + clanTag
+                    }
                 }
                 
                 cell?.playerUserName.text = playersNameString
@@ -466,7 +471,11 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             var playersNameString = self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.getDefaultConsole()?.consoleId!
             if var clanTag = self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.getDefaultConsole()?.clanTag where clanTag != "" {
                 clanTag = " " + "[" + clanTag + "]"
-                playersNameString = playersNameString! + clanTag
+                if self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userID != TRApplicationManager.sharedInstance.currentUser?.userID {
+                    playersNameString = playersNameString! + clanTag
+                } else if (self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userVerified == true) {
+                    playersNameString = playersNameString! + clanTag
+                }
             }
             
             commentCell.playerUserName.text = playersNameString
