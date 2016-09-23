@@ -430,7 +430,6 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 var playersNameString = self.eventInfo?.eventPlayersArray[indexPath.section].getDefaultConsole()?.consoleId!
                 if var clanTag = self.eventInfo?.eventPlayersArray[indexPath.section].getDefaultConsole()?.clanTag! where clanTag != "" {
                     clanTag = " " + "[" + clanTag + "]"
-                    playersNameString = playersNameString! + clanTag
                     if self.eventInfo?.eventPlayersArray[indexPath.section].playerID != TRApplicationManager.sharedInstance.currentUser?.userID {
                         playersNameString = playersNameString! + clanTag
                     } else if (self.eventInfo?.eventPlayersArray[indexPath.section].userVerified == true) {
