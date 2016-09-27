@@ -18,7 +18,7 @@ def project_pods
     pod 'Mixpanel'
     pod 'FacebookCore', '~>0.1.1'
     pod 'Fabric', '~>1.6.8'
-    pod 'Answers'
+    pod 'Crashlytics'
     pod 'iCarousel'
 end
 

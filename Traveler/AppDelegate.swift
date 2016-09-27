@@ -10,8 +10,8 @@ import UIKit
 import Branch
 import Mixpanel
 import FBSDKCoreKit
-import Answers
 import Fabric
+import Crashlytics
 
 
 @UIApplicationMain
@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       
         
         //Initialize Answers
-        Fabric.with([Branch.self, Answers.self])
+        Fabric.with([Branch.self, Answers.self, Crashlytics.self])
 
         
         //Facebook Init

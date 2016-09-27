@@ -1,8 +1,6 @@
 PODS:
   - AFDateHelper (3.4.2)
   - Alamofire (3.3.1)
-  - Answers (1.3.2):
-    - Fabric (~> 1.6.3)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -14,6 +12,8 @@ PODS:
     - Branch/without-IDFA (= 0.12.11)
   - Branch/Core (0.12.11)
   - Branch/without-IDFA (0.12.11)
+  - Crashlytics (3.8.2):
+    - Fabric (~> 1.6.3)
   - Fabric (1.6.9)
   - FacebookCore (0.1.1):
     - Bolts (~> 1.8)
@@ -61,8 +61,8 @@ PODS:
 DEPENDENCIES:
   - AFDateHelper
   - Alamofire (~> 3.3.1)
-  - Answers
   - Branch (~> 0.12.7)
+  - Crashlytics
   - Fabric (~> 1.6.8)
   - FacebookCore (~> 0.1.1)
   - Firebase/Core (~> 3.5.2)
@@ -89,9 +89,9 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFDateHelper: aecee6bb264d6531795649f4ebac47783d2bab74
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
-  Answers: 38234eaa44e012c027ea0ee3c19a69fb94d6591a
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Branch: a620b19dc96fffabb7873a86c80c77c75395a664
+  Crashlytics: 27acca95a01b042a8294291dd6dff27f8f6af6d7
   Fabric: bc5bec42cef4bcf1ee3ce0e218fc518e4b44dfbb
   FacebookCore: 14f27add6888c27470d42a100374e6361f4e0f79
   FBSDKCoreKit: fc7fa53d16b095ee3fd53f0cd59f1df8bcbb634d
@@ -112,6 +112,6 @@ SPEC CHECKSUMS:
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   XCGLogger: 53a3efe22e228e8b25ed8184bc074c2b06d48490
 
-PODFILE CHECKSUM: 3830be7453c373d6a5cc0a3b2200bc3ae84734f7
+PODFILE CHECKSUM: 338bff4fc099c73b1f20cd8be45a30275772de38
 
 COCOAPODS: 1.0.0
