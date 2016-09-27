@@ -142,7 +142,7 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
         
         let currentUserID = TRUserInfo.getUserID()
         let textString: String = (self.reportTextView?.text)!
-        if (textString.characters.count == 0) {
+        if (textString.characters.count == 0 || textString == placeHolderString) {
             TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Please enter a message")
             return
         }
