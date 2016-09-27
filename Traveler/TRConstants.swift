@@ -101,6 +101,7 @@ struct K {
         static let TR_LEGAL_ACCEPTED     =   "/api/v1/a/user/acceptLegal"
         static let TR_SEND_MESSAGE       =   "/api/v1/a/event/addComment"
         static let TR_PUBLIC_FEED        =   "/api/v1/feed/public"
+        static let TR_REPORT_COMMENT     =   "/api/v1/a/event/reportComment"
     }
     
     struct StoryBoard {

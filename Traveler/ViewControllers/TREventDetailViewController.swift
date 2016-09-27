@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
+class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, CustomErrorDelegate {
     
     
     private let EVENT_DESCRIPTION_CELL = "eventDescriptionCell"
@@ -51,6 +51,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     var isFutureEvent: Bool = false
     var chatViewOriginalContentSize: CGSize?
     var chatViewOriginalFrame: CGRect?
+    var selectedComment: TRCommentInfo?
     
     
     override func viewDidLoad() {
@@ -462,7 +463,9 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             }
         } else {
             let commentCell: TREventCommentCell = (tableView.dequeueReusableCellWithIdentifier(EVENT_COMMENT_CELL) as? TREventCommentCell)!
-            commentCell.playerComment.text = self.eventInfo?.eventComments[indexPath.section].commentText!
+            
+            let commentText = self.eventInfo?.eventComments[indexPath.section].commentReported == true ? "[comment removed]" : self.eventInfo?.eventComments[indexPath.section].commentText!
+            commentCell.playerComment.text = commentText
             self.eventTable?.estimatedRowHeight = event_description_row_height
             self.eventTable?.rowHeight = UITableViewAutomaticDimension
 
@@ -505,9 +508,40 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if segmentControl?.selectedSegmentIndex == 1 {
             self.chatTextView.resignFirstResponder()
+            
+            if self.eventInfo?.eventComments[indexPath.section].commentReported == true {
+                return
+            }
+            
+            let commentFromUser = self.eventInfo?.eventComments[indexPath.section].commentUserInfo
+            if commentFromUser?.userID != TRApplicationManager.sharedInstance.currentUser?.userID {
+                self.selectedComment = self.eventInfo?.eventComments[indexPath.section]
+                let errorView = NSBundle.mainBundle().loadNibNamed("TRCustomErrorUserAction", owner: self, options: nil)[0] as! TRCustomError
+                errorView.errorMessageHeader?.text = "REPORT SUBMITTED"
+                errorView.errorMessageDescription?.text = "We are on the case and will work to address your issue as soon as possible."
+                errorView.frame = self.view.frame
+                errorView.delegate = self
+            
+                self.view.addSubview(errorView)
+
+            }
         }
     }
-
+    
+    
+    //Custom Error Delegate Method
+    func customErrorActionButtonPressed() {
+        
+        guard let _ = self.selectedComment else { return }
+        
+        _ = TRReportComment().reportAComment((self.selectedComment?.commentId)!, eventID: (self.eventInfo?.eventID)!, completion: { (didSucceed) in
+            if didSucceed == true {
+                self.selectedComment = nil
+            }
+        })
+    }
+    
+    
     override func reloadEventTable() {
         dispatch_async(dispatch_get_main_queue()) { () -> Void in
             if let _ = self.eventInfo {
