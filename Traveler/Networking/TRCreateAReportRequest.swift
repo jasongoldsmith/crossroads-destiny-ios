@@ -9,7 +9,7 @@
 
 class TRCreateAReportRequest: TRRequest {
     
-    func sendCreatedReport (reporterEmail: String, reportDetail: String, reportType: String, reporterID: String?, completion: TRValueCallBack) {
+    func sendCreatedReport (reporterEmail: String, reportDetail: String, reportType: String, reporterID: String?, haseventID: String?, hasCommentID: String?, completion: TRValueCallBack) {
         
         let pushMessage = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_SEND_REPORT
         var params = [String: AnyObject]()
@@ -17,9 +17,9 @@ class TRCreateAReportRequest: TRRequest {
         params["reportType"] = reportType
         params["reporterEmail"] = reporterEmail
         
-        if let _ = reporterID {
-            params["reporter"] = reporterID
-        }
+        if let _ = haseventID { params["eId"] = haseventID }
+        if let _ = hasCommentID { params["commentId"] = reporterEmail }
+        if let _ = reporterID { params["reporter"] = reporterID }
         
         let request = TRRequest()
         request.params = params
@@ -36,6 +36,4 @@ class TRCreateAReportRequest: TRRequest {
             completion(didSucceed: true )
         }
     }
-
-    
 }
