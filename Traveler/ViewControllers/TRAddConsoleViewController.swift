@@ -50,7 +50,7 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
         self.chooseConsoleButton?.layer.cornerRadius = 3.0
         
         // Placeholder text color
-        self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+        self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation Gamertag", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         
         //PickerView
         self.consolePicker?.layer.cornerRadius = 5.0
@@ -253,8 +253,8 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
             
             if consoleType == "PlayStation 4" || consoleType == "PlayStation 3" {
                 self.consoleIDTextField.enabled = true
-                self.consoleTypeLabel.text = "PLAYSTATION ID"
-                self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+                self.consoleTypeLabel.text = "PlayStation Gamertag"
+                self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation Gamertag", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
                 self.consoleImage.image = UIImage(named: "iconPsnConsole")
                 
                 if self.openedFromProfile == true {
@@ -276,7 +276,7 @@ class TRAddConsoleViewController: TRBaseViewController, UITextFieldDelegate, TTT
                                     break
                                 }
                             } else {
-                                self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+                                self.consoleIDTextField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation Gamertag", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
                                 self.preSelectedConsoleID = nil
                                 self.consoleTagView.hidden = false
                                 self.addUpdateNewConsole.setTitle("ADD", forState: .Normal)

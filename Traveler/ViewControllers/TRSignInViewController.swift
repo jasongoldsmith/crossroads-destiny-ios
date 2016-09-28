@@ -112,7 +112,7 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
         self.playStationButton?.layer.cornerRadius = 2.0
         self.playStationButton?.alpha = 1
         self.playStationImage?.alpha = 1
-        self.userNameTxtField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+        self.userNameTxtField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation Gamertag", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         
         self.xBoxStationButton?.backgroundColor = UIColor.blackColor()
         self.xBoxStationImage?.alpha = 0.5
@@ -140,7 +140,7 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
         if userNameTxtField.text?.isEmpty  == true {
             let displatString: String?
             if self.selectedConsole == ConsoleTypes.PS4 {
-                displatString = "PlayStation ID"
+                displatString = "PlayStation Gamertag"
             } else {
                 displatString = "Xbox Gamertag"
             }

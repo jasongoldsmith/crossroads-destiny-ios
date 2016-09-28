@@ -37,7 +37,7 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRForgotPasswordViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRForgotPasswordViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
         
-        self.userNameTxtField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+        self.userNameTxtField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation Gamertag", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         self.playStationSelected()
         
         //Attributed Label
@@ -88,7 +88,7 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
         self.playStationButton?.layer.cornerRadius = 2.0
         self.playStationButton?.alpha = 1
         self.playStationImage?.alpha = 1
-        self.userNameTxtField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation ID", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+        self.userNameTxtField.attributedPlaceholder = NSAttributedString(string:"Enter PlayStation Gamertag", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
         
         self.xBoxStationButton?.backgroundColor = UIColor.blackColor()
         self.xBoxStationImage?.alpha = 0.5
@@ -160,7 +160,7 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
         
         let displatString: String?
         if self.selectedConsole == ConsoleTypes.PS4 {
-            displatString = "PlayStation ID"
+            displatString = "PlayStation Gamertag"
         } else {
             displatString = "Xbox Gamertag"
         }
