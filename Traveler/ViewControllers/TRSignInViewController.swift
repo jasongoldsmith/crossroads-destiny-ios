@@ -227,7 +227,10 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
         })
         
         if let _ = self.userPwdTxtField.text where self.userPwdTxtField.text?.isEmpty != true {
+            let tmpString = self.userPwdTxtField?.text
             self.userPwdTxtField.secureTextEntry = !self.userPwdTxtField.secureTextEntry
+            self.userPwdTxtField?.text = ""
+            self.userPwdTxtField?.text = tmpString
         }
     }
     
