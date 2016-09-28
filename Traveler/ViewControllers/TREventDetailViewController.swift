@@ -13,7 +13,6 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     
     private let EVENT_DESCRIPTION_CELL = "eventDescriptionCell"
     private let EVENT_COMMENT_CELL = "eventCommentCell"
-    private let COMMENT_REPORTED_THRESHOLD = 2
     
     //Cell Height
     private let event_description_row_height: CGFloat = 54
@@ -511,9 +510,9 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             self.chatTextView.resignFirstResponder()
             
             let commentFromUser = self.eventInfo?.eventComments[indexPath.section].commentUserInfo
-            if (self.eventInfo?.eventComments[indexPath.section].commentReported == true || (commentFromUser?.userID != TRApplicationManager.sharedInstance.currentUser?.userID))  {
+            if (self.eventInfo?.eventComments[indexPath.section].commentReported == true || (commentFromUser?.userID == TRApplicationManager.sharedInstance.currentUser?.userID))  {
                 return
-            } else if (TRApplicationManager.sharedInstance.currentUser?.commentsReported > COMMENT_REPORTED_THRESHOLD) {
+            } else if (TRApplicationManager.sharedInstance.currentUser?.hasReachedMaxReportedComments == false) {
                 self.selectedComment = self.eventInfo?.eventComments[indexPath.section]
                 let errorView = NSBundle.mainBundle().loadNibNamed("TRCustomErrorUserAction", owner: self, options: nil)[0] as! TRCustomError
                 errorView.errorMessageHeader?.text = "REPORT ISSUE"
@@ -541,7 +540,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         
         guard let _ = self.selectedComment else { return }
         
-        if TRApplicationManager.sharedInstance.currentUser?.commentsReported > COMMENT_REPORTED_THRESHOLD {
+        if TRApplicationManager.sharedInstance.currentUser?.hasReachedMaxReportedComments == true {
             let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
             let vc : TRSendReportViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_SEND_REPORT) as! TRSendReportViewController
             vc.isModallyPresented = true
