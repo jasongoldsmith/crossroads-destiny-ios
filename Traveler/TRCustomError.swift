@@ -46,5 +46,7 @@ class TRCustomError: UIView {
     
     @IBAction func actionButtonPressed () {
         self.delegate?.customErrorActionButtonPressed!()
+        
+        self.closeView()
     }
 }

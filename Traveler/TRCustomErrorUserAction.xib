@@ -144,6 +144,9 @@
             </variation>
             <connections>
                 <outlet property="actionButton" destination="3rp-kP-GCw" id="61M-mD-awV"/>
+                <outlet property="errorMessageDescription" destination="eOX-M3-8v3" id="eht-wa-0LM"/>
+                <outlet property="errorMessageHeader" destination="IzD-Z8-Q7p" id="xXZ-hX-EdF"/>
+                <outlet property="errorViewContainer" destination="kmW-Ai-bTV" id="c0x-Nc-NlW"/>
             </connections>
             <point key="canvasLocation" x="615" y="528"/>
         </view>

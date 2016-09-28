@@ -2278,11 +2278,22 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                     <constraint firstAttribute="trailing" secondItem="mh6-Ci-No5" secondAttribute="trailing" id="vPH-Dg-Fgg"/>
                                 </constraints>
                             </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64y-Ex-v7Q">
+                                <rect key="frame" x="533" y="30" width="53" height="32"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="navBackButtonPressed" destination="vH8-Nd-68e" eventType="touchUpInside" id="QmJ-Ja-RKh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fhx-jG-gxI" firstAttribute="leading" secondItem="aDR-mt-Www" secondAttribute="leadingMargin" constant="30" id="1gY-7A-S52"/>
                             <constraint firstAttribute="trailing" secondItem="zbZ-Ml-hnp" secondAttribute="trailing" constant="10" id="20p-8B-oUF"/>
+                            <constraint firstItem="64y-Ex-v7Q" firstAttribute="centerY" secondItem="fhx-jG-gxI" secondAttribute="centerY" id="3rc-QH-V6J"/>
                             <constraint firstItem="Xs8-65-bYq" firstAttribute="leading" secondItem="aDR-mt-Www" secondAttribute="leadingMargin" constant="-10" id="BH6-q2-cac"/>
                             <constraint firstItem="aYC-fX-WDX" firstAttribute="top" secondItem="TSx-8W-Hkx" secondAttribute="bottom" id="Bhh-UY-1PM"/>
                             <constraint firstItem="p8f-ms-SXi" firstAttribute="centerX" secondItem="aDR-mt-Www" secondAttribute="centerX" id="Ecg-6n-FZJ"/>
@@ -2296,6 +2307,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                             <constraint firstItem="ZPG-Pm-LKH" firstAttribute="leading" secondItem="aDR-mt-Www" secondAttribute="leadingMargin" constant="-20" id="Ziz-Er-GiC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WOD-Pq-Z92" secondAttribute="trailing" constant="-10" id="con-ab-ZZZ"/>
                             <constraint firstItem="aYC-fX-WDX" firstAttribute="top" secondItem="ZPG-Pm-LKH" secondAttribute="bottom" id="hlc-HR-19n"/>
+                            <constraint firstAttribute="trailing" secondItem="64y-Ex-v7Q" secondAttribute="trailing" constant="14" id="kJl-xA-8ch"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZPG-Pm-LKH" secondAttribute="trailing" constant="-20" id="lt6-Uz-bBg"/>
                             <constraint firstItem="fhx-jG-gxI" firstAttribute="top" secondItem="lFW-Yw-m9S" secondAttribute="bottom" constant="17" id="m4X-3x-nwK"/>
                             <constraint firstItem="TSx-8W-Hkx" firstAttribute="leading" secondItem="aDR-mt-Www" secondAttribute="leading" id="n0C-Ya-v7m"/>
@@ -2315,10 +2327,14 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="cancelButton" destination="64y-Ex-v7Q" id="b57-eA-BRf"/>
                         <outlet property="emailTextView" destination="5FC-Eg-PeY" id="VuG-Oz-kYD"/>
                         <outlet property="emailView" destination="zbZ-Ml-hnp" id="0ww-ch-2Zs"/>
+                        <outlet property="navigationBackButton" destination="Xs8-65-bYq" id="TQ9-P0-4Yf"/>
                         <outlet property="reportTextView" destination="SHC-Yf-EmA" id="o2V-Rl-WtO"/>
+                        <outlet property="sendButton" destination="TSx-8W-Hkx" id="Fui-sS-eBa"/>
                         <outlet property="sendButtonBottomConst" destination="Bhh-UY-1PM" id="Fvz-o7-58h"/>
+                        <outlet property="viewHeaderLable" destination="fhx-jG-gxI" id="5Ox-sh-3IV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Zw-Jj-Sh4" userLabel="First Responder" sceneMemberID="firstResponder"/>

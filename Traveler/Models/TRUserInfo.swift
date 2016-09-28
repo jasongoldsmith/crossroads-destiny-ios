@@ -21,6 +21,8 @@ class TRUserInfo: NSObject {
     var consoles        :[TRConsoles] = []
     var bungieMemberShipID: String?
     var userVerified  : String?
+    var commentsReported: Int?
+    
     
     func parseUserResponse (responseObject: JSON) {
         self.userName       = responseObject["value"]["userName"].stringValue
@@ -29,7 +31,7 @@ class TRUserInfo: NSObject {
         self.userClanID     = responseObject["value"]["clanId"].stringValue
         self.bungieMemberShipID = responseObject["value"]["bungieMemberShipId"].stringValue
         self.userVerified     = responseObject["value"]["verifyStatus"].stringValue
-        
+        self.commentsReported = responseObject["value"]["commentsReported"].intValue
         // Legal Info
         if let legalDict = responseObject["value"]["legal"].dictionary {
             let legalObject = TRLegalInfo()

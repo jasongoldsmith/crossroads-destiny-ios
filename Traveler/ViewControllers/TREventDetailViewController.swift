@@ -13,6 +13,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     
     private let EVENT_DESCRIPTION_CELL = "eventDescriptionCell"
     private let EVENT_COMMENT_CELL = "eventCommentCell"
+    private let COMMENT_REPORTED_THRESHOLD = 2
     
     //Cell Height
     private let event_description_row_height: CGFloat = 54
@@ -509,21 +510,28 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         if segmentControl?.selectedSegmentIndex == 1 {
             self.chatTextView.resignFirstResponder()
             
-            if self.eventInfo?.eventComments[indexPath.section].commentReported == true {
-                return
-            }
-            
             let commentFromUser = self.eventInfo?.eventComments[indexPath.section].commentUserInfo
-            if commentFromUser?.userID != TRApplicationManager.sharedInstance.currentUser?.userID {
+            //|| (commentFromUser?.userID != TRApplicationManager.sharedInstance.currentUser?.userID)
+            if (self.eventInfo?.eventComments[indexPath.section].commentReported == true)  {
+                return
+            } else if (TRApplicationManager.sharedInstance.currentUser?.commentsReported > COMMENT_REPORTED_THRESHOLD) {
                 self.selectedComment = self.eventInfo?.eventComments[indexPath.section]
                 let errorView = NSBundle.mainBundle().loadNibNamed("TRCustomErrorUserAction", owner: self, options: nil)[0] as! TRCustomError
+                errorView.errorMessageHeader?.text = "REPORT SUBMITTED"
+                errorView.errorMessageDescription?.text = "Looks like you’ve sent several reports recently. This probably needs our attention! Please tell us more about this issue."
+                errorView.frame = self.view.frame
+                errorView.delegate = self
+                
+                self.view.addSubview(errorView)
+            } else {
+                self.selectedComment = self.eventInfo?.eventComments[indexPath.section]
+                let errorView = NSBundle.mainBundle().loadNibNamed("TRCustomError", owner: self, options: nil)[0] as! TRCustomError
                 errorView.errorMessageHeader?.text = "REPORT SUBMITTED"
                 errorView.errorMessageDescription?.text = "We are on the case and will work to address your issue as soon as possible."
                 errorView.frame = self.view.frame
                 errorView.delegate = self
-            
+                
                 self.view.addSubview(errorView)
-
             }
         }
     }
@@ -534,11 +542,21 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         
         guard let _ = self.selectedComment else { return }
         
-        _ = TRReportComment().reportAComment((self.selectedComment?.commentId)!, eventID: (self.eventInfo?.eventID)!, completion: { (didSucceed) in
-            if didSucceed == true {
-                self.selectedComment = nil
-            }
-        })
+        if TRApplicationManager.sharedInstance.currentUser?.commentsReported > COMMENT_REPORTED_THRESHOLD {
+            let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+            let vc : TRSendReportViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_SEND_REPORT) as! TRSendReportViewController
+            vc.isModallyPresented = true
+            vc.viewHeaderLable?.text = "REPORT ISSUE"
+            self.presentViewController(vc, animated: true, completion: { 
+                
+            })
+        } else {
+            _ = TRReportComment().reportAComment((self.selectedComment?.commentId)!, eventID: (self.eventInfo?.eventID)!, completion: { (didSucceed) in
+                if didSucceed == true {
+                    self.selectedComment = nil
+                }
+            })
+        }
     }
     
     

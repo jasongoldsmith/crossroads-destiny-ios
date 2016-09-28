@@ -12,6 +12,7 @@ import UIKit
 
 class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
     
+    var isModallyPresented: Bool = false
     let placeHolderString = "What would you like to tell us?"
     
     @IBOutlet weak var reportTextView: UITextView!
@@ -19,6 +20,10 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var sendButtonBottomConst: NSLayoutConstraint!
+    
+    @IBOutlet weak var navigationBackButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var viewHeaderLable: UILabel!
     
     
     override func viewDidLoad() {
@@ -35,6 +40,12 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
         
         self.reportTextView?.text = placeHolderString
         self.reportTextView?.textColor = UIColor.lightGrayColor()
+        
+        if isModallyPresented == true {
+            self.cancelButton?.hidden = false
+            self.navigationBackButton?.hidden = true
+            self.sendButton.setTitle("SUBMIT", forState: .Normal)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
