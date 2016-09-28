@@ -512,7 +512,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             let commentFromUser = self.eventInfo?.eventComments[indexPath.section].commentUserInfo
             if (self.eventInfo?.eventComments[indexPath.section].commentReported == true || (commentFromUser?.userID == TRApplicationManager.sharedInstance.currentUser?.userID))  {
                 return
-            } else if (TRApplicationManager.sharedInstance.currentUser?.hasReachedMaxReportedComments == false) {
+            } else if (TRApplicationManager.sharedInstance.currentUser?.hasReachedMaxReportedComments == true) {
                 self.selectedComment = self.eventInfo?.eventComments[indexPath.section]
                 let errorView = NSBundle.mainBundle().loadNibNamed("TRCustomErrorUserAction", owner: self, options: nil)[0] as! TRCustomError
                 errorView.errorMessageHeader?.text = "REPORT ISSUE"
@@ -547,9 +547,10 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             vc.viewHeaderLable?.text = "REPORT ISSUE"
             vc.eventID = self.eventInfo?.eventID
             vc.commentID = (self.selectedComment?.commentId)!
-            self.presentViewController(vc, animated: true, completion: { 
-                
-            })
+            
+            let navigationController = UINavigationController(rootViewController: vc)
+            navigationController.navigationBar.hidden = true
+            self.presentViewController(navigationController, animated: true, completion: nil)
         } else {
             _ = TRReportComment().reportAComment((self.selectedComment?.commentId)!, eventID: (self.eventInfo?.eventID)!, completion: { (didSucceed) in
                 if didSucceed == true {

@@ -183,16 +183,10 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
                 if self.reportTextView.isFirstResponder() {
                     self.reportTextView.resignFirstResponder()
                 }
-
-                if self.isModallyPresented == true {
-                    self.dismissViewController(true, dismissed: { (didDismiss) in
-                    })
-                } else {
-                    let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
-                    let vc = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_CONTACT_MESSAGE_SENT) as! TRMessageSentConfViewController
-                    
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
+                
+                let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+                let vc = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_CONTACT_MESSAGE_SENT) as! TRMessageSentConfViewController
+                self.navigationController?.pushViewController(vc, animated: true)
             } else {}
         })
     }
