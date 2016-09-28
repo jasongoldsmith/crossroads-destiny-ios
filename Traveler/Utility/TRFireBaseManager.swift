@@ -91,12 +91,12 @@ class TRFireBaseManager {
         let endPointKeyReference = hasEventClan + "/" + hasEventID
         self.ref = FIRDatabase.database().reference().child("events/").child(endPointKeyReference)
         self.eventDescriptionObserverHandler = self.ref?.observeEventType(.Value, withBlock: { (snapshot) in
-            if snapshot.value is NSNull {
-                parentViewController.dismissViewController(true, dismissed: { (didDismiss) in
-                    
-                })
-                return
-            }
+//            if snapshot.value is NSNull {
+//                parentViewController.dismissViewController(true, dismissed: { (didDismiss) in
+//                    
+//                })
+//                return
+//            }
 
             // FETCH EVENT OBJECT
             _ = TRGetEventRequest().getEventByID(hasEventID, viewHandlesError: false, showActivityIndicator: false, completion: { (error, event) in

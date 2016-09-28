@@ -520,7 +520,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 errorView.frame = self.view.frame
                 errorView.delegate = self
                 
-                self.view.addSubview(errorView)
+                self.view.addSubviewWithLayoutConstraint(errorView)
             } else {
                 self.selectedComment = self.eventInfo?.eventComments[indexPath.section]
                 let errorView = NSBundle.mainBundle().loadNibNamed("TRCustomErrorUserAction", owner: self, options: nil)[0] as! TRCustomError
@@ -529,7 +529,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 errorView.frame = self.view.frame
                 errorView.delegate = self
                 
-                self.view.addSubview(errorView)
+                self.view.addSubviewWithLayoutConstraint(errorView)
             }
         }
     }
