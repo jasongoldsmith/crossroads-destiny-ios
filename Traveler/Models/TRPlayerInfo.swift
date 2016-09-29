@@ -20,7 +20,9 @@ class TRPlayerInfo: NSObject {
     var playerImageUrl      : String?
     var playerConsoles      : [TRConsoles] = []
     var userVerified        : String?
-    
+    var commentsReported    : Int?
+    var hasReachedMaxReportedComments: Bool?
+
     func getDefaultConsole () -> TRConsoles? {
         let currentConsole = self.playerConsoles.filter{$0.isPrimary == true}
         

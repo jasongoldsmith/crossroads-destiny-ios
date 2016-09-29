@@ -52,6 +52,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     var chatViewOriginalContentSize: CGSize?
     var chatViewOriginalFrame: CGRect?
     var selectedComment: TRCommentInfo?
+    var currentUser: TRUserInfo?
     
     
     override func viewDidLoad() {
@@ -60,6 +61,9 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         guard let _ = self.eventInfo else {
             return
         }
+        
+        //Current User
+        self.currentUser = TRApplicationManager.sharedInstance.currentUser
         
         //TextView Delegate
         self.chatTextView?.layer.cornerRadius = 4.0
@@ -431,7 +435,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 var playersNameString = self.eventInfo?.eventPlayersArray[indexPath.section].getDefaultConsole()?.consoleId!
                 if var clanTag = self.eventInfo?.eventPlayersArray[indexPath.section].getDefaultConsole()?.clanTag! where clanTag != "" {
                     clanTag = " " + "[" + clanTag + "]"
-                    if self.eventInfo?.eventPlayersArray[indexPath.section].playerID != TRApplicationManager.sharedInstance.currentUser?.userID {
+                    if self.eventInfo?.eventPlayersArray[indexPath.section].playerID != self.currentUser?.userID {
                         playersNameString = playersNameString! + clanTag
                     } else if (TRUserInfo.isUserVerified()! == ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue) {
                         playersNameString = playersNameString! + clanTag
@@ -444,7 +448,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
 
                 
                 if self.eventInfo?.eventPlayersArray[indexPath.section].userVerified != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue
-                && self.eventInfo?.eventPlayersArray[indexPath.section].playerID == TRApplicationManager.sharedInstance.currentUser?.userID{
+                && self.eventInfo?.eventPlayersArray[indexPath.section].playerID == self.currentUser?.userID{
                     cell?.playerIcon.image = UIImage(named: "default_helmet")
                 } else {
                     if let hasImage = self.eventInfo?.eventPlayersArray[indexPath.section].playerImageUrl {
@@ -473,7 +477,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             var playersNameString = self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.getDefaultConsole()?.consoleId!
             if var clanTag = self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.getDefaultConsole()?.clanTag where clanTag != "" {
                 clanTag = " " + "[" + clanTag + "]"
-                if self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userID != TRApplicationManager.sharedInstance.currentUser?.userID {
+                if self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userID != self.currentUser?.userID {
                     playersNameString = playersNameString! + clanTag
                 } else if (TRUserInfo.isUserVerified()! == ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue) {
                     playersNameString = playersNameString! + clanTag
@@ -492,7 +496,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 commentCell.messageTimeLabel?.text = updateDate!.relative()
             }
             
-            if self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userVerified != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue && self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userID == TRApplicationManager.sharedInstance.currentUser?.userID {
+            if self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userVerified != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue && self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userID == self.currentUser?.userID {
                 commentCell.playerIcon.image = UIImage(named: "default_helmet")
             } else {
                 if let hasImage = self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userImageURL! {
@@ -510,9 +514,9 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             self.chatTextView.resignFirstResponder()
             
             let commentFromUser = self.eventInfo?.eventComments[indexPath.section].commentUserInfo
-            if (self.eventInfo?.eventComments[indexPath.section].commentReported == true || (commentFromUser?.userID == TRApplicationManager.sharedInstance.currentUser?.userID))  {
+            if (self.eventInfo?.eventComments[indexPath.section].commentReported == true || (commentFromUser?.userID == self.currentUser?.userID))  {
                 return
-            } else if (TRApplicationManager.sharedInstance.currentUser?.hasReachedMaxReportedComments == true) {
+            } else if (self.currentUser?.hasReachedMaxReportedComments == true) {
                 self.selectedComment = self.eventInfo?.eventComments[indexPath.section]
                 let errorView = NSBundle.mainBundle().loadNibNamed("TRCustomErrorUserAction", owner: self, options: nil)[0] as! TRCustomError
                 errorView.errorMessageHeader?.text = "REPORT ISSUE"
@@ -540,7 +544,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         
         guard let _ = self.selectedComment else { return }
         
-        if TRApplicationManager.sharedInstance.currentUser?.hasReachedMaxReportedComments == true {
+        if self.currentUser?.hasReachedMaxReportedComments == true {
             let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
             let vc : TRSendReportViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_SEND_REPORT) as! TRSendReportViewController
             vc.isModallyPresented = true
@@ -569,6 +573,15 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     
     
     override func reloadEventTable() {
+        
+        if self.eventInfo?.eventPlayersArray.count > 0 {
+            for player in (self.eventInfo?.eventPlayersArray)! {
+                if player.playerID == self.currentUser?.userID {
+                    self.currentUser?.hasReachedMaxReportedComments = player.hasReachedMaxReportedComments
+                }
+            }
+        }
+        
         dispatch_async(dispatch_get_main_queue()) { () -> Void in
             if let _ = self.eventInfo {
 

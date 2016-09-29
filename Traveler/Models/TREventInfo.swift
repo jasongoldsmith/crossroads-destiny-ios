@@ -111,7 +111,10 @@ class TREventInfo: NSObject {
             playerInfo.playerDate       = playerInfoObject["date"].stringValue
             playerInfo.playerUdate      = playerInfoObject["uDate"].stringValue
             playerInfo.playerImageUrl   = playerInfoObject["imageUrl"].stringValue
-            playerInfo.userVerified       = playerInfoObject["verifyStatus"].stringValue
+            playerInfo.userVerified     = playerInfoObject["verifyStatus"].stringValue
+            playerInfo.commentsReported = playerInfoObject["commentsReported"].intValue
+            playerInfo.hasReachedMaxReportedComments = playerInfoObject["hasReachedMaxReportedComments"].boolValue
+
             
             for consoles in playerInfoObject["consoles"].arrayValue {
                 let playerConsole = TRConsoles()
