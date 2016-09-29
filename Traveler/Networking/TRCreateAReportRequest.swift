@@ -16,10 +16,16 @@ class TRCreateAReportRequest: TRRequest {
         params["reportDetails"] = reportDetail
         params["reportType"] = reportType
         params["reporterEmail"] = reporterEmail
-        
-        if let _ = haseventID { params["eId"] = haseventID }
-        if let _ = hasCommentID { params["commentId"] = reporterEmail }
         if let _ = reporterID { params["reporter"] = reporterID }
+        
+        if let _ = hasCommentID, let _ = haseventID {
+            var issueDict = [String: AnyObject]()
+            issueDict["eId"] = haseventID
+            issueDict["commentId"] = hasCommentID
+            
+            params["reportAdditionalInfo"] = issueDict
+        }
+        
         
         let request = TRRequest()
         request.params = params

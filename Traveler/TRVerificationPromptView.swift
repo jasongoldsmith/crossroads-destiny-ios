@@ -32,7 +32,7 @@ class TRVerificationPromptView: UIView, TTTAttributedLabelDelegate {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let window = appDelegate.window
         self.frame = (window?.frame)!
-        window?.addSubview(self)
+        window?.addSubviewWithLayoutConstraint(self)
         
         if let _ = delegate {
             self.delegate = delegate
