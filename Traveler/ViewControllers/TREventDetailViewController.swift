@@ -468,8 +468,12 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         } else {
             let commentCell: TREventCommentCell = (tableView.dequeueReusableCellWithIdentifier(EVENT_COMMENT_CELL) as? TREventCommentCell)!
             
-            let commentText = self.eventInfo?.eventComments[indexPath.section].commentReported == true ? "[comment removed]" : self.eventInfo?.eventComments[indexPath.section].commentText!
-            commentCell.playerComment.text = commentText
+            if self.eventInfo?.eventComments[indexPath.section].commentReported == true {
+                commentCell.playerComment.text = "[comment removed]"
+                
+            } else {
+                commentCell.playerComment.text = self.eventInfo?.eventComments[indexPath.section].commentText!
+            }
             self.eventTable?.estimatedRowHeight = event_description_row_height
             self.eventTable?.rowHeight = UITableViewAutomaticDimension
 
@@ -505,6 +509,14 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 }
             }
 
+            if self.eventInfo?.eventComments[indexPath.section].commentReported == true {
+                commentCell.playerIcon.image = UIImage(named: "accountCircle")
+                commentCell.playerUserName.hidden = true
+            } else {
+                commentCell.playerUserName.hidden = false
+            }
+            
+            
             return commentCell
         }
     }
