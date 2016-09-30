@@ -47,6 +47,7 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
             self.cancelButton?.hidden = false
             self.navigationBackButton?.hidden = true
             self.sendButton.setTitle("SUBMIT", forState: .Normal)
+            self.viewHeaderLable?.text = "REPORT ISSUE"
         }
     }
     

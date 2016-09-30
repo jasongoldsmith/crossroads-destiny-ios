@@ -508,7 +508,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                     commentCell.playerIcon.sd_setImageWithURL(imageURL)
                 }
             }
-
+ 
             if self.eventInfo?.eventComments[indexPath.section].commentReported == true {
                 commentCell.playerIcon.image = UIImage(named: "accountCircle")
                 commentCell.playerUserName.hidden = true
@@ -525,8 +525,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         if segmentControl?.selectedSegmentIndex == 1 {
             self.chatTextView.resignFirstResponder()
             
-            let commentFromUser = self.eventInfo?.eventComments[indexPath.section].commentUserInfo
-            if (self.eventInfo?.eventComments[indexPath.section].commentReported == true || (commentFromUser?.userID == self.currentUser?.userID))  {
+            if (self.eventInfo?.eventComments[indexPath.section].commentReported == true)  {
                 return
             } else if (self.currentUser?.hasReachedMaxReportedComments == true) {
                 self.selectedComment = self.eventInfo?.eventComments[indexPath.section]
@@ -560,7 +559,6 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
             let vc : TRSendReportViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_SEND_REPORT) as! TRSendReportViewController
             vc.isModallyPresented = true
-            vc.viewHeaderLable?.text = "REPORT ISSUE"
             vc.eventID = self.eventInfo?.eventID
             vc.commentID = (self.selectedComment?.commentId)!
             
