@@ -569,13 +569,6 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             _ = TRReportComment().reportAComment((self.selectedComment?.commentId)!, eventID: (self.eventInfo?.eventID)!, completion: { (didSucceed) in
                 if didSucceed == true {
                     self.selectedComment = nil
-                    
-                    let errorView = NSBundle.mainBundle().loadNibNamed("TRCustomError", owner: self, options: nil)[0] as! TRCustomError
-                    errorView.errorMessageHeader?.text = "REPORT SUBMITTED"
-                    errorView.errorMessageDescription?.text = "We are on the case and will work to address your issue as soon as possible."
-                    errorView.frame = self.view.frame
-                    
-                    self.view.addSubview(errorView)
                 }
             })
         }
