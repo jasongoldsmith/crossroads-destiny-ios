@@ -56,6 +56,30 @@ class TRFireBaseManager {
         }
     }
     
+    func addUserObserverWithView (complete: TRFireBaseSuccessCallBack) {
+        if let userID = TRUserInfo.getUserID() {
+            let endPointKeyReference = userID
+            self.ref = FIRDatabase.database().reference().child("users/").child(endPointKeyReference)
+            self.userObserverHandler = self.ref?.observeEventType(.Value, withBlock: { (snapshot) in
+                
+                if let snap = snapshot.value as? NSDictionary {
+                    let userData = TRUserInfo()
+                    let snapShotJson = JSON(snap)
+                    userData.parseUserResponse(snapShotJson)
+                    
+                    for console in userData.consoles {
+                        if console.isPrimary == true {
+                            TRUserInfo.saveConsolesObject(console)
+                        }
+                    }
+                    
+                    TRUserInfo.saveUserData(userData)
+                    complete(didCompelete: true)
+                }
+            })
+        }
+    }
+    
     func addEventsObserversWithParentView (parentViewController: TRBaseViewController) {
         
         guard let userClan = TRApplicationManager.sharedInstance.currentUser?.userClanID else {
