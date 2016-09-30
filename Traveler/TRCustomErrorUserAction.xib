@@ -31,7 +31,7 @@
                             <rect key="frame" x="532" y="0.0" width="44" height="44"/>
                             <state key="normal" image="iconCloseX"/>
                             <connections>
-                                <action selector="closeView" destination="iN0-l3-epB" eventType="touchUpInside" id="Hag-JH-3n3"/>
+                                <action selector="cancelView" destination="iN0-l3-epB" eventType="touchUpInside" id="zkw-rk-0k8"/>
                             </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgGlobeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="tDE-88-GvW">
@@ -90,7 +90,7 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="closeView" destination="iN0-l3-epB" eventType="touchUpInside" id="N3H-Jc-liE"/>
+                                <action selector="cancelView" destination="iN0-l3-epB" eventType="touchUpInside" id="UpV-pd-kan"/>
                             </connections>
                         </button>
                     </subviews>

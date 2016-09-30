@@ -11,6 +11,7 @@ import Foundation
 
 @objc protocol CustomErrorDelegate {
     optional func customErrorActionButtonPressed ()
+    optional func okButtonPressed ()
 }
 
 
@@ -35,18 +36,25 @@ class TRCustomError: UIView {
     }
     
     
+    @IBAction func cancelView () {
+        self.removeView()
+    }
+    
     @IBAction func closeView () {
-        
+        self.delegate?.okButtonPressed!()
+        self.removeView()
+    }
+    
+    @IBAction func actionButtonPressed () {
+        self.delegate?.customErrorActionButtonPressed!()
+        self.removeView()
+    }
+    
+    func removeView () {
         if let _ = self.delegate {
             self.delegate = nil
         }
         
         self.removeFromSuperview()
-    }
-    
-    @IBAction func actionButtonPressed () {
-        self.delegate?.customErrorActionButtonPressed!()
-        
-        self.closeView()
     }
 }

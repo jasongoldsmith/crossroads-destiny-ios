@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
+class TRSendReportViewController: TRBaseViewController, UITextViewDelegate, CustomErrorDelegate {
     
     var isModallyPresented: Bool = false
     var eventID: String?
@@ -184,12 +184,28 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate {
                 if self.reportTextView.isFirstResponder() {
                     self.reportTextView.resignFirstResponder()
                 }
-                
-                let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
-                let vc = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_CONTACT_MESSAGE_SENT) as! TRMessageSentConfViewController
-                self.navigationController?.pushViewController(vc, animated: true)
+
+                if self.isModallyPresented == true {
+                    let errorView = NSBundle.mainBundle().loadNibNamed("TRCustomError", owner: self, options: nil)[0] as! TRCustomError
+                    errorView.errorMessageHeader?.text = "REPORT SUBMITTED"
+                    errorView.errorMessageDescription?.text = "We are on the case and will work to address your issue as soon as possible."
+                    errorView.frame = self.view.frame
+                    errorView.delegate = self
+                    
+                    self.view.addSubview(errorView)
+                } else {
+                    let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+                    let vc = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_CONTACT_MESSAGE_SENT) as! TRMessageSentConfViewController
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
             } else {}
         })
+    }
+    
+    func okButtonPressed () {
+        self.dismissViewController(true) { (didDismiss) in
+            
+        }
     }
     
     func isValidEmail(testStr:String) -> Bool {
