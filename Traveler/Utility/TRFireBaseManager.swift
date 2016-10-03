@@ -16,6 +16,8 @@ class TRFireBaseManager {
     var userObserverHandler: FIRDatabaseHandle?
     var eventListObserverHandler: FIRDatabaseHandle?
     var eventDescriptionObserverHandler: FIRDatabaseHandle?
+    var eventDescriptionCommentObserverHandler: FIRDatabaseHandle?
+    
     
     typealias TRFireBaseSuccessCallBack = (didCompelete: Bool?) -> ()
     
@@ -134,6 +136,33 @@ class TRFireBaseManager {
         })
     }
     
+    func addCommentsObserversWithParentViewForDetailView (parentViewController: TREventDetailViewController, withEvent: TREventInfo) {
+        
+        guard let hasEventClan = withEvent.eventClanID else {
+            return
+        }
+        
+        guard let hasEventID = withEvent.eventID else {
+            return
+        }
+        
+        
+        let endPointKeyReference = hasEventClan + "/" + hasEventID
+        self.ref = FIRDatabase.database().reference().child("comments/").child(endPointKeyReference)
+        self.eventDescriptionCommentObserverHandler = self.ref?.observeEventType(.Value, withBlock: { (snapshot) in
+           
+            // FETCH EVENT OBJECT
+            _ = TRGetEventRequest().getEventByID(hasEventID, viewHandlesError: false, showActivityIndicator: false, completion: { (error, event) in
+                if let _ = event {
+                    parentViewController.eventInfo = event
+                    dispatch_async(dispatch_get_main_queue(), {
+                        parentViewController.reloadEventTable()
+                    })
+                }
+            })
+        })
+    }
+    
     //MARK:- REMOVE FIREBASE OBSERVERS
     func removeUserObserver () {
         if let userID = TRUserInfo.getUserID() {
@@ -174,6 +203,21 @@ class TRFireBaseManager {
         self.ref?.removeObserverWithHandle(self.eventDescriptionObserverHandler!)
     }
 
+    func removeCommentsObserver (withEvent: TREventInfo) {
+        
+        guard let hasEventClan = withEvent.eventClanID else {
+            return
+        }
+        
+        guard let hasEventID = withEvent.eventID else {
+            return
+        }
+
+        let endPointKeyReference = hasEventClan + "/" + hasEventID
+        self.ref = FIRDatabase.database().reference().child("comments/").child(endPointKeyReference)
+        self.ref?.removeObserverWithHandle(self.eventDescriptionObserverHandler!)
+    }
+    
     func removeObservers () {
         self.ref?.removeAllObservers()
     }

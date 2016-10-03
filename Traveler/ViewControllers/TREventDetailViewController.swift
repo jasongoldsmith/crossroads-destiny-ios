@@ -229,6 +229,10 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         
         //Remove User Observer
         TRApplicationManager.sharedInstance.fireBaseManager?.removeUserObserver()
+        
+        
+        //Remove FireBase Comment Observer
+        TRApplicationManager.sharedInstance.fireBaseManager?.removeCommentsObserver(self.eventInfo!)
     }
     
     func reloadButton () {
@@ -334,11 +338,13 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             self.segmentOneUnderLine?.hidden = false
             self.segmentTwoUnderLine?.hidden = true
             
+            TRApplicationManager.sharedInstance.fireBaseManager?.removeCommentsObserver(self.eventInfo!)
             break;
         case 1:
             self.segmentOneUnderLine?.hidden = true
             self.segmentTwoUnderLine?.hidden = false
             
+            TRApplicationManager.sharedInstance.fireBaseManager?.addCommentsObserversWithParentViewForDetailView(self, withEvent: self.eventInfo!)
             break;
         default:
             break;
