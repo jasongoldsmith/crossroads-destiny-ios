@@ -15,6 +15,7 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate, Cust
     var isModallyPresented: Bool = false
     var eventID: String?
     var commentID: String?
+    
     let placeHolderString = "What would you like to tell us?"
     
     @IBOutlet weak var reportTextView: UITextView!
@@ -178,14 +179,9 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate, Cust
             return
         }
         
-        _ = TRCreateAReportRequest().sendCreatedReport(emailString, reportDetail:(self.reportTextView?.text)!, reportType: "issue", reporterID: currentUserID, haseventID: self.eventID, hasCommentID: self.commentID, completion: { (didSucceed) in
-            if (didSucceed == true)  {
-
-                if self.reportTextView.isFirstResponder() {
-                    self.reportTextView.resignFirstResponder()
-                }
-
-                if self.isModallyPresented == true {
+        if self.isModallyPresented == true {
+            _ = TRReportComment().reportAComment(self.commentID!, eventID: self.eventID!,reportDetail: textString, reportedEmail: emailString, completion: { (didSucceed) in
+                if didSucceed == true {
                     let errorView = NSBundle.mainBundle().loadNibNamed("TRCustomError", owner: self, options: nil)[0] as! TRCustomError
                     errorView.errorMessageHeader?.text = "REPORT SUBMITTED"
                     errorView.errorMessageDescription?.text = "We are on the case and will work to address your issue as soon as possible."
@@ -193,13 +189,22 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate, Cust
                     errorView.delegate = self
                     
                     self.view.addSubview(errorView)
-                } else {
+                }
+            })
+        } else {
+            _ = TRCreateAReportRequest().sendCreatedReport(emailString, reportDetail:(self.reportTextView?.text)!, reportType: "issue", reporterID: currentUserID, completion: { (didSucceed) in
+                if (didSucceed == true)  {
+                    if self.reportTextView.isFirstResponder() {
+                        self.reportTextView.resignFirstResponder()
+                    }
+                    
                     let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
                     let vc = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_CONTACT_MESSAGE_SENT) as! TRMessageSentConfViewController
                     self.navigationController?.pushViewController(vc, animated: true)
-                }
-            } else {}
-        })
+                    
+                } else {}
+            })
+        }
     }
     
     func okButtonPressed () {

@@ -11,7 +11,7 @@ import Foundation
 
 class TRReportComment: TRRequest {
     
-    func reportAComment (commentID: String, eventID: String, completion: TRValueCallBack) {
+    func reportAComment (commentID: String, eventID: String, reportDetail: String?, reportedEmail: String?, completion: TRValueCallBack) {
         let reportURL = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_REPORT_COMMENT
         
         let request = TRRequest()
@@ -20,8 +20,16 @@ class TRReportComment: TRRequest {
         var params = [String: AnyObject]()
         params["eId"] = eventID
         params["commentId"] = commentID
+        
+        if let _ = reportDetail, let _ = reportedEmail {
+            var issueDict = [String: AnyObject]()
+            issueDict["reportDetails"] = reportDetail
+            issueDict["reporterEmail"] = reportedEmail
+            
+            params["formDetails"] = issueDict
+        }
+        
         request.params = params
-
         
         request.sendRequestWithCompletion { (error, swiftyJsonVar) -> () in
             

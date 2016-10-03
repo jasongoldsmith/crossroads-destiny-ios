@@ -568,7 +568,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             navigationController.navigationBar.hidden = true
             self.presentViewController(navigationController, animated: true, completion: nil)
         } else {
-            _ = TRReportComment().reportAComment((self.selectedComment?.commentId)!, eventID: (self.eventInfo?.eventID)!, completion: { (didSucceed) in
+            _ = TRReportComment().reportAComment((self.selectedComment?.commentId)!, eventID: (self.eventInfo?.eventID)!,reportDetail: nil, reportedEmail: nil, completion: { (didSucceed) in
                 if didSucceed == true {
                     self.selectedComment = nil
                 }
