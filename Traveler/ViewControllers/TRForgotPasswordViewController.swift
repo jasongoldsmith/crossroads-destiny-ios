@@ -31,6 +31,7 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
     @IBOutlet weak var goToBungieButton: UIButton!
     @IBOutlet weak var resetPasswordLabelTop: NSLayoutConstraint!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -123,6 +124,9 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
             if self.view.frame.origin.y == 0 {
                 UIView.animateWithDuration(0.1, animations: { () -> Void in
                     self.resetPasswordButtonBottom.constant = keyboardSize.height
+                    if DeviceType.IS_IPHONE_5 {
+                        self.resetPasswordLabelTop.constant = self.resetPasswordLabelTop.constant - 60
+                    }
                     self.view.layoutIfNeeded()
                 })
             }
@@ -142,6 +146,10 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
         }
         else {
             self.resetPasswordButtonBottom.constant = 0
+            if DeviceType.IS_IPHONE_5 {
+                self.resetPasswordLabelTop.constant = self.resetPasswordLabelTop.constant + 60
+            }
+
             self.view.layoutIfNeeded()
         }
     }
@@ -183,10 +191,15 @@ class TRForgotPasswordViewController: TRBaseViewController, TTTAttributedLabelDe
                 self.instructionLabel.hidden = true
                 
                 self.resetPasswordLabel?.text = "PASSWORD RESET"
-                self.resetPasswordLabelTop.constant = self.resetPasswordLabelTop.constant + 10
                 self.goToBungieButton?.titleEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
                 self.successView.hidden = false
                 self.resignKeyBoardResponders()
+                
+                if DeviceType.IS_IPHONE_5 {
+                    self.resetPasswordLabelTop.constant = self.resetPasswordLabelTop.constant - 80
+                } else {
+                    self.resetPasswordLabelTop.constant = self.resetPasswordLabelTop.constant + 10
+                }
             } else {
                 
             }
