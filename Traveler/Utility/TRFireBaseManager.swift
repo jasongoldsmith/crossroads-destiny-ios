@@ -147,7 +147,7 @@ class TRFireBaseManager {
         }
         
         
-        let endPointKeyReference = hasEventClan + "/" + hasEventID
+        let endPointKeyReference = "/" + hasEventID
         self.ref = FIRDatabase.database().reference().child("comments/").child(endPointKeyReference)
         self.eventDescriptionCommentObserverHandler = self.ref?.observeEventType(.Value, withBlock: { (snapshot) in
            
