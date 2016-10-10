@@ -32,19 +32,9 @@ class TRPushNotiController: NSObject, NotificationViewProtocol {
                     parentView = eventListView
                 }
             } else {
-//                if currentView.isKindOfClass(TREventDetailViewController) && pushInfo.isMessageNotification == true {
-//                    parentView = currentView as? TREventDetailViewController
-//                    let eventInfoVC = parentView as! TREventDetailViewController
-//                    
-//                    if eventInfoVC.eventInfo?.eventID != pushInfo.eventID {
-//                        return
-//                    }
-//                } else {
-                
                 let slideVewController = TRApplicationManager.sharedInstance.slideMenuController
                 let eventListView = slideVewController.mainViewController! as? TREventListViewController
                 parentView = eventListView
-//                }
             }
             
             // If Parent View is nil, just return
@@ -68,25 +58,10 @@ class TRPushNotiController: NSObject, NotificationViewProtocol {
     }
     
     func addPushAnimationAndResetTableViewOffSet (notificationview: TRPushNotificationView, parentView: UIViewController, isExistingPushView: Bool) {
-        //kPOPLayerOpacity
-        
-//        if isExistingPushView == false {
-//            let popAnimation:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPLayerPositionX)
-//            popAnimation.fromValue = -notificationview.frame.width/2
-//            popAnimation.toValue = notificationview.frame.width/2 + notificationview.frame.origin.x
-//            popAnimation.duration = 0.4
-//            notificationview.pop_addAnimation(popAnimation, forKey: "slideIn")
-//        }
-        
         if parentView.isKindOfClass(TREventListViewController) {
             let eventView = parentView as! TREventListViewController
             eventView.notificationShowMoveTableDown(notificationview.frame.height + 13)
         }
-        
-//        else if parentView.isKindOfClass(TREventDetailViewController) {
-//            let eventInfoView = parentView as! TREventDetailViewController
-//            eventInfoView.notificationShowMoveTableDown(notificationview.frame.height + 6)
-//        }
     }
     
     func addActiveNotificationViewWithParentView (pushInfo: TRActiveStatePushInfo, parentViewController: TRBaseViewController, isExistingPushView: Bool) -> TRPushNotificationView {

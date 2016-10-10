@@ -125,7 +125,7 @@ class TRApplicationManager: NSObject {
         
         let pushInfo = TRActiveStatePushInfo()
         pushInfo.parsePushNotificationPayLoad(sender)
-        self.pushNotiController!.showActiveNotificationView(pushInfo, isExistingPushView: false)
+        self.pushNotiController?.showActiveNotificationView(pushInfo, isExistingPushView: false)
     }
 
     

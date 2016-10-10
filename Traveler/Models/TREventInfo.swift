@@ -139,6 +139,15 @@ class TREventInfo: NSObject {
         return self
     }
  
+    func eventFull () -> Bool {
+        
+        if self.eventPlayersArray.count < self.eventMaxPlayers?.integerValue {
+            return false
+        }
+        
+        return true
+    }
+    
     func isEventFull () throws -> Bool {
         
         if self.eventPlayersArray.count < self.eventMaxPlayers?.integerValue {

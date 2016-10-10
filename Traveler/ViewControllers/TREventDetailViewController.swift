@@ -34,6 +34,9 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     @IBOutlet weak var chatTextBoxView: UIView!
     @IBOutlet weak var chatTextView: UITextView!
     
+    //Event Full View
+    @IBOutlet weak var fullViewsheaderLabel: UILabel!
+    @IBOutlet weak var fullViewsDescriptionLabel: UILabel!
     
     //LayOut Constraints
     @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
@@ -43,6 +46,9 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var leftSectionUnderLineRightConstraint: NSLayoutConstraint!
     @IBOutlet weak var rightSectionUnderLineLeftConstraint: NSLayoutConstraint!
+    @IBOutlet weak var eventInfoTableTopConstraint: NSLayoutConstraint?
+    @IBOutlet weak var eventFullViewBottomConstraint: NSLayoutConstraint?
+    
     
     //Current Event
     var eventInfo: TREventInfo?
@@ -205,6 +211,13 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             self.leftSectionUnderLineRightConstraint?.constant = 32
             self.rightSectionUnderLineLeftConstraint?.constant = 32
         }
+        
+        //Full Event View's Text Labels
+        if TRApplicationManager.sharedInstance.currentUser?.userID != self.eventInfo?.eventCreator?.playerID {
+            if let creatorTag = self.eventInfo?.eventCreator?.playerPsnID {
+                self.fullViewsDescriptionLabel?.text = "Send \(creatorTag) a friend request or message for a party invite."
+            }
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -217,7 +230,11 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         TRApplicationManager.sharedInstance.fireBaseManager?.addUserObserverWithView({ (didCompelete) in
             
         })
+        
+        
+        self.showEventFullView()
     }
+    
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
@@ -721,16 +738,17 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         
         if keyboardSize.height == offset.height {
             if self.view.frame.origin.y == 0 {
-                UIView.animateWithDuration(0.2, animations: { () -> Void in
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
                     self.view.frame.origin.y -= keyboardSize.height
                 })
             }
         } else {
-            UIView.animateWithDuration(0.2, animations: { () -> Void in
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
                 self.view.frame.origin.y += keyboardSize.height - offset.height
             })
         }
         
+        self.hideEventFullView()
     }
     
     func keyboardWillHide(sender: NSNotification) {
@@ -738,10 +756,37 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
         
         if self.view.frame.origin.y == self.view.frame.origin.y - keyboardSize.height {
-            self.view.frame.origin.y += keyboardSize.height
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                self.view.frame.origin.y += keyboardSize.height
+            })
+        } else {
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                self.view.frame.origin.y = 0
+            })
         }
-        else {
-            self.view.frame.origin.y = 0
+        
+        self.showEventFullView()
+    }
+    
+    func showEventFullView () {
+        if self.eventInfo?.eventFull() == true {
+            UIView.animateWithDuration(0.5) {
+                self.eventInfoTableTopConstraint?.constant = 94
+                self.eventFullViewBottomConstraint?.constant = 94
+                
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    func hideEventFullView () {
+        if self.eventInfo?.eventFull() == true {
+            UIView.animateWithDuration(0.5) {
+                self.eventInfoTableTopConstraint?.constant = 0
+                self.eventFullViewBottomConstraint?.constant = 0
+                
+                self.view.layoutIfNeeded()
+            }
         }
     }
     
