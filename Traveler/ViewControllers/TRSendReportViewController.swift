@@ -180,6 +180,10 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate, Cust
         }
         
         if self.isModallyPresented == true {
+            if self.reportTextView.isFirstResponder() {
+                self.reportTextView.resignFirstResponder()
+            }
+
             _ = TRReportComment().reportAComment(self.commentID!, eventID: self.eventID!,reportDetail: textString, reportedEmail: emailString, completion: { (didSucceed) in
                 if didSucceed == true {
                     let errorView = NSBundle.mainBundle().loadNibNamed("TRCustomError", owner: self, options: nil)[0] as! TRCustomError
