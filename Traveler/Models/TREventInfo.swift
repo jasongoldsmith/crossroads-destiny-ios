@@ -175,6 +175,16 @@ class TREventInfo: NSObject {
         
         throw Branch_Error.NEEDS_CONSOLE
     }
+    
+    func isUserPartOfEvent (userID: String) -> Bool {
+     
+        let playerExits = self.eventPlayersArray.filter{$0.playerID == userID}
+        if playerExits.count > 0 {
+            return true
+        }
+        
+        return false
+    }
 }
 
 

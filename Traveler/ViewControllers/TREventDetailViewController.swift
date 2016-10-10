@@ -493,13 +493,35 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         } else {
             let commentCell: TREventCommentCell = (tableView.dequeueReusableCellWithIdentifier(EVENT_COMMENT_CELL) as? TREventCommentCell)!
             
+            if self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userVerified != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue && self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userID == TRApplicationManager.sharedInstance.currentUser?.userID {
+                commentCell.playerIcon.image = UIImage(named: "default_helmet")
+            } else {
+                if let hasImage = self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userImageURL! {
+                    let imageURL = NSURL(string: hasImage)
+                    commentCell.playerIcon.sd_setImageWithURL(imageURL)
+                }
+            }
+            
             if self.eventInfo?.eventComments[indexPath.section].commentReported == true {
                 commentCell.playerComment.text = "[comment removed]"
                 commentCell.messageTopConst?.constant = -10
                 commentCell.messageBottomConst?.constant = -10
             } else {
+                //Check if User is part of the event && comment shouldnt be marked as Reported
+                if let playerID = self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userID {
+                    if self.eventInfo?.isUserPartOfEvent(playerID) == false {
+                        commentCell.playerComment?.textColor = UIColor(red: 183/255, green: 183/255, blue: 183/255, alpha: 1)
+                        commentCell.playerUserName?.textColor = UIColor(red: 183/255, green: 183/255, blue: 183/255, alpha: 1)
+                        commentCell.playerIcon?.image = UIImage(named: "iconProfileBlank")
+                    } else {
+                        commentCell.playerComment?.textColor = UIColor.whiteColor()
+                        commentCell.playerUserName?.textColor = UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)
+                    }
+                }
+                
                 commentCell.playerComment.text = self.eventInfo?.eventComments[indexPath.section].commentText!
             }
+            
             self.eventTable?.estimatedRowHeight = event_description_row_height
             self.eventTable?.rowHeight = UITableViewAutomaticDimension
 
@@ -525,15 +547,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 updateDate!.relative()
                 commentCell.messageTimeLabel?.text = updateDate!.relative()
             }
-            
-            if self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userVerified != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue && self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userID == TRApplicationManager.sharedInstance.currentUser?.userID {
-                commentCell.playerIcon.image = UIImage(named: "default_helmet")
-            } else {
-                if let hasImage = self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userImageURL! {
-                    let imageURL = NSURL(string: hasImage)
-                    commentCell.playerIcon.sd_setImageWithURL(imageURL)
-                }
-            }
+        
  
             if self.eventInfo?.eventComments[indexPath.section].commentReported == true {
                 commentCell.playerIcon.image = UIImage(named: "accountCircle")
@@ -541,7 +555,6 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             } else {
                 commentCell.playerUserName.hidden = false
             }
-            
             
             return commentCell
         }
