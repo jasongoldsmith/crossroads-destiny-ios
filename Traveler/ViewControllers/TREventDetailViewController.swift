@@ -519,7 +519,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                     }
                 }
                 
-                commentCell.messageTopConst?.constant = 0
+                commentCell.messageTopConst?.constant = 5
                 commentCell.messageBottomConst?.constant = 0
                 commentCell.playerComment.text = self.eventInfo?.eventComments[indexPath.section].commentText!
             }
