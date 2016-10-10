@@ -722,6 +722,13 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             let contentSizeHeight = textView.contentSize.height
             self.textViewHeightConstraint.constant = contentSizeHeight
             self.view.updateConstraints()
+            
+            self.tableViewScrollToBottom(true)
+        }
+        
+        if textView.text == "" {
+            self.textViewHeightConstraint.constant = 50
+            self.view.updateConstraints()
         }
     }
     
@@ -781,6 +788,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             })
         }
         
+        self.tableViewScrollToBottom(true)
         self.showEventFullView()
     }
     

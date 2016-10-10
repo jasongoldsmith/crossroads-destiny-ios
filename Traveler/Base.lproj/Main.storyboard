@@ -1721,6 +1721,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                             <constraint firstAttribute="trailing" secondItem="X79-1K-COu" secondAttribute="trailing" id="TuM-DZ-XCp"/>
                             <constraint firstItem="ikf-rV-Vma" firstAttribute="top" secondItem="cwo-YJ-XXx" secondAttribute="bottom" id="UhQ-EF-0ve"/>
                             <constraint firstItem="cwo-YJ-XXx" firstAttribute="leading" secondItem="Dm9-t4-bDT" secondAttribute="leading" id="Ulv-s7-B7q"/>
+                            <constraint firstItem="cwo-YJ-XXx" firstAttribute="top" secondItem="vya-EI-Q0G" secondAttribute="bottom" id="WBC-X4-zzE"/>
                             <constraint firstItem="aoz-5g-iA4" firstAttribute="top" secondItem="Dm9-t4-bDT" secondAttribute="topMargin" constant="22" id="WOl-sC-eJs"/>
                             <constraint firstItem="aoz-5g-iA4" firstAttribute="top" secondItem="SZv-Sb-Y8a" secondAttribute="bottom" constant="2" id="Xx0-lK-D0n"/>
                             <constraint firstItem="V3u-Lz-xh1" firstAttribute="top" secondItem="jYq-R8-c9p" secondAttribute="bottom" constant="-4" id="apV-jk-1QS"/>
@@ -1756,6 +1757,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                 <exclude reference="fNb-Nw-9cS"/>
                                 <exclude reference="h3x-tt-BqP"/>
                                 <exclude reference="iba-11-Wv0"/>
+                                <exclude reference="TF7-ZA-JIk"/>
                                 <exclude reference="dpj-sA-WtS"/>
                                 <exclude reference="184-pG-LdI"/>
                                 <exclude reference="wye-Px-Wfg"/>
