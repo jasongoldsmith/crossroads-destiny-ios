@@ -495,7 +495,8 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             
             if self.eventInfo?.eventComments[indexPath.section].commentReported == true {
                 commentCell.playerComment.text = "[comment removed]"
-                
+                commentCell.messageTopConst?.constant = -10
+                commentCell.messageBottomConst?.constant = -10
             } else {
                 commentCell.playerComment.text = self.eventInfo?.eventComments[indexPath.section].commentText!
             }
