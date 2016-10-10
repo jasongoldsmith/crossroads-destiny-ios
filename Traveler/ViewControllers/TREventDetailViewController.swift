@@ -519,6 +519,8 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                     }
                 }
                 
+                commentCell.messageTopConst?.constant = 0
+                commentCell.messageBottomConst?.constant = 0
                 commentCell.playerComment.text = self.eventInfo?.eventComments[indexPath.section].commentText!
             }
             
@@ -783,7 +785,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     }
     
     func showEventFullView () {
-        if self.eventInfo?.eventFull() == true {
+        if self.eventInfo?.eventFull() == false {
             UIView.animateWithDuration(0.5) {
                 self.eventInfoTableTopConstraint?.constant = 94
                 self.eventFullViewBottomConstraint?.constant = 94
@@ -794,7 +796,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     }
     
     func hideEventFullView () {
-        if self.eventInfo?.eventFull() == true {
+        if self.eventInfo?.eventFull() == false {
             UIView.animateWithDuration(0.5) {
                 self.eventInfoTableTopConstraint?.constant = 0
                 self.eventFullViewBottomConstraint?.constant = 0

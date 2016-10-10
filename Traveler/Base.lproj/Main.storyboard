@@ -1685,7 +1685,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vya-EI-Q0G">
-                                <rect key="frame" x="0.0" y="261" width="600" height="289"/>
+                                <rect key="frame" x="0.0" y="260" width="600" height="290"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="ylH-PI-zc9" id="OQR-Jf-fbr"/>
@@ -1731,7 +1731,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                             <constraint firstItem="gNz-aR-fLG" firstAttribute="top" secondItem="vya-EI-Q0G" secondAttribute="bottom" id="dpj-sA-WtS"/>
                             <constraint firstItem="vya-EI-Q0G" firstAttribute="leading" secondItem="Dm9-t4-bDT" secondAttribute="leading" id="eRU-Il-x1u"/>
                             <constraint firstItem="vya-EI-Q0G" firstAttribute="top" secondItem="V3u-Lz-xh1" secondAttribute="bottom" constant="1" id="fNb-Nw-9cS"/>
-                            <constraint firstItem="vya-EI-Q0G" firstAttribute="top" secondItem="Lid-sl-3qB" secondAttribute="bottom" constant="1" id="fRA-rm-ERe"/>
+                            <constraint firstItem="vya-EI-Q0G" firstAttribute="top" secondItem="Lid-sl-3qB" secondAttribute="bottom" id="fRA-rm-ERe"/>
                             <constraint firstItem="Lid-sl-3qB" firstAttribute="leading" secondItem="Dm9-t4-bDT" secondAttribute="leading" id="g0V-sy-19T"/>
                             <constraint firstItem="vya-EI-Q0G" firstAttribute="top" secondItem="V3u-Lz-xh1" secondAttribute="bottom" id="h3x-tt-BqP"/>
                             <constraint firstItem="vya-EI-Q0G" firstAttribute="top" secondItem="Efu-iV-fD3" secondAttribute="bottom" constant="1" id="iba-11-Wv0"/>
