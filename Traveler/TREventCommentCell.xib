@@ -53,10 +53,18 @@
                         <color key="textColor" red="0.50588235294117645" green="0.61960784313725492" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgDogEar" translatesAutoresizingMaskIntoConstraints="NO" id="4LK-a2-MqJ">
+                        <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="ZYE-rN-DL2"/>
+                            <constraint firstAttribute="width" constant="16" id="hYt-ag-wjm"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="aTR-h9-MMf" firstAttribute="trailing" secondItem="VYj-2W-lvO" secondAttribute="trailingMargin" id="5qb-97-yjZ"/>
                     <constraint firstAttribute="trailing" secondItem="uAn-P1-PzQ" secondAttribute="trailing" id="8YD-nm-91x"/>
+                    <constraint firstItem="4LK-a2-MqJ" firstAttribute="leading" secondItem="VYj-2W-lvO" secondAttribute="leading" id="EMF-a8-bCe"/>
                     <constraint firstItem="aTR-h9-MMf" firstAttribute="bottom" secondItem="VYj-2W-lvO" secondAttribute="bottomMargin" id="JB0-Va-RvW"/>
                     <constraint firstItem="uAn-P1-PzQ" firstAttribute="leading" secondItem="VYj-2W-lvO" secondAttribute="leading" id="KsK-K0-s7s"/>
                     <constraint firstItem="aTR-h9-MMf" firstAttribute="bottom" secondItem="VYj-2W-lvO" secondAttribute="bottomMargin" id="Lh6-cV-XPO"/>
@@ -64,6 +72,7 @@
                     <constraint firstAttribute="trailing" secondItem="3TJ-KV-cia" secondAttribute="trailing" constant="13" id="OSD-gw-LU0"/>
                     <constraint firstItem="hdB-Cm-tx4" firstAttribute="top" secondItem="VYj-2W-lvO" secondAttribute="top" constant="10" id="Oup-WX-4ca"/>
                     <constraint firstItem="yWd-tJ-MJG" firstAttribute="top" secondItem="VYj-2W-lvO" secondAttribute="top" constant="10" id="Pav-ab-VbJ"/>
+                    <constraint firstItem="4LK-a2-MqJ" firstAttribute="top" secondItem="VYj-2W-lvO" secondAttribute="top" id="RRd-5P-oyi"/>
                     <constraint firstItem="3TJ-KV-cia" firstAttribute="top" secondItem="VYj-2W-lvO" secondAttribute="top" constant="11" id="SBW-Dr-Phy"/>
                     <constraint firstItem="aTR-h9-MMf" firstAttribute="top" secondItem="hdB-Cm-tx4" secondAttribute="bottom" constant="5" id="Tel-Fz-Cy4"/>
                     <constraint firstItem="hdB-Cm-tx4" firstAttribute="leading" secondItem="yWd-tJ-MJG" secondAttribute="trailing" constant="14" id="da4-D4-a42"/>
@@ -79,6 +88,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="creatorDogTag" destination="4LK-a2-MqJ" id="UgB-pU-cKg"/>
                 <outlet property="messageBottomConst" destination="Lh6-cV-XPO" id="kKv-MV-P6p"/>
                 <outlet property="messageTimeLabel" destination="3TJ-KV-cia" id="HGg-4b-wjt"/>
                 <outlet property="messageTopConst" destination="Tel-Fz-Cy4" id="9pC-L3-tGb"/>
@@ -86,7 +96,10 @@
                 <outlet property="playerIcon" destination="yWd-tJ-MJG" id="VSt-Gd-2fB"/>
                 <outlet property="playerUserName" destination="hdB-Cm-tx4" id="SXG-y4-Fhl"/>
             </connections>
-            <point key="canvasLocation" x="982" y="787"/>
+            <point key="canvasLocation" x="587" y="786"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="imgDogEar" width="28" height="28"/>
+    </resources>
 </document>

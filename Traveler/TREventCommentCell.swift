@@ -14,6 +14,7 @@ class TREventCommentCell: UITableViewCell {
     @IBOutlet weak var playerUserName: UILabel!
     @IBOutlet weak var playerComment: UILabel!
     @IBOutlet weak var messageTimeLabel: UILabel!
+    @IBOutlet weak var creatorDogTag: UIImageView!
     @IBOutlet weak var messageTopConst: NSLayoutConstraint!
     @IBOutlet weak var messageBottomConst: NSLayoutConstraint!
 }

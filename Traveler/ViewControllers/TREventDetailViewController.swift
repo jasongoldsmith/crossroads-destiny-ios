@@ -558,6 +558,16 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 commentCell.playerUserName.hidden = false
             }
             
+            //Add DogTag to the event creator
+            if self.eventInfo?.eventFull() == true {
+                if self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userID == self.eventInfo?.eventCreator?.playerID {
+                    commentCell.creatorDogTag?.hidden = false
+                } else {
+                    commentCell.creatorDogTag?.hidden = true
+                }
+            }
+            
+            
             return commentCell
         }
     }
@@ -793,7 +803,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     }
     
     func showEventFullView () {
-        if self.eventInfo?.eventFull() == false {
+        if self.eventInfo?.eventFull() == true {
             UIView.animateWithDuration(0.5) {
                 self.eventInfoTableTopConstraint?.constant = 94
                 self.eventFullViewBottomConstraint?.constant = 94
@@ -804,7 +814,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     }
     
     func hideEventFullView () {
-        if self.eventInfo?.eventFull() == false {
+        if self.eventInfo?.eventFull() == true {
             UIView.animateWithDuration(0.5) {
                 self.eventInfoTableTopConstraint?.constant = 0
                 self.eventFullViewBottomConstraint?.constant = 0
