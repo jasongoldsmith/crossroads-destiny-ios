@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -31,6 +32,10 @@
                         <color key="textColor" red="1" green="0.77647058823529413" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u03-8H-SfI">
+                        <rect key="frame" x="274" y="5" width="44" height="44"/>
+                        <state key="normal" image="iconInvite"/>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
@@ -38,18 +43,24 @@
                     <constraint firstItem="RLO-1O-Sqa" firstAttribute="centerY" secondItem="RlE-qc-vs3" secondAttribute="centerY" id="71r-vE-RXe"/>
                     <constraint firstItem="rNU-9F-ogv" firstAttribute="leading" secondItem="RlE-qc-vs3" secondAttribute="leading" id="97a-hC-g0S"/>
                     <constraint firstItem="TcE-zA-nQ8" firstAttribute="centerY" secondItem="RlE-qc-vs3" secondAttribute="centerY" id="Bbv-Ya-1Fx"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="u03-8H-SfI" secondAttribute="trailing" constant="-6" id="LSG-EU-Hi7"/>
                     <constraint firstAttribute="trailing" secondItem="rNU-9F-ogv" secondAttribute="trailing" id="ZpE-I6-3Pm"/>
                     <constraint firstAttribute="bottom" secondItem="rNU-9F-ogv" secondAttribute="bottom" id="fdH-67-ckD"/>
                     <constraint firstItem="TcE-zA-nQ8" firstAttribute="leading" secondItem="RLO-1O-Sqa" secondAttribute="trailing" constant="16" id="gSk-6Q-c65"/>
                     <constraint firstItem="RLO-1O-Sqa" firstAttribute="leading" secondItem="RlE-qc-vs3" secondAttribute="leading" constant="17" id="r7q-CV-1FB"/>
+                    <constraint firstItem="u03-8H-SfI" firstAttribute="centerY" secondItem="RlE-qc-vs3" secondAttribute="centerY" id="x8u-ut-P8A"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="playerIcon" destination="RLO-1O-Sqa" id="dnL-BW-Hag"/>
+                <outlet property="playerInviteButton" destination="u03-8H-SfI" id="r27-rk-R3J"/>
                 <outlet property="playerUserName" destination="TcE-zA-nQ8" id="naV-Ji-Rhx"/>
             </connections>
-            <point key="canvasLocation" x="863" y="433"/>
+            <point key="canvasLocation" x="825" y="481"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="iconInvite" width="44" height="44"/>
+    </resources>
 </document>

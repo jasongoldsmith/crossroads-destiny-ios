@@ -470,7 +470,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 cell?.playerUserName.text = playersNameString
                 cell?.playerUserName?.textColor = UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)
                 cell?.playerIcon.roundRectView (1, borderColor: UIColor.grayColor())
-
+                cell?.playerInviteButton.hidden = true
                 
                 if self.eventInfo?.eventPlayersArray[indexPath.section].userVerified != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue
                 && self.eventInfo?.eventPlayersArray[indexPath.section].playerID == TRApplicationManager.sharedInstance.currentUser?.userID{
@@ -487,6 +487,13 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 cell?.playerIcon?.image = UIImage(named: "iconProfileBlank")
                 cell?.playerUserName?.text = "searching..."
                 cell?.playerUserName?.textColor = UIColor.whiteColor()
+                
+                if (indexPath.section) == self.eventInfo?.eventPlayersArray.count {
+                    cell?.playerInviteButton.hidden = false
+                } else {
+                    cell?.playerInviteButton.hidden = true
+                }
+                
                 
                 return cell!
             }
@@ -596,6 +603,10 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 errorView.delegate = self
                 
                 self.view.addSubviewWithLayoutConstraint(errorView)
+            }
+        } else {
+            if indexPath.section == self.eventInfo?.eventPlayersArray.count {
+                print("Searching")
             }
         }
     }
