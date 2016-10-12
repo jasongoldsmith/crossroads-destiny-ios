@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import pop
 
 class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, CustomErrorDelegate {
     
@@ -74,8 +75,8 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         self.chatTextView.layer.cornerRadius = 3.0
         
         //Key Board Observer
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRSignInViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRSignInViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRSignInViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRSignInViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
 
         
         self.segmentControl?.removeBorders()
@@ -606,7 +607,20 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             }
         } else {
             if indexPath.section == self.eventInfo?.eventPlayersArray.count {
-                print("Searching")
+                let inviteView = NSBundle.mainBundle().loadNibNamed("TRInviteView", owner: self, options: nil)[0] as! TRInviteView
+                inviteView.setUpView()
+                inviteView.frame = CGRectMake(0, inviteView.bounds.size.height, inviteView.frame.size.width, inviteView.frame.size.height)
+                let trans = POPSpringAnimation(propertyNamed: kPOPLayerTranslationXY)
+                trans.fromValue = NSValue(CGPoint: CGPointMake(0, inviteView.bounds.size.height))
+                trans.toValue = NSValue(CGPoint: CGPointMake(0, 0))
+                inviteView.layer.pop_addAnimation(trans, forKey: "Translation")
+                
+                let popAnimation:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+                popAnimation.toValue = 1.0
+                popAnimation.duration = 0.4
+                inviteView.pop_addAnimation(popAnimation, forKey: "alphasIn")
+                
+                self.view.addSubviewWithLayoutConstraint(inviteView)
             }
         }
     }
