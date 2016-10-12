@@ -182,6 +182,8 @@ class TRSendReportViewController: TRBaseViewController, UITextViewDelegate, Cust
         if self.isModallyPresented == true {
             if self.reportTextView.isFirstResponder() {
                 self.reportTextView.resignFirstResponder()
+            } else if (self.emailTextView.isFirstResponder()) {
+                self.emailTextView.resignFirstResponder()
             }
 
             _ = TRReportComment().reportAComment(self.commentID!, eventID: self.eventID!,reportDetail: textString, reportedEmail: emailString, completion: { (didSucceed) in
