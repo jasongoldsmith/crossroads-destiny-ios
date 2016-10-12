@@ -839,7 +839,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     }
     
     func hideEventFullView () {
-        if self.eventInfo?.eventFull() == true && && TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!) == true {
+        if self.eventInfo?.eventFull() == true && TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!) == true {
             UIView.animateWithDuration(0.5) {
                 self.eventInfoTableTopConstraint?.constant = 0
                 self.eventFullViewBottomConstraint?.constant = 0
