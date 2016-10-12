@@ -1786,7 +1786,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                         <outlet property="segmentOneUnderLine" destination="HAF-uu-5cX" id="50b-jr-ddx"/>
                         <outlet property="segmentTwoUnderLine" destination="V3u-Lz-xh1" id="Cil-eC-kWw"/>
                         <outlet property="sendMessageButton" destination="om7-3h-vXW" id="Zh9-OY-39q"/>
-                        <outlet property="tableViewBottomConstraint" destination="TF7-ZA-JIk" id="xfY-s5-bff"/>
+                        <outlet property="tableViewBottomConstraint" destination="WBC-X4-zzE" id="9h9-ul-zob"/>
                         <outlet property="textViewHeightConstraint" destination="fDw-ij-qVg" id="ezF-3Q-uKE"/>
                         <outlet property="titleHeightConstraint" destination="zQ2-mg-X89" id="2E8-Md-eFr"/>
                     </connections>
