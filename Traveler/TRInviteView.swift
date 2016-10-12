@@ -67,6 +67,9 @@ class TRInviteView: UIView, KSTokenViewDelegate {
     
     @IBAction func closeInviteView () {
         
+        //Remove TokenView
+        self.tokenView.removeFromSuperview()
+        
         let trans = POPSpringAnimation(propertyNamed: kPOPLayerTranslationXY)
         trans.fromValue = NSValue(CGPoint: CGPointMake(0, 0))
         trans.toValue = NSValue(CGPoint: CGPointMake(0, self.bounds.size.height))
