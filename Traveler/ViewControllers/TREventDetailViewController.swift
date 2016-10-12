@@ -74,9 +74,9 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         self.chatTextView?.textColor = UIColor.lightGrayColor()
         self.chatTextView.layer.cornerRadius = 3.0
         
-        //Key Board Observer
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRSignInViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRSignInViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
+//        Key Board Observer
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRSignInViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRSignInViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
 
         
         self.segmentControl?.removeBorders()
@@ -828,7 +828,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     }
     
     func showEventFullView () {
-        if self.eventInfo?.eventFull() == true {
+        if self.eventInfo?.eventFull() == true && TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!) == true {
             UIView.animateWithDuration(0.5) {
                 self.eventInfoTableTopConstraint?.constant = 94
                 self.eventFullViewBottomConstraint?.constant = 94
@@ -839,7 +839,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     }
     
     func hideEventFullView () {
-        if self.eventInfo?.eventFull() == true {
+        if self.eventInfo?.eventFull() == true && && TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!) == true {
             UIView.animateWithDuration(0.5) {
                 self.eventInfoTableTopConstraint?.constant = 0
                 self.eventFullViewBottomConstraint?.constant = 0
