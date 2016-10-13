@@ -20,6 +20,7 @@ def project_pods
     pod 'Fabric', '~>1.6.8'
     pod 'Crashlytics'
     pod 'iCarousel'
+    pod 'Firebase/Crash'
 end
 
 target 'Traveler' do

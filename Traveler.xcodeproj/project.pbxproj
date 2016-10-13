@@ -150,6 +150,10 @@
 		3369499C1CC5CFEB004979C0 /* NSBundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369499B1CC5CFEB004979C0 /* NSBundleExtension.swift */; };
 		3369499D1CC5CFEB004979C0 /* NSBundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369499B1CC5CFEB004979C0 /* NSBundleExtension.swift */; };
 		3369499E1CC5CFEB004979C0 /* NSBundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369499B1CC5CFEB004979C0 /* NSBundleExtension.swift */; };
+		336A666D1DB0091D00A90D63 /* TRInvitePlayersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336A666C1DB0091D00A90D63 /* TRInvitePlayersRequest.swift */; };
+		336A666E1DB0091D00A90D63 /* TRInvitePlayersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336A666C1DB0091D00A90D63 /* TRInvitePlayersRequest.swift */; };
+		336A666F1DB0091D00A90D63 /* TRInvitePlayersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336A666C1DB0091D00A90D63 /* TRInvitePlayersRequest.swift */; };
+		336A66701DB0091D00A90D63 /* TRInvitePlayersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336A666C1DB0091D00A90D63 /* TRInvitePlayersRequest.swift */; };
 		336B99C21D64E1D300668BF4 /* TRCommentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336B99C11D64E1D300668BF4 /* TRCommentInfo.swift */; };
 		336B99C31D64E1D300668BF4 /* TRCommentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336B99C11D64E1D300668BF4 /* TRCommentInfo.swift */; };
 		336B99C41D64E1D300668BF4 /* TRCommentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336B99C11D64E1D300668BF4 /* TRCommentInfo.swift */; };
@@ -651,6 +655,7 @@
 		335405C41D52A63A00B42BAC /* TRLegalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLegalInfo.swift; sourceTree = "<group>"; };
 		335405C91D52AFA100B42BAC /* TRRequestUpdateLegalRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRequestUpdateLegalRequest.swift; sourceTree = "<group>"; };
 		3369499B1CC5CFEB004979C0 /* NSBundleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSBundleExtension.swift; path = ../Networking/NSBundleExtension.swift; sourceTree = "<group>"; };
+		336A666C1DB0091D00A90D63 /* TRInvitePlayersRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRInvitePlayersRequest.swift; sourceTree = "<group>"; };
 		336B99C11D64E1D300668BF4 /* TRCommentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCommentInfo.swift; sourceTree = "<group>"; };
 		336B99C61D64E90900668BF4 /* TREventCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREventCommentCell.swift; sourceTree = "<group>"; };
 		336B99CB1D64E94900668BF4 /* TREventCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TREventCommentCell.xib; sourceTree = "<group>"; };
@@ -869,6 +874,17 @@
 			name = CreateEvent;
 			sourceTree = "<group>";
 		};
+		336A666B1DAF77F800A90D63 /* KSToken */ = {
+			isa = PBXGroup;
+			children = (
+				33FAF3F11DAE105F00670B8B /* KSToken.swift */,
+				33FAF3F21DAE105F00670B8B /* KSTokenField.swift */,
+				33FAF3F31DAE105F00670B8B /* KSTokenView.swift */,
+				33FAF3F41DAE105F00670B8B /* KSUtils.swift */,
+			);
+			name = KSToken;
+			sourceTree = "<group>";
+		};
 		33742DB51C8317A400C46742 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1028,6 +1044,7 @@
 				335405C91D52AFA100B42BAC /* TRRequestUpdateLegalRequest.swift */,
 				336DF8B21D887B230057879E /* TRPublicFeedRequest.swift */,
 				332CA6E71D9B30D40020AC19 /* TRReportComment.swift */,
+				336A666C1DB0091D00A90D63 /* TRInvitePlayersRequest.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -1092,11 +1109,8 @@
 		62C1FF2E1C77C15C00A78798 /* Traveler */ = {
 			isa = PBXGroup;
 			children = (
-				33FAF3F11DAE105F00670B8B /* KSToken.swift */,
-				33FAF3F21DAE105F00670B8B /* KSTokenField.swift */,
-				33FAF3F31DAE105F00670B8B /* KSTokenView.swift */,
-				33FAF3F41DAE105F00670B8B /* KSUtils.swift */,
 				3378F4371D6639040064C1B4 /* GoogleService-Info.plist */,
+				336A666B1DAF77F800A90D63 /* KSToken */,
 				33D0B3F71CFCFD41008ABA04 /* LaunchImage */,
 				3305ACF51CF2643800572495 /* Yatri */,
 				629497301C7C047F005E4F91 /* Utility */,
@@ -1192,6 +1206,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 33D0B45F1CFD0165008ABA04 /* Build configuration list for PBXNativeTarget "Traveler" */;
 			buildPhases = (
+				E07B3308F52FF5B1DC1354EB /* 📦 Check Pods Manifest.lock */,
 				6A2D61296A2E8B5CFEB1697B /* [CP] Check Pods Manifest.lock */,
 				33D0B3FA1CFD0165008ABA04 /* Sources */,
 				33D0B4441CFD0165008ABA04 /* Frameworks */,
@@ -1199,6 +1214,8 @@
 				33D0B45C1CFD0165008ABA04 /* Run Script */,
 				48F39F131CE5B70DECA47D30 /* [CP] Embed Pods Frameworks */,
 				9B50CFB0CF6513806F0EEE27 /* [CP] Copy Pods Resources */,
+				4EE6B969E55FC40157EA1551 /* 📦 Embed Pods Frameworks */,
+				846E64E361969FFD71A94401 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1213,6 +1230,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 62C1FF541C77C15C00A78798 /* Build configuration list for PBXNativeTarget "Crossroads" */;
 			buildPhases = (
+				D2FA16E2405BDC02E00C4464 /* 📦 Check Pods Manifest.lock */,
 				505F6279532B398D1ECE7572 /* [CP] Check Pods Manifest.lock */,
 				62C1FF281C77C15C00A78798 /* Sources */,
 				62C1FF291C77C15C00A78798 /* Frameworks */,
@@ -1221,6 +1239,8 @@
 				33F77F7F1D5A95600002CFAF /* ShellScript */,
 				430BB54DEE07F686D5C10559 /* [CP] Embed Pods Frameworks */,
 				F096553F8AE134BB6BC75612 /* [CP] Copy Pods Resources */,
+				7EA0C2B0C01F99DC511F8581 /* 📦 Embed Pods Frameworks */,
+				B59AAFDB1323E55540225ECF /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1235,12 +1255,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 62C1FF571C77C15C00A78798 /* Build configuration list for PBXNativeTarget "TravelerTests" */;
 			buildPhases = (
+				22E71AF076632FB51405D01D /* 📦 Check Pods Manifest.lock */,
 				FCC7279A73EF3C1E6FEBE3B0 /* [CP] Check Pods Manifest.lock */,
 				62C1FF3C1C77C15C00A78798 /* Sources */,
 				62C1FF3D1C77C15C00A78798 /* Frameworks */,
 				62C1FF3E1C77C15C00A78798 /* Resources */,
 				D2FC914F5922543D1BE6036C /* [CP] Embed Pods Frameworks */,
 				04DE544EDA09FD15DDC83399 /* [CP] Copy Pods Resources */,
+				E8D7D7C298B5A7E07DBAFB8F /* 📦 Embed Pods Frameworks */,
+				75328E3ED732AE51C2988ABF /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1256,11 +1279,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 62C1FF5A1C77C15C00A78798 /* Build configuration list for PBXNativeTarget "TravelerUITests" */;
 			buildPhases = (
+				094851547A2817B1E2ACFFCB /* 📦 Check Pods Manifest.lock */,
 				4CC23F68F9913D68FC6609AA /* [CP] Check Pods Manifest.lock */,
 				62C1FF471C77C15C00A78798 /* Sources */,
 				62C1FF481C77C15C00A78798 /* Frameworks */,
 				62C1FF491C77C15C00A78798 /* Resources */,
 				E886AED3854DBD16CCABF416 /* [CP] Copy Pods Resources */,
+				CA3E21196B907D76368791AB /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1494,6 +1519,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TravelerTests/Pods-TravelerTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		094851547A2817B1E2ACFFCB /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		22E71AF076632FB51405D01D /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		33D0B45C1CFD0165008ABA04 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1580,6 +1635,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		4EE6B969E55FC40157EA1551 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Traveler/Pods-Traveler-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		505F6279532B398D1ECE7572 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1610,6 +1680,51 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		75328E3ED732AE51C2988ABF /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TravelerTests/Pods-TravelerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7EA0C2B0C01F99DC511F8581 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Crossroads/Pods-Crossroads-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		846E64E361969FFD71A94401 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Traveler/Pods-Traveler-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9B50CFB0CF6513806F0EEE27 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1623,6 +1738,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Traveler/Pods-Traveler-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B59AAFDB1323E55540225ECF /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Crossroads/Pods-Crossroads-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA3E21196B907D76368791AB /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TravelerUITests/Pods-TravelerUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2FA16E2405BDC02E00C4464 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D2FC914F5922543D1BE6036C /* [CP] Embed Pods Frameworks */ = {
@@ -1640,6 +1800,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TravelerTests/Pods-TravelerTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E07B3308F52FF5B1DC1354EB /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		E886AED3854DBD16CCABF416 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1653,6 +1828,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TravelerUITests/Pods-TravelerUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8D7D7C298B5A7E07DBAFB8F /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TravelerTests/Pods-TravelerTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F096553F8AE134BB6BC75612 /* [CP] Copy Pods Resources */ = {
@@ -1725,6 +1915,7 @@
 				33D0B4081CFD0165008ABA04 /* TRConstants.swift in Sources */,
 				33C3907F1D8BBAD90017D096 /* TRMessageSentConfViewController.swift in Sources */,
 				33D0B4091CFD0165008ABA04 /* TRLeaveEventRequest.swift in Sources */,
+				336A666D1DB0091D00A90D63 /* TRInvitePlayersRequest.swift in Sources */,
 				33A588FC1D511C2900D06127 /* TRChangeConsoleRequest.swift in Sources */,
 				33F4DB451D63B964001FF0AB /* TREventDescriptionCell.swift in Sources */,
 				331194BC1D88C00F007A1262 /* TRCaroselCellView.swift in Sources */,
@@ -1847,6 +2038,7 @@
 				33742D801C7FBDF100C46742 /* TRConstants.swift in Sources */,
 				33C390801D8BBAD90017D096 /* TRMessageSentConfViewController.swift in Sources */,
 				332C9CE41C8B89370092989E /* TRLeaveEventRequest.swift in Sources */,
+				336A666E1DB0091D00A90D63 /* TRInvitePlayersRequest.swift in Sources */,
 				33A588FD1D511C2900D06127 /* TRChangeConsoleRequest.swift in Sources */,
 				33F4DB461D63B964001FF0AB /* TREventDescriptionCell.swift in Sources */,
 				331194BD1D88C00F007A1262 /* TRCaroselCellView.swift in Sources */,
@@ -1969,6 +2161,7 @@
 				62C1FF451C77C15C00A78798 /* TravelerTests.swift in Sources */,
 				33C390811D8BBAD90017D096 /* TRMessageSentConfViewController.swift in Sources */,
 				33A029B11CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift in Sources */,
+				336A666F1DB0091D00A90D63 /* TRInvitePlayersRequest.swift in Sources */,
 				62C1FF601C77CDFF00A78798 /* TRLoginOptionViewController.swift in Sources */,
 				33D067681CD40AF600E05EF1 /* TRUpdateUser.swift in Sources */,
 				331194BE1D88C00F007A1262 /* TRCaroselCellView.swift in Sources */,
@@ -2091,6 +2284,7 @@
 				62C1FF501C77C15C00A78798 /* TravelerUITests.swift in Sources */,
 				33C390821D8BBAD90017D096 /* TRMessageSentConfViewController.swift in Sources */,
 				33A029B21CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift in Sources */,
+				336A66701DB0091D00A90D63 /* TRInvitePlayersRequest.swift in Sources */,
 				62C1FF611C77CDFF00A78798 /* TRLoginOptionViewController.swift in Sources */,
 				33D067691CD40AF600E05EF1 /* TRUpdateUser.swift in Sources */,
 				331194BF1D88C00F007A1262 /* TRCaroselCellView.swift in Sources */,
@@ -2233,6 +2427,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2391,6 +2586,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2438,6 +2634,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

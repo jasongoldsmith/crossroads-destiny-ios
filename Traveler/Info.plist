@@ -46,7 +46,7 @@
 	<key>CFBundleVersion</key>
 	<string>6</string>
 	<key>FIREBASE_ANALYTICS_COLLECTION_DEACTIVATED</key>
-	<string>YES</string>
+	<string>NO</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
