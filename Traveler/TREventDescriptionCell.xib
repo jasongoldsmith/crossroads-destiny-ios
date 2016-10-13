@@ -12,12 +12,21 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bJf-v6-9dG" id="RlE-qc-vs3">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="53.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rNU-9F-ogv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
                         <color key="backgroundColor" red="0.25098039220000001" green="0.33333333329999998" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </imageView>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgDogEar" translatesAutoresizingMaskIntoConstraints="NO" id="CQT-rZ-GN5">
+                        <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="Kig-Ah-mZw"/>
+                            <constraint firstAttribute="width" constant="16" id="UDW-QF-kez"/>
+                            <constraint firstAttribute="height" constant="16" id="ejH-9Z-d5R"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="16" id="r3R-YG-7t2"/>
+                        </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RLO-1O-Sqa">
                         <rect key="frame" x="17" y="8" width="36" height="36"/>
@@ -44,7 +53,9 @@
                     <constraint firstItem="rNU-9F-ogv" firstAttribute="leading" secondItem="RlE-qc-vs3" secondAttribute="leading" id="97a-hC-g0S"/>
                     <constraint firstItem="TcE-zA-nQ8" firstAttribute="centerY" secondItem="RlE-qc-vs3" secondAttribute="centerY" id="Bbv-Ya-1Fx"/>
                     <constraint firstAttribute="trailingMargin" secondItem="u03-8H-SfI" secondAttribute="trailing" constant="-6" id="LSG-EU-Hi7"/>
+                    <constraint firstItem="CQT-rZ-GN5" firstAttribute="leading" secondItem="RlE-qc-vs3" secondAttribute="leading" id="Upj-AQ-wtA"/>
                     <constraint firstAttribute="trailing" secondItem="rNU-9F-ogv" secondAttribute="trailing" id="ZpE-I6-3Pm"/>
+                    <constraint firstItem="CQT-rZ-GN5" firstAttribute="top" secondItem="RlE-qc-vs3" secondAttribute="top" id="d95-eq-w9H"/>
                     <constraint firstAttribute="bottom" secondItem="rNU-9F-ogv" secondAttribute="bottom" id="fdH-67-ckD"/>
                     <constraint firstItem="TcE-zA-nQ8" firstAttribute="leading" secondItem="RLO-1O-Sqa" secondAttribute="trailing" constant="16" id="gSk-6Q-c65"/>
                     <constraint firstItem="RLO-1O-Sqa" firstAttribute="leading" secondItem="RlE-qc-vs3" secondAttribute="leading" constant="17" id="r7q-CV-1FB"/>
@@ -53,6 +64,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="creatorDogTag" destination="CQT-rZ-GN5" id="pVq-Wt-5Jr"/>
                 <outlet property="playerIcon" destination="RLO-1O-Sqa" id="dnL-BW-Hag"/>
                 <outlet property="playerInviteButton" destination="u03-8H-SfI" id="r27-rk-R3J"/>
                 <outlet property="playerUserName" destination="TcE-zA-nQ8" id="naV-Ji-Rhx"/>
@@ -62,5 +74,6 @@
     </objects>
     <resources>
         <image name="iconInvite" width="44" height="44"/>
+        <image name="imgDogEar" width="28" height="28"/>
     </resources>
 </document>
