@@ -10,5 +10,27 @@ import Foundation
 
 
 class TRInvitePlayersRequest: TRRequest {
-    
+    func invitePlayers (eventID: String, invitedPlayers: [String], invitationLink: String, completion: TRValueCallBack) {
+        let reportURL = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_INVITE_PLAYER
+        
+        let request = TRRequest()
+        request.requestURL = reportURL
+        
+        var params = [String: AnyObject]()
+        params["eId"] = eventID
+        params["invitees"] = invitedPlayers
+        params["invitationLink"] = invitationLink
+        request.params = params
+        
+        request.sendRequestWithCompletion { (error, swiftyJsonVar) -> () in
+            
+            if let _ = error {
+                completion(didSucceed: false)
+                
+                return
+            }
+            
+            completion(didSucceed: true )
+        }
+    }
 }
