@@ -36,6 +36,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     @IBOutlet weak var chatTextView: UITextView!
     
     //Event Full View
+    @IBOutlet weak var fullViews: UIView!
     @IBOutlet weak var fullViewsheaderLabel: UILabel!
     @IBOutlet weak var fullViewsDescriptionLabel: UILabel!
     
@@ -219,6 +220,8 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 self.fullViewsDescriptionLabel?.text = "Send \(creatorTag) a friend request or message for a party invite."
             }
         }
+
+        self.fullViews?.alpha = 0
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -842,16 +845,28 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     
     func showEventFullView () {
     if self.eventInfo?.eventFull() == true && TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!) == true {
-            UIView.animateWithDuration(1.5) {
-                self.eventInfoTableTopConstraint?.constant = 94
+        
+            self.view.layoutIfNeeded()
+            self.fullViews?.hidden = false
+            UIView.animateWithDuration(0.4) {
+                
+                self.fullViews?.alpha = 1
+                self.eventInfoTableTopConstraint?.constant = 50
                 self.eventFullViewBottomConstraint?.constant = 94
+                
+                self.view.layoutIfNeeded()
             }
         } else {
-            UIView.animateWithDuration(1.5) {
+            UIView.animateWithDuration(0.4) {
                 self.eventInfoTableTopConstraint?.constant = 0
                 self.eventFullViewBottomConstraint?.constant = 0
             }
+        
+            self.fullViews?.alpha = 0
         }
+        
+        //Bring Full event view Z level on top of everything
+        self.view.bringSubviewToFront(self.fullViews)
     }
     
     deinit {

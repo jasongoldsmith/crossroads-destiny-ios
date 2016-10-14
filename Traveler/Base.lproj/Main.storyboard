@@ -1776,6 +1776,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                         <outlet property="eventName" destination="Khp-dG-aaY" id="ESt-GY-Oi3"/>
                         <outlet property="eventTable" destination="vya-EI-Q0G" id="LAN-5Y-H8b"/>
                         <outlet property="eventTag" destination="lML-KN-3nB" id="oz6-JP-HSy"/>
+                        <outlet property="fullViews" destination="Efu-iV-fD3" id="E8r-l3-RXG"/>
                         <outlet property="fullViewsDescriptionLabel" destination="4wg-RE-6e9" id="9e4-q2-rSd"/>
                         <outlet property="fullViewsheaderLabel" destination="w5t-53-LMG" id="x1l-9Z-UD6"/>
                         <outlet property="iconHeightConstraint" destination="Qd0-kH-wcW" id="n2J-W8-jKw"/>
