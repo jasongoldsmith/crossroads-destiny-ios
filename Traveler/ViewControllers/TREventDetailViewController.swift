@@ -490,6 +490,8 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                     } else {
                         cell!.creatorDogTag?.hidden = true
                     }
+                } else {
+                    cell!.creatorDogTag?.hidden = true
                 }
 
                 return cell!
@@ -499,7 +501,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 cell?.playerUserName?.textColor = UIColor.whiteColor()
                 
                 if (indexPath.section) == self.eventInfo?.eventPlayersArray.count {
-                    cell?.playerInviteButton.hidden = false
+                    cell?.playerInviteButton.hidden = true
                 } else {
                     cell?.playerInviteButton.hidden = true
                 }
@@ -581,6 +583,8 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 } else {
                     commentCell.creatorDogTag?.hidden = true
                 }
+            } else {
+                commentCell.creatorDogTag?.hidden = true
             }
             
             
@@ -614,22 +618,22 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 self.view.addSubviewWithLayoutConstraint(errorView)
             }
         } else {
-            if indexPath.section == self.eventInfo?.eventPlayersArray.count {
-                let inviteView = NSBundle.mainBundle().loadNibNamed("TRInviteView", owner: self, options: nil)[0] as! TRInviteView
-                inviteView.setUpView()
-                inviteView.frame = CGRectMake(0, inviteView.bounds.size.height, inviteView.frame.size.width, inviteView.frame.size.height)
-                let trans = POPSpringAnimation(propertyNamed: kPOPLayerTranslationXY)
-                trans.fromValue = NSValue(CGPoint: CGPointMake(0, inviteView.bounds.size.height))
-                trans.toValue = NSValue(CGPoint: CGPointMake(0, 0))
-                inviteView.layer.pop_addAnimation(trans, forKey: "Translation")
-                
-                let popAnimation:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
-                popAnimation.toValue = 1.0
-                popAnimation.duration = 0.4
-                inviteView.pop_addAnimation(popAnimation, forKey: "alphasIn")
-                
-                self.view.addSubviewWithLayoutConstraint(inviteView)
-            }
+//            if indexPath.section == self.eventInfo?.eventPlayersArray.count {
+//                let inviteView = NSBundle.mainBundle().loadNibNamed("TRInviteView", owner: self, options: nil)[0] as! TRInviteView
+//                inviteView.setUpView()
+//                inviteView.frame = CGRectMake(0, inviteView.bounds.size.height, inviteView.frame.size.width, inviteView.frame.size.height)
+//                let trans = POPSpringAnimation(propertyNamed: kPOPLayerTranslationXY)
+//                trans.fromValue = NSValue(CGPoint: CGPointMake(0, inviteView.bounds.size.height))
+//                trans.toValue = NSValue(CGPoint: CGPointMake(0, 0))
+//                inviteView.layer.pop_addAnimation(trans, forKey: "Translation")
+//                
+//                let popAnimation:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+//                popAnimation.toValue = 1.0
+//                popAnimation.duration = 0.4
+//                inviteView.pop_addAnimation(popAnimation, forKey: "alphasIn")
+//                
+//                self.view.addSubviewWithLayoutConstraint(inviteView)
+//            }
         }
     }
     
@@ -672,6 +676,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 
                 //Reload Data
                 self.eventTable?.reloadData()
+                self.showEventFullView()
             }
             
             if self.segmentControl?.selectedSegmentIndex == 1 {
@@ -814,7 +819,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             })
         }
         
-        self.hideEventFullView()
+        self.showEventFullView()
     }
     
     func keyboardWillHide(sender: NSNotification) {
@@ -836,23 +841,15 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     }
     
     func showEventFullView () {
-        if self.eventInfo?.eventFull() == true && TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!) == true {
-            UIView.animateWithDuration(0.5) {
+    if self.eventInfo?.eventFull() == true && TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!) == true {
+            UIView.animateWithDuration(1.5) {
                 self.eventInfoTableTopConstraint?.constant = 94
                 self.eventFullViewBottomConstraint?.constant = 94
-                
-                self.view.layoutIfNeeded()
             }
-        }
-    }
-    
-    func hideEventFullView () {
-        if self.eventInfo?.eventFull() == true && TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!) == true {
-            UIView.animateWithDuration(0.5) {
+        } else {
+            UIView.animateWithDuration(1.5) {
                 self.eventInfoTableTopConstraint?.constant = 0
                 self.eventFullViewBottomConstraint?.constant = 0
-                
-                self.view.layoutIfNeeded()
             }
         }
     }

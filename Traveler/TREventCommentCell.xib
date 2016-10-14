@@ -54,10 +54,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgDogEar" translatesAutoresizingMaskIntoConstraints="NO" id="4LK-a2-MqJ">
-                        <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
+                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="16" id="ZYE-rN-DL2"/>
-                            <constraint firstAttribute="width" constant="16" id="hYt-ag-wjm"/>
+                            <constraint firstAttribute="height" constant="20" id="ZYE-rN-DL2"/>
+                            <constraint firstAttribute="width" constant="20" id="hYt-ag-wjm"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -96,7 +96,7 @@
                 <outlet property="playerIcon" destination="yWd-tJ-MJG" id="VSt-Gd-2fB"/>
                 <outlet property="playerUserName" destination="hdB-Cm-tx4" id="SXG-y4-Fhl"/>
             </connections>
-            <point key="canvasLocation" x="587" y="786"/>
+            <point key="canvasLocation" x="455" y="496"/>
         </tableViewCell>
     </objects>
     <resources>

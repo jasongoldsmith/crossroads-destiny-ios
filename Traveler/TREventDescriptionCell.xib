@@ -19,15 +19,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
                         <color key="backgroundColor" red="0.25098039220000001" green="0.33333333329999998" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                     </imageView>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgDogEar" translatesAutoresizingMaskIntoConstraints="NO" id="CQT-rZ-GN5">
-                        <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
-                        <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="Kig-Ah-mZw"/>
-                            <constraint firstAttribute="width" constant="16" id="UDW-QF-kez"/>
-                            <constraint firstAttribute="height" constant="16" id="ejH-9Z-d5R"/>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="16" id="r3R-YG-7t2"/>
-                        </constraints>
-                    </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RLO-1O-Sqa">
                         <rect key="frame" x="17" y="8" width="36" height="36"/>
                         <constraints>
@@ -45,6 +36,13 @@
                         <rect key="frame" x="274" y="5" width="44" height="44"/>
                         <state key="normal" image="iconInvite"/>
                     </button>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgDogEar" translatesAutoresizingMaskIntoConstraints="NO" id="CQT-rZ-GN5">
+                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="UDW-QF-kez"/>
+                            <constraint firstAttribute="height" constant="20" id="ejH-9Z-d5R"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
@@ -69,7 +67,7 @@
                 <outlet property="playerInviteButton" destination="u03-8H-SfI" id="r27-rk-R3J"/>
                 <outlet property="playerUserName" destination="TcE-zA-nQ8" id="naV-Ji-Rhx"/>
             </connections>
-            <point key="canvasLocation" x="825" y="481"/>
+            <point key="canvasLocation" x="645" y="218"/>
         </tableViewCell>
     </objects>
     <resources>
