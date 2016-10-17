@@ -83,7 +83,7 @@ class TRRootViewController: TRBaseViewController {
             console["consoleType"] = userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_USER_CONSOLE_TYPE) as? String
             
             let createRequest = TRAuthenticationRequest()
-            createRequest.loginTRUserWithSuccess(console, password: userInfo.password, completion: { (didSucceed) in
+            createRequest.loginTRUserWithSuccess(console, password: userInfo.password, invitationDict: nil, completion: { (didSucceed) in
                 if didSucceed == true {
                     _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: true, indicatorTopConstraint: self.ACTIVITY_INDICATOR_TOP_CONSTRAINT, completion: { (didSucceed) -> () in
                         

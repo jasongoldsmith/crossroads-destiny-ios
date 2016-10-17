@@ -4,6 +4,11 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -57,11 +62,28 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rr8-ff-LU3">
+                            <rect key="frame" x="0.0" y="330" width="600" height="50"/>
+                            <color key="backgroundColor" red="0.0" green="0.52549019610000003" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="wfR-OM-rQB"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                            <state key="normal" title="INVITE">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="inviteButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="1RC-DA-tJC"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.19215686274509802" green="0.29411764705882354" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="rr8-ff-LU3" secondAttribute="trailing" id="Bgl-h5-MFc"/>
                         <constraint firstAttribute="trailing" secondItem="m9w-Bn-VXe" secondAttribute="trailing" id="JGD-oE-Fsv"/>
                         <constraint firstItem="jkY-NV-tK2" firstAttribute="top" secondItem="m9w-Bn-VXe" secondAttribute="bottom" constant="18" id="MCm-k8-ffL"/>
+                        <constraint firstItem="rr8-ff-LU3" firstAttribute="leading" secondItem="jUo-4N-dVj" secondAttribute="leading" id="S4A-eg-zEh"/>
+                        <constraint firstAttribute="bottom" secondItem="rr8-ff-LU3" secondAttribute="bottom" id="gYX-bS-LqB"/>
                         <constraint firstItem="m9w-Bn-VXe" firstAttribute="leading" secondItem="jUo-4N-dVj" secondAttribute="leading" id="jB6-vW-pgc"/>
                         <constraint firstAttribute="trailing" secondItem="jkY-NV-tK2" secondAttribute="trailing" constant="50" id="lDh-0v-FWQ"/>
                         <constraint firstItem="jkY-NV-tK2" firstAttribute="leading" secondItem="jUo-4N-dVj" secondAttribute="leading" constant="50" id="qQ4-9v-BfE"/>
@@ -78,10 +100,12 @@
             </constraints>
             <connections>
                 <outlet property="descriptionLabel" destination="jkY-NV-tK2" id="Xmp-eF-wgf"/>
+                <outlet property="inviteBtnBottomConst" destination="gYX-bS-LqB" id="wcZ-Fd-ZaO"/>
+                <outlet property="inviteButton" destination="rr8-ff-LU3" id="EOP-V5-NHu"/>
                 <outlet property="tokenView" destination="lKQ-Og-LW2" id="MZD-1O-uXm"/>
                 <outlet property="tokenViewContainerBackground" destination="JCX-Zk-cC6" id="XSM-47-9q8"/>
             </connections>
-            <point key="canvasLocation" x="341" y="531"/>
+            <point key="canvasLocation" x="-18" y="502"/>
         </view>
     </objects>
 </document>

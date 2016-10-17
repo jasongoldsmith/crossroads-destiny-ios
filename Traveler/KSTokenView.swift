@@ -82,6 +82,7 @@ import UIKit
    optional func tokenViewDidShowSearchResults(tokenView: KSTokenView)
    optional func tokenViewDidHideSearchResults(tokenView: KSTokenView)
    optional func tokenViewHeightUpdated(tokenFieldHeight: CGFloat)
+   optional func _removeToken(token: KSToken, removingAll: Bool)
 }
 
 //MARK: - KSTokenView
@@ -395,7 +396,10 @@ public class KSTokenView: UIView {
       _tokenField.autoresizingMask = [.FlexibleWidth]
       _updateTokenField()
       addSubview(_tokenField)
-      
+        delay(0.5) {
+            self._tokenField.becomeFirstResponder()
+        }
+    
       _indicator.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
       _indicator.hidesWhenStopped = true
       _indicator.stopAnimating()
@@ -450,7 +454,7 @@ public class KSTokenView: UIView {
       return _tokenField.tokens.last
    }
    
-   private func _removeToken(token: KSToken, removingAll: Bool = false) {
+    func _removeToken(token: KSToken, removingAll: Bool = false) {
       if token.sticky {return}
       if (!removingAll) {
          var shouldRemoveToken: Bool? = true

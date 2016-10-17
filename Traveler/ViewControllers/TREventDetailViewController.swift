@@ -9,7 +9,7 @@
 import Foundation
 import pop
 
-class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, CustomErrorDelegate {
+class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, CustomErrorDelegate, InvitationViewProtocol {
     
     
     private let EVENT_DESCRIPTION_CELL = "eventDescriptionCell"
@@ -52,6 +52,12 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     @IBOutlet weak var eventFullViewBottomConstraint: NSLayoutConstraint?
     
     
+    //Invitation View
+    var inviteView: TRInviteView = TRInviteView()
+    var isShowingInvitation: Bool!
+    var keyBoardHeight: CGFloat!
+    
+    
     //Current Event
     var eventInfo: TREventInfo?
     var hasTag: Bool = false
@@ -76,8 +82,8 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         self.chatTextView.layer.cornerRadius = 3.0
         
 //        Key Board Observer
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRSignInViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRSignInViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TREventDetailViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: self.view.window)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TREventDetailViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: self.view.window)
 
         
         self.segmentControl?.removeBorders()
@@ -504,7 +510,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 cell?.playerUserName?.textColor = UIColor.whiteColor()
                 
                 if (indexPath.section) == self.eventInfo?.eventPlayersArray.count {
-                    cell?.playerInviteButton.hidden = true
+                    cell?.playerInviteButton.hidden = false
                 } else {
                     cell?.playerInviteButton.hidden = true
                 }
@@ -621,22 +627,24 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 self.view.addSubviewWithLayoutConstraint(errorView)
             }
         } else {
-//            if indexPath.section == self.eventInfo?.eventPlayersArray.count {
-//                let inviteView = NSBundle.mainBundle().loadNibNamed("TRInviteView", owner: self, options: nil)[0] as! TRInviteView
-//                inviteView.setUpView()
-//                inviteView.frame = CGRectMake(0, inviteView.bounds.size.height, inviteView.frame.size.width, inviteView.frame.size.height)
-//                let trans = POPSpringAnimation(propertyNamed: kPOPLayerTranslationXY)
-//                trans.fromValue = NSValue(CGPoint: CGPointMake(0, inviteView.bounds.size.height))
-//                trans.toValue = NSValue(CGPoint: CGPointMake(0, 0))
-//                inviteView.layer.pop_addAnimation(trans, forKey: "Translation")
-//                
-//                let popAnimation:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
-//                popAnimation.toValue = 1.0
-//                popAnimation.duration = 0.4
-//                inviteView.pop_addAnimation(popAnimation, forKey: "alphasIn")
-//                
-//                self.view.addSubviewWithLayoutConstraint(inviteView)
-//            }
+            if indexPath.section == self.eventInfo?.eventPlayersArray.count {
+                self.inviteView = NSBundle.mainBundle().loadNibNamed("TRInviteView", owner: self, options: nil)[0] as! TRInviteView
+                inviteView.setUpView()
+                inviteView.frame = CGRectMake(0, inviteView.bounds.size.height, inviteView.frame.size.width, inviteView.frame.size.height)
+                let trans = POPSpringAnimation(propertyNamed: kPOPLayerTranslationXY)
+                trans.fromValue = NSValue(CGPoint: CGPointMake(0, inviteView.bounds.size.height))
+                trans.toValue = NSValue(CGPoint: CGPointMake(0, 0))
+                inviteView.layer.pop_addAnimation(trans, forKey: "Translation")
+                
+                let popAnimation:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+                popAnimation.toValue = 1.0
+                popAnimation.duration = 0.4
+                inviteView.pop_addAnimation(popAnimation, forKey: "alphasIn")
+                
+                self.isShowingInvitation = true
+                self.inviteView.delegate = self
+                self.view.addSubviewWithLayoutConstraint(inviteView)
+            }
         }
     }
     
@@ -809,17 +817,20 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         
         let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
         let offset: CGSize = userInfo[UIKeyboardFrameEndUserInfoKey]!.CGRectValue.size
+        self.keyBoardHeight = keyboardSize.height
         
-        if keyboardSize.height == offset.height {
-            if self.view.frame.origin.y == 0 {
-                UIView.animateWithDuration(0.5, animations: { () -> Void in
-                    self.view.frame.origin.y -= keyboardSize.height
+        if self.isShowingInvitation == false {
+            if keyboardSize.height == offset.height {
+                if self.view.frame.origin.y == 0 {
+                    UIView.animateWithDuration(0.3, animations: { () -> Void in
+                        self.view.frame.origin.y -= keyboardSize.height
+                    })
+                }
+            } else {
+                UIView.animateWithDuration(0.3, animations: { () -> Void in
+                    self.view.frame.origin.y += keyboardSize.height - offset.height
                 })
             }
-        } else {
-            UIView.animateWithDuration(0.5, animations: { () -> Void in
-                self.view.frame.origin.y += keyboardSize.height - offset.height
-            })
         }
         
         self.showEventFullView()
@@ -830,12 +841,22 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
         
         if self.view.frame.origin.y == self.view.frame.origin.y - keyboardSize.height {
-            UIView.animateWithDuration(0.5, animations: { () -> Void in
-                self.view.frame.origin.y += keyboardSize.height
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                if self.isShowingInvitation == false {
+                    self.view.frame.origin.y += keyboardSize.height
+                } else {
+                    self.inviteView.inviteBtnBottomConst.constant = 0
+                    self.inviteView.layoutIfNeeded()
+                }
             })
         } else {
-            UIView.animateWithDuration(0.5, animations: { () -> Void in
-                self.view.frame.origin.y = 0
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                if self.isShowingInvitation == false {
+                    self.view.frame.origin.y = 0
+                } else {
+                    self.inviteView.inviteBtnBottomConst.constant = 0
+                    self.inviteView.layoutIfNeeded()
+                }
             })
         }
         
@@ -867,6 +888,22 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         
         //Bring Full event view Z level on top of everything
         self.view.bringSubviewToFront(self.fullViews)
+    }
+    
+    
+    //MARK:-Invitation View Delegate 
+    func invitationViewClosed () {
+        self.isShowingInvitation = false
+    }
+    
+    func showInviteButton () {
+        self.inviteView.inviteBtnBottomConst.constant = self.keyBoardHeight
+        self.inviteView.layoutIfNeeded()
+    }
+    
+    func hideInviteButton () {
+        self.inviteView.inviteBtnBottomConst.constant = 0
+        self.inviteView.layoutIfNeeded()
     }
     
     deinit {

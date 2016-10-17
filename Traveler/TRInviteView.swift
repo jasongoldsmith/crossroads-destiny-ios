@@ -9,15 +9,24 @@
 import Foundation
 import pop
 
+@objc protocol InvitationViewProtocol {
+    optional func invitationViewClosed ()
+    optional func showInviteButton ()
+    optional func hideInviteButton ()
+}
 
 class TRInviteView: UIView, KSTokenViewDelegate {
     
     var keys = [String]()
+    var delegate: InvitationViewProtocol?
     let names: Array<String> = ["ashu", "singh"]
     
     @IBOutlet var tokenView: KSTokenView!
+    @IBOutlet weak var inviteButton: UIButton!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var tokenViewContainerBackground:UIImageView!
+    @IBOutlet weak var inviteBtnBottomConst:NSLayoutConstraint!
+    
     
     func setUpView () {
         self.descriptionLabel?.text = "Inviting players will send them \n a message on Bungie.net."
@@ -65,6 +74,10 @@ class TRInviteView: UIView, KSTokenViewDelegate {
         return true
     }
     
+    @IBAction func inviteButtonClicked (sender: UIButton) {
+        
+    }
+    
     @IBAction func closeInviteView () {
         
         //Remove TokenView
@@ -85,9 +98,45 @@ class TRInviteView: UIView, KSTokenViewDelegate {
             self.tokenView.delegate = nil
             self.removeFromSuperview()
         }
+        
+        delegate?.invitationViewClosed!()
+        delegate = nil
     }
     
     func tokenViewHeightUpdated(tokenFieldHeight: CGFloat) {
         self.tokenViewContainerBackground.frame = CGRectMake(0, 0, self.tokenViewContainerBackground.frame.size.width, tokenFieldHeight)
+    }
+    
+    func tokenView(tokenView: KSTokenView, didAddToken token: KSToken) {
+        delegate?.showInviteButton!()
+
+        if let console = TRApplicationManager.sharedInstance.currentUser?.getDefaultConsole() {
+            switch console.consoleType! {
+            case ConsoleTypes.XBOXONE:
+                
+                break
+            case ConsoleTypes.PS4:
+                self.playStationValidation(token)
+                break
+            default: break
+            }
+        }
+    }
+    
+    func tokenView(tokenView: KSTokenView, didDeleteToken token: KSToken) {
+        if tokenView.tokens()?.count == 0 {
+            delegate?.hideInviteButton!()
+        }
+    }
+        
+    //MARK:- GamerTag Validation
+    func playStationValidation (token: KSToken) {
+        if !(token.title.isPlayStationVerified == true && token.title.characters.count > 2  && token.title.characters.count < 17) {
+            tokenView._removeToken(token)
+        }
+    }
+    
+    func xBoxValidation () {
+        
     }
 }
