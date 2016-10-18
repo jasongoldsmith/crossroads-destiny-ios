@@ -897,6 +897,12 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         self.isShowingInvitation = false
     }
     
+    func closeViewAndShowEventCreation () {
+        self.dismissViewController(true) { (didDismiss) in
+            
+        }
+    }
+    
     func showInviteButton () {
         if let _ = self.keyBoardHeight {
             self.inviteView.inviteBtnBottomConst.constant = self.keyBoardHeight

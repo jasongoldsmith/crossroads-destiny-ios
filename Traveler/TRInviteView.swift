@@ -13,9 +13,10 @@ import pop
     optional func invitationViewClosed ()
     optional func showInviteButton ()
     optional func hideInviteButton ()
+    optional func closeViewAndShowEventCreation ()
 }
 
-class TRInviteView: UIView, KSTokenViewDelegate {
+class TRInviteView: UIView, KSTokenViewDelegate, CustomErrorDelegate {
     
     var keys = [String]()
     var eventInfo: TREventInfo?
@@ -79,6 +80,8 @@ class TRInviteView: UIView, KSTokenViewDelegate {
         
         guard let _ = self.eventInfo else { return }
         
+        self.tokenView.resignFirstResponder()
+        
         var playerArray: [String] = []
         for player in (self.tokenView.tokens()?.enumerate())! {
             playerArray.append(player.element.title)
@@ -86,14 +89,20 @@ class TRInviteView: UIView, KSTokenViewDelegate {
         
         TRApplicationManager.sharedInstance.branchManager?.createInvitationLinkWithBranch(self.eventInfo!, playerArray: playerArray ,deepLinkType: BRANCH_DEEP_LINKING_END_POINT.EVENT_INVITATION.rawValue, callback: {(url, error) in
             if (error == nil) {
-                _ = TRInvitePlayersRequest().invitePlayers((self.eventInfo?.eventID!)!, invitedPlayers: playerArray, invitationLink: url, completion: { (didSucceed) in
-                    if didSucceed == true {
-                        print("Success")
+                _ = TRInvitePlayersRequest().invitePlayers((self.eventInfo?.eventID!)!, invitedPlayers: playerArray, invitationLink: url, completion: { (error, responseObject) in
+                    if let _ = error {
+//                        let errorView = NSBundle.mainBundle().loadNibNamed("TRCustomError", owner: self, options: nil)[0] as! TRCustomError
+//                        errorView.errorMessageHeader?.text = "ERROR"
+//                        errorView.errorMessageDescription?.text = error
+//                        errorView.frame = self.frame
+//                        errorView.delegate = self
+//                        errorView.actionButton.setTitle("ADD NEW ACTIVITY", forState: .Normal)
+//                        
+//                        self.addSubview(errorView)
+                    } else {
+                        self.closeInviteView()
                     }
-                    
                 })
-            } else {
-                print(String(format: "Branch TestBed: %@", error!))
             }
         })
     }
@@ -132,6 +141,19 @@ class TRInviteView: UIView, KSTokenViewDelegate {
     func tokenView(tokenView: KSTokenView, didAddToken token: KSToken) {
         delegate?.showInviteButton!()
 
+//        let extraPlayersRequiredCount = ((eventInfo!.eventActivity?.activityMaxPlayers?.integerValue)! - (eventInfo!.eventPlayersArray.count))
+//        if tokenView.tokens()?.count > extraPlayersRequiredCount {
+//            let errorView = NSBundle.mainBundle().loadNibNamed("TRCustomErrorUserAction", owner: self, options: nil)[0] as! TRCustomError
+//            errorView.errorMessageHeader?.text = "MAX PLAYERS REACHED"
+//            errorView.errorMessageDescription?.text = "There are only 2 open spots in this Fireteam for the players you invited. Would you like to leave and create a new activity with everyone you invited?"
+//            errorView.frame = self.frame
+//            errorView.actionButton.setTitle("ADD NEW ACTIVITY", forState: .Normal)
+//            errorView.delegate = self
+//            self.addSubview(errorView)
+//            
+//            return
+//        }
+        
         if let console = TRApplicationManager.sharedInstance.currentUser?.getDefaultConsole() {
             switch console.consoleType! {
             case ConsoleTypes.XBOXONE:
@@ -155,12 +177,30 @@ class TRInviteView: UIView, KSTokenViewDelegate {
     func playStationValidation (token: KSToken) {
         if !(token.title.isPlayStationVerified == true && token.title.characters.count > 2  && token.title.characters.count < 17) {
             tokenView._removeToken(token)
+            self.showInvalidGamerTag()
         }
     }
     
     func xBoxValidation (token: KSToken) {
         if !(token.title.isXboxVerified == true) {
             tokenView._removeToken(token)
+            self.showInvalidGamerTag()
         }
+    }
+    
+    func showInvalidGamerTag () {
+        let errorView = NSBundle.mainBundle().loadNibNamed("TRCustomError", owner: self, options: nil)[0] as! TRCustomError
+        errorView.errorMessageHeader?.text = "INVALID GAMER TAG"
+        errorView.errorMessageDescription?.text = "Please enter valid gamertag"
+        errorView.frame = self.frame
+        errorView.delegate = self
+        self.addSubview(errorView)
+    }
+    
+    func okButtonPressed () {
+    }
+    
+    func customErrorActionButtonPressed () {
+        self.closeInviteView()
     }
 }

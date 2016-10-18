@@ -120,7 +120,7 @@
                 <outlet property="errorMessageHeader" destination="o3l-S5-4WI" id="KGB-pS-Hhm"/>
                 <outlet property="errorViewContainer" destination="TDi-T9-e4D" id="3M5-VV-yN5"/>
             </connections>
-            <point key="canvasLocation" x="548" y="531"/>
+            <point key="canvasLocation" x="786" y="560"/>
         </view>
     </objects>
     <resources>

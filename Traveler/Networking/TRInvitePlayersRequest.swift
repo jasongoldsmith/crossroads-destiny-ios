@@ -10,7 +10,7 @@ import Foundation
 
 
 class TRInvitePlayersRequest: TRRequest {
-    func invitePlayers (eventID: String, invitedPlayers: [String], invitationLink: String, completion: TRValueCallBack) {
+    func invitePlayers (eventID: String, invitedPlayers: [String], invitationLink: String, completion: TRResponseCallBack) {
         let reportURL = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_INVITE_PLAYER
         
         let request = TRRequest()
@@ -25,12 +25,12 @@ class TRInvitePlayersRequest: TRRequest {
         request.sendRequestWithCompletion { (error, swiftyJsonVar) -> () in
             
             if let _ = error {
-                completion(didSucceed: false)
-                
+                completion(error: error, responseObject: nil)
                 return
             }
             
-            completion(didSucceed: true )
+            
+            completion(error: nil, responseObject: (swiftyJsonVar))
         }
     }
 }
