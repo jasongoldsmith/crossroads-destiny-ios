@@ -113,7 +113,7 @@ class TRInviteView: UIView, KSTokenViewDelegate {
         if let console = TRApplicationManager.sharedInstance.currentUser?.getDefaultConsole() {
             switch console.consoleType! {
             case ConsoleTypes.XBOXONE:
-                
+                self.xBoxValidation(token)
                 break
             case ConsoleTypes.PS4:
                 self.playStationValidation(token)
@@ -136,7 +136,9 @@ class TRInviteView: UIView, KSTokenViewDelegate {
         }
     }
     
-    func xBoxValidation () {
-        
+    func xBoxValidation (token: KSToken) {
+        if !(token.title.isXboxVerified == true) {
+            tokenView._removeToken(token)
+        }
     }
 }
