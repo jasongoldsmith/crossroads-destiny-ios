@@ -127,9 +127,11 @@ class TRBranchManager {
 
         let arrayString = playerArray.joinWithSeparator(",")
         branchUniversalObject = BranchUniversalObject.init(canonicalIdentifier: canonicalIdentifier)
-        branchUniversalObject.addMetadataKey("eId", value: eventID)
+        branchUniversalObject.addMetadataKey("eventId", value: eventID)
         branchUniversalObject.addMetadataKey("deepLinkType", value: deepLinkType)
         branchUniversalObject.addMetadataKey("invitees", value: arrayString)
+        branchUniversalObject.addMetadataKey("activityName", value: (eventInfo.eventActivity?.activitySubType)!)
+        
         
         // Create Link
         let linkProperties = BranchLinkProperties()

@@ -490,6 +490,10 @@
 		33D0B4591CFD0165008ABA04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62C1FF331C77C15C00A78798 /* Main.storyboard */; };
 		33D0B45A1CFD0165008ABA04 /* TrLaunchImgBadge.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D0B3F11CFCFC2C008ABA04 /* TrLaunchImgBadge.png */; };
 		33D0B45B1CFD0165008ABA04 /* TREventUpcomingWithCheckPointCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3380EF421CC979C1000A9289 /* TREventUpcomingWithCheckPointCell.xib */; };
+		33D191D71DB6B84C0010E6DA /* TRInvitationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D191D61DB6B84C0010E6DA /* TRInvitationInfo.swift */; };
+		33D191D81DB6B84C0010E6DA /* TRInvitationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D191D61DB6B84C0010E6DA /* TRInvitationInfo.swift */; };
+		33D191D91DB6B84C0010E6DA /* TRInvitationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D191D61DB6B84C0010E6DA /* TRInvitationInfo.swift */; };
+		33D191DA1DB6B84C0010E6DA /* TRInvitationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D191D61DB6B84C0010E6DA /* TRInvitationInfo.swift */; };
 		33D9D9751D48476000A6289D /* TREventActivityCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D9D9741D48476000A6289D /* TREventActivityCardCell.swift */; };
 		33D9D9761D48476000A6289D /* TREventActivityCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D9D9741D48476000A6289D /* TREventActivityCardCell.swift */; };
 		33D9D9771D48476000A6289D /* TREventActivityCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D9D9741D48476000A6289D /* TREventActivityCardCell.swift */; };
@@ -739,6 +743,7 @@
 		33D0B3F41CFCFC5C008ABA04 /* TrLaunchImgBadge@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TrLaunchImgBadge@3x.png"; sourceTree = "<group>"; };
 		33D0B4621CFD0165008ABA04 /* Dev CSRD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dev CSRD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33D0B4631CFD0166008ABA04 /* Traveler copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Traveler copy-Info.plist"; path = "/Users/thakuas/Desktop/projects/Traveler/Traveler copy-Info.plist"; sourceTree = "<absolute>"; };
+		33D191D61DB6B84C0010E6DA /* TRInvitationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRInvitationInfo.swift; sourceTree = "<group>"; };
 		33D9D9741D48476000A6289D /* TREventActivityCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREventActivityCardCell.swift; sourceTree = "<group>"; };
 		33D9D9791D48477400A6289D /* TREventActivityCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TREventActivityCardCell.xib; sourceTree = "<group>"; };
 		33D9D97E1D48574F00A6289D /* TRAdCardInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRAdCardInfo.swift; sourceTree = "<group>"; };
@@ -1015,6 +1020,7 @@
 				33AABB1C1D5BC3250099A20C /* TRActivityModifiersInfo.swift */,
 				336B99C11D64E1D300668BF4 /* TRCommentInfo.swift */,
 				33BA7A0B1D657DA800C5DA2D /* TRLocationInfo.swift */,
+				33D191D61DB6B84C0010E6DA /* TRInvitationInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1996,6 +2002,7 @@
 				33AABB221D5BF8280099A20C /* TRDatePicker.swift in Sources */,
 				33D0B43C1CFD0165008ABA04 /* TRUpdateUser.swift in Sources */,
 				33D0B43D1CFD0165008ABA04 /* EventButton.swift in Sources */,
+				33D191D71DB6B84C0010E6DA /* TRInvitationInfo.swift in Sources */,
 				33D0B43E1CFD0165008ABA04 /* TRJoinEventRequest.swift in Sources */,
 				33D0B4401CFD0165008ABA04 /* TRCreateEventConfirmationViewController.swift in Sources */,
 				3378F43C1D6640320064C1B4 /* NSDateExtension.swift in Sources */,
@@ -2120,6 +2127,7 @@
 				33AABB231D5BF8280099A20C /* TRDatePicker.swift in Sources */,
 				33D067671CD40AF600E05EF1 /* TRUpdateUser.swift in Sources */,
 				33FDB9AE1C850AFC0066237C /* EventButton.swift in Sources */,
+				33D191D81DB6B84C0010E6DA /* TRInvitationInfo.swift in Sources */,
 				33FDB9D11C8778150066237C /* TRJoinEventRequest.swift in Sources */,
 				339D8F301C911FB900A2620F /* TRCreateEventConfirmationViewController.swift in Sources */,
 				3378F43D1D6642100064C1B4 /* NSDateExtension.swift in Sources */,
@@ -2244,6 +2252,7 @@
 				3369499D1CC5CFEB004979C0 /* NSBundleExtension.swift in Sources */,
 				33AABB1F1D5BC3250099A20C /* TRActivityModifiersInfo.swift in Sources */,
 				3384371B1CEFB34700AB27F3 /* TRGetGroupByIDRequest.swift in Sources */,
+				33D191D91DB6B84C0010E6DA /* TRInvitationInfo.swift in Sources */,
 				33AABB1A1D5BC2600099A20C /* TRActivityBonus.swift in Sources */,
 				3329B58D1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */,
 				3398E1AA1CAB2994001F022B /* TRSendPushMessage.swift in Sources */,
@@ -2368,6 +2377,7 @@
 				3369499E1CC5CFEB004979C0 /* NSBundleExtension.swift in Sources */,
 				33AABB201D5BC3250099A20C /* TRActivityModifiersInfo.swift in Sources */,
 				3384371C1CEFB34700AB27F3 /* TRGetGroupByIDRequest.swift in Sources */,
+				33D191DA1DB6B84C0010E6DA /* TRInvitationInfo.swift in Sources */,
 				33AABB1B1D5BC2600099A20C /* TRActivityBonus.swift in Sources */,
 				3329B58E1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */,
 				3398E1AB1CAB2994001F022B /* TRSendPushMessage.swift in Sources */,

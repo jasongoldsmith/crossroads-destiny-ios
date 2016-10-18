@@ -84,20 +84,21 @@ class TRInviteView: UIView, KSTokenViewDelegate {
             playerArray.append(player.element.title)
         }
         
-        TRApplicationManager.sharedInstance.branchManager?.createLinkWithBranch(self.eventInfo!, deepLinkType: BRANCH_DEEP_LINKING_END_POINT.EVENT_DETAIL.rawValue, callback: {(url, error) in
+        TRApplicationManager.sharedInstance.branchManager?.createInvitationLinkWithBranch(self.eventInfo!, playerArray: playerArray ,deepLinkType: BRANCH_DEEP_LINKING_END_POINT.EVENT_INVITATION.rawValue, callback: {(url, error) in
             if (error == nil) {
-                TRApplicationManager.sharedInstance.branchManager?.createInvitationLinkWithBranch(self.eventInfo!, playerArray: playerArray ,deepLinkType: BRANCH_DEEP_LINKING_END_POINT.EVENT_INVITATION.rawValue, callback: {(url, error) in
-                    if (error == nil) {
-                        _ = TRInvitePlayersRequest().invitePlayers((self.eventInfo?.eventID!)!, invitedPlayers: playerArray, invitationLink: url, completion: { (didSucceed) in
-                            
-                        })
+                _ = TRInvitePlayersRequest().invitePlayers((self.eventInfo?.eventID!)!, invitedPlayers: playerArray, invitationLink: url, completion: { (didSucceed) in
+                    if didSucceed == true {
+                        print("Success")
                     }
+                    
                 })
             } else {
                 print(String(format: "Branch TestBed: %@", error!))
             }
         })
     }
+
+
     
     @IBAction func closeInviteView () {
         

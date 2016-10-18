@@ -78,7 +78,11 @@ class TRApplicationManager: NSObject {
     
     // unVerified Prompt
     var verificationPrompt = TRVerificationPromptView()
-
+    
+    // Invitation Info
+    var invitation: TRInvitationInfo?
+    
+    
     // MARK:- Initializer
     private override init() {
         super.init()

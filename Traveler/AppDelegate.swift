@@ -99,6 +99,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let eventID = params["eventId"] as? String
                 let activityName = params["activityName"] as? String
                 
+                if let inviPlayer = params["invitees"] as? String {
+                    let invi = TRInvitationInfo()
+                    invi.eventID = eventID
+                    invi.invitedPlayers = inviPlayer
+                    
+                    TRApplicationManager.sharedInstance.invitation = invi
+                }
+                
+            
                 guard let _ = eventID else {
                     return
                 }

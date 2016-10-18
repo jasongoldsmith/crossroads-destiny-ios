@@ -68,7 +68,7 @@ class TRAuthenticationRequest: TRRequest {
     }
     
     //MARK:- LOGIN USER
-    func loginTRUserWithSuccess(console: Dictionary<String, AnyObject>?, password: String?, invitationDict: Dictionary<String, AnyObject>?, completion:TRValueCallBack)  {
+    func loginTRUserWithSuccess(console: Dictionary<String, AnyObject>?, password: String?, completion:TRValueCallBack)  {
         
         let loginUserUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_LoginUrl
         var params = [String: AnyObject]()
@@ -80,9 +80,6 @@ class TRAuthenticationRequest: TRRequest {
             params["passWord"] = password
         } else { return }
         
-        if let _ = invitationDict {
-            params["invitation"] = invitationDict
-        }
         
         let request = TRRequest()
         request.params = params
@@ -110,7 +107,7 @@ class TRAuthenticationRequest: TRRequest {
     }
 
     
-    func loginTRUserWith(console: Dictionary<String, AnyObject>?, password: String?, completion:TRResponseCallBack)  {
+    func loginTRUserWith(console: Dictionary<String, AnyObject>?, password: String?, invitationDict: Dictionary<String, AnyObject>?, completion:TRResponseCallBack)  {
         
         let loginUserUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_LoginUrl
         var params = [String: AnyObject]()
@@ -121,6 +118,10 @@ class TRAuthenticationRequest: TRRequest {
         if password?.characters.isEmpty == false {
             params["passWord"] = password
         } else { return }
+        
+        if let _ = invitationDict {
+            params["invitation"] = invitationDict
+        }
         
         let request = TRRequest()
         request.params = params

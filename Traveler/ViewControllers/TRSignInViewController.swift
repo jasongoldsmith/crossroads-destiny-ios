@@ -174,7 +174,13 @@ class TRSignInViewController: TRBaseViewController, UITextFieldDelegate, UIGestu
         console["consoleType"] = self.selectedConsole
         console["consoleId"] = userNameTxtField.text
         let createRequest = TRAuthenticationRequest()
-        createRequest.loginTRUserWith(console, password: userPwdTxtField.text) { (error, responseObject) in
+        
+        var invitationDict = NSDictionary()
+        if let invi = TRApplicationManager.sharedInstance.invitation {
+            invitationDict = invi.createSignInInvitationPayLoad()
+        }
+        
+        createRequest.loginTRUserWith(console, password: userPwdTxtField.text, invitationDict: invitationDict as? Dictionary<String, AnyObject>) { (error, responseObject) in
             if let errorString = error {
                 if (errorString == "The username and password do not match our records.") {
                     TRApplicationManager.sharedInstance.addErrorSubViewWithMessage(errorString)

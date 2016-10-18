@@ -138,10 +138,6 @@ class TRFireBaseManager {
     
     func addCommentsObserversWithParentViewForDetailView (parentViewController: TREventDetailViewController, withEvent: TREventInfo) {
         
-        guard let hasEventClan = withEvent.eventClanID else {
-            return
-        }
-        
         guard let hasEventID = withEvent.eventID else {
             return
         }
