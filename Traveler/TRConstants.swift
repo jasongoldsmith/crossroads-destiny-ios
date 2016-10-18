@@ -175,6 +175,7 @@ enum EVENT_TIME_STATUS: String {
 enum BRANCH_DEEP_LINKING_END_POINT: String {
     case EVENT_DETAIL = "eventDetail"
     case EVENT_CREATE = "eventCreate"
+    case EVENT_INVITATION = "eventInvitation"
 }
 
 enum UIUserInterfaceIdiom : Int

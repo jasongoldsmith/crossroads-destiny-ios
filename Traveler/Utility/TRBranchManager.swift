@@ -8,6 +8,7 @@
 
 import Foundation
 import Branch
+import SwiftyJSON
 
 //typealias ErrorTypeCallBack = (errorType: Branch_Error?) -> ()
 
@@ -116,6 +117,33 @@ class TRBranchManager {
             }
         }
     }
+    
+    
+    func createInvitationLinkWithBranch (eventInfo: TREventInfo, playerArray: [String], deepLinkType: String, callback: callbackWithUrl) {
+        
+        guard let eventID = eventInfo.eventID else {
+            return
+        }
+
+        let arrayString = playerArray.joinWithSeparator(",")
+        branchUniversalObject = BranchUniversalObject.init(canonicalIdentifier: canonicalIdentifier)
+        branchUniversalObject.addMetadataKey("eId", value: eventID)
+        branchUniversalObject.addMetadataKey("deepLinkType", value: deepLinkType)
+        branchUniversalObject.addMetadataKey("invitees", value: arrayString)
+        
+        // Create Link
+        let linkProperties = BranchLinkProperties()
+        branchUniversalObject.getShortUrlWithLinkProperties(linkProperties) { (url, error) in
+            if (error == nil) {
+                print(url)
+                callback(url, nil)
+                
+            } else {
+                print(String(format: "Branch TestBed: %@", error!))
+            }
+        }
+    }
+    
     
     func getConsoleTypeFromString (consoleName: String) -> String {
         

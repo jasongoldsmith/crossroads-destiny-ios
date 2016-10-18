@@ -18,6 +18,7 @@ import pop
 class TRInviteView: UIView, KSTokenViewDelegate {
     
     var keys = [String]()
+    var eventInfo: TREventInfo?
     var delegate: InvitationViewProtocol?
     let names: Array<String> = ["ashu", "singh"]
     
@@ -76,6 +77,26 @@ class TRInviteView: UIView, KSTokenViewDelegate {
     
     @IBAction func inviteButtonClicked (sender: UIButton) {
         
+        guard let _ = self.eventInfo else { return }
+        
+        var playerArray: [String] = []
+        for player in (self.tokenView.tokens()?.enumerate())! {
+            playerArray.append(player.element.title)
+        }
+        
+        TRApplicationManager.sharedInstance.branchManager?.createLinkWithBranch(self.eventInfo!, deepLinkType: BRANCH_DEEP_LINKING_END_POINT.EVENT_DETAIL.rawValue, callback: {(url, error) in
+            if (error == nil) {
+                TRApplicationManager.sharedInstance.branchManager?.createInvitationLinkWithBranch(self.eventInfo!, playerArray: playerArray ,deepLinkType: BRANCH_DEEP_LINKING_END_POINT.EVENT_INVITATION.rawValue, callback: {(url, error) in
+                    if (error == nil) {
+                        _ = TRInvitePlayersRequest().invitePlayers((self.eventInfo?.eventID!)!, invitedPlayers: playerArray, invitationLink: url, completion: { (didSucceed) in
+                            
+                        })
+                    }
+                })
+            } else {
+                print(String(format: "Branch TestBed: %@", error!))
+            }
+        })
     }
     
     @IBAction func closeInviteView () {

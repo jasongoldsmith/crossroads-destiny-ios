@@ -643,6 +643,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 
                 self.isShowingInvitation = true
                 self.inviteView.delegate = self
+                self.inviteView.eventInfo = self.eventInfo
                 self.view.addSubviewWithLayoutConstraint(inviteView)
             }
         }
