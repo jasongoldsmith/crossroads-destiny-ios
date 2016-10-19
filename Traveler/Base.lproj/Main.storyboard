@@ -1693,14 +1693,21 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                     <outletCollection property="gestureRecognizers" destination="u1V-w4-WH6" appends="YES" id="7QN-Es-0eU"/>
                                 </connections>
                             </tableView>
+                            <imageView hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kpP-qs-bxQ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.090196078431372548" green="0.14901960784313725" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="jYq-R8-c9p" firstAttribute="leading" secondItem="Dm9-t4-bDT" secondAttribute="leading" id="08t-Ph-uYQ"/>
+                            <constraint firstItem="ikf-rV-Vma" firstAttribute="top" secondItem="kpP-qs-bxQ" secondAttribute="bottom" id="0qJ-b1-Qt4"/>
                             <constraint firstItem="ikf-rV-Vma" firstAttribute="top" secondItem="vya-EI-Q0G" secondAttribute="bottom" constant="50" id="184-pG-LdI"/>
                             <constraint firstItem="X79-1K-COu" firstAttribute="leading" secondItem="Dm9-t4-bDT" secondAttribute="leading" id="22r-os-5HP"/>
+                            <constraint firstItem="kpP-qs-bxQ" firstAttribute="top" secondItem="Dm9-t4-bDT" secondAttribute="top" id="2ng-jm-IPx"/>
                             <constraint firstItem="X79-1K-COu" firstAttribute="top" secondItem="Dm9-t4-bDT" secondAttribute="top" id="3aL-2u-eFH"/>
+                            <constraint firstAttribute="trailing" secondItem="kpP-qs-bxQ" secondAttribute="trailing" id="45e-T4-aTE"/>
                             <constraint firstItem="Khp-dG-aaY" firstAttribute="leading" secondItem="Lid-sl-3qB" secondAttribute="leading" constant="72" id="6Sc-Iz-zbF"/>
                             <constraint firstItem="drq-eW-kIC" firstAttribute="bottom" secondItem="jYq-R8-c9p" secondAttribute="bottom" id="74e-NR-Ibm"/>
                             <constraint firstItem="HAF-uu-5cX" firstAttribute="top" secondItem="jYq-R8-c9p" secondAttribute="bottom" constant="-4" id="8m0-Av-254"/>
@@ -1711,6 +1718,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                             <constraint firstAttribute="trailing" secondItem="V3u-Lz-xh1" secondAttribute="trailing" constant="32" id="Efs-lG-jal"/>
                             <constraint firstItem="Lid-sl-3qB" firstAttribute="bottom" secondItem="jYq-R8-c9p" secondAttribute="bottom" id="Fhh-Nb-iHO"/>
                             <constraint firstAttribute="trailing" secondItem="Efu-iV-fD3" secondAttribute="trailing" id="Gsc-Rz-9WO"/>
+                            <constraint firstItem="kpP-qs-bxQ" firstAttribute="leading" secondItem="Dm9-t4-bDT" secondAttribute="leading" id="Hje-HC-gfv"/>
                             <constraint firstItem="vya-EI-Q0G" firstAttribute="leading" secondItem="Dm9-t4-bDT" secondAttribute="leading" id="JVl-J3-9bV"/>
                             <constraint firstItem="lML-KN-3nB" firstAttribute="top" secondItem="frN-Rs-fvP" secondAttribute="bottom" constant="10" id="Ld8-TN-JU3"/>
                             <constraint firstItem="HAF-uu-5cX" firstAttribute="leading" secondItem="Dm9-t4-bDT" secondAttribute="leading" constant="32" id="OpG-hH-hY3"/>
@@ -1780,6 +1788,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                         <outlet property="fullViewsDescriptionLabel" destination="4wg-RE-6e9" id="9e4-q2-rSd"/>
                         <outlet property="fullViewsheaderLabel" destination="w5t-53-LMG" id="x1l-9Z-UD6"/>
                         <outlet property="iconHeightConstraint" destination="Qd0-kH-wcW" id="n2J-W8-jKw"/>
+                        <outlet property="invitationViewOverLay" destination="kpP-qs-bxQ" id="bsv-D9-C4Y"/>
                         <outlet property="joinButton" destination="gNz-aR-fLG" id="GtI-IP-jzJ"/>
                         <outlet property="leftSectionUnderLineRightConstraint" destination="OpG-hH-hY3" id="CZM-DM-ClP"/>
                         <outlet property="rightSectionUnderLineLeftConstraint" destination="Efs-lG-jal" id="N35-Aw-34j"/>

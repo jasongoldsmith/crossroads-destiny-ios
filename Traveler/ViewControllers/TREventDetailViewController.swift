@@ -56,7 +56,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     var inviteView: TRInviteView = TRInviteView()
     var isShowingInvitation: Bool = false
     var keyBoardHeight: CGFloat!
-    
+    @IBOutlet weak var invitationViewOverLay: UIImageView!
     
     //Current Event
     var eventInfo: TREventInfo?
@@ -512,7 +512,6 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 if (indexPath.section) == self.eventInfo?.eventPlayersArray.count {
                     if TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!) == true {
                         cell?.playerInviteButton.hidden = false
-                        cell?.playerInviteButton.enabled = true
                         cell?.playerInviteButton.addTarget(self, action: #selector(inviteUser(_:)), forControlEvents: .TouchUpInside)
                     } else {
                         cell?.playerInviteButton.hidden = true
@@ -637,7 +636,8 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     
     func inviteUser (sender: UIButton) {
         
-        sender.enabled = false
+        //This intercepts the touch and disables double tapping of invite button
+        self.invitationViewOverLay?.hidden = false
         
         self.inviteView = NSBundle.mainBundle().loadNibNamed("TRInviteView", owner: self, options: nil)[0] as! TRInviteView
         inviteView.setUpView()
@@ -903,6 +903,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     //MARK:-Invitation View Delegate 
     func invitationViewClosed () {
         self.isShowingInvitation = false
+        self.invitationViewOverLay?.hidden = true
     }
     
     func closeViewAndShowEventCreation () {
