@@ -849,11 +849,13 @@ extension KSTokenView : UITextFieldDelegate {
       // If backspace is pressed
       if (_tokenField.tokens.count > 0 && _tokenField.text == KSTextEmpty && string.isEmpty == true && shouldDeleteTokenOnBackspace) {
          if (_lastToken() != nil) {
-            if (selectedToken() != nil) {
-               deleteSelectedToken()
-            } else {
-               _tokenField.selectToken(_lastToken()!)
-            }
+            _tokenField.selectToken(_lastToken()!)
+            deleteSelectedToken()
+//            if (selectedToken() != nil) {
+//               deleteSelectedToken()
+//            } else {
+//               _tokenField.selectToken(_lastToken()!)
+//            }
          }
          return false
       }
