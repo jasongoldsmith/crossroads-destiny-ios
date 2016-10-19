@@ -188,15 +188,20 @@ class TRInviteView: UIView, KSTokenViewDelegate, CustomErrorDelegate {
     }
     
     func showInvalidGamerTag () {
+        
+        self.tokenView?.resignFirstResponder()
+        
         let errorView = NSBundle.mainBundle().loadNibNamed("TRCustomError", owner: self, options: nil)[0] as! TRCustomError
         errorView.errorMessageHeader?.text = "INVALID GAMERTAG"
         errorView.errorMessageDescription?.text = "Please enter a valid gamertag."
         errorView.frame = self.frame
         errorView.delegate = self
+        
         self.addSubview(errorView)
     }
     
     func okButtonPressed () {
+        self.tokenView?.becomeFirstResponder()
     }
     
     func customErrorActionButtonPressed () {
