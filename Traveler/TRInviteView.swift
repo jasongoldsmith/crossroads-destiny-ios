@@ -34,7 +34,7 @@ class TRInviteView: UIView, KSTokenViewDelegate, CustomErrorDelegate {
         self.descriptionLabel?.text = "Inviting players will send them \n a message on Bungie.net."
         
         self.tokenView.delegate = self
-        self.tokenView.placeholder = "Type to search"
+        self.tokenView.placeholder = "Type a Gamertag"
         self.tokenView.maxTokenLimit = 5
         self.tokenView.minimumCharactersToSearch = 100
         self.tokenView.style = .Squared
