@@ -165,7 +165,7 @@ public class KSTokenField: UITextField {
       autocorrectionType = UITextAutocorrectionType.No
       autocapitalizationType = UITextAutocapitalizationType.None
       contentVerticalAlignment = UIControlContentVerticalAlignment.Top
-      returnKeyType = UIReturnKeyType.Done
+      returnKeyType = UIReturnKeyType.Search
       text = KSTextEmpty
       backgroundColor = UIColor.whiteColor()
       clipsToBounds = true
@@ -180,7 +180,7 @@ public class KSTokenField: UITextField {
       _scrollView.addGestureRecognizer(gestureRecognizer)
       _scrollView.delegate = self
       addSubview(_scrollView)
-      
+    
       addTarget(self, action: #selector(KSTokenField.tokenFieldTextDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
    }
    
