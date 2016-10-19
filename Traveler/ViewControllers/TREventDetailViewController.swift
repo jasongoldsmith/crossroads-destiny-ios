@@ -54,7 +54,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     
     //Invitation View
     var inviteView: TRInviteView = TRInviteView()
-    var isShowingInvitation: Bool!
+    var isShowingInvitation: Bool = false
     var keyBoardHeight: CGFloat!
     
     
@@ -512,6 +512,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 if (indexPath.section) == self.eventInfo?.eventPlayersArray.count {
                     if TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!) == true {
                         cell?.playerInviteButton.hidden = false
+                        cell?.playerInviteButton.enabled = true
                         cell?.playerInviteButton.addTarget(self, action: #selector(inviteUser(_:)), forControlEvents: .TouchUpInside)
                     } else {
                         cell?.playerInviteButton.hidden = true
@@ -635,6 +636,9 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     }
     
     func inviteUser (sender: UIButton) {
+        
+        sender.enabled = false
+        
         self.inviteView = NSBundle.mainBundle().loadNibNamed("TRInviteView", owner: self, options: nil)[0] as! TRInviteView
         inviteView.setUpView()
         inviteView.frame = CGRectMake(0, inviteView.bounds.size.height, inviteView.frame.size.width, inviteView.frame.size.height)
