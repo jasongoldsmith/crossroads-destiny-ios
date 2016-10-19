@@ -139,24 +139,19 @@ class TRInviteView: UIView, KSTokenViewDelegate, CustomErrorDelegate {
     }
     
     func tokenView(tokenView: KSTokenView, didAddToken token: KSToken) {
+        
         delegate?.showInviteButton!()
         if self.checkIfTheUserAlreadyExists(token.title) == true {
            tokenView._removeToken(token)
             return
         }
         
-//        let extraPlayersRequiredCount = ((eventInfo!.eventActivity?.activityMaxPlayers?.integerValue)! - (eventInfo!.eventPlayersArray.count))
-//        if tokenView.tokens()?.count > extraPlayersRequiredCount {
-//            let errorView = NSBundle.mainBundle().loadNibNamed("TRCustomErrorUserAction", owner: self, options: nil)[0] as! TRCustomError
-//            errorView.errorMessageHeader?.text = "MAX PLAYERS REACHED"
-//            errorView.errorMessageDescription?.text = "There are only 2 open spots in this Fireteam for the players you invited. Would you like to leave and create a new activity with everyone you invited?"
-//            errorView.frame = self.frame
-//            errorView.actionButton.setTitle("ADD NEW ACTIVITY", forState: .Normal)
-//            errorView.delegate = self
-//            self.addSubview(errorView)
-//            
-//            return
-//        }
+        // Check Player Required Limit
+        let extraPlayersRequiredCount = ((eventInfo!.eventActivity?.activityMaxPlayers?.integerValue)! - (eventInfo!.eventPlayersArray.count))
+        if tokenView.tokens()?.count > extraPlayersRequiredCount {
+            tokenView._removeToken(token)
+            return
+        }
         
         if let console = TRApplicationManager.sharedInstance.currentUser?.getDefaultConsole() {
             switch console.consoleType! {
