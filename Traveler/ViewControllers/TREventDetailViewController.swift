@@ -510,7 +510,12 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 cell?.playerUserName?.textColor = UIColor.whiteColor()
                 
                 if (indexPath.section) == self.eventInfo?.eventPlayersArray.count {
-                    cell?.playerInviteButton.hidden = false
+                    if TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!) == true {
+                        cell?.playerInviteButton.hidden = false
+                        cell?.playerInviteButton.addTarget(self, action: #selector(inviteUser(_:)), forControlEvents: .TouchUpInside)
+                    } else {
+                        cell?.playerInviteButton.hidden = true
+                    }
                 } else {
                     cell?.playerInviteButton.hidden = true
                 }
@@ -626,29 +631,28 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 
                 self.view.addSubviewWithLayoutConstraint(errorView)
             }
-        } else {
-            if indexPath.section == self.eventInfo?.eventPlayersArray.count {
-                self.inviteView = NSBundle.mainBundle().loadNibNamed("TRInviteView", owner: self, options: nil)[0] as! TRInviteView
-                inviteView.setUpView()
-                inviteView.frame = CGRectMake(0, inviteView.bounds.size.height, inviteView.frame.size.width, inviteView.frame.size.height)
-                let trans = POPSpringAnimation(propertyNamed: kPOPLayerTranslationXY)
-                trans.fromValue = NSValue(CGPoint: CGPointMake(0, inviteView.bounds.size.height))
-                trans.toValue = NSValue(CGPoint: CGPointMake(0, 0))
-                inviteView.layer.pop_addAnimation(trans, forKey: "Translation")
-                
-                let popAnimation:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
-                popAnimation.toValue = 1.0
-                popAnimation.duration = 0.4
-                inviteView.pop_addAnimation(popAnimation, forKey: "alphasIn")
-                
-                self.isShowingInvitation = true
-                self.inviteView.delegate = self
-                self.inviteView.eventInfo = self.eventInfo
-                self.view.addSubviewWithLayoutConstraint(inviteView)
-            }
         }
     }
     
+    func inviteUser (sender: UIButton) {
+        self.inviteView = NSBundle.mainBundle().loadNibNamed("TRInviteView", owner: self, options: nil)[0] as! TRInviteView
+        inviteView.setUpView()
+        inviteView.frame = CGRectMake(0, inviteView.bounds.size.height, inviteView.frame.size.width, inviteView.frame.size.height)
+        let trans = POPSpringAnimation(propertyNamed: kPOPLayerTranslationXY)
+        trans.fromValue = NSValue(CGPoint: CGPointMake(0, inviteView.bounds.size.height))
+        trans.toValue = NSValue(CGPoint: CGPointMake(0, 0))
+        inviteView.layer.pop_addAnimation(trans, forKey: "Translation")
+        
+        let popAnimation:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+        popAnimation.toValue = 1.0
+        popAnimation.duration = 0.4
+        inviteView.pop_addAnimation(popAnimation, forKey: "alphasIn")
+        
+        self.isShowingInvitation = true
+        self.inviteView.delegate = self
+        self.inviteView.eventInfo = self.eventInfo
+        self.view.addSubviewWithLayoutConstraint(inviteView)
+    }
     
     //Custom Error Delegate Method
     func customErrorActionButtonPressed() {

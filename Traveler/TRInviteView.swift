@@ -140,7 +140,11 @@ class TRInviteView: UIView, KSTokenViewDelegate, CustomErrorDelegate {
     
     func tokenView(tokenView: KSTokenView, didAddToken token: KSToken) {
         delegate?.showInviteButton!()
-
+        if self.checkIfTheUserAlreadyExists(token.title) == true {
+           tokenView._removeToken(token)
+            return
+        }
+        
 //        let extraPlayersRequiredCount = ((eventInfo!.eventActivity?.activityMaxPlayers?.integerValue)! - (eventInfo!.eventPlayersArray.count))
 //        if tokenView.tokens()?.count > extraPlayersRequiredCount {
 //            let errorView = NSBundle.mainBundle().loadNibNamed("TRCustomErrorUserAction", owner: self, options: nil)[0] as! TRCustomError
@@ -202,5 +206,19 @@ class TRInviteView: UIView, KSTokenViewDelegate, CustomErrorDelegate {
     
     func customErrorActionButtonPressed () {
         self.closeInviteView()
+    }
+    
+    func checkIfTheUserAlreadyExists (token: String) -> Bool {
+        let userExists = self.tokenView.tokens()?.filter{$0.title == token}
+        if userExists?.count > 1 {
+            return true
+        }
+        
+        let userExistsInEvent = self.eventInfo?.eventPlayersArray.filter{$0.playerPsnID == token}
+        if userExistsInEvent?.count > 0 {
+            return true
+        }
+        
+        return false
     }
 }
