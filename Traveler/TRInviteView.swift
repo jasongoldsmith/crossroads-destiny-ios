@@ -148,8 +148,11 @@ class TRInviteView: UIView, KSTokenViewDelegate, CustomErrorDelegate {
         
         // Check Player Required Limit
         let extraPlayersRequiredCount = ((eventInfo!.eventActivity?.activityMaxPlayers?.integerValue)! - (eventInfo!.eventPlayersArray.count))
-        if tokenView.tokens()?.count > extraPlayersRequiredCount {
+        if tokenView.tokens()?.count <= extraPlayersRequiredCount {
+            self.descriptionLabel?.text = "Inviting players will send them \n a message on Bungie.net."
+        } else {
             tokenView._removeToken(token)
+            self.descriptionLabel?.text = "The maximum number of players for your Fireteam has been reached. Each invited player will have a reserved spot on your Fireteam."
             return
         }
         
@@ -169,6 +172,14 @@ class TRInviteView: UIView, KSTokenViewDelegate, CustomErrorDelegate {
     func tokenView(tokenView: KSTokenView, didDeleteToken token: KSToken) {
         if tokenView.tokens()?.count == 0 {
             delegate?.hideInviteButton!()
+        }
+        
+        // Check Player Required Limit
+        let extraPlayersRequiredCount = ((eventInfo!.eventActivity?.activityMaxPlayers?.integerValue)! - (eventInfo!.eventPlayersArray.count))
+        if tokenView.tokens()?.count <= extraPlayersRequiredCount {
+            self.descriptionLabel?.text = "Inviting players will send them \n a message on Bungie.net."
+        } else {
+            self.descriptionLabel?.text = "The maximum number of players for your Fireteam has been reached. Each invited player will have a reserved spot on your Fireteam."
         }
     }
         
