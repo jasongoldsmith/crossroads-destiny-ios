@@ -32,12 +32,20 @@ class TRBranchManager {
     
     func createLinkWithBranch (eventInfo: TREventInfo, deepLinkType: String, callback: callbackWithUrl) {
         
+        var extraPlayersRequiredCount: Int = 0
         guard let eventID = eventInfo.eventID else {
             return
         }
 
-        let extraPlayersRequiredCount = ((eventInfo.eventActivity?.activityMaxPlayers?.integerValue)! - (eventInfo.eventPlayersArray.count))
-        let playerCount = String(extraPlayersRequiredCount)
+        guard let maxPlayers = eventInfo.eventActivity?.activityMaxPlayers?.integerValue else {
+            return
+        }
+        
+        extraPlayersRequiredCount = maxPlayers - eventInfo.eventPlayersArray.count
+        var playerCount: String = ""
+        if extraPlayersRequiredCount > 0 {
+            playerCount = String(extraPlayersRequiredCount)
+        }
         let console = self.getConsoleTypeFromString(eventInfo.eventConsoleType!)
         var activityName = ""
         
