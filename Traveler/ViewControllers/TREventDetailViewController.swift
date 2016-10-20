@@ -242,7 +242,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         })
         
         
-        self.showEventFullView()
+        self.showEventFullView(false)
     }
     
     
@@ -696,7 +696,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 
                 //Reload Data
                 self.eventTable?.reloadData()
-                self.showEventFullView()
+                self.showEventFullView(false)
             }
             
             if self.segmentControl?.selectedSegmentIndex == 1 {
@@ -842,7 +842,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             }
         }
         
-        self.showEventFullView()
+        self.showEventFullView(true)
     }
     
     func keyboardWillHide(sender: NSNotification) {
@@ -870,19 +870,25 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         }
         
         self.tableViewScrollToBottom(true)
-        self.showEventFullView()
+        self.showEventFullView(false)
     }
     
-    func showEventFullView () {
-    if self.eventInfo?.eventFull() == true && TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!) == true {
+    func showEventFullView (isKeyBoardOpen: Bool) {
+    if self.eventInfo?.eventFull() == true && TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!) == true && isKeyBoardOpen == false {
         
             self.view.layoutIfNeeded()
             self.fullViews?.hidden = false
             UIView.animateWithDuration(0.4) {
                 
                 self.fullViews?.alpha = 1
-                self.eventInfoTableTopConstraint?.constant = 50
-                self.eventFullViewBottomConstraint?.constant = 94
+                
+                if self.segmentControl?.selectedSegmentIndex == 0 {
+                    self.eventInfoTableTopConstraint?.constant = 50
+                    self.eventFullViewBottomConstraint?.constant = 94
+                } else {
+                    self.eventInfoTableTopConstraint?.constant = 94
+                    self.eventFullViewBottomConstraint?.constant = 94
+                }
                 
                 self.view.layoutIfNeeded()
             }
