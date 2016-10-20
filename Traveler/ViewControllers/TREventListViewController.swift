@@ -418,7 +418,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
                 self.showEventInfoViewController(eventInfo, fromPushNoti: false)
             } else {
                 
-                if let cell = self.eventsTableView?.cellForRowAtIndexPath(indexPath) as! TREventActivityCardCell {
+                if let cell = self.eventsTableView?.cellForRowAtIndexPath(indexPath) as? TREventActivityCardCell {
                     if let _ = cell.cellActivityAddButton.buttonActivityInfo {
                         
                         // Tracking Open Source
