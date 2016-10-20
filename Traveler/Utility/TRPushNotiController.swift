@@ -28,8 +28,9 @@ class TRPushNotiController: NSObject, NotificationViewProtocol {
                 if TRApplicationManager.sharedInstance.slideMenuController.isLeftOpen() || TRApplicationManager.sharedInstance.slideMenuController.isRightOpen() {
                     return
                 } else {
-                    let eventListView = slideVewController.mainViewController! as? TREventListViewController
-                    parentView = eventListView
+                    if let eventListView = slideVewController.mainViewController! as? TREventListViewController {
+                        parentView = eventListView
+                    }
                 }
             } else {
                 let slideVewController = TRApplicationManager.sharedInstance.slideMenuController
