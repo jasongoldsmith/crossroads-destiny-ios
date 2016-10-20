@@ -482,8 +482,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 cell?.playerIcon.roundRectView (1, borderColor: UIColor.grayColor())
                 cell?.playerInviteButton.hidden = true
                 
-                if self.eventInfo?.eventPlayersArray[indexPath.section].userVerified != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue
-                && self.eventInfo?.eventPlayersArray[indexPath.section].playerID == TRApplicationManager.sharedInstance.currentUser?.userID{
+                if self.eventInfo?.eventPlayersArray[indexPath.section].userVerified != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue {
                     cell?.playerIcon.image = UIImage(named: "default_helmet")
                 } else {
                     if let hasImage = self.eventInfo?.eventPlayersArray[indexPath.section].playerImageUrl {
@@ -525,7 +524,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         } else {
             let commentCell: TREventCommentCell = (tableView.dequeueReusableCellWithIdentifier(EVENT_COMMENT_CELL) as? TREventCommentCell)!
             
-            if self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userVerified != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue && self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userID == TRApplicationManager.sharedInstance.currentUser?.userID {
+            if self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userVerified != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue {
                 commentCell.playerIcon.image = UIImage(named: "default_helmet")
             } else {
                 if let hasImage = self.eventInfo?.eventComments[indexPath.section].commentUserInfo?.userImageURL! {
