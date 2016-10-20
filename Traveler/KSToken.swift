@@ -149,7 +149,7 @@ public class KSToken : UIControl {
       rectanglePath.fill()
       
       var paddingX: CGFloat = 0.0
-      var font = UIFont.systemFontOfSize(14)
+      var font = UIFont(name: "HelveticaNeue", size: 14.0)!
       var tokenField: KSTokenField? {
          return superview! as? KSTokenField
       }
