@@ -418,22 +418,22 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
                 self.showEventInfoViewController(eventInfo, fromPushNoti: false)
             } else {
                 
-                let cell = self.eventsTableView?.cellForRowAtIndexPath(indexPath) as! TREventActivityCardCell
-                
-                if let _ = cell.cellActivityAddButton.buttonActivityInfo {
-                    
-                    // Tracking Open Source
-                    var mySourceDict = [String: AnyObject]()
-                    mySourceDict["activityId"] = cell.cellActivityAddButton.buttonActivityInfo?.activityID
-                    
-                    //TRACKING
-                    _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_ADD_CARD_CLICKED, completion: {didSucceed in
-                        if didSucceed == true {
-                            
-                        }
-                    })
-
-                    self.createActivityWithActivity(cell.cellActivityAddButton)
+                if let cell = self.eventsTableView?.cellForRowAtIndexPath(indexPath) as! TREventActivityCardCell {
+                    if let _ = cell.cellActivityAddButton.buttonActivityInfo {
+                        
+                        // Tracking Open Source
+                        var mySourceDict = [String: AnyObject]()
+                        mySourceDict["activityId"] = cell.cellActivityAddButton.buttonActivityInfo?.activityID
+                        
+                        //TRACKING
+                        _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_ADD_CARD_CLICKED, completion: {didSucceed in
+                            if didSucceed == true {
+                                
+                            }
+                        })
+                        
+                        self.createActivityWithActivity(cell.cellActivityAddButton)
+                    }
                 }
             }
         } else {
