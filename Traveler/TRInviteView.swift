@@ -80,7 +80,7 @@ class TRInviteView: UIView, KSTokenViewDelegate, CustomErrorDelegate {
         
         guard let _ = self.eventInfo else { return }
         
-        self.tokenView.resignFirstResponder()
+        self.tokenView.forcedResignFirstResponder()
         
         var playerArray: [String] = []
         for player in (self.tokenView.tokens()?.enumerate())! {
@@ -200,7 +200,7 @@ class TRInviteView: UIView, KSTokenViewDelegate, CustomErrorDelegate {
     
     func showInvalidGamerTag () {
         
-        self.tokenView?.resignFirstResponder()
+        self.tokenView?.forcedResignFirstResponder()
         
         let errorView = NSBundle.mainBundle().loadNibNamed("TRCustomError", owner: self, options: nil)[0] as! TRCustomError
         errorView.errorMessageHeader?.text = "INVALID GAMERTAG"

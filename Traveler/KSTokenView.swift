@@ -676,11 +676,18 @@ public class KSTokenView: UIView {
    
    override public func resignFirstResponder() -> Bool {
       if (!_addTokenFromUntokenizedText(_tokenField)) {
-         _tokenField.resignFirstResponder()
+         //_tokenField.resignFirstResponder()
+        return false
       }
       return false
    }
    
+    public func forcedResignFirstResponder() -> Bool {
+        _tokenField.resignFirstResponder()
+        
+        return false
+    }
+    
    //MARK: - Search
    //__________________________________________________________________________________
    //
