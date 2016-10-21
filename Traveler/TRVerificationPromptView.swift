@@ -56,7 +56,7 @@ class TRVerificationPromptView: UIView, TTTAttributedLabelDelegate {
         self.userNameView?.layer.cornerRadius = 2.0
         
         var userName = TRUserInfo.getConsoleID()
-        if var clanTag = TRApplicationManager.sharedInstance.currentUser?.getDefaultConsole()?.clanTag where clanTag != "" {
+        if var clanTag = TRApplicationManager.sharedInstance.currentUser?.getDefaultConsole()?.unverDisplayClanTag where clanTag != "" {
             clanTag = " " + "[" + clanTag + "]"
             userName = userName! + clanTag
         }

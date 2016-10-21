@@ -14,6 +14,7 @@ class TRConsoles {
     var verifyStatus: String?
     var isPrimary: Bool?
     var clanTag: String?
+    var unverDisplayClanTag: String?
     
 
     func saveConsolesObject (consoleObj: TRConsoles) {

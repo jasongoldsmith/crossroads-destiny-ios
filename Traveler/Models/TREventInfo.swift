@@ -85,7 +85,13 @@ class TREventInfo: NSObject {
                 creatorConsole.consoleType = consoles["consoleType"].stringValue
                 creatorConsole.verifyStatus = consoles["verifyStatus"].stringValue
                 creatorConsole.isPrimary    = consoles["isPrimary"].bool
-                creatorConsole.clanTag = consoles["clanTag"].stringValue
+                
+                if creatorConsole.verifyStatus == ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue {
+                    creatorConsole.clanTag = consoles["clanTag"].stringValue
+                } else {
+                    creatorConsole.clanTag = ""
+                }
+                
                 
                 if creatorConsole.isPrimary == true {
                     creatorInfo.playerPsnID = creatorConsole.consoleId
@@ -122,7 +128,12 @@ class TREventInfo: NSObject {
                 playerConsole.consoleType = consoles["consoleType"].stringValue
                 playerConsole.verifyStatus = consoles["verifyStatus"].stringValue
                 playerConsole.isPrimary    = consoles["isPrimary"].bool
-                playerConsole.clanTag      = consoles["clanTag"].stringValue
+                
+                if playerConsole.verifyStatus == ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue {
+                    playerConsole.clanTag = consoles["clanTag"].stringValue
+                } else {
+                    playerConsole.clanTag = ""
+                }
                 
                 if playerConsole.isPrimary == true {
                     playerInfo.playerPsnID = playerConsole.consoleId

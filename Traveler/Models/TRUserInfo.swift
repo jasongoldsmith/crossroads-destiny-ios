@@ -49,7 +49,13 @@ class TRUserInfo: NSObject {
             console.consoleType = consoleObj["consoleType"].stringValue
             console.verifyStatus = consoleObj["verifyStatus"].stringValue
             console.isPrimary    = consoleObj["isPrimary"].bool
-            console.clanTag      = consoleObj["clanTag"].stringValue
+            console.unverDisplayClanTag = consoleObj["clanTag"].stringValue
+            
+            if console.verifyStatus == ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue {
+               console.clanTag = consoleObj["clanTag"].stringValue
+            } else {
+                console.clanTag = ""
+            }
             
             //Save user console in NSUserDefaults if this is the current console
             if console.isPrimary == true && self.userID == TRUserInfo.getUserID() {
@@ -87,6 +93,13 @@ class TRUserInfo: NSObject {
             console.verifyStatus = consoleObj["verifyStatus"].stringValue
             console.isPrimary    = consoleObj["isPrimary"].bool
             console.clanTag      = consoleObj["clanTag"].stringValue
+            console.unverDisplayClanTag = consoleObj["clanTag"].stringValue
+            
+            if console.verifyStatus == ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue {
+                console.clanTag = consoleObj["clanTag"].stringValue
+            } else {
+                console.clanTag = ""
+            }
             
             //Save user console in NSUserDefaults if this is the current console
             if console.isPrimary == true && self.userID == TRUserInfo.getUserID() {
