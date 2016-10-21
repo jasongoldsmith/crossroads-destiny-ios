@@ -1516,7 +1516,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Efu-iV-fD3">
-                                <rect key="frame" x="0.0" y="165" width="600" height="94"/>
+                                <rect key="frame" x="0.0" y="161" width="600" height="98"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconGhostDefault" translatesAutoresizingMaskIntoConstraints="NO" id="ion-kd-2Hr">
                                         <rect key="frame" x="18" y="13" width="32" height="32"/>
@@ -1547,7 +1547,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                     <constraint firstAttribute="trailing" secondItem="4wg-RE-6e9" secondAttribute="trailing" constant="8" id="Nni-D3-EII"/>
                                     <constraint firstItem="4wg-RE-6e9" firstAttribute="top" secondItem="w5t-53-LMG" secondAttribute="bottom" constant="7" id="PGU-nh-dHw"/>
                                     <constraint firstItem="ion-kd-2Hr" firstAttribute="top" secondItem="Efu-iV-fD3" secondAttribute="top" constant="13" id="c7C-a9-FXQ"/>
-                                    <constraint firstAttribute="height" constant="94" id="yN5-hl-NFq"/>
+                                    <constraint firstAttribute="height" constant="98" id="yN5-hl-NFq"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgBGVaultOfGlass" translatesAutoresizingMaskIntoConstraints="NO" id="drq-eW-kIC">
@@ -1779,6 +1779,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                         <outlet property="eventCheckPointTopConstraint" destination="tNC-sQ-wC7" id="k5e-in-iTJ"/>
                         <outlet property="eventCheckPoint_Time" destination="frN-Rs-fvP" id="u6f-LJ-0M2"/>
                         <outlet property="eventFullViewBottomConstraint" destination="srn-Mx-KTp" id="REM-5m-9Mj"/>
+                        <outlet property="eventFullViewHeightConstraint" destination="yN5-hl-NFq" id="K8I-nr-lHi"/>
                         <outlet property="eventIcon" destination="0vp-kp-FgA" id="sOW-rd-UJB"/>
                         <outlet property="eventInfoTableTopConstraint" destination="fRA-rm-ERe" id="fgp-Gk-2qa"/>
                         <outlet property="eventName" destination="Khp-dG-aaY" id="ESt-GY-Oi3"/>

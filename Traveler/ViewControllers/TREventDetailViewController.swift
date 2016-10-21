@@ -50,7 +50,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     @IBOutlet weak var rightSectionUnderLineLeftConstraint: NSLayoutConstraint!
     @IBOutlet weak var eventInfoTableTopConstraint: NSLayoutConstraint?
     @IBOutlet weak var eventFullViewBottomConstraint: NSLayoutConstraint?
-    
+    @IBOutlet weak var eventFullViewHeightConstraint: NSLayoutConstraint?
     
     //Invitation View
     var inviteView: TRInviteView = TRInviteView()
@@ -224,6 +224,9 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         if TRApplicationManager.sharedInstance.currentUser?.userID != self.eventInfo?.eventCreator?.playerID {
             if let creatorTag = self.eventInfo?.eventCreator?.playerPsnID {
                 self.fullViewsDescriptionLabel?.text = "Send \(creatorTag) a friend request or message for a party invite."
+                self.eventFullViewHeightConstraint?.constant = 80
+            } else {
+                self.eventFullViewHeightConstraint?.constant = 98
             }
         }
 
@@ -881,14 +884,24 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 
                 self.fullViews?.alpha = 1
                 
-                if self.segmentControl?.selectedSegmentIndex == 0 {
-                    self.eventInfoTableTopConstraint?.constant = 50
-                    self.eventFullViewBottomConstraint?.constant = 94
+                if TRApplicationManager.sharedInstance.currentUser?.userID != self.eventInfo?.eventCreator?.playerID {
+                    if self.segmentControl?.selectedSegmentIndex == 0 {
+                        self.eventInfoTableTopConstraint?.constant = 36
+                        self.eventFullViewBottomConstraint?.constant = 80
+                    } else {
+                        self.eventInfoTableTopConstraint?.constant = 80
+                        self.eventFullViewBottomConstraint?.constant = 80
+                    }
                 } else {
-                    self.eventInfoTableTopConstraint?.constant = 94
-                    self.eventFullViewBottomConstraint?.constant = 94
+                    if self.segmentControl?.selectedSegmentIndex == 0 {
+                        self.eventInfoTableTopConstraint?.constant = 50
+                        self.eventFullViewBottomConstraint?.constant = 98
+                    } else {
+                        self.eventInfoTableTopConstraint?.constant = 98
+                        self.eventFullViewBottomConstraint?.constant = 98
+                    }
                 }
-                
+
                 self.view.layoutIfNeeded()
             }
         } else {
