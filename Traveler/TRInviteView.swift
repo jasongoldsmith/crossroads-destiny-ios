@@ -141,7 +141,7 @@ class TRInviteView: UIView, KSTokenViewDelegate, CustomErrorDelegate {
     func tokenView(tokenView: KSTokenView, didAddToken token: KSToken) {
         
         delegate?.showInviteButton!()
-        if self.checkIfTheUserAlreadyExists(token.title) == true {
+        if self.checkIfTheUserAlreadyExists(token.title) == true || token.title == "Untitled"{
            tokenView._removeToken(token)
             return
         }
