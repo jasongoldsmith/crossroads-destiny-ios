@@ -340,6 +340,14 @@
 		339D8F301C911FB900A2620F /* TRCreateEventConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D8F2F1C911FB900A2620F /* TRCreateEventConfirmationViewController.swift */; };
 		339D8F311C911FB900A2620F /* TRCreateEventConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D8F2F1C911FB900A2620F /* TRCreateEventConfirmationViewController.swift */; };
 		339D8F321C911FB900A2620F /* TRCreateEventConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D8F2F1C911FB900A2620F /* TRCreateEventConfirmationViewController.swift */; };
+		339E29EB1DC15245009571F7 /* TRWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E29EA1DC15245009571F7 /* TRWebViewViewController.swift */; };
+		339E29EC1DC15245009571F7 /* TRWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E29EA1DC15245009571F7 /* TRWebViewViewController.swift */; };
+		339E29ED1DC15245009571F7 /* TRWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E29EA1DC15245009571F7 /* TRWebViewViewController.swift */; };
+		339E29EE1DC15245009571F7 /* TRWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E29EA1DC15245009571F7 /* TRWebViewViewController.swift */; };
+		339E29F01DC16105009571F7 /* TRFetchBungieUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E29EF1DC16105009571F7 /* TRFetchBungieUser.swift */; };
+		339E29F11DC16105009571F7 /* TRFetchBungieUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E29EF1DC16105009571F7 /* TRFetchBungieUser.swift */; };
+		339E29F21DC16105009571F7 /* TRFetchBungieUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E29EF1DC16105009571F7 /* TRFetchBungieUser.swift */; };
+		339E29F31DC16105009571F7 /* TRFetchBungieUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E29EF1DC16105009571F7 /* TRFetchBungieUser.swift */; };
 		33A029B01CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A029AF1CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift */; };
 		33A029B11CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A029AF1CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift */; };
 		33A029B21CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A029AF1CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift */; };
@@ -552,6 +560,10 @@
 		33FAF4021DAE107500670B8B /* KSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF3F41DAE105F00670B8B /* KSUtils.swift */; };
 		33FAF4031DAE107600670B8B /* KSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF3F41DAE105F00670B8B /* KSUtils.swift */; };
 		33FAF4041DAE107700670B8B /* KSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF3F41DAE105F00670B8B /* KSUtils.swift */; };
+		33FB28341DC3DA6900A05383 /* TRBungieLoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FB28331DC3DA6900A05383 /* TRBungieLoginValidation.swift */; };
+		33FB28351DC3DA6900A05383 /* TRBungieLoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FB28331DC3DA6900A05383 /* TRBungieLoginValidation.swift */; };
+		33FB28361DC3DA6900A05383 /* TRBungieLoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FB28331DC3DA6900A05383 /* TRBungieLoginValidation.swift */; };
+		33FB28371DC3DA6900A05383 /* TRBungieLoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FB28331DC3DA6900A05383 /* TRBungieLoginValidation.swift */; };
 		33FDB9A81C84F7C50066237C /* TRCreatorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB9A71C84F7C50066237C /* TRCreatorInfo.swift */; };
 		33FDB9A91C84F82F0066237C /* TRCreatorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB9A71C84F7C50066237C /* TRCreatorInfo.swift */; };
 		33FDB9AA1C84F8300066237C /* TRCreatorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB9A71C84F7C50066237C /* TRCreatorInfo.swift */; };
@@ -723,6 +735,8 @@
 		339D8F271C90F77E00A2620F /* TRActivitySelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRActivitySelectionCell.swift; sourceTree = "<group>"; };
 		339D8F2B1C90F79800A2620F /* TRActivitySelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRActivitySelectionCell.xib; sourceTree = "<group>"; };
 		339D8F2F1C911FB900A2620F /* TRCreateEventConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCreateEventConfirmationViewController.swift; sourceTree = "<group>"; };
+		339E29EA1DC15245009571F7 /* TRWebViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRWebViewViewController.swift; sourceTree = "<group>"; };
+		339E29EF1DC16105009571F7 /* TRFetchBungieUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRFetchBungieUser.swift; sourceTree = "<group>"; };
 		33A029AF1CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		33A588FB1D511C2900D06127 /* TRChangeConsoleRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRChangeConsoleRequest.swift; sourceTree = "<group>"; };
 		33AABB171D5BC2600099A20C /* TRActivityBonus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRActivityBonus.swift; sourceTree = "<group>"; };
@@ -760,6 +774,7 @@
 		33FAF3F21DAE105F00670B8B /* KSTokenField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSTokenField.swift; sourceTree = "<group>"; };
 		33FAF3F31DAE105F00670B8B /* KSTokenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSTokenView.swift; sourceTree = "<group>"; };
 		33FAF3F41DAE105F00670B8B /* KSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSUtils.swift; sourceTree = "<group>"; };
+		33FB28331DC3DA6900A05383 /* TRBungieLoginValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRBungieLoginValidation.swift; sourceTree = "<group>"; };
 		33FDB9A71C84F7C50066237C /* TRCreatorInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCreatorInfo.swift; sourceTree = "<group>"; };
 		33FDB9AD1C850AFC0066237C /* EventButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventButton.swift; sourceTree = "<group>"; };
 		33FDB9B41C8512E60066237C /* TR-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TR-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -1056,6 +1071,7 @@
 				336DF8B21D887B230057879E /* TRPublicFeedRequest.swift */,
 				332CA6E71D9B30D40020AC19 /* TRReportComment.swift */,
 				336A666C1DB0091D00A90D63 /* TRInvitePlayersRequest.swift */,
+				339E29EF1DC16105009571F7 /* TRFetchBungieUser.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -1087,6 +1103,7 @@
 				330993C71D70C4AF00428B5A /* TRDeepLinkObject.swift */,
 				33CC20D31D774F270017F208 /* TRFunnelData.swift */,
 				3382234E1DB5923B0035F25D /* StringExtension.swift */,
+				33FB28331DC3DA6900A05383 /* TRBungieLoginValidation.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -1175,6 +1192,7 @@
 				3333BDBA1CEE4221001C9E1A /* TRChooseGroupViewController.swift */,
 				338437151CEF815100AB27F3 /* TRLegalViewController.swift */,
 				33C3907E1D8BBAD90017D096 /* TRMessageSentConfViewController.swift */,
+				339E29EA1DC15245009571F7 /* TRWebViewViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1218,7 +1236,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 33D0B45F1CFD0165008ABA04 /* Build configuration list for PBXNativeTarget "Traveler" */;
 			buildPhases = (
-				E07B3308F52FF5B1DC1354EB /* 📦 Check Pods Manifest.lock */,
+				E07B3308F52FF5B1DC1354EB /* [CP] Check Pods Manifest.lock */,
 				6A2D61296A2E8B5CFEB1697B /* [CP] Check Pods Manifest.lock */,
 				33D0B3FA1CFD0165008ABA04 /* Sources */,
 				33D0B4441CFD0165008ABA04 /* Frameworks */,
@@ -1242,7 +1260,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 62C1FF541C77C15C00A78798 /* Build configuration list for PBXNativeTarget "Crossroads" */;
 			buildPhases = (
-				D2FA16E2405BDC02E00C4464 /* 📦 Check Pods Manifest.lock */,
+				D2FA16E2405BDC02E00C4464 /* [CP] Check Pods Manifest.lock */,
 				505F6279532B398D1ECE7572 /* [CP] Check Pods Manifest.lock */,
 				62C1FF281C77C15C00A78798 /* Sources */,
 				62C1FF291C77C15C00A78798 /* Frameworks */,
@@ -1267,7 +1285,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 62C1FF571C77C15C00A78798 /* Build configuration list for PBXNativeTarget "TravelerTests" */;
 			buildPhases = (
-				22E71AF076632FB51405D01D /* 📦 Check Pods Manifest.lock */,
+				22E71AF076632FB51405D01D /* [CP] Check Pods Manifest.lock */,
 				FCC7279A73EF3C1E6FEBE3B0 /* [CP] Check Pods Manifest.lock */,
 				62C1FF3C1C77C15C00A78798 /* Sources */,
 				62C1FF3D1C77C15C00A78798 /* Frameworks */,
@@ -1291,13 +1309,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 62C1FF5A1C77C15C00A78798 /* Build configuration list for PBXNativeTarget "TravelerUITests" */;
 			buildPhases = (
-				094851547A2817B1E2ACFFCB /* 📦 Check Pods Manifest.lock */,
+				094851547A2817B1E2ACFFCB /* [CP] Check Pods Manifest.lock */,
 				4CC23F68F9913D68FC6609AA /* [CP] Check Pods Manifest.lock */,
 				62C1FF471C77C15C00A78798 /* Sources */,
 				62C1FF481C77C15C00A78798 /* Frameworks */,
 				62C1FF491C77C15C00A78798 /* Resources */,
 				E886AED3854DBD16CCABF416 /* [CP] Copy Pods Resources */,
 				CA3E21196B907D76368791AB /* 📦 Copy Pods Resources */,
+				2DF635AB187597B0A8EF1E39 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1531,34 +1550,49 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TravelerTests/Pods-TravelerTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		094851547A2817B1E2ACFFCB /* 📦 Check Pods Manifest.lock */ = {
+		094851547A2817B1E2ACFFCB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		22E71AF076632FB51405D01D /* 📦 Check Pods Manifest.lock */ = {
+		22E71AF076632FB51405D01D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2DF635AB187597B0A8EF1E39 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TravelerUITests/Pods-TravelerUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		33D0B45C1CFD0165008ABA04 /* Run Script */ = {
@@ -1782,19 +1816,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TravelerUITests/Pods-TravelerUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D2FA16E2405BDC02E00C4464 /* 📦 Check Pods Manifest.lock */ = {
+		D2FA16E2405BDC02E00C4464 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D2FC914F5922543D1BE6036C /* [CP] Embed Pods Frameworks */ = {
@@ -1812,19 +1846,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TravelerTests/Pods-TravelerTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E07B3308F52FF5B1DC1354EB /* 📦 Check Pods Manifest.lock */ = {
+		E07B3308F52FF5B1DC1354EB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E886AED3854DBD16CCABF416 /* [CP] Copy Pods Resources */ = {
@@ -1955,6 +1989,7 @@
 				33D0B4191CFD0165008ABA04 /* TRCreateEventRequest.swift in Sources */,
 				33D0B41A1CFD0165008ABA04 /* TRNavInteractionAnimator.swift in Sources */,
 				33D0B41B1CFD0165008ABA04 /* TREventCurrentWithCheckPointCell.swift in Sources */,
+				339E29F01DC16105009571F7 /* TRFetchBungieUser.swift in Sources */,
 				33D0B41C1CFD0165008ABA04 /* Utility.swift in Sources */,
 				330572831D3EE9F800B4CB36 /* TRActiveStatePushInfo.swift in Sources */,
 				33D0B41D1CFD0165008ABA04 /* TRGetGroupByIDRequest.swift in Sources */,
@@ -1987,6 +2022,7 @@
 				33D0B42F1CFD0165008ABA04 /* TRCreateEventViewController.swift in Sources */,
 				33D0B4301CFD0165008ABA04 /* TRActivityCheckPointPicker.swift in Sources */,
 				33D0B4311CFD0165008ABA04 /* TRNavTransitionAnimator.swift in Sources */,
+				33FB28341DC3DA6900A05383 /* TRBungieLoginValidation.swift in Sources */,
 				33D0B4321CFD0165008ABA04 /* ViewControllerExtension.swift in Sources */,
 				331194C61D8A2322007A1262 /* TRSignInErrorViewController.swift in Sources */,
 				33D0B4331CFD0165008ABA04 /* TRWebView.swift in Sources */,
@@ -2010,6 +2046,7 @@
 				33BA7A0C1D657DA800C5DA2D /* TRLocationInfo.swift in Sources */,
 				33D0B4421CFD0165008ABA04 /* TRCreateEventSelectionViewController.swift in Sources */,
 				33D0B4431CFD0165008ABA04 /* TRBungieGroupInfo.swift in Sources */,
+				339E29EB1DC15245009571F7 /* TRWebViewViewController.swift in Sources */,
 				337DA4E51D5063FE002A10BA /* TRAddConsole.swift in Sources */,
 				3382234F1DB5923B0035F25D /* StringExtension.swift in Sources */,
 			);
@@ -2080,6 +2117,7 @@
 				33FDB9B61C861AB10066237C /* TRCreateEventRequest.swift in Sources */,
 				336DD77F1CDC289200CCCB04 /* TRNavInteractionAnimator.swift in Sources */,
 				3380EF271CC946CA000A9289 /* TREventCurrentWithCheckPointCell.swift in Sources */,
+				339E29F11DC16105009571F7 /* TRFetchBungieUser.swift in Sources */,
 				338AECFE1C9D03AE008B064F /* Utility.swift in Sources */,
 				330572841D3EEA1600B4CB36 /* TRActiveStatePushInfo.swift in Sources */,
 				3384371A1CEFB34700AB27F3 /* TRGetGroupByIDRequest.swift in Sources */,
@@ -2112,6 +2150,7 @@
 				33F427491C8A0DBD00560BD3 /* TRCreateEventViewController.swift in Sources */,
 				3374D74D1C9258DD0036E9C8 /* TRActivityCheckPointPicker.swift in Sources */,
 				3372219D1CD06762001B1157 /* TRNavTransitionAnimator.swift in Sources */,
+				33FB28351DC3DA6900A05383 /* TRBungieLoginValidation.swift in Sources */,
 				629497321C7C04E1005E4F91 /* ViewControllerExtension.swift in Sources */,
 				331194C71D8A2322007A1262 /* TRSignInErrorViewController.swift in Sources */,
 				338BB1FF1CEEB96200A14060 /* TRWebView.swift in Sources */,
@@ -2135,6 +2174,7 @@
 				33BA7A0D1D657DA800C5DA2D /* TRLocationInfo.swift in Sources */,
 				339D8F241C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift in Sources */,
 				3333BDC71CEE80EA001C9E1A /* TRBungieGroupInfo.swift in Sources */,
+				339E29EC1DC15245009571F7 /* TRWebViewViewController.swift in Sources */,
 				337DA4E61D5063FE002A10BA /* TRAddConsole.swift in Sources */,
 				338223501DB5923B0035F25D /* StringExtension.swift in Sources */,
 			);
@@ -2205,6 +2245,7 @@
 				3333BDC81CEE80EA001C9E1A /* TRBungieGroupInfo.swift in Sources */,
 				335405C71D52A63A00B42BAC /* TRLegalInfo.swift in Sources */,
 				33742DAE1C810AE300C46742 /* TRActivityInfo.swift in Sources */,
+				339E29F21DC16105009571F7 /* TRFetchBungieUser.swift in Sources */,
 				33742D8F1C7FC66E00C46742 /* TRStoryBoardManager.swift in Sources */,
 				337DA4E21D50554F002A10BA /* ArrayExtension.swift in Sources */,
 				33104C001C97B1F40024D601 /* TRActivityIndicatorView.swift in Sources */,
@@ -2237,6 +2278,7 @@
 				33BA7A0E1D657DA800C5DA2D /* TRLocationInfo.swift in Sources */,
 				33D9D9771D48476000A6289D /* TREventActivityCardCell.swift in Sources */,
 				3305AD0A1CF26FD100572495 /* YTGameViewController.swift in Sources */,
+				33FB28361DC3DA6900A05383 /* TRBungieLoginValidation.swift in Sources */,
 				337DA4C91D4C0D10002A10BA /* TRErrorView.swift in Sources */,
 				331194C81D8A2322007A1262 /* TRSignInErrorViewController.swift in Sources */,
 				3333BDC01CEE6C7F001C9E1A /* TRBungieGroupCell.swift in Sources */,
@@ -2260,6 +2302,7 @@
 				6294972E1C7BB5F3005E4F91 /* TRAuthenticationRequest.swift in Sources */,
 				33D9D9811D48574F00A6289D /* TRAdCardInfo.swift in Sources */,
 				339D8F251C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift in Sources */,
+				339E29ED1DC15245009571F7 /* TRWebViewViewController.swift in Sources */,
 				33A588FE1D511C2900D06127 /* TRChangeConsoleRequest.swift in Sources */,
 				338223511DB5923B0035F25D /* StringExtension.swift in Sources */,
 			);
@@ -2330,6 +2373,7 @@
 				3333BDC91CEE80EA001C9E1A /* TRBungieGroupInfo.swift in Sources */,
 				335405C81D52A63A00B42BAC /* TRLegalInfo.swift in Sources */,
 				33742DAF1C810AE300C46742 /* TRActivityInfo.swift in Sources */,
+				339E29F31DC16105009571F7 /* TRFetchBungieUser.swift in Sources */,
 				33742D901C7FC66F00C46742 /* TRStoryBoardManager.swift in Sources */,
 				337DA4E31D50554F002A10BA /* ArrayExtension.swift in Sources */,
 				33104C011C97B1F40024D601 /* TRActivityIndicatorView.swift in Sources */,
@@ -2362,6 +2406,7 @@
 				33BA7A0F1D657DA800C5DA2D /* TRLocationInfo.swift in Sources */,
 				33D9D9781D48476000A6289D /* TREventActivityCardCell.swift in Sources */,
 				3305AD0B1CF26FD100572495 /* YTGameViewController.swift in Sources */,
+				33FB28371DC3DA6900A05383 /* TRBungieLoginValidation.swift in Sources */,
 				337DA4CA1D4C0D10002A10BA /* TRErrorView.swift in Sources */,
 				331194C91D8A2322007A1262 /* TRSignInErrorViewController.swift in Sources */,
 				3333BDC11CEE6C7F001C9E1A /* TRBungieGroupCell.swift in Sources */,
@@ -2385,6 +2430,7 @@
 				6294972F1C7BB5F3005E4F91 /* TRAuthenticationRequest.swift in Sources */,
 				33D9D9821D48574F00A6289D /* TRAdCardInfo.swift in Sources */,
 				339D8F261C90EE7A00A2620F /* TRCreateEventSelectionViewController.swift in Sources */,
+				339E29EE1DC15245009571F7 /* TRWebViewViewController.swift in Sources */,
 				33A588FF1D511C2900D06127 /* TRChangeConsoleRequest.swift in Sources */,
 				338223521DB5923B0035F25D /* StringExtension.swift in Sources */,
 			);

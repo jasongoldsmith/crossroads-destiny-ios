@@ -27,7 +27,7 @@ struct K {
         static let INSTALL_INFO_SENT = "INSTALL_INFO_SENT"
         static let Platform_Info_Dict = "Platform_Info_Dict"
         static let FORCED_LOGOUT = "FORCED_LOGOUT" 
-        
+        static let FORCED_LOGOUT_NEW_SIGN_IN = "FORCED_LOGOUT_NEW_SIGN_IN"
         
         struct UserAccountInfo {
             static let TR_UserName      = "TR_UserName"
@@ -103,6 +103,7 @@ struct K {
         static let TR_PUBLIC_FEED        =   "/api/v1/feed/public"
         static let TR_REPORT_COMMENT     =   "/api/v1/a/event/reportComment"
         static let TR_INVITE_PLAYER      =   "/api/v1/a/event/invite"
+        static let BUNGIE_FETCH_USER     =   "/api/v1/auth/validateUserLogin"
     }
     
     struct StoryBoard {
@@ -134,6 +135,7 @@ struct K {
         static let VIEW_CONTROLLER_EVENT_DESCRIPTION       = "eventDescriptionVC"
         static let VIEW_CONTROLLER_SIGNIN_ERROR            = "SIGINERROR"
         static let VIEW_CONTROLLER_CONTACT_MESSAGE_SENT    = "messageSent"
+        static let VIEW_CONTROLLER_WEB_VIEW_SIGNIN         = "webviewVC"
     }
     
     struct ActivityType {
@@ -150,6 +152,7 @@ struct K {
         static let APPLICATION_DID_RECEIVE_REMOTE_NOTIFICATION  = "UIApplicationDidReceiveRemoteNotification"
         static let APPLICATION_WILL_TERMINATE                   = "UIApplicationWillTerminateNotification"
         static let APPLICATION_WILL_RESIGN_ACTIVE               = "UIApplicationWillResignActiveNotification"
+        static let USER_DATA_RECEIVED_CLOSE_WEBVIEW             = "USER_DATA_RECEIVED_CLOSE_WEBVIEW"
     }
     
     struct ConsoleTypes {

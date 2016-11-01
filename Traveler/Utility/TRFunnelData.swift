@@ -14,7 +14,7 @@ class TRFunnelData {
     
     static let telephonyInfo = CTTelephonyNetworkInfo()
     
-    class func getData () -> Dictionary <String, AnyObject> {
+    class func getData (addBungieHeader: Dictionary <String, AnyObject>?) -> Dictionary <String, AnyObject> {
 
         var p: Dictionary <String, AnyObject> = Dictionary()
         let branchSDKVersion = "0.12.6"
@@ -48,6 +48,13 @@ class TRFunnelData {
         let token = K.Tokens.Mix_Panle_Token
         let mixpanel = Mixpanel.sharedInstanceWithToken(token)
         p["x-mixpanelid"] = mixpanel.distinctId
+        
+        
+        if let _ = addBungieHeader {
+            p["x-api-key"] = addBungieHeader!["x-api-key"]
+            p["x-csrf"] = addBungieHeader!["x-csrf"]
+            p["cookie"] = addBungieHeader!["cookie"]
+        }
         
         return p
     }

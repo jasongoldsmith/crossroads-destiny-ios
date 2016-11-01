@@ -98,5 +98,7 @@
 	<false/>
 	<key>branch_key</key>
 	<string>key_live_ilh33QPvqAgDqnVVRh8iXcnnBBaLIp97</string>
+	<key>FirebaseAutomaticScreenReportingEnabled</key>
+	<string>NO</string>
 </dict>
 </plist>

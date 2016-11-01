@@ -49,6 +49,9 @@ class TRApplicationManager: NSObject {
     //AlamoreFire Manager
     var alamoFireManager : Alamofire.Manager?
     
+    //NSURL Session Config
+    var configuration: NSURLSessionConfiguration?
+    
     // SlideMenu Controller
     var slideMenuController = SlideMenuController()
     
@@ -78,9 +81,12 @@ class TRApplicationManager: NSObject {
     
     // unVerified Prompt
     var verificationPrompt = TRVerificationPromptView()
-    
+
     // Invitation Info
     var invitation: TRInvitationInfo?
+    
+    //Bungie Login Validation
+    var bungieVarificationHelper: TRBungieLoginValidation = TRBungieLoginValidation()
     
     
     // MARK:- Initializer
@@ -88,11 +94,11 @@ class TRApplicationManager: NSObject {
         super.init()
         
         // Network Configuration
-        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        configuration.timeoutIntervalForRequest = REQUEST_TIME_OUT
-        configuration.timeoutIntervalForResource = REQUEST_TIME_OUT
-        configuration.HTTPAdditionalHeaders = TRFunnelData.getData()
-        self.alamoFireManager = Alamofire.Manager(configuration: configuration)
+        self.configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        self.configuration!.timeoutIntervalForRequest = REQUEST_TIME_OUT
+        self.configuration!.timeoutIntervalForResource = REQUEST_TIME_OUT
+        self.configuration!.HTTPAdditionalHeaders = TRFunnelData.getData(nil)
+        self.alamoFireManager = Alamofire.Manager(configuration: self.configuration!)
 
         
         #if DEBUG
@@ -124,6 +130,7 @@ class TRApplicationManager: NSObject {
         //Init Branch Manager
         self.branchManager = TRBranchManager()
     }
+
     
     func didReceiveRemoteNotificationInActiveSesion(sender: NSNotification) {
         

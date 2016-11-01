@@ -165,11 +165,24 @@ class TRUserInfo: NSObject {
     }
     
     class func isUserLoggedIn () -> Bool {
+
+        guard let cookies = NSHTTPCookieStorage.sharedHTTPCookieStorage().cookies else {
+            //Cookie Not Found
+            return false
+        }
         
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        if (userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_UserID) != nil) &&
-           (userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_UserID) != nil)  {
-            
+        var cookieCount = 0
+        for cookie in cookies {
+            if cookie.name == "bungleatk" {
+                cookieCount += 1
+            } else if cookie.name == "bungledid" {
+                cookieCount += 1
+            } else if cookie.name == "bungled" {
+                cookieCount += 1
+            }
+        }
+        
+        if cookieCount == 3 {
             return true
         }
         
@@ -233,6 +246,9 @@ class TRUserInfo: NSObject {
 
     // Is Verified
     class func isUserVerified () -> String? {
+        
+        return ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue
+        
         let userDefaults = NSUserDefaults.standardUserDefaults()
         
         if let verification = userDefaults.objectForKey(K.UserDefaultKey.UserAccountInfo.TR_CONSOLE_VERIFIED) as? String {
@@ -313,6 +329,17 @@ class TRUserInfo: NSObject {
         NSUserDefaults.standardUserDefaults().removeObjectForKey(K.UserDefaultKey.UserAccountInfo.TR_USER_CLAN_ID)
         NSUserDefaults.standardUserDefaults().removeObjectForKey(K.UserDefaultKey.UserAccountInfo.TR_UserID)
         NSUserDefaults.standardUserDefaults().removeObjectForKey(K.UserDefaultKey.UserAccountInfo.TR_USER_BUNGIE_MEMBERSHIP_ID)
+        
+        
+        let cookieStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
+        guard let cookies = cookieStorage.cookies else {
+            //Cookie Not Found
+            return
+        }
+        
+        for cookie in cookies {
+            cookieStorage.deleteCookie(cookie)
+        }
     }
 }
 

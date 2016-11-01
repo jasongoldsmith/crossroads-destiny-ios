@@ -131,7 +131,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                     
                     //Load View
-                    rootViewController.loadAppInitialViewController()
+                    //rootViewController.loadAppInitialViewController()
                     rootViewController.shouldLoadInitialViewDefault = true
                     
                     // App Initialized Request
@@ -140,7 +140,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     self.appInitializedRequest(mySourceDict)
                 } else {
                     //Load View
-                    rootViewController.loadAppInitialViewController()
+                    //rootViewController.loadAppInitialViewController()
                     rootViewController.shouldLoadInitialViewDefault = true
                 }
             }
@@ -275,7 +275,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
-        FBSDKAppEvents.activateApp()
+        //FBSDKAppEvents.activateApp()
     }
 
     func applicationWillTerminate(application: UIApplication) {

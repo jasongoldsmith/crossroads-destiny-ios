@@ -90,12 +90,51 @@ class TRBaseViewController: UIViewController {
     }
     
     func applicationWillEnterForeground() {
-        //Add Observer to check if the user has been verified
-        if (TRUserInfo.isUserVerified() != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue) {
-            TRApplicationManager.sharedInstance.fireBaseManager?.addUserObserverWithCompletion({ (didCompelete) in
-                
-            })
+        
+        if TRUserInfo.isUserLoggedIn() == false {
+            return
         }
+        
+        if let _ = TRApplicationManager.sharedInstance.currentUser {
+            
+            TRApplicationManager.sharedInstance.bungieVarificationHelper.shouldShowLoginSceen({ (showLoginScreen, error) in
+                
+                }, clearBackGroundRequest: true)
+        } else {
+            return
+        }
+        
+        
+        TRApplicationManager.sharedInstance.bungieVarificationHelper.shouldShowLoginSceen({ (showLoginScreen, error) in
+                if let _ = error {
+                    return
+                }
+                
+                if showLoginScreen == true {
+                    let createRequest = TRAuthenticationRequest()
+                    createRequest.logoutTRUser() { (value ) in
+                        if value == true {
+                            
+                            self.dismissViewControllerAnimated(false, completion:{
+                                TRUserInfo.removeUserData()
+                                TRApplicationManager.sharedInstance.purgeSavedData()
+                                
+                                self.didMoveToParentViewController(nil)
+                                self.removeFromParentViewController()
+                            })
+                        } else {
+                            self.displayAlertWithTitle("Logout Failed", complete: { (complete) -> () in
+                            })
+                        }
+                    }
+                }
+            }, clearBackGroundRequest: false)
+        
+        
+        //Add Observer to check if the user has been verified
+        TRApplicationManager.sharedInstance.fireBaseManager?.addUserObserverWithCompletion({ (didCompelete) in
+            
+        })
     }
     
     func reloadEventTable () {
@@ -157,6 +196,7 @@ class TRBaseViewController: UIViewController {
         //Remove Observers
         NSNotificationCenter.defaultCenter().removeObserver(UIApplicationWillEnterForegroundNotification)
         NSNotificationCenter.defaultCenter().removeObserver(UIApplicationDidEnterBackgroundNotification)
+        
         NSNotificationCenter.defaultCenter().removeObserver(K.NOTIFICATION_TYPE.REMOTE_NOTIFICATION_WITH_ACTIVE_SESSION)
         NSNotificationCenter.defaultCenter().removeObserver(K.NOTIFICATION_TYPE.APPLICATION_DID_RECEIVE_REMOTE_NOTIFICATION)
         

@@ -240,10 +240,6 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         self.chatViewOriginalFrame = self.chatTextView?.frame
 
         TRApplicationManager.sharedInstance.fireBaseManager?.addEventsObserversWithParentViewForDetailView(self, withEvent: self.eventInfo!)
-        TRApplicationManager.sharedInstance.fireBaseManager?.addUserObserverWithView({ (didCompelete) in
-            
-        })
-        
         
         self.showEventFullView(false)
     }
@@ -256,10 +252,6 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         if let _ = self.eventInfo {
             TRApplicationManager.sharedInstance.fireBaseManager?.removeDetailObserver(self.eventInfo!)
         }
-        
-        //Remove User Observer
-        TRApplicationManager.sharedInstance.fireBaseManager?.removeUserObserver()
-        
         
         //Remove FireBase Comment Observer
         TRApplicationManager.sharedInstance.fireBaseManager?.removeCommentsObserver(self.eventInfo!)

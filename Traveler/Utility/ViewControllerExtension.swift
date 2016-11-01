@@ -111,7 +111,7 @@ extension UIViewController {
 
         let nav = self.navigationController?.navigationBar
         nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        nav?.barTintColor = UIColor(red: 10/255, green: 31/255, blue: 39/255, alpha: 1)
+        nav?.barTintColor = UIColor(red: 28/255, green: 43/255, blue: 51/255, alpha: 1)
         
         if showBack {
             //Adding Back Button to nav Bar

@@ -810,6 +810,12 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
         UIApplication.sharedApplication().openURL(url!)
     }
     
+    func closeEventListView () {
+        self.dismissViewController(true) { (didDismiss) in
+            
+        }
+    }
+    
     //MARK:- deinit
     deinit {
         self.eventsInfo.removeAll()

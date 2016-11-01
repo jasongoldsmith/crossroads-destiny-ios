@@ -11,13 +11,15 @@ import iCarousel
 import TTTAttributedLabel
 
 
-class TRLoginOptionViewController: TRBaseViewController, iCarouselDataSource, iCarouselDelegate, TTTAttributedLabelDelegate {
+class TRLoginOptionViewController: TRBaseViewController, iCarouselDataSource, iCarouselDelegate, TTTAttributedLabelDelegate, CustomErrorDelegate {
     
     
     var items: [TREventInfo] = TRApplicationManager.sharedInstance.eventsList
     @IBOutlet weak var playerCountLabel: UILabel!
     @IBOutlet weak var carousel : iCarousel!
     @IBOutlet weak var legalLabel: TTTAttributedLabel!
+    @IBOutlet weak var playStationButton: UIButton!
+    @IBOutlet weak var xBoxButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -40,6 +42,21 @@ class TRLoginOptionViewController: TRBaseViewController, iCarouselDataSource, iC
         
         //Legal Statement
         self.addLegalStatmentText()
+        
+        //Button Images
+        self.playStationButton.setImage(UIImage(named: "pSNLogo"), forState: .Normal)
+        self.xBoxButton.setImage(UIImage(named: "xboxLiveLogo"), forState: .Normal)
+        
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let isUserLoggedIn = TRUserInfo.isUserLoggedIn()
+        if userDefaults.boolForKey(K.UserDefaultKey.FORCED_LOGOUT_NEW_SIGN_IN) == false && isUserLoggedIn == true {
+            let errorView = NSBundle.mainBundle().loadNibNamed("TRCustomError", owner: self, options: nil)[0] as! TRCustomError
+            errorView.errorMessageHeader?.text = "CHANGES TO SIGN IN"
+            errorView.errorMessageDescription?.text = "Good news! You can now sign in using your Xbox or PlayStation account (the same one you use for Bungie.net)"
+            errorView.frame = self.view.frame
+            errorView.delegate = self
+            self.view.addSubview(errorView)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,11 +66,29 @@ class TRLoginOptionViewController: TRBaseViewController, iCarouselDataSource, iC
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
     }
-    
-    
-    @IBAction func signIntBtnTapped(sender: AnyObject) {
-        self.performSegueWithIdentifier("TRSignInView", sender: self)
+
+
+    func okButtonPressed () {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.setBool(true, forKey: K.UserDefaultKey.FORCED_LOGOUT_NEW_SIGN_IN)
     }
+    
+    @IBAction func xBoxTapped(sender: AnyObject) {
+        let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+        let vc : TRWebViewViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_WEB_VIEW_SIGNIN) as! TRWebViewViewController
+        vc.consoleLoginEndPoint = "https://www.bungie.net/en/User/SignIn/Xuid"
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func playStationTapped(sender: AnyObject) {
+        let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+        let vc : TRWebViewViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_WEB_VIEW_SIGNIN) as! TRWebViewViewController
+        vc.consoleLoginEndPoint = "https://www.bungie.net/en/User/SignIn/Psnid"
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     @IBAction func trUnwindActionToLoginOption(segue: UIStoryboardSegue) {
         
@@ -95,7 +130,7 @@ class TRLoginOptionViewController: TRBaseViewController, iCarouselDataSource, iC
     }
     
     func addLegalStatmentText () {
-        let legalString = "By clicking the button below, I have read and agree to the Crossroads Terms of Service and Privacy Policy."
+        let legalString = "By signing in, I have read and agree to the Crossroads Terms of Service and Privacy Policy. © Catalyst Foundry 2016"
         
         let customerAgreement = "Terms of Service"
         let privacyPolicy = "Privacy Policy"

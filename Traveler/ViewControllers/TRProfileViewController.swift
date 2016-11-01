@@ -201,6 +201,17 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         })
     }
     
+    
+    @IBAction func inviteFriends () {
+        
+        let url: String = "https://crossrd.app.link/share"
+        let groupToShare = [url] as [AnyObject]
+                
+        let activityViewController = UIActivityViewController(activityItems: groupToShare , applicationActivities: nil)
+        self.presentViewController(activityViewController, animated: true, completion: {})
+    }
+    
+    
     @IBAction func logOutUser () {
         self.addLogOutAlert()
     }
@@ -239,7 +250,6 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
                 if value == true {
                     
                     self.dismissViewControllerAnimated(false, completion:{
-                        
                         TRUserInfo.removeUserData()
                         TRApplicationManager.sharedInstance.purgeSavedData()
 
