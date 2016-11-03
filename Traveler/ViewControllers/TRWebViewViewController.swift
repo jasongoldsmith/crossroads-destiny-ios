@@ -61,15 +61,21 @@ class TRWebViewViewController: TRBaseViewController, UIWebViewDelegate, CustomEr
     }
     
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        
         return true
     }
     
     func webViewDidStartLoad(webView: UIWebView) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        
+        if webView.request?.URL?.host == "www.bungie.net" {
+            self.webView?.hidden = true
+        }
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        
         if webView.request?.URL?.host == "www.bungie.net" {
             validateCookies()
         }
