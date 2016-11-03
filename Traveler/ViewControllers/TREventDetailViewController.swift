@@ -505,7 +505,8 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 
                 if (indexPath.section) == self.eventInfo?.eventPlayersArray.count {
                     if TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!) == true {
-                        cell?.playerInviteButton.hidden = false
+                        //cell?.playerInviteButton.hidden = false
+                        cell?.playerInviteButton.hidden = true
                         cell?.playerInviteButton.addTarget(self, action: #selector(inviteUser(_:)), forControlEvents: .TouchUpInside)
                     } else {
                         cell?.playerInviteButton.hidden = true

@@ -89,7 +89,7 @@ class TRRequest {
                                     completion(error: message, responseObject: nil)
                                 }
                             } else {
-                                TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Undefined server error. Please wait a few seconds and refresh.")
+                                //TRApplicationManager.sharedInstance.addErrorSubViewWithMessage("Undefined server error. Please wait a few seconds and refresh.")
                             }
                             
                         } else {

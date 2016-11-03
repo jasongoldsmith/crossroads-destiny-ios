@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 
-class TRWebViewViewController: TRBaseViewController, UIWebViewDelegate {
+class TRWebViewViewController: TRBaseViewController, UIWebViewDelegate, CustomErrorDelegate {
     
     @IBOutlet weak var webView: UIWebView!
     
@@ -22,7 +22,8 @@ class TRWebViewViewController: TRBaseViewController, UIWebViewDelegate {
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        
+         super.viewDidLoad()
         
         self.addNavigationBarButtons(true, showCancel: false)
         
@@ -31,6 +32,13 @@ class TRWebViewViewController: TRBaseViewController, UIWebViewDelegate {
         self.webView?.delegate = self
         
         
+        let navBarAttributesDictionary: [String: AnyObject]? = [
+            NSFontAttributeName: UIFont(name: "HelveticaNeue-Bold", size: 14)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()
+        ]
+        
+        self.navigationController?.navigationBar.titleTextAttributes = navBarAttributesDictionary
+        self.navigationController?.navigationBar.setTitleVerticalPositionAdjustment(-3.0, forBarMetrics: .Default)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TRWebViewViewController.dismissView), name: K.NOTIFICATION_TYPE.USER_DATA_RECEIVED_CLOSE_WEBVIEW, object: nil)
     }
     
@@ -81,18 +89,41 @@ class TRWebViewViewController: TRBaseViewController, UIWebViewDelegate {
         
         TRApplicationManager.sharedInstance.bungieVarificationHelper.shouldShowLoginSceen({ (showLoginScreen, error) in
             if let _ = error {
-                let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
-                let vc : TRSignInErrorViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_SIGNIN_ERROR) as! TRSignInErrorViewController
-                vc.signInError = error
                 
-                self.navigationController?.pushViewController(vc, animated: true)
-                return
+                TRUserInfo.removeUserData()
+                TRApplicationManager.sharedInstance.purgeSavedData()
+
+                if error == "In line with Rise of Iron, we now only support next-gen consoles. When you’ve upgraded your console, please come back and join us!" {
+                    let errorView = NSBundle.mainBundle().loadNibNamed("TRCustomError", owner: self, options: nil)[0] as! TRCustomError
+                    errorView.errorMessageHeader?.text = "LEGACY CONSOLES"
+                    errorView.errorMessageDescription?.text = error
+                    errorView.crossButton?.hidden = true
+                    errorView.frame = self.view.frame
+                    errorView.delegate = self
+                    self.webView?.hidden = true
+                    self.view.addSubviewWithLayoutConstraint(errorView)
+                    
+                    return
+                } else {
+                    let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+                    let vc : TRSignInErrorViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_SIGNIN_ERROR) as! TRSignInErrorViewController
+                    vc.signInError = error
+                    
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                    
+                    return
+                }
             }
             
             if showLoginScreen == false {
                 self.dismissView()
             }
             }, clearBackGroundRequest: false)
+    }
+    
+    func okButtonPressed () {
+        self.dismissView()
     }
     
     deinit {

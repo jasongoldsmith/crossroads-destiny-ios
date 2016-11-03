@@ -52,36 +52,37 @@ class TRRootViewController: TRBaseViewController {
     func appLoading () {
         
         TRApplicationManager.sharedInstance.bungieVarificationHelper.shouldShowLoginSceen({ (showLoginScreen, error) in
-                if showLoginScreen == true {
-                    _ = TRPublicFeedRequest().getPublicFeed({ (didSucceed) in
-                        let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
-                        let vc : TRLoginOptionViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEWCONTROLLER_LOGIN_OPTIONS) as! TRLoginOptionViewController
-                        let navigationController = UINavigationController(rootViewController: vc)
-                        navigationController.navigationBar.hidden = true
-                        self.presentViewController(navigationController, animated: true, completion: {
-                            
-                        })
-                    })
-                } else {
-                    _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: true, indicatorTopConstraint: self.ACTIVITY_INDICATOR_TOP_CONSTRAINT, completion: { (didSucceed) -> () in
+            
+            if showLoginScreen == true {
+                _ = TRPublicFeedRequest().getPublicFeed({ (didSucceed) in
+                    let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+                    let vc : TRLoginOptionViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEWCONTROLLER_LOGIN_OPTIONS) as! TRLoginOptionViewController
+                    let navigationController = UINavigationController(rootViewController: vc)
+                    navigationController.navigationBar.hidden = true
+                    self.presentViewController(navigationController, animated: true, completion: {
                         
-                        var showEventListLandingPage = false
-                        
-                        if(didSucceed == true) {
-                            showEventListLandingPage = true
-                            
-                            TRApplicationManager.sharedInstance.addSlideMenuController(self, pushData: self.pushNotificationData, branchData: self.branchLinkData, showLandingPage: showEventListLandingPage, showGroups: false)
-                            self.pushNotificationData = nil
-                        } else {
-                            self.appManager.log.debug("Failed")
-                        }
                     })
-                }
+                })
+            } else {
+                _ = TRGetEventsList().getEventsListWithClearActivityBackGround(true, clearBG: true, indicatorTopConstraint: self.ACTIVITY_INDICATOR_TOP_CONSTRAINT, completion: { (didSucceed) -> () in
+                    
+                    var showEventListLandingPage = false
+                    
+                    if(didSucceed == true) {
+                        showEventListLandingPage = true
+                        
+                        TRApplicationManager.sharedInstance.addSlideMenuController(self, pushData: self.pushNotificationData, branchData: self.branchLinkData, showLandingPage: showEventListLandingPage, showGroups: false)
+                        self.pushNotificationData = nil
+                    } else {
+                        self.appManager.log.debug("Failed")
+                    }
+                })
+            }
             }, clearBackGroundRequest: false)
     }
     
 //    func loadAppInitialViewController () {
-//        
+//
 //        //Check if already existing user, log them out for this version
 //        let userDefaults = NSUserDefaults.standardUserDefaults()
 //        if TRUserInfo.isUserLoggedIn() == true {
@@ -165,6 +166,7 @@ class TRRootViewController: TRBaseViewController {
 //            })
 //        }
 //    }
+    
     
     @IBAction func trUnwindAction(segue: UIStoryboardSegue) {
         

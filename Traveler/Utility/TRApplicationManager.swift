@@ -88,6 +88,9 @@ class TRApplicationManager: NSObject {
     //Bungie Login Validation
     var bungieVarificationHelper: TRBungieLoginValidation = TRBungieLoginValidation()
     
+    //APP Configuration
+    var appConfiguration: TRConfigInfo?
+    
     
     // MARK:- Initializer
     private override init() {

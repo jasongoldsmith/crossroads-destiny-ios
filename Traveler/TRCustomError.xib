@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -17,16 +17,16 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" alpha="0.45000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XJu-AB-OOH">
+                <imageView userInteractionEnabled="NO" alpha="0.45000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XJu-AB-OOH">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imgModalBackground2" translatesAutoresizingMaskIntoConstraints="NO" id="2Rp-Bi-7KZ">
+                    <rect key="frame" x="12" y="153" width="576" height="294"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TDi-T9-e4D">
                     <rect key="frame" x="12" y="160" width="576" height="294"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgModalBackground2" translatesAutoresizingMaskIntoConstraints="NO" id="2Rp-Bi-7KZ">
-                            <rect key="frame" x="0.0" y="0.0" width="576" height="294"/>
-                        </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNx-kf-SFQ">
                             <rect key="frame" x="532" y="0.0" width="44" height="44"/>
                             <state key="normal" image="iconCloseX"/>
@@ -83,9 +83,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="nne-GP-03i" firstAttribute="top" secondItem="TDi-T9-e4D" secondAttribute="top" constant="32" id="1ZM-eN-BM5"/>
-                        <constraint firstAttribute="bottom" secondItem="2Rp-Bi-7KZ" secondAttribute="bottom" id="Dzt-1i-o3Z"/>
                         <constraint firstAttribute="trailing" secondItem="o3l-S5-4WI" secondAttribute="trailing" constant="8" id="Fjq-Qa-Ti8"/>
-                        <constraint firstItem="2Rp-Bi-7KZ" firstAttribute="leading" secondItem="TDi-T9-e4D" secondAttribute="leading" id="GWK-Jz-NoM"/>
                         <constraint firstItem="w0V-zR-00o" firstAttribute="centerX" secondItem="TDi-T9-e4D" secondAttribute="centerX" id="Kjl-R8-Pd5"/>
                         <constraint firstAttribute="height" constant="294" id="Nqy-wv-uxC"/>
                         <constraint firstItem="VNx-kf-SFQ" firstAttribute="top" secondItem="TDi-T9-e4D" secondAttribute="top" id="RKr-qY-xas"/>
@@ -95,8 +93,6 @@
                         <constraint firstItem="1gD-Sg-pQS" firstAttribute="leading" secondItem="TDi-T9-e4D" secondAttribute="leading" constant="30" id="ge4-mN-U4W"/>
                         <constraint firstItem="1gD-Sg-pQS" firstAttribute="top" secondItem="0t8-tW-I7V" secondAttribute="bottom" constant="10" id="hAJ-g8-Cir"/>
                         <constraint firstAttribute="bottom" secondItem="w0V-zR-00o" secondAttribute="bottom" constant="20" id="iEB-SC-H3y"/>
-                        <constraint firstAttribute="trailing" secondItem="2Rp-Bi-7KZ" secondAttribute="trailing" id="kLy-tT-OjG"/>
-                        <constraint firstItem="2Rp-Bi-7KZ" firstAttribute="top" secondItem="TDi-T9-e4D" secondAttribute="top" id="q5K-At-aSG"/>
                         <constraint firstItem="o3l-S5-4WI" firstAttribute="top" secondItem="nne-GP-03i" secondAttribute="bottom" constant="20" id="rMq-Yd-Hm5"/>
                         <constraint firstItem="nne-GP-03i" firstAttribute="centerX" secondItem="TDi-T9-e4D" secondAttribute="centerX" id="rl4-kP-MTv"/>
                         <constraint firstItem="0t8-tW-I7V" firstAttribute="centerX" secondItem="TDi-T9-e4D" secondAttribute="centerX" id="sae-sF-1TO"/>
@@ -107,15 +103,12 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="TDi-T9-e4D" secondAttribute="trailing" constant="12" id="NCk-Qu-4rm"/>
-                <constraint firstItem="XJu-AB-OOH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bhx-ya-1KU"/>
                 <constraint firstItem="TDi-T9-e4D" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="fCT-2r-cKK"/>
                 <constraint firstItem="TDi-T9-e4D" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="160" id="gtm-w7-pkZ"/>
-                <constraint firstItem="XJu-AB-OOH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="pBU-97-bIV"/>
-                <constraint firstAttribute="bottom" secondItem="XJu-AB-OOH" secondAttribute="bottom" id="pd5-J0-hkx"/>
-                <constraint firstAttribute="trailing" secondItem="XJu-AB-OOH" secondAttribute="trailing" id="wbH-jd-eMt"/>
             </constraints>
             <connections>
                 <outlet property="actionButton" destination="w0V-zR-00o" id="rxH-GK-akO"/>
+                <outlet property="crossButton" destination="VNx-kf-SFQ" id="W4h-iO-bGa"/>
                 <outlet property="errorMessageDescription" destination="1gD-Sg-pQS" id="HAe-WJ-wGL"/>
                 <outlet property="errorMessageHeader" destination="o3l-S5-4WI" id="KGB-pS-Hhm"/>
                 <outlet property="errorViewContainer" destination="TDi-T9-e4D" id="3M5-VV-yN5"/>

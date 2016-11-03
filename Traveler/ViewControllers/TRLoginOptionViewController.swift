@@ -76,8 +76,20 @@ class TRLoginOptionViewController: TRBaseViewController, iCarouselDataSource, iC
     @IBAction func xBoxTapped(sender: AnyObject) {
         let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
         let vc : TRWebViewViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_WEB_VIEW_SIGNIN) as! TRWebViewViewController
-        vc.consoleLoginEndPoint = "https://www.bungie.net/en/User/SignIn/Xuid"
+       
+        TRApplicationManager.sharedInstance.bungieVarificationHelper.selectedConsoleType = "XBOXONE"
         
+        var xBoxLink = ""
+        let xboxSavedUrl = NSUserDefaults.standardUserDefaults().objectForKey(K.UserDefaultKey.APPLICATION_CONFIGURATIONS_XBOX_URL) as? String
+        if let _ = xboxSavedUrl {
+            xBoxLink = xboxSavedUrl!
+        }
+        
+        if let xboxUrl = TRApplicationManager.sharedInstance.appConfiguration!.xBoxLoginUrl {
+            xBoxLink = xboxUrl
+        }
+    
+        vc.consoleLoginEndPoint = xBoxLink
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -85,6 +97,21 @@ class TRLoginOptionViewController: TRBaseViewController, iCarouselDataSource, iC
         let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
         let vc : TRWebViewViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_WEB_VIEW_SIGNIN) as! TRWebViewViewController
         vc.consoleLoginEndPoint = "https://www.bungie.net/en/User/SignIn/Psnid"
+        
+        TRApplicationManager.sharedInstance.bungieVarificationHelper.selectedConsoleType = "PS4"
+        
+        var psnLink = ""
+        let psnSavedUrl = NSUserDefaults.standardUserDefaults().objectForKey(K.UserDefaultKey.APPLICATION_CONFIGURATIONS_PSN_URL) as? String
+        if let _ = psnSavedUrl {
+            psnLink = psnSavedUrl!
+        }
+        
+        if let psnUrl = TRApplicationManager.sharedInstance.appConfiguration!.psnLoginUrl {
+            psnLink = psnUrl
+        }
+        
+        vc.consoleLoginEndPoint = psnLink
+        
         
         self.navigationController?.pushViewController(vc, animated: true)
     }

@@ -35,11 +35,12 @@ class TRWebView: UIView, UIWebViewDelegate {
     
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
      
+        print("shouldStartLoadWithRequest: \(request)")
         return true
     }
     
     func webViewDidStartLoad(webView: UIWebView) {
-        
+        print("webViewDidStartLoad: \(webView.request)")
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {

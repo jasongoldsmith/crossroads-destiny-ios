@@ -17,6 +17,7 @@ import SwiftyJSON
 
 class TRBungieLoginValidation {
     
+    var selectedConsoleType: String?
     var bungieID: String?
     var bungieCookies: [NSHTTPCookie]? = []
     var alamoFireManager : Alamofire.Manager?
@@ -24,34 +25,46 @@ class TRBungieLoginValidation {
     
     func shouldShowLoginSceen (completion: TRSignInCallBack, clearBackGroundRequest: Bool) {
         
-        let cookies = NSHTTPCookieStorage.sharedHTTPCookieStorage().cookies
-        if let _ = cookies {
-            for cookie in cookies! {
-                if cookie.name == "bungleatk" || cookie.name == "bungledid" {
-                    self.bungieCookies?.append(cookie)
-                } else if cookie.name == "bungled" {
-                    self.bungieID = cookie.value
-                    self.bungieCookies?.append(cookie)
+        _ = TRGetConfigRequest().getConfiguration({ (didSucceed) in
+            let cookies = NSHTTPCookieStorage.sharedHTTPCookieStorage().cookies
+            if let _ = cookies {
+                for cookie in cookies! {
+                    if cookie.name == "bungleatk" || cookie.name == "bungledid" {
+                        self.bungieCookies?.append(cookie)
+                    } else if cookie.name == "bungled" {
+                        self.bungieID = cookie.value
+                        self.bungieCookies?.append(cookie)
+                    }
                 }
             }
-        }
-        
-        self.getUserFromTravelerBackEndWithSuccess({ (showLoginScreen, error) in
+            
+            self.getUserFromTravelerBackEndWithSuccess({ (showLoginScreen, error) in
                 completion(showLoginScreen: showLoginScreen, error: error)
-            }, clearBackGroundRequest: true)
+                }, clearBackGroundRequest: true)
+            
+        })
     }
     
     func getUserFromTravelerBackEndWithSuccess (completion: TRSignInCallBack, clearBackGroundRequest: Bool) {
+        
         var p: Dictionary <String, AnyObject> = Dictionary()
         p["x-api-key"] = "f091c8d36c3c4a17b559c21cd489bec0" as AnyObject?
         p["x-csrf"] = self.bungieID as AnyObject?
         p["cookie"] = self.bungieCookies as AnyObject?
         
+        var playerDetUrl = ""
+        let appConfig = NSUserDefaults.standardUserDefaults().objectForKey(K.UserDefaultKey.APPLICATION_CONFIGURATIONS_PLAYER_DETAIL) as? String
+        if let _ = appConfig {
+            playerDetUrl = appConfig!
+        }
+        if let detailUrl = TRApplicationManager.sharedInstance.appConfiguration!.playerDetailsUrl {
+            playerDetUrl = detailUrl
+        }
         
         let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
         configuration.HTTPAdditionalHeaders = p
         self.alamoFireManager = Alamofire.Manager(configuration: configuration)
-        self.alamoFireManager!.request(.GET, NSURL(string: "https://www.bungie.net/Platform/User/GetBungieNetUser")!, parameters: nil)
+        self.alamoFireManager!.request(.GET, NSURL(string: playerDetUrl)!, parameters: nil)
             .responseJSON { response in
                 
                 if let responseValue = response.result.value {
@@ -61,9 +74,20 @@ class TRBungieLoginValidation {
                         return
                     }
                     
-                    _ = TRFetchBungieUser().getBungieUserWith(response.result.value!, clearBackGroundRequest: clearBackGroundRequest, completion: { (error, responseObject) in
+                    var console = ""
+                    if let selectedConsole = TRApplicationManager.sharedInstance.bungieVarificationHelper.selectedConsoleType {
+                        console = selectedConsole
+                    } else {
+                        if let _ = TRUserInfo.getConsoleType() {
+                            console = TRUserInfo.getConsoleType()!
+                        }
+                    }
+                    
+                    _ = TRFetchBungieUser().getBungieUserWith(response.result.value!, clearBackGroundRequest: clearBackGroundRequest, consoleType: console, bungieUrl: playerDetUrl, completion: { (error, responseObject) in
                         
                         if let  _ = error {
+                            completion(showLoginScreen: false, error: error)
+                            
                             return
                         }
                         

@@ -23,6 +23,10 @@ struct K {
     
     struct UserDefaultKey {
         
+        static let APPLICATION_CONFIGURATIONS_PLAYER_DETAIL = "APPLICATION_CONFIGURATIONS_PLAYER_DETAIL"
+        static let APPLICATION_CONFIGURATIONS_PSN_URL = "APPLICATION_CONFIGURATIONS_PSN_URL"
+        static let APPLICATION_CONFIGURATIONS_XBOX_URL = "APPLICATION_CONFIGURATIONS_XBOX_URL"
+        
         static let TR_DID_SHOW_ONBOARDING = "TR_DID_SHOW_ONBOARDING"
         static let INSTALL_INFO_SENT = "INSTALL_INFO_SENT"
         static let Platform_Info_Dict = "Platform_Info_Dict"
@@ -104,6 +108,7 @@ struct K {
         static let TR_REPORT_COMMENT     =   "/api/v1/a/event/reportComment"
         static let TR_INVITE_PLAYER      =   "/api/v1/a/event/invite"
         static let BUNGIE_FETCH_USER     =   "/api/v1/auth/validateUserLogin"
+        static let TR_CONFIGURATION      =   "/api/v1/config"
     }
     
     struct StoryBoard {

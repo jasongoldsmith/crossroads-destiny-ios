@@ -127,6 +127,14 @@
 		333FA8AA1D0109C200A5EC1C /* TRBungieUserAuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333FA8A81D0109C200A5EC1C /* TRBungieUserAuthRequest.swift */; };
 		333FA8AB1D0109C200A5EC1C /* TRBungieUserAuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333FA8A81D0109C200A5EC1C /* TRBungieUserAuthRequest.swift */; };
 		333FA8AC1D0109C200A5EC1C /* TRBungieUserAuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333FA8A81D0109C200A5EC1C /* TRBungieUserAuthRequest.swift */; };
+		334143FC1DCA61B0007517F6 /* TRConfigInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334143FB1DCA61B0007517F6 /* TRConfigInfo.swift */; };
+		334144001DCA61C3007517F6 /* TRGetConfigRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334143FF1DCA61C3007517F6 /* TRGetConfigRequest.swift */; };
+		334144011DCA639F007517F6 /* TRGetConfigRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334143FF1DCA61C3007517F6 /* TRGetConfigRequest.swift */; };
+		334144021DCA63A0007517F6 /* TRGetConfigRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334143FF1DCA61C3007517F6 /* TRGetConfigRequest.swift */; };
+		334144031DCA63A0007517F6 /* TRGetConfigRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334143FF1DCA61C3007517F6 /* TRGetConfigRequest.swift */; };
+		334144041DCA63A4007517F6 /* TRConfigInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334143FB1DCA61B0007517F6 /* TRConfigInfo.swift */; };
+		334144051DCA63A4007517F6 /* TRConfigInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334143FB1DCA61B0007517F6 /* TRConfigInfo.swift */; };
+		334144061DCA63A4007517F6 /* TRConfigInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334143FB1DCA61B0007517F6 /* TRConfigInfo.swift */; };
 		3345C2E21DAD68B2001BA931 /* TRInviteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3345C2E11DAD68B2001BA931 /* TRInviteView.swift */; };
 		3345C2E31DAD68B2001BA931 /* TRInviteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3345C2E11DAD68B2001BA931 /* TRInviteView.swift */; };
 		3345C2E41DAD68B2001BA931 /* TRInviteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3345C2E11DAD68B2001BA931 /* TRInviteView.swift */; };
@@ -670,6 +678,8 @@
 		3333BDC61CEE80EA001C9E1A /* TRBungieGroupInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRBungieGroupInfo.swift; sourceTree = "<group>"; };
 		333E1CA31CC54A27000B843C /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		333FA8A81D0109C200A5EC1C /* TRBungieUserAuthRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRBungieUserAuthRequest.swift; sourceTree = "<group>"; };
+		334143FB1DCA61B0007517F6 /* TRConfigInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRConfigInfo.swift; sourceTree = "<group>"; };
+		334143FF1DCA61C3007517F6 /* TRGetConfigRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRGetConfigRequest.swift; sourceTree = "<group>"; };
 		3345C2E11DAD68B2001BA931 /* TRInviteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRInviteView.swift; sourceTree = "<group>"; };
 		3345C2E61DAD68D0001BA931 /* TRInviteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRInviteView.xib; sourceTree = "<group>"; };
 		335405C41D52A63A00B42BAC /* TRLegalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLegalInfo.swift; sourceTree = "<group>"; };
@@ -1021,6 +1031,7 @@
 		6238D2DB1C7ADDD50085C8AA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				334143FB1DCA61B0007517F6 /* TRConfigInfo.swift */,
 				330572821D3EE9F800B4CB36 /* TRActiveStatePushInfo.swift */,
 				6238D2E11C7ADE8E0085C8AA /* TRUserInfo.swift */,
 				33742DA41C81092D00C46742 /* TREventInfo.swift */,
@@ -1043,6 +1054,7 @@
 		6238D2DC1C7ADDF70085C8AA /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				334143FF1DCA61C3007517F6 /* TRGetConfigRequest.swift */,
 				33742D911C7FC8D300C46742 /* TRRequest.swift */,
 				332C9CE31C8B89370092989E /* TRLeaveEventRequest.swift */,
 				6294972C1C7BB5F3005E4F91 /* TRAuthenticationRequest.swift */,
@@ -1975,6 +1987,7 @@
 				33D0B40F1CFD0165008ABA04 /* TRPlayerInfo.swift in Sources */,
 				33D0B4101CFD0165008ABA04 /* TRActivityIndicatorView.swift in Sources */,
 				33D0B4111CFD0165008ABA04 /* TREventListViewController.swift in Sources */,
+				334144001DCA61C3007517F6 /* TRGetConfigRequest.swift in Sources */,
 				33D0B4121CFD0165008ABA04 /* TRGetEventsList.swift in Sources */,
 				33D0B4141CFD0165008ABA04 /* TRAuthenticationRequest.swift in Sources */,
 				3345C2E21DAD68B2001BA931 /* TRInviteView.swift in Sources */,
@@ -2035,6 +2048,7 @@
 				33D0B4391CFD0165008ABA04 /* TRActivityInfo.swift in Sources */,
 				33D0B43A1CFD0165008ABA04 /* TRForgotPasswordRequest.swift in Sources */,
 				33D0B43B1CFD0165008ABA04 /* TREventInfo.swift in Sources */,
+				334143FC1DCA61B0007517F6 /* TRConfigInfo.swift in Sources */,
 				33AABB221D5BF8280099A20C /* TRDatePicker.swift in Sources */,
 				33D0B43C1CFD0165008ABA04 /* TRUpdateUser.swift in Sources */,
 				33D0B43D1CFD0165008ABA04 /* EventButton.swift in Sources */,
@@ -2076,6 +2090,7 @@
 				3397E2831C93822F008CCCDB /* TRDeviceTokenRequest.swift in Sources */,
 				333E1CA41CC54A27000B843C /* UIViewExtension.swift in Sources */,
 				335405CB1D52AFA100B42BAC /* TRRequestUpdateLegalRequest.swift in Sources */,
+				334144011DCA639F007517F6 /* TRGetConfigRequest.swift in Sources */,
 				33095FDF1CDD271A0094DF49 /* TRAlignableUILabel.swift in Sources */,
 				62C1FF671C77D83800A78798 /* TRSignInViewController.swift in Sources */,
 				33974F1A1CADD9CD0015C9D5 /* TRSendReportViewController.swift in Sources */,
@@ -2107,6 +2122,7 @@
 				6294972D1C7BB5F3005E4F91 /* TRAuthenticationRequest.swift in Sources */,
 				3345C2E31DAD68B2001BA931 /* TRInviteView.swift in Sources */,
 				33A029B01CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift in Sources */,
+				334144041DCA63A4007517F6 /* TRConfigInfo.swift in Sources */,
 				33728F8F1D36DA49000A3CF8 /* TRBranchManager.swift in Sources */,
 				6238D2E21C7ADE8E0085C8AA /* TRUserInfo.swift in Sources */,
 				336B99C81D64E90900668BF4 /* TREventCommentCell.swift in Sources */,
@@ -2204,6 +2220,7 @@
 				3305AD031CF26B2C00572495 /* YTGameScene.swift in Sources */,
 				332C9CE51C8B89370092989E /* TRLeaveEventRequest.swift in Sources */,
 				62C1FF681C77D83800A78798 /* TRSignInViewController.swift in Sources */,
+				334144021DCA63A0007517F6 /* TRGetConfigRequest.swift in Sources */,
 				33742D8D1C7FC66A00C46742 /* TRApplicationManager.swift in Sources */,
 				338BB2001CEEB96200A14060 /* TRWebView.swift in Sources */,
 				3380EF301CC94725000A9289 /* TREventUpcomingWithCheckPointCell.swift in Sources */,
@@ -2235,6 +2252,7 @@
 				336DD7801CDC310A00CCCB04 /* TRNavInteractionAnimator.swift in Sources */,
 				3345C2E41DAD68B2001BA931 /* TRInviteView.swift in Sources */,
 				3333BDB81CED6E3C001C9E1A /* TRChangePasswordViewController.swift in Sources */,
+				334144051DCA63A4007517F6 /* TRConfigInfo.swift in Sources */,
 				33974F131CADA0E40015C9D5 /* ExSlideMenuController.swift in Sources */,
 				338437171CEF815100AB27F3 /* TRLegalViewController.swift in Sources */,
 				3398E1B31CAB7EE0001F022B /* TREventInfoPlayerCell.swift in Sources */,
@@ -2332,6 +2350,7 @@
 				3305AD041CF26B2C00572495 /* YTGameScene.swift in Sources */,
 				332C9CE61C8B89370092989E /* TRLeaveEventRequest.swift in Sources */,
 				62C1FF691C77D83800A78798 /* TRSignInViewController.swift in Sources */,
+				334144031DCA63A0007517F6 /* TRGetConfigRequest.swift in Sources */,
 				33742D8E1C7FC66B00C46742 /* TRApplicationManager.swift in Sources */,
 				338BB2011CEEB96200A14060 /* TRWebView.swift in Sources */,
 				3380EF311CC94725000A9289 /* TREventUpcomingWithCheckPointCell.swift in Sources */,
@@ -2363,6 +2382,7 @@
 				336DD7811CDC310A00CCCB04 /* TRNavInteractionAnimator.swift in Sources */,
 				3345C2E51DAD68B2001BA931 /* TRInviteView.swift in Sources */,
 				3333BDB91CED6E3C001C9E1A /* TRChangePasswordViewController.swift in Sources */,
+				334144061DCA63A4007517F6 /* TRConfigInfo.swift in Sources */,
 				33974F121CADA0E40015C9D5 /* ExSlideMenuController.swift in Sources */,
 				338437181CEF815100AB27F3 /* TRLegalViewController.swift in Sources */,
 				3398E1B41CAB7EE0001F022B /* TREventInfoPlayerCell.swift in Sources */,

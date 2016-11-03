@@ -417,7 +417,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By signing in, I have read and agree to the Crossroads Terms of Service and Privacy Policy. © Catalyst Foundry 2016" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTB-4R-w7W" customClass="TTTAttributedLabel">
-                                <rect key="frame" x="20" y="448" width="560" height="28"/>
+                                <rect key="frame" x="20" y="394" width="560" height="28"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -447,6 +447,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                             <constraint firstItem="kbe-fj-OC3" firstAttribute="leading" secondItem="Vp9-6u-dUS" secondAttribute="trailing" id="4le-Ib-xST"/>
                             <constraint firstItem="VFK-zq-jCs" firstAttribute="top" secondItem="Q4O-b1-LyM" secondAttribute="bottom" id="Bpg-HZ-wq4"/>
                             <constraint firstItem="vqs-Cy-515" firstAttribute="top" secondItem="b67-XM-c3B" secondAttribute="bottom" constant="26" id="CMB-EY-lI7"/>
+                            <constraint firstItem="S27-A4-Euw" firstAttribute="top" secondItem="RTB-4R-w7W" secondAttribute="bottom" constant="64" id="CgF-j9-N7t"/>
                             <constraint firstItem="lW4-qB-opH" firstAttribute="top" secondItem="emr-nd-Vuk" secondAttribute="top" id="DzC-EM-PBk"/>
                             <constraint firstItem="vqs-Cy-515" firstAttribute="trailing" secondItem="emr-nd-Vuk" secondAttribute="trailingMargin" id="JE9-a7-4pc"/>
                             <constraint firstAttribute="trailing" secondItem="lW4-qB-opH" secondAttribute="trailing" id="Kh6-9t-sgK"/>
@@ -460,11 +461,10 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                             <constraint firstItem="Q4O-b1-LyM" firstAttribute="top" secondItem="emr-nd-Vuk" secondAttribute="topMargin" id="ZHH-Mz-ubR"/>
                             <constraint firstItem="Vp9-6u-dUS" firstAttribute="top" secondItem="S27-A4-Euw" secondAttribute="bottom" constant="18" id="cMI-GH-m2g"/>
                             <constraint firstItem="Q4O-b1-LyM" firstAttribute="leading" secondItem="emr-nd-Vuk" secondAttribute="leadingMargin" constant="-20" id="d8C-Qf-igF"/>
-                            <constraint firstItem="RTB-4R-w7W" firstAttribute="top" secondItem="1VW-X0-n68" secondAttribute="bottom" constant="79" id="dFp-LW-eLW"/>
+                            <constraint firstItem="RTB-4R-w7W" firstAttribute="top" secondItem="1VW-X0-n68" secondAttribute="bottom" constant="25" id="dtk-lV-dqz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Q4O-b1-LyM" secondAttribute="trailing" constant="-20" id="e1k-IC-jlr"/>
                             <constraint firstItem="b67-XM-c3B" firstAttribute="top" secondItem="9L3-Es-dEz" secondAttribute="bottom" constant="117" id="iBO-uO-GaH"/>
                             <constraint firstItem="RTB-4R-w7W" firstAttribute="leading" secondItem="emr-nd-Vuk" secondAttribute="leadingMargin" id="idu-KP-ckA"/>
-                            <constraint firstItem="S27-A4-Euw" firstAttribute="top" secondItem="RTB-4R-w7W" secondAttribute="bottom" constant="10" id="j5e-yT-qUl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1VW-X0-n68" secondAttribute="trailing" constant="-20" id="pH0-Um-Cdy"/>
                             <constraint firstItem="1VW-X0-n68" firstAttribute="leading" secondItem="emr-nd-Vuk" secondAttribute="leadingMargin" constant="-20" id="ssJ-2W-qOP"/>
                             <constraint firstItem="lW4-qB-opH" firstAttribute="leading" secondItem="emr-nd-Vuk" secondAttribute="leading" id="uOw-JJ-VOq"/>
