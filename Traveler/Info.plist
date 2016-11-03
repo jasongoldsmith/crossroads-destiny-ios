@@ -44,7 +44,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>4</string>
+	<string>5</string>
 	<key>FIREBASE_ANALYTICS_COLLECTION_DEACTIVATED</key>
 	<string>NO</string>
 	<key>Fabric</key>
@@ -73,6 +73,8 @@
 	<string>co.crossroadsapp.destiny</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
+	<key>FirebaseAutomaticScreenReportingEnabled</key>
+	<string>NO</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
@@ -98,7 +100,5 @@
 	<false/>
 	<key>branch_key</key>
 	<string>key_live_ilh33QPvqAgDqnVVRh8iXcnnBBaLIp97</string>
-	<key>FirebaseAutomaticScreenReportingEnabled</key>
-	<string>NO</string>
 </dict>
 </plist>
