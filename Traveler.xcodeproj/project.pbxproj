@@ -16,6 +16,10 @@
 		330572841D3EEA1600B4CB36 /* TRActiveStatePushInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330572821D3EE9F800B4CB36 /* TRActiveStatePushInfo.swift */; };
 		330572851D3EEA1700B4CB36 /* TRActiveStatePushInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330572821D3EE9F800B4CB36 /* TRActiveStatePushInfo.swift */; };
 		330572861D3EEA1700B4CB36 /* TRActiveStatePushInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330572821D3EE9F800B4CB36 /* TRActiveStatePushInfo.swift */; };
+		330581881DCBF614009FC621 /* TRInviteRequestToBungie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330581871DCBF614009FC621 /* TRInviteRequestToBungie.swift */; };
+		330581891DCBF614009FC621 /* TRInviteRequestToBungie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330581871DCBF614009FC621 /* TRInviteRequestToBungie.swift */; };
+		3305818A1DCBF614009FC621 /* TRInviteRequestToBungie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330581871DCBF614009FC621 /* TRInviteRequestToBungie.swift */; };
+		3305818B1DCBF614009FC621 /* TRInviteRequestToBungie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330581871DCBF614009FC621 /* TRInviteRequestToBungie.swift */; };
 		3305ACFB1CF2660D00572495 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3305ACFA1CF2660D00572495 /* SpriteKit.framework */; };
 		3305AD021CF26B2C00572495 /* YTGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3305AD001CF26B2C00572495 /* YTGameScene.swift */; };
 		3305AD031CF26B2C00572495 /* YTGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3305AD001CF26B2C00572495 /* YTGameScene.swift */; };
@@ -645,6 +649,7 @@
 		2BEF8AAD8DF3883F846628E2 /* Pods-TravelerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelerUITests/Pods-TravelerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3300FC111D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRGroupNotificationUpdateRequest.swift; sourceTree = "<group>"; };
 		330572821D3EE9F800B4CB36 /* TRActiveStatePushInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRActiveStatePushInfo.swift; sourceTree = "<group>"; };
+		330581871DCBF614009FC621 /* TRInviteRequestToBungie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRInviteRequestToBungie.swift; sourceTree = "<group>"; };
 		3305ACFA1CF2660D00572495 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		3305AD001CF26B2C00572495 /* YTGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTGameScene.swift; sourceTree = "<group>"; };
 		3305AD081CF26FD100572495 /* YTGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTGameViewController.swift; sourceTree = "<group>"; };
@@ -1082,8 +1087,9 @@
 				335405C91D52AFA100B42BAC /* TRRequestUpdateLegalRequest.swift */,
 				336DF8B21D887B230057879E /* TRPublicFeedRequest.swift */,
 				332CA6E71D9B30D40020AC19 /* TRReportComment.swift */,
-				336A666C1DB0091D00A90D63 /* TRInvitePlayersRequest.swift */,
 				339E29EF1DC16105009571F7 /* TRFetchBungieUser.swift */,
+				336A666C1DB0091D00A90D63 /* TRInvitePlayersRequest.swift */,
+				330581871DCBF614009FC621 /* TRInviteRequestToBungie.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -1959,6 +1965,7 @@
 				3300FC121D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift in Sources */,
 				33D0B3FF1CFD0165008ABA04 /* TRDeviceTokenRequest.swift in Sources */,
 				33D0B4001CFD0165008ABA04 /* UIViewExtension.swift in Sources */,
+				330581881DCBF614009FC621 /* TRInviteRequestToBungie.swift in Sources */,
 				335405CA1D52AFA100B42BAC /* TRRequestUpdateLegalRequest.swift in Sources */,
 				33D0B4021CFD0165008ABA04 /* TRAlignableUILabel.swift in Sources */,
 				33D0B4031CFD0165008ABA04 /* TRSignInViewController.swift in Sources */,
@@ -2089,6 +2096,7 @@
 				3300FC131D1B2C3100EBA5D2 /* TRGroupNotificationUpdateRequest.swift in Sources */,
 				3397E2831C93822F008CCCDB /* TRDeviceTokenRequest.swift in Sources */,
 				333E1CA41CC54A27000B843C /* UIViewExtension.swift in Sources */,
+				330581891DCBF614009FC621 /* TRInviteRequestToBungie.swift in Sources */,
 				335405CB1D52AFA100B42BAC /* TRRequestUpdateLegalRequest.swift in Sources */,
 				334144011DCA639F007517F6 /* TRGetConfigRequest.swift in Sources */,
 				33095FDF1CDD271A0094DF49 /* TRAlignableUILabel.swift in Sources */,
@@ -2219,6 +2227,7 @@
 				33095FE01CDD27400094DF49 /* TRAlignableUILabel.swift in Sources */,
 				3305AD031CF26B2C00572495 /* YTGameScene.swift in Sources */,
 				332C9CE51C8B89370092989E /* TRLeaveEventRequest.swift in Sources */,
+				3305818A1DCBF614009FC621 /* TRInviteRequestToBungie.swift in Sources */,
 				62C1FF681C77D83800A78798 /* TRSignInViewController.swift in Sources */,
 				334144021DCA63A0007517F6 /* TRGetConfigRequest.swift in Sources */,
 				33742D8D1C7FC66A00C46742 /* TRApplicationManager.swift in Sources */,
@@ -2349,6 +2358,7 @@
 				33095FE11CDD27410094DF49 /* TRAlignableUILabel.swift in Sources */,
 				3305AD041CF26B2C00572495 /* YTGameScene.swift in Sources */,
 				332C9CE61C8B89370092989E /* TRLeaveEventRequest.swift in Sources */,
+				3305818B1DCBF614009FC621 /* TRInviteRequestToBungie.swift in Sources */,
 				62C1FF691C77D83800A78798 /* TRSignInViewController.swift in Sources */,
 				334144031DCA63A0007517F6 /* TRGetConfigRequest.swift in Sources */,
 				33742D8E1C7FC66B00C46742 /* TRApplicationManager.swift in Sources */,

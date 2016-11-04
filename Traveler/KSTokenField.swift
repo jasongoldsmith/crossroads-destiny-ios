@@ -35,6 +35,7 @@ enum KSTokenFieldState {
    optional func tokenFieldDidSelectToken(token: KSToken)
    optional func tokenFieldDidBeginEditing(tokenField: KSTokenField)
    optional func tokenFieldDidEndEditing(tokenField: KSTokenField)
+   optional func tokenFieldTextDidChange(textField: UITextField)
 }
 
 
@@ -674,6 +675,7 @@ public class KSTokenField: UITextField {
    }
    
    func tokenFieldTextDidChange(textField: UITextField) {
+      tokenFieldDelegate?.tokenFieldTextDidChange!(textField)
       _updatePlaceHolderVisibility()
    }
    

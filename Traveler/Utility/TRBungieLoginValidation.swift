@@ -63,8 +63,8 @@ class TRBungieLoginValidation {
         
         let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
         configuration.HTTPAdditionalHeaders = p
-        self.alamoFireManager = Alamofire.Manager(configuration: configuration)
-        self.alamoFireManager!.request(.GET, NSURL(string: playerDetUrl)!, parameters: nil)
+        TRApplicationManager.sharedInstance.bungieAlamoFireManager = Alamofire.Manager(configuration: configuration)
+        TRApplicationManager.sharedInstance.bungieAlamoFireManager!.request(.GET, NSURL(string: playerDetUrl)!, parameters: nil)
             .responseJSON { response in
                 
                 if let responseValue = response.result.value {

@@ -91,6 +91,9 @@ class TRApplicationManager: NSObject {
     //APP Configuration
     var appConfiguration: TRConfigInfo?
     
+    //Bungie Alamofire Request
+    var bungieAlamoFireManager : Alamofire.Manager?
+    
     
     // MARK:- Initializer
     private override init() {
