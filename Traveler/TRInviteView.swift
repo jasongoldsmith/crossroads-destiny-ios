@@ -16,7 +16,7 @@ import pop
     optional func closeViewAndShowEventCreation ()
 }
 
-class TRInviteView: UIView, KSTokenViewDelegate, CustomErrorDelegate {
+class TRInviteView: UIView, KSTokenViewDelegate, CustomErrorDelegate, KSTokenFieldDelegate {
     
     var keys = [String]()
     var eventInfo: TREventInfo?
@@ -76,6 +76,22 @@ class TRInviteView: UIView, KSTokenViewDelegate, CustomErrorDelegate {
         return true
     }
     
+    func tokenFieldShouldChangeHeight(height: CGFloat) {
+        
+    }
+    
+    func tokenFieldTextDidChange(textField: UITextField) {
+        // Check Player Required Limit
+        let extraPlayersRequiredCount = ((eventInfo!.eventActivity?.activityMaxPlayers?.integerValue)! - (eventInfo!.eventPlayersArray.count))
+        if tokenView.tokens()?.count < extraPlayersRequiredCount {
+            self.tokenView?.shouldAddTokenFromTextInput = true
+            self.descriptionLabel?.text = "Inviting players will send them \n a message on Bungie.net."
+        } else {
+            self.tokenView?.shouldAddTokenFromTextInput = false
+            self.descriptionLabel?.text = "The maximum number of players for your Fireteam has been reached. Each invited player will have a reserved spot on your Fireteam."
+        }
+    }
+    
     @IBAction func inviteButtonClicked (sender: UIButton) {
         
         guard let _ = self.eventInfo else { return }
@@ -100,6 +116,17 @@ class TRInviteView: UIView, KSTokenViewDelegate, CustomErrorDelegate {
 //                        
 //                        self.addSubview(errorView)
                     } else {
+                        if let networkObject = responseObject["networkObject"].dictionary {
+                            let bungieUrl = networkObject["url"]!.stringValue
+                            let requestBody = networkObject["body"]
+                            
+                            _ = TRInviteRequestToBungie().inviteFriendRequestToBungie(bungieUrl, requestBody: requestBody!, completion: { responseObject in
+                                
+                            })
+                        } else {
+                            print("No network object received")
+                        }
+                        
                         self.closeInviteView()
                     }
                 })
@@ -143,16 +170,6 @@ class TRInviteView: UIView, KSTokenViewDelegate, CustomErrorDelegate {
         delegate?.showInviteButton!()
         if self.checkIfTheUserAlreadyExists(token.title) == true || token.title == "Untitled"{
            tokenView._removeToken(token)
-            return
-        }
-        
-        // Check Player Required Limit
-        let extraPlayersRequiredCount = ((eventInfo!.eventActivity?.activityMaxPlayers?.integerValue)! - (eventInfo!.eventPlayersArray.count))
-        if tokenView.tokens()?.count <= extraPlayersRequiredCount {
-            self.descriptionLabel?.text = "Inviting players will send them \n a message on Bungie.net."
-        } else {
-            tokenView._removeToken(token)
-            self.descriptionLabel?.text = "The maximum number of players for your Fireteam has been reached. Each invited player will have a reserved spot on your Fireteam."
             return
         }
         

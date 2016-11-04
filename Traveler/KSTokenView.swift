@@ -83,6 +83,7 @@ import UIKit
    optional func tokenViewDidHideSearchResults(tokenView: KSTokenView)
    optional func tokenViewHeightUpdated(tokenFieldHeight: CGFloat)
    optional func _removeToken(token: KSToken, removingAll: Bool)
+   optional func tokenFieldTextDidChange(textField: UITextField)
 }
 
 //MARK: - KSTokenView
@@ -666,6 +667,10 @@ public class KSTokenView: UIView {
       _hideSearchResults()
    }
    
+   func tokenFieldTextDidChange(textField: UITextField) {
+      delegate?.tokenFieldTextDidChange!(textField)
+   }
+    
    public override func isFirstResponder() -> Bool {
       return _tokenField.isFirstResponder()
    }
