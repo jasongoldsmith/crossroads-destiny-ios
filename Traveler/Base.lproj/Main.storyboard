@@ -57,6 +57,8 @@
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue-Bold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -1647,6 +1649,51 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nzs-jg-H42">
+                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xF7-nE-YeA">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.52549019610000003" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                        <state key="normal" title="LEAVE">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="leaveInvitationButton:" destination="ylH-PI-zc9" eventType="touchUpInside" id="fU5-b2-Og6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHC-Fb-9e5">
+                                        <rect key="frame" x="300" y="0.0" width="300" height="50"/>
+                                        <color key="backgroundColor" red="0.37254901959999998" green="0.70980392160000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                        <state key="normal" title="CONFIRM">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="confirmInvitationButton:" destination="ylH-PI-zc9" eventType="touchUpInside" id="TxS-ZW-xTS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="sHC-Fb-9e5" secondAttribute="trailing" id="0qu-kw-ZTu"/>
+                                    <constraint firstAttribute="bottom" secondItem="xF7-nE-YeA" secondAttribute="bottom" id="3ma-aA-bOr"/>
+                                    <constraint firstItem="xF7-nE-YeA" firstAttribute="width" secondItem="sHC-Fb-9e5" secondAttribute="width" constant="-54" id="Awm-cB-gir"/>
+                                    <constraint firstItem="xF7-nE-YeA" firstAttribute="width" secondItem="sHC-Fb-9e5" secondAttribute="width" id="Dlx-A6-iTw"/>
+                                    <constraint firstAttribute="bottom" secondItem="sHC-Fb-9e5" secondAttribute="bottom" id="Frk-Fz-79M"/>
+                                    <constraint firstAttribute="height" constant="50" id="Isd-Pm-9eH"/>
+                                    <constraint firstItem="sHC-Fb-9e5" firstAttribute="top" secondItem="Nzs-jg-H42" secondAttribute="top" id="NE9-z3-7ZF"/>
+                                    <constraint firstItem="sHC-Fb-9e5" firstAttribute="leading" secondItem="xF7-nE-YeA" secondAttribute="trailing" id="gUz-AO-bnk"/>
+                                    <constraint firstItem="xF7-nE-YeA" firstAttribute="leading" secondItem="Nzs-jg-H42" secondAttribute="leading" id="l4Y-pc-7cT"/>
+                                    <constraint firstItem="xF7-nE-YeA" firstAttribute="top" secondItem="Nzs-jg-H42" secondAttribute="top" id="u5c-6S-95M"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Awm-cB-gir"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.090196078431372548" green="0.14901960784313725" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -1655,6 +1702,7 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                             <constraint firstItem="ikf-rV-Vma" firstAttribute="top" secondItem="kpP-qs-bxQ" secondAttribute="bottom" id="0qJ-b1-Qt4"/>
                             <constraint firstItem="ikf-rV-Vma" firstAttribute="top" secondItem="vya-EI-Q0G" secondAttribute="bottom" constant="50" id="184-pG-LdI"/>
                             <constraint firstItem="X79-1K-COu" firstAttribute="leading" secondItem="Dm9-t4-bDT" secondAttribute="leading" id="22r-os-5HP"/>
+                            <constraint firstItem="Nzs-jg-H42" firstAttribute="leading" secondItem="Dm9-t4-bDT" secondAttribute="leading" id="2gn-4c-j1y"/>
                             <constraint firstItem="kpP-qs-bxQ" firstAttribute="top" secondItem="Dm9-t4-bDT" secondAttribute="top" id="2ng-jm-IPx"/>
                             <constraint firstItem="X79-1K-COu" firstAttribute="top" secondItem="Dm9-t4-bDT" secondAttribute="top" id="3aL-2u-eFH"/>
                             <constraint firstAttribute="trailing" secondItem="kpP-qs-bxQ" secondAttribute="trailing" id="45e-T4-aTE"/>
@@ -1699,6 +1747,8 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                             <constraint firstAttribute="trailing" secondItem="7cL-fd-Ne5" secondAttribute="trailing" constant="13" id="jfY-HQ-POL"/>
                             <constraint firstItem="gNz-aR-fLG" firstAttribute="leading" secondItem="Dm9-t4-bDT" secondAttribute="leading" id="lGl-wh-3zL"/>
                             <constraint firstItem="drq-eW-kIC" firstAttribute="leading" secondItem="Dm9-t4-bDT" secondAttribute="leading" id="lsD-Lk-O7Z"/>
+                            <constraint firstAttribute="trailing" secondItem="Nzs-jg-H42" secondAttribute="trailing" id="n69-K6-H0u"/>
+                            <constraint firstItem="ikf-rV-Vma" firstAttribute="top" secondItem="Nzs-jg-H42" secondAttribute="bottom" id="pm0-GV-LDL"/>
                             <constraint firstItem="aoz-5g-iA4" firstAttribute="leading" secondItem="Dm9-t4-bDT" secondAttribute="leading" constant="6" id="q9M-mJ-zAJ"/>
                             <constraint firstItem="drq-eW-kIC" firstAttribute="top" secondItem="Dm9-t4-bDT" secondAttribute="top" id="sNX-A3-mht"/>
                             <constraint firstItem="lML-KN-3nB" firstAttribute="leading" secondItem="Khp-dG-aaY" secondAttribute="leading" id="sXk-nz-QYC"/>
@@ -1723,8 +1773,9 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="chatTextBoxView" destination="cwo-YJ-XXx" id="YhQ-he-myq"/>
+                        <outlet property="chatTextBoxView" destination="cwo-YJ-XXx" id="sHo-Iy-iLk"/>
                         <outlet property="chatTextView" destination="8QU-AI-bfh" id="Yy6-rf-71w"/>
+                        <outlet property="confirmInvitationButton" destination="sHC-Fb-9e5" id="oUS-rc-Upe"/>
                         <outlet property="eventBackGround" destination="drq-eW-kIC" id="Wou-iU-LJO"/>
                         <outlet property="eventCheckPointTopConstraint" destination="tNC-sQ-wC7" id="k5e-in-iTJ"/>
                         <outlet property="eventCheckPoint_Time" destination="frN-Rs-fvP" id="u6f-LJ-0M2"/>
@@ -1739,8 +1790,10 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                         <outlet property="fullViewsDescriptionLabel" destination="4wg-RE-6e9" id="9e4-q2-rSd"/>
                         <outlet property="fullViewsheaderLabel" destination="w5t-53-LMG" id="x1l-9Z-UD6"/>
                         <outlet property="iconHeightConstraint" destination="Qd0-kH-wcW" id="n2J-W8-jKw"/>
+                        <outlet property="invitationButtonsView" destination="Nzs-jg-H42" id="jIk-t7-9QA"/>
                         <outlet property="invitationViewOverLay" destination="kpP-qs-bxQ" id="bsv-D9-C4Y"/>
                         <outlet property="joinButton" destination="gNz-aR-fLG" id="GtI-IP-jzJ"/>
+                        <outlet property="leaveInvitationButton" destination="xF7-nE-YeA" id="h1r-Yf-emt"/>
                         <outlet property="leftSectionUnderLineRightConstraint" destination="OpG-hH-hY3" id="CZM-DM-ClP"/>
                         <outlet property="rightSectionUnderLineLeftConstraint" destination="Efs-lG-jal" id="N35-Aw-34j"/>
                         <outlet property="segmentControl" destination="jYq-R8-c9p" id="eRh-tq-NMa"/>

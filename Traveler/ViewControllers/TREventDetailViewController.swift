@@ -53,6 +53,9 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     @IBOutlet weak var eventFullViewHeightConstraint: NSLayoutConstraint?
     
     //Invitation View
+    @IBOutlet var invitationButtonsView: UIView!
+    @IBOutlet var leaveInvitationButton: UIButton!
+    @IBOutlet var confirmInvitationButton: UIButton!
     var inviteView: TRInviteView = TRInviteView()
     var isShowingInvitation: Bool = false
     var keyBoardHeight: CGFloat!
@@ -69,10 +72,20 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         guard let _ = self.eventInfo else {
             return
+        }
+
+        //Check if the user is Invited
+        for player in (self.eventInfo?.eventPlayersArray)! {
+            if player.playerID == TRApplicationManager.sharedInstance.currentUser?.userID {
+                if let isInvited = player.invitedBy where isInvited != "" {
+                    self.addInvitationUIButtons()
+                }
+            }
         }
         
         //TextView Delegate
@@ -477,9 +490,15 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 cell?.playerIcon.roundRectView (1, borderColor: UIColor.grayColor())
                 cell?.playerInviteButton.hidden = true
                 
-                //Add Invitation Label Logic
-                self.addInvitationLabelLogic(cell!, playerInfo: (self.eventInfo?.eventPlayersArray[indexPath.section])!)
-
+                //Add Invitation Invitor Blue Bar Logic
+                if let playerID = self.eventInfo?.eventPlayersArray[indexPath.section].playerID {
+                    if self.isInvitor(playerID) == true {
+                        cell?.blueBarView.hidden = false
+                    } else {
+                        //Add Invitation Label Logic
+                        self.addInvitationLabelLogic(cell!, playerInfo: (self.eventInfo?.eventPlayersArray[indexPath.section])!)
+                    }
+                }
                 
                 if self.eventInfo?.eventPlayersArray[indexPath.section].userVerified != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue {
                     cell?.playerIcon.image = UIImage(named: "default_helmet")
@@ -602,21 +621,6 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             
             
             return commentCell
-        }
-    }
-    
-    func addInvitationLabelLogic (inviCell: TREventDescriptionCell, playerInfo: TRPlayerInfo) {
-        
-        if let isInvited = playerInfo.invitedBy where isInvited != "" {
-            inviCell.invitationButton.hidden = false
-            
-            if isInvited == TRApplicationManager.sharedInstance.currentUser?.userID {
-                inviCell.invitationButton?.setTitle("Cancel", forState: UIControlState.Normal)
-            } else {
-                inviCell.invitationButton?.setTitle("Invited", forState: UIControlState.Normal)
-            }
-        } else {
-            inviCell.invitationButton.hidden = true
         }
     }
     
@@ -957,6 +961,54 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         self.inviteView.layoutIfNeeded()
     }
     
+    
+    //MARK:- Invitation Cell UI Logic
+    func addInvitationLabelLogic (inviCell: TREventDescriptionCell, playerInfo: TRPlayerInfo) {
+        
+        if let isInvited = playerInfo.invitedBy where isInvited != "" {
+            inviCell.invitationButton.hidden = false
+            inviCell.blueBarView.hidden = false
+            inviCell.playerUserName?.textColor = UIColor(red: 183/255, green: 183/255, blue: 183/255, alpha: 1)
+            
+            if isInvited == TRApplicationManager.sharedInstance.currentUser?.userID {
+                inviCell.invitationButton?.setTitle("Cancel", forState: UIControlState.Normal)
+                inviCell.invitationButton?.addTarget(self, action: #selector(cancelInvitation), forControlEvents: .TouchUpInside)
+            } else {
+                inviCell.invitationButton?.setTitle("Invited", forState: UIControlState.Normal)
+                inviCell.invitationButton?.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
+            }
+        } else {
+            inviCell.blueBarView.hidden = true
+            inviCell.invitationButton.hidden = true
+            inviCell.playerUserName?.textColor = UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)
+        }
+    }
+    
+    func isInvitor (playerID: String) -> Bool {
+        let invitor = self.eventInfo?.eventPlayersArray.filter {$0.invitedBy == playerID}
+        if invitor?.count > 0 {
+            return true
+        }
+        
+        return false
+    }
+
+    func cancelInvitation () {
+        //Send Cancel Request
+    }
+    
+    func addInvitationUIButtons () {
+        self.invitationButtonsView?.hidden = false
+    }
+    
+    @IBAction func leaveInvitationButton (sender: UIButton) {
+        
+    }
+
+    @IBAction func confirmInvitationButton (sender: UIButton) {
+        
+    }
+
     deinit {
         
     }
