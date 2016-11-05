@@ -477,6 +477,10 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 cell?.playerIcon.roundRectView (1, borderColor: UIColor.grayColor())
                 cell?.playerInviteButton.hidden = true
                 
+                //Add Invitation Label Logic
+                self.addInvitationLabelLogic(cell!, playerInfo: (self.eventInfo?.eventPlayersArray[indexPath.section])!)
+
+                
                 if self.eventInfo?.eventPlayersArray[indexPath.section].userVerified != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue {
                     cell?.playerIcon.image = UIImage(named: "default_helmet")
                 } else {
@@ -502,6 +506,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 cell?.playerIcon?.image = UIImage(named: "iconProfileBlank")
                 cell?.playerUserName?.text = "searching..."
                 cell?.playerUserName?.textColor = UIColor.whiteColor()
+                cell?.invitationButton.hidden = true
                 
                 if (indexPath.section) == self.eventInfo?.eventPlayersArray.count {
                     if TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!) == true {
@@ -597,6 +602,21 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             
             
             return commentCell
+        }
+    }
+    
+    func addInvitationLabelLogic (inviCell: TREventDescriptionCell, playerInfo: TRPlayerInfo) {
+        
+        if let isInvited = playerInfo.invitedBy where isInvited != "" {
+            inviCell.invitationButton.hidden = false
+            
+            if isInvited == TRApplicationManager.sharedInstance.currentUser?.userID {
+                inviCell.invitationButton?.setTitle("Cancel", forState: UIControlState.Normal)
+            } else {
+                inviCell.invitationButton?.setTitle("Invited", forState: UIControlState.Normal)
+            }
+        } else {
+            inviCell.invitationButton.hidden = true
         }
     }
     

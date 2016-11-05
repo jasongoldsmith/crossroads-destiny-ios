@@ -119,6 +119,7 @@ class TREventInfo: NSObject {
             playerInfo.playerImageUrl   = playerInfoObject["imageUrl"].stringValue
             playerInfo.userVerified     = playerInfoObject["verifyStatus"].stringValue
             playerInfo.commentsReported = playerInfoObject["commentsReported"].intValue
+            playerInfo.invitedBy        = playerInfoObject["invitedBy"].stringValue
             playerInfo.hasReachedMaxReportedComments = playerInfoObject["hasReachedMaxReportedComments"].boolValue
 
             

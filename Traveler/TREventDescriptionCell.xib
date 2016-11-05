@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -43,6 +43,13 @@
                             <constraint firstAttribute="height" constant="20" id="ejH-9Z-d5R"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgB-en-gf6">
+                        <rect key="frame" x="264" y="13" width="42" height="29"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                        <state key="normal" title="Invited">
+                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
@@ -55,19 +62,22 @@
                     <constraint firstAttribute="trailing" secondItem="rNU-9F-ogv" secondAttribute="trailing" id="ZpE-I6-3Pm"/>
                     <constraint firstItem="CQT-rZ-GN5" firstAttribute="top" secondItem="RlE-qc-vs3" secondAttribute="top" id="d95-eq-w9H"/>
                     <constraint firstAttribute="bottom" secondItem="rNU-9F-ogv" secondAttribute="bottom" id="fdH-67-ckD"/>
+                    <constraint firstItem="JgB-en-gf6" firstAttribute="centerY" secondItem="TcE-zA-nQ8" secondAttribute="centerY" id="fnu-8b-vbe"/>
                     <constraint firstItem="TcE-zA-nQ8" firstAttribute="leading" secondItem="RLO-1O-Sqa" secondAttribute="trailing" constant="16" id="gSk-6Q-c65"/>
                     <constraint firstItem="RLO-1O-Sqa" firstAttribute="leading" secondItem="RlE-qc-vs3" secondAttribute="leading" constant="17" id="r7q-CV-1FB"/>
+                    <constraint firstAttribute="trailing" secondItem="JgB-en-gf6" secondAttribute="trailing" constant="14" id="tSe-ov-2uf"/>
                     <constraint firstItem="u03-8H-SfI" firstAttribute="centerY" secondItem="RlE-qc-vs3" secondAttribute="centerY" id="x8u-ut-P8A"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="creatorDogTag" destination="CQT-rZ-GN5" id="pVq-Wt-5Jr"/>
+                <outlet property="invitationButton" destination="JgB-en-gf6" id="hCe-ae-tAa"/>
                 <outlet property="playerIcon" destination="RLO-1O-Sqa" id="dnL-BW-Hag"/>
                 <outlet property="playerInviteButton" destination="u03-8H-SfI" id="r27-rk-R3J"/>
                 <outlet property="playerUserName" destination="TcE-zA-nQ8" id="naV-Ji-Rhx"/>
             </connections>
-            <point key="canvasLocation" x="645" y="218"/>
+            <point key="canvasLocation" x="306" y="285"/>
         </tableViewCell>
     </objects>
     <resources>

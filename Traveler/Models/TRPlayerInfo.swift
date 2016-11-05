@@ -21,6 +21,7 @@ class TRPlayerInfo: NSObject {
     var playerConsoles      : [TRConsoles] = []
     var userVerified        : String?
     var commentsReported    : Int?
+    var invitedBy           : String?
     var hasReachedMaxReportedComments: Bool?
 
     func getDefaultConsole () -> TRConsoles? {
