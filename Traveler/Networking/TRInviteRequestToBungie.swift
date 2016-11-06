@@ -24,8 +24,10 @@ class TRInviteRequestToBungie: NSObject {
             return (mutableRequest, nil)
         }))
             .response { request, response, data, error in
-                let dataString = NSString(data: data!, encoding:NSUTF8StringEncoding)
-                completion(responseObject: dataString as! String)
+                if let _ = data {
+                    let json = JSON(data: data!).dictionaryObject
+                    completion(responseObject: nil, responseDict: json)
+                }
         }
     }
 }

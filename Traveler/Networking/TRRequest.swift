@@ -15,7 +15,7 @@ typealias TRResponseCallBack = (error: String?, responseObject: JSON) -> ()
 typealias TREventObjCallBack = (event: TREventInfo?) -> ()
 typealias TREventObjCallBackWithError = (error: String?, event: TREventInfo?) -> ()
 typealias TRSignInCallBack = (showLoginScreen: Bool?, error: String?) -> ()
-typealias TRBungieResponseStringCallBack = (responseObject: String) -> ()
+typealias TRBungieResponseStringCallBack = (responseObject: String?, responseDict: Dictionary<String, AnyObject>?) -> ()
 
 enum ServerResponseError {
     case NoValidData

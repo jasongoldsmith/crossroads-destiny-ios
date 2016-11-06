@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 import pop
 
 @objc protocol InvitationViewProtocol {
@@ -120,8 +121,17 @@ class TRInviteView: UIView, KSTokenViewDelegate, CustomErrorDelegate, KSTokenFie
                             let bungieUrl = networkObject["url"]!.stringValue
                             let requestBody = networkObject["body"]
                             
-                            _ = TRInviteRequestToBungie().inviteFriendRequestToBungie(bungieUrl, requestBody: requestBody!, completion: { responseObject in
+                            
+        
+                            _ = TRInviteRequestToBungie().inviteFriendRequestToBungie(bungieUrl, requestBody: requestBody!, completion: { (responseObject, responseDict) -> () in
                                 
+                                if let _ = responseDict {
+                                    _ = TRBungieInvitationCompletionRequest().sendInvitationCompletionRequest(responseDict!, pendingEventInvitationId: (self.eventInfo?.eventID)!, completion: { (didSucceed) in
+                                        if didSucceed == true {
+                                            print("Request Successful")
+                                        }
+                                    })
+                                }
                             })
                         } else {
                             print("No network object received")
