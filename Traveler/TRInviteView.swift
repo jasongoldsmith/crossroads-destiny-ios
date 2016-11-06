@@ -120,13 +120,12 @@ class TRInviteView: UIView, KSTokenViewDelegate, CustomErrorDelegate, KSTokenFie
                         if let networkObject = responseObject["networkObject"].dictionary {
                             let bungieUrl = networkObject["url"]!.stringValue
                             let requestBody = networkObject["body"]
-                            
-                            
+                            let pendingEventInvitationId = networkObject["_id"]!.stringValue
         
                             _ = TRInviteRequestToBungie().inviteFriendRequestToBungie(bungieUrl, requestBody: requestBody!, completion: { (responseObject, responseDict) -> () in
                                 
                                 if let _ = responseDict {
-                                    _ = TRBungieInvitationCompletionRequest().sendInvitationCompletionRequest(responseDict!, pendingEventInvitationId: (self.eventInfo?.eventID)!, completion: { (didSucceed) in
+                                    _ = TRBungieInvitationCompletionRequest().sendInvitationCompletionRequest(responseDict!, pendingEventInvitationId: pendingEventInvitationId, completion: { (didSucceed) in
                                         if didSucceed == true {
                                             print("Request Successful")
                                         }
