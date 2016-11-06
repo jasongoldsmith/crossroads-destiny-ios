@@ -510,7 +510,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                         } else if ((playerInfo.playerID) != nil) {
                             cell?.invitationButton?.setTitle("Kick", forState: UIControlState.Normal)
                             cell?.invitationButton?.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
-                            cell?.invitationButton?.addTarget(self, action: #selector(kickInActiveUser(_:)), forControlEvents: .TouchUpInside)
+                            cell?.invitationButton?.addTarget(self, action: #selector(showKickUserView(_:)), forControlEvents: .TouchUpInside)
                         }
                     }
                 }
@@ -716,6 +716,9 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         }
     }
     
+    func customErrorActionButtonPressedWithSelector(selector: Selector) {
+        self.performSelector(selector)
+    }
     
     override func reloadEventTable() {
         
@@ -1027,7 +1030,18 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     }
     
     
-    func kickInActiveUser (sender: UIButton) {
+    func showKickUserView (sender: UIButton) {
+        let errorView = NSBundle.mainBundle().loadNibNamed("TRCustomErrorUserAction", owner: self, options: nil)[0] as! TRCustomError
+        errorView.errorMessageHeader?.text = "KICK FOR INACTIVITY?"
+        errorView.errorMessageDescription?.text = "Removing this Guardian will allow another to join instead."
+        errorView.frame = self.view.frame
+        errorView.delegate = self
+        errorView.selector = #selector(kickInActiveUser)
+        errorView.actionButton.setTitle("KICK", forState: .Normal)
+        self.view.addSubview(errorView)
+    }
+    
+    func kickInActiveUser () {
         _ = TRKickInActiveUserRequest().kickInActiveUser((self.eventInfo?.eventID)!, playerID: "", completion: {(error, response) in
         })
     }

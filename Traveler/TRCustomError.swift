@@ -10,14 +10,16 @@ import Foundation
 
 
 @objc protocol CustomErrorDelegate {
-    optional func customErrorActionButtonPressed ()
     optional func okButtonPressed ()
+    optional func customErrorActionButtonPressed ()
+    optional func customErrorActionButtonPressedWithSelector(selector: Selector)
 }
 
 
 class TRCustomError: UIView {
  
     var delegate: CustomErrorDelegate?
+    var selector: Selector?
     
     @IBOutlet weak var errorViewContainer: UIView!
     @IBOutlet weak var errorMessageHeader: UILabel!
@@ -47,7 +49,13 @@ class TRCustomError: UIView {
     }
     
     @IBAction func actionButtonPressed () {
-        self.delegate?.customErrorActionButtonPressed!()
+        
+        if let _ = self.selector {
+            self.delegate?.customErrorActionButtonPressedWithSelector!(self.selector!)
+        } else {
+            self.delegate?.customErrorActionButtonPressed!()
+        }
+        
         self.removeView()
     }
     
