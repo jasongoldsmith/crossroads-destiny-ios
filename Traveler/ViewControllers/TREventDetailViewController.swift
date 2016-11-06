@@ -476,6 +476,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             
             if indexPath.section < self.eventInfo?.eventPlayersArray.count {
                 
+                // Player USERNAME CLAN-TAG
                 var playersNameString = self.eventInfo?.eventPlayersArray[indexPath.section].getDefaultConsole()?.consoleId!
                 if var clanTag = self.eventInfo?.eventPlayersArray[indexPath.section].getDefaultConsole()?.clanTag! where clanTag != "" {
                     clanTag = " " + "[" + clanTag + "]"
@@ -501,6 +502,20 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                     }
                 }
                 
+                //ADD KICK Logic if Event is FULL, also the player should not be the invited one
+                if self.eventInfo?.eventFull() == true {
+                    if let playerInfo = self.eventInfo?.eventPlayersArray[indexPath.section] {
+                        if let isInvited = playerInfo.invitedBy where isInvited != "" {
+                            
+                        } else if ((playerInfo.playerID) != nil) {
+                            cell?.invitationButton?.setTitle("Kick", forState: UIControlState.Normal)
+                            cell?.invitationButton?.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
+                            cell?.invitationButton?.addTarget(self, action: #selector(kickInActiveUser(_:)), forControlEvents: .TouchUpInside)
+                        }
+                    }
+                }
+                
+                // User Avator if user is not VERIFIED
                 if self.eventInfo?.eventPlayersArray[indexPath.section].userVerified != ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue {
                     cell?.playerIcon.image = UIImage(named: "default_helmet")
                 } else {
@@ -972,6 +987,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             inviCell.playerUserName?.textColor = UIColor(red: 183/255, green: 183/255, blue: 183/255, alpha: 1)
             
             if isInvited == TRApplicationManager.sharedInstance.currentUser?.userID {
+                inviCell.invitationButton?.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
                 inviCell.invitationButton?.setTitle("Cancel", forState: UIControlState.Normal)
                 inviCell.invitationButton?.addTarget(self, action: #selector(cancelInvitation(_:)), forControlEvents: .TouchUpInside)
             } else {
@@ -1008,6 +1024,12 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     
     @IBAction func leaveInvitationButton (sender: UIButton) {
         self.leaveEvent(sender)
+    }
+    
+    
+    func kickInActiveUser (sender: UIButton) {
+        _ = TRKickInActiveUserRequest().kickInActiveUser((self.eventInfo?.eventID)!, playerID: "", completion: {(error, response) in
+        })
     }
 
     @IBAction func confirmInvitationButton (sender: UIButton) {
