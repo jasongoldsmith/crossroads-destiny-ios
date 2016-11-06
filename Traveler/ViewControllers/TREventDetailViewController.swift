@@ -995,7 +995,11 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     }
 
     func cancelInvitation (sender: UIButton) {
-        
+        _ = TRCancelEventInvitationRequest().cancelInvitationRequest((self.eventInfo?.eventID)!, completion: {(error, response) in
+            if let _ = error {
+                print("Error: \(error)")
+            }
+        })
     }
     
     func addInvitationUIButtons () {

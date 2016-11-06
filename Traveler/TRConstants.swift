@@ -111,6 +111,7 @@ struct K {
         static let TR_CONFIGURATION      =   "/api/v1/config"
         static let BUNGIE_INVI_COMPLETION =  "/api/v1/gatewayResponse"
         static let TR_ACCEPT_INVITATION   =  "/api/v1/a/event/invite/accept"
+        static let TR_CANCEL_INVITATION   =  "/api/v1/a/event/invite/cancel"
     }
     
     struct StoryBoard {

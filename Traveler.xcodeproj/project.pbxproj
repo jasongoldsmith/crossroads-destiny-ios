@@ -265,6 +265,10 @@
 		337FA1F21DCED726002A4E07 /* TRAcceptEventInvitationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337FA1F01DCED726002A4E07 /* TRAcceptEventInvitationRequest.swift */; };
 		337FA1F31DCED726002A4E07 /* TRAcceptEventInvitationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337FA1F01DCED726002A4E07 /* TRAcceptEventInvitationRequest.swift */; };
 		337FA1F41DCED726002A4E07 /* TRAcceptEventInvitationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337FA1F01DCED726002A4E07 /* TRAcceptEventInvitationRequest.swift */; };
+		337FA1F61DCF0062002A4E07 /* TRCancelEventInvitationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337FA1F51DCF0062002A4E07 /* TRCancelEventInvitationRequest.swift */; };
+		337FA1F71DCF0062002A4E07 /* TRCancelEventInvitationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337FA1F51DCF0062002A4E07 /* TRCancelEventInvitationRequest.swift */; };
+		337FA1F81DCF0062002A4E07 /* TRCancelEventInvitationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337FA1F51DCF0062002A4E07 /* TRCancelEventInvitationRequest.swift */; };
+		337FA1F91DCF0062002A4E07 /* TRCancelEventInvitationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337FA1F51DCF0062002A4E07 /* TRCancelEventInvitationRequest.swift */; };
 		3380EF221CC94517000A9289 /* TRBaseEventTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3380EF211CC94517000A9289 /* TRBaseEventTableCell.swift */; };
 		3380EF231CC94517000A9289 /* TRBaseEventTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3380EF211CC94517000A9289 /* TRBaseEventTableCell.swift */; };
 		3380EF241CC94517000A9289 /* TRBaseEventTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3380EF211CC94517000A9289 /* TRBaseEventTableCell.swift */; };
@@ -729,6 +733,7 @@
 		337DA4DF1D50554F002A10BA /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		337DA4E41D5063FE002A10BA /* TRAddConsole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRAddConsole.swift; sourceTree = "<group>"; };
 		337FA1F01DCED726002A4E07 /* TRAcceptEventInvitationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRAcceptEventInvitationRequest.swift; sourceTree = "<group>"; };
+		337FA1F51DCF0062002A4E07 /* TRCancelEventInvitationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCancelEventInvitationRequest.swift; sourceTree = "<group>"; };
 		3380EF211CC94517000A9289 /* TRBaseEventTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRBaseEventTableCell.swift; sourceTree = "<group>"; };
 		3380EF261CC946CA000A9289 /* TREventCurrentWithCheckPointCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREventCurrentWithCheckPointCell.swift; sourceTree = "<group>"; };
 		3380EF2A1CC946F4000A9289 /* TREventCurrentNoCheckPointCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREventCurrentNoCheckPointCell.swift; sourceTree = "<group>"; };
@@ -1102,6 +1107,7 @@
 				330581871DCBF614009FC621 /* TRInviteRequestToBungie.swift */,
 				33EE16BE1DCEC2A200FBAA01 /* TRBungieInvitationCompletionRequest.swift */,
 				337FA1F01DCED726002A4E07 /* TRAcceptEventInvitationRequest.swift */,
+				337FA1F51DCF0062002A4E07 /* TRCancelEventInvitationRequest.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -2031,6 +2037,7 @@
 				33D0B4201CFD0165008ABA04 /* TRAppTrackingRequest.swift in Sources */,
 				33D0B4211CFD0165008ABA04 /* TREventInformationViewController.swift in Sources */,
 				331F8F371D469AB1006CCE80 /* TRPushNotiController.swift in Sources */,
+				337FA1F61DCF0062002A4E07 /* TRCancelEventInvitationRequest.swift in Sources */,
 				332CA6E81D9B30D40020AC19 /* TRReportComment.swift in Sources */,
 				33D0B4221CFD0165008ABA04 /* TRActivitySelectionCell.swift in Sources */,
 				33D0B4231CFD0165008ABA04 /* YTGameScene.swift in Sources */,
@@ -2164,6 +2171,7 @@
 				3380EF331CC94745000A9289 /* TREventUpcomingNoCheckPointCell.swift in Sources */,
 				332BC1791CEBECDB00012B45 /* TRAppTrackingRequest.swift in Sources */,
 				3398E1A51CAB18C7001F022B /* TREventInformationViewController.swift in Sources */,
+				337FA1F71DCF0062002A4E07 /* TRCancelEventInvitationRequest.swift in Sources */,
 				331F8F381D469AB1006CCE80 /* TRPushNotiController.swift in Sources */,
 				332CA6E91D9B30D40020AC19 /* TRReportComment.swift in Sources */,
 				339D8F281C90F77E00A2620F /* TRActivitySelectionCell.swift in Sources */,
@@ -2297,6 +2305,7 @@
 				338BB1FC1CEE98E200A14060 /* TRUpdateGroupRequest.swift in Sources */,
 				339D8F291C90F77E00A2620F /* TRActivitySelectionCell.swift in Sources */,
 				33E6CA821CE65CAA003408CB /* TRForgotPasswordRequest.swift in Sources */,
+				337FA1F81DCF0062002A4E07 /* TRCancelEventInvitationRequest.swift in Sources */,
 				3329B5951C9B7A8500CC1F9B /* TRPushNotificationView.swift in Sources */,
 				332CA6EA1D9B30D40020AC19 /* TRReportComment.swift in Sources */,
 				33742D8B1C7FC66500C46742 /* TRBaseViewController.swift in Sources */,
@@ -2430,6 +2439,7 @@
 				338BB1FD1CEE98E200A14060 /* TRUpdateGroupRequest.swift in Sources */,
 				339D8F2A1C90F77E00A2620F /* TRActivitySelectionCell.swift in Sources */,
 				33E6CA831CE65CAA003408CB /* TRForgotPasswordRequest.swift in Sources */,
+				337FA1F91DCF0062002A4E07 /* TRCancelEventInvitationRequest.swift in Sources */,
 				3329B5961C9B7A8500CC1F9B /* TRPushNotificationView.swift in Sources */,
 				332CA6EB1D9B30D40020AC19 /* TRReportComment.swift in Sources */,
 				33742D8C1C7FC66600C46742 /* TRBaseViewController.swift in Sources */,
