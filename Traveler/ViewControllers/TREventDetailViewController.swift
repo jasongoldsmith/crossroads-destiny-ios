@@ -74,6 +74,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        self.invitationButtonsView.hidden = false
         
         guard let _ = self.eventInfo else {
             return
@@ -972,7 +973,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             
             if isInvited == TRApplicationManager.sharedInstance.currentUser?.userID {
                 inviCell.invitationButton?.setTitle("Cancel", forState: UIControlState.Normal)
-                inviCell.invitationButton?.addTarget(self, action: #selector(cancelInvitation), forControlEvents: .TouchUpInside)
+                inviCell.invitationButton?.addTarget(self, action: #selector(cancelInvitation(_:)), forControlEvents: .TouchUpInside)
             } else {
                 inviCell.invitationButton?.setTitle("Invited", forState: UIControlState.Normal)
                 inviCell.invitationButton?.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
@@ -993,8 +994,8 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         return false
     }
 
-    func cancelInvitation () {
-        //Send Cancel Request
+    func cancelInvitation (sender: UIButton) {
+        
     }
     
     func addInvitationUIButtons () {
@@ -1002,11 +1003,15 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     }
     
     @IBAction func leaveInvitationButton (sender: UIButton) {
-        
+        self.leaveEvent(sender)
     }
 
     @IBAction func confirmInvitationButton (sender: UIButton) {
-        
+        _ = TRAcceptEventInvitationRequest().acceptInvitationRequest((self.eventInfo?.eventID)!, completion: {(error, response) in
+            if let _ = error {
+                print("Error: \(error)")
+            }
+        })
     }
 
     deinit {

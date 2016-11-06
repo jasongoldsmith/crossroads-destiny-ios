@@ -110,6 +110,7 @@ struct K {
         static let BUNGIE_FETCH_USER     =   "/api/v1/auth/validateUserLogin"
         static let TR_CONFIGURATION      =   "/api/v1/config"
         static let BUNGIE_INVI_COMPLETION =  "/api/v1/gatewayResponse"
+        static let TR_ACCEPT_INVITATION   =  "/api/v1/a/event/invite/accept"
     }
     
     struct StoryBoard {
