@@ -25,6 +25,7 @@ class TRCustomError: UIView {
     @IBOutlet weak var errorMessageHeader: UILabel!
     @IBOutlet weak var errorMessageDescription: UILabel!
     @IBOutlet weak var actionButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var crossButton: UIButton!
     
     override func didMoveToWindow() {

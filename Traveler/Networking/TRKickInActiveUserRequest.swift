@@ -18,7 +18,7 @@ class TRKickInActiveUserRequest: TRRequest {
         
         var params = [String: AnyObject]()
         params["eId"] = eventID
-        params["userID"] = playerID
+        params["userId"] = playerID
         request.params = params
         
         request.sendRequestWithCompletion { (error, swiftyJsonVar) -> () in

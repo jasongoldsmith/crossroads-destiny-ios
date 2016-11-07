@@ -10,7 +10,7 @@ import Foundation
 
 class TRCancelEventInvitationRequest: TRRequest {
     
-    func cancelInvitationRequest (eventID: String, completion: TRResponseCallBack) {
+    func cancelInvitationRequest (eventID: String, playerID: String, completion: TRResponseCallBack) {
         let requestURL = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_CANCEL_INVITATION
         
         let request = TRRequest()
@@ -18,6 +18,7 @@ class TRCancelEventInvitationRequest: TRRequest {
         
         var params = [String: AnyObject]()
         params["eId"] = eventID
+        params["userId"] = playerID
         request.params = params
         
         request.sendRequestWithCompletion { (error, swiftyJsonVar) -> () in

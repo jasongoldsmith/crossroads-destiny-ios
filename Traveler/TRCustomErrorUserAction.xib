@@ -144,6 +144,7 @@
             </variation>
             <connections>
                 <outlet property="actionButton" destination="3rp-kP-GCw" id="61M-mD-awV"/>
+                <outlet property="cancelButton" destination="N4v-eb-tMP" id="fZ5-ll-uls"/>
                 <outlet property="crossButton" destination="fr4-eU-p7A" id="v9r-8K-NDd"/>
                 <outlet property="errorMessageDescription" destination="eOX-M3-8v3" id="eht-wa-0LM"/>
                 <outlet property="errorMessageHeader" destination="IzD-Z8-Q7p" id="xXZ-hX-EdF"/>

@@ -14,6 +14,6 @@ class TREventDescriptionCell: UITableViewCell {
     @IBOutlet weak var playerUserName: UILabel!
     @IBOutlet weak var playerInviteButton: UIButton!
     @IBOutlet weak var creatorDogTag: UIImageView!
-    @IBOutlet weak var invitationButton: UIButton!
+    @IBOutlet weak var invitationButton: EventButton!
     @IBOutlet weak var blueBarView: UIView!
 }

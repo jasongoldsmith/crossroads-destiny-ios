@@ -59,7 +59,9 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     var inviteView: TRInviteView = TRInviteView()
     var isShowingInvitation: Bool = false
     var keyBoardHeight: CGFloat!
+    var userToKick: TRPlayerInfo?
     @IBOutlet weak var invitationViewOverLay: UIImageView!
+    
     
     //Current Event
     var eventInfo: TREventInfo?
@@ -74,7 +76,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        self.invitationButtonsView.hidden = false
+        
         
         guard let _ = self.eventInfo else {
             return
@@ -492,6 +494,15 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 cell?.playerIcon.roundRectView (1, borderColor: UIColor.grayColor())
                 cell?.playerInviteButton.hidden = true
                 
+                //Add Player Object to Cancel/ Kick Button
+                if let playerObj = self.eventInfo?.eventPlayersArray[indexPath.section] {
+                    cell?.invitationButton.buttonPlayerInfo = playerObj
+                }
+
+                cell?.invitationButton?.setTitle("Kick", forState: UIControlState.Normal)
+                cell?.invitationButton?.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
+                cell?.invitationButton?.addTarget(self, action: #selector(showKickUserView(_:)), forControlEvents: .TouchUpInside)
+
                 //Add Invitation Invitor Blue Bar Logic
                 if let playerID = self.eventInfo?.eventPlayersArray[indexPath.section].playerID {
                     if self.isInvitor(playerID) == true {
@@ -717,7 +728,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     }
     
     func customErrorActionButtonPressedWithSelector(selector: Selector) {
-        self.performSelector(selector)
+        self.performSelector(selector, withObject: nil)
     }
     
     override func reloadEventTable() {
@@ -1014,11 +1025,15 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     }
 
     func cancelInvitation (sender: UIButton) {
-        _ = TRCancelEventInvitationRequest().cancelInvitationRequest((self.eventInfo?.eventID)!, completion: {(error, response) in
-            if let _ = error {
-                print("Error: \(error)")
-            }
-        })
+        
+        let eventBtn = sender as! EventButton
+        if let canceledButton = eventBtn.buttonPlayerInfo {
+            _ = TRCancelEventInvitationRequest().cancelInvitationRequest((self.eventInfo?.eventID)!, playerID: canceledButton.playerID!, completion: {(error, response) in
+                if let _ = error {
+                    print("Error: \(error)")
+                }
+            })
+        }
     }
     
     func addInvitationUIButtons () {
@@ -1026,24 +1041,39 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     }
     
     @IBAction func leaveInvitationButton (sender: UIButton) {
-        self.leaveEvent(sender)
+        let errorView = NSBundle.mainBundle().loadNibNamed("TRCustomErrorUserAction", owner: self, options: nil)[0] as! TRCustomError
+        errorView.errorMessageHeader?.text = "CAN’T MAKE IT?"
+        errorView.errorMessageDescription?.text = "If you turn down this invite, another Guardian will take your spot. Are you sure you want to leave?"
+        errorView.frame = self.view.frame
+        errorView.delegate = self
+        errorView.selector = #selector(leaveEvent(_:))
+        errorView.actionButton.setTitle("NO, I WANT TO STAY", forState: .Normal)
+        errorView.cancelButton.setTitle("Yes, I can’t make it", forState: .Normal)
+        self.view.addSubview(errorView)
     }
     
     
     func showKickUserView (sender: UIButton) {
+        
+        let eventBtn = sender as! EventButton
+        self.userToKick = eventBtn.buttonPlayerInfo
+        
         let errorView = NSBundle.mainBundle().loadNibNamed("TRCustomErrorUserAction", owner: self, options: nil)[0] as! TRCustomError
         errorView.errorMessageHeader?.text = "KICK FOR INACTIVITY?"
         errorView.errorMessageDescription?.text = "Removing this Guardian will allow another to join instead."
         errorView.frame = self.view.frame
         errorView.delegate = self
-        errorView.selector = #selector(kickInActiveUser)
+        errorView.selector = #selector(kickInActiveUser(_:))
         errorView.actionButton.setTitle("KICK", forState: .Normal)
         self.view.addSubview(errorView)
     }
     
-    func kickInActiveUser () {
-        _ = TRKickInActiveUserRequest().kickInActiveUser((self.eventInfo?.eventID)!, playerID: "", completion: {(error, response) in
-        })
+    func kickInActiveUser (playerID: String) {
+        
+        if let playerToKick = self.userToKick?.playerID {
+            _ = TRKickInActiveUserRequest().kickInActiveUser((self.eventInfo?.eventID)!, playerID: playerToKick, completion: {(error, response) in
+            })
+        }
     }
 
     @IBAction func confirmInvitationButton (sender: UIButton) {
