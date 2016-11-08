@@ -10,6 +10,11 @@ import Foundation
 
 class TREventDescriptionCell: UITableViewCell {
  
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.blueBarView.hidden = true
+    }
+    
     @IBOutlet weak var playerIcon: UIImageView!
     @IBOutlet weak var playerUserName: UILabel!
     @IBOutlet weak var playerInviteButton: UIButton!

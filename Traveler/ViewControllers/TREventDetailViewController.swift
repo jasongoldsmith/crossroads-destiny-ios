@@ -77,20 +77,10 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         
         super.viewDidLoad()
         
-        
         guard let _ = self.eventInfo else {
             return
         }
 
-        //Check if the user is Invited
-        for player in (self.eventInfo?.eventPlayersArray)! {
-            if player.playerID == TRApplicationManager.sharedInstance.currentUser?.userID {
-                if let isInvited = player.invitedBy where isInvited != "" {
-                    self.addInvitationUIButtons()
-                }
-            }
-        }
-        
         //TextView Delegate
         self.chatTextView?.layer.cornerRadius = 4.0
         self.chatTextView?.text = "Type your comment here"
@@ -733,6 +723,9 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     
     override func reloadEventTable() {
         
+        //Hide Invitation Button
+        self.hideInvitationUIButtons()
+        
         dispatch_async(dispatch_get_main_queue()) { () -> Void in
             if let _ = self.eventInfo {
 
@@ -1007,6 +1000,10 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
             } else {
                 inviCell.invitationButton?.setTitle("Invited", forState: UIControlState.Normal)
                 inviCell.invitationButton?.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
+                
+                if playerInfo.playerID == TRApplicationManager.sharedInstance.currentUser?.userID {
+                    self.addInvitationUIButtons()
+                }
             }
         } else {
             inviCell.blueBarView.hidden = true
@@ -1040,6 +1037,10 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         self.invitationButtonsView?.hidden = false
     }
     
+    func hideInvitationUIButtons () {
+        self.invitationButtonsView?.hidden = true
+    }
+    
     @IBAction func leaveInvitationButton (sender: UIButton) {
         let errorView = NSBundle.mainBundle().loadNibNamed("TRCustomErrorUserAction", owner: self, options: nil)[0] as! TRCustomError
         errorView.errorMessageHeader?.text = "CAN’T MAKE IT?"
@@ -1047,8 +1048,8 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         errorView.frame = self.view.frame
         errorView.delegate = self
         errorView.selector = #selector(leaveEvent(_:))
-        errorView.actionButton.setTitle("NO, I WANT TO STAY", forState: .Normal)
-        errorView.cancelButton.setTitle("Yes, I can’t make it", forState: .Normal)
+        errorView.actionButton.setTitle("YES, I WANT TO LEAVE", forState: .Normal)
+        errorView.cancelButton.setTitle("No, I want to stay", forState: .Normal)
         self.view.addSubview(errorView)
     }
     
