@@ -43,7 +43,7 @@
                             <constraint firstAttribute="height" constant="20" id="ejH-9Z-d5R"/>
                         </constraints>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgB-en-gf6" customClass="EventButton" customModule="Crossroads" customModuleProvider="target">
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgB-en-gf6" customClass="EventButton" customModule="Crossroads" customModuleProvider="target">
                         <rect key="frame" x="264" y="13" width="42" height="29"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                         <state key="normal" title="Invited">

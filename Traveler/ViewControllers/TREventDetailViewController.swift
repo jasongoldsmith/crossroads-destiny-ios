@@ -721,7 +721,13 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     override func reloadEventTable() {
         
         //Hide Invitation Button
-        self.hideInvitationUIButtons()
+        let currentLoggedInUserID = TRApplicationManager.sharedInstance.currentUser?.userID
+        let currentPlayer = self.eventInfo?.eventPlayersArray.filter {$0.playerID == currentLoggedInUserID}
+        if let _ = currentPlayer?.first?.invitedBy {
+        } else {
+            self.hideInvitationUIButtons()
+        }
+        
         
         dispatch_async(dispatch_get_main_queue()) { () -> Void in
             if let _ = self.eventInfo {

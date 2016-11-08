@@ -443,12 +443,14 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     }
     
     func showEventInfoViewController(eventInfo: TREventInfo?, fromPushNoti: Bool?) {
-        let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
 
-        let vc : TREventDetailViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_EVENT_DESCRIPTION) as! TREventDetailViewController
-        vc.eventInfo = eventInfo
-
-        self.presentViewController(vc, animated: true, completion: {
+        _ = TRGetEventRequest().getEventByID((eventInfo?.eventID!)!, completion: { (error, event) in
+            let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+            let vc : TREventDetailViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_EVENT_DESCRIPTION) as! TREventDetailViewController
+            vc.eventInfo = event
+            
+            self.presentViewController(vc, animated: true, completion: {
+            })
         })
     }
     
