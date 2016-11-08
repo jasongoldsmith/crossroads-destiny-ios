@@ -489,9 +489,6 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                     cell?.invitationButton.buttonPlayerInfo = playerObj
                 }
 
-                cell?.invitationButton?.setTitle("Kick", forState: UIControlState.Normal)
-                cell?.invitationButton?.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
-                cell?.invitationButton?.addTarget(self, action: #selector(showKickUserView(_:)), forControlEvents: .TouchUpInside)
 
                 //Add Invitation Invitor Blue Bar Logic
                 if let playerID = self.eventInfo?.eventPlayersArray[indexPath.section].playerID {

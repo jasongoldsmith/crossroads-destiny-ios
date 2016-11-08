@@ -85,12 +85,7 @@ class TREventInfo: NSObject {
                 creatorConsole.consoleType = consoles["consoleType"].stringValue
                 creatorConsole.verifyStatus = consoles["verifyStatus"].stringValue
                 creatorConsole.isPrimary    = consoles["isPrimary"].bool
-                
-                if creatorConsole.verifyStatus == ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue {
-                    creatorConsole.clanTag = consoles["clanTag"].stringValue
-                } else {
-                    creatorConsole.clanTag = ""
-                }
+                creatorConsole.clanTag = consoles["clanTag"].stringValue
                 
                 
                 if creatorConsole.isPrimary == true {
@@ -121,6 +116,8 @@ class TREventInfo: NSObject {
             playerInfo.commentsReported = playerInfoObject["commentsReported"].intValue
             playerInfo.invitedBy        = playerInfoObject["invitedBy"].stringValue
             playerInfo.isPlayerActive   = playerInfoObject["isActive"].boolValue
+            playerInfo.verifyStatus     = playerInfoObject["verifyStatus"].stringValue
+            
             playerInfo.hasReachedMaxReportedComments = playerInfoObject["hasReachedMaxReportedComments"].boolValue
 
             
@@ -130,12 +127,7 @@ class TREventInfo: NSObject {
                 playerConsole.consoleType = consoles["consoleType"].stringValue
                 playerConsole.verifyStatus = consoles["verifyStatus"].stringValue
                 playerConsole.isPrimary    = consoles["isPrimary"].bool
-                
-                if playerConsole.verifyStatus == ACCOUNT_VERIFICATION.USER_VERIFIED.rawValue {
-                    playerConsole.clanTag = consoles["clanTag"].stringValue
-                } else {
-                    playerConsole.clanTag = ""
-                }
+                playerConsole.clanTag = consoles["clanTag"].stringValue
                 
                 if playerConsole.isPrimary == true {
                     playerInfo.playerPsnID = playerConsole.consoleId
