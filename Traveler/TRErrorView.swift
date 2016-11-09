@@ -58,6 +58,7 @@ class TRErrorView: UIView {
         
         //Button radius
         self.buttonOneYes.layer.cornerRadius = 2.0
+        self.buttonTwoCancel.hidden = false
         
         var eventName = ""
         var eventGroup = ""
@@ -81,8 +82,9 @@ class TRErrorView: UIView {
         case .NEEDS_CONSOLE:
             if let consoleType = self.eventInfo?.eventConsoleType {
                 let console  =  self.getConsoleTypeFromString(consoleType)
-                self.buttonOneYes.setTitle("ADD MY \(console)", forState: .Normal)
-                self.errorDescription.text = "You’ll need to be on \(console) to join that activity from \(eventGroup). Add another console to your account?"
+                self.buttonOneYes.setTitle("OK", forState: .Normal)
+                self.errorDescription.text = "You'll need a \(console) linked to your Bungie account to join that activity from \(eventGroup)."
+                self.buttonTwoCancel.hidden = true
             }
             break
         case .JOIN_BUNGIE_GROUP:
