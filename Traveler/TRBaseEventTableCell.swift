@@ -272,7 +272,13 @@ class TRBaseEventTableCell: UITableViewCell {
             
         } else if (event.eventStatus == EVENT_STATUS.NEW.rawValue) {
             if (TRApplicationManager.sharedInstance.isCurrentPlayerCreatorOfTheEvent(event)) {
-                button.setImage(UIImage(named: "btnGOING"), forState: .Normal)
+                
+                if TRApplicationManager.sharedInstance.currentUser?.isInvited == true {
+                    button.setImage(UIImage(named: "btnINVITED"), forState: .Normal)
+                } else {
+                    button.setImage(UIImage(named: "btnGOING"), forState: .Normal)
+                }
+                
                 button.userInteractionEnabled = false
                 leaveEventButton.hidden = false
             } else {
@@ -282,7 +288,13 @@ class TRBaseEventTableCell: UITableViewCell {
             
         } else if (event.eventStatus == EVENT_STATUS.OPEN.rawValue) {
             if (TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(event)) {
-                button.setImage(UIImage(named: "btnGOING"), forState: .Normal)
+                
+                if TRApplicationManager.sharedInstance.currentUser?.isInvited == true {
+                    button.setImage(UIImage(named: "btnINVITED"), forState: .Normal)
+                } else {
+                    button.setImage(UIImage(named: "btnGOING"), forState: .Normal)
+                }
+
                 button.userInteractionEnabled = false
                 leaveEventButton.hidden = false
             } else {
@@ -292,7 +304,13 @@ class TRBaseEventTableCell: UITableViewCell {
         } else {
             //CAN_JOIN
             if (TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(event)) {
-                button.setImage(UIImage(named: "btnGOING"), forState: .Normal)
+                
+                if TRApplicationManager.sharedInstance.currentUser?.isInvited == true {
+                    button.setImage(UIImage(named: "btnINVITED"), forState: .Normal)
+                } else {
+                    button.setImage(UIImage(named: "btnGOING"), forState: .Normal)
+                }
+
                 button.userInteractionEnabled = false
                 leaveEventButton.hidden = false
             } else {

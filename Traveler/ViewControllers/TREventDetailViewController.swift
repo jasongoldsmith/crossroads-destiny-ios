@@ -523,7 +523,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                     }
                 }
                 
-                //Add DogTag to the event creator
+                //Add Do	gTag to the event creator
                 if self.eventInfo?.eventFull() == true {
                     if self.eventInfo?.eventPlayersArray[indexPath.section].playerID == self.eventInfo?.eventCreator?.playerID {
                         cell!.creatorDogTag?.hidden = false
