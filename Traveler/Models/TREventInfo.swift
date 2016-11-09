@@ -117,7 +117,7 @@ class TREventInfo: NSObject {
             playerInfo.invitedBy        = playerInfoObject["invitedBy"].stringValue
             playerInfo.isPlayerActive   = playerInfoObject["isActive"].boolValue
             playerInfo.verifyStatus     = playerInfoObject["verifyStatus"].stringValue
-            
+            playerInfo.isInvited     = playerInfoObject["isInvited"].boolValue
             playerInfo.hasReachedMaxReportedComments = playerInfoObject["hasReachedMaxReportedComments"].boolValue
 
             

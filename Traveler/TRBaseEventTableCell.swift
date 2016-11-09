@@ -249,6 +249,11 @@ class TRBaseEventTableCell: UITableViewCell {
     func eventButtonStatusForCurrentPlayer (event: TREventInfo, button: EventButton) {
         
         button.userInteractionEnabled = true
+        var currentPlayer: TRPlayerInfo?
+        let currentLoggedInUser = event.eventPlayersArray.filter{$0.playerID == TRApplicationManager.sharedInstance.currentUser?.userID!}
+        if let _ = currentLoggedInUser.first {
+            currentPlayer = currentLoggedInUser.first
+        }
         
         if (event.eventCreator?.playerID == TRUserInfo.getUserID()) {
             button.setImage(UIImage(named: "btnOWNER"), forState: .Normal)
@@ -273,7 +278,7 @@ class TRBaseEventTableCell: UITableViewCell {
         } else if (event.eventStatus == EVENT_STATUS.NEW.rawValue) {
             if (TRApplicationManager.sharedInstance.isCurrentPlayerCreatorOfTheEvent(event)) {
                 
-                if TRApplicationManager.sharedInstance.currentUser?.isInvited == true {
+                if currentPlayer?.isInvited == true {
                     button.setImage(UIImage(named: "btnINVITED"), forState: .Normal)
                 } else {
                     button.setImage(UIImage(named: "btnGOING"), forState: .Normal)
@@ -289,7 +294,7 @@ class TRBaseEventTableCell: UITableViewCell {
         } else if (event.eventStatus == EVENT_STATUS.OPEN.rawValue) {
             if (TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(event)) {
                 
-                if TRApplicationManager.sharedInstance.currentUser?.isInvited == true {
+                if currentPlayer?.isInvited == true {
                     button.setImage(UIImage(named: "btnINVITED"), forState: .Normal)
                 } else {
                     button.setImage(UIImage(named: "btnGOING"), forState: .Normal)
@@ -305,7 +310,7 @@ class TRBaseEventTableCell: UITableViewCell {
             //CAN_JOIN
             if (TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(event)) {
                 
-                if TRApplicationManager.sharedInstance.currentUser?.isInvited == true {
+                if currentPlayer?.isInvited == true {
                     button.setImage(UIImage(named: "btnINVITED"), forState: .Normal)
                 } else {
                     button.setImage(UIImage(named: "btnGOING"), forState: .Normal)
