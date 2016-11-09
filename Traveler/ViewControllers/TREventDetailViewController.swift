@@ -543,10 +543,14 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 
                 if (indexPath.section) == self.eventInfo?.eventPlayersArray.count {
                     if TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!) == true {
-                        cell?.playerInviteButton.hidden = false
-                        cell?.playerInviteButton.addTarget(self, action: #selector(inviteUser(_:)), forControlEvents: .TouchUpInside)
+                        if self.isCurrentPlayerInvited() == true {
+                            cell?.playerInviteButton.hidden = true
+                        } else {
+                            cell?.playerInviteButton.hidden = false
+                            cell?.playerInviteButton.addTarget(self, action: #selector(inviteUser(_:)), forControlEvents: .TouchUpInside)
+                        }
                     } else {
-                        cell?.playerInviteButton.hidden = true
+                        cell?.playerInviteButton.hidden = false
                     }
                 } else {
                     cell?.playerInviteButton.hidden = true
@@ -1080,6 +1084,18 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         }
     }
 
+    
+    func isCurrentPlayerInvited () -> Bool {
+        let currentPlayer = self.eventInfo?.eventPlayersArray.filter{$0.playerID == TRApplicationManager.sharedInstance.currentUser?.userID}
+        let player = currentPlayer?.first
+        
+        if let isInvited = player?.invitedBy where isInvited != "" {
+            return true
+        }
+        
+        return false
+    }
+    
     @IBAction func confirmInvitationButton (sender: UIButton) {
         _ = TRAcceptEventInvitationRequest().acceptInvitationRequest((self.eventInfo?.eventID)!, completion: {(error, response) in
             if let _ = error {
