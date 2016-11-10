@@ -227,13 +227,14 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         }
         
         //Full Event View's Text Labels
-        if TRApplicationManager.sharedInstance.currentUser?.userID != self.eventInfo?.eventPlayersArray.first?.playerID {
+        if TRApplicationManager.sharedInstance.currentUser?.userID != self.eventInfo?.eventCreator?.playerID {
             if let creatorTag = self.eventInfo?.eventPlayersArray.first?.playerPsnID {
                 self.fullViewsDescriptionLabel?.text = "Send \(creatorTag) a friend request or message for a party invite."
                 self.eventFullViewHeightConstraint?.constant = 80
-            } else {
-                self.eventFullViewHeightConstraint?.constant = 98
             }
+        } else {
+            self.fullViewsDescriptionLabel?.text = "Expect friend requests or messages from your Fireteam. You can start a party and invite everyone."
+            self.eventFullViewHeightConstraint?.constant = 98
         }
 
         self.fullViews?.alpha = 0
@@ -505,7 +506,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                     if let playerInfo = self.eventInfo?.eventPlayersArray[indexPath.section] {
                         if let isInvited = playerInfo.invitedBy where isInvited != "" {
                             
-                        } else if playerInfo.isPlayerActive == false {
+                        } else if playerInfo.isPlayerActive == true {
                             cell?.invitationButton?.setTitle("Kick", forState: UIControlState.Normal)
                             cell?.invitationButton?.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
                             cell?.invitationButton?.addTarget(self, action: #selector(showKickUserView(_:)), forControlEvents: .TouchUpInside)
@@ -731,14 +732,16 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         }
         
         
-        if TRApplicationManager.sharedInstance.currentUser?.userID != self.eventInfo?.eventPlayersArray.first?.playerID {
+        if TRApplicationManager.sharedInstance.currentUser?.userID != self.eventInfo?.eventCreator?.playerID {
             if let creatorTag = self.eventInfo?.eventPlayersArray.first?.playerPsnID {
                 self.fullViewsDescriptionLabel?.text = "Send \(creatorTag) a friend request or message for a party invite."
                 self.eventFullViewHeightConstraint?.constant = 80
-            } else {
-                self.eventFullViewHeightConstraint?.constant = 98
             }
+        } else {
+            self.fullViewsDescriptionLabel?.text = "Expect friend requests or messages from your Fireteam. You can start a party and invite everyone."
+            self.eventFullViewHeightConstraint?.constant = 98
         }
+
         
         
         dispatch_async(dispatch_get_main_queue()) { () -> Void in
