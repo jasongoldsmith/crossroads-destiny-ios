@@ -21,6 +21,7 @@ class TRBungieLoginValidation {
     var bungieID: String?
     var bungieCookies: [NSHTTPCookie]? = []
     var alamoFireManager : Alamofire.Manager?
+    var branchLinkData: NSDictionary? = nil
     
     
     func shouldShowLoginSceen (completion: TRSignInCallBack, clearBackGroundRequest: Bool) {
@@ -83,7 +84,7 @@ class TRBungieLoginValidation {
                         }
                     }
                     
-                    _ = TRFetchBungieUser().getBungieUserWith(response.result.value!, clearBackGroundRequest: clearBackGroundRequest, consoleType: console, bungieUrl: playerDetUrl, completion: { (error, responseObject) in
+                    _ = TRFetchBungieUser().getBungieUserWith(response.result.value!, clearBackGroundRequest: clearBackGroundRequest, consoleType: console, bungieUrl: playerDetUrl, invitationDict: self.branchLinkData, completion: { (error, responseObject) in
                         
                         if let  _ = error {
                             completion(showLoginScreen: false, error: error)

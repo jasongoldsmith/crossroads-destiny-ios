@@ -51,6 +51,10 @@ class TRRootViewController: TRBaseViewController {
 
     func appLoading () {
         
+        if let _ = self.branchLinkData {
+            TRApplicationManager.sharedInstance.bungieVarificationHelper.branchLinkData = self.branchLinkData
+        }
+        
         TRApplicationManager.sharedInstance.bungieVarificationHelper.shouldShowLoginSceen({ (showLoginScreen, error) in
             
             if showLoginScreen == true {

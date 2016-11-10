@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 
 class TRFetchBungieUser: TRRequest {
-    func getBungieUserWith (bungieResponse: AnyObject, clearBackGroundRequest: Bool, consoleType: String, bungieUrl: String, completion: TRResponseCallBack) {
+    func getBungieUserWith (bungieResponse: AnyObject, clearBackGroundRequest: Bool, consoleType: String, bungieUrl: String, invitationDict: NSDictionary?, completion: TRResponseCallBack) {
         
         let bungieUser = K.TRUrls.TR_BaseUrl + K.TRUrls.BUNGIE_FETCH_USER
         
@@ -20,6 +20,11 @@ class TRFetchBungieUser: TRRequest {
         params["bungieResponse"] = bungieResponse
         params["consoleType"] = consoleType
         params["bungieURL"] = bungieUrl
+        
+        if let _ = invitationDict {
+            params["invitation"] = invitationDict
+        }
+        
         request.params = params
         request.showActivityIndicatorBgClear = clearBackGroundRequest
         request.requestURL = bungieUser

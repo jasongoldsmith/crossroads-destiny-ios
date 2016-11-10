@@ -7,11 +7,11 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
-  - Branch (0.12.15):
-    - Branch/Core (= 0.12.15)
-    - Branch/without-IDFA (= 0.12.15)
-  - Branch/Core (0.12.15)
-  - Branch/without-IDFA (0.12.15)
+  - Branch (0.12.16):
+    - Branch/Core (= 0.12.16)
+    - Branch/without-IDFA (= 0.12.16)
+  - Branch/Core (0.12.16)
+  - Branch/without-IDFA (0.12.16)
   - Crashlytics (3.8.3):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.11)
@@ -94,7 +94,7 @@ SPEC CHECKSUMS:
   AFDateHelper: aecee6bb264d6531795649f4ebac47783d2bab74
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
-  Branch: 076dda33e7062b5bdefc1be209e2cd863141b7f3
+  Branch: d74f14f69a04cd3c405ed11dab14c9a331ad3971
   Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   FacebookCore: 14f27add6888c27470d42a100374e6361f4e0f79
