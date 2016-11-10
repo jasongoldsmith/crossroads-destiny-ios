@@ -506,7 +506,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                     if let playerInfo = self.eventInfo?.eventPlayersArray[indexPath.section] {
                         if let isInvited = playerInfo.invitedBy where isInvited != "" {
                             
-                        } else if playerInfo.isPlayerActive == true {
+                        } else if playerInfo.isPlayerActive == false {
                             cell?.invitationButton?.setTitle("Kick", forState: UIControlState.Normal)
                             cell?.invitationButton?.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
                             cell?.invitationButton?.addTarget(self, action: #selector(showKickUserView(_:)), forControlEvents: .TouchUpInside)
