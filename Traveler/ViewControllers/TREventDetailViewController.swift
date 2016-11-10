@@ -227,8 +227,8 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         }
         
         //Full Event View's Text Labels
-        if TRApplicationManager.sharedInstance.currentUser?.userID != self.eventInfo?.eventCreator?.playerID {
-            if let creatorTag = self.eventInfo?.eventCreator?.playerPsnID {
+        if TRApplicationManager.sharedInstance.currentUser?.userID != self.eventInfo?.eventPlayersArray.first?.playerID {
+            if let creatorTag = self.eventInfo?.eventPlayersArray.first?.playerPsnID {
                 self.fullViewsDescriptionLabel?.text = "Send \(creatorTag) a friend request or message for a party invite."
                 self.eventFullViewHeightConstraint?.constant = 80
             } else {
@@ -728,6 +728,16 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         if isCurrentPlayerInvited() == true {
         } else {
             self.hideInvitationUIButtons()
+        }
+        
+        
+        if TRApplicationManager.sharedInstance.currentUser?.userID != self.eventInfo?.eventPlayersArray.first?.playerID {
+            if let creatorTag = self.eventInfo?.eventPlayersArray.first?.playerPsnID {
+                self.fullViewsDescriptionLabel?.text = "Send \(creatorTag) a friend request or message for a party invite."
+                self.eventFullViewHeightConstraint?.constant = 80
+            } else {
+                self.eventFullViewHeightConstraint?.constant = 98
+            }
         }
         
         
