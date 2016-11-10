@@ -10,7 +10,7 @@ import Foundation
 
 class TRAcceptEventInvitationRequest: TRRequest {
     
-    func acceptInvitationRequest (eventID: String, completion: TRResponseCallBack) {
+    func acceptInvitationRequest (eventID: String, completion: TREventObjCallBackWithError) {
         let requestURL = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_ACCEPT_INVITATION
         
         let request = TRRequest()
@@ -23,11 +23,12 @@ class TRAcceptEventInvitationRequest: TRRequest {
         request.sendRequestWithCompletion { (error, swiftyJsonVar) -> () in
             
             if let _ = error {
-                completion(error: error, responseObject: nil)
+                completion(error: error!, event: nil)
                 return
             }
             
-            completion(error: nil, responseObject: swiftyJsonVar)
+            let eventObj = TREventInfo().parseCreateEventInfoObject(swiftyJsonVar)
+            completion(error: nil, event: eventObj)
         }
     }
 }

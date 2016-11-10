@@ -1108,10 +1108,14 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
     }
     
     @IBAction func confirmInvitationButton (sender: UIButton) {
-        _ = TRAcceptEventInvitationRequest().acceptInvitationRequest((self.eventInfo?.eventID)!, completion: {(error, response) in
+        _ = TRAcceptEventInvitationRequest().acceptInvitationRequest((self.eventInfo?.eventID)!, completion: {(error, event) in
             if let _ = error {
                 print("Error: \(error)")
             }
+            
+            self.eventInfo = event
+            self.reloadButton()
+            self.reloadEventTable()
         })
     }
 
