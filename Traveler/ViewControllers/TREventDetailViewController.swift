@@ -504,9 +504,10 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 //ADD KICK Logic if Event is FULL, also the player should not be the invited one
                 if self.eventInfo?.eventFull() == true {
                     if let playerInfo = self.eventInfo?.eventPlayersArray[indexPath.section] {
+                        let isCurrentUserInTheEvent = TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!)
                         if let isInvited = playerInfo.invitedBy where isInvited != "" {
                             
-                        } else if playerInfo.isPlayerActive == false && eventInfo?.isFutureEvent == false && playerInfo.playerID != TRApplicationManager.sharedInstance.currentUser?.userID {
+                        } else if playerInfo.isPlayerActive == false && eventInfo?.isFutureEvent == false && playerInfo.playerID != TRApplicationManager.sharedInstance.currentUser?.userID && isCurrentUserInTheEvent == true {
                             cell?.invitationButton?.hidden = false
                             cell?.invitationButton?.setTitle("Kick", forState: UIControlState.Normal)
                             cell?.invitationButton?.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
