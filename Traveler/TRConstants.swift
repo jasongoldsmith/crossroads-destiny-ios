@@ -124,7 +124,6 @@ struct K {
         
         static let VIEW_CONTROLLER_YATRI                   = "yatriView"
         static let ROOT_VIEW_CONTROLLER                    = "rootVC"
-        static let VIEWCONTROLLER_LOGIN                    = "login"
         static let VIEWCONTROLLER_SIGNUP                   = "signup"
         static let VIEWCONTROLLER_LOGIN_OPTIONS            = "loginOptions"
         static let VIEWCONTROLLER_EVENT_LIST               = "eventListVC"

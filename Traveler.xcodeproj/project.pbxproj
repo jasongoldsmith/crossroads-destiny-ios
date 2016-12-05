@@ -437,7 +437,6 @@
 		33D0B3FF1CFD0165008ABA04 /* TRDeviceTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3397E2821C93822F008CCCDB /* TRDeviceTokenRequest.swift */; };
 		33D0B4001CFD0165008ABA04 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333E1CA31CC54A27000B843C /* UIViewExtension.swift */; };
 		33D0B4021CFD0165008ABA04 /* TRAlignableUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33095FDE1CDD271A0094DF49 /* TRAlignableUILabel.swift */; };
-		33D0B4031CFD0165008ABA04 /* TRSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C1FF661C77D83800A78798 /* TRSignInViewController.swift */; };
 		33D0B4041CFD0165008ABA04 /* TRSendReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33974F191CADD9CD0015C9D5 /* TRSendReportViewController.swift */; };
 		33D0B4051CFD0165008ABA04 /* TRUpdateGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338BB1FA1CEE98E200A14060 /* TRUpdateGroupRequest.swift */; };
 		33D0B4061CFD0165008ABA04 /* YTGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3305AD081CF26FD100572495 /* YTGameViewController.swift */; };
@@ -626,9 +625,6 @@
 		62C1FF5F1C77CDFF00A78798 /* TRLoginOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C1FF5E1C77CDFF00A78798 /* TRLoginOptionViewController.swift */; };
 		62C1FF601C77CDFF00A78798 /* TRLoginOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C1FF5E1C77CDFF00A78798 /* TRLoginOptionViewController.swift */; };
 		62C1FF611C77CDFF00A78798 /* TRLoginOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C1FF5E1C77CDFF00A78798 /* TRLoginOptionViewController.swift */; };
-		62C1FF671C77D83800A78798 /* TRSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C1FF661C77D83800A78798 /* TRSignInViewController.swift */; };
-		62C1FF681C77D83800A78798 /* TRSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C1FF661C77D83800A78798 /* TRSignInViewController.swift */; };
-		62C1FF691C77D83800A78798 /* TRSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C1FF661C77D83800A78798 /* TRSignInViewController.swift */; };
 		62C5DF791C79769C0039A88E /* TREventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C5DF781C79769C0039A88E /* TREventListViewController.swift */; };
 		62C5DF7A1C79769C0039A88E /* TREventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C5DF781C79769C0039A88E /* TREventListViewController.swift */; };
 		62C5DF7B1C79769C0039A88E /* TREventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C5DF781C79769C0039A88E /* TREventListViewController.swift */; };
@@ -838,7 +834,6 @@
 		62C1FF4F1C77C15C00A78798 /* TravelerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelerUITests.swift; sourceTree = "<group>"; };
 		62C1FF511C77C15C00A78798 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62C1FF5E1C77CDFF00A78798 /* TRLoginOptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLoginOptionViewController.swift; sourceTree = "<group>"; };
-		62C1FF661C77D83800A78798 /* TRSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRSignInViewController.swift; sourceTree = "<group>"; };
 		62C5DF781C79769C0039A88E /* TREventListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREventListViewController.swift; sourceTree = "<group>"; };
 		6E973507B6F69D832237E8EA /* Pods_TravelerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72473DF934B6641FA6DD2E72 /* Pods-TravelerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelerTests/Pods-TravelerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -912,7 +907,6 @@
 			children = (
 				331194C01D89F36B007A1262 /* TRAddConsoleViewController.swift */,
 				62C1FF5E1C77CDFF00A78798 /* TRLoginOptionViewController.swift */,
-				62C1FF661C77D83800A78798 /* TRSignInViewController.swift */,
 				331194C51D8A2322007A1262 /* TRSignInErrorViewController.swift */,
 			);
 			name = OnBoarding;
@@ -1986,7 +1980,6 @@
 				330581881DCBF614009FC621 /* TRInviteRequestToBungie.swift in Sources */,
 				335405CA1D52AFA100B42BAC /* TRRequestUpdateLegalRequest.swift in Sources */,
 				33D0B4021CFD0165008ABA04 /* TRAlignableUILabel.swift in Sources */,
-				33D0B4031CFD0165008ABA04 /* TRSignInViewController.swift in Sources */,
 				33D0B4041CFD0165008ABA04 /* TRSendReportViewController.swift in Sources */,
 				33D0B4051CFD0165008ABA04 /* TRUpdateGroupRequest.swift in Sources */,
 				33D0B4061CFD0165008ABA04 /* YTGameViewController.swift in Sources */,
@@ -2121,7 +2114,6 @@
 				335405CB1D52AFA100B42BAC /* TRRequestUpdateLegalRequest.swift in Sources */,
 				334144011DCA639F007517F6 /* TRGetConfigRequest.swift in Sources */,
 				33095FDF1CDD271A0094DF49 /* TRAlignableUILabel.swift in Sources */,
-				62C1FF671C77D83800A78798 /* TRSignInViewController.swift in Sources */,
 				33974F1A1CADD9CD0015C9D5 /* TRSendReportViewController.swift in Sources */,
 				338BB1FB1CEE98E200A14060 /* TRUpdateGroupRequest.swift in Sources */,
 				3305AD091CF26FD100572495 /* YTGameViewController.swift in Sources */,
@@ -2252,7 +2244,6 @@
 				3305AD031CF26B2C00572495 /* YTGameScene.swift in Sources */,
 				332C9CE51C8B89370092989E /* TRLeaveEventRequest.swift in Sources */,
 				3305818A1DCBF614009FC621 /* TRInviteRequestToBungie.swift in Sources */,
-				62C1FF681C77D83800A78798 /* TRSignInViewController.swift in Sources */,
 				334144021DCA63A0007517F6 /* TRGetConfigRequest.swift in Sources */,
 				33742D8D1C7FC66A00C46742 /* TRApplicationManager.swift in Sources */,
 				338BB2001CEEB96200A14060 /* TRWebView.swift in Sources */,
@@ -2386,7 +2377,6 @@
 				3305AD041CF26B2C00572495 /* YTGameScene.swift in Sources */,
 				332C9CE61C8B89370092989E /* TRLeaveEventRequest.swift in Sources */,
 				3305818B1DCBF614009FC621 /* TRInviteRequestToBungie.swift in Sources */,
-				62C1FF691C77D83800A78798 /* TRSignInViewController.swift in Sources */,
 				334144031DCA63A0007517F6 /* TRGetConfigRequest.swift in Sources */,
 				33742D8E1C7FC66B00C46742 /* TRApplicationManager.swift in Sources */,
 				338BB2011CEEB96200A14060 /* TRWebView.swift in Sources */,
