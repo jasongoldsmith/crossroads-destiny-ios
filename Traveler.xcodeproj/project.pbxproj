@@ -351,9 +351,6 @@
 		339D8F2C1C90F79800A2620F /* TRActivitySelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 339D8F2B1C90F79800A2620F /* TRActivitySelectionCell.xib */; };
 		339D8F2D1C90F79800A2620F /* TRActivitySelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 339D8F2B1C90F79800A2620F /* TRActivitySelectionCell.xib */; };
 		339D8F2E1C90F79800A2620F /* TRActivitySelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 339D8F2B1C90F79800A2620F /* TRActivitySelectionCell.xib */; };
-		339D8F301C911FB900A2620F /* TRCreateEventConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D8F2F1C911FB900A2620F /* TRCreateEventConfirmationViewController.swift */; };
-		339D8F311C911FB900A2620F /* TRCreateEventConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D8F2F1C911FB900A2620F /* TRCreateEventConfirmationViewController.swift */; };
-		339D8F321C911FB900A2620F /* TRCreateEventConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D8F2F1C911FB900A2620F /* TRCreateEventConfirmationViewController.swift */; };
 		339E29EB1DC15245009571F7 /* TRWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E29EA1DC15245009571F7 /* TRWebViewViewController.swift */; };
 		339E29EC1DC15245009571F7 /* TRWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E29EA1DC15245009571F7 /* TRWebViewViewController.swift */; };
 		339E29ED1DC15245009571F7 /* TRWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E29EA1DC15245009571F7 /* TRWebViewViewController.swift */; };
@@ -486,7 +483,6 @@
 		33D0B43C1CFD0165008ABA04 /* TRUpdateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D067661CD40AF600E05EF1 /* TRUpdateUser.swift */; };
 		33D0B43D1CFD0165008ABA04 /* EventButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB9AD1C850AFC0066237C /* EventButton.swift */; };
 		33D0B43E1CFD0165008ABA04 /* TRJoinEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB9D01C8778150066237C /* TRJoinEventRequest.swift */; };
-		33D0B4401CFD0165008ABA04 /* TRCreateEventConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D8F2F1C911FB900A2620F /* TRCreateEventConfirmationViewController.swift */; };
 		33D0B4411CFD0165008ABA04 /* TRBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33742D851C7FC46B00C46742 /* TRBaseViewController.swift */; };
 		33D0B4431CFD0165008ABA04 /* TRBungieGroupInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3333BDC61CEE80EA001C9E1A /* TRBungieGroupInfo.swift */; };
 		33D0B4451CFD0165008ABA04 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3305ACFA1CF2660D00572495 /* SpriteKit.framework */; };
@@ -749,7 +745,6 @@
 		3398E1B51CAB7F14001F022B /* TREventInfoPlayerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TREventInfoPlayerCell.xib; sourceTree = "<group>"; };
 		339D8F271C90F77E00A2620F /* TRActivitySelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRActivitySelectionCell.swift; sourceTree = "<group>"; };
 		339D8F2B1C90F79800A2620F /* TRActivitySelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRActivitySelectionCell.xib; sourceTree = "<group>"; };
-		339D8F2F1C911FB900A2620F /* TRCreateEventConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCreateEventConfirmationViewController.swift; sourceTree = "<group>"; };
 		339E29EA1DC15245009571F7 /* TRWebViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRWebViewViewController.swift; sourceTree = "<group>"; };
 		339E29EF1DC16105009571F7 /* TRFetchBungieUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRFetchBungieUser.swift; sourceTree = "<group>"; };
 		33A029AF1CE3CC5A001CC1A3 /* TRForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -906,7 +901,6 @@
 			children = (
 				33F427481C8A0DBD00560BD3 /* TRCreateEventViewController.swift */,
 				33F77F6B1D594BC70002CFAF /* TRCreateEventFinalView.swift */,
-				339D8F2F1C911FB900A2620F /* TRCreateEventConfirmationViewController.swift */,
 			);
 			name = CreateEvent;
 			sourceTree = "<group>";
@@ -2061,7 +2055,6 @@
 				33D0B43D1CFD0165008ABA04 /* EventButton.swift in Sources */,
 				33D191D71DB6B84C0010E6DA /* TRInvitationInfo.swift in Sources */,
 				33D0B43E1CFD0165008ABA04 /* TRJoinEventRequest.swift in Sources */,
-				33D0B4401CFD0165008ABA04 /* TRCreateEventConfirmationViewController.swift in Sources */,
 				33EE16BF1DCEC2A200FBAA01 /* TRBungieInvitationCompletionRequest.swift in Sources */,
 				3378F43C1D6640320064C1B4 /* NSDateExtension.swift in Sources */,
 				33D0B4411CFD0165008ABA04 /* TRBaseViewController.swift in Sources */,
@@ -2192,7 +2185,6 @@
 				33FDB9AE1C850AFC0066237C /* EventButton.swift in Sources */,
 				33D191D81DB6B84C0010E6DA /* TRInvitationInfo.swift in Sources */,
 				33FDB9D11C8778150066237C /* TRJoinEventRequest.swift in Sources */,
-				339D8F301C911FB900A2620F /* TRCreateEventConfirmationViewController.swift in Sources */,
 				33EE16C01DCEC2A200FBAA01 /* TRBungieInvitationCompletionRequest.swift in Sources */,
 				3378F43D1D6642100064C1B4 /* NSDateExtension.swift in Sources */,
 				33742D861C7FC46B00C46742 /* TRBaseViewController.swift in Sources */,
@@ -2326,7 +2318,6 @@
 				3329B58D1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */,
 				33EE16C11DCEC2A200FBAA01 /* TRBungieInvitationCompletionRequest.swift in Sources */,
 				3398E1AA1CAB2994001F022B /* TRSendPushMessage.swift in Sources */,
-				339D8F311C911FB900A2620F /* TRCreateEventConfirmationViewController.swift in Sources */,
 				6294972E1C7BB5F3005E4F91 /* TRAuthenticationRequest.swift in Sources */,
 				33D9D9811D48574F00A6289D /* TRAdCardInfo.swift in Sources */,
 				339E29ED1DC15245009571F7 /* TRWebViewViewController.swift in Sources */,
@@ -2457,7 +2448,6 @@
 				3329B58E1C9B524D00CC1F9B /* TRErrorNotificationView.swift in Sources */,
 				33EE16C21DCEC2A200FBAA01 /* TRBungieInvitationCompletionRequest.swift in Sources */,
 				3398E1AB1CAB2994001F022B /* TRSendPushMessage.swift in Sources */,
-				339D8F321C911FB900A2620F /* TRCreateEventConfirmationViewController.swift in Sources */,
 				6294972F1C7BB5F3005E4F91 /* TRAuthenticationRequest.swift in Sources */,
 				33D9D9821D48574F00A6289D /* TRAdCardInfo.swift in Sources */,
 				339E29EE1DC15245009571F7 /* TRWebViewViewController.swift in Sources */,
