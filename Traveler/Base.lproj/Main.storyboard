@@ -45,7 +45,6 @@
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
-            <string>HelveticaNeue-Bold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -468,7 +467,6 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
                         <outlet property="playStationButton" destination="Vp9-6u-dUS" id="JKC-fX-hXq"/>
                         <outlet property="playerCountLabel" destination="vqs-Cy-515" id="puV-pM-Vqa"/>
                         <outlet property="xBoxButton" destination="kbe-fj-OC3" id="moK-Wy-wnl"/>
-                        <segue destination="8fv-qL-jQi" kind="show" identifier="TRCreateAccountView" id="IqN-fh-T2L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TpW-XW-Lia" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2980,306 +2978,6 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
             </objects>
             <point key="canvasLocation" x="2155" y="-1313"/>
         </scene>
-        <!--Create Account View Controller-->
-        <scene sceneID="rDY-uT-hnr">
-            <objects>
-                <viewController storyboardIdentifier="signup" id="8fv-qL-jQi" customClass="TRCreateAccountViewController" customModule="Crossroads" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="N37-3G-2Ts"/>
-                        <viewControllerLayoutGuide type="bottom" id="45T-dp-vXs"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Q9w-zl-5ST">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrLoadingimgBackgroundMap" translatesAutoresizingMaskIntoConstraints="NO" id="8zj-GS-nmN">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CREATE NEW CROSSROADS ACCOUNT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1W-EG-Uyv">
-                                <rect key="frame" x="152" y="217" width="296" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="296" id="VAB-gI-uiM"/>
-                                    <constraint firstAttribute="height" constant="17" id="u9z-Fu-JcQ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© Catalyst Foundry 2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBQ-dn-VdF">
-                                <rect key="frame" x="233" y="575" width="135" height="14"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                <color key="textColor" red="0.67843137249999996" green="0.78039215689999997" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgBadge" translatesAutoresizingMaskIntoConstraints="NO" id="EfW-Rr-lwB">
-                                <rect key="frame" x="201" y="51" width="198" height="137"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="182" id="Oun-Sq-CE2"/>
-                                    <constraint firstAttribute="height" constant="137" id="PCl-uX-Fep"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Oun-Sq-CE2"/>
-                                        <exclude reference="PCl-uX-Fep"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qQW-9x-jI3" userLabel="username View">
-                                <rect key="frame" x="10" y="319" width="580" height="66"/>
-                                <subviews>
-                                    <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZFC-ve-BxR">
-                                        <rect key="frame" x="0.0" y="0.0" width="580" height="66"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconCrossroadsLogin" translatesAutoresizingMaskIntoConstraints="NO" id="Ezz-Kp-KbL">
-                                        <rect key="frame" x="18" y="17" width="20" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="20" id="DaT-Yr-dDH"/>
-                                            <constraint firstAttribute="height" constant="24" id="PuF-du-DU0"/>
-                                        </constraints>
-                                    </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Crossroads username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jDt-Q2-Vaf">
-                                        <rect key="frame" x="62" y="30" width="508" height="28"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="28" id="ZPf-Mg-Jab"/>
-                                        </constraints>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="8fv-qL-jQi" id="qOx-Xf-i24"/>
-                                        </connections>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CROSSROADS USERNAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nN4-QE-6lf">
-                                        <rect key="frame" x="62" y="17" width="142" height="11"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="11" id="mAS-ss-oS7"/>
-                                            <constraint firstAttribute="width" constant="142" id="z2W-Vq-MBx"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="Ezz-Kp-KbL" firstAttribute="top" secondItem="qQW-9x-jI3" secondAttribute="top" constant="17" id="4yw-Sw-RPz"/>
-                                    <constraint firstAttribute="height" constant="66" id="63D-aG-Zc0"/>
-                                    <constraint firstItem="nN4-QE-6lf" firstAttribute="top" secondItem="qQW-9x-jI3" secondAttribute="top" constant="17" id="84w-pD-F57"/>
-                                    <constraint firstItem="Ezz-Kp-KbL" firstAttribute="leading" secondItem="qQW-9x-jI3" secondAttribute="leading" constant="18" id="8Wk-d6-RSx"/>
-                                    <constraint firstItem="jDt-Q2-Vaf" firstAttribute="top" secondItem="nN4-QE-6lf" secondAttribute="bottom" constant="2" id="97A-mQ-aos"/>
-                                    <constraint firstAttribute="trailing" secondItem="ZFC-ve-BxR" secondAttribute="trailing" id="BeN-Fu-fb5"/>
-                                    <constraint firstItem="jDt-Q2-Vaf" firstAttribute="bottom" secondItem="qQW-9x-jI3" secondAttribute="bottomMargin" id="PZ8-C7-uS1"/>
-                                    <constraint firstItem="ZFC-ve-BxR" firstAttribute="top" secondItem="qQW-9x-jI3" secondAttribute="top" id="Q76-Ml-bsu"/>
-                                    <constraint firstAttribute="bottom" secondItem="ZFC-ve-BxR" secondAttribute="bottom" id="QMy-Ad-brM"/>
-                                    <constraint firstAttribute="trailing" secondItem="jDt-Q2-Vaf" secondAttribute="trailing" constant="10" id="a2j-L3-MVC"/>
-                                    <constraint firstItem="ZFC-ve-BxR" firstAttribute="leading" secondItem="qQW-9x-jI3" secondAttribute="leading" id="iEE-z9-8cH"/>
-                                    <constraint firstItem="jDt-Q2-Vaf" firstAttribute="leading" secondItem="Ezz-Kp-KbL" secondAttribute="trailing" constant="24" id="nSg-LA-wAk"/>
-                                    <constraint firstItem="nN4-QE-6lf" firstAttribute="leading" secondItem="Ezz-Kp-KbL" secondAttribute="trailing" constant="24" id="rxt-gn-ZPj"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="63D-aG-Zc0"/>
-                                    </mask>
-                                </variation>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hL-lQ-Rf4" userLabel="password View">
-                                <rect key="frame" x="10" y="387" width="580" height="66"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KFf-SL-jUu">
-                                        <rect key="frame" x="0.0" y="0.0" width="580" height="66"/>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgIconPassword" translatesAutoresizingMaskIntoConstraints="NO" id="e7d-SP-T9T">
-                                        <rect key="frame" x="17" y="17" width="25" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="LrK-9C-PJA"/>
-                                            <constraint firstAttribute="width" constant="25" id="p11-xY-6xS"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Acm-pw-6j5">
-                                        <rect key="frame" x="62" y="17" width="64" height="11"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="64" id="Hb0-AZ-0QB"/>
-                                            <constraint firstAttribute="height" constant="11" id="dxU-z0-oeL"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="inV-dA-HPN">
-                                        <rect key="frame" x="62" y="30" width="503" height="28"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="28" id="iNe-QZ-Kac"/>
-                                        </constraints>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" secureTextEntry="YES"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="8fv-qL-jQi" id="yzn-RP-PGo"/>
-                                        </connections>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="inV-dA-HPN" firstAttribute="top" secondItem="Acm-pw-6j5" secondAttribute="bottom" constant="2" id="3Qg-jx-owi"/>
-                                    <constraint firstItem="e7d-SP-T9T" firstAttribute="top" secondItem="2hL-lQ-Rf4" secondAttribute="top" constant="17" id="AWw-Hx-xEl"/>
-                                    <constraint firstItem="KFf-SL-jUu" firstAttribute="top" secondItem="2hL-lQ-Rf4" secondAttribute="top" id="BCY-wA-8PQ"/>
-                                    <constraint firstItem="inV-dA-HPN" firstAttribute="leading" secondItem="e7d-SP-T9T" secondAttribute="trailing" constant="20" id="H14-3c-0Rl"/>
-                                    <constraint firstItem="KFf-SL-jUu" firstAttribute="leading" secondItem="2hL-lQ-Rf4" secondAttribute="leading" id="N8Z-vu-Gu9"/>
-                                    <constraint firstAttribute="trailing" secondItem="inV-dA-HPN" secondAttribute="trailing" constant="15" id="OV9-ty-TOw"/>
-                                    <constraint firstItem="e7d-SP-T9T" firstAttribute="leading" secondItem="2hL-lQ-Rf4" secondAttribute="leading" constant="17" id="QiN-Kb-MuW"/>
-                                    <constraint firstItem="Acm-pw-6j5" firstAttribute="leading" secondItem="e7d-SP-T9T" secondAttribute="trailing" constant="20" id="UnU-8O-3rE"/>
-                                    <constraint firstAttribute="trailing" secondItem="KFf-SL-jUu" secondAttribute="trailing" id="gnF-EJ-FWP"/>
-                                    <constraint firstAttribute="bottom" secondItem="KFf-SL-jUu" secondAttribute="bottom" id="rBG-7y-aC6"/>
-                                    <constraint firstAttribute="height" constant="66" id="so2-ZZ-c4U"/>
-                                    <constraint firstItem="Acm-pw-6j5" firstAttribute="top" secondItem="2hL-lQ-Rf4" secondAttribute="top" constant="17" id="uOo-uM-AZ6"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cIs-IX-Wfr" userLabel="psn View">
-                                <rect key="frame" x="10" y="251" width="580" height="66"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xFa-XT-Rnn">
-                                        <rect key="frame" x="0.0" y="0.0" width="580" height="66"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrImgIconID" translatesAutoresizingMaskIntoConstraints="NO" id="eft-ju-k0P">
-                                        <rect key="frame" x="17" y="17" width="25" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="D69-HK-7a4"/>
-                                            <constraint firstAttribute="width" constant="25" id="Qss-gR-Er3"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PlayStation Gamertag" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dk0-f4-ctF">
-                                        <rect key="frame" x="62" y="17" width="123" height="11"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="11" id="CgR-9d-xIV"/>
-                                            <constraint firstAttribute="width" constant="123" id="RCe-O9-3Ds"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EIL-78-WGA">
-                                        <rect key="frame" x="62" y="30" width="503" height="28"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="28" id="Mck-dw-JUR"/>
-                                        </constraints>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="8fv-qL-jQi" id="TgR-Rr-pHH"/>
-                                        </connections>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="xFa-XT-Rnn" secondAttribute="bottom" id="9Tz-ma-8nw"/>
-                                    <constraint firstAttribute="trailing" secondItem="EIL-78-WGA" secondAttribute="trailing" constant="15" id="Ch9-db-mag"/>
-                                    <constraint firstItem="dk0-f4-ctF" firstAttribute="leading" secondItem="eft-ju-k0P" secondAttribute="trailing" constant="20" id="PpY-q6-dgp"/>
-                                    <constraint firstItem="xFa-XT-Rnn" firstAttribute="top" secondItem="cIs-IX-Wfr" secondAttribute="top" id="RMT-0R-k5c"/>
-                                    <constraint firstItem="EIL-78-WGA" firstAttribute="leading" secondItem="eft-ju-k0P" secondAttribute="trailing" constant="20" id="aWV-KT-mcg"/>
-                                    <constraint firstItem="EIL-78-WGA" firstAttribute="top" secondItem="dk0-f4-ctF" secondAttribute="bottom" constant="2" id="cxY-US-IPA"/>
-                                    <constraint firstAttribute="height" constant="66" id="fFL-6t-zIK"/>
-                                    <constraint firstAttribute="trailing" secondItem="xFa-XT-Rnn" secondAttribute="trailing" id="gJF-mn-pBJ"/>
-                                    <constraint firstItem="eft-ju-k0P" firstAttribute="leading" secondItem="cIs-IX-Wfr" secondAttribute="leading" constant="17" id="j6M-ZL-7Y7"/>
-                                    <constraint firstItem="eft-ju-k0P" firstAttribute="top" secondItem="cIs-IX-Wfr" secondAttribute="top" constant="17" id="piM-xs-voa"/>
-                                    <constraint firstItem="xFa-XT-Rnn" firstAttribute="leading" secondItem="cIs-IX-Wfr" secondAttribute="leading" id="r3w-hZ-WoQ"/>
-                                    <constraint firstItem="dk0-f4-ctF" firstAttribute="top" secondItem="cIs-IX-Wfr" secondAttribute="top" constant="17" id="uT0-Ng-UtF"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iyy-mu-wYL">
-                                <rect key="frame" x="255" y="449" width="90" height="90"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="TsN-05-7td"/>
-                                    <constraint firstAttribute="width" constant="90" id="bwR-H9-8jv"/>
-                                </constraints>
-                                <state key="normal" image="TrImgLoginBtn"/>
-                                <state key="highlighted" image="imgLoginBtnTapped"/>
-                                <connections>
-                                    <action selector="createAccountBtnTapped:" destination="8fv-qL-jQi" eventType="touchUpInside" id="6dt-EF-hCE"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIM-Bo-Bpg">
-                                <rect key="frame" x="10" y="20" width="44" height="44"/>
-                                <state key="normal" image="iconBackArrow"/>
-                                <connections>
-                                    <action selector="backButtonPressed:" destination="8fv-qL-jQi" eventType="touchUpInside" id="SlK-Gf-Xfa"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="cIs-IX-Wfr" firstAttribute="top" secondItem="R1W-EG-Uyv" secondAttribute="bottom" constant="17" id="14v-bW-fcm"/>
-                            <constraint firstItem="EfW-Rr-lwB" firstAttribute="centerX" secondItem="Q9w-zl-5ST" secondAttribute="centerX" id="17H-9e-Kte"/>
-                            <constraint firstItem="qQW-9x-jI3" firstAttribute="leading" secondItem="Q9w-zl-5ST" secondAttribute="leadingMargin" constant="-10" id="20f-We-2qr"/>
-                            <constraint firstItem="R1W-EG-Uyv" firstAttribute="centerX" secondItem="EfW-Rr-lwB" secondAttribute="centerX" constant="29" id="2QZ-5e-fzv"/>
-                            <constraint firstItem="2hL-lQ-Rf4" firstAttribute="leading" secondItem="Q9w-zl-5ST" secondAttribute="leadingMargin" constant="-10" id="3yV-XJ-twO"/>
-                            <constraint firstItem="EfW-Rr-lwB" firstAttribute="top" secondItem="N37-3G-2Ts" secondAttribute="bottom" constant="31" id="8Sq-GV-1Ub"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="iyy-mu-wYL" secondAttribute="bottom" constant="61" id="A69-HJ-D3v"/>
-                            <constraint firstItem="45T-dp-vXs" firstAttribute="top" secondItem="8zj-GS-nmN" secondAttribute="bottom" id="BUq-Xc-12m"/>
-                            <constraint firstItem="cIs-IX-Wfr" firstAttribute="leading" secondItem="Q9w-zl-5ST" secondAttribute="leadingMargin" constant="-10" id="Czf-cZ-2MY"/>
-                            <constraint firstItem="2hL-lQ-Rf4" firstAttribute="top" secondItem="qQW-9x-jI3" secondAttribute="bottom" constant="-134" id="F4g-SP-GBl"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qQW-9x-jI3" secondAttribute="trailing" constant="-10" id="Idj-AJ-Coh"/>
-                            <constraint firstItem="8zj-GS-nmN" firstAttribute="top" secondItem="Q9w-zl-5ST" secondAttribute="topMargin" id="MPq-oM-Gyf"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="2hL-lQ-Rf4" secondAttribute="trailing" constant="-10" id="Mhb-Ge-Tt3"/>
-                            <constraint firstItem="2hL-lQ-Rf4" firstAttribute="top" secondItem="qQW-9x-jI3" secondAttribute="bottom" constant="2" id="SUU-fv-1Hk"/>
-                            <constraint firstItem="45T-dp-vXs" firstAttribute="top" secondItem="nBQ-dn-VdF" secondAttribute="bottom" constant="11" id="aON-dt-Nfx"/>
-                            <constraint firstItem="8zj-GS-nmN" firstAttribute="leading" secondItem="Q9w-zl-5ST" secondAttribute="leadingMargin" constant="-20" id="d8F-eK-RfR"/>
-                            <constraint firstItem="qQW-9x-jI3" firstAttribute="top" secondItem="2hL-lQ-Rf4" secondAttribute="bottom" constant="2" id="eJu-zd-eLW"/>
-                            <constraint firstItem="R1W-EG-Uyv" firstAttribute="centerX" secondItem="Q9w-zl-5ST" secondAttribute="centerX" id="ep2-0H-Grm"/>
-                            <constraint firstItem="AIM-Bo-Bpg" firstAttribute="leading" secondItem="Q9w-zl-5ST" secondAttribute="leading" constant="10" id="k1Y-ig-zWE"/>
-                            <constraint firstItem="R1W-EG-Uyv" firstAttribute="top" secondItem="EfW-Rr-lwB" secondAttribute="bottom" constant="29" id="kvA-T5-csD"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cIs-IX-Wfr" secondAttribute="trailing" constant="-10" id="mkN-d7-kaA"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="8zj-GS-nmN" secondAttribute="trailing" constant="-20" id="t35-w1-7g9"/>
-                            <constraint firstItem="qQW-9x-jI3" firstAttribute="top" secondItem="cIs-IX-Wfr" secondAttribute="bottom" constant="2" id="u7Q-Rv-ofw"/>
-                            <constraint firstItem="AIM-Bo-Bpg" firstAttribute="top" secondItem="N37-3G-2Ts" secondAttribute="bottom" id="wdJ-fI-3jg"/>
-                            <constraint firstItem="iyy-mu-wYL" firstAttribute="centerX" secondItem="Q9w-zl-5ST" secondAttribute="centerX" id="woX-mE-fMe"/>
-                            <constraint firstItem="nBQ-dn-VdF" firstAttribute="centerX" secondItem="Q9w-zl-5ST" secondAttribute="centerX" id="z6u-Ex-XXp"/>
-                            <constraint firstItem="2hL-lQ-Rf4" firstAttribute="top" secondItem="cIs-IX-Wfr" secondAttribute="bottom" constant="2" id="zj8-rd-Aw2"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="2QZ-5e-fzv"/>
-                                <exclude reference="eJu-zd-eLW"/>
-                                <exclude reference="F4g-SP-GBl"/>
-                                <exclude reference="zj8-rd-Aw2"/>
-                            </mask>
-                        </variation>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="GpI-Tk-LQY" appends="YES" id="tRs-jd-ozM"/>
-                            <outletCollection property="gestureRecognizers" destination="N6b-Fm-Y9o" appends="YES" id="Zze-t7-Loj"/>
-                        </connections>
-                    </view>
-                    <connections>
-                        <outlet property="enterConsoleTypeText" destination="dk0-f4-ctF" id="FoV-gW-gIW"/>
-                        <outlet property="userConsoleIDTxtField" destination="EIL-78-WGA" id="No4-xj-7bm"/>
-                        <outlet property="userNameTxtField" destination="jDt-Q2-Vaf" id="ltW-iZ-cdj"/>
-                        <outlet property="userPwdTxtField" destination="inV-dA-HPN" id="CdD-IT-wFr"/>
-                        <segue destination="pLH-ez-YJx" kind="unwind" identifier="TRAccountCreationUnwindAction" unwindAction="trUnwindAction:" id="gnq-WV-QEG"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4XB-DQ-B28" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="pLH-ez-YJx" userLabel="Exit" sceneMemberID="exit"/>
-                <swipeGestureRecognizer cancelsTouchesInView="NO" direction="right" id="GpI-Tk-LQY">
-                    <connections>
-                        <action selector="handleSwipeRight:" destination="8fv-qL-jQi" id="BXt-dO-xl6"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <tapGestureRecognizer id="N6b-Fm-Y9o">
-                    <connections>
-                        <action selector="dismissKeyboard:" destination="8fv-qL-jQi" id="hlv-YL-vkP"/>
-                        <outlet property="delegate" destination="8fv-qL-jQi" id="4Wt-Ga-lcy"/>
-                    </connections>
-                </tapGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="1423" y="-271"/>
-        </scene>
         <!--Sign Up Verificatio View Controller-->
         <scene sceneID="OJF-Sb-wzb">
             <objects>
@@ -3412,7 +3110,6 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
         <image name="TrImgBadge" width="198" height="137"/>
         <image name="TrImgIconID" width="17" height="23"/>
         <image name="TrImgIconPassword" width="21" height="23"/>
-        <image name="TrImgLoginBtn" width="90" height="90"/>
         <image name="TrLoadingimgBackgroundMap" width="375" height="667"/>
         <image name="chooseActivityBG" width="375" height="667"/>
         <image name="createEventBG" width="375" height="667"/>
@@ -3423,7 +3120,6 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
         <image name="iconBackArrow" width="44" height="44"/>
         <image name="iconCheckpoint" width="20" height="20"/>
         <image name="iconCollapseArrow" width="44" height="44"/>
-        <image name="iconCrossroadsLogin" width="20" height="24"/>
         <image name="iconDetails" width="14" height="15"/>
         <image name="iconGhostDefault" width="40" height="40"/>
         <image name="iconNotificationsOff" width="44" height="44"/>
@@ -3446,7 +3142,6 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
         <image name="imgFeatured" width="98" height="100"/>
         <image name="imgFeaturedOnTap" width="98" height="100"/>
         <image name="imgGlobeIcon" width="60" height="60"/>
-        <image name="imgLoginBtnTapped" width="90" height="90"/>
         <image name="imgLogoBadge" width="64" height="73"/>
         <image name="imgMisadventureSkull" width="216" height="188"/>
         <image name="imgNavGradientBg" width="375" height="180"/>
