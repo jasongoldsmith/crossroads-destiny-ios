@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 import SwiftyJSON
 import SlideMenuControllerSwift
+import AFDateHelper
 
 private let CURRENT_EVENT_WITH_CHECK_POINT_CELL     = "currentEventCellWithCheckPoint"
 private let CURRENT_EVENT_NO_CHECK_POINT_CELL       = "currentEventCellNoCheckPoint"
