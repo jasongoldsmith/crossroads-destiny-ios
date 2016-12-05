@@ -18,6 +18,11 @@ class TRGetEventsList: TRRequest {
         request.showActivityIndicatorBgClear = clearBG
         request.showActivityIndicator = showActivity
         
+        var params = [String: AnyObject]()
+        params["myEvents"] = "true"
+
+        request.params = params
+        
         if let topConstraint = indicatorTopConstraint {
             request.activityIndicatorTopConstraint = topConstraint
         }
@@ -35,6 +40,9 @@ class TRGetEventsList: TRRequest {
             //Clear the array before fetting
             TRApplicationManager.sharedInstance.eventsList.removeAll()
             TRApplicationManager.sharedInstance.eventsListActivity.removeAll()
+            TRApplicationManager.sharedInstance.myCurrentEvents.removeAll()
+            TRApplicationManager.sharedInstance.myFutureEvents.removeAll()
+            
             
             for events in swiftyJsonVar["currentEvents"].arrayValue {
                 let eventInfo = TREventInfo().parseCreateEventInfoObject(events)
@@ -50,7 +58,16 @@ class TRGetEventsList: TRRequest {
                 let activityInfo = TRActivityInfo().parseAndCreateActivityObject(events)
                 TRApplicationManager.sharedInstance.eventsListActivity.append(activityInfo)
             }
-
+        
+            for events in swiftyJsonVar["myFutureEvents"].arrayValue {
+                let activityInfo = TRActivityInfo().parseAndCreateActivityObject(events)
+                TRApplicationManager.sharedInstance.myFutureEvents.append(activityInfo)
+            }
+            
+            for events in swiftyJsonVar["myCurrentEvents"].arrayValue {
+                let activityInfo = TRActivityInfo().parseAndCreateActivityObject(events)
+                TRApplicationManager.sharedInstance.myCurrentEvents.append(activityInfo)
+            }
             
             TRApplicationManager.sharedInstance.totalUsers = swiftyJsonVar["totalUsers"].intValue
             
