@@ -137,7 +137,6 @@ struct K {
         static let VIEW_CONTROLLER_VERIFY_ACCOUNT          = "verifyAccount"
         static let VIEW_CONTROLLER_CHOOSE_GROUP            = "chooseGroup"
         static let VIEW_CONTROLLER_WEB_VIEW                = "legalWebView"
-        static let VIEW_CONTROLLER_BUNGIE_VERIFICATION     = "verifyBungieAccount"
         static let VIEW_CONTROLLER_CREATE_EVENT_FINAL      = "createventfinal"
         static let VIEW_CONTROLLER_EVENT_DESCRIPTION       = "eventDescriptionVC"
         static let VIEW_CONTROLLER_SIGNIN_ERROR            = "SIGINERROR"
