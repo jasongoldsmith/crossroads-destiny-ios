@@ -132,7 +132,6 @@ struct K {
         static let VIEW_CONTROLLER_CREATE_EVENT_ACTIVITY   = "createEventsActivityVC"
         static let VIEW_CONTROLLER_CREATE_EVENT_SELECTION  = "createEventsSelection"
         static let VIEW_CONTROLLER_CREATE_EVENT_CONFIRM    = "createEventConfirmation"
-        static let VIEW_CONTROLLER_EVENT_INFORMATION       = "eventInfoVC"
         static let VIEW_CONTROLLER_PROFILE                 = "profileVC"
         static let VIEW_CONTROLLER_SEND_REPORT             = "sendReportVC"
         static let VIEW_CONTROLLER_FORGOT_PASSWORD         = "forgotPassword"
