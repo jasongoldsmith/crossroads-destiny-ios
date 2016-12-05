@@ -347,68 +347,68 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
         self.view.addSubview(self.consoleTwoButtonImageView!)
     }
     
-    func addNewConsole () {
-        
-        var consoleOptions :[String] = []
-        let existingConsoles = TRApplicationManager.sharedInstance.currentUser?.consoles
-        for console in existingConsoles! {
-            
-            switch console.consoleType! {
-            case ConsoleTypes.PS4:
-                if existingConsoles?.count == 1 {
-                    consoleOptions.append("Xbox One")
-                    consoleOptions.append("Xbox 360")
-                }
-                break
-            case ConsoleTypes.PS3:
-                if existingConsoles?.count == 1 {
-                    consoleOptions.append("PlayStation 4")
-                    consoleOptions.append("Xbox One")
-                    consoleOptions.append("Xbox 360")
-                } else {
-                    consoleOptions.append("PlayStation 4")
-                    let console = TRApplicationManager.sharedInstance.currentUser?.consoles.filter{$0.consoleType == ConsoleTypes.XBOX360}
-                    if let hasEvent = console?.count where hasEvent > 0 {
-                        consoleOptions.append("Xbox One")
-                    }
-                }
-                break
-            case ConsoleTypes.XBOX360:
-                if existingConsoles?.count == 1 {
-                    consoleOptions.append("Xbox One")
-                    consoleOptions.append("PlayStation 4")
-                    consoleOptions.append("PlayStation 3")
-                } else {
-                    consoleOptions.append("Xbox One")
-                    let console = TRApplicationManager.sharedInstance.currentUser?.consoles.filter{$0.consoleType == ConsoleTypes.PS3}
-                    if let hasEvent = console?.count where hasEvent > 0 {
-                        consoleOptions.append("PlayStation 4")
-                    }
-                }
-                break
-            case ConsoleTypes.XBOXONE:
-                if existingConsoles?.count == 1 {
-                    consoleOptions.append("PlayStation 4")
-                    consoleOptions.append("PlayStation 3")
-                }
-                break
-            default:
-                break
-            }
-        }
-        
-        //Unique Elements in Array
-        consoleOptions = consoleOptions.unique
-        
-        let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
-        let addConsoleViewCont = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_BUNGIE_VERIFICATION) as! TRAddConsoleViewController
-        addConsoleViewCont.openedFromProfile = true
-        addConsoleViewCont.consoleNameArray = consoleOptions
-        
-        self.presentViewController(addConsoleViewCont, animated: true) { 
-            
-        }
-    }
+//    func addNewConsole () {
+//        
+//        var consoleOptions :[String] = []
+//        let existingConsoles = TRApplicationManager.sharedInstance.currentUser?.consoles
+//        for console in existingConsoles! {
+//            
+//            switch console.consoleType! {
+//            case ConsoleTypes.PS4:
+//                if existingConsoles?.count == 1 {
+//                    consoleOptions.append("Xbox One")
+//                    consoleOptions.append("Xbox 360")
+//                }
+//                break
+//            case ConsoleTypes.PS3:
+//                if existingConsoles?.count == 1 {
+//                    consoleOptions.append("PlayStation 4")
+//                    consoleOptions.append("Xbox One")
+//                    consoleOptions.append("Xbox 360")
+//                } else {
+//                    consoleOptions.append("PlayStation 4")
+//                    let console = TRApplicationManager.sharedInstance.currentUser?.consoles.filter{$0.consoleType == ConsoleTypes.XBOX360}
+//                    if let hasEvent = console?.count where hasEvent > 0 {
+//                        consoleOptions.append("Xbox One")
+//                    }
+//                }
+//                break
+//            case ConsoleTypes.XBOX360:
+//                if existingConsoles?.count == 1 {
+//                    consoleOptions.append("Xbox One")
+//                    consoleOptions.append("PlayStation 4")
+//                    consoleOptions.append("PlayStation 3")
+//                } else {
+//                    consoleOptions.append("Xbox One")
+//                    let console = TRApplicationManager.sharedInstance.currentUser?.consoles.filter{$0.consoleType == ConsoleTypes.PS3}
+//                    if let hasEvent = console?.count where hasEvent > 0 {
+//                        consoleOptions.append("PlayStation 4")
+//                    }
+//                }
+//                break
+//            case ConsoleTypes.XBOXONE:
+//                if existingConsoles?.count == 1 {
+//                    consoleOptions.append("PlayStation 4")
+//                    consoleOptions.append("PlayStation 3")
+//                }
+//                break
+//            default:
+//                break
+//            }
+//        }
+//    
+//        //Unique Elements in Array
+//        consoleOptions = consoleOptions.unique
+//        
+//        let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+//        let addConsoleViewCont = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_BUNGIE_VERIFICATION) as! TRAddConsoleViewController
+//        addConsoleViewCont.openedFromProfile = true
+//        addConsoleViewCont.consoleNameArray = consoleOptions
+//        
+//        self.presentViewController(addConsoleViewCont, animated: true) { 
+//            
+//        }
+//    }
     
     
     func changePrimaryConsole () {

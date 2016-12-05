@@ -8,6 +8,13 @@
 
 import Foundation
 
+struct ConsoleTypes {
+    static let PS4      = "PS4"
+    static let PS3      = "PS3"
+    static let XBOX360  = "XBOX360"
+    static let XBOXONE  = "XBOXONE"
+}
+
 class TRConsoles {
     var consoleId: String?
     var consoleType: String?
