@@ -44,7 +44,6 @@
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Bold</string>
-            <string>HelveticaNeue-Bold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -2703,61 +2702,6 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
             </objects>
             <point key="canvasLocation" x="-831" y="2582"/>
         </scene>
-        <!--Create Event Selection View Controller-->
-        <scene sceneID="Ive-K3-IJl">
-            <objects>
-                <viewController storyboardIdentifier="createEventsSelection" id="ZzQ-z0-tdJ" customClass="TRCreateEventSelectionViewController" customModule="Crossroads" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Rx5-b2-bRz"/>
-                        <viewControllerLayoutGuide type="bottom" id="Sdo-KP-jFj"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gY3-2q-CGj">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qg3-TW-Gsi">
-                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
-                                <color key="backgroundColor" red="0.37254901959999998" green="0.70980392160000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="ES1-yL-gIc"/>
-                                    <constraint firstAttribute="width" constant="600" id="z9A-KO-i0t"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                <state key="normal" title="ADD ">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJa-W4-iz9">
-                                <rect key="frame" x="447" y="100" width="53" height="32"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chooseActivityBG" translatesAutoresizingMaskIntoConstraints="NO" id="p5R-qB-cd6">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Qg3-TW-Gsi" secondAttribute="trailing" constant="-20" id="0DJ-oL-pu6"/>
-                            <constraint firstItem="Sdo-KP-jFj" firstAttribute="top" secondItem="p5R-qB-cd6" secondAttribute="bottom" id="LsN-7A-AA3"/>
-                            <constraint firstAttribute="trailing" secondItem="TJa-W4-iz9" secondAttribute="trailing" constant="100" id="M21-nr-9Oh"/>
-                            <constraint firstItem="TJa-W4-iz9" firstAttribute="top" secondItem="p5R-qB-cd6" secondAttribute="top" constant="100" id="Ryz-aU-K6a"/>
-                            <constraint firstItem="Qg3-TW-Gsi" firstAttribute="leading" secondItem="gY3-2q-CGj" secondAttribute="leadingMargin" constant="-20" id="YDB-R0-5RF"/>
-                            <constraint firstItem="p5R-qB-cd6" firstAttribute="top" secondItem="gY3-2q-CGj" secondAttribute="topMargin" id="bOi-GP-4XI"/>
-                            <constraint firstItem="Sdo-KP-jFj" firstAttribute="top" secondItem="Qg3-TW-Gsi" secondAttribute="bottom" id="izw-0X-8P2"/>
-                            <constraint firstItem="p5R-qB-cd6" firstAttribute="leading" secondItem="gY3-2q-CGj" secondAttribute="leadingMargin" constant="-20" id="kut-Aa-yTT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="p5R-qB-cd6" secondAttribute="trailing" constant="-20" id="uim-zP-nII"/>
-                        </constraints>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CPh-1c-vgc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-128" y="1767"/>
-        </scene>
         <!--Create Event Confirmation View Controller-->
         <scene sceneID="Uqb-r9-AiZ">
             <objects>
@@ -3111,7 +3055,6 @@ Check your messages on Bungie.net for a verification link from Crossroads.</stri
         <image name="TrImgIconID" width="17" height="23"/>
         <image name="TrImgIconPassword" width="21" height="23"/>
         <image name="TrLoadingimgBackgroundMap" width="375" height="667"/>
-        <image name="chooseActivityBG" width="375" height="667"/>
         <image name="createEventBG" width="375" height="667"/>
         <image name="eventsViewBG" width="375" height="667"/>
         <image name="gradientOverlayGroups" width="340" height="357"/>
