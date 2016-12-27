@@ -16,7 +16,7 @@ def project_pods
     pod 'Firebase/Core'
     pod 'Branch'
     pod 'Mixpanel'
-    pod 'FacebookCore', '~>0.1.1'
+    pod 'FBSDKCoreKit', '4.17.0'
     pod 'Fabric'
     pod 'iCarousel'
     pod 'Crashlytics'
