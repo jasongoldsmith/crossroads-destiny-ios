@@ -20,6 +20,17 @@ class TRLoginOptionViewController: TRBaseViewController, iCarouselDataSource, iC
     @IBOutlet weak var legalLabel: TTTAttributedLabel!
     @IBOutlet weak var playStationButton: UIButton!
     @IBOutlet weak var xBoxButton: UIButton!
+    @IBOutlet weak var crossRdLogo: UIImageView!
+    @IBOutlet weak var signInLabel: UILabel!
+    
+    @IBOutlet weak var playerCountLabelTopConst: NSLayoutConstraint!
+    @IBOutlet weak var crossRdLogoTopConst: NSLayoutConstraint!
+    @IBOutlet weak var crossRdLogoWidthConst: NSLayoutConstraint!
+    @IBOutlet weak var crossRdLogoHeightConst: NSLayoutConstraint!
+    @IBOutlet weak var crossRdLogoCenterConst: NSLayoutConstraint!
+    
+    @IBOutlet weak var bottomBtnHeightConst: NSLayoutConstraint!
+    @IBOutlet weak var signInLebelBottomConst: NSLayoutConstraint!
     
     
     override func viewDidLoad() {
@@ -56,6 +67,20 @@ class TRLoginOptionViewController: TRBaseViewController, iCarouselDataSource, iC
             errorView.frame = self.view.frame
             errorView.delegate = self
             self.view.addSubview(errorView)
+        }
+        
+        if DeviceType.IS_IPHONE_4_OR_LESS || DeviceType.IS_IPHONE_5 {
+            self.crossRdLogoTopConst?.constant = 90
+            self.crossRdLogoWidthConst?.constant = 165
+            self.crossRdLogoHeightConst?.constant = 106
+            self.playerCountLabelTopConst?.constant  = 6
+            self.bottomBtnHeightConst?.constant = 80
+            self.signInLebelBottomConst?.constant = 10
+            self.crossRdLogoCenterConst?.constant = -1
+            
+            self.signInLabel.font = UIFont(name:"HelveticaNeue-Medium", size: 11)
+//            self.playStationButton?.imageView!.contentMode = .ScaleAspectFill
+//            self.xBoxButton.imageEdgeInsets = UIEdgeInsetsMake(10, 25, 10, 25)
         }
     }
     
@@ -148,6 +173,9 @@ class TRLoginOptionViewController: TRBaseViewController, iCarouselDataSource, iC
         case .Wrap:
             return 1
         case .Spacing:
+            if DeviceType.IS_IPHONE_4_OR_LESS || DeviceType.IS_IPHONE_5 {
+                return value * 1.018
+            }
             return value * 1.04
         case .VisibleItems:
             return 3
