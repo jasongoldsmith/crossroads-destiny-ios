@@ -19,7 +19,7 @@ class TRGetEventsList: TRRequest {
         request.showActivityIndicator = showActivity
         
         var params = [String: AnyObject]()
-        params["myEvents"] = "true"
+        params["myEvents"] = "false"
 
         request.params = params
         
