@@ -75,6 +75,7 @@ struct K {
             static let TR_BaseUrl            =   "https://travelerbackend.herokuapp.com"
         #endif
         
+        static let TR_APP_STORE_LINK     =   "https://itunes.apple.com/us/app/crossroads-for-destiny/id1119365654?mt=8"
         static let TR_RegisterUrl        =   "/api/v1/auth/register"
         static let TR_LoginUrl           =   "/api/v1/auth/login"
         static let TR_LogoutUrl          =   "/api/v1/auth/logout"
@@ -113,6 +114,7 @@ struct K {
         static let TR_ACCEPT_INVITATION   =  "/api/v1/a/event/invite/accept"
         static let TR_CANCEL_INVITATION   =  "/api/v1/a/event/invite/cancel"
         static let TR_KICK_PLAYER         =  "/api/v1/a/event/kick"
+        static let TR_APP_REVIEW          =  "/api/v1/a/user/updateReviewPromptCardStatus"
     }
     
     struct StoryBoard {
