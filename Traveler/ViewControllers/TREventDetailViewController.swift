@@ -540,7 +540,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 return cell!
             } else {
                 cell?.playerIcon?.image = UIImage(named: "iconProfileBlank")
-                cell?.playerUserName?.text = "searching..."
+                cell?.playerUserName?.text = "Invite a Friend"
                 cell?.playerUserName?.textColor = UIColor.whiteColor()
                 cell?.invitationButton.hidden = true
                 
