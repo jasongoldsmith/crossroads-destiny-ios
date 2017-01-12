@@ -34,18 +34,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Initializing Manager
         TRApplicationManager.sharedInstance
         
+        
         //Initialize FireBase Configuration
         TRApplicationManager.sharedInstance.fireBaseManager?.initFireBaseConfig()
-        
-        //Local Notifications
-        let localNotification:UILocalNotification = UILocalNotification()
-        localNotification.alertAction = "Testing notifications on iOS8"
-        localNotification.fireDate = NSDate(timeIntervalSinceNow: 10)
-        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
-        
+
         
         //Status Bar 
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+        
+        
+        //Clear Notifications
+        //application.applicationIconBadgeNumber = 1
+        //application.applicationIconBadgeNumber = 0
         
         
         //MixedPanel Initialized
