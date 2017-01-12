@@ -6,6 +6,8 @@
 //  Copyright © 2016 Forcecatalyst. All rights reserved.
 //
 
+import SwiftyJSON
+
 class TRGetEventsList: TRRequest {
     
     func getEventsListWithClearActivityBackGround (showActivity: Bool, clearBG: Bool, indicatorTopConstraint: CGFloat?, completion: TRValueCallBack) {
@@ -68,6 +70,17 @@ class TRGetEventsList: TRRequest {
                 let activityInfo = TRActivityInfo().parseAndCreateActivityObject(events)
                 TRApplicationManager.sharedInstance.myCurrentEvents.append(activityInfo)
             }
+            
+        
+            if let hasRating = swiftyJsonVar["reviewPromptCard"].dictionary {
+                let ratingInfo = TRRatingAppModel()
+                ratingInfo.createRatingInfoObj(JSON(hasRating))
+                
+                TRApplicationManager.sharedInstance.ratingInfo = ratingInfo
+            } else {
+                TRApplicationManager.sharedInstance.ratingInfo = nil
+            }
+            
             
             TRApplicationManager.sharedInstance.totalUsers = swiftyJsonVar["totalUsers"].intValue
             

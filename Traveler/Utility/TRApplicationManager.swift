@@ -34,6 +34,9 @@ class TRApplicationManager: NSObject {
     //Event Info Objet
     lazy var eventsList: [TREventInfo] = []
 
+    //Rating Event
+    var ratingInfo: TRRatingAppModel?
+    
     //Event Info Objet
     lazy var eventsListActivity: [TRActivityInfo] = []
 
