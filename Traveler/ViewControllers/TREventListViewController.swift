@@ -474,9 +474,17 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     
     //MARK: RATING UI SELECTORS
     func hideRatingRow () {
+
         _ = TRRateApplication().updateRateApplication("REFUSED", completion: { (didSucceed) in
             TRApplicationManager.sharedInstance.ratingInfo = nil
             self.reloadEventTable()
+            
+            let storyboard : UIStoryboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+            let vc : TRSendReportViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.VIEW_CONTROLLER_SEND_REPORT) as! TRSendReportViewController
+            vc.isModallyPresented = false
+            let navigationController = UINavigationController(rootViewController: vc)
+            navigationController.navigationBar.hidden = true
+            self.presentViewController(navigationController, animated: true, completion: nil)
         })
     }
     
