@@ -536,7 +536,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 return cell!
             } else {
                 cell?.playerIcon?.image = UIImage(named: "iconProfileBlank")
-                cell?.playerUserName?.text = "Invite a Friend"
+                cell?.playerUserName?.text = "Searching..."
                 cell?.playerUserName?.textColor = UIColor.whiteColor()
                 cell?.invitationButton.hidden = true
                 
@@ -545,6 +545,7 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                         if self.isCurrentPlayerInvited() == true {
                             cell?.playerInviteButton.hidden = true
                         } else {
+                            cell?.playerUserName?.text = "Invite a Friend"
                             cell?.playerInviteButton.hidden = false
                             cell?.playerInviteButton.addTarget(self, action: #selector(inviteUser(_:)), forControlEvents: .TouchUpInside)
                         }
