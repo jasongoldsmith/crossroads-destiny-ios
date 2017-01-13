@@ -7,25 +7,25 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>840583899707-49co85vq0m09t470i05hkt97sm8gtnu6.apps.googleusercontent.com</string>
+	<string>661446125793-i30ukp0jk1r87s2nj516hdohfubbmc7m.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.840583899707-49co85vq0m09t470i05hkt97sm8gtnu6</string>
+	<string>com.googleusercontent.apps.661446125793-i30ukp0jk1r87s2nj516hdohfubbmc7m</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCwkzVZytlJ7Mw_JWVzCfoOmOwdVrxmY2U</string>
+	<string>AIzaSyBoY1j4z0QQ5BLdkYQnrTXZWJf0zteJVFc</string>
 	<key>GCM_SENDER_ID</key>
-	<string>840583899707</string>
+	<string>661446125793</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>co.crossroadsapp.destiny</string>
+	<string>dev.crossroadsapp.destiny</string>
 	<key>PROJECT_ID</key>
-	<string>crossroadsapp-live</string>
+	<string>crossroadsapp-dev</string>
 	<key>STORAGE_BUCKET</key>
-	<string>crossroadsapp-live.appspot.com</string>
+	<string>crossroadsapp-dev.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<true/>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
 	<false/>
 	<key>IS_GCM_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:840583899707:ios:93fb747d996d5525</string>
+	<string>1:661446125793:ios:0c264b86c9c75058</string>
 	<key>DATABASE_URL</key>
-	<string>https://crossroadsapp-live.firebaseio.com</string>
+	<string>https://crossroadsapp-dev.firebaseio.com</string>
 </dict>
 </plist>
