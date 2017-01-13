@@ -370,7 +370,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
                     let cell = tableView.dequeueReusableCellWithIdentifier(RATE_APP_CARD_CELL) as! TRRateAppCell
                     self.eventsTableView?.rowHeight = RATE_APP_CELL_HEIGHT
                     let imageURL = NSURL(string: ratingInfo!.ratingInfoImageURL!)
-                    cell.cellBackgroundImage.sd_setImageWithURL(imageURL)
+                    cell.cellBackgroundImage.sd_setImageWithURL(imageURL, placeholderImage: UIImage(named: "imgBGRateApp01"))
                     
                     cell.closeButton?.layer.cornerRadius = 2.0
                     cell.actionButton?.layer.cornerRadius = 2.0
