@@ -337,6 +337,8 @@
 		3394DC8F1E2807E600A97C23 /* TRRateApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3394DC8D1E2807E600A97C23 /* TRRateApplication.swift */; };
 		3394DC901E2807E600A97C23 /* TRRateApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3394DC8D1E2807E600A97C23 /* TRRateApplication.swift */; };
 		3394DC911E2807E600A97C23 /* TRRateApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3394DC8D1E2807E600A97C23 /* TRRateApplication.swift */; };
+		3394DC951E29564000A97C23 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33B73BFE1D2F171200BEA7E5 /* GoogleService-Info.plist */; };
+		3394DC961E29564100A97C23 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33B73BFE1D2F171200BEA7E5 /* GoogleService-Info.plist */; };
 		33974F121CADA0E40015C9D5 /* ExSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33974F0E1CADA0620015C9D5 /* ExSlideMenuController.swift */; };
 		33974F131CADA0E40015C9D5 /* ExSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33974F0E1CADA0620015C9D5 /* ExSlideMenuController.swift */; };
 		33974F141CADA0E50015C9D5 /* ExSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33974F0E1CADA0620015C9D5 /* ExSlideMenuController.swift */; };
@@ -1529,6 +1531,7 @@
 				3380EF3C1CC95C28000A9289 /* TREventCurrentNoCheckPointCell.xib in Resources */,
 				33D9D97C1D48477400A6289D /* TREventActivityCardCell.xib in Resources */,
 				336B99CE1D64E94900668BF4 /* TREventCommentCell.xib in Resources */,
+				3394DC951E29564000A97C23 /* GoogleService-Info.plist in Resources */,
 				339D8F2D1C90F79800A2620F /* TRActivitySelectionCell.xib in Resources */,
 				331194B91D88C004007A1262 /* TRCaroselCellView.xib in Resources */,
 				331C21081D9B141C004B821F /* TRCustomError.xib in Resources */,
@@ -1562,6 +1565,7 @@
 				3380EF3D1CC95C28000A9289 /* TREventCurrentNoCheckPointCell.xib in Resources */,
 				33D9D97D1D48477400A6289D /* TREventActivityCardCell.xib in Resources */,
 				336B99CF1D64E94900668BF4 /* TREventCommentCell.xib in Resources */,
+				3394DC961E29564100A97C23 /* GoogleService-Info.plist in Resources */,
 				339D8F2E1C90F79800A2620F /* TRActivitySelectionCell.xib in Resources */,
 				331194BA1D88C004007A1262 /* TRCaroselCellView.xib in Resources */,
 				331C21091D9B141C004B821F /* TRCustomError.xib in Resources */,
