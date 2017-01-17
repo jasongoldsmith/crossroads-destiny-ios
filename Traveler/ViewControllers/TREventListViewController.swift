@@ -61,8 +61,6 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     
     override func viewDidLoad() {
        
-        self.hideRatingRow()
-        
         self.segmentControl?.removeBorders()
       
         let boldFont = UIFont(name: "Helvetica-Bold", size: 16.0)
