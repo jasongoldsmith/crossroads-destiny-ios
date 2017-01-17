@@ -72,6 +72,22 @@ extension UIViewController {
         presentViewController(alertView, animated: true, completion: nil)
     }
     
+    func displayAlertWithTwoButtonsTitleAndMessage(title: String, message: String?, buttonOne: String, buttonTwo: String, complete: TRActivityIndicatorCompletion) {
+        
+        let alertView = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        
+        alertView.addAction(UIAlertAction(title: buttonOne, style: .Cancel, handler: { action in
+            complete(complete: true)
+        }))
+        
+        alertView.addAction(UIAlertAction(title: buttonTwo, style: .Default, handler: { action in
+            complete(complete: false)
+        }))
+        
+        presentViewController(alertView, animated: true, completion: nil)
+    }
+
+    
     func displayAlertWithTitleAndMessage(title: String, message: String, complete: TRActivityIndicatorCompletion) {
         let alertView = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         alertView.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { action in
