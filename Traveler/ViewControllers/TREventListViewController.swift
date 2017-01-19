@@ -473,7 +473,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     //MARK: RATING UI SELECTORS
     func hideRatingRow () {
         
-        self.displayAlertWithTwoButtonsTitleAndMessage("Do you have time to explain?\n - The Exo Stranger", message: nil, buttonOne: "Definitely", buttonTwo: "Cancel") { (complete) in
+        self.displayAlertWithTwoButtonsTitleAndMessage("\"Do you have time to explain?\" \n - The Exo Stranger", message: nil, buttonOne: "Definitely", buttonTwo: "Cancel") { (complete) in
             if complete == true {
                 _ = TRRateApplication().updateRateApplication("REFUSED", completion: { (didSucceed) in
                     TRApplicationManager.sharedInstance.ratingInfo = nil
@@ -492,7 +492,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     
     func ratingButtonClicked () {
         
-        self.displayAlertWithTwoButtonsTitleAndMessage("Tick, tock. Get rolling. - Lord Shaxx", message: nil, buttonOne: "Rate Us", buttonTwo: "Cancel") { (complete) in
+        self.displayAlertWithTwoButtonsTitleAndMessage("\"Tick, tock. Get rolling.\" - Lord Shaxx", message: nil, buttonOne: "Rate Us", buttonTwo: "Cancel") { (complete) in
             if complete == true {
                 _ = TRRateApplication().updateRateApplication("COMPLETED", completion: { (didSucceed) in
                     TRApplicationManager.sharedInstance.ratingInfo = nil

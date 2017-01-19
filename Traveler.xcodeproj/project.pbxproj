@@ -527,6 +527,9 @@
 		33D191D81DB6B84C0010E6DA /* TRInvitationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D191D61DB6B84C0010E6DA /* TRInvitationInfo.swift */; };
 		33D191D91DB6B84C0010E6DA /* TRInvitationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D191D61DB6B84C0010E6DA /* TRInvitationInfo.swift */; };
 		33D191DA1DB6B84C0010E6DA /* TRInvitationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D191D61DB6B84C0010E6DA /* TRInvitationInfo.swift */; };
+		33D3A3331E30549400F2EE94 /* TREventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33119EA61E3053260064147B /* TREventListViewController.swift */; };
+		33D3A3341E30549500F2EE94 /* TREventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33119EA61E3053260064147B /* TREventListViewController.swift */; };
+		33D3A3351E30549600F2EE94 /* TREventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33119EA61E3053260064147B /* TREventListViewController.swift */; };
 		33D9D9751D48476000A6289D /* TREventActivityCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D9D9741D48476000A6289D /* TREventActivityCardCell.swift */; };
 		33D9D9761D48476000A6289D /* TREventActivityCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D9D9741D48476000A6289D /* TREventActivityCardCell.swift */; };
 		33D9D9771D48476000A6289D /* TREventActivityCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D9D9741D48476000A6289D /* TREventActivityCardCell.swift */; };
@@ -2131,6 +2134,7 @@
 				333E1CA41CC54A27000B843C /* UIViewExtension.swift in Sources */,
 				330581891DCBF614009FC621 /* TRInviteRequestToBungie.swift in Sources */,
 				335405CB1D52AFA100B42BAC /* TRRequestUpdateLegalRequest.swift in Sources */,
+				33D3A3331E30549400F2EE94 /* TREventListViewController.swift in Sources */,
 				334144011DCA639F007517F6 /* TRGetConfigRequest.swift in Sources */,
 				33095FDF1CDD271A0094DF49 /* TRAlignableUILabel.swift in Sources */,
 				33974F1A1CADD9CD0015C9D5 /* TRSendReportViewController.swift in Sources */,
@@ -2263,6 +2267,7 @@
 				332C9CE51C8B89370092989E /* TRLeaveEventRequest.swift in Sources */,
 				3305818A1DCBF614009FC621 /* TRInviteRequestToBungie.swift in Sources */,
 				334144021DCA63A0007517F6 /* TRGetConfigRequest.swift in Sources */,
+				33D3A3341E30549500F2EE94 /* TREventListViewController.swift in Sources */,
 				33742D8D1C7FC66A00C46742 /* TRApplicationManager.swift in Sources */,
 				338BB2001CEEB96200A14060 /* TRWebView.swift in Sources */,
 				3380EF301CC94725000A9289 /* TREventUpcomingWithCheckPointCell.swift in Sources */,
@@ -2395,6 +2400,7 @@
 				332C9CE61C8B89370092989E /* TRLeaveEventRequest.swift in Sources */,
 				3305818B1DCBF614009FC621 /* TRInviteRequestToBungie.swift in Sources */,
 				334144031DCA63A0007517F6 /* TRGetConfigRequest.swift in Sources */,
+				33D3A3351E30549600F2EE94 /* TREventListViewController.swift in Sources */,
 				33742D8E1C7FC66B00C46742 /* TRApplicationManager.swift in Sources */,
 				338BB2011CEEB96200A14060 /* TRWebView.swift in Sources */,
 				3380EF311CC94725000A9289 /* TREventUpcomingWithCheckPointCell.swift in Sources */,
