@@ -492,7 +492,7 @@ class TREventListViewController: TRBaseViewController, UITableViewDataSource, UI
     
     func ratingButtonClicked () {
         
-        self.displayAlertWithTwoButtonsTitleAndMessage("Tick, tock. Get rolling.", message: nil, buttonOne: "Rate Us", buttonTwo: "Cancel") { (complete) in
+        self.displayAlertWithTwoButtonsTitleAndMessage("Tick, tock. Get rolling. - Lord Shaxx", message: nil, buttonOne: "Rate Us", buttonTwo: "Cancel") { (complete) in
             if complete == true {
                 _ = TRRateApplication().updateRateApplication("COMPLETED", completion: { (didSucceed) in
                     TRApplicationManager.sharedInstance.ratingInfo = nil
