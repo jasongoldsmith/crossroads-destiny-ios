@@ -46,14 +46,24 @@ class TRBranchManager {
         if extraPlayersRequiredCount > 0 {
             playerCount = String(extraPlayersRequiredCount)
         }
-        let console = self.getConsoleTypeFromString(eventInfo.eventConsoleType!)
+        
+        var console = ""
         var activityName = ""
+        
+        if let _ = eventInfo.eventConsoleType {
+            console = self.getConsoleTypeFromString(eventInfo.eventConsoleType!)
+        }
+        
         
         //Formatted Date
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        let eventDate = formatter.dateFromString(eventInfo.eventLaunchDate!)
-        let formatedDate = eventDate!.toString(format: .Custom(trDateFormat()))
+        var eventDate = NSDate()
+        var formatedDate = ""
+        if let _ = eventInfo.eventLaunchDate {
+            eventDate = formatter.dateFromString(eventInfo.eventLaunchDate!)!
+            formatedDate = eventDate.toString(format: .Custom(trDateFormat()))
+        }
 
         // Group Name
         var groupName = ""
@@ -63,7 +73,7 @@ class TRBranchManager {
             }
         }
         
-        if let aName = eventInfo.eventActivity?.activitySubType! {
+        if let aName = eventInfo.eventActivity?.activitySubType {
             activityName = aName
         }
         
