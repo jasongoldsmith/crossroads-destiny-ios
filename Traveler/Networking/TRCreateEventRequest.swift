@@ -16,14 +16,21 @@ class TRCreateEventRequest: TRRequest {
         
         let createEventUrl = K.TRUrls.TR_BaseUrl + K.TRUrls.TR_EventCreationUrl
         
+        guard let activityID = activity.activityID,
+            let activityMinPlayers = activity.activityMinPlayers,
+            let activityMaxPlayers = activity.activityMaxPlayers else {
+                completion(event: nil)
+                return
+        }
+
         // Current Player
         let player = TRUserInfo.getUserID()
         
         //Add Parameters
         var params = [String: AnyObject]()
-        params["eType"] = activity.activityID!
-        params["minPlayers"] = activity.activityMinPlayers!
-        params["maxPlayers"] = activity.activityMaxPlayers!
+        params["eType"] = activityID
+        params["minPlayers"] = activityMinPlayers
+        params["maxPlayers"] = activityMaxPlayers
         params["creator"] = TRUserInfo.getUserID()
         params["players"] = ["\(player!)"]
         
