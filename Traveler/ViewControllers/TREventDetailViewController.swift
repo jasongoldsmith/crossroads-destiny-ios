@@ -450,7 +450,10 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
         
         if self.segmentControl?.selectedSegmentIndex == 0 {
             if let _ = self.eventInfo {
-                return (self.eventInfo?.eventActivity?.activityMaxPlayers?.integerValue)!
+                if let maxPlayers = self.eventInfo?.eventActivity?.activityMaxPlayers {
+                    return maxPlayers.integerValue
+                }
+                return 0
             }
             
             return (self.eventInfo?.eventPlayersArray.count)!
