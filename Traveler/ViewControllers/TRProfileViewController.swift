@@ -302,9 +302,11 @@ class TRProfileViewController: TRBaseViewController, UIImagePickerControllerDele
     }
     
     func currentConsoleButtonPressed () {
-        for console in (TRApplicationManager.sharedInstance.currentUser?.consoles)! {
-            if console.isPrimary == false {
-                self.addConsoleButtonFOrType(self.consoleButton, console: console)
+        if let _ = TRApplicationManager.sharedInstance.currentUser?.consoles {
+            for console in (TRApplicationManager.sharedInstance.currentUser?.consoles)! {
+                if console.isPrimary == false {
+                    self.addConsoleButtonFOrType(self.consoleButton, console: console)
+                }
             }
         }
     }
