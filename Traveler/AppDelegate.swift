@@ -44,8 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         //Clear Notifications
-        //application.applicationIconBadgeNumber = 1
-        //application.applicationIconBadgeNumber = 0
+        application.applicationIconBadgeNumber = 1
+        application.applicationIconBadgeNumber = 0
         
         
         //MixedPanel Initialized
