@@ -65,7 +65,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let branch: Branch = Branch.getInstance()
         branch.initSessionWithLaunchOptions(launchOptions, andRegisterDeepLinkHandler: { params, error in
          
-            if let isBranchLink = params["+clicked_branch_link"]?.boolValue where  isBranchLink == true {
+            guard let _ = params else {
+                return
+            }
+            
+            
+            if let isBranchLink = params!["+clicked_branch_link"]?.boolValue where  isBranchLink == true {
                 
                 // Tracking Open Source
                 var mySourceDict = [String: AnyObject]()
@@ -96,10 +101,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
 
                 
-                let eventID = params["eventId"] as? String
-                let activityName = params["activityName"] as? String
+                let eventID = params!["eventId"] as? String
+                let activityName = params!["activityName"] as? String
                 
-                if let inviPlayer = params["invitees"] as? String {
+                if let inviPlayer = params!["invitees"] as? String {
                     let invi = TRInvitationInfo()
                     invi.eventID = eventID
                     invi.invitedPlayers = inviPlayer
@@ -112,7 +117,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     return
                 }
 
-                TRApplicationManager.sharedInstance.addPostActionbranchDeepLink(eventID!, activityName: activityName!, params: params)
+                TRApplicationManager.sharedInstance.addPostActionbranchDeepLink(eventID!, activityName: activityName!, params: params!)
             }
         })
     

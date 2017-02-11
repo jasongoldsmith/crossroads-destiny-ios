@@ -104,7 +104,7 @@ class TRInviteView: UIView, KSTokenViewDelegate, CustomErrorDelegate, KSTokenFie
         
         TRApplicationManager.sharedInstance.branchManager?.createInvitationLinkWithBranch(self.eventInfo!, playerArray: playerArray ,deepLinkType: BRANCH_DEEP_LINKING_END_POINT.EVENT_INVITATION.rawValue, callback: {(url, error) in
             if (error == nil) {
-                _ = TRInvitePlayersRequest().invitePlayers((self.eventInfo?.eventID!)!, invitedPlayers: playerArray, invitationLink: url, completion: { (error, responseObject) in
+                _ = TRInvitePlayersRequest().invitePlayers((self.eventInfo?.eventID!)!, invitedPlayers: playerArray, invitationLink: url!, completion: { (error, responseObject) in
                     if let _ = error {
 //                        let errorView = NSBundle.mainBundle().loadNibNamed("TRCustomError", owner: self, options: nil)[0] as! TRCustomError
 //                        errorView.errorMessageHeader?.text = "ERROR"
