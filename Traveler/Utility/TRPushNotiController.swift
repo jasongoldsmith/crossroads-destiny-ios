@@ -23,7 +23,7 @@ class TRPushNotiController: NSObject, NotificationViewProtocol {
         if var currentView = UIApplication.topViewController() {
             var parentView: UIViewController?
             if currentView.isKindOfClass(SlideMenuController) {
-                currentView = (currentView as? SlideMenuController)!
+                currentView = currentView as! SlideMenuController
                 let slideVewController = currentView as? SlideMenuController
                 
                 guard let _ = slideVewController else {
@@ -33,13 +33,15 @@ class TRPushNotiController: NSObject, NotificationViewProtocol {
                 if TRApplicationManager.sharedInstance.slideMenuController.isLeftOpen() || TRApplicationManager.sharedInstance.slideMenuController.isRightOpen() {
                     return
                 } else {
-                    if let eventListView = slideVewController?.mainViewController as? TREventListViewController {
-                        parentView = eventListView
+                    if let eventListView = slideVewController?.mainViewController {
+                        if eventListView.isKindOfClass(TREventListViewController) {
+                            parentView = eventListView
+                        }
                     }
                 }
             } else {
                 let slideVewController = TRApplicationManager.sharedInstance.slideMenuController
-                if let eventListView = slideVewController.mainViewController! as? TREventListViewController {
+                if let eventListView = slideVewController.mainViewController as? TREventListViewController {
                     parentView = eventListView
                 }
             }
@@ -53,7 +55,7 @@ class TRPushNotiController: NSObject, NotificationViewProtocol {
             
             if isExistingPushView == false {
                 notificationview.parentView = parentView as? TRBaseViewController
-                parentView?.view.addSubview(notificationview)
+                parentView!.view.addSubview(notificationview)
             }
             
             //Add Animation and Move Table Down
