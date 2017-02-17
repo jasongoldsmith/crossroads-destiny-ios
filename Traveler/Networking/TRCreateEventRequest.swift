@@ -18,21 +18,19 @@ class TRCreateEventRequest: TRRequest {
         
         guard let activityID = activity.activityID,
             let activityMinPlayers = activity.activityMinPlayers,
-            let activityMaxPlayers = activity.activityMaxPlayers else {
+            let activityMaxPlayers = activity.activityMaxPlayers,
+            let player = TRUserInfo.getUserID() else{
                 completion(event: nil)
                 return
         }
 
-        // Current Player
-        let player = TRUserInfo.getUserID()
-        
         //Add Parameters
         var params = [String: AnyObject]()
         params["eType"] = activityID
         params["minPlayers"] = activityMinPlayers
         params["maxPlayers"] = activityMaxPlayers
-        params["creator"] = TRUserInfo.getUserID()
-        params["players"] = ["\(player!)"]
+        params["creator"] = player
+        params["players"] = ["\(player)"]
         
         if let hasSelectedTime = selectedTime {
             let formatter = NSDateFormatter();
