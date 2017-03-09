@@ -509,8 +509,8 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                 }
                 
                 //ADD KICK Logic if Event is FULL, also the player should not be the invited one
-                if self.eventInfo?.eventFull() == true {
-                    if let playerInfo = self.eventInfo?.eventPlayersArray[indexPath.section] {
+                if let playerInfo = self.eventInfo?.eventPlayersArray[indexPath.section] {
+                    if self.eventInfo?.eventFull() == true {
                         let isCurrentUserInTheEvent = TRApplicationManager.sharedInstance.isCurrentPlayerInAnEvent(self.eventInfo!)
                         if let isInvited = playerInfo.invitedBy where isInvited != "" {
                             
@@ -520,6 +520,8 @@ class TREventDetailViewController: TRBaseViewController, UITableViewDelegate, UI
                             cell?.invitationButton?.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
                             cell?.invitationButton?.addTarget(self, action: #selector(showKickUserView(_:)), forControlEvents: .TouchUpInside)
                         }
+                    } else if (eventInfo?.isFutureEvent == false && playerInfo.playerID != TRApplicationManager.sharedInstance.currentUser?.userID && playerInfo.isPlayerActive == false){
+                        cell?.playerUserName?.textColor = UIColor.grayColor()
                     }
                 }
                 
