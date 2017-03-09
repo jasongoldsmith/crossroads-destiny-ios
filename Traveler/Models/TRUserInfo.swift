@@ -25,7 +25,9 @@ class TRUserInfo: NSObject {
     var commentsReported: Int?
     var hasReachedMaxReportedComments: Bool?
     var isInvited : Bool?
-    
+    var consoleId : String?
+    var clanTag : String?
+
     
     func parseUserResponse (responseObject: JSON) {
         self.userName       = responseObject["value"]["userName"].stringValue
@@ -37,7 +39,9 @@ class TRUserInfo: NSObject {
         self.commentsReported = responseObject["value"]["commentsReported"].intValue
         self.hasReachedMaxReportedComments = responseObject["value"]["hasReachedMaxReportedComments"].boolValue
         self.isInvited    = responseObject["value"]["isInvited"].boolValue
-        
+        self.consoleId  = responseObject["consoleId"].stringValue
+        self.clanTag    = responseObject["clanTag"].stringValue
+
         // Legal Info
         if let legalDict = responseObject["value"]["legal"].dictionary {
             let legalObject = TRLegalInfo()
@@ -77,7 +81,9 @@ class TRUserInfo: NSObject {
         self.commentsReported = responseObject["commentsReported"].intValue
         self.hasReachedMaxReportedComments = responseObject["value"]["hasReachedMaxReportedComments"].boolValue
         self.isInvited    = responseObject["isInvited"].boolValue
-        
+        self.consoleId  = responseObject["consoleId"].stringValue
+        self.clanTag    = responseObject["clanTag"].stringValue
+
         // Legal Info
         if let legalDict = responseObject["legal"].dictionary {
             let legalObject = TRLegalInfo()

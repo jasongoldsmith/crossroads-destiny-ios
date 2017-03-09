@@ -120,10 +120,10 @@ class TRBaseEventTableCell: UITableViewCell {
             
             // Attributed Strings
             let extraPlayersRequiredCountStringNewAttributed = NSAttributedString(string: extraPlayersRequiredCountStringNew, attributes: stringColorAttribute)
-            if let _ = eventInfo.eventCreator?.playerPsnID {
+            if let _ = eventInfo.eventCreator?.playerConsoleId {
                 
-                let finalString = NSMutableAttributedString(string: (eventInfo.eventCreator?.playerPsnID!)!)
-                if var clanTag = eventInfo.eventCreator?.getDefaultConsole()?.clanTag where clanTag != "" {
+                let finalString = NSMutableAttributedString(string: (eventInfo.eventCreator?.playerConsoleId!)!)
+                if var clanTag = eventInfo.eventCreator?.playerClanTag where clanTag != "" {
                     clanTag = " " + "[" + clanTag + "]"
                     let clanAttributedStr = NSAttributedString(string: clanTag)
                     if eventInfo.eventCreator!.playerID != TRApplicationManager.sharedInstance.currentUser?.userID {
@@ -137,8 +137,8 @@ class TRBaseEventTableCell: UITableViewCell {
                 self.eventPlayersName.attributedText = finalString
             }
         } else {
-            var playersNameString = (eventInfo.eventCreator?.playerPsnID!)!
-            if var clanTag = eventInfo.eventCreator?.getDefaultConsole()?.clanTag where clanTag != "" {
+            var playersNameString = (eventInfo.eventCreator?.playerConsoleId!)!
+            if var clanTag = eventInfo.eventCreator?.playerClanTag where clanTag != "" {
                 clanTag = " " + "[" + clanTag + "]"
                 if eventInfo.eventCreator!.playerID != TRApplicationManager.sharedInstance.currentUser?.userID {
                     playersNameString = playersNameString + clanTag

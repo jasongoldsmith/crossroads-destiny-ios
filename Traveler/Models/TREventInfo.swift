@@ -78,6 +78,9 @@ class TREventInfo: NSObject {
             creatorInfo.playerDate      = creator["date"]?.stringValue
             creatorInfo.playerUdate     = creator["uDate"]?.stringValue
             creatorInfo.userVerified    = creator["verifyStatus"]?.stringValue
+            creatorInfo.playerConsoleId = creator["consoleId"]?.stringValue
+            creatorInfo.playerClanTag   = creator["clanTag"]?.stringValue
+            
             
             for consoles in creator["consoles"]!.arrayValue {
                 let creatorConsole = TRConsoles()
@@ -118,6 +121,8 @@ class TREventInfo: NSObject {
             playerInfo.isPlayerActive   = playerInfoObject["isActive"].boolValue
             playerInfo.verifyStatus     = playerInfoObject["verifyStatus"].stringValue
             playerInfo.isInvited     = playerInfoObject["isInvited"].boolValue
+            playerInfo.playerConsoleId  = playerInfoObject["consoleId"].stringValue
+            playerInfo.playerClanTag    = playerInfoObject["clanTag"].stringValue
             playerInfo.hasReachedMaxReportedComments = playerInfoObject["hasReachedMaxReportedComments"].boolValue
 
             

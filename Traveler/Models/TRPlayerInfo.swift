@@ -26,7 +26,9 @@ class TRPlayerInfo: NSObject {
     var hasReachedMaxReportedComments: Bool?
     var verifyStatus    :String?
     var isInvited       :Bool?
-    
+    var playerConsoleId     : String?
+    var playerClanTag       : String?
+
     
     func getDefaultConsole () -> TRConsoles? {
         let currentConsole = self.playerConsoles.filter{$0.isPrimary == true}
