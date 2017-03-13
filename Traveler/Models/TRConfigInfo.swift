@@ -14,4 +14,5 @@ class TRConfigInfo: NSObject {
     var playerDetailsUrl: String?
     var xBoxLoginUrl: String?
     var psnLoginUrl: String?
+    var bungieAccountURL: String?
 }

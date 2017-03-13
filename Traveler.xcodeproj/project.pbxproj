@@ -163,6 +163,11 @@
 		336A666E1DB0091D00A90D63 /* TRInvitePlayersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336A666C1DB0091D00A90D63 /* TRInvitePlayersRequest.swift */; };
 		336A666F1DB0091D00A90D63 /* TRInvitePlayersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336A666C1DB0091D00A90D63 /* TRInvitePlayersRequest.swift */; };
 		336A66701DB0091D00A90D63 /* TRInvitePlayersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336A666C1DB0091D00A90D63 /* TRInvitePlayersRequest.swift */; };
+		336A77D21E77167800A46AFA /* TRSendBungieAccountInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336A77D11E77167800A46AFA /* TRSendBungieAccountInfoRequest.swift */; };
+		336A77D31E77167800A46AFA /* TRSendBungieAccountInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336A77D11E77167800A46AFA /* TRSendBungieAccountInfoRequest.swift */; };
+		336A77D41E77167800A46AFA /* TRSendBungieAccountInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336A77D11E77167800A46AFA /* TRSendBungieAccountInfoRequest.swift */; };
+		336A77D51E77167800A46AFA /* TRSendBungieAccountInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336A77D11E77167800A46AFA /* TRSendBungieAccountInfoRequest.swift */; };
+		336A77D61E7738E500A46AFA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33B73BFE1D2F171200BEA7E5 /* GoogleService-Info.plist */; };
 		336B99C21D64E1D300668BF4 /* TRCommentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336B99C11D64E1D300668BF4 /* TRCommentInfo.swift */; };
 		336B99C31D64E1D300668BF4 /* TRCommentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336B99C11D64E1D300668BF4 /* TRCommentInfo.swift */; };
 		336B99C41D64E1D300668BF4 /* TRCommentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336B99C11D64E1D300668BF4 /* TRCommentInfo.swift */; };
@@ -432,7 +437,6 @@
 		33CC20D61D774F280017F208 /* TRFunnelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC20D31D774F270017F208 /* TRFunnelData.swift */; };
 		33CC20D71D774F280017F208 /* TRFunnelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC20D31D774F270017F208 /* TRFunnelData.swift */; };
 		33CC20DA1D77A2340017F208 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33B73BFE1D2F171200BEA7E5 /* GoogleService-Info.plist */; };
-		33CC20DB1D77A2340017F208 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33B73BFE1D2F171200BEA7E5 /* GoogleService-Info.plist */; };
 		33D067671CD40AF600E05EF1 /* TRUpdateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D067661CD40AF600E05EF1 /* TRUpdateUser.swift */; };
 		33D067681CD40AF600E05EF1 /* TRUpdateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D067661CD40AF600E05EF1 /* TRUpdateUser.swift */; };
 		33D067691CD40AF600E05EF1 /* TRUpdateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D067661CD40AF600E05EF1 /* TRUpdateUser.swift */; };
@@ -705,6 +709,7 @@
 		335405C91D52AFA100B42BAC /* TRRequestUpdateLegalRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRequestUpdateLegalRequest.swift; sourceTree = "<group>"; };
 		3369499B1CC5CFEB004979C0 /* NSBundleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSBundleExtension.swift; path = ../Networking/NSBundleExtension.swift; sourceTree = "<group>"; };
 		336A666C1DB0091D00A90D63 /* TRInvitePlayersRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRInvitePlayersRequest.swift; sourceTree = "<group>"; };
+		336A77D11E77167800A46AFA /* TRSendBungieAccountInfoRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRSendBungieAccountInfoRequest.swift; sourceTree = "<group>"; };
 		336B99C11D64E1D300668BF4 /* TRCommentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCommentInfo.swift; sourceTree = "<group>"; };
 		336B99C61D64E90900668BF4 /* TREventCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREventCommentCell.swift; sourceTree = "<group>"; };
 		336B99CB1D64E94900668BF4 /* TREventCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TREventCommentCell.xib; sourceTree = "<group>"; };
@@ -1119,6 +1124,7 @@
 				337FA1F51DCF0062002A4E07 /* TRCancelEventInvitationRequest.swift */,
 				337FA1FA1DCF0886002A4E07 /* TRKickInActiveUserRequest.swift */,
 				3394DC8D1E2807E600A97C23 /* TRRateApplication.swift */,
+				336A77D11E77167800A46AFA /* TRSendBungieAccountInfoRequest.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -1492,7 +1498,6 @@
 				33104BFB1C97B1E70024D601 /* TRActivityIndicatorView.xib in Resources */,
 				5CBD7BCC1CAC91A90078636D /* TRSendChatMessageView.xib in Resources */,
 				3380EF3B1CC95C28000A9289 /* TREventCurrentNoCheckPointCell.xib in Resources */,
-				33CC20DB1D77A2340017F208 /* GoogleService-Info.plist in Resources */,
 				33C3907B1D8A40BF0017D096 /* TRVerificationPromptView.xib in Resources */,
 				62F279BF1C7D1318008D67DC /* Assets.xcassets in Resources */,
 				3394DC851E27024500A97C23 /* TRRateAppCell.xib in Resources */,
@@ -1509,6 +1514,7 @@
 				62C1FF351C77C15C00A78798 /* Main.storyboard in Resources */,
 				33D9D97B1D48477400A6289D /* TREventActivityCardCell.xib in Resources */,
 				331C21071D9B141C004B821F /* TRCustomError.xib in Resources */,
+				336A77D61E7738E500A46AFA /* GoogleService-Info.plist in Resources */,
 				331194B81D88C004007A1262 /* TRCaroselCellView.xib in Resources */,
 				33AABB291D5BF85B0099A20C /* TRDatePicker.xib in Resources */,
 				33D0B3F21CFCFC2C008ABA04 /* TrLaunchImgBadge.png in Resources */,
@@ -2018,6 +2024,7 @@
 				33A588FC1D511C2900D06127 /* TRChangeConsoleRequest.swift in Sources */,
 				33F4DB451D63B964001FF0AB /* TREventDescriptionCell.swift in Sources */,
 				331194BC1D88C00F007A1262 /* TRCaroselCellView.swift in Sources */,
+				336A77D21E77167800A46AFA /* TRSendBungieAccountInfoRequest.swift in Sources */,
 				33FAF3F61DAE105F00670B8B /* KSTokenField.swift in Sources */,
 				33D0B40A1CFD0165008ABA04 /* TRApplicationManager.swift in Sources */,
 				33D0B40B1CFD0165008ABA04 /* TREventInfoPlayerCell.swift in Sources */,
@@ -2151,6 +2158,7 @@
 				336A666E1DB0091D00A90D63 /* TRInvitePlayersRequest.swift in Sources */,
 				33A588FD1D511C2900D06127 /* TRChangeConsoleRequest.swift in Sources */,
 				33F4DB461D63B964001FF0AB /* TREventDescriptionCell.swift in Sources */,
+				336A77D31E77167800A46AFA /* TRSendBungieAccountInfoRequest.swift in Sources */,
 				331194BD1D88C00F007A1262 /* TRCaroselCellView.swift in Sources */,
 				33FAF3FC1DAE106B00670B8B /* KSTokenField.swift in Sources */,
 				33742D881C7FC4B400C46742 /* TRApplicationManager.swift in Sources */,
@@ -2284,6 +2292,7 @@
 				336A666F1DB0091D00A90D63 /* TRInvitePlayersRequest.swift in Sources */,
 				62C1FF601C77CDFF00A78798 /* TRLoginOptionViewController.swift in Sources */,
 				33D067681CD40AF600E05EF1 /* TRUpdateUser.swift in Sources */,
+				336A77D41E77167800A46AFA /* TRSendBungieAccountInfoRequest.swift in Sources */,
 				331194BE1D88C00F007A1262 /* TRCaroselCellView.swift in Sources */,
 				33FAF3FD1DAE106C00670B8B /* KSTokenField.swift in Sources */,
 				33FDB9AF1C850B960066237C /* EventButton.swift in Sources */,
@@ -2417,6 +2426,7 @@
 				336A66701DB0091D00A90D63 /* TRInvitePlayersRequest.swift in Sources */,
 				62C1FF611C77CDFF00A78798 /* TRLoginOptionViewController.swift in Sources */,
 				33D067691CD40AF600E05EF1 /* TRUpdateUser.swift in Sources */,
+				336A77D51E77167800A46AFA /* TRSendBungieAccountInfoRequest.swift in Sources */,
 				331194BF1D88C00F007A1262 /* TRCaroselCellView.swift in Sources */,
 				33FAF3FE1DAE106D00670B8B /* KSTokenField.swift in Sources */,
 				33FDB9B01C850B970066237C /* EventButton.swift in Sources */,

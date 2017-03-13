@@ -26,24 +26,21 @@ class TRBungieLoginValidation {
     
     func shouldShowLoginSceen (completion: TRSignInCallBack, clearBackGroundRequest: Bool) {
         
-        _ = TRGetConfigRequest().getConfiguration({ (didSucceed) in
-            let cookies = NSHTTPCookieStorage.sharedHTTPCookieStorage().cookies
-            if let _ = cookies {
-                for cookie in cookies! {
-                    if cookie.name == "bungleatk" || cookie.name == "bungledid" {
-                        self.bungieCookies?.append(cookie)
-                    } else if cookie.name == "bungled" {
-                        self.bungieID = cookie.value
-                        self.bungieCookies?.append(cookie)
-                    }
+        let cookies = NSHTTPCookieStorage.sharedHTTPCookieStorage().cookies
+        if let _ = cookies {
+            for cookie in cookies! {
+                if cookie.name == "bungleatk" || cookie.name == "bungledid" {
+                    self.bungieCookies?.append(cookie)
+                } else if cookie.name == "bungled" {
+                    self.bungieID = cookie.value
+                    self.bungieCookies?.append(cookie)
                 }
             }
-            
-            self.getUserFromTravelerBackEndWithSuccess({ (showLoginScreen, error) in
-                completion(showLoginScreen: showLoginScreen, error: error)
-                }, clearBackGroundRequest: true)
-            
-        })
+        }
+        
+        self.getUserFromTravelerBackEndWithSuccess({ (showLoginScreen, error) in
+            completion(showLoginScreen: showLoginScreen, error: error)
+            }, clearBackGroundRequest: true)
     }
     
     func getUserFromTravelerBackEndWithSuccess (completion: TRSignInCallBack, clearBackGroundRequest: Bool) {
@@ -104,9 +101,28 @@ class TRBungieLoginValidation {
                         TRUserInfo.saveUserData(userData)
                         NSNotificationCenter.defaultCenter().postNotificationName(K.NOTIFICATION_TYPE.USER_DATA_RECEIVED_CLOSE_WEBVIEW, object: nil)
                         
+                        //Fetch Bungie Account Info and send it to backend
+                        self.getBungieUserAccount()
+                        
                         completion(showLoginScreen: false, error: nil)
                     })
                 }
         }
     }
+    
+    func getBungieUserAccount () {
+        
+        let playerAccountUrl = TRApplicationManager.sharedInstance.appConfiguration?.bungieAccountURL
+        TRApplicationManager.sharedInstance.bungieAlamoFireManager!.request(.GET, NSURL(string: playerAccountUrl!)!, parameters: nil)
+        .responseJSON { response in
+            
+            if let responseValue = response.result.value {
+                _ = TRSendBungieAccountInfoRequest().sendBungieAccountInfo(responseValue, completion: { (didSucceed) in
+                    
+                })
+            }
+        }
+    }
 }
+
+

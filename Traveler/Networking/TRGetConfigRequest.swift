@@ -17,6 +17,7 @@ class TRGetConfigRequest: TRRequest {
         let request = TRRequest()
         request.requestURL = configuration
         request.URLMethod = .GET
+        request.showActivityIndicator = false
         request.sendRequestWithCompletion { (error, swiftyJsonVar) -> () in
             
             if let _ = error {
@@ -29,7 +30,7 @@ class TRGetConfigRequest: TRRequest {
             appConfig.playerDetailsUrl = swiftyJsonVar["playerDetailsURL"].stringValue
             appConfig.xBoxLoginUrl = swiftyJsonVar["xboxLoginURL"].stringValue
             appConfig.psnLoginUrl = swiftyJsonVar["psnLoginURL"].stringValue
-            
+            appConfig.bungieAccountURL = swiftyJsonVar["bungieAccountURL"].stringValue
             
             if let _ = appConfig.playerDetailsUrl {
                 NSUserDefaults.standardUserDefaults().setObject(appConfig.playerDetailsUrl, forKey: K.UserDefaultKey.APPLICATION_CONFIGURATIONS_PLAYER_DETAIL)

@@ -115,6 +115,7 @@ struct K {
         static let TR_CANCEL_INVITATION   =  "/api/v1/a/event/invite/cancel"
         static let TR_KICK_PLAYER         =  "/api/v1/a/event/kick"
         static let TR_APP_REVIEW          =  "/api/v1/a/user/updateReviewPromptCardStatus"
+        static let TR_SEND_BUNGIE_USER    =  "/api/v1/a/user/bungieCurrentUser"
     }
     
     struct StoryBoard {

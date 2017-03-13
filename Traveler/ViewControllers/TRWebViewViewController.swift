@@ -123,7 +123,9 @@ class TRWebViewViewController: TRBaseViewController, UIWebViewDelegate, CustomEr
             }
             
             if showLoginScreen == false {
-                self.dismissView()
+                delay(1.0, closure: { 
+                    self.dismissView()
+                })
             }
             }, clearBackGroundRequest: false)
     }

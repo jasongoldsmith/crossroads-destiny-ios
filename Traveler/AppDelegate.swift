@@ -21,147 +21,155 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var faceBookAdLink: Dictionary <String, String>?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-        //RootViewController
-        let rootViewController = self.window?.rootViewController as! TRRootViewController
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        let isInstallInfoSent = userDefaults.boolForKey(K.UserDefaultKey.INSTALL_INFO_SENT)
-        if isInstallInfoSent == false {
-            rootViewController.shouldLoadInitialViewDefault = false
-        }
-        
-        
+
         //Initializing Manager
         TRApplicationManager.sharedInstance
         
         
         //Initialize FireBase Configuration
         TRApplicationManager.sharedInstance.fireBaseManager?.initFireBaseConfig()
-
         
-        //Status Bar 
+        
+        //Status Bar
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
         
         
         //Clear Notifications
         application.applicationIconBadgeNumber = 1
         application.applicationIconBadgeNumber = 0
-        
-        
-        //MixedPanel Initialized
-        let token = K.Tokens.Mix_Panle_Token
-        _ = Mixpanel.sharedInstanceWithToken(token)
-      
-        
-        //Initialize Answers
-        Fabric.with([Branch.self, Answers.self, Crashlytics.self])
 
         
-        //Facebook Init
-        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        _ = TRGetConfigRequest().getConfiguration({ (didSucceed) in
+            
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            let storyboard = UIStoryboard(name: K.StoryBoard.StoryBoard_Main, bundle: nil)
+            let initialViewController = storyboard.instantiateViewControllerWithIdentifier(K.VIEWCONTROLLER_IDENTIFIERS.ROOT_VIEW_CONTROLLER) as? TRRootViewController
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
 
-        
-        //Branch Initialized
-        let branch: Branch = Branch.getInstance()
-        branch.initSessionWithLaunchOptions(launchOptions, andRegisterDeepLinkHandler: { params, error in
-         
-            guard let _ = params else {
-                return
+            //RootViewController
+            let rootViewController = self.window?.rootViewController as! TRRootViewController
+            let userDefaults = NSUserDefaults.standardUserDefaults()
+            let isInstallInfoSent = userDefaults.boolForKey(K.UserDefaultKey.INSTALL_INFO_SENT)
+            if isInstallInfoSent == false {
+                rootViewController.shouldLoadInitialViewDefault = false
             }
             
             
-            if let isBranchLink = params!["+clicked_branch_link"]?.boolValue where  isBranchLink == true {
+            //MixedPanel Initialized
+            let token = K.Tokens.Mix_Panle_Token
+            _ = Mixpanel.sharedInstanceWithToken(token)
+            
+            
+            //Initialize Answers
+            Fabric.with([Branch.self, Answers.self, Crashlytics.self])
+            
+            
+            //Facebook Init
+            FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+            
+            
+            //Branch Initialized
+            let branch: Branch = Branch.getInstance()
+            branch.initSessionWithLaunchOptions(launchOptions, andRegisterDeepLinkHandler: { params, error in
                 
-                // Tracking Open Source
-                var mySourceDict = [String: AnyObject]()
-                mySourceDict["source"] = K.SharingPlatformType.Platform_Branch
-                _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_APP_INIT, completion: {didSucceed in
-                    if didSucceed == true {
-                        
-                    }
-                })
-
-                let userDefaults = NSUserDefaults.standardUserDefaults()
-                let isInstallInfoSent = userDefaults.boolForKey(K.UserDefaultKey.INSTALL_INFO_SENT)
-                if isInstallInfoSent.boolValue == false {
-
-                    // App Install Request
-                    let myInstallDict = [String: AnyObject]()
-                    mySourceDict["ads"] = K.SharingPlatformType.Platform_Branch
+                guard let _ = params else {
+                    return
+                }
+                
+                
+                if let isBranchLink = params!["+clicked_branch_link"]?.boolValue where  isBranchLink == true {
                     
-                    self.appInstallRequestWithDict(myInstallDict) { (didSucceed) in
+                    // Tracking Open Source
+                    var mySourceDict = [String: AnyObject]()
+                    mySourceDict["source"] = K.SharingPlatformType.Platform_Branch
+                    _ = TRAppTrackingRequest().sendApplicationPushNotiTracking(mySourceDict, trackingType: APP_TRACKING_DATA_TYPE.TRACKING_APP_INIT, completion: {didSucceed in
                         if didSucceed == true {
                             
                         }
-                    }
-                } else {
-                    var mySourceDict = [String: AnyObject]()
-                    mySourceDict["source"] = K.SharingPlatformType.Platform_Branch
-                    self.appInitializedRequest(mySourceDict)
-                }
-
-                
-                let eventID = params!["eventId"] as? String
-                let activityName = params!["activityName"] as? String
-                
-                if let inviPlayer = params!["invitees"] as? String {
-                    let invi = TRInvitationInfo()
-                    invi.eventID = eventID
-                    invi.invitedPlayers = inviPlayer
+                    })
                     
-                    TRApplicationManager.sharedInstance.invitation = invi
+                    let userDefaults = NSUserDefaults.standardUserDefaults()
+                    let isInstallInfoSent = userDefaults.boolForKey(K.UserDefaultKey.INSTALL_INFO_SENT)
+                    if isInstallInfoSent.boolValue == false {
+                        
+                        // App Install Request
+                        let myInstallDict = [String: AnyObject]()
+                        mySourceDict["ads"] = K.SharingPlatformType.Platform_Branch
+                        
+                        self.appInstallRequestWithDict(myInstallDict) { (didSucceed) in
+                            if didSucceed == true {
+                                
+                            }
+                        }
+                    } else {
+                        var mySourceDict = [String: AnyObject]()
+                        mySourceDict["source"] = K.SharingPlatformType.Platform_Branch
+                        self.appInitializedRequest(mySourceDict)
+                    }
+                    
+                    
+                    let eventID = params!["eventId"] as? String
+                    let activityName = params!["activityName"] as? String
+                    
+                    if let inviPlayer = params!["invitees"] as? String {
+                        let invi = TRInvitationInfo()
+                        invi.eventID = eventID
+                        invi.invitedPlayers = inviPlayer
+                        
+                        TRApplicationManager.sharedInstance.invitation = invi
+                    }
+                    
+                    
+                    guard let _ = eventID else {
+                        return
+                    }
+                    
+                    TRApplicationManager.sharedInstance.addPostActionbranchDeepLink(eventID!, activityName: activityName!, params: params!)
                 }
-                
+            })
             
-                guard let _ = eventID else {
-                    return
+            
+            // App Install Request
+            if isInstallInfoSent == false {
+                var myInstallDict = [String: AnyObject]()
+                myInstallDict["ads"] = K.SharingPlatformType.Platform_Organic
+                
+                self.appInstallRequestWithDict(myInstallDict) { (didSucceed) in
+                    if didSucceed == true {
+                        
+                        //Send FaceBook Install Info, if avalable
+                        if let _ = self.faceBookAdLink {
+                            self.sendFaceBookAdsInstallInfo()
+                        }
+                        
+                        //Load View
+                        //rootViewController.loadAppInitialViewController()
+                        rootViewController.shouldLoadInitialViewDefault = true
+                        
+                        // App Initialized Request
+                        var mySourceDict = [String: AnyObject]()
+                        mySourceDict["source"] = K.SharingPlatformType.Platform_UnKnown
+                        self.appInitializedRequest(mySourceDict)
+                    } else {
+                        //Load View
+                        //rootViewController.loadAppInitialViewController()
+                        rootViewController.shouldLoadInitialViewDefault = true
+                    }
                 }
-
-                TRApplicationManager.sharedInstance.addPostActionbranchDeepLink(eventID!, activityName: activityName!, params: params!)
+            } else {
+                
+                // App Initialized Request
+                var mySourceDict = [String: AnyObject]()
+                mySourceDict["source"] = K.SharingPlatformType.Platform_UnKnown
+                self.appInitializedRequest(mySourceDict)
+            }
+            
+            // Remote Notification
+            if let remoteNotification = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? NSDictionary? {
+                rootViewController.pushNotificationData = remoteNotification
             }
         })
-    
-
-        // App Install Request
-        if isInstallInfoSent == false {
-            var myInstallDict = [String: AnyObject]()
-            myInstallDict["ads"] = K.SharingPlatformType.Platform_Organic
-            
-            self.appInstallRequestWithDict(myInstallDict) { (didSucceed) in
-                if didSucceed == true {
-
-                    //Send FaceBook Install Info, if avalable
-                    if let _ = self.faceBookAdLink {
-                        self.sendFaceBookAdsInstallInfo()
-                    }
-                    
-                    //Load View
-                    //rootViewController.loadAppInitialViewController()
-                    rootViewController.shouldLoadInitialViewDefault = true
-                    
-                    // App Initialized Request
-                    var mySourceDict = [String: AnyObject]()
-                    mySourceDict["source"] = K.SharingPlatformType.Platform_UnKnown
-                    self.appInitializedRequest(mySourceDict)
-                } else {
-                    //Load View
-                    //rootViewController.loadAppInitialViewController()
-                    rootViewController.shouldLoadInitialViewDefault = true
-                }
-            }
-        } else {
-
-            // App Initialized Request
-            var mySourceDict = [String: AnyObject]()
-            mySourceDict["source"] = K.SharingPlatformType.Platform_UnKnown
-            self.appInitializedRequest(mySourceDict)
-        }
-
-        // Remote Notification
-        if let remoteNotification = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? NSDictionary? {
-            rootViewController.pushNotificationData = remoteNotification
-        }
-
 
         return true
     }
