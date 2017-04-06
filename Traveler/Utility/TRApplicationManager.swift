@@ -103,6 +103,8 @@ class TRApplicationManager: NSObject {
     //Bungie Alamofire Request
     var bungieAlamoFireManager : Alamofire.Manager?
     
+    //OnBoarding Cards
+    lazy var onBoardingCards: [OnBoardingCard] = []
     
     // MARK:- Initializer
     private override init() {

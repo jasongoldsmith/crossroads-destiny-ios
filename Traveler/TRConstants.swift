@@ -116,6 +116,7 @@ struct K {
         static let TR_KICK_PLAYER         =  "/api/v1/a/event/kick"
         static let TR_APP_REVIEW          =  "/api/v1/a/user/updateReviewPromptCardStatus"
         static let TR_SEND_BUNGIE_USER    =  "/api/v1/a/user/bungieCurrentUser"
+        static let TR_ONBOARDING_COMPLETE =  "/api/v1/a/user/completeOnBoarding"
     }
     
     struct StoryBoard {
@@ -143,6 +144,7 @@ struct K {
         static let VIEW_CONTROLLER_SIGNIN_ERROR            = "SIGINERROR"
         static let VIEW_CONTROLLER_CONTACT_MESSAGE_SENT    = "messageSent"
         static let VIEW_CONTROLLER_WEB_VIEW_SIGNIN         = "webviewVC"
+        static let VIEW_CONTROLLER_ON_BOARDING             = "onBoardingVC"
     }
     
     struct ActivityType {

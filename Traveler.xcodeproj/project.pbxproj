@@ -640,6 +640,16 @@
 		62C1FF611C77CDFF00A78798 /* TRLoginOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C1FF5E1C77CDFF00A78798 /* TRLoginOptionViewController.swift */; };
 		62F279BF1C7D1318008D67DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C1FF361C77C15C00A78798 /* Assets.xcassets */; };
 		BAE3D3C03EF8D9BD6F3BCCA6 /* Pods_TravelerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E973507B6F69D832237E8EA /* Pods_TravelerUITests.framework */; };
+		C712C0441E92F2B9001EC7D9 /* OnBoardingCarouselView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C78E51BD1E92D92F005B2E38 /* OnBoardingCarouselView.xib */; };
+		C7413C3F1E92E85900636687 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7413C3E1E92E85900636687 /* OnBoardingViewController.swift */; };
+		C78E51B81E92D8A6005B2E38 /* CompleteOnBoardingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78E51B71E92D8A6005B2E38 /* CompleteOnBoardingRequest.swift */; };
+		C78E51BA1E92D8E7005B2E38 /* OnBoardingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78E51B91E92D8E7005B2E38 /* OnBoardingCard.swift */; };
+		C78E51BC1E92D918005B2E38 /* OnBoardingCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78E51BB1E92D918005B2E38 /* OnBoardingCarouselView.swift */; };
+		C78E51BE1E92D92F005B2E38 /* OnBoardingCarouselView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C78E51BD1E92D92F005B2E38 /* OnBoardingCarouselView.xib */; };
+		C78E51BF1E92E6CA005B2E38 /* CompleteOnBoardingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78E51B71E92D8A6005B2E38 /* CompleteOnBoardingRequest.swift */; };
+		C78E51C01E92E6CA005B2E38 /* OnBoardingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78E51B91E92D8E7005B2E38 /* OnBoardingCard.swift */; };
+		C78E51C11E92E6CA005B2E38 /* OnBoardingCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78E51BB1E92D918005B2E38 /* OnBoardingCarouselView.swift */; };
+		C78E51C31E92E7A8005B2E38 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78E51C21E92E7A8005B2E38 /* OnBoardingViewController.swift */; };
 		D61578F6474DB32C9D84A9FF /* Pods_Crossroads.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 514F6E7BC4B5D16A802A37E9 /* Pods_Crossroads.framework */; };
 		E17C0E728DDEFE765C0FD4C6 /* Pods_Traveler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A2D38A73FDBFDA887AC03B /* Pods_Traveler.framework */; };
 /* End PBXBuildFile section */
@@ -851,6 +861,12 @@
 		72473DF934B6641FA6DD2E72 /* Pods-TravelerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelerTests/Pods-TravelerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		73B6C852E37B93E18E825C87 /* Pods-TravelerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelerTests/Pods-TravelerTests.release.xcconfig"; sourceTree = "<group>"; };
 		89A2D38A73FDBFDA887AC03B /* Pods_Traveler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Traveler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7413C3E1E92E85900636687 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnBoardingViewController.swift; path = Traveler/ViewControllers/OnBoardingViewController.swift; sourceTree = "<group>"; };
+		C78E51B71E92D8A6005B2E38 /* CompleteOnBoardingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteOnBoardingRequest.swift; sourceTree = "<group>"; };
+		C78E51B91E92D8E7005B2E38 /* OnBoardingCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingCard.swift; sourceTree = "<group>"; };
+		C78E51BB1E92D918005B2E38 /* OnBoardingCarouselView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingCarouselView.swift; sourceTree = "<group>"; };
+		C78E51BD1E92D92F005B2E38 /* OnBoardingCarouselView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnBoardingCarouselView.xib; sourceTree = "<group>"; };
+		C78E51C21E92E7A8005B2E38 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		E2B761A51FB8922D031EC449 /* Pods-Crossroads.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crossroads.release.xcconfig"; path = "Pods/Target Support Files/Pods-Crossroads/Pods-Crossroads.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -919,6 +935,7 @@
 			children = (
 				62C1FF5E1C77CDFF00A78798 /* TRLoginOptionViewController.swift */,
 				331194C51D8A2322007A1262 /* TRSignInErrorViewController.swift */,
+				C78E51C21E92E7A8005B2E38 /* OnBoardingViewController.swift */,
 			);
 			name = OnBoarding;
 			sourceTree = "<group>";
@@ -973,6 +990,8 @@
 				3345C2E61DAD68D0001BA931 /* TRInviteView.xib */,
 				33C390791D8A40BF0017D096 /* TRVerificationPromptView.xib */,
 				331C210A1D9B1421004B821F /* Error_Views */,
+				C78E51BB1E92D918005B2E38 /* OnBoardingCarouselView.swift */,
+				C78E51BD1E92D92F005B2E38 /* OnBoardingCarouselView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1081,6 +1100,7 @@
 				33BA7A0B1D657DA800C5DA2D /* TRLocationInfo.swift */,
 				33D191D61DB6B84C0010E6DA /* TRInvitationInfo.swift */,
 				3394DC881E27052000A97C23 /* TRRatingAppModel.swift */,
+				C78E51B91E92D8E7005B2E38 /* OnBoardingCard.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1125,6 +1145,7 @@
 				337FA1FA1DCF0886002A4E07 /* TRKickInActiveUserRequest.swift */,
 				3394DC8D1E2807E600A97C23 /* TRRateApplication.swift */,
 				336A77D11E77167800A46AFA /* TRSendBungieAccountInfoRequest.swift */,
+				C78E51B71E92D8A6005B2E38 /* CompleteOnBoardingRequest.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -1164,6 +1185,7 @@
 		62C1FF231C77C15C00A78798 = {
 			isa = PBXGroup;
 			children = (
+				C7413C3E1E92E85900636687 /* OnBoardingViewController.swift */,
 				33728F8C1D36D6C4000A3CF8 /* Crossroads.entitlements */,
 				33B73BFE1D2F171200BEA7E5 /* GoogleService-Info.plist */,
 				33FDB9B41C8512E60066237C /* TR-Bridging-Header.h */,
@@ -1475,6 +1497,7 @@
 				33D0B4591CFD0165008ABA04 /* Main.storyboard in Resources */,
 				33D9D97A1D48477400A6289D /* TREventActivityCardCell.xib in Resources */,
 				331C21061D9B141C004B821F /* TRCustomError.xib in Resources */,
+				C78E51BE1E92D92F005B2E38 /* OnBoardingCarouselView.xib in Resources */,
 				331194B71D88C004007A1262 /* TRCaroselCellView.xib in Resources */,
 				33AABB281D5BF85B0099A20C /* TRDatePicker.xib in Resources */,
 				33D0B45A1CFD0165008ABA04 /* TrLaunchImgBadge.png in Resources */,
@@ -1486,6 +1509,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C712C0441E92F2B9001EC7D9 /* OnBoardingCarouselView.xib in Resources */,
 				33728F921D36E734000A3CF8 /* Crossroads.entitlements in Resources */,
 				3380EF371CC9479C000A9289 /* TREventCurrentWithCheckPointCell.xib in Resources */,
 				336B99CD1D64E94900668BF4 /* TREventCommentCell.xib in Resources */,
@@ -2059,6 +2083,7 @@
 				33D0B41E1CFD0165008ABA04 /* TRRootViewController.swift in Sources */,
 				33D0B41F1CFD0165008ABA04 /* TREventUpcomingNoCheckPointCell.swift in Sources */,
 				33D0B4201CFD0165008ABA04 /* TRAppTrackingRequest.swift in Sources */,
+				C78E51C31E92E7A8005B2E38 /* OnBoardingViewController.swift in Sources */,
 				331F8F371D469AB1006CCE80 /* TRPushNotiController.swift in Sources */,
 				337FA1F61DCF0062002A4E07 /* TRCancelEventInvitationRequest.swift in Sources */,
 				332CA6E81D9B30D40020AC19 /* TRReportComment.swift in Sources */,
@@ -2071,6 +2096,7 @@
 				33CC20D41D774F270017F208 /* TRFunnelData.swift in Sources */,
 				33F4DB401D62F1DE001FF0AB /* TREventDetailViewController.swift in Sources */,
 				33D0B4261CFD0165008ABA04 /* TRChangePasswordViewController.swift in Sources */,
+				C78E51BA1E92D8E7005B2E38 /* OnBoardingCard.swift in Sources */,
 				33D0B4271CFD0165008ABA04 /* TRPushNotification.swift in Sources */,
 				33D0B4281CFD0165008ABA04 /* ExSlideMenuController.swift in Sources */,
 				33D0B4291CFD0165008ABA04 /* TRStoryBoardManager.swift in Sources */,
@@ -2096,6 +2122,7 @@
 				33D0B4371CFD0165008ABA04 /* AppDelegate.swift in Sources */,
 				33D0B4381CFD0165008ABA04 /* TRSendPushMessage.swift in Sources */,
 				33D0B4391CFD0165008ABA04 /* TRActivityInfo.swift in Sources */,
+				C78E51BC1E92D918005B2E38 /* OnBoardingCarouselView.swift in Sources */,
 				33D0B43A1CFD0165008ABA04 /* TRForgotPasswordRequest.swift in Sources */,
 				33D0B43B1CFD0165008ABA04 /* TREventInfo.swift in Sources */,
 				3394DC7E1E27020200A97C23 /* TRRateAppCell.swift in Sources */,
@@ -2113,6 +2140,7 @@
 				339E29EB1DC15245009571F7 /* TRWebViewViewController.swift in Sources */,
 				337DA4E51D5063FE002A10BA /* TRAddConsole.swift in Sources */,
 				3382234F1DB5923B0035F25D /* StringExtension.swift in Sources */,
+				C78E51B81E92D8A6005B2E38 /* CompleteOnBoardingRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2120,6 +2148,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7413C3F1E92E85900636687 /* OnBoardingViewController.swift in Sources */,
+				C78E51BF1E92E6CA005B2E38 /* CompleteOnBoardingRequest.swift in Sources */,
+				C78E51C01E92E6CA005B2E38 /* OnBoardingCard.swift in Sources */,
+				C78E51C11E92E6CA005B2E38 /* OnBoardingCarouselView.swift in Sources */,
 				3312B91B1D024251005AF67D /* TRConsoles.swift in Sources */,
 				331E0F051C9B852200A80D32 /* TRPushNotificationView.swift in Sources */,
 				337DA4C81D4C0D10002A10BA /* TRErrorView.swift in Sources */,
